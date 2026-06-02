@@ -213,7 +213,7 @@ function irParaVersoes(){
 /* RODAPÉ */
 .footer{background:#1C1C1A;padding:40px 32px;}
 .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;}
-.footer-logo img{max-height:30px;display:block;margin-bottom:10px;filter:brightness(0) invert(1);opacity:.6;}
+.footer-logo{display:flex;align-items:center;justify-content:center;}.footer-logo img{width:auto;height:auto;max-width:260px;max-height:54px;display:block;margin-bottom:10px;filter:brightness(0) invert(1);opacity:.6;}
 .footer-copy{font-size:11px;color:#888780;line-height:1.6;}
 .footer-links h4,.footer-news h4{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#888780;margin-bottom:12px;}
 .footer-links a{display:block;font-size:12px;color:#5F5E5A;text-decoration:none;margin-bottom:7px;}
@@ -287,6 +287,28 @@ function irParaVersoes(){
   .ben-cards{grid-template-columns:1fr;}
   .precos{grid-template-columns:1fr;}
 }
+
+.whatsapp-float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 25px rgba(0,0,0,.25);
+  z-index:9999;
+  transition:.25s ease;
+}
+.whatsapp-float:hover{transform:translateY(-3px) scale(1.05);}
+@media(max-width:720px){
+  .whatsapp-float{width:56px;height:56px;right:14px;bottom:14px;}
+}
+
 </style>
 </head>
 <body>
@@ -681,6 +703,39 @@ function irParaVersoes(){
 
 
 
+
+<!-- RODAPÉ -->
+<footer class="footer">
+  <div class="inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="https://static.wixstatic.com/media/940f31_64ea155fc0b8427e898318695ef5ad7e~mv2.png/v1/crop/x_44,y_0,w_906,h_187/fill/w_260,h_54,al_c,q_90,enc_avif,quality_auto/logo.png" alt="Seja Minimalista" width="260" height="54" loading="lazy" decoding="async">
+        </div>
+        <p class="footer-copy">Para uma vida mais leve e mais feliz.<br>© 2026. Todos os direitos reservados.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Links úteis</h4>
+        <a href="https://www.sejaminimalista.net/vip/entrar" target="_blank">Área VIP</a>
+        <a href="https://www.sejaminimalista.net/catalogo" target="_blank">Combos com desconto</a>
+        <a href="https://www.sejaminimalista.net/365-dias" target="_blank">365 Dias Minimalistas</a>
+        <a href="mailto:sejaminimalista@hotmail.com">Fale comigo</a>
+        <a href="https://www.sejaminimalista.net/termos-de-uso" target="_blank">Termos de uso</a>
+      </div>
+      <div class="footer-news">
+        <h4>Redes sociais</h4>
+        <p>Conteúdo diário sobre minimalismo desde 2018. Mais de 150 mil pessoas já acompanham.</p>
+        <a class="btn-gold" href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener noreferrer" style="font-size:12px;padding:10px 20px;">Seguir no Instagram</a>
+      </div>
+    </div>
+    <div class="footer-divider">
+      <span>Seja Minimalista · Alexandre Chahoud</span>
+      <span>sejaminimalista@hotmail.com</span>
+    </div>
+  </div>
+</footer>
+
+
 <script>
 /* VÍDEO — carrega ao entrar na tela */
 var bv = document.getElementById('book-video');
@@ -724,5 +779,17 @@ function sendHeight(){
 window.addEventListener('load',sendHeight);
 window.addEventListener('resize',sendHeight);
 </script>
+
+<a href="https://wa.me/5516991065984?text=Oi%2C%20tenho%20algumas%20d%C3%BAvidas%20sobre%20o%20livro%20365%20Dias%20Minimalistas."
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Falar no WhatsApp">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="currentColor">
+<path d="M19.11 17.23c-.29-.15-1.69-.83-1.95-.92-.26-.1-.45-.15-.64.15-.19.29-.74.92-.9 1.11-.17.19-.33.22-.62.07-.29-.15-1.21-.45-2.3-1.43-.85-.76-1.42-1.7-1.58-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.54-.88-2.11-.23-.55-.47-.47-.64-.48h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.99 2.43 0 1.43 1.04 2.81 1.18 3 .15.19 2.04 3.12 5.03 4.25.71.31 1.27.49 1.71.63.72.23 1.38.2 1.9.12.58-.09 1.69-.69 1.93-1.35.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z"/>
+<path d="M16.01 3C8.83 3 3 8.82 3 16c0 2.52.74 4.97 2.14 7.07L3 29l6.11-2.01A12.92 12.92 0 0 0 16.01 29C23.18 29 29 23.18 29 16S23.18 3 16.01 3zm0 23.67c-2.09 0-4.13-.56-5.91-1.63l-.42-.25-3.63 1.19 1.22-3.54-.27-.43A10.58 10.58 0 0 1 5.34 16c0-5.89 4.79-10.68 10.67-10.68 2.85 0 5.53 1.11 7.55 3.13A10.6 10.6 0 0 1 26.68 16c0 5.88-4.79 10.67-10.67 10.67z"/>
+</svg>
+</a>
+
 </body>
 </html>
