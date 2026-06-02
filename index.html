@@ -158,6 +158,49 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .vip-imgs{display:flex;justify-content:center;align-items:center;margin-top:24px;}
 .vip-imgs img{display:block;width:100%;max-width:800px;height:auto;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.12);}
 
+
+.vip-extra{
+  margin-top:18px;
+  background:#F5F0E8;
+  border:1px solid #DCC7A0;
+  border-radius:12px;
+  padding:22px;
+}
+.vip-extra-badge{
+  display:inline-block;
+  background:#C9A96E;
+  color:#1C1C1A;
+  font-size:11px;
+  font-weight:700;
+  padding:4px 12px;
+  border-radius:30px;
+  margin-bottom:12px;
+}
+.vip-extra h4{
+  font-family:Georgia,serif;
+  font-size:24px;
+  font-weight:400;
+  color:#1C1C1A;
+  margin-bottom:12px;
+  line-height:1.3;
+}
+.vip-extra p{
+  font-size:13px;
+  line-height:1.7;
+  color:#5F5E5A;
+  margin-bottom:10px;
+}
+.vip-extra-highlight{
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px solid #E3D5B8;
+  font-size:13px;
+  font-weight:600;
+  line-height:1.9;
+  color:#1C1C1A;
+}
+
+
 /* ANCHOR STRIP */
 .anchor-strip{background:#1C1C1A;padding:14px 32px;text-align:center;font-size:13px;color:#888780;}
 .anchor-strip strong{color:#C9A96E;}
@@ -194,12 +237,6 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .gar-p{font-size:14px;color:#888780;line-height:1.7;}
 .gar-p strong{color:#C9A96E;}
 
-function irParaVersoes(){
-  const el = document.getElementById('versoes');
-  if(el){
-    el.scrollIntoView({behavior:'smooth',block:'start'});
-  }
-}
 
 /* FAQ */
 .faq-list{max-width:800px;margin-top:24px;}
@@ -591,6 +628,18 @@ function irParaVersoes(){
     decoding="async">
 </div>
 <p style="font-size:12px;color:#5F5E5A;line-height:1.6;margin-top:12px;">A Área VIP contém conteúdos extras e é atualizada com frequência.</p>
+<div class="vip-extra">
+  <div class="vip-extra-badge">🎁 Conteúdo em expansão</div>
+  <h4>Os 6 bônus acima são apenas uma parte do que você recebe.</h4>
+  <p>Ao entrar na Área VIP, você também passa a ter acesso a conteúdos extras exclusivos que não estão listados nesta página.</p>
+  <p>Novos materiais são adicionados periodicamente para membros, incluindo planners, exercícios, videoaulas, desafios e recursos complementares sobre organização, produtividade e minimalismo.</p>
+  <div class="vip-extra-highlight">
+    ✔ Acesso vitalício à Área VIP<br>
+    ✔ Atualizações sem custo adicional<br>
+    ✔ Novos bônus liberados ao longo do tempo
+  </div>
+</div>
+
       </div>
     </div>
   </div>
@@ -763,12 +812,6 @@ function slideTo(i){
 }
 setInterval(function(){slideTo((ci+1)%3);},4000);
 
-function irParaVersoes(){
-  const el = document.getElementById('versoes');
-  if(el){
-    el.scrollIntoView({behavior:'smooth',block:'start'});
-  }
-}
 
 /* FAQ */
 function faq(btn){btn.parentElement.classList.toggle('open');}
