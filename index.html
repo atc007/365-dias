@@ -238,12 +238,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .gar-p strong{color:#C9A96E;}
 
 
-function irParaVersoes(){
-  const el=document.getElementById('versoes');
-  if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}
-}
-
- /* FAQ */
+/* FAQ */
 .faq-list{max-width:800px;margin-top:24px;}
 .faq-item{border-bottom:.5px solid #D3D3D3;}
 .faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:18px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:14px;font-weight:600;font-family:inherit;color:#1C1C1A;}
@@ -800,6 +795,17 @@ function irParaVersoes(){
 
 
 <script>
+function irParaVersoes(){
+  const el = document.getElementById('versoes');
+  if(el){
+    el.scrollIntoView({
+      behavior:'smooth',
+      block:'start'
+    });
+  }
+}
+
+
 /* VÍDEO — carrega ao entrar na tela */
 var bv = document.getElementById('book-video');
 if(bv){
