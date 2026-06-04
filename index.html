@@ -228,22 +228,89 @@ html,body{
   border-radius:5px;padding:7px 13px;
   font-size:12px;font-weight:500;color:var(--ink);
 }
+/* ══ KEYFRAMES DOS BOTÕES ══ */
+@keyframes shimmer{
+  0%{background-position:200% center;}
+  100%{background-position:-200% center;}
+}
+@keyframes btn-pulse{
+  0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(201,169,110,0);}
+  50%{transform:scale(1.025);box-shadow:0 0 0 8px rgba(201,169,110,.18);}
+}
+@keyframes btn-dark-pulse{
+  0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(28,28,26,0);}
+  50%{transform:scale(1.025);box-shadow:0 0 0 8px rgba(28,28,26,.15);}
+}
+@media(prefers-reduced-motion:reduce){
+  .btn-gold,.btn-dark{animation:none!important;}
+  .btn-gold::after,.btn-dark::after{display:none;}
+}
+
 .btn-gold{
-  display:inline-block;background:var(--gold);color:var(--ink);
+  display:inline-block;
+  position:relative;overflow:hidden;
+  /* gradiente animado: dourado → dourado claro → dourado */
+  background:linear-gradient(
+    90deg,
+    #B8925A 0%,
+    #C9A96E 30%,
+    #E8D09A 50%,
+    #C9A96E 70%,
+    #B8925A 100%
+  );
+  background-size:200% auto;
+  color:var(--ink);
   font-size:15px;font-weight:700;
   padding:18px 36px;border-radius:6px;
   text-decoration:none;letter-spacing:.02em;
-  transition:background .2s;
+  animation:
+    shimmer 2.8s linear infinite,
+    btn-pulse 3s ease-in-out infinite;
+  transition:filter .2s;
+  will-change:transform,background-position;
 }
-.btn-gold:hover{background:var(--gold-dark);}
+.btn-gold:hover{
+  animation:none;
+  filter:brightness(1.08);
+  background:#C9A96E;
+  transform:scale(1.03);
+  box-shadow:0 4px 18px rgba(201,169,110,.4);
+}
+
 .btn-dark{
-  display:inline-block;background:var(--ink);color:var(--cream);
+  display:inline-block;
+  position:relative;overflow:hidden;
+  background:var(--ink);
+  color:var(--cream);
   font-size:15px;font-weight:700;
   padding:18px 36px;border-radius:6px;
   text-decoration:none;letter-spacing:.02em;
-  transition:background .2s;
+  animation:btn-dark-pulse 3.4s ease-in-out infinite;
+  transition:background .2s,filter .2s;
+  will-change:transform;
 }
-.btn-dark:hover{background:#2E2E2C;}
+/* shimmer branco suave por cima do escuro */
+.btn-dark::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255,255,255,.07) 50%,
+    transparent 70%
+  );
+  background-size:200% 100%;
+  animation:shimmer 2.8s linear infinite;
+  pointer-events:none;
+}
+.btn-dark:hover{
+  animation:none;
+  background:#2E2E2C;
+  filter:brightness(1.12);
+  transform:scale(1.03);
+  box-shadow:0 4px 18px rgba(28,28,26,.35);
+}
+.btn-dark:hover::after{display:none;}
 .hero-note{
   font-size:12px;color:var(--ink-muted);
   margin-top:14px;display:flex;align-items:center;gap:6px;
@@ -644,12 +711,50 @@ html,body{
   display:block;text-align:center;
   font-size:14px;font-weight:700;
   padding:16px;border-radius:8px;text-decoration:none;
-  letter-spacing:.02em;transition:background .2s;
+  letter-spacing:.02em;
+  position:relative;overflow:hidden;
+  will-change:transform,background-position;
 }
-.pc-btn.gold{background:var(--gold);color:var(--ink);}
-.pc-btn.gold:hover{background:var(--gold-dark);}
-.pc-btn.dark{background:var(--ink);color:var(--cream);}
-.pc-btn.dark:hover{background:#2E2E2C;}
+.pc-btn.gold{
+  background:linear-gradient(
+    90deg,
+    #B8925A 0%,
+    #C9A96E 30%,
+    #E8D09A 50%,
+    #C9A96E 70%,
+    #B8925A 100%
+  );
+  background-size:200% auto;
+  color:var(--ink);
+  animation:shimmer 2.8s linear infinite,btn-pulse 3s ease-in-out infinite;
+}
+.pc-btn.gold:hover{
+  animation:none;background:#C9A96E;
+  filter:brightness(1.08);transform:scale(1.02);
+  box-shadow:0 4px 14px rgba(201,169,110,.4);
+}
+.pc-btn.dark{
+  background:var(--ink);color:var(--cream);
+  animation:btn-dark-pulse 3.4s ease-in-out infinite;
+}
+.pc-btn.dark::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255,255,255,.07) 50%,
+    transparent 70%
+  );
+  background-size:200% 100%;
+  animation:shimmer 2.8s linear infinite;
+  pointer-events:none;
+}
+.pc-btn.dark:hover{
+  animation:none;background:#2E2E2C;
+  filter:brightness(1.12);transform:scale(1.02);
+  box-shadow:0 4px 14px rgba(28,28,26,.3);
+}
+.pc-btn.dark:hover::after{display:none;}
 .pc-urgency-note{
   font-size:12px;color:var(--gold);
   text-align:center;margin-top:12px;font-weight:600;
