@@ -965,10 +965,34 @@ html,body{
   }
   html,body{overflow-x:hidden;}
   .topbar-nav{display:none;}
-  .urgency-badge,.countdown{display:none;}
+  .urgency-badge{display:none;}
+
+  /* countdown visível no mobile — empilhado abaixo do texto */
+  .urgency-inner{flex-direction:column;gap:6px;}
+  .countdown{display:flex;}
+  .countdown-unit{font-size:19px;min-width:34px;padding:4px 8px;}
+  .urgency-text{font-size:12px;text-align:center;}
+
+  /* hero: imagem ocupa a largura toda, mesma altura da coluna de texto */
   .sec-hero{padding:28px var(--sec-h) 36px;}
-  .hero-grid{grid-template-columns:1fr;gap:28px;}
-  .hero-img-wrap img{max-width:220px;max-height:240px;}
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+  /* imagem vem primeiro e ocupa largura total com altura generosa */
+  .hero-img-wrap{
+    order:-1;
+    min-height:280px;
+    width:100%;
+    padding:16px 0;
+  }
+  .hero-img-wrap img{
+    max-width:100%;
+    max-height:340px;
+    width:auto;
+    height:auto;
+    margin:0 auto;
+  }
   .badges{gap:6px;}
   .badge{font-size:11px;}
   .btn-gold,.btn-dark{font-size:14px;padding:16px 28px;}
