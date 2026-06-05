@@ -192,15 +192,17 @@ html,body{
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center;}
 .hero-img-wrap{
   text-align:center;
-  display:flex;align-items:stretch;justify-content:center;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
   align-self:stretch;
 }
 .hero-img-wrap img{
-  width:100%;height:100%;
+  width:100%;height:auto;
   max-width:100%;
-  max-height:560px;
+  max-height:480px;
   display:block;margin:0 auto;
   border-radius:6px;object-fit:contain;
+  flex:1;
 }
 .eyebrow{
   font-size:var(--eyebrow);
@@ -1096,17 +1098,17 @@ html,body{
           alt="Capa do livro 365 Dias Minimalistas de Alexandre Chahoud"
           width="474" height="457"
           fetchpriority="high" loading="eager" decoding="sync">
-      </div>
-      <div>
-        <div class="eyebrow">Livro de Alexandre Chahoud</div>
-        <h1 class="hero-h1">365 Dias Minimalistas: uma página por dia para uma vida mais leve e mais sua.</h1>
-        <p class="hero-sub">Uma página por dia. Uma prática simples. Em 365 dias, você vai se surpreender com o quanto a sua vida pode mudar — sem abrir mão do que realmente importa.</p>
-        <div class="badges">
+        <div class="badges" style="margin-top:20px;justify-content:center;">
           <div class="badge">📖 372 páginas</div>
           <div class="badge">📦 Frete grátis</div>
           <div class="badge">⚡ Digital imediato</div>
           <div class="badge">🎁 Bônus inclusos</div>
         </div>
+      </div>
+      <div>
+        <div class="eyebrow">Livro de Alexandre Chahoud</div>
+        <h1 class="hero-h1">365 Dias Minimalistas: uma página por dia para uma vida mais leve e mais sua.</h1>
+        <p class="hero-sub">Uma página por dia. Uma prática simples. Em 365 dias, você vai se surpreender com o quanto a sua vida pode mudar — sem abrir mão do que realmente importa.</p>
         <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero meu exemplar agora</a>
         <div class="hero-note">Compra segura · Garantia incondicional de 7 dias</div>
       </div>
