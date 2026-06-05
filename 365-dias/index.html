@@ -710,13 +710,29 @@ html,body{
   line-height:1.2;
 }
 .pc-was{font-size:13px;color:var(--ink-muted);text-decoration:line-through;margin-bottom:3px;}
-/* preço em vermelho coral — cor de ação/urgência, máximo contraste no branco */
+@keyframes price-shine{
+  0%{background-position:200% center;}
+  100%{background-position:-200% center;}
+}
 .pc-now{
   font-family:Georgia,serif;font-size:48px;
   font-weight:700;
-  color:#C0392B;
+  background:linear-gradient(
+    90deg,
+    #9A7A30 0%,
+    #9A7A30 35%,
+    #C9A96E 50%,
+    #9A7A30 65%,
+    #9A7A30 100%
+  );
+  background-size:300% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:price-shine 5s linear infinite;
   line-height:1;margin-bottom:4px;
   letter-spacing:-.02em;
+  will-change:background-position;
 }
 .pc-now sup{
   font-size:20px;font-weight:700;
