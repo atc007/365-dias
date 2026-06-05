@@ -27,7 +27,7 @@
   },
   "offers": [
     {
-      "@type": "Offer", 
+      "@type": "Offer",
       "name": "Livro Digital",
       "price": "77.00",
       "priceCurrency": "BRL",
@@ -192,13 +192,15 @@ html,body{
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center;}
 .hero-img-wrap{
   text-align:center;
-  display:flex;align-items:center;justify-content:center;
+  display:flex;align-items:stretch;justify-content:center;
+  align-self:stretch;
 }
 .hero-img-wrap img{
-  width:auto;height:auto;
-  max-width:420px;max-height:480px;
+  width:100%;height:100%;
+  max-width:100%;
+  max-height:560px;
   display:block;margin:0 auto;
-  border-radius:4px;object-fit:contain;
+  border-radius:6px;object-fit:contain;
 }
 .eyebrow{
   font-size:var(--eyebrow);
@@ -688,9 +690,10 @@ html,body{
 }
 .pc-body{padding:24px;}
 .pc-type{
-  font-size:11px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-muted);margin-bottom:10px;
+  font-size:16px;font-weight:700;
+  color:var(--ink);margin-bottom:10px;
+  font-family:Georgia,'Times New Roman',serif;
+  line-height:1.2;
 }
 .pc-was{font-size:13px;color:var(--ink-muted);text-decoration:line-through;margin-bottom:3px;}
 .pc-now{
@@ -1026,6 +1029,12 @@ html,body{
   .bonus-valor-right{text-align:left;}
   .whatsapp-float{width:56px;height:56px;right:16px;bottom:16px;}
   .dif-grid{grid-template-columns:1fr;}
+  /* carrossel 3fr/2fr — vira coluna única no mobile */
+  .sec .inner > div[style*="grid-template-columns:3fr"]{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:28px!important;
+  }
   .ancora-inner{flex-direction:column;gap:16px;text-align:center;}
   .ancora-compare{text-align:center;}
   .agit-lista{text-align:left;}
@@ -1112,7 +1121,7 @@ html,body{
 <!-- BENEFÍCIOS + VÍDEO -->
 <section class="sec alt">
   <div class="inner">
-    <div class="grid2">
+    <div class="grid2" style="align-items:start;">
       <div>
         <div class="sec-eyebrow">O que você vai encontrar</div>
         <h2 class="sec-h2">O livro de minimalismo que cabe na sua rotina — sem teoria, sem extremismos.</h2>
@@ -1126,12 +1135,7 @@ html,body{
         </div>
 
         <div class="pullquote">"Um companheiro diário que vai guiar você na arte de viver com menos excessos e mais sentido."</div>
-        <div class="ben-cards">
-          <div class="ben-card"><div class="ben-num">01</div><div class="ben-title">365 passos simples</div><div class="ben-desc">Um por dia, para tornar o minimalismo parte da sua rotina.</div></div>
-          <div class="ben-card"><div class="ben-num">02</div><div class="ben-title">Reflexões profundas</div><div class="ben-desc">Frases que despertam novas formas de enxergar a vida.</div></div>
-          <div class="ben-card"><div class="ben-num">03</div><div class="ben-title">Transformação real</div><div class="ben-desc">Organize espaços, finanças, mente e relações.</div></div>
-          <div class="ben-card"><div class="ben-num">04</div><div class="ben-title">Companheiro diário</div><div class="ben-desc">Prática, presença e mudança constante.</div></div>
-        </div>
+        <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)" style="margin-top:4px;">Quero meu exemplar agora</a>
       </div>
       <div>
         <p class="video-intro">Veja em 2 minutos como funciona o livro por dentro</p>
@@ -1142,6 +1146,12 @@ html,body{
             poster="https://static.wixstatic.com/media/940f31_f7a8fc091af94a9da1eebd78ef0ba579~mv2.png/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/capa.png">
           </video>
         </div>
+        <div class="ben-cards" style="margin-top:20px;">
+          <div class="ben-card"><div class="ben-num">01</div><div class="ben-title">365 passos simples</div><div class="ben-desc">Um por dia, para tornar o minimalismo parte da sua rotina.</div></div>
+          <div class="ben-card"><div class="ben-num">02</div><div class="ben-title">Reflexões profundas</div><div class="ben-desc">Frases que despertam novas formas de enxergar a vida.</div></div>
+          <div class="ben-card"><div class="ben-num">03</div><div class="ben-title">Transformação real</div><div class="ben-desc">Organize espaços, finanças, mente e relações.</div></div>
+          <div class="ben-card"><div class="ben-num">04</div><div class="ben-title">Companheiro diário</div><div class="ben-desc">Prática, presença e mudança constante.</div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1150,33 +1160,10 @@ html,body{
 <!-- QUALIFICAÇÃO + CARROSSEL -->
 <section class="sec">
   <div class="inner">
-    <div class="grid2" style="direction:rtl;">
-      <div style="direction:ltr;">
-        <div class="sec-eyebrow">Para quem é este livro</div>
-        <h2 class="sec-h2">Para quem quer simplificar a vida — e não sabe por onde começar.</h2>
-        <div class="qual-cards">
-          <div class="qual-card">
-            <div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-            <div class="qual-text">Para quem acumula coisas, compromissos e pensamentos — e sente o peso disso no corpo e na cabeça.</div>
-          </div>
-          <div class="qual-card">
-            <div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-            <div class="qual-text">Para quem compra por impulso e sente culpa depois — e quer mudar essa relação com o consumo de vez.</div>
-          </div>
-          <div class="qual-card">
-            <div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-            <div class="qual-text">Para quem já tentou "organizar a vida" mas desistiu na primeira semana — e precisa de um ritmo que caiba no dia a dia.</div>
-          </div>
-          <div class="qual-card">
-            <div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-            <div class="qual-text">Para quem sente que vive no automático e quer recuperar a sensação de que cada dia tem um propósito.</div>
-          </div>
-        </div>
-        <div style="margin-top:32px;">
-          <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Esse sou eu — garanta com bônus inclusos</a>
-        </div>
-      </div>
-      <div style="direction:ltr;">
+    <div style="display:grid;grid-template-columns:3fr 2fr;gap:var(--gap);align-items:start;">
+      <!-- CARROSSEL — coluna grande -->
+      <div>
+        <div class="sec-eyebrow">Veja o livro por dentro</div>
         <div class="car-wrap">
           <div class="car-slides" id="slides">
             <div class="car-slide">
@@ -1198,6 +1185,32 @@ html,body{
             <button class="cdot" onclick="slideTo(2)"></button>
           </div>
           <div class="car-cap">O livro possui <strong>duas versões</strong> (digital e física), <strong>372 páginas</strong> — 1 reflexão e 1 prática por dia.</div>
+        </div>
+      </div>
+      <!-- TEXTO — coluna menor -->
+      <div>
+        <div class="sec-eyebrow">Para quem é este livro</div>
+        <h2 class="sec-h2" style="font-size:clamp(22px,2.4vw,30px);">Para quem quer simplificar a vida.</h2>
+        <div class="qual-cards">
+          <div class="qual-card">
+            <div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div class="qual-text">Para quem acumula coisas, compromissos e pensamentos — e sente o peso disso no corpo e na cabeça.</div>
+          </div>
+          <div class="qual-card">
+            <div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div class="qual-text">Para quem compra por impulso e sente culpa depois — e quer mudar essa relação com o consumo de vez.</div>
+          </div>
+          <div class="qual-card">
+            <div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div class="qual-text">Para quem já tentou "organizar a vida" mas desistiu na primeira semana — e precisa de um ritmo que caiba no dia a dia.</div>
+          </div>
+          <div class="qual-card">
+            <div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div class="qual-text">Para quem sente que vive no automático e quer recuperar a sensação de que cada dia tem um propósito.</div>
+          </div>
+        </div>
+        <div style="margin-top:28px;">
+          <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Esse sou eu — garanta com bônus inclusos</a>
         </div>
       </div>
     </div>
@@ -1228,6 +1241,9 @@ html,body{
       </div>
     </div>
     <p class="agit-virada">O problema não é falta de vontade. É que ninguém te ensinou que viver com menos pode ser tão simples quanto uma página por dia.</p>
+    <div style="margin-top:32px;">
+      <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero descobrir esse método</a>
+    </div>
   </div>
 </section>
 
@@ -1252,6 +1268,9 @@ html,body{
         <div class="dif-title">No seu ritmo</div>
         <div class="dif-desc">Perdeu um dia? Retoma de onde parou. Não há pressão, não há recomeço do zero. O livro te acompanha, não te cobra.</div>
       </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero meu exemplar com bônus inclusos</a>
     </div>
   </div>
 </section>
@@ -1473,7 +1492,7 @@ html,body{
             <li>Enviado pelos Correios</li>
             <li>Frete grátis para todo o Brasil</li>
           </ul>
-          <a class="pc-btn gold" href="https://chk.eduzz.com/39ZQYBOB9E?pf=1" target="_blank" rel="noopener">Quero Livro Físico + Bônus</a>
+          <a class="pc-btn dark" href="https://chk.eduzz.com/39ZQYBOB9E?pf=1" target="_blank" rel="noopener">Quero Livro Físico + Bônus</a>
           <div class="pc-urgency-note">📦 Frete grátis para todo o Brasil</div>
         </div>
       </div>
@@ -1495,7 +1514,7 @@ html,body{
             <li>Embalado com carinho</li>
             <li>Frete grátis para todo o Brasil</li>
           </ul>
-          <a class="pc-btn dark" href="https://chk.eduzz.com/E0D6XBPD91?pf=1" target="_blank" rel="noopener">Quero Combo + Bônus</a>
+          <a class="pc-btn gold" href="https://chk.eduzz.com/E0D6XBPD91?pf=1" target="_blank" rel="noopener">Quero Combo + Bônus</a>
           <div class="pc-urgency-note">⚡ Digital agora + físico em breve</div>
         </div>
       </div>
