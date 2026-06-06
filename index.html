@@ -485,45 +485,46 @@ html,body{
 <!-- BENEFÍCIOS + CARROSSEL -->
 <section class="sec alt">
   <div class="inner">
+    <!-- CARROSSEL — largura total, destaque máximo -->
+    <p style="font-size:12px;color:var(--ink-muted);text-align:center;margin-bottom:12px;font-style:italic;">Veja o livro por dentro</p>
+    <div class="car-wrap" style="max-width:100%;margin-bottom:48px;">
+      <div class="car-slides" id="slides">
+        <div class="car-slide" style="min-height:420px;">
+          <img src="https://static.wixstatic.com/media/940f31_7219b2bd5c6f4a4c8ba5475c09b18694~mv2.jpg/v1/fill/w_980,h_560,al_c,q_85,enc_avif,quality_auto/sm-p1.jpg"
+            alt="Interior do livro Seja Minimalista — exercícios práticos" width="980" height="560" loading="lazy" decoding="async">
+        </div>
+        <div class="car-slide" style="min-height:420px;">
+          <img data-src="https://static.wixstatic.com/media/940f31_8af9f0de80cd4045a2e6627709d920a8~mv2.jpg/v1/fill/w_980,h_560,al_c,q_85,enc_avif,quality_auto/sm-p2.jpg"
+            alt="Interior do livro Seja Minimalista — checklists" width="980" height="560" loading="lazy" decoding="async">
+        </div>
+        <div class="car-slide" style="min-height:420px;">
+          <img data-src="https://static.wixstatic.com/media/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg/v1/fill/w_980,h_560,al_c,q_85,enc_avif,quality_auto/sm-p3.jpg"
+            alt="Interior do livro Seja Minimalista — guia de desapego" width="980" height="560" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="car-dots">
+        <button class="cdot active" onclick="slideTo(0)"></button>
+        <button class="cdot" onclick="slideTo(1)"></button>
+        <button class="cdot" onclick="slideTo(2)"></button>
+      </div>
+      <div class="car-cap">Mais de <strong>150 páginas</strong> com exercícios, checklists e orientações práticas divididos por categorias.</div>
+    </div>
+
+    <!-- TEXTO + AMOSTRA — abaixo do carrossel, em 2 colunas -->
     <div class="grid2" style="align-items:start;">
       <div>
         <div class="sec-eyebrow">O que você vai encontrar</div>
         <h2 class="sec-h2">O guia de minimalismo que transforma sua casa, sua mente e sua relação com o dinheiro.</h2>
         <p class="sec-p">Seja Minimalista não é um livro de teoria. É um guia prático com exercícios, checklists e orientações divididos por categorias — para você aprender, aplicar e consultar sempre que precisar.</p>
-
+        <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)" style="margin-top:8px;">Quero meu exemplar agora</a>
+      </div>
+      <div>
         <div class="amostra">
           <div class="amostra-cap">Trecho — Capítulo Destralhe</div>
           <div class="amostra-quote">"Cada objeto que você guarda sem usar ocupa não só um espaço físico — ocupa energia mental. Toda vez que você olha para ele, seu cérebro processa uma decisão que nunca foi tomada."</div>
           <div class="amostra-pratica"><strong>Exercício prático:</strong> Pegue uma sacola e percorra sua casa por 10 minutos. Coloque dentro tudo que você não usou nos últimos 6 meses e não tem valor sentimental real. Não pense. Só pegue. Você pode revisar depois — mas primeiro, tire do lugar.</div>
         </div>
-
-        <div class="pullquote">"O guia definitivo para quem quer começar uma vida mais leve — sem extremismos, sem culpa."</div>
-        <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)" style="margin-top:4px;">Quero meu exemplar agora</a>
-      </div>
-      <div>
-        <p style="font-size:12px;color:var(--ink-muted);text-align:center;margin-bottom:10px;font-style:italic;">Veja o livro por dentro</p>
-        <div class="car-wrap">
-          <div class="car-slides" id="slides">
-            <div class="car-slide">
-              <img src="https://static.wixstatic.com/media/940f31_7219b2bd5c6f4a4c8ba5475c09b18694~mv2.jpg/v1/fill/w_600,h_450,al_c,q_85,enc_avif,quality_auto/sm-p1.jpg"
-                alt="Interior do livro Seja Minimalista — exercícios práticos" width="600" height="450" loading="lazy" decoding="async">
-            </div>
-            <div class="car-slide">
-              <img data-src="https://static.wixstatic.com/media/940f31_8af9f0de80cd4045a2e6627709d920a8~mv2.jpg/v1/fill/w_600,h_450,al_c,q_85,enc_avif,quality_auto/sm-p2.jpg"
-                alt="Interior do livro Seja Minimalista — checklists" width="600" height="450" loading="lazy" decoding="async">
-            </div>
-            <div class="car-slide">
-              <img data-src="https://static.wixstatic.com/media/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg/v1/fill/w_600,h_450,al_c,q_85,enc_avif,quality_auto/sm-p3.jpg"
-                alt="Interior do livro Seja Minimalista — guia de desapego" width="600" height="450" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div class="car-dots">
-            <button class="cdot active" onclick="slideTo(0)"></button>
-            <button class="cdot" onclick="slideTo(1)"></button>
-            <button class="cdot" onclick="slideTo(2)"></button>
-          </div>
-          <div class="car-cap">Mais de <strong>150 páginas</strong> com exercícios, checklists e orientações práticas divididos por categorias.</div>
-        </div>
+        <div class="pullquote" style="margin-top:20px;">"O guia definitivo para quem quer começar uma vida mais leve — sem extremismos, sem culpa."</div>
       </div>
     </div>
   </div>
@@ -566,10 +567,17 @@ html,body{
           <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Esse sou eu — garanta com bônus inclusos</a>
         </div>
       </div>
+      <!-- VÍDEO DO LIVRO -->
       <div>
-        <img src="https://static.wixstatic.com/media/940f31_980613fc057c41848f7629c6055fa290~mv2.jpg/v1/fill/w_440,h_470,al_c,q_90,enc_avif,quality_auto/LIV3.jpg"
-          alt="Livro Seja Minimalista aberto mostrando conteúdo prático" width="440" height="470"
-          style="width:100%;border-radius:10px;display:block;" loading="lazy" decoding="async">
+        <p style="font-size:12px;color:var(--ink-muted);text-align:center;margin-bottom:10px;font-style:italic;">Veja em 2 minutos como é o livro</p>
+        <div style="border-radius:10px;overflow:hidden;background:var(--ink);aspect-ratio:9/16;max-width:100%;">
+          <video id="qual-video"
+            src="https://video.wixstatic.com/video/940f31_f4dfd1313d7a4db088f8d64c25046bda/720p/mp4/file.mp4"
+            preload="none" loop muted playsinline
+            poster="https://static.wixstatic.com/media/940f31_aa1a63c13d8b4026ae6cb6dcb53233ac~mv2.jpg/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/seja-min-poster.jpg"
+            style="width:100%;height:100%;object-fit:cover;display:block;">
+          </video>
+        </div>
       </div>
     </div>
   </div>
@@ -602,23 +610,6 @@ html,body{
       <div class="dif-card"><div class="dif-icon">🔄</div><div class="dif-title">Para consultar sempre</div><div class="dif-desc">Não tem prazo. Você lê, aplica, guarda e volta quando precisar recomeçar.</div></div>
     </div>
     <div style="text-align:center;margin-top:36px;"><a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero meu exemplar com bônus inclusos</a></div>
-  </div>
-</section>
-
-<!-- PRESENTE -->
-<section class="sec warm">
-  <div class="inner">
-    <div class="pres-grid">
-      <div class="pres-img">
-        <img src="https://static.wixstatic.com/media/940f31_652b6bb4631848d683224bf02e2e6cf5~mv2.jpg/v1/fill/w_220,h_142,al_c,q_90,enc_avif,quality_auto/presente.jpg"
-          alt="Seja Minimalista — o presente perfeito para mulher" width="220" height="142" loading="lazy" decoding="async">
-      </div>
-      <div>
-        <div class="pres-tag">🎁 O presente para mulher que já tem tudo</div>
-        <h3 class="pres-h3" style="font-family:Georgia,serif;font-size:var(--h3);font-weight:400;color:var(--ink);margin-bottom:14px;line-height:1.3;">Seja Minimalista é o tipo de presente que transforma — e que a pessoa nunca compraria pra si mesma.</h3>
-        <p class="pres-p">Um guia bonito, prático e com conteúdo de verdade. Perfeito para dar em aniversário, Dia das Mães ou Natal — ou para se presentear com o início de uma vida mais leve.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -784,9 +775,9 @@ html,body{
         </div>
         <div class="pc-body">
           <div class="pc-type">Livro Digital</div>
-          <div class="pc-was">De R$ 57,00</div>
-          <div class="pc-now"><sup>R$</sup>37</div>
-          <div class="pc-parc">ou 12x de R$ 3,83</div>
+          <div class="pc-was">De R$ 97,00</div>
+          <div class="pc-now"><sup>R$</sup>77</div>
+          <div class="pc-parc">ou 12x de R$ 7,96</div>
           <ul class="pc-feats">
             <li>Área VIP e bônus inclusos</li>
             <li>Receba imediatamente no e-mail</li>
@@ -794,7 +785,7 @@ html,body{
             <li>Celular, Kindle ou tablet</li>
             <li>Disponível para o mundo todo</li>
           </ul>
-          <a class="pc-btn dark" href="https://chk.eduzz.com/1657394" target="_blank" rel="noopener">Quero Livro Digital + Bônus</a>
+          <a class="pc-btn dark" href="https://chk.eduzz.com/909488?pf=1" target="_blank" rel="noopener">Quero Livro Digital + Bônus</a>
           <div class="pc-urgency-note">⚡ Acesso imediato após o pagamento</div>
         </div>
       </div>
@@ -805,9 +796,9 @@ html,body{
         </div>
         <div class="pc-body">
           <div class="pc-type">Livro Físico + Frete Grátis</div>
-          <div class="pc-was">De R$ 97,00</div>
-          <div class="pc-now"><sup>R$</sup>67</div>
-          <div class="pc-parc">ou 12x de R$ 6,93</div>
+          <div class="pc-was">De R$ 147,00</div>
+          <div class="pc-now"><sup>R$</sup>107</div>
+          <div class="pc-parc">ou 12x de R$ 11,07</div>
           <ul class="pc-feats">
             <li>Área VIP e bônus inclusos</li>
             <li>Capa dura — mais de 150 páginas</li>
@@ -815,7 +806,7 @@ html,body{
             <li>Enviado pelos Correios</li>
             <li>Frete grátis para todo o Brasil</li>
           </ul>
-          <a class="pc-btn dark" href="https://chk.eduzz.com/1657394" target="_blank" rel="noopener">Quero Livro Físico + Bônus</a>
+          <a class="pc-btn dark" href="https://chk.eduzz.com/1046549?pf=1" target="_blank" rel="noopener">Quero Livro Físico + Bônus</a>
           <div class="pc-urgency-note">📦 Frete grátis para todo o Brasil</div>
         </div>
       </div>
@@ -828,9 +819,9 @@ html,body{
         </div>
         <div class="pc-body">
           <div class="pc-type">Combo — Digital + Físico + Frete Grátis</div>
-          <div class="pc-was">De R$ 154,00</div>
-          <div class="pc-now"><sup>R$</sup>97</div>
-          <div class="pc-parc">ou 12x de R$ 10,03</div>
+          <div class="pc-was">De R$ 244,00</div>
+          <div class="pc-now"><sup>R$</sup>147</div>
+          <div class="pc-parc">ou 12x de R$ 15,20</div>
           <ul class="pc-feats">
             <li>Área VIP e bônus inclusos</li>
             <li>Digital imediato ao comprar</li>
@@ -838,7 +829,7 @@ html,body{
             <li>Embalado com carinho</li>
             <li>Frete grátis para todo o Brasil</li>
           </ul>
-          <a class="pc-btn gold" href="https://chk.eduzz.com/1657394" target="_blank" rel="noopener">Quero Combo + Bônus</a>
+          <a class="pc-btn gold" href="https://chk.eduzz.com/1804864?pf=1" target="_blank" rel="noopener">Quero Combo + Bônus</a>
           <div class="pc-urgency-note">⚡ Digital agora + físico em breve</div>
         </div>
       </div>
@@ -947,6 +938,15 @@ function irParaVersoes(e){if(e)e.preventDefault();var el=document.getElementById
   }
   tick();
 })();
+
+/* VÍDEO QUALIFICAÇÃO — lazy load */
+var qv=document.getElementById('qual-video');
+if(qv){
+  var qvObs=new IntersectionObserver(function(e){
+    if(e[0].isIntersecting){qv.load();qv.play().catch(function(){});qvObs.disconnect();}
+  },{threshold:.1});
+  qvObs.observe(qv);
+}
 
 /* CARROSSEL */
 var ci=0,loaded=[true,false,false];
