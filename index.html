@@ -425,6 +425,25 @@ html,body{
 }
 @media(max-width:340px){.inner{padding:0 14px;}.btn-gold,.btn-dark{width:100%;text-align:center;}.precos{grid-template-columns:1fr;}}
 </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src='https://connect.facebook.net/en_US/fbevents.js';
+s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window, document,'script');
+fbq('init', '239605191106043');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></noscript>
+<link rel="dns-prefetch" href="//chk.eduzz.com">
+<link rel="preconnect" href="https://chk.eduzz.com" crossorigin>
 </head>
 <body>
 
@@ -1029,6 +1048,41 @@ setInterval(function(){slideTo((ci+1)%TOTAL);},4000);
 
 /* FAQ */
 function faq(btn){btn.parentElement.classList.toggle('open');}
+
+/* META PIXEL — eventos avançados */
+(function(){
+  document.addEventListener('DOMContentLoaded',function(){
+
+    /* InitiateCheckout em todos os botões de checkout */
+    document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
+      link.addEventListener('click',function(){
+        if(window.fbq){ fbq('track','InitiateCheckout'); }
+      });
+    });
+
+    /* WhatsApp click */
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
+      link.addEventListener('click',function(){
+        if(window.fbq){ fbq('trackCustom','WhatsAppClick'); }
+      });
+    });
+
+    /* Tempo de engajamento */
+    setTimeout(function(){ if(window.fbq){ fbq('trackCustom','Engaged30s'); } },30000);
+    setTimeout(function(){ if(window.fbq){ fbq('trackCustom','Engaged60s'); } },60000);
+
+    /* Profundidade de scroll */
+    var fired50=false,fired75=false,fired90=false;
+    window.addEventListener('scroll',function(){
+      var h=document.documentElement;
+      var pct=((h.scrollTop)/(h.scrollHeight-h.clientHeight))*100;
+      if(pct>=50&&!fired50){fired50=true;if(window.fbq)fbq('trackCustom','Scroll50');}
+      if(pct>=75&&!fired75){fired75=true;if(window.fbq)fbq('trackCustom','Scroll75');}
+      if(pct>=90&&!fired90){fired90=true;if(window.fbq)fbq('trackCustom','Scroll90');}
+    });
+
+  });
+})();
 </script>
 </body>
 </html>
