@@ -390,8 +390,31 @@ html,body{
   .topbar-nav{display:none;}
   .sec-hero{padding:26px var(--sec-h) 32px;}
   .hero-grid{grid-template-columns:1fr;gap:0;}
-  .hero-img-wrap{order:-1;min-height:220px;padding:14px 0;}
-  .hero-img-wrap img{max-height:260px;}
+  /* hero: imagem sobe, sem padding superior */
+  .sec-hero{padding:0 var(--sec-h) 28px;}
+  .hero-img-wrap{
+    order:-1;
+    min-height:auto;
+    padding:0;
+    margin:0 calc(-1 * var(--sec-h));  /* sangra até as bordas */
+    width:calc(100% + 2 * var(--sec-h));
+  }
+  .hero-img-wrap img{
+    max-height:320px;
+    width:100%;
+    object-fit:cover;
+    object-position:center top;
+    border-radius:0;
+  }
+  .hero-img-wrap .badges{margin-top:14px;}
+  /* rodapé newsletter: sem overflow, iframe contido */
+  .footer-news iframe{
+    width:100%!important;
+    max-width:100%!important;
+    height:180px;
+    overflow:hidden;
+  }
+  .footer-news{overflow:hidden;}
   .grid2{grid-template-columns:1fr;gap:24px;}
   .benef-layout{display:flex;flex-direction:column;gap:16px;}
   .ben-cards{grid-template-columns:1fr 1fr;}
@@ -742,8 +765,14 @@ html,body{
         <h4>Newsletter gratuita</h4>
         <p style="font-size:12px;color:#5F5E5A;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas direto no seu e-mail, toda semana.</p>
         <iframe
-          <iframe src="https://sejaminimalista.substack.com/embed?transparent=1&light=1" width="480" height="150" style="border: 0; background: transparent" frameborder="0" scrolling="no"></iframe>
-        
+          src="https://sejaminimalista.substack.com/embed?transparent=1&light=1"
+          width="480"
+          height="150"
+          style="border:0;background:transparent;max-width:100%;display:block;"
+          frameborder="0"
+          scrolling="no"
+          title="Newsletter Seja Minimalista">
+        </iframe>
       </div>
     </div>
     <div class="footer-divider">
