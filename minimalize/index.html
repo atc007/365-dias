@@ -366,6 +366,11 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   .footer-divider{flex-direction:column;gap:6px;}
   .urg-digit{font-size:26px;min-width:50px;padding:8px 12px;}
   .whatsapp-float{width:56px;height:56px;right:16px;bottom:16px;}
+  /* card de pricing: vertical no mobile */
+  #versoes .pc.dest[style*="grid-template-columns"]{
+    grid-template-columns:1fr!important;
+    min-height:auto!important;
+  }
 }
 @media(max-width:340px){.inner{padding:0 14px;}.btn-gold,.btn-dark{width:100%;text-align:center;}.precos{grid-template-columns:1fr;}}
 </style>
@@ -491,10 +496,12 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       </div>
       <!-- VÍDEO LAZY -->
       <div style="border-radius:10px;overflow:hidden;background:var(--ink);aspect-ratio:9/16;max-width:320px;margin:0 auto;">
-        <video id="qual-video" muted loop playsinline preload="none"
+        <video id="qual-video"
+          muted loop playsinline autoplay
+          preload="metadata"
+          src="https://video.wixstatic.com/video/940f31_89f9e0b610e349a4b378f2a8546ec812/720p/mp4/file.mp4"
           poster="https://static.wixstatic.com/media/940f31_1706864bd97e4e77a3f6c9a63b6025bb~mv2.jpg/v1/crop/x_0,y_120,w_1024,h_1297/fill/w_484,h_613,al_c,q_85,enc_avif,quality_auto/minimalize-poster.jpg"
           style="width:100%;height:100%;object-fit:cover;display:block;">
-          <source src="https://video.wixstatic.com/video/940f31_89f9e0b610e349a4b378f2a8546ec812/1080p/mp4/file.mp4" type="video/mp4">
         </video>
       </div>
     </div>
@@ -784,33 +791,37 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 <section class="sec" id="versoes" style="background:#D8D8D6;">
   <div class="inner">
     <div class="sec-eyebrow" style="justify-content:center;">Escolha seu acesso</div>
-    <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 0;">Comece seu destralhe com IA hoje.</h2>
-    <!-- Card único centralizado -->
-    <div style="max-width:440px;margin:28px auto 0;">
-      <div class="pc dest" style="border-width:2px;">
-        <div class="dest-tag">🤖 Acesso Vitalício</div>
-        <div class="pc-img" style="height:260px;">
-          <img src="https://static.wixstatic.com/media/940f31_aa3f17c7c7cf49ad8174bb4af6a0eb4a~mv2.jpg/v1/crop/x_120,y_0,w_784,h_1471/fill/w_440,h_560,al_c,q_90,enc_avif,quality_auto/minimalize-digital.jpg"
-            alt="Minimalize.IA acesso digital vitalício" width="440" height="560" loading="lazy" decoding="async">
-        </div>
-        <div class="pc-body">
-          <div class="pc-type">Minimalize.IA — Acesso Vitalício</div>
-          <div class="pc-was">De R$ 227,00</div>
-          <div class="pc-now"><sup>R$</sup>77</div>
-          <div class="pc-parc">ou 12x de R$ 7,96</div>
-          <ul class="pc-feats">
-            <li>Agente Minimalize.IA completo</li>
-            <li>Acesso imediato após o pagamento</li>
-            <li>Curso em videoaulas inclusos</li>
-            <li>Área VIP Seja Minimalista</li>
-            <li>Atualizações gratuitas para sempre</li>
-            <li>Funciona com conta gratuita do ChatGPT</li>
-          </ul>
-          <a class="pc-btn gold" href="https://chk.eduzz.com/89AQ2V75WD?pf=1" target="_blank" rel="noopener">Quero meu Minimalize.IA agora</a>
-          <div class="pc-urgency-note">⚡ Acesso imediato após o pagamento</div>
-        </div>
+    <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 28px;">Comece seu destralhe com IA hoje.</h2>
+
+    <!-- Card horizontal largo — imagem à esquerda, conteúdo à direita -->
+    <div class="pc dest" style="border-width:2px;max-width:760px;margin:0 auto;border-radius:14px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-height:420px;">
+      <div class="dest-tag" style="grid-column:1/-1;">🤖 Acesso Vitalício</div>
+      <!-- IMAGEM -->
+      <div style="overflow:hidden;background:var(--cream);position:relative;">
+        <img src="https://static.wixstatic.com/media/940f31_72a8a2628b3c4b55a6ac43905e3c9853~mv2.png/v1/crop/x_379,y_0,w_1162,h_1080/fill/w_454,h_460,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/Black%20and%20Beige%20Minimal%20Professional%20Beauty%20Logo%20(1920%20x%201080%20px)%20(12).png"
+          alt="Minimalize.IA — acesso vitalício"
+          style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;"
+          loading="lazy" decoding="async">
+      </div>
+      <!-- CONTEÚDO -->
+      <div class="pc-body" style="display:flex;flex-direction:column;justify-content:center;">
+        <div class="pc-type">Minimalize.IA — Acesso Vitalício</div>
+        <div class="pc-was">De R$ 227,00</div>
+        <div class="pc-now"><sup>R$</sup>77</div>
+        <div class="pc-parc">ou 12x de R$ 7,96</div>
+        <ul class="pc-feats">
+          <li>Agente Minimalize.IA completo</li>
+          <li>Acesso imediato após o pagamento</li>
+          <li>Curso em videoaulas inclusos</li>
+          <li>Área VIP Seja Minimalista</li>
+          <li>Atualizações gratuitas para sempre</li>
+          <li>Funciona com conta gratuita do ChatGPT</li>
+        </ul>
+        <a class="pc-btn gold" href="https://chk.eduzz.com/89AQ2V75WD?pf=1" target="_blank" rel="noopener">Quero meu Minimalize.IA agora</a>
+        <div class="pc-urgency-note">⚡ Acesso imediato após o pagamento</div>
       </div>
     </div>
+
   </div>
 </section>
 
