@@ -20,9 +20,14 @@ html,body{
 }
 .topbar strong{color:#C9A96E;}
 
-/* ── WRAPPER CENTRALIZADO ── */
+/* ── WRAPPER — largura total, conteúdo centralizado com padding ── */
 .page-wrap{
-  max-width:720px;
+  width:100%;
+}
+
+/* inner centraliza o conteúdo interno de cada seção */
+.sec-inner{
+  max-width:680px;
   margin:0 auto;
   width:100%;
 }
@@ -252,6 +257,7 @@ html,body{
 
   <!-- HERO PENDENTE -->
   <section class="sec-pending">
+   <div class="sec-inner">
     <div class="pending-header anim-up d1">
       <div class="pending-icon">⏳</div>
       <div>
@@ -292,25 +298,27 @@ html,body{
         </div>
       </div>
     </div>
+   </div>
   </section>
 
   <!-- ALERTA SPAM -->
   <div class="spam-alert anim-up d3">
+   <div class="sec-inner" style="display:flex;align-items:center;gap:14px;">
     <div class="spam-alert-icon">📩</div>
     <div>
       Fique atento à caixa de <strong>spam</strong> — o e-mail de entrega é enviado pela <strong>Eduzz</strong>, nossa plataforma de vendas, e pode cair no filtro de spam.
     </div>
+   </div>
   </div>
 
   <!-- MENSAGEM PESSOAL -->
   <section class="sec-letter">
+   <div class="sec-inner">
     <div class="letter-eyebrow anim-up d3">Uma mensagem de Alexandre Chahoud</div>
     <div class="letter-body">
-
       <div class="pullquote anim-up d4">
         "Este livro não é sobre fazer mais. É sobre tirar o peso do que não precisa mais estar aí."
       </div>
-
       <p class="letter-p anim-up d4">
         Se você chegou até aqui é porque entende que o minimalismo é o caminho para uma vida mais leve e mais feliz. Essa clareza já é o primeiro passo — e você acabou de dar.
       </p>
@@ -320,16 +328,17 @@ html,body{
       <p class="letter-p anim-up d5">
         Nos vemos em breve do outro lado dessa jornada. Um passo de cada vez.
       </p>
-
       <div class="letter-sign anim-up d6">
         Alexandre Chahoud
         <span>Autor · criador do Seja Minimalista</span>
       </div>
     </div>
+   </div>
   </section>
 
   <!-- ENQUANTO AGUARDA -->
   <section class="sec-while">
+   <div class="sec-inner">
     <div class="while-eyebrow anim-up d4">Enquanto o boleto compensa</div>
     <h2 class="while-h2 anim-up d4">Comece sua jornada antes mesmo do livro chegar</h2>
     <div class="while-grid">
@@ -348,15 +357,18 @@ html,body{
         </div>
       </a>
     </div>
+   </div>
   </section>
 
   <!-- FAIXA FINAL -->
   <div class="sec-footer-msg anim-up d5">
+   <div class="sec-inner">
     <div class="footer-msg-title">Seu livro está <em>quase aqui</em> ✨</div>
     <p class="footer-msg-sub">
       Pague o boleto e em até <strong>3 dias úteis</strong> você recebe o acesso no e-mail.<br>
       Qualquer dúvida, fale conosco em <strong>sejaminimalista@hotmail.com</strong>
     </p>
+   </div>
   </div>
 
 </div><!-- /page-wrap -->
