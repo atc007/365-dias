@@ -313,10 +313,24 @@ html,body{
 .urg-sep{font-family:Georgia,serif;font-size:28px;color:#3D3D3B;margin-bottom:16px;}
 .urg-bonus-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(201,169,110,.1);border:.5px solid rgba(201,169,110,.3);color:var(--gold);font-size:13px;font-weight:600;padding:8px 20px;border-radius:20px;margin-bottom:24px;}
 
-/* ══ PREÇOS ══ */
+/* ══ PREÇOS — contraste elevado ══ */
 .precos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:28px;}
-.pc{background:#fff;border:.5px solid var(--border);border-radius:12px;overflow:hidden;}
-.pc.dest{border:2px solid var(--gold);position:relative;}
+.pc{
+  background:#fff;
+  border:.5px solid #C0BAB0;
+  border-radius:12px;overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,.10);
+  transition:transform .25s,box-shadow .25s;
+}
+.pc:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 36px rgba(0,0,0,.15);
+}
+.pc.dest{
+  border:2px solid var(--gold);
+  box-shadow:0 6px 28px rgba(201,169,110,.25);
+  position:relative;
+}
 .dest-tag{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:11px;font-weight:700;padding:5px 18px;border-radius:0 0 10px 10px;white-space:nowrap;z-index:2;}
 .pc-img{background:var(--cream);padding:0;height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
 .pc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
@@ -337,7 +351,7 @@ html,body{
 .pc-now sup{font-size:20px;font-weight:700;vertical-align:super;letter-spacing:0;}
 .pc-parc{font-size:13px;color:var(--ink-soft);margin-bottom:20px;}
 .pc-feats{list-style:none;margin-bottom:24px;}
-.pc-feats li{font-size:13px;color:var(--ink-soft);padding:6px 0;border-bottom:.5px solid #F0F0EE;display:flex;align-items:center;gap:10px;}
+.pc-feats li{font-size:13px;color:var(--ink-soft);padding:6px 0;border-bottom:.5px solid #E8E5DF;display:flex;align-items:center;gap:10px;}
 .pc-feats li:last-child{border:none;}
 .pc-feats li::before{content:"✓";color:var(--gold);font-weight:700;flex-shrink:0;}
 .pc-btn{display:block;text-align:center;font-size:14px;font-weight:700;padding:16px;border-radius:8px;text-decoration:none;letter-spacing:.02em;position:relative;overflow:hidden;will-change:transform,background-position;}
@@ -855,7 +869,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 </div>
 
 <!-- PREÇOS -->
-<section class="sec" id="versoes">
+<section class="sec alt" id="versoes" style="background:#D8D8D6;">
   <div class="inner">
     <div class="sec-eyebrow" style="justify-content:center;">Escolha sua versão</div>
     <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 0;">Comece sua jornada minimalista hoje.</h2>
