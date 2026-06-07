@@ -671,8 +671,15 @@ html,body{
 
 /* ══ PREÇOS ══ */
 .precos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:28px;}
-.pc{background:#fff;border:.5px solid var(--border);border-radius:12px;overflow:hidden;}
-.pc.dest{border:2px solid var(--gold);position:relative;}
+.pc{
+  background:#fff;
+  border:.5px solid #C0BAB0;
+  border-radius:12px;overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,.10);
+  transition:transform .25s,box-shadow .25s;
+}
+.pc:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.15);}
+.pc.dest{border:2px solid var(--gold);position:relative;box-shadow:0 6px 28px rgba(201,169,110,.25);}
 .dest-tag{
   position:absolute;top:-1px;left:50%;transform:translateX(-50%);
   background:var(--gold);color:var(--ink);
@@ -1506,7 +1513,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 </div>
 
 <!-- PREÇOS -->
-<section class="sec" id="versoes">
+<section class="sec" id="versoes" style="background:#D8D8D6;">
   <div class="inner">
     <div class="sec-eyebrow" style="justify-content:center;">Escolha sua versão</div>
     <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 0;">Comece sua jornada de 365 dias hoje.</h2>
