@@ -337,9 +337,22 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   .countdown-unit{font-size:19px;min-width:34px;padding:4px 8px;}
   .urgency-text{font-size:12px;text-align:center;}
   .urgency-badge{display:none;}
-  .sec-hero{padding:28px var(--sec-h) 36px;}
-  .hero-grid{grid-template-columns:1fr;gap:28px;}
-  .hero-img-wrap img{max-height:340px;}
+  .sec-hero{padding:0 var(--sec-h) 32px;}
+  .hero-grid{grid-template-columns:1fr;gap:0;}
+  .hero-img-wrap{
+    order:-1;
+    margin:0 calc(-1 * var(--sec-h));
+    width:calc(100% + 2 * var(--sec-h));
+  }
+  .hero-img-wrap img{
+    max-height:380px;
+    width:100%;
+    object-fit:cover;
+    object-position:center top;
+    border-radius:0;
+  }
+  .hero-img-wrap .hero-badges{margin-top:14px;padding:0 var(--sec-h);}
+  .hero-grid>div:last-child{padding-top:20px;}
   .grid2{grid-template-columns:1fr;gap:24px;}
   .fail-grid{grid-template-columns:1fr;}
   .dif-grid{grid-template-columns:1fr;}
