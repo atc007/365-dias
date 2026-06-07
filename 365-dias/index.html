@@ -1703,9 +1703,15 @@ function irParaVersoes(e){
     deadline=Date.now()+(23*3600+59*60+59)*1000;
     try{localStorage.setItem(KEY,deadline);}catch(e){}
   }
+  function resetDeadline(){
+    deadline=Date.now()+(23*3600+59*60+59)*1000;
+    try{localStorage.setItem(KEY,deadline);}catch(e){}
+  }
   function pad(n){return String(n).padStart(2,'0');}
   function tick(){
-    var diff=Math.max(0,deadline-Date.now());
+    var diff=deadline-Date.now();
+    /* ao zerar, reinicia imediatamente */
+    if(diff<=0){ resetDeadline(); diff=deadline-Date.now(); }
     var h=Math.floor(diff/3600000);
     var m=Math.floor((diff%3600000)/60000);
     var s=Math.floor((diff%60000)/1000);
@@ -1717,7 +1723,7 @@ function irParaVersoes(e){
       var es=document.getElementById(g[2]);
       if(eh){eh.textContent=hp;em.textContent=mp;es.textContent=sp;}
     });
-    if(diff>0) setTimeout(tick,1000);
+    setTimeout(tick,1000);
   }
   tick();
 })();
