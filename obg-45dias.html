@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
+<link rel="preconnect" href="https://video.wixstatic.com" crossorigin>
+<link rel="preload" as="image"
+  href="https://static.wixstatic.com/media/940f31_08d7f9c5cc6b46c586bfc5d7c5e0a87a~mv2.jpg/v1/fit/w_976,h_502,q_90,enc_avif,quality_auto/940f31_08d7f9c5cc6b46c586bfc5d7c5e0a87a~mv2.jpg"
+  fetchpriority="high">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{width:100%;background:#EFEFEF;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;}
+
+/* ══ TOPBAR ══ */
+.topbar{width:100%;background:#1C1C1A;padding:11px 48px;text-align:center;font-size:13px;color:#E8E2D8;letter-spacing:.02em;}
+.topbar strong{color:#C9A96E;}
+
+/* ══ CONFIRMAÇÃO ══ */
+.sec-confirm{width:100%;background:#F5F0E8;border-bottom:2px solid #C9A96E;padding:48px 48px 40px;}
+.confirm-icon{width:48px;height:48px;border-radius:50%;background:#1C1C1A;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.confirm-icon svg{width:22px;height:22px;fill:none;stroke:#C9A96E;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+.confirm-title{font-family:Georgia,'Times New Roman',serif;font-size:26px;font-weight:400;color:#1C1C1A;line-height:1.3;margin-bottom:8px;}
+.confirm-sub{font-size:14px;color:#5F5E5A;line-height:1.6;margin-bottom:24px;}
+.confirm-steps{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.confirm-step{background:#fff;border:0.5px solid #D3D3D3;border-radius:8px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;}
+.step-emoji{font-size:18px;flex-shrink:0;line-height:1.2;}
+.step-title{font-size:13px;font-weight:600;color:#1C1C1A;margin-bottom:2px;}
+.step-desc{font-size:12px;color:#5F5E5A;line-height:1.5;}
+
+/* ══ MINIMALIZE BADGE ══ */
+.minimalize-strip{width:100%;background:#2E2E2C;padding:16px 48px;display:flex;align-items:center;gap:16px;}
+.minimalize-logo{font-family:Georgia,serif;font-size:18px;color:#C9A96E;letter-spacing:.04em;flex-shrink:0;}
+.minimalize-sep{width:1px;height:28px;background:#3D3D3B;flex-shrink:0;}
+.minimalize-txt{font-size:12px;color:#888780;line-height:1.5;}
+.minimalize-txt strong{color:#E8E2D8;}
+
+/* ══ DIVISOR ══ */
+.divider-upsell{background:#1C1C1A;padding:14px 48px;display:flex;align-items:center;gap:16px;}
+.div-line{flex:1;height:.5px;background:#3D3D3B;}
+.div-text{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#C9A96E;white-space:nowrap;}
+
+/* ══ URGÊNCIA ══ */
+.urgency-bar{width:100%;background:#2E2E2C;padding:11px 48px;text-align:center;font-size:13px;color:#E8E2D8;}
+.urgency-bar strong{color:#C9A96E;}
+
+/* ══ UPSELL ══ */
+.sec-upsell{width:100%;background:#EFEFEF;padding:48px 48px 40px;}
+.upsell-badge{display:inline-block;background:#C9A96E;color:#1C1C1A;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;}
+.upsell-h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(20px,2.2vw,26px);font-weight:400;color:#1C1C1A;line-height:1.35;margin-bottom:10px;}
+.upsell-sub{font-size:14px;color:#5F5E5A;line-height:1.7;margin-bottom:28px;max-width:600px;}
+
+.upsell-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;margin-bottom:28px;}
+
+/* Vídeo 9:16 */
+.video-wrap{position:relative;border-radius:10px;overflow:hidden;background:#1C1C1A;aspect-ratio:9/16;}
+.video-wrap video{width:100%;height:100%;object-fit:cover;display:block;}
+.sound-btn{position:absolute;bottom:14px;right:14px;background:rgba(28,28,26,.85);color:#F5F0E8;border:1.5px solid #C9A96E;border-radius:30px;padding:7px 14px;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit;transition:background .2s;z-index:10;white-space:nowrap;}
+.sound-btn:hover{background:rgba(28,28,26,1);}
+
+/* Price box */
+.price-box{background:#fff;border:.5px solid #D3D3D3;border-radius:10px;padding:20px;position:sticky;top:16px;}
+.price-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#888780;margin-bottom:8px;}
+.price-was{font-size:13px;color:#888780;text-decoration:line-through;margin-bottom:2px;}
+.price-now{font-family:Georgia,serif;font-size:38px;font-weight:400;color:#1C1C1A;line-height:1;margin-bottom:6px;}
+.price-now sup{font-size:16px;font-weight:400;vertical-align:super;margin-right:2px;}
+.price-discount{display:inline-block;background:#F5F0E8;color:#8B6B3D;border:.5px solid #C9A96E;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;margin-bottom:16px;}
+.format-note{font-size:11px;color:#5F5E5A;line-height:1.6;margin-bottom:14px;padding:10px 12px;background:#EFEFEF;border-radius:6px;border:.5px solid #D3D3D3;}
+.btn-upsell{display:block;background:#C9A96E;color:#1C1C1A;text-align:center;text-decoration:none;padding:15px;font-size:14px;font-weight:700;border-radius:6px;margin-bottom:14px;transition:background .2s;}
+.btn-upsell:hover{background:#B8925A;}
+.what-list{display:flex;flex-direction:column;gap:8px;}
+.what-item{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:#3D3D3B;line-height:1.5;}
+.check-g{width:16px;height:16px;border-radius:50%;background:#C9A96E;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.check-g svg{width:8px;height:8px;}
+.what-divider{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#888780;margin:12px 0 8px;padding-top:12px;border-top:.5px solid #D3D3D3;}
+.lock-txt{font-size:11px;color:#888780;text-align:center;}
+
+/* ══ CARROSSEL ══ */
+.sec-carousel{width:100%;background:#E8E8E6;padding:40px 48px;}
+.carousel-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#888780;margin-bottom:16px;}
+.carousel-wrap{border-radius:8px;overflow:hidden;background:#D3D3D3;aspect-ratio:16/9;}
+.carousel-slides{display:flex;transition:transform .4s ease;height:100%;}
+.carousel-slide{min-width:100%;height:100%;}
+.carousel-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+.carousel-dots{display:flex;gap:6px;justify-content:center;margin-top:12px;}
+.cdot{width:7px;height:7px;border-radius:50%;background:#D3D3D3;cursor:pointer;transition:background .2s;border:none;padding:0;}
+.cdot.active{background:#1C1C1A;}
+
+/* ══ CTA FINAL ══ */
+.sec-cta-final{width:100%;background:#1C1C1A;padding:40px 48px;text-align:center;}
+.cta-final-title{font-family:Georgia,'Times New Roman',serif;font-size:22px;font-weight:400;color:#F5F0E8;margin-bottom:8px;}
+.cta-final-sub{font-size:13px;color:#888780;margin-bottom:24px;line-height:1.6;}
+.btn-cta-final{display:inline-block;background:#C9A96E;color:#1C1C1A;text-decoration:none;padding:16px 40px;font-size:15px;font-weight:700;border-radius:6px;transition:background .2s;}
+.btn-cta-final:hover{background:#B8925A;}
+.cta-final-lock{font-size:11px;color:#5F5E5A;margin-top:12px;}
+
+/* ══ MOBILE ══ */
+@media(max-width:720px){
+  html,body{width:320px;}
+  .topbar{padding:10px 16px;font-size:11px;}
+  .sec-confirm{padding:32px 20px 28px;}
+  .confirm-steps{grid-template-columns:1fr;}
+  .minimalize-strip{padding:14px 20px;flex-wrap:wrap;}
+  .minimalize-sep{display:none;}
+  .divider-upsell{padding:12px 20px;}
+  .urgency-bar{padding:10px 16px;font-size:12px;}
+  .sec-upsell{padding:32px 20px 28px;}
+  .upsell-grid{grid-template-columns:1fr;}
+  .price-box{position:static;}
+  .sec-carousel{padding:28px 20px;}
+  .sec-cta-final{padding:32px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  Compra confirmada — <strong>seu acesso ao Minimalize está sendo preparado</strong>
+</div>
+
+<!-- CONFIRMAÇÃO -->
+<section class="sec-confirm">
+  <div class="confirm-icon">
+    <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+  </div>
+  <div class="confirm-title">Oba, sua compra foi confirmada!</div>
+  <p class="confirm-sub">Seja muito bem-vindo. Estou feliz que você deu esse passo em direção a uma casa mais leve e organizada.</p>
+  <div class="confirm-steps">
+    <div class="confirm-step">
+      <div class="step-emoji">📩</div>
+      <div>
+        <div class="step-title">Acesso por e-mail</div>
+        <div class="step-desc">O link de acesso ao Minimalize chegará no e-mail que você usou na compra.</div>
+      </div>
+    </div>
+    <div class="confirm-step">
+      <div class="step-emoji">🔍</div>
+      <div>
+        <div class="step-title">Verifique o spam</div>
+        <div class="step-desc">O e-mail é enviado pela Eduzz — pode cair na caixa de spam ou promoções.</div>
+      </div>
+    </div>
+    <div class="confirm-step">
+      <div class="step-emoji">🌟</div>
+      <div>
+        <div class="step-title">Área VIP liberada</div>
+        <div class="step-desc">Seu acesso à Área VIP será liberado em até 10 dias. As instruções chegam por e-mail.</div>
+      </div>
+    </div>
+    <div class="confirm-step">
+      <div class="step-emoji">💬</div>
+      <div>
+        <div class="step-title">Dúvidas</div>
+        <div class="step-desc">Qualquer dúvida, fale comigo em sejaminimalista@hotmail.com</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MINIMALIZE STRIP -->
+<div class="minimalize-strip">
+  <div class="minimalize-logo">Minimalize</div>
+  <div class="minimalize-sep"></div>
+  <div class="minimalize-txt">Você acaba de adquirir o <strong>método completo de destralhe e organização</strong> com inteligência artificial. Bem-vindo ao próximo nível.</div>
+</div>
+
+<!-- DIVISOR -->
+<div class="divider-upsell">
+  <div class="div-line"></div>
+  <div class="div-text">uma surpresa exclusiva para você</div>
+  <div class="div-line"></div>
+</div>
+
+<!-- URGÊNCIA -->
+<div class="urgency-bar">
+  R$ 20 de desconto disponível <strong>somente agora</strong>, nesta página — não volta depois.
+</div>
+
+<!-- UPSELL -->
+<section class="sec-upsell">
+  <div class="upsell-badge">Oferta exclusiva — só agora</div>
+  <h2 class="upsell-h2">Enquanto o Minimalize cuida da estratégia, o 45 Dias de Destralhe cuida da execução.</h2>
+  <p class="upsell-sub">O <strong>Guia 45 Dias de Destralhe</strong> é o complemento perfeito para o método — um plano dia a dia para tirar o excesso da sua casa enquanto o Minimalize organiza tudo. Versão <strong>digital</strong> com acesso imediato.</p>
+
+  <div class="upsell-grid">
+
+    <div class="video-wrap">
+      <video
+        id="upsell-video"
+        src="https://video.wixstatic.com/video/940f31_ef887338507645a1b00804ec1a176b75/1080p/mp4/file.mp4"
+        preload="none"
+        loop muted playsinline
+        poster="https://static.wixstatic.com/media/940f31_08d7f9c5cc6b46c586bfc5d7c5e0a87a~mv2.jpg/v1/fit/w_976,h_502,q_90,enc_avif,quality_auto/940f31_08d7f9c5cc6b46c586bfc5d7c5e0a87a~mv2.jpg"
+      ></video>
+      <button class="sound-btn" onclick="toggleSound()">
+        <span id="sound-icon">🔇</span>
+        <span id="sound-label">Ativar som</span>
+      </button>
+    </div>
+
+    <div class="price-box">
+      <div class="price-label">Preço com desconto exclusivo</div>
+      <div class="price-was">De R$ 47,00</div>
+      <div class="price-now"><sup>R$</sup>27</div>
+      <div class="price-discount">Você economiza R$ 20 agora</div>
+
+      <div class="format-note">
+        📱 <strong>Digital</strong> — acesso imediato após a compra
+      </div>
+
+      <a class="btn-upsell" href="https://chk.eduzz.com/2291018?pf=1&cupom=upsell45" target="_blank" rel="noopener">
+        Quero o guia com desconto
+      </a>
+
+      <div class="what-divider">O que você recebe</div>
+      <div class="what-list">
+        <div class="what-item">
+          <div class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          45 dias de missões diárias — cada dia uma área da casa
+        </div>
+        <div class="what-item">
+          <div class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          Checklists prontos para cada cômodo
+        </div>
+        <div class="what-item">
+          <div class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          Método para desapegar sem culpa e sem arrependimento
+        </div>
+        <div class="what-item">
+          <div class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          Complemento direto ao método Minimalize
+        </div>
+      </div>
+
+      <div style="margin-top:14px;">
+        <div class="lock-txt">🔒 Pagamento seguro · Acesso imediato após a compra</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CARROSSEL -->
+<section class="sec-carousel">
+  <div class="carousel-label">Veja o guia por dentro</div>
+  <div class="carousel-wrap">
+    <div class="carousel-slides" id="slides">
+      <div class="carousel-slide">
+        <img
+          src="https://static.wixstatic.com/media/940f31_08d7f9c5cc6b46c586bfc5d7c5e0a87a~mv2.jpg/v1/fit/w_976,h_502,q_90,enc_avif,quality_auto/940f31_08d7f9c5cc6b46c586bfc5d7c5e0a87a~mv2.jpg"
+          alt="45 Dias de Destralhe — página 1"
+          width="976" height="502"
+          fetchpriority="high" decoding="sync">
+      </div>
+      <div class="carousel-slide">
+        <img
+          data-src="https://static.wixstatic.com/media/940f31_ca51f41d7c3046cc818aa84e27ce710e~mv2.jpg/v1/fit/w_976,h_502,q_90,enc_avif,quality_auto/940f31_ca51f41d7c3046cc818aa84e27ce710e~mv2.jpg"
+          alt="45 Dias de Destralhe — página 2"
+          width="976" height="502" loading="lazy" decoding="async">
+      </div>
+      <div class="carousel-slide">
+        <img
+          data-src="https://static.wixstatic.com/media/940f31_e88a5d8947f1407a8af4df095068d110~mv2.jpg/v1/fit/w_976,h_502,q_90,enc_avif,quality_auto/940f31_e88a5d8947f1407a8af4df095068d110~mv2.jpg"
+          alt="45 Dias de Destralhe — página 3"
+          width="976" height="502" loading="lazy" decoding="async">
+      </div>
+      <div class="carousel-slide">
+        <img
+          data-src="https://static.wixstatic.com/media/940f31_d64038bd245948eabac4a3f5045a6aaf~mv2.jpg/v1/fit/w_976,h_502,q_90,enc_avif,quality_auto/940f31_d64038bd245948eabac4a3f5045a6aaf~mv2.jpg"
+          alt="45 Dias de Destralhe — página 4"
+          width="976" height="502" loading="lazy" decoding="async">
+      </div>
+      <div class="carousel-slide">
+        <img
+          data-src="https://static.wixstatic.com/media/940f31_f3f522b9c46e44b794de4e35ed93e915~mv2.jpg/v1/fit/w_976,h_502,q_90,enc_avif,quality_auto/940f31_f3f522b9c46e44b794de4e35ed93e915~mv2.jpg"
+          alt="45 Dias de Destralhe — página 5"
+          width="976" height="502" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+  <div class="carousel-dots">
+    <button class="cdot active" onclick="goTo(0)"></button>
+    <button class="cdot" onclick="goTo(1)"></button>
+    <button class="cdot" onclick="goTo(2)"></button>
+    <button class="cdot" onclick="goTo(3)"></button>
+    <button class="cdot" onclick="goTo(4)"></button>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="sec-cta-final">
+  <div class="cta-final-title">Aproveite enquanto o desconto está disponível</div>
+  <p class="cta-final-sub">Esta oferta é exclusiva para quem acabou de comprar o Minimalize — e só aparece nesta página.</p>
+  <a class="btn-cta-final" href="https://chk.eduzz.com/2291018?pf=1&cupom=upsell45" target="_blank" rel="noopener">
+    Quero o guia com desconto
+  </a>
+  <div class="cta-final-lock">🔒 Pagamento seguro · Acesso imediato</div>
+</section>
+
+<script>
+/* VÍDEO */
+var video = document.getElementById('upsell-video');
+var videoObserver = new IntersectionObserver(function(entries){
+  if(entries[0].isIntersecting){
+    video.load();
+    video.play().catch(function(){});
+    videoObserver.disconnect();
+  }
+},{threshold:.1});
+videoObserver.observe(video);
+
+function toggleSound(){
+  var icon = document.getElementById('sound-icon');
+  var label = document.getElementById('sound-label');
+  if(video.muted){
+    video.muted = false;
+    icon.textContent = '🔊';
+    label.textContent = 'Silenciar';
+  } else {
+    video.muted = true;
+    icon.textContent = '🔇';
+    label.textContent = 'Ativar som';
+  }
+}
+
+/* CARROSSEL */
+var idx = 0;
+var total = 5;
+var loaded = [true,false,false,false,false];
+
+function loadSlide(i){
+  if(loaded[i]) return;
+  var imgs = document.querySelectorAll('.carousel-slide img');
+  var img = imgs[i];
+  if(img && img.dataset.src){ img.src = img.dataset.src; loaded[i] = true; }
+}
+
+function goTo(i){
+  idx = i;
+  loadSlide(i);
+  loadSlide((i+1)%total);
+  document.getElementById('slides').style.transform = 'translateX(-'+(i*100)+'%)';
+  document.querySelectorAll('.cdot').forEach(function(d,j){ d.classList.toggle('active', j===i); });
+}
+
+window.addEventListener('load', function(){
+  setInterval(function(){ goTo((idx+1)%total); }, 3500);
+});
+
+/* HEIGHT */
+function sendHeight(){ window.parent.postMessage({height:document.documentElement.scrollHeight},'*'); }
+window.addEventListener('load', sendHeight);
+window.addEventListener('resize', sendHeight);
+</script>
+
+</body>
+</html>
