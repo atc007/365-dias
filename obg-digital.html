@@ -4,194 +4,241 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  width:100%;min-height:100vh;
+  background:#EFEFEF;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
 
-  html, body {
-    width: 100%;
-    background: #EFEFEF;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
+/* ── TOPBAR ── */
+.topbar{
+  width:100%;background:#1C1C1A;
+  padding:11px 48px;text-align:center;
+  font-size:13px;color:#E8E2D8;letter-spacing:.02em;
+}
+.topbar strong{color:#C9A96E;}
 
-  /* ── TOPBAR ── */
-  .topbar {
-    width: 100%;
-    background: #1C1C1A;
-    padding: 11px 48px;
-    text-align: center;
-    font-size: 13px;
-    color: #E8E2D8;
-    letter-spacing: 0.02em;
-  }
-  .topbar strong { color: #C9A96E; }
+/* ── WRAPPER CENTRALIZADO ── */
+.page-wrap{
+  max-width:720px;
+  margin:0 auto;
+  width:100%;
+}
 
-  /* ── HERO — PENDENTE ── */
-  .sec-pending {
-    width: 100%;
-    background: #FAEEDA;
-    border-bottom: 2px solid #EF9F27;
-    padding: 44px 48px 40px;
-  }
-  .pending-icon {
-    width: 52px; height: 52px; border-radius: 50%;
-    background: #BA7517;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 16px;
-    font-size: 22px;
-  }
-  .pending-title {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 26px; font-weight: 400;
-    color: #1C1C1A; line-height: 1.3; margin-bottom: 8px;
-  }
-  .pending-sub {
-    font-size: 14px; color: #854F0B;
-    line-height: 1.6; margin-bottom: 24px;
-  }
+/* ── ANIMAÇÕES ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes pulse-ring{
+  0%{box-shadow:0 0 0 0 rgba(201,169,110,.45);}
+  70%{box-shadow:0 0 0 18px rgba(201,169,110,0);}
+  100%{box-shadow:0 0 0 0 rgba(201,169,110,0);}
+}
+@keyframes spin-slow{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+@keyframes shimmer-gold{
+  0%{background-position:200% center;}
+  100%{background-position:-200% center;}
+}
+@keyframes bounce-icon{
+  0%,100%{transform:translateY(0);}
+  40%{transform:translateY(-6px);}
+  60%{transform:translateY(-3px);}
+}
+@keyframes bar-fill{
+  from{width:0%;}
+  to{width:68%;}
+}
+@keyframes count-in{
+  from{opacity:0;transform:scale(.7);}
+  to{opacity:1;transform:scale(1);}
+}
 
-  /* Cards de próximos passos */
-  .steps-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-  }
-  .step-card {
-    background: #fff;
-    border: 0.5px solid #EF9F27;
-    border-radius: 8px;
-    padding: 16px 18px;
-    display: flex; gap: 12px; align-items: flex-start;
-  }
-  .step-num {
-    width: 28px; height: 28px; border-radius: 50%;
-    background: #C9A96E; color: #1C1C1A;
-    font-size: 13px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .step-title { font-size: 13px; font-weight: 600; color: #1C1C1A; margin-bottom: 3px; }
-  .step-desc  { font-size: 12px; color: #854F0B; line-height: 1.5; }
+/* stagger fade-up for cards */
+.anim-up{animation:fadeUp .6s ease both;}
+.d1{animation-delay:.1s;}
+.d2{animation-delay:.22s;}
+.d3{animation-delay:.34s;}
+.d4{animation-delay:.46s;}
+.d5{animation-delay:.58s;}
+.d6{animation-delay:.70s;}
 
-  /* ── ALERTA SPAM ── */
-  .spam-alert {
-    width: 100%;
-    background: #2E2E2C;
-    padding: 16px 48px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    font-size: 13px;
-    color: #E8E2D8;
-  }
-  .spam-alert-icon {
-    font-size: 20px; flex-shrink: 0;
-  }
-  .spam-alert strong { color: #C9A96E; }
+/* ── HERO PENDENTE ── */
+.sec-pending{
+  width:100%;background:#FAEEDA;
+  border-bottom:2px solid #EF9F27;
+  padding:44px 48px 40px;
+}
+.pending-header{
+  display:flex;align-items:flex-start;gap:18px;margin-bottom:28px;
+}
+.pending-icon{
+  width:56px;height:56px;border-radius:50%;
+  background:#BA7517;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;flex-shrink:0;
+  animation:pulse-ring 2.2s ease infinite;
+}
+.pending-title{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:26px;font-weight:400;
+  color:#1C1C1A;line-height:1.3;margin-bottom:6px;
+}
+.pending-sub{font-size:14px;color:#854F0B;line-height:1.6;}
 
-  /* ── MENSAGEM PESSOAL ── */
-  .sec-letter {
-    width: 100%;
-    background: #EFEFEF;
-    padding: 48px 48px;
-  }
-  .letter-eyebrow {
-    font-size: 11px; font-weight: 600;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: #C9A96E; margin-bottom: 16px;
-  }
-  .letter-body {
-    max-width: 640px;
-  }
-  .pullquote {
-    border-left: 3px solid #C9A96E;
-    padding: 10px 18px;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 17px; color: #1C1C1A;
-    line-height: 1.65; font-style: italic;
-    margin-bottom: 24px;
-  }
-  .letter-p {
-    font-size: 14px; color: #3D3D3B;
-    line-height: 1.8; margin-bottom: 16px;
-  }
-  .letter-sign {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 16px; color: #1C1C1A;
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 0.5px solid #D3D3D3;
-  }
-  .letter-sign span {
-    font-size: 12px; color: #888780;
-    display: block; margin-top: 2px;
-  }
+/* barra de progresso animada */
+.progress-wrap{margin-bottom:28px;}
+.progress-label{
+  display:flex;justify-content:space-between;
+  font-size:11px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:#854F0B;margin-bottom:8px;
+}
+.progress-track{
+  width:100%;height:8px;background:rgba(239,159,39,.2);
+  border-radius:4px;overflow:hidden;
+}
+.progress-bar{
+  height:100%;border-radius:4px;
+  background:linear-gradient(90deg,#BA7517 0%,#EF9F27 50%,#BA7517 100%);
+  background-size:200% auto;
+  animation:bar-fill 1.4s .3s ease both,shimmer-gold 2.5s linear infinite;
+  width:0%;
+}
 
-  /* ── ENQUANTO AGUARDA ── */
-  .sec-while {
-    width: 100%;
-    background: #E8E8E6;
-    padding: 40px 48px;
-  }
-  .while-eyebrow {
-    font-size: 11px; font-weight: 600;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: #C9A96E; margin-bottom: 14px;
-  }
-  .while-h2 {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 20px; font-weight: 400;
-    color: #1C1C1A; margin-bottom: 20px; line-height: 1.35;
-  }
-  .while-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  .while-card {
-    background: #EFEFEF;
-    border: 0.5px solid #D3D3D3;
-    border-radius: 8px;
-    padding: 16px 18px;
-    display: flex; gap: 14px; align-items: flex-start;
-    text-decoration: none;
-    transition: border-color 0.2s;
-  }
-  .while-card:hover { border-color: #C9A96E; }
-  .while-card-icon { font-size: 22px; flex-shrink: 0; line-height: 1.2; }
-  .while-card-title { font-size: 13px; font-weight: 600; color: #1C1C1A; margin-bottom: 3px; }
-  .while-card-desc  { font-size: 12px; color: #5F5E5A; line-height: 1.5; }
+.steps-grid{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;
+}
+.step-card{
+  background:#fff;border:.5px solid #EF9F27;border-radius:8px;
+  padding:16px 18px;display:flex;gap:12px;align-items:flex-start;
+  transition:transform .25s,box-shadow .25s;
+}
+.step-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(239,159,39,.15);}
+.step-num{
+  width:28px;height:28px;border-radius:50%;
+  background:#C9A96E;color:#1C1C1A;
+  font-size:13px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  animation:count-in .5s ease both;
+}
+.step-num:nth-child(1){animation-delay:.4s;}
+.step-title{font-size:13px;font-weight:600;color:#1C1C1A;margin-bottom:3px;}
+.step-desc{font-size:12px;color:#854F0B;line-height:1.5;}
 
-  /* ── FAIXA FINAL ── */
-  .sec-footer-msg {
-    width: 100%;
-    background: #1C1C1A;
-    padding: 32px 48px;
-    text-align: center;
-  }
-  .footer-msg-title {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 20px; font-weight: 400;
-    color: #F5F0E8; margin-bottom: 8px;
-  }
-  .footer-msg-sub {
-    font-size: 13px; color: #888780; line-height: 1.6;
-  }
-  .footer-msg-sub strong { color: #C9A96E; }
+/* ── ALERTA SPAM ── */
+.spam-alert{
+  width:100%;background:#2E2E2C;
+  padding:16px 48px;
+  display:flex;align-items:center;gap:14px;
+  font-size:13px;color:#E8E2D8;
+}
+.spam-alert-icon{font-size:20px;flex-shrink:0;animation:bounce-icon 2s ease-in-out infinite;}
+.spam-alert strong{color:#C9A96E;}
 
-  /* ── MOBILE ── */
-  @media (max-width: 720px) {
-    html, body { width: 320px; }
+/* ── MENSAGEM PESSOAL ── */
+.sec-letter{
+  width:100%;background:#EFEFEF;
+  padding:48px 48px;
+}
+.letter-eyebrow{
+  font-size:11px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:#C9A96E;margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.letter-eyebrow::before{content:'';display:block;width:24px;height:1px;background:#C9A96E;}
+.letter-body{max-width:640px;}
+.pullquote{
+  border-left:3px solid #C9A96E;
+  padding:12px 20px;
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:17px;color:#1C1C1A;
+  line-height:1.7;font-style:italic;
+  margin-bottom:24px;
+  background:rgba(201,169,110,.06);border-radius:0 6px 6px 0;
+}
+.letter-p{font-size:14px;color:#3D3D3B;line-height:1.85;margin-bottom:16px;}
+.letter-sign{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:16px;color:#1C1C1A;
+  margin-top:24px;padding-top:20px;
+  border-top:.5px solid #D3D3D3;
+}
+.letter-sign span{font-size:12px;color:#888780;display:block;margin-top:2px;}
 
-    .topbar       { padding: 10px 16px; font-size: 12px; }
-    .sec-pending  { padding: 32px 20px 28px; }
-    .spam-alert   { padding: 14px 20px; }
-    .sec-letter   { padding: 36px 20px; }
-    .sec-while    { padding: 32px 20px; }
-    .sec-footer-msg { padding: 28px 20px; }
+/* ── ENQUANTO AGUARDA ── */
+.sec-while{
+  width:100%;background:#E8E8E6;
+  padding:40px 48px;
+}
+.while-eyebrow{
+  font-size:11px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:#C9A96E;margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.while-eyebrow::before{content:'';display:block;width:24px;height:1px;background:#C9A96E;}
+.while-h2{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:22px;font-weight:400;
+  color:#1C1C1A;margin-bottom:20px;line-height:1.35;
+}
+.while-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.while-card{
+  background:#EFEFEF;
+  border:.5px solid #D3D3D3;border-radius:8px;
+  padding:16px 18px;display:flex;gap:14px;align-items:flex-start;
+  text-decoration:none;
+  transition:border-color .2s,transform .25s,box-shadow .25s;
+}
+.while-card:hover{
+  border-color:#C9A96E;
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(201,169,110,.12);
+}
+.while-card-icon{font-size:22px;flex-shrink:0;line-height:1.2;}
+.while-card-title{font-size:13px;font-weight:600;color:#1C1C1A;margin-bottom:3px;}
+.while-card-desc{font-size:12px;color:#5F5E5A;line-height:1.5;}
 
-    .steps-grid { grid-template-columns: 1fr; }
-    .while-grid { grid-template-columns: 1fr; }
-  }
+/* ── FAIXA FINAL ── */
+.sec-footer-msg{
+  width:100%;background:#1C1C1A;
+  padding:36px 48px;text-align:center;
+}
+.footer-msg-title{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:21px;font-weight:400;
+  color:#F5F0E8;margin-bottom:10px;
+}
+
+/* shimmer dourado no texto final */
+.footer-msg-title em{
+  font-style:normal;
+  background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer-gold 3s linear infinite;
+}
+.footer-msg-sub{font-size:13px;color:#888780;line-height:1.7;}
+.footer-msg-sub strong{color:#C9A96E;}
+
+/* ── MOBILE ── */
+@media(max-width:720px){
+  .topbar{padding:10px 16px;font-size:12px;}
+  .sec-pending{padding:32px 20px 28px;}
+  .pending-header{flex-direction:column;gap:12px;}
+  .spam-alert{padding:14px 20px;}
+  .sec-letter{padding:36px 20px;}
+  .sec-while{padding:32px 20px;}
+  .sec-footer-msg{padding:28px 20px;}
+  .steps-grid{grid-template-columns:1fr;}
+  .while-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
@@ -201,115 +248,125 @@
   Pedido recebido — <strong>aguardando compensação do boleto</strong>
 </div>
 
-<!-- HERO PENDENTE -->
-<section class="sec-pending">
-  <div class="pending-icon">⏳</div>
-  <div class="pending-title">Oba, falta apenas mais um passo!</div>
-  <p class="pending-sub">Seu pedido foi registrado. Assim que o boleto for compensado, o livro chega automaticamente no seu e-mail.</p>
+<div class="page-wrap">
 
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num">1</div>
+  <!-- HERO PENDENTE -->
+  <section class="sec-pending">
+    <div class="pending-header anim-up d1">
+      <div class="pending-icon">⏳</div>
       <div>
-        <div class="step-title">Pague o boleto</div>
-        <div class="step-desc">No app do seu banco, internet banking ou lotérica.</div>
+        <div class="pending-title">Oba, falta apenas mais um passo!</div>
+        <p class="pending-sub">Seu pedido foi registrado. Assim que o boleto for compensado, o livro chega automaticamente no seu e-mail.</p>
       </div>
     </div>
-    <div class="step-card">
-      <div class="step-num">2</div>
-      <div>
-        <div class="step-title">Aguarde até 3 dias úteis</div>
-        <div class="step-desc">Boletos levam até 3 dias úteis para compensar no sistema.</div>
+
+    <!-- Barra de progresso -->
+    <div class="progress-wrap anim-up d2">
+      <div class="progress-label">
+        <span>Pedido registrado ✓</span>
+        <span>Aguardando pagamento...</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar"></div></div>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card anim-up d2">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">Pague o boleto</div>
+          <div class="step-desc">No app do seu banco, internet banking ou lotérica.</div>
+        </div>
+      </div>
+      <div class="step-card anim-up d3">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">Aguarde até 3 dias úteis</div>
+          <div class="step-desc">Boletos levam até 3 dias úteis para compensar no sistema.</div>
+        </div>
+      </div>
+      <div class="step-card anim-up d4">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Receba o livro por e-mail</div>
+          <div class="step-desc">O envio é automático após a confirmação do pagamento.</div>
+        </div>
       </div>
     </div>
-    <div class="step-card">
-      <div class="step-num">3</div>
-      <div>
-        <div class="step-title">Receba o livro por e-mail</div>
-        <div class="step-desc">O envio é automático após a confirmação do pagamento.</div>
-      </div>
+  </section>
+
+  <!-- ALERTA SPAM -->
+  <div class="spam-alert anim-up d3">
+    <div class="spam-alert-icon">📩</div>
+    <div>
+      Fique atento à caixa de <strong>spam</strong> — o e-mail de entrega é enviado pela <strong>Eduzz</strong>, nossa plataforma de vendas, e pode cair no filtro de spam.
     </div>
   </div>
-</section>
 
-<!-- ALERTA SPAM -->
-<div class="spam-alert">
-  <div class="spam-alert-icon">📩</div>
-  <div>
-    Fique atento à caixa de <strong>spam</strong> — o e-mail de entrega é enviado pela <strong>Eduzz</strong>, nossa plataforma de vendas, e pode cair no filtro de spam.
-  </div>
-</div>
+  <!-- MENSAGEM PESSOAL -->
+  <section class="sec-letter">
+    <div class="letter-eyebrow anim-up d3">Uma mensagem de Alexandre Chahoud</div>
+    <div class="letter-body">
 
-<!-- MENSAGEM PESSOAL -->
-<section class="sec-letter">
-  <div class="letter-eyebrow">Uma mensagem de Alexandre Chahoud</div>
-  <div class="letter-body">
+      <div class="pullquote anim-up d4">
+        "Este livro não é sobre fazer mais. É sobre tirar o peso do que não precisa mais estar aí."
+      </div>
 
-    <div class="pullquote">
-      "Este livro não é sobre fazer mais. É sobre tirar o peso do que não precisa mais estar aí."
+      <p class="letter-p anim-up d4">
+        Se você chegou até aqui é porque entende que o minimalismo é o caminho para uma vida mais leve e mais feliz. Essa clareza já é o primeiro passo — e você acabou de dar.
+      </p>
+      <p class="letter-p anim-up d5">
+        Quando você começar a aplicar o que compartilho nele, a mudança acontece. Aos poucos, do jeito certo, e de forma real. Sem radicalismos, sem cobranças — só o que faz sentido pra você.
+      </p>
+      <p class="letter-p anim-up d5">
+        Nos vemos em breve do outro lado dessa jornada. Um passo de cada vez.
+      </p>
+
+      <div class="letter-sign anim-up d6">
+        Alexandre Chahoud
+        <span>Autor · criador do Seja Minimalista</span>
+      </div>
     </div>
+  </section>
 
-    <p class="letter-p">
-      Se você chegou até aqui é porque entende que o minimalismo é o caminho para uma vida mais leve e mais feliz. Essa clareza já é o primeiro passo — e você acabou de dar.
+  <!-- ENQUANTO AGUARDA -->
+  <section class="sec-while">
+    <div class="while-eyebrow anim-up d4">Enquanto o boleto compensa</div>
+    <h2 class="while-h2 anim-up d4">Comece sua jornada antes mesmo do livro chegar</h2>
+    <div class="while-grid">
+      <a class="while-card anim-up d5" href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener">
+        <div class="while-card-icon">📱</div>
+        <div>
+          <div class="while-card-title">Siga no Instagram</div>
+          <div class="while-card-desc">Conteúdo diário sobre minimalismo desde 2018. Mais de 180 mil pessoas já acompanham.</div>
+        </div>
+      </a>
+      <a class="while-card anim-up d6" href="https://www.sejaminimalista.net/vip/entrar" target="_blank" rel="noopener">
+        <div class="while-card-icon">🌟</div>
+        <div>
+          <div class="while-card-title">Cadastre-se na Área VIP</div>
+          <div class="while-card-desc">O acesso será liberado após o pagamento. Cadastre-se agora com o e-mail da compra e fique pronto.</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FAIXA FINAL -->
+  <div class="sec-footer-msg anim-up d5">
+    <div class="footer-msg-title">Seu livro está <em>quase aqui</em> ✨</div>
+    <p class="footer-msg-sub">
+      Pague o boleto e em até <strong>3 dias úteis</strong> você recebe o acesso no e-mail.<br>
+      Qualquer dúvida, fale conosco em <strong>sejaminimalista@hotmail.com</strong>
     </p>
-
-    <p class="letter-p">
-      Quando você começar a aplicar o que compartilho nele, a mudança acontece. Aos poucos, do jeito certo, e de forma real. Sem radicalismos, sem cobranças — só o que faz sentido pra você.
-    </p>
-
-    <p class="letter-p">
-      Nos vemos em breve do outro lado dessa jornada. Um passo de cada vez.
-    </p>
-
-    <div class="letter-sign">
-      Alexandre Chahoud
-      <span>Autor · criador do Seja Minimalista</span>
-    </div>
-
   </div>
-</section>
 
-<!-- ENQUANTO AGUARDA -->
-<section class="sec-while">
-  <div class="while-eyebrow">Enquanto o boleto compensa</div>
-  <h2 class="while-h2">Comece sua jornada antes mesmo do livro chegar</h2>
-  <div class="while-grid">
-
-    <a class="while-card" href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener">
-      <div class="while-card-icon">📱</div>
-      <div>
-        <div class="while-card-title">Siga no Instagram</div>
-        <div class="while-card-desc">Conteúdo diário sobre minimalismo desde 2018. Mais de 180 mil pessoas já acompanham.</div>
-      </div>
-    </a>
-
-    <a class="while-card" href="https://www.sejaminimalista.net/vip/entrar" target="_blank" rel="noopener">
-      <div class="while-card-icon">🌟</div>
-      <div>
-        <div class="while-card-title">Cadastre-se na Área VIP</div>
-        <div class="while-card-desc">O acesso será liberado após o pagamento. Cadastre-se agora com o e-mail da compra e fique pronto.</div>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<!-- FAIXA FINAL -->
-<div class="sec-footer-msg">
-  <div class="footer-msg-title">Seu livro está a caminho</div>
-  <p class="footer-msg-sub">
-    Pague o boleto e em até <strong>3 dias úteis</strong> você recebe o acesso no e-mail.<br>
-    Qualquer dúvida, fale conosco em <strong>sejaminimalista@hotmail.com</strong>
-  </p>
-</div>
+</div><!-- /page-wrap -->
 
 <script>
-  function sendHeight() {
-    window.parent.postMessage({ height: document.documentElement.scrollHeight }, '*');
-  }
-  window.addEventListener('load', sendHeight);
-  window.addEventListener('resize', sendHeight);
+function sendHeight(){
+  window.parent.postMessage({height:document.documentElement.scrollHeight},'*');
+}
+window.addEventListener('load',sendHeight);
+window.addEventListener('resize',sendHeight);
 </script>
-
 </body>
 </html>
