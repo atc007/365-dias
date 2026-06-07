@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seja Minimalista — Links</title>
+<meta name="description" content="O Catálogo Oficial dos produtos do Seja Minimalista.">
+<meta property="og:title" content="Seja Minimalista — Links">
+<meta property="og:image" content="https://static.wixstatic.com/media/940f31_9838f95851d04fae89e45d43a6fe0e09~mv2.jpg">
+
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JM7NSX9TDT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JM7NSX9TDT');</script>
+
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src='https://connect.facebook.net/en_US/fbevents.js';s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script');fbq('init','239605191106043');fbq('track','PageView');</script>
+
+<link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  width:100%;min-height:100vh;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  background:#EFEFED;
+  color:#1C1C1A;
+}
+
+:root{
+  --gold:#C9A96E;
+  --gold-dark:#9A7A30;
+  --ink:#1C1C1A;
+  --ink-soft:#5F5E5A;
+  --ink-muted:#888780;
+  --cream:#F5F0E8;
+  --border:#D3D1C7;
+  --max:520px;
+}
+
+/* ══ WRAPPER ══ */
+.page{max-width:var(--max);margin:0 auto;padding:36px 20px 56px;}
+
+/* ══ HEADER — avatar + nome + bio ══ */
+.header{text-align:center;margin-bottom:32px;}
+.avatar{width:88px;height:88px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 14px;border:2px solid var(--border);}
+.author-name{font-family:Georgia,'Times New Roman',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em;}
+.author-handle{font-size:13px;color:var(--ink-muted);margin-bottom:10px;}
+.author-bio{font-size:14px;color:var(--ink-soft);line-height:1.6;max-width:320px;margin:0 auto 18px;}
+
+/* ══ REDES SOCIAIS ══ */
+.social-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:8px;}
+.social-link{
+  display:flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:600;color:var(--ink-soft);
+  text-decoration:none;letter-spacing:.04em;
+  padding:7px 14px;border-radius:30px;
+  border:.5px solid var(--border);
+  background:#fff;
+  transition:border-color .2s,color .2s;
+}
+.social-link:hover{border-color:var(--gold);color:var(--gold);}
+.social-link svg{width:14px;height:14px;flex-shrink:0;}
+
+/* ══ DIVISOR ══ */
+.divider{height:.5px;background:var(--border);margin:24px 0;}
+
+/* ══ CARD DE PRODUTO ══ */
+.link-card{
+  background:#fff;border:.5px solid var(--border);
+  border-radius:12px;overflow:hidden;
+  display:grid;grid-template-columns:100px 1fr;
+  margin-bottom:12px;
+  text-decoration:none;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.link-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(0,0,0,.09);
+  border-color:var(--gold);
+}
+.link-card:active{transform:scale(.98);}
+.card-img{width:100px;height:100px;object-fit:cover;display:block;flex-shrink:0;}
+.card-body{padding:14px 16px;display:flex;flex-direction:column;justify-content:center;gap:4px;}
+.card-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
+.card-title{font-family:Georgia,'Times New Roman',serif;font-size:16px;font-weight:400;color:var(--ink);line-height:1.3;}
+.card-sub{font-size:12px;color:var(--ink-soft);line-height:1.5;}
+.card-arrow{font-size:16px;color:var(--gold);margin-left:auto;align-self:center;padding-right:4px;flex-shrink:0;}
+
+/* ══ CARD DESTAQUE (Minimalize) ══ */
+.link-card.featured{
+  border:1.5px solid var(--gold);
+  grid-template-columns:120px 1fr;
+  background:linear-gradient(135deg,#fff 0%,#FAF7F2 100%);
+}
+.link-card.featured .card-img{width:120px;height:120px;}
+.link-card.featured .card-title{font-size:18px;}
+.link-card.featured .card-tag{color:var(--gold-dark);}
+
+/* ══ SEÇÃO NEWSLETTER ══ */
+.newsletter-box{
+  background:#fff;border:.5px solid var(--border);border-radius:12px;
+  padding:20px;margin-bottom:12px;text-align:center;
+}
+.newsletter-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;display:block;}
+.newsletter-title{font-family:Georgia,'Times New Roman',serif;font-size:16px;font-weight:400;color:var(--ink);margin-bottom:4px;}
+.newsletter-sub{font-size:12px;color:var(--ink-soft);margin-bottom:14px;line-height:1.5;}
+
+/* ══ SEÇÃO LABEL ══ */
+.section-label{
+  font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-muted);margin:24px 0 12px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-label::before,.section-label::after{content:'';flex:1;height:.5px;background:var(--border);}
+
+/* ══ RODAPÉ ══ */
+.footer{text-align:center;margin-top:32px;}
+.footer-logo{
+  font-family:Georgia,'Times New Roman',serif;font-size:14px;color:var(--ink-muted);
+  letter-spacing:.04em;margin-bottom:6px;
+}
+.footer-copy{font-size:11px;color:var(--ink-muted);}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- MINIMALIZE — destaque -->
+  <div class="section-label">novo</div>
+
+  <a class="link-card featured" href="https://www.sejaminimalista.net/minimalize" target="_blank" rel="noopener">
+    <img class="card-img"
+      src="https://static.wixstatic.com/media/940f31_9ceb0776e1784a919708c059e73b4e5d~mv2.jpg/v1/crop/x_201,y_0,w_558,h_540/fill/w_240,h_240,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/minimalize-thumb.jpg"
+      alt="Minimalize.IA" loading="eager">
+    <div class="card-body">
+      <div class="card-tag">🤖 Inteligência Artificial</div>
+      <div class="card-title">Minimalize</div>
+      <div class="card-sub">Método completo para destralhe e organização da sua casa com IA.</div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <!-- LIVROS -->
+  <div class="section-label">Livros</div>
+
+  <a class="link-card" href="https://www.sejaminimalista.net/" target="_blank" rel="noopener">
+    <img class="card-img"
+      src="https://static.wixstatic.com/media/940f31_d1a80e4473714d99aa11c1fe5d709f2c~mv2.jpeg/v1/crop/x_0,y_174,w_864,h_837/fill/w_200,h_200,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/seja-minimalista-thumb.jpeg"
+      alt="Seja Minimalista" loading="lazy">
+    <div class="card-body">
+      <div class="card-tag">📖 Best-seller</div>
+      <div class="card-title">Seja Minimalista</div>
+      <div class="card-sub">O guia definitivo para uma vida mais leve e mais feliz.</div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <a class="link-card" href="https://www.sejaminimalista.net/365-dias" target="_blank" rel="noopener">
+    <img class="card-img"
+      src="https://static.wixstatic.com/media/940f31_4a3bcea6d0604339995c5adf76ad8ba6~mv2.jpeg/v1/crop/x_0,y_174,w_864,h_837/fill/w_200,h_200,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/365-dias-thumb.jpeg"
+      alt="365 Dias Minimalistas" loading="lazy">
+    <div class="card-body">
+      <div class="card-tag">📅 Uma página por dia</div>
+      <div class="card-title">365 Dias Minimalistas</div>
+      <div class="card-sub">Um convite diário para uma vida com menos coisas e mais propósito.</div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <a class="link-card" href="https://www.sejaminimalista.net/45-dias" target="_blank" rel="noopener">
+    <img class="card-img"
+      src="https://static.wixstatic.com/media/940f31_7c3c504c1a15465cbbbe613882c29ca2~mv2.jpeg/v1/crop/x_477,y_0,w_727,h_704/fill/w_200,h_200,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/45-dias-thumb.jpeg"
+      alt="45 Dias de Destralhe" loading="lazy">
+    <div class="card-body">
+      <div class="card-tag">🏠 Destralhe</div>
+      <div class="card-title">45 Dias de Destralhe</div>
+      <div class="card-sub">Um desafio completo para deixar sua casa organizada e livre de tralhas.</div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <a class="link-card" href="https://www.sejaminimalista.net/livro-viagens" target="_blank" rel="noopener">
+    <img class="card-img"
+      src="https://static.wixstatic.com/media/940f31_41d333b25e6a41d0aeef62be6fcc8e38~mv2.jpeg/v1/crop/x_0,y_174,w_864,h_837/fill/w_200,h_200,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/viajante-thumb.jpeg"
+      alt="Viajante Minimalista" loading="lazy">
+    <div class="card-body">
+      <div class="card-tag">✈️ Viagens</div>
+      <div class="card-title">Viajante Minimalista</div>
+      <div class="card-sub">O guia completo para planejar e executar viagens incríveis.</div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <a class="link-card" href="https://www.sejaminimalista.net/armario-enxuto" target="_blank" rel="noopener">
+    <img class="card-img"
+      src="https://static.wixstatic.com/media/940f31_15755753bb5648a1b9c935287442ca3a~mv2.jpeg/v1/crop/x_0,y_162,w_864,h_861/fill/w_200,h_200,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/armario-thumb.jpeg"
+      alt="Armário Enxuto" loading="lazy">
+    <div class="card-body">
+      <div class="card-tag">👗 Guarda-roupa</div>
+      <div class="card-title">Armário Enxuto</div>
+      <div class="card-sub">O guia prático para fazer as pazes com o seu visual.</div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <a class="link-card" href="https://www.sejaminimalista.net/devocional" target="_blank" rel="noopener">
+    <img class="card-img"
+      src="https://static.wixstatic.com/media/940f31_359e87a3e419459f83c51b210bfa3d36~mv2.jpeg/v1/crop/x_0,y_5,w_1024,h_1013/fill/w_200,h_200,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/devocional-thumb.jpeg"
+      alt="Meu Tempo com Deus" loading="lazy">
+    <div class="card-body">
+      <div class="card-tag">🙏 Devocional</div>
+      <div class="card-title">Meu Tempo com Deus</div>
+      <div class="card-sub">Um devocional para quem busca leveza, propósito e conexão espiritual.</div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <!-- PLANNERS -->
+  <div class="section-label">Planners</div>
+
+  <a class="link-card" href="https://www.sejaminimalista.net/agenda-minimalista" target="_blank" rel="noopener">
+    <img class="card-img"
+      src="https://static.wixstatic.com/media/940f31_8ca1af23142444ee9315e4a2a2222a08~mv2.jpeg/v1/crop/x_0,y_165,w_864,h_855/fill/w_200,h_200,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/agenda-thumb.jpeg"
+      alt="Minha Agenda Minimalista 2026" loading="lazy">
+    <div class="card-body">
+      <div class="card-tag">📆 Agenda 2026</div>
+      <div class="card-title">Minha Agenda Minimalista</div>
+      <div class="card-sub">A agenda mais versátil do Brasil para planejar seus dias com clareza e leveza.</div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <a class="link-card" href="https://www.sejaminimalista.net/planner2026" target="_blank" rel="noopener">
+    <img class="card-img"
+      src="https://static.wixstatic.com/media/940f31_4c5644caab0841a79bc860a670edd306~mv2.jpeg/v1/crop/x_0,y_162,w_864,h_861/fill/w_200,h_200,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/planner-thumb.jpeg"
+      alt="Meu Planner Minimalista" loading="lazy">
+    <div class="card-body">
+      <div class="card-tag">📋 Planner permanente</div>
+      <div class="card-title">Meu Planner Minimalista</div>
+      <div class="card-sub">O planner minimalista mais completo do Brasil.</div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <a class="link-card" href="https://www.sejaminimalista.net/planner-viagens" target="_blank" rel="noopener">
+    <img class="card-img"
+      src="https://static.wixstatic.com/media/940f31_e067c51ec583467ca372db1eed5128b0~mv2.jpeg/v1/crop/x_0,y_162,w_864,h_861/fill/w_200,h_200,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/planner-viagens-thumb.jpeg"
+      alt="Minhas Viagens dos Sonhos" loading="lazy">
+    <div class="card-body">
+      <div class="card-tag">✈️ Planner de viagens</div>
+      <div class="card-title">Minhas Viagens dos Sonhos</div>
+      <div class="card-sub">O planner para tirar do papel e realizar todas as suas viagens dos sonhos.</div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <!-- LOJA DE COMBOS -->
+  <div class="section-label">Loja</div>
+
+  <a class="link-card" href="https://www.sejaminimalista.net/catalogo" target="_blank" rel="noopener">
+    <img class="card-img"
+      src="https://static.wixstatic.com/media/940f31_9838f95851d04fae89e45d43a6fe0e09~mv2.jpg/v1/crop/x_0,y_9,w_382,h_382/fill/w_200,h_200,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/combos-thumb.jpg"
+      alt="Combos com Desconto" loading="lazy">
+    <div class="card-body">
+      <div class="card-tag">🛍️ Combos especiais</div>
+      <div class="card-title">Combos com Descontos</div>
+      <div class="card-sub">Combos especiais com descontos progressivos em todos os produtos.</div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <!-- NEWSLETTER -->
+  <div class="section-label">Newsletter</div>
+
+  <div class="newsletter-box">
+    <span class="newsletter-tag">📬 Gratuita · Toda semana</span>
+    <div class="newsletter-title">Newsletter Seja Minimalista</div>
+    <p class="newsletter-sub">Reflexões e práticas minimalistas direto no seu e-mail, toda semana.</p>
+    <iframe
+      src="https://sejaminimalista.substack.com/embed?transparent=1&light=1"
+      width="480" height="150"
+      style="border:0;background:transparent;max-width:100%;display:block;margin:0 auto;"
+      frameborder="0" scrolling="no"
+      title="Newsletter Seja Minimalista">
+    </iframe>
+  </div>
+
+  <!-- RODAPÉ -->
+  <div class="divider"></div>
+  <div class="footer">
+    <div class="footer-logo">Seja Minimalista</div>
+    <div class="footer-copy">Alexandre Chahoud · © 2026</div>
+  </div>
+
+</div>
+
+</body>
+</html>
