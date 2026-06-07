@@ -379,7 +379,9 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   .footer-divider{flex-direction:column;gap:6px;}
   .urg-digit{font-size:26px;min-width:50px;padding:8px 12px;}
   .whatsapp-float{width:56px;height:56px;right:16px;bottom:16px;}
-  /* card de pricing: vertical no mobile */
+  /* para quem é: vídeo primeiro no mobile */
+  #para-quem .grid2{display:flex;flex-direction:column;}
+  #para-quem .grid2 .video-col{order:-1;}
   #versoes .pc.dest[style*="grid-template-columns"]{
     grid-template-columns:1fr!important;
     min-height:auto!important;
@@ -488,7 +490,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 </section>
 
 <!-- PARA QUEM É -->
-<section class="sec">
+<section class="sec" id="para-quem">
   <div class="inner">
     <div class="grid2" style="align-items:start;">
       <div>
@@ -508,7 +510,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         <div style="margin-top:28px;"><a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Esse sou eu — quero começar</a></div>
       </div>
       <!-- VÍDEO LAZY -->
-      <div style="border-radius:10px;overflow:hidden;background:var(--ink);aspect-ratio:9/16;max-width:320px;margin:0 auto;">
+      <div class="video-col" style="border-radius:10px;overflow:hidden;background:var(--ink);aspect-ratio:9/16;max-width:320px;margin:0 auto;">
         <video id="qual-video"
           muted loop playsinline autoplay
           preload="metadata"
