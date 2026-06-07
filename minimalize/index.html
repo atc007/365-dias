@@ -489,9 +489,13 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         </div>
         <div style="margin-top:28px;"><a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Esse sou eu — quero começar</a></div>
       </div>
-      <div class="img-box">
-        <img src="https://static.wixstatic.com/media/940f31_2175bf3619344dc4861577e3ebe9f9d9~mv2.jpg/v1/fill/w_738,h_848,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/minimalize-para-quem.jpg"
-          alt="Pessoa organizando a casa com o Minimalize.IA" width="738" height="848" loading="lazy" decoding="async">
+      <!-- VÍDEO LAZY -->
+      <div style="border-radius:10px;overflow:hidden;background:var(--ink);aspect-ratio:9/16;max-width:320px;margin:0 auto;">
+        <video id="qual-video" muted loop playsinline preload="none"
+          poster="https://static.wixstatic.com/media/940f31_1706864bd97e4e77a3f6c9a63b6025bb~mv2.jpg/v1/crop/x_0,y_120,w_1024,h_1297/fill/w_484,h_613,al_c,q_85,enc_avif,quality_auto/minimalize-poster.jpg"
+          style="width:100%;height:100%;object-fit:cover;display:block;">
+          <source src="https://video.wixstatic.com/video/940f31_89f9e0b610e349a4b378f2a8546ec812/1080p/mp4/file.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
   </div>
@@ -717,10 +721,18 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 <!-- BÔNUS -->
 <section class="sec alt">
   <div class="inner">
-    <div class="grid2">
+    <div class="sec-eyebrow">Comprando hoje você recebe</div>
+    <h2 class="sec-h2">Acesso ao agente + curso completo + bônus exclusivos</h2>
+    <!-- Imagem paisagem em largura total antes do conteúdo -->
+    <div style="margin-bottom:32px;border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.10);">
+      <img src="https://static.wixstatic.com/media/940f31_d31ccc5e4f584f09abd851f306bec2f7~mv2.jpg"
+        alt="Conteúdo inclusos no Minimalize.IA — bônus e curso"
+        style="width:100%;height:auto;display:block;max-height:420px;object-fit:cover;"
+        loading="lazy" decoding="async">
+    </div>
+    <!-- Conteúdo em 2 colunas abaixo da imagem -->
+    <div class="grid2" style="align-items:start;">
       <div>
-        <div class="sec-eyebrow">Comprando hoje você recebe</div>
-        <h2 class="sec-h2">Acesso ao agente + curso completo + bônus exclusivos</h2>
         <div class="bonus-valor-box">
           <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 227 em conteúdo — disponível com desconto agora</strong></div>
           <div class="bonus-valor-right"><span class="was">R$ 227,00</span><span class="gratis">R$ 77 🎁</span></div>
@@ -728,16 +740,14 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         <div class="bonus-list">
           <div class="bonus-item"><div class="bonus-num">1</div><div><div class="bonus-title">Agente Minimalize.IA — acesso vitalício</div><div class="bonus-val">O agente de IA completo com todos os módulos de destralhe</div></div></div>
           <div class="bonus-item"><div class="bonus-num">2</div><div><div class="bonus-title">Curso completo — instalar e usar do zero</div><div class="bonus-val">Videoaulas simples e práticas para começar imediatamente</div></div></div>
-          <div class="bonus-item"><div class="bonus-num">3</div><div><div class="bonus-title">Acesso à Área VIP Seja Minimalista</div><div class="bonus-val">Conteúdos extras, planners e exercícios complementares</div></div></div>
-          <div class="bonus-item"><div class="bonus-num">4</div><div><div class="bonus-title">Atualizações gratuitas para sempre</div><div class="bonus-val">Novos módulos e melhorias sem custo adicional</div></div></div>
         </div>
       </div>
       <div>
-        <img src="https://static.wixstatic.com/media/940f31_89f9e0b610e349a4b378f2a8546ec812f000.jpg/v1/fill/w_837,h_640,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/minimalize-tela.jpg"
-          alt="Tela do agente Minimalize.IA em funcionamento"
-          style="width:100%;border-radius:12px;display:block;box-shadow:0 12px 40px rgba(0,0,0,.12);"
-          loading="lazy" decoding="async">
-        <p style="font-size:12px;color:var(--ink-muted);text-align:center;margin-top:12px;">Funciona com conta gratuita do ChatGPT · Celular, tablet ou computador</p>
+        <div class="bonus-list">
+          <div class="bonus-item"><div class="bonus-num">3</div><div><div class="bonus-title">Acesso à Área VIP Seja Minimalista</div><div class="bonus-val">Conteúdos extras, planners e exercícios complementares</div></div></div>
+          <div class="bonus-item"><div class="bonus-num">4</div><div><div class="bonus-title">Atualizações gratuitas para sempre</div><div class="bonus-val">Novos módulos e melhorias sem custo adicional</div></div></div>
+        </div>
+        <p style="font-size:12px;color:var(--ink-muted);margin-top:16px;">Funciona com conta gratuita do ChatGPT · Celular, tablet ou computador</p>
       </div>
     </div>
   </div>
@@ -775,14 +785,16 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   <div class="inner">
     <div class="sec-eyebrow" style="justify-content:center;">Escolha seu acesso</div>
     <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 0;">Comece seu destralhe com IA hoje.</h2>
-    <div class="precos">
-      <div class="pc">
-        <div class="pc-img">
-          <img src="https://static.wixstatic.com/media/940f31_aa3f17c7c7cf49ad8174bb4af6a0eb4a~mv2.jpg/v1/crop/x_120,y_0,w_784,h_1471/fill/w_400,h_500,al_c,q_90,enc_avif,quality_auto/minimalize-digital.jpg"
-            alt="Minimalize.IA acesso digital" width="400" height="500" loading="lazy" decoding="async">
+    <!-- Card único centralizado -->
+    <div style="max-width:440px;margin:28px auto 0;">
+      <div class="pc dest" style="border-width:2px;">
+        <div class="dest-tag">🤖 Acesso Vitalício</div>
+        <div class="pc-img" style="height:260px;">
+          <img src="https://static.wixstatic.com/media/940f31_aa3f17c7c7cf49ad8174bb4af6a0eb4a~mv2.jpg/v1/crop/x_120,y_0,w_784,h_1471/fill/w_440,h_560,al_c,q_90,enc_avif,quality_auto/minimalize-digital.jpg"
+            alt="Minimalize.IA acesso digital vitalício" width="440" height="560" loading="lazy" decoding="async">
         </div>
         <div class="pc-body">
-          <div class="pc-type">Acesso Digital Vitalício</div>
+          <div class="pc-type">Minimalize.IA — Acesso Vitalício</div>
           <div class="pc-was">De R$ 227,00</div>
           <div class="pc-now"><sup>R$</sup>77</div>
           <div class="pc-parc">ou 12x de R$ 7,96</div>
@@ -794,30 +806,8 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
             <li>Atualizações gratuitas para sempre</li>
             <li>Funciona com conta gratuita do ChatGPT</li>
           </ul>
-          <a class="pc-btn dark" href="https://chk.eduzz.com/89AQ2V75WD?pf=1" target="_blank" rel="noopener">Quero meu Minimalize.IA</a>
+          <a class="pc-btn gold" href="https://chk.eduzz.com/89AQ2V75WD?pf=1" target="_blank" rel="noopener">Quero meu Minimalize.IA agora</a>
           <div class="pc-urgency-note">⚡ Acesso imediato após o pagamento</div>
-        </div>
-      </div>
-      <div class="pc dest">
-        <div class="dest-tag">🔥 Melhor opção</div>
-        <div class="pc-img">
-          <img src="https://static.wixstatic.com/media/940f31_57ea2ac91eb14555a181a61d4970a2f7~mv2.jpg/v1/fill/w_316,h_325,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/minimalize-combo.jpg"
-            alt="Minimalize.IA + Guia 45 Dias combo" width="316" height="325" loading="lazy" decoding="async">
-        </div>
-        <div class="pc-body">
-          <div class="pc-type">Combo — Minimalize.IA + Guia 45 Dias</div>
-          <div class="pc-was">De R$ 274,00</div>
-          <div class="pc-now"><sup>R$</sup>124</div>
-          <div class="pc-parc">ou 12x de R$ 12,82</div>
-          <ul class="pc-feats">
-            <li>Tudo do Acesso Digital Vitalício</li>
-            <li>Guia 45 Dias de Destralhe digital</li>
-            <li>Plano dia a dia para 45 missões</li>
-            <li>Método + IA = resultado acelerado</li>
-            <li>Bônus e Área VIP inclusos</li>
-          </ul>
-          <a class="pc-btn gold" href="https://chk.eduzz.com/89AQ2V75WD?pf=1&combo=1" target="_blank" rel="noopener">Quero o Combo completo</a>
-          <div class="pc-urgency-note">⚡ Acesso imediato · Melhor custo-benefício</div>
         </div>
       </div>
     </div>
@@ -926,6 +916,10 @@ function irParaVersoes(e){if(e)e.preventDefault();var el=document.getElementById
   }
   tick();
 })();
+
+/* VÍDEO lazy — para quem é */
+var qv=document.getElementById('qual-video');
+if(qv){var qvObs=new IntersectionObserver(function(e){if(e[0].isIntersecting){qv.load();qv.play().catch(function(){});qvObs.disconnect();}},{threshold:.1});qvObs.observe(qv);}
 
 /* FAQ */
 function faq(btn){btn.parentElement.classList.toggle('open');}
