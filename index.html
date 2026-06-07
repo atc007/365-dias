@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Seja Minimalista — O Guia Definitivo de Alexandre Chahoud | Seja Minimalista</title>
-<meta name="description" content="O guia prático para viver com menos excessos e mais leveza. Mais de 25 mil leitores transformados em 15 países. Livro de Alexandre Chahoud. Frete grátis. Garantia de 7 dias.">
+<meta name="description" content="O guia prático para viver com menos excessos e mais leveza. Mais de 25 mil leitores transformados em 15 países. Best-Seller de Alexandre Chahoud. Frete grátis. Garantia de 7 dias.">
 <meta property="og:title" content="Seja Minimalista — O Guia Definitivo de Alexandre Chahoud">
 <meta property="og:description" content="Aprenda, passo a passo, como desapegar do que não faz sentido, organizar sua casa e construir uma vida mais leve, funcional e feliz.">
 <meta property="og:image" content="https://static.wixstatic.com/media/940f31_aa1a63c13d8b4026ae6cb6dcb53233ac~mv2.jpg">
@@ -976,19 +976,25 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
             alt="Seja Minimalista" width="260" height="54" loading="lazy" decoding="async">
         </div>
         <p class="footer-copy">Para uma vida mais leve e mais feliz.<br>© 2026. Todos os direitos reservados.</p>
+        <a class="btn-gold" href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener noreferrer" style="font-size:12px;padding:10px 20px;margin-top:16px;display:inline-block;">Seguir no Instagram</a>
       </div>
       <div class="footer-links">
         <h4>Links úteis</h4>
         <a href="https://www.sejaminimalista.net/vip/entrar" target="_blank">Área VIP</a>
         <a href="https://www.sejaminimalista.net/catalogo" target="_blank">Todos os livros</a>
-        <a href="https://www.sejaminimalista.net/365-dias" target="_blank">365 Dias Minimalistas</a>
         <a href="mailto:sejaminimalista@hotmail.com">Fale comigo</a>
         <a href="https://www.sejaminimalista.net/termos-de-uso" target="_blank">Termos de uso</a>
       </div>
       <div class="footer-news">
-        <h4>Redes sociais</h4>
-        <p>Conteúdo diário sobre minimalismo desde 2018. Mais de 150 mil pessoas já acompanham.</p>
-        <a class="btn-gold" href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener noreferrer" style="font-size:13px;padding:12px 22px;">Seguir no Instagram</a>
+        <h4>Newsletter gratuita</h4>
+        <p style="font-size:12px;color:#5F5E5A;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas direto no seu e-mail, toda semana.</p>
+        <iframe
+          src="https://sejaminimalista.substack.com/embed?transparent=1&light=1"
+          width="480" height="150"
+          style="border:0;background:transparent;max-width:100%;display:block;"
+          frameborder="0" scrolling="no"
+          title="Newsletter Seja Minimalista">
+        </iframe>
       </div>
     </div>
     <div class="footer-divider">
@@ -1010,23 +1016,28 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <script>
 function irParaVersoes(e){if(e)e.preventDefault();var el=document.getElementById('versoes');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
 
-/* COUNTDOWN persistente 23h59 */
+/* COUNTDOWN persistente 23h59 — reinicia ao zerar */
 (function(){
   var KEY='sm_deadline';
   var stored=localStorage.getItem(KEY);
   var deadline;
   if(stored){deadline=parseInt(stored,10);}
   else{deadline=Date.now()+(23*3600+59*60+59)*1000;try{localStorage.setItem(KEY,deadline);}catch(e){}}
+  function resetDeadline(){
+    deadline=Date.now()+(23*3600+59*60+59)*1000;
+    try{localStorage.setItem(KEY,deadline);}catch(e){}
+  }
   function pad(n){return String(n).padStart(2,'0');}
   function tick(){
-    var diff=Math.max(0,deadline-Date.now());
+    var diff=deadline-Date.now();
+    if(diff<=0){resetDeadline();diff=deadline-Date.now();}
     var h=Math.floor(diff/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);
     var hp=pad(h),mp=pad(m),sp=pad(s);
     [['cd-h','cd-m','cd-s'],['urg-h','urg-m','urg-s']].forEach(function(g){
       var eh=document.getElementById(g[0]),em=document.getElementById(g[1]),es=document.getElementById(g[2]);
       if(eh){eh.textContent=hp;em.textContent=mp;es.textContent=sp;}
     });
-    if(diff>0)setTimeout(tick,1000);
+    setTimeout(tick,1000);
   }
   tick();
 })();
