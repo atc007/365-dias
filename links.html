@@ -70,11 +70,10 @@ html,body{
 .link-card{
   background:#2E2E2C;border:.5px solid var(--border);
   border-radius:12px;overflow:hidden;
-  display:grid;grid-template-columns:100px 1fr;
+  display:flex;flex-direction:column;
   margin-bottom:12px;
   text-decoration:none;
   transition:transform .2s,box-shadow .2s,border-color .2s;
-  align-items:stretch;
 }
 .link-card:hover{
   transform:translateY(-2px);
@@ -82,11 +81,11 @@ html,body{
   border-color:var(--gold);
 }
 .link-card:active{transform:scale(.98);}
-.card-img{width:100px;height:100%;min-height:100px;object-fit:cover;display:block;flex-shrink:0;}
-.card-body{padding:14px 16px;display:flex;flex-direction:column;justify-content:center;gap:4px;}
+.card-img{width:100%;height:200px;object-fit:cover;display:block;}
+.card-body{padding:14px 16px 18px;display:flex;flex-direction:column;gap:4px;}
 .card-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
-.card-title{font-family:Georgia,'Times New Roman',serif;font-size:16px;font-weight:400;color:#E8E2D8;line-height:1.3;}
-.card-sub{font-size:12px;color:#888780;line-height:1.5;}
+.card-title{font-family:Georgia,'Times New Roman',serif;font-size:18px;font-weight:400;color:#E8E2D8;line-height:1.3;}
+.card-sub{font-size:13px;color:#888780;line-height:1.55;}
 .card-arrow{display:none;}
 
 /* ══ SELO BEST-SELLER ══ */
@@ -105,11 +104,10 @@ html,body{
 /* ══ CARD DESTAQUE (Minimalize) ══ */
 .link-card.featured{
   border:1.5px solid var(--gold);
-  grid-template-columns:120px 1fr;
   background:#2A2620;
 }
-.link-card.featured .card-img{width:120px;height:120px;}
-.link-card.featured .card-title{font-size:18px;color:#F5F0E8;}
+.link-card.featured .card-img{height:260px;}
+.link-card.featured .card-title{font-size:20px;color:#F5F0E8;}
 .link-card.featured .card-tag{color:var(--gold);}
 
 /* ══ SEÇÃO NEWSLETTER ══ */
