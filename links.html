@@ -29,140 +29,110 @@ html,body{
 
 :root{
   --gold:#C9A96E;
-  --gold-dark:#9A7A30;
-  --ink:#1C1C1A;
-  --ink-soft:#5F5E5A;
-  --ink-muted:#888780;
-  --cream:#F5F0E8;
-  --border:#3D3D3B;
-  --card-bg:#2E2E2C;
+  --border:#3A3A38;
   --max:520px;
 }
 
 /* ══ WRAPPER ══ */
 .page{max-width:var(--max);margin:0 auto;padding:16px 20px 56px;}
 
-/* cards container centralizado */
-.cards-list{display:flex;flex-direction:column;align-items:center;gap:12px;}
-
-/* ══ CARD DE PRODUTO ══ */
-.link-card{
-  background:#2E2E2C;border:.5px solid var(--border);
-  border-radius:12px;overflow:hidden;
-  display:flex;flex-direction:column;
-  width:200px;
-  text-decoration:none;
-  transition:transform .2s,box-shadow .2s,border-color .2s;
-}
-.link-card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 24px rgba(0,0,0,.3);
-  border-color:var(--gold);
-}
-.link-card:active{transform:scale(.98);}
-.card-img{
-  width:200px;height:265px;
-  object-fit:cover;display:block;
-  background:#2E2E2C;
-}
-
-/* ══ HEADER — avatar + nome + bio ══ */
-.header{text-align:center;margin-bottom:32px;}
-.avatar{width:88px;height:88px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 14px;border:2px solid var(--border);}
-.author-name{font-family:Georgia,'Times New Roman',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em;}
-.author-handle{font-size:13px;color:var(--ink-muted);margin-bottom:10px;}
-.author-bio{font-size:14px;color:var(--ink-soft);line-height:1.6;max-width:320px;margin:0 auto 18px;}
-
-/* ══ REDES SOCIAIS ══ */
-.social-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:8px;}
-.social-link{
-  display:flex;align-items:center;gap:6px;
-  font-size:12px;font-weight:600;color:var(--ink-soft);
-  text-decoration:none;letter-spacing:.04em;
-  padding:7px 14px;border-radius:30px;
-  border:.5px solid var(--border);
-  background:#fff;
-  transition:border-color .2s,color .2s;
-}
-.social-link:hover{border-color:var(--gold);color:var(--gold);}
-.social-link svg{width:14px;height:14px;flex-shrink:0;}
-
-/* ══ DIVISOR ══ */
-.divider{height:.5px;background:#3D3D3B;margin:24px 0;}
-
-/* ══ CARD DE PRODUTO ══ */
-.link-card{
-  background:#2E2E2C;border:.5px solid var(--border);
-  border-radius:12px;overflow:hidden;
-  display:flex;flex-direction:column;
-  width:260px;
-  margin:0 auto 12px;
-  text-decoration:none;
-  transition:transform .2s,box-shadow .2s,border-color .2s;
-}
-.link-card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 24px rgba(0,0,0,.3);
-  border-color:var(--gold);
-}
-.link-card:active{transform:scale(.98);}
-.card-img{
-  width:260px;height:345px;
-  object-fit:cover;
-  display:block;
-  background:#2E2E2C;
-}
-.card-body{padding:12px 14px 16px;display:flex;flex-direction:column;gap:4px;}
-.link-card.featured{width:260px;border:1.5px solid var(--gold);background:#2A2620;}
-.link-card.featured .card-img{height:345px;}
-.card-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
-.card-title{font-family:Georgia,'Times New Roman',serif;font-size:15px;font-weight:400;color:#E8E2D8;line-height:1.3;}
-.card-sub{font-size:11px;color:#888780;line-height:1.5;}
-.card-arrow{display:none;}
-
-/* ══ SELO BEST-SELLER ══ */
-.card-seal{
-  display:inline-flex;align-items:center;gap:4px;
-  background:linear-gradient(90deg,#B8925A,#C9A96E,#E8D09A,#C9A96E,#B8925A);
-  background-size:200% auto;
-  color:#1C1C1A;font-size:9px;font-weight:800;
-  letter-spacing:.08em;text-transform:uppercase;
-  padding:3px 10px;border-radius:20px;
-  margin-bottom:5px;align-self:flex-start;
-  animation:shimmer-seal 3s linear infinite;
-}
-@keyframes shimmer-seal{0%{background-position:200% center;}100%{background-position:-200% center;}}
-.card-seal.launch{
-  background:linear-gradient(90deg,#1a5c2e,#228B50,#2ecc71,#228B50,#1a5c2e);
-  background-size:200% auto;
-  color:#fff;
-  animation:shimmer-seal 3s linear infinite;
-}
-
-/* ══ SEÇÃO NEWSLETTER ══ */
-.newsletter-box{
-  background:transparent;border:.5px solid #3D3D3B;border-radius:12px;
-  padding:20px;margin-bottom:12px;text-align:center;
-}
-.newsletter-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;display:block;}
-.newsletter-title{font-family:Georgia,'Times New Roman',serif;font-size:16px;font-weight:400;color:#E8E2D8;margin-bottom:4px;}
-.newsletter-sub{font-size:12px;color:#888780;margin-bottom:14px;line-height:1.5;}
-
-/* ══ SEÇÃO LABEL ══ */
+/* ══ SECTION LABEL ══ */
 .section-label{
-  font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  color:#5F5E5A;margin:24px 0 12px;
+  font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:#5F5E5A;margin:28px 0 14px;
   display:flex;align-items:center;gap:10px;
 }
-.section-label::before,.section-label::after{content:'';flex:1;height:.5px;background:#3D3D3B;}
+.section-label::before,.section-label::after{content:'';flex:1;height:.5px;background:#3A3A38;}
+
+/* ══ CARD ══ */
+.link-card{
+  background:#242422;
+  border:.5px solid #3A3A38;
+  border-radius:14px;overflow:hidden;
+  display:flex;flex-direction:column;
+  width:260px;
+  margin:0 auto 14px;
+  text-decoration:none;
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+  position:relative;
+}
+.link-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 32px rgba(0,0,0,.45);
+  border-color:var(--gold);
+}
+.link-card:active{transform:scale(.97);}
+
+/* imagem */
+.card-img{
+  width:260px;height:345px;
+  object-fit:cover;display:block;
+  transition:transform .4s ease;
+}
+.link-card:hover .card-img{transform:scale(1.03);}
+
+/* corpo */
+.card-body{
+  padding:14px 16px 18px;
+  display:flex;flex-direction:column;gap:5px;
+  background:linear-gradient(180deg,#242422 0%,#1e1e1c 100%);
+}
+.card-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
+.card-title{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:16px;font-weight:400;color:#ECE6DC;line-height:1.3;
+}
+.card-sub{font-size:11px;color:#706E69;line-height:1.55;}
+.card-arrow{display:none;}
+
+/* ══ CARD MINIMALIZE ══ */
+.link-card.featured{
+  border:1.5px solid var(--gold);
+  background:#232017;
+  box-shadow:0 4px 20px rgba(201,169,110,.12);
+}
+.link-card.featured .card-body{
+  background:linear-gradient(180deg,#232017 0%,#1c1a12 100%);
+}
+.link-card.featured .card-title{color:#F5EDD8;}
+
+/* ══ SELOS ══ */
+@keyframes shimmer-seal{0%{background-position:200% center;}100%{background-position:-200% center;}}
+.card-seal{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 10px;border-radius:20px;
+  margin-bottom:4px;align-self:flex-start;
+  background-size:200% auto;
+  animation:shimmer-seal 3s linear infinite;
+}
+/* dourado — best-seller */
+.card-seal.best{
+  background:linear-gradient(90deg,#B8925A,#C9A96E,#E8D09A,#C9A96E,#B8925A);
+  color:#1C1C1A;
+}
+/* verde — lançamento */
+.card-seal.launch{
+  background:linear-gradient(90deg,#1a5c2e,#228B50,#2ecc71,#228B50,#1a5c2e);
+  color:#fff;
+}
+
+/* ══ NEWSLETTER ══ */
+.newsletter-box{
+  background:transparent;border:.5px solid #3A3A38;border-radius:14px;
+  padding:22px 20px;margin-bottom:14px;text-align:center;
+}
+.newsletter-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;display:block;}
+.newsletter-title{font-family:Georgia,'Times New Roman',serif;font-size:16px;font-weight:400;color:#ECE6DC;margin-bottom:4px;}
+.newsletter-sub{font-size:12px;color:#706E69;margin-bottom:14px;line-height:1.5;}
+
+/* ══ DIVISOR ══ */
+.divider{height:.5px;background:#3A3A38;margin:24px 0;}
 
 /* ══ RODAPÉ ══ */
 .footer{text-align:center;margin-top:32px;}
-.footer-logo{
-  font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#5F5E5A;
-  letter-spacing:.04em;margin-bottom:6px;
-}
-.footer-copy{font-size:11px;color:#5F5E5A;}
+.footer-logo{font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#4A4A48;letter-spacing:.04em;margin-bottom:4px;}
+.footer-copy{font-size:10px;color:#4A4A48;}
 </style>
 </head>
 <body>
@@ -193,7 +163,7 @@ html,body{
       src="https://static.wixstatic.com/media/940f31_41451adb64ed46afa88a6c4be84c11c9~mv2.jpg"
       alt="Seja Minimalista" loading="lazy">
     <div class="card-body">
-      <div class="card-seal">⭐ Best-seller</div>
+      <div class="card-seal best">⭐ Best-seller</div>
       <div class="card-title">Seja Minimalista</div>
       <div class="card-sub">O guia definitivo para uma vida mais leve e mais feliz.</div>
     </div>
