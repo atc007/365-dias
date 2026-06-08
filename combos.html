@@ -163,8 +163,10 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   html,body{width:100%;overflow-x:hidden;}
   .inner{padding:0 16px;}
 
-  /* topbar — empilha itens verticalmente, sem overflow */
-  .topbar{padding:10px 16px;gap:6px;flex-direction:column;align-items:flex-start;flex-wrap:nowrap;}
+  /* topbar mobile — só frete + descontos na mesma linha */
+  .topbar{padding:8px 16px;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;gap:8px;}
+  .tb-item:nth-child(2){display:none;}
+  .tb-item:nth-child(4){display:none;}
   .tb-item{font-size:11px;}
 
   .hero{padding:28px 0;}
