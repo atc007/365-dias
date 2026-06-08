@@ -81,7 +81,14 @@ html,body{
   border-color:var(--gold);
 }
 .link-card:active{transform:scale(.98);}
-.card-img{width:100%;height:200px;object-fit:cover;display:block;}
+.card-img{
+  width:100%;height:276px;
+  object-fit:contain;
+  display:block;
+  background:#2E2E2C;
+  padding:8px;
+}
+.link-card.featured .card-img{height:276px;padding:0;object-fit:cover;}
 .card-body{padding:14px 16px 18px;display:flex;flex-direction:column;gap:4px;}
 .card-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
 .card-title{font-family:Georgia,'Times New Roman',serif;font-size:18px;font-weight:400;color:#E8E2D8;line-height:1.3;}
