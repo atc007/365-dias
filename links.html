@@ -64,23 +64,22 @@ html,body{
   width:260px;
   margin:0 auto 14px;
   text-decoration:none;
-  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+  /* tap feedback no mobile */
+  -webkit-tap-highlight-color:transparent;
+  transition:transform .15s ease,box-shadow .15s ease;
   position:relative;
 }
-.link-card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 32px rgba(0,0,0,.45);
-  border-color:var(--gold);
+/* tap press — funciona em touch */
+.link-card:active{
+  transform:scale(.97);
+  box-shadow:0 4px 16px rgba(0,0,0,.4);
 }
-.link-card:active{transform:scale(.97);}
 
-/* imagem */
+/* imagem — sem zoom no hover */
 .card-img{
   width:260px;height:345px;
   object-fit:cover;display:block;
-  transition:transform .4s ease;
 }
-.link-card:hover .card-img{transform:scale(1.03);}
 
 /* corpo */
 .card-body{
@@ -96,7 +95,16 @@ html,body{
 .card-sub{font-size:11px;color:#706E69;line-height:1.55;}
 .card-arrow{display:none;}
 
-/* ══ CARD MINIMALIZE ══ */
+/* hover apenas em dispositivos com ponteiro fino (desktop) */
+@media(hover:hover) and (pointer:fine){
+  .link-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 32px rgba(0,0,0,.45);
+    border-color:var(--gold);
+  }
+  .link-card:hover .card-img{transform:scale(1.03);}
+  .link-card:hover{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;}
+}
 .link-card.featured{
   border:1.5px solid var(--gold);
   background:#232017;
@@ -108,23 +116,26 @@ html,body{
 .link-card.featured .card-title{color:#F5EDD8;}
 
 /* ══ SELOS ══ */
-@keyframes shimmer-seal{0%{background-position:200% center;}100%{background-position:-200% center;}}
+@keyframes shimmer-seal{
+  0%{background-position:150% center;}
+  100%{background-position:-150% center;}
+}
 .card-seal{
   display:inline-flex;align-items:center;gap:4px;
   font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
   padding:3px 10px;border-radius:20px;
   margin-bottom:4px;align-self:flex-start;
-  background-size:200% auto;
-  animation:shimmer-seal 3s linear infinite;
+  background-size:250% auto;
+  animation:shimmer-seal 1.8s linear infinite;
 }
 /* dourado — best-seller */
 .card-seal.best{
-  background:linear-gradient(90deg,#B8925A,#C9A96E,#E8D09A,#C9A96E,#B8925A);
+  background:linear-gradient(90deg,#8B6010 0%,#C9A96E 30%,#FFF0B0 50%,#C9A96E 70%,#8B6010 100%);
   color:#1C1C1A;
 }
 /* verde — lançamento */
 .card-seal.launch{
-  background:linear-gradient(90deg,#1a5c2e,#228B50,#2ecc71,#228B50,#1a5c2e);
+  background:linear-gradient(90deg,#0d3d1e 0%,#228B50 30%,#7fffa0 50%,#228B50 70%,#0d3d1e 100%);
   color:#fff;
 }
 
