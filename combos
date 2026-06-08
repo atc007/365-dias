@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;background:#EFEFEF;}
+
+/* LOADER */
+#loader{position:fixed;inset:0;background:#1C1C1A;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .5s ease;}
+#loader-logo{font-family:Georgia,serif;font-size:20px;color:#F5F0E8;letter-spacing:.06em;}
+#loader-logo span{color:#C9A96E;}
+#loader-track{width:160px;height:2px;background:#2E2E2C;border-radius:2px;overflow:hidden;}
+#loader-bar{height:100%;width:0;background:#C9A96E;animation:lp 1.4s cubic-bezier(.4,0,.2,1) forwards;}
+@keyframes lp{0%{width:0}60%{width:70%}100%{width:100%}}
+#loader-txt{font-size:10px;color:#888780;letter-spacing:.1em;text-transform:uppercase;}
+
+/* TOPBAR */
+.topbar{width:100%;background:#1C1C1A;padding:10px 32px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
+.tb-item{font-size:12px;color:#E8E2D8;display:flex;align-items:center;gap:6px;}
+.tb-dot{width:5px;height:5px;border-radius:50%;background:#C9A96E;flex-shrink:0;}
+
+/* HERO */
+.hero{background:#EFEFEF;padding:28px 32px;}
+.hero h1{font-family:Georgia,serif;font-size:clamp(22px,2.5vw,30px);font-weight:400;color:#1C1C1A;margin-bottom:6px;}
+.hero p{font-size:14px;color:#5F5E5A;line-height:1.6;}
+
+/* SEÇÕES */
+.sec{width:100%;padding:28px 32px;}
+.sec.dark{background:#1C1C1A;}
+.sec.warm{background:#F5F0E8;}
+.sec.mid{background:#2E2E2C;}
+
+/* TÍTULO DESTAQUE */
+.sec-title{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+.sec-title-bar{width:4px;min-height:28px;border-radius:2px;background:#C9A96E;flex-shrink:0;align-self:stretch;}
+.sec-title-text{font-family:Georgia,serif;font-size:clamp(17px,2vw,22px);font-weight:400;line-height:1.25;color:#1C1C1A;}
+.sec.dark .sec-title-text,.sec.mid .sec-title-text{color:#F5F0E8;}
+
+/* MAIS VENDIDO */
+.mv-wrap{margin-bottom:18px;}
+.mv-card{display:flex;background:#1C1C1A;border:1.5px solid #C9A96E;border-radius:10px;overflow:hidden;text-decoration:none;max-width:540px;transition:opacity .2s;}
+.mv-card:hover{opacity:.9;}
+.mv-img{width:150px;flex-shrink:0;}
+.mv-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.mv-body{padding:16px 18px;display:flex;flex-direction:column;justify-content:center;gap:6px;}
+.mv-badge{display:inline-block;width:fit-content;background:#C9A96E;color:#1C1C1A;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;}
+.mv-name{font-size:13px;font-weight:600;color:#F5F0E8;line-height:1.4;}
+.mv-was{font-size:11px;color:#888780;text-decoration:line-through;}
+.mv-now{font-size:26px;font-weight:700;color:#C9A96E;line-height:1;}
+.mv-now sup{font-size:13px;font-weight:400;vertical-align:super;}
+.mv-btn{display:inline-block;width:fit-content;background:#C9A96E;color:#1C1C1A;font-size:11px;font-weight:700;padding:8px 16px;border-radius:5px;text-decoration:none;}
+
+/* FEATURED 3 cols */
+.grid-featured{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.feat-card{background:#2E2E2C;border-radius:10px;overflow:hidden;border:0.5px solid #3D3D3B;text-decoration:none;display:block;transition:opacity .2s;}
+.feat-card:hover{opacity:.9;}
+.feat-card.best{border-color:#C9A96E;}
+.feat-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
+.feat-body{padding:14px 16px;}
+.feat-badge{display:inline-block;background:#C9A96E;color:#1C1C1A;font-size:11px;font-weight:700;padding:3px 12px;border-radius:20px;margin-bottom:10px;}
+.feat-name{font-size:12px;color:#E8E2D8;line-height:1.5;margin-bottom:10px;}
+.feat-was{font-size:11px;color:#888780;text-decoration:line-through;margin-bottom:2px;}
+.feat-now{font-size:24px;font-weight:700;color:#C9A96E;line-height:1;margin-bottom:12px;}
+.feat-now sup{font-size:12px;font-weight:400;vertical-align:super;}
+.feat-btn{display:block;background:#C9A96E;color:#1C1C1A;text-align:center;font-size:12px;font-weight:700;padding:11px;border-radius:6px;text-decoration:none;}
+
+/* GRID 4 cols */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.reg-card{background:#fff;border:0.5px solid #D3D3D3;border-radius:9px;overflow:hidden;transition:border-color .2s;}
+.reg-card:hover{border-color:#C9A96E;}
+.reg-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
+.reg-body{padding:11px 13px;}
+.b15{display:inline-block;background:#EAF3DE;color:#3B6D11;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;margin-bottom:7px;}
+.b20{display:inline-block;background:#FAEEDA;color:#854F0B;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;margin-bottom:7px;}
+.reg-name{font-size:11px;font-weight:500;color:#1C1C1A;line-height:1.4;margin-bottom:7px;}
+.reg-was{font-size:10px;color:#888780;text-decoration:line-through;margin-bottom:1px;}
+.reg-now{font-size:18px;font-weight:700;color:#1C1C1A;line-height:1;margin-bottom:10px;}
+.reg-now sup{font-size:10px;font-weight:400;vertical-align:super;}
+.reg-btn{display:block;background:#1C1C1A;color:#F5F0E8;text-align:center;font-size:10px;font-weight:600;padding:8px;border-radius:5px;text-decoration:none;}
+
+/* GRID 5 cols */
+.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+.ind-card{background:#fff;border:0.5px solid #D3D3D3;border-radius:8px;overflow:hidden;transition:border-color .2s;}
+.ind-card:hover{border-color:#C9A96E;}
+.ind-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
+.ind-body{padding:9px 10px;}
+.ind-name{font-size:10px;font-weight:500;color:#1C1C1A;line-height:1.35;margin-bottom:5px;}
+.ind-coupon{font-size:9px;color:#888780;margin-bottom:7px;}
+.ind-coupon strong{color:#854F0B;}
+.ind-btn{display:block;background:#EFEFEF;color:#1C1C1A;text-align:center;font-size:9px;font-weight:600;padding:6px;border-radius:4px;border:0.5px solid #D3D3D3;text-decoration:none;}
+
+/* WHATSAPP */
+.wa{width:100%;background:#25D366;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.wa-copy{color:#fff;font-size:13px;line-height:1.5;}
+.wa-copy strong{display:block;font-size:15px;margin-bottom:2px;}
+.wa-btn{display:inline-block;background:#fff;color:#128C7E;font-size:12px;font-weight:700;padding:10px 20px;border-radius:25px;white-space:nowrap;flex-shrink:0;text-decoration:none;}
+
+/* ══ MICROANIMAÇÕES ══ */
+
+/* 1. Bolinhas da topbar — pulso sequencial */
+@keyframes dotPulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.8);opacity:.5;}}
+.tb-dot{animation:dotPulse 2.4s ease-in-out infinite;}
+.tb-item:nth-child(2) .tb-dot{animation-delay:.5s;}
+.tb-item:nth-child(3) .tb-dot{animation-delay:1s;}
+
+/* 2. Barra dourada das seções — cresce de cima para baixo */
+.sec-title-bar{transform:scaleY(0);transform-origin:top;transition:transform .55s cubic-bezier(.4,0,.2,1);}
+.sec-title-bar.bar-on{transform:scaleY(1);}
+
+/* 3. Texto do título — fade + slide da esquerda */
+.sec-title-text{opacity:0;transform:translateX(-14px);transition:opacity .5s ease .15s, transform .5s ease .15s;}
+.sec-title-text.txt-on{opacity:1;transform:translateX(0);}
+
+/* 4. Badge "Mais vendido" — shimmer dourado */
+@keyframes shimmer{0%{background-position:-300px 0;}100%{background-position:300px 0;}}
+.mv-badge{
+  background:linear-gradient(90deg,#C9A96E 20%,#F5D99A 50%,#C9A96E 80%);
+  background-size:400px 100%;
+  animation:shimmer 2.8s linear infinite;
+  color:#1C1C1A;
+}
+
+/* 5. Botão WhatsApp — flutua levemente */
+@keyframes waFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+.wa-btn{animation:waFloat 2.8s ease-in-out infinite;}
+
+/* 6. Cards — aparecem ao entrar na tela */
+.card-reveal{opacity:0;transform:translateY(18px);transition:opacity .45s ease, transform .45s ease;}
+.card-reveal.r-on{opacity:1;transform:translateY(0);}
+
+/* 7. Loader — pulso do logo */
+@keyframes logoPulse{0%,100%{opacity:.7;}50%{opacity:1;}}
+#loader-logo{animation:logoPulse 1.4s ease-in-out infinite;}
+
+@media(max-width:720px){
+  html,body{width:320px;}
+  .topbar{padding:8px 16px;gap:10px;} .tb-item{font-size:10px;}
+  .hero{padding:20px 16px;} .hero h1{font-size:20px;} .hero p{font-size:12px;}
+  .sec{padding:18px 14px;}
+  .grid-featured,.grid-4,.grid-5{grid-template-columns:1fr 1fr;gap:8px;}
+  .feat-body{padding:10px 12px;} .feat-name{font-size:10px;} .feat-now{font-size:20px;} .feat-btn{font-size:10px;padding:8px;}
+  .reg-name{font-size:10px;} .reg-now{font-size:16px;}
+  .mv-card{max-width:100%;flex-direction:column;}
+  .mv-img{width:100%;height:180px;}
+  .mv-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .mv-body{padding:14px 16px;}
+  .wa{padding:14px 16px;flex-direction:column;align-items:flex-start;gap:10px;} .wa-btn{width:100%;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div id="loader-logo">seja<span>minimalista</span></div>
+  <div id="loader-track"><div id="loader-bar"></div></div>
+  <div id="loader-txt">carregando combos</div>
+</div>
+
+<div class="topbar">
+  <div class="tb-item"><div class="tb-dot"></div>Frete grátis para todo o Brasil</div>
+  <div class="tb-item"><div class="tb-dot"></div>Cartão · Boleto · Pix</div>
+  <div class="tb-item"><div class="tb-dot"></div>Descontos progressivos até 40%</div>
+</div>
+
+<div class="hero">
+  <h1>Combos com desconto</h1>
+  <p>Quanto mais você leva, maior o desconto. Escolha o combo certo — ou monte o seu pelo WhatsApp.</p>
+</div>
+
+<!-- COMBOS COMPLETOS -->
+<section class="sec dark">
+  <div class="sec-title"><div class="sec-title-bar"></div><div class="sec-title-text">Combos completos · Maiores descontos — até 40% off</div></div>
+  <div class="grid-featured">
+    <a class="feat-card" href="https://chk.eduzz.com/G961Q3E5W1?pf=1&cupom=CLSM30OFF" target="_blank" rel="noopener">
+      <img src="https://static.wixstatic.com/media/940f31_c5e4ea9a098d45cf82eacf95da0e1f31~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(10).jpg" alt="" loading="eager">
+      <div class="feat-body"><div class="feat-badge">30% off</div><div class="feat-name">6 produtos digitais — Seja Minimalista, Armário Enxuto, 365 Dias, Viajante, Planner Viagens e 45 Dias</div><div class="feat-was">De R$ 452,00</div><div class="feat-now"><sup>R$</sup>316</div><div class="feat-btn">Eu quero com 30% off</div></div>
+    </a>
+    <a class="feat-card best" href="https://chk.eduzz.com/69KA3JRV0O?pf=1&cupom=CLSM40OFF" target="_blank" rel="noopener">
+      <img src="https://static.wixstatic.com/media/940f31_7f1f1ba8dfb14a4fb23625b0c69e16b6~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(15).jpg" alt="" loading="eager">
+      <div class="feat-body"><div class="feat-badge">40% off</div><div class="feat-name">5 digitais + 5 físicos — Seja Minimalista, Viajante, Armário, 365 Dias e 45 Dias de Destralhe</div><div class="feat-was">De R$ 685,00</div><div class="feat-now"><sup>R$</sup>411</div><div class="feat-btn">Eu quero com 40% off</div></div>
+    </a>
+    <a class="feat-card" href="https://chk.eduzz.com/69KAY2G70O?pf=1&cupom=CLSM40OFF" target="_blank" rel="noopener">
+      <img src="https://static.wixstatic.com/media/940f31_1290e8e809ae42afafeb299d23c77204~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(6).jpg" alt="" loading="eager">
+      <div class="feat-body"><div class="feat-badge">40% off</div><div class="feat-name">9 físicos — Seja Minimalista, Viajante, Armário, 365 Dias, Planner, Planner Viagens, Agenda, 45 Dias e Devocional</div><div class="feat-was">De R$ 1.103,00</div><div class="feat-now"><sup>R$</sup>661</div><div class="feat-btn">Eu quero com 40% off</div></div>
+    </a>
+  </div>
+</section>
+
+<div class="wa"><div class="wa-copy"><strong>Não encontrou o combo certo?</strong>Monte o seu combo personalizado com desconto pelo WhatsApp.</div><a class="wa-btn" href="https://wa.me/5516991065984?text=Ol%C3%A1%2C%20quero%20um%20combo%20personalizado!" target="_blank" rel="noopener">💬 Falar no WhatsApp</a></div>
+
+<!-- COMBOS FÍSICOS -->
+<section class="sec warm">
+  <div class="sec-title"><div class="sec-title-bar"></div><div class="sec-title-text">Combos físicos · frete grátis</div></div>
+  <div class="mv-wrap">
+    <a class="mv-card" href="https://chk.eduzz.com/G92EJ68XWE?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">
+      <div class="mv-img"><img src="https://static.wixstatic.com/media/940f31_8c61892b98874ec4b08ff6c77add5594~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(7).jpg" alt="" loading="eager"></div>
+      <div class="mv-body"><div class="mv-badge">🏆 Mais vendido · 15% off</div><div class="mv-name">Dupla física — Seja Minimalista e 365 Dias Minimalistas</div><div class="mv-was">De R$ 214,00</div><div class="mv-now"><sup>R$</sup>181</div><div class="mv-btn">Quero com 15% off</div></div>
+    </a>
+  </div>
+  <div class="grid-4">
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_9c67b05b05fd4b92b9114e592240dfcd~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(1).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — Seja Minimalista e 45 Dias de Destralhe</div><div class="reg-was">De R$ 204,00</div><div class="reg-now"><sup>R$</sup>173</div><a class="reg-btn" href="https://chk.eduzz.com/E9OBP1KQ0B?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_935744f26c2747978208f736a83e6785~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(8).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — 365 Dias Minimalistas e 45 Dias de Destralhe</div><div class="reg-was">De R$ 204,00</div><div class="reg-now"><sup>R$</sup>173</div><a class="reg-btn" href="https://chk.eduzz.com/79775E1A9E?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_fc606e445c86468fbeb0e2de73bb82be~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(1).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — Seja Minimalista e Armário Enxuto</div><div class="reg-was">De R$ 214,00</div><div class="reg-now"><sup>R$</sup>181</div><a class="reg-btn" href="https://chk.eduzz.com/2138008?pf=1&cupom=BFSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_26163478229d4bb1aee3ca3376f6c765~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(2).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — Seja Minimalista e Viajante Minimalista</div><div class="reg-was">De R$ 214,00</div><div class="reg-now"><sup>R$</sup>181</div><a class="reg-btn" href="https://chk.eduzz.com/1693130?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_085dc694ed5c4743850fc36cefdc826c~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS.jpg" alt="" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — Viajante Minimalista e Armário Enxuto</div><div class="reg-was">De R$ 214,00</div><div class="reg-now"><sup>R$</sup>181</div><a class="reg-btn" href="https://chk.eduzz.com/2182336?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_d8210f2c1761483995ce3d0505332a4d~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(3).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — Viajante Minimalista e Planner Viagens dos Sonhos</div><div class="reg-was">De R$ 244,00</div><div class="reg-now"><sup>R$</sup>207</div><a class="reg-btn" href="https://chk.eduzz.com/1793125?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_80176f36128f453d86a22a0f6cbdd545~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(1).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — Seja Minimalista e Planner Minimalista Permanente</div><div class="reg-was">De R$ 264,00</div><div class="reg-now"><sup>R$</sup>224</div><a class="reg-btn" href="https://chk.eduzz.com/2239927?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_14dbbf2f29bb4952b55c284b711aae4d~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(3).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — 365 Dias Minimalistas e Planner Minimalista Permanente</div><div class="reg-was">De R$ 264,00</div><div class="reg-now"><sup>R$</sup>224</div><a class="reg-btn" href="https://chk.eduzz.com/39ZQD8379E?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_a765dda1186b4416b0722f9f05c9f4e9~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(2).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — Planner Minimalista e Planner Viagens dos Sonhos</div><div class="reg-was">De R$ 294,00</div><div class="reg-now"><sup>R$</sup>249</div><a class="reg-btn" href="https://chk.eduzz.com/2169129?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_519aa02734c54128a54fc5e5433a2aad~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(1).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Trio físico — Seja Minimalista, 365 Dias Minimalistas e 45 Dias de Destralhe</div><div class="reg-was">De R$ 311,00</div><div class="reg-now"><sup>R$</sup>248</div><a class="reg-btn" href="https://chk.eduzz.com/D0RADZ329Y?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_3fbdd90a4e4040fb9a97aec4025bc352~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(5).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Trio físico — Seja Minimalista, Viajante Minimalista e Armário Enxuto</div><div class="reg-was">De R$ 321,00</div><div class="reg-now"><sup>R$</sup>256</div><a class="reg-btn" href="https://chk.eduzz.com/2137953?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_87d9f5cc82154293822043ff7b98de4e~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(1).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quarteto físico — Seja Minimalista, Viajante, Armário Enxuto e 45 Dias de Destralhe</div><div class="reg-was">De R$ 418,00</div><div class="reg-now"><sup>R$</sup>334</div><a class="reg-btn" href="https://chk.eduzz.com/G96V6N8Y01?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_2b229e9cdeea49b185d58adc0354010a~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(14).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quarteto físico — Seja Minimalista, Viajante, Armário Enxuto e 365 Dias Minimalistas</div><div class="reg-was">De R$ 428,00</div><div class="reg-now"><sup>R$</sup>342</div><a class="reg-btn" href="https://sun.eduzz.com/7WXQA6O29A?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_3d48c5963ac141b68218e43e1e6afa19~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(3).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quarteto físico — Seja Minimalista, Viajante, Planner Minimalista e Planner Viagens</div><div class="reg-was">De R$ 508,00</div><div class="reg-now"><sup>R$</sup>406</div><a class="reg-btn" href="https://chk.eduzz.com/2132057?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_e90c72ee3aac4f96ba106c3c3670e5d9~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(4).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quinteto físico — Seja Minimalista, Viajante, Armário Enxuto, 365 Dias e 45 Dias</div><div class="reg-was">De R$ 525,00</div><div class="reg-now"><sup>R$</sup>420</div><a class="reg-btn" href="https://chk.eduzz.com/E05XVVRGWX?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_1fe8a3cf8e4440258f996e68b1cfd082~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(4).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quinteto físico — Seja Minimalista, Viajante, Armário Enxuto, Planner Minimalista e Planner Viagens</div><div class="reg-was">De R$ 615,00</div><div class="reg-now"><sup>R$</sup>492</div><a class="reg-btn" href="https://chk.eduzz.com/2136606?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_711391cba948445d8e3f145359fb9849~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(5).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Sexteto físico — Seja Minimalista, Viajante, Armário Enxuto, Planner Minimalista, Planner Viagens e 45 Dias</div><div class="reg-was">De R$ 712,00</div><div class="reg-now"><sup>R$</sup>569</div><a class="reg-btn" href="https://chk.eduzz.com/60EB6XZB03?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+  </div>
+</section>
+
+<div class="wa"><div class="wa-copy"><strong>Não encontrou o combo certo?</strong>Monte o seu combo personalizado com desconto pelo WhatsApp.</div><a class="wa-btn" href="https://wa.me/5516991065984?text=Ol%C3%A1%2C%20quero%20um%20combo%20personalizado!" target="_blank" rel="noopener">💬 Falar no WhatsApp</a></div>
+
+<!-- COMBOS DIGITAIS -->
+<section class="sec mid">
+  <div class="sec-title"><div class="sec-title-bar"></div><div class="sec-title-text">Combos digitais · entrega imediata</div></div>
+  <div class="mv-wrap">
+    <a class="mv-card" href="https://chk.eduzz.com/89AQP25EWD?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">
+      <div class="mv-img"><img src="https://static.wixstatic.com/media/940f31_4ca783c67a264b41aa67b0402c73584f~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(12).jpg" alt="" loading="lazy"></div>
+      <div class="mv-body"><div class="mv-badge">🏆 Mais vendido · 15% off</div><div class="mv-name">Dupla digital — Seja Minimalista e 365 Dias Minimalistas</div><div class="mv-was">De R$ 154,00</div><div class="mv-now"><sup>R$</sup>130</div><div class="mv-btn">Quero com 15% off</div></div>
+    </a>
+  </div>
+  <div class="grid-4">
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_83e802c46cf942948ed06ac6b2b228a3~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS.jpg" alt="" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla digital — Seja Minimalista e 45 Dias de Destralhe</div><div class="reg-was">De R$ 124,00</div><div class="reg-now"><sup>R$</sup>105</div><a class="reg-btn" href="https://chk.eduzz.com/6W4V435A0Z?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_d339169755d64e7da458b96a01868826~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(11).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla digital — 365 Dias Minimalistas e 45 Dias de Destralhe</div><div class="reg-was">De R$ 124,00</div><div class="reg-now"><sup>R$</sup>105</div><a class="reg-btn" href="https://chk.eduzz.com/VWGZXAE407?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_8a6b19d9be2c42aa83ba5edb68750daa~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(8).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla digital — Seja Minimalista e Viajante Minimalista</div><div class="reg-was">De R$ 154,00</div><div class="reg-now"><sup>R$</sup>130</div><a class="reg-btn" href="https://chk.eduzz.com/44BC921F?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_efb237c540b84512995247e815b60c5a~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(9).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla digital — Seja Minimalista e Armário Enxuto</div><div class="reg-was">De R$ 154,00</div><div class="reg-now"><sup>R$</sup>130</div><a class="reg-btn" href="https://chk.eduzz.com/2182389?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_873b14966ae24fea924976beefaf04e4~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(1).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla digital — Viajante Minimalista e Armário Enxuto</div><div class="reg-was">De R$ 154,00</div><div class="reg-now"><sup>R$</sup>130</div><a class="reg-btn" href="https://chk.eduzz.com/2182398?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_7df1682952c6431988787ba0cf18e55f~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(17).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla digital — Viajante Minimalista e Planner Viagens dos Sonhos</div><div class="reg-was">De R$ 174,00</div><div class="reg-now"><sup>R$</sup>147</div><a class="reg-btn" href="https://chk.eduzz.com/1792906?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_fd490869d09241d996fe4ec661e0182f~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(2).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Trio digital — Seja Minimalista, 365 Dias Minimalistas e 45 Dias de Destralhe</div><div class="reg-was">De R$ 201,00</div><div class="reg-now"><sup>R$</sup>160</div><a class="reg-btn" href="https://chk.eduzz.com/cqie7piq?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_2d555f110a1f43d882279c6b0a158126~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS.jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Trio digital — Seja Minimalista, Armário Enxuto e 45 Dias de Destralhe</div><div class="reg-was">De R$ 201,00</div><div class="reg-now"><sup>R$</sup>160</div><a class="reg-btn" href="https://sun.eduzz.com/Q9N5GQQ101" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_b1c39bbefd744cadb4e5c18f3b2dfe0d~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(10).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Trio digital — Seja Minimalista, Viajante Minimalista e Armário Enxuto</div><div class="reg-was">De R$ 231,00</div><div class="reg-now"><sup>R$</sup>184</div><a class="reg-btn" href="https://chk.eduzz.com/2182383?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_b2783a9f46404cef9a3b5e4c2b7c81f5~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS.jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quarteto digital — Seja Minimalista, Viajante, Armário Enxuto e 45 Dias de Destralhe</div><div class="reg-was">De R$ 278,00</div><div class="reg-now"><sup>R$</sup>222</div><a class="reg-btn" href="https://chk.eduzz.com/E05ZPGA49X?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_05ac7ad9ffb54aa78bfd2d80c58b9b1c~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(5).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quinteto digital — Seja Minimalista, Armário Enxuto, Viajante, 365 Dias e 45 Dias</div><div class="reg-was">De R$ 355,00</div><div class="reg-now"><sup>R$</sup>284</div><a class="reg-btn" href="https://chk.eduzz.com/60EE334803?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_16c546c805f04a09b0ff39bec0aad8d0~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(4).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quinteto digital — Seja Minimalista, Armário Enxuto, Viajante, Planner Viagens e 45 Dias</div><div class="reg-was">De R$ 375,00</div><div class="reg-now"><sup>R$</sup>300</div><a class="reg-btn" href="https://chk.eduzz.com/G96V6NAE01?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+  </div>
+</section>
+
+<div class="wa"><div class="wa-copy"><strong>Não encontrou o combo certo?</strong>Monte o seu combo personalizado com desconto pelo WhatsApp.</div><a class="wa-btn" href="https://wa.me/5516991065984?text=Ol%C3%A1%2C%20quero%20um%20combo%20personalizado!" target="_blank" rel="noopener">💬 Falar no WhatsApp</a></div>
+
+<!-- INDIVIDUAIS -->
+<section class="sec warm">
+  <div class="sec-title"><div class="sec-title-bar"></div><div class="sec-title-text">Produtos individuais · Use o cupom GANHEI10</div></div>
+  <div class="grid-5">
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_970975f22ab44c00804028dd9e3f46ba~mv2.jpeg/v1/crop/x_43,y_195,w_821,h_798/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_54AM.jpeg" alt="" loading="lazy"><div class="ind-body"><div class="ind-name">Seja Minimalista</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.net" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_4a3bcea6d0604339995c5adf76ad8ba6~mv2.jpeg/v1/crop/x_99,y_244,w_708,h_687/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20September%2001%2C%202025%20-%203_31PM.jpeg" alt="" loading="lazy"><div class="ind-body"><div class="ind-name">365 Dias Minimalistas</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.net/365-dias" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_7c3c504c1a15465cbbbe613882c29ca2~mv2.jpeg/v1/crop/x_487,y_0,w_725,h_704/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_52AM%20(1).jpeg" alt="" loading="lazy"><div class="ind-body"><div class="ind-name">45 Dias de Destralhe</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.net/45-dias" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_41d333b25e6a41d0aeef62be6fcc8e38~mv2.jpeg/v1/crop/x_63,y_197,w_785,h_762/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_58AM.jpeg" alt="" loading="lazy"><div class="ind-body"><div class="ind-name">Viajante Minimalista</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.net/livro-viagens" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_15755753bb5648a1b9c935287442ca3a~mv2.jpeg/v1/crop/x_43,y_203,w_810,h_785/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2011_00AM.jpeg" alt="" loading="lazy"><div class="ind-body"><div class="ind-name">Armário Enxuto</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.net/armario-enxuto" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_4c5644caab0841a79bc860a670edd306~mv2.jpeg/v1/crop/x_92,y_230,w_762,h_740/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_47AM.jpeg" alt="" loading="lazy"><div class="ind-body"><div class="ind-name">Planner Minimalista</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.net/planner2026" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_e067c51ec583467ca372db1eed5128b0~mv2.jpeg/v1/crop/x_86,y_212,w_762,h_740/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_27AM.jpeg" alt="" loading="lazy"><div class="ind-body"><div class="ind-name">Planner Minhas Viagens dos Sonhos</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.net/planner-viagens" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_8ca1af23142444ee9315e4a2a2222a08~mv2.jpeg/v1/crop/x_112,y_236,w_728,h_706/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_42AM.jpeg" alt="" loading="lazy"><div class="ind-body"><div class="ind-name">Agenda Minimalista 2026</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.net/agenda-minimalista" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_359e87a3e419459f83c51b210bfa3d36~mv2.jpeg/v1/crop/x_90,y_218,w_764,h_742/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_31AM.jpeg" alt="" loading="lazy"><div class="ind-body"><div class="ind-name">Devocional: Meu Tempo com Deus</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.net/devocional" target="_blank" rel="noopener">Ver produto</a></div></div>
+  </div>
+</section>
+
+<script>
+/* LOADER */
+window.addEventListener('load',function(){
+  var l=document.getElementById('loader');
+  setTimeout(function(){l.style.opacity='0';setTimeout(function(){l.style.display='none';},500);},400);
+});
+
+/* INTERSECTION OBSERVER — ativa animações ao entrar na tela */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(!e.isIntersecting) return;
+    var el = e.target;
+
+    /* Barra dourada */
+    if(el.classList.contains('sec-title-bar')){
+      el.classList.add('bar-on');
+      el.nextElementSibling && el.nextElementSibling.classList.add('txt-on');
+    }
+
+    /* Cards com stagger */
+    if(el.classList.contains('card-reveal')){
+      var siblings = el.parentElement.querySelectorAll('.card-reveal');
+      var idx = Array.prototype.indexOf.call(siblings, el);
+      setTimeout(function(){ el.classList.add('r-on'); }, idx * 60);
+    }
+
+    io.unobserve(el);
+  });
+}, { threshold: 0.15 });
+
+/* Observa barras de seção */
+document.querySelectorAll('.sec-title-bar').forEach(function(el){ io.observe(el); });
+
+/* Adiciona card-reveal e observa todos os cards */
+document.querySelectorAll('.feat-card, .reg-card, .ind-card').forEach(function(el){
+  el.classList.add('card-reveal');
+  io.observe(el);
+});
+
+/* Mais vendido — observa separado sem stagger */
+document.querySelectorAll('.mv-card').forEach(function(el){
+  el.style.opacity='0';
+  el.style.transform='translateY(14px)';
+  el.style.transition='opacity .5s ease, transform .5s ease';
+  var mvObs = new IntersectionObserver(function(ent){
+    if(ent[0].isIntersecting){
+      ent[0].target.style.opacity='1';
+      ent[0].target.style.transform='translateY(0)';
+      mvObs.disconnect();
+    }
+  },{threshold:.1});
+  mvObs.observe(el);
+});
+
+function sendHeight(){window.parent.postMessage({height:document.documentElement.scrollHeight},'*');}
+window.addEventListener('load',sendHeight);
+window.addEventListener('resize',sendHeight);
+</script>
+</body>
+</html>
