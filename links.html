@@ -7,15 +7,26 @@
 <meta name="description" content="O Catálogo Oficial dos produtos do Seja Minimalista.">
 <meta property="og:title" content="Seja Minimalista — Links">
 <meta property="og:image" content="https://static.wixstatic.com/media/940f31_9838f95851d04fae89e45d43a6fe0e09~mv2.jpg">
+<meta http-equiv="Cache-Control" content="public, max-age=86400">
 
-<!-- Google tag -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JM7NSX9TDT"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JM7NSX9TDT');</script>
-
-<!-- Meta Pixel -->
-<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src='https://connect.facebook.net/en_US/fbevents.js';s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script');fbq('init','239605191106043');fbq('track','PageView');</script>
+<!-- Preload LCP — primeira imagem -->
+<link rel="preload" as="image" fetchpriority="high"
+  href="https://static.wixstatic.com/media/940f31_9ceb0776e1784a919708c059e73b4e5d~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg">
 
 <link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://static.wixstatic.com">
+
+<!-- Google tag — defer -->
+<script defer src="https://www.googletagmanager.com/gtag/js?id=G-JM7NSX9TDT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JM7NSX9TDT');</script>
+
+<!-- Meta Pixel — após load para não bloquear render -->
+<script>
+window.addEventListener('load',function(){
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','239605191106043');fbq('track','PageView');
+});
+</script>
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -144,7 +155,7 @@ html,body{
 
   <a class="link-card featured" href="https://www.sejaminimalista.net/minimalize" target="_blank" rel="noopener">
     <img class="card-img"
-      src="https://static.wixstatic.com/media/940f31_9ceb0776e1784a919708c059e73b4e5d~mv2.jpg"
+      src="https://static.wixstatic.com/media/940f31_9ceb0776e1784a919708c059e73b4e5d~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       alt="Minimalize.IA" loading="eager">
     <div class="card-body">
       <div class="card-seal launch">🚀 Lançamento</div>
@@ -160,8 +171,8 @@ html,body{
 
   <a class="link-card" href="https://www.sejaminimalista.net/" target="_blank" rel="noopener">
     <img class="card-img"
-      src="https://static.wixstatic.com/media/940f31_41451adb64ed46afa88a6c4be84c11c9~mv2.jpg"
-      alt="Seja Minimalista" loading="lazy">
+      src="https://static.wixstatic.com/media/940f31_41451adb64ed46afa88a6c4be84c11c9~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
+      alt="Seja Minimalista" loading="lazy" decoding="async">
     <div class="card-body">
       <div class="card-seal best">⭐ Best-seller</div>
       <div class="card-title">Seja Minimalista</div>
@@ -172,8 +183,8 @@ html,body{
 
   <a class="link-card" href="https://www.sejaminimalista.net/365-dias" target="_blank" rel="noopener">
     <img class="card-img"
-      src="https://static.wixstatic.com/media/940f31_5eb2ddac6de34f93bcac689297349d54~mv2.jpg"
-      alt="365 Dias Minimalistas" loading="lazy">
+      src="https://static.wixstatic.com/media/940f31_5eb2ddac6de34f93bcac689297349d54~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
+      alt="365 Dias Minimalistas" loading="lazy" decoding="async">
     <div class="card-body">
       <div class="card-seal launch">🚀 Lançamento</div>
       <div class="card-tag">📅 Uma página por dia</div>
@@ -185,8 +196,8 @@ html,body{
 
   <a class="link-card" href="https://www.sejaminimalista.net/45-dias" target="_blank" rel="noopener">
     <img class="card-img"
-      src="https://static.wixstatic.com/media/940f31_51799278136645c0ac6f639b1bc79191~mv2.jpg"
-      alt="45 Dias de Destralhe" loading="lazy">
+      src="https://static.wixstatic.com/media/940f31_51799278136645c0ac6f639b1bc79191~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
+      alt="45 Dias de Destralhe" loading="lazy" decoding="async">
     <div class="card-body">
       <div class="card-tag">🏠 Destralhe</div>
       <div class="card-title">45 Dias de Destralhe</div>
@@ -197,8 +208,8 @@ html,body{
 
   <a class="link-card" href="https://www.sejaminimalista.net/livro-viagens" target="_blank" rel="noopener">
     <img class="card-img"
-      src="https://static.wixstatic.com/media/940f31_0d81c7e2b51643f0a68b395898e004e1~mv2.jpg"
-      alt="Viajante Minimalista" loading="lazy">
+      src="https://static.wixstatic.com/media/940f31_0d81c7e2b51643f0a68b395898e004e1~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
+      alt="Viajante Minimalista" loading="lazy" decoding="async">
     <div class="card-body">
       <div class="card-tag">✈️ Viagens</div>
       <div class="card-title">Viajante Minimalista</div>
@@ -209,8 +220,8 @@ html,body{
 
   <a class="link-card" href="https://www.sejaminimalista.net/armario-enxuto" target="_blank" rel="noopener">
     <img class="card-img"
-      src="https://static.wixstatic.com/media/940f31_4f013f6ec4b04da9aa0832b40b15e34a~mv2.jpg"
-      alt="Armário Enxuto" loading="lazy">
+      src="https://static.wixstatic.com/media/940f31_4f013f6ec4b04da9aa0832b40b15e34a~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
+      alt="Armário Enxuto" loading="lazy" decoding="async">
     <div class="card-body">
       <div class="card-tag">👗 Guarda-roupa</div>
       <div class="card-title">Armário Enxuto</div>
@@ -221,8 +232,8 @@ html,body{
 
   <a class="link-card" href="https://www.sejaminimalista.net/devocional" target="_blank" rel="noopener">
     <img class="card-img"
-      src="https://static.wixstatic.com/media/940f31_70e5b32ff9924d2db04f34a229477c6c~mv2.jpg"
-      alt="Meu Tempo com Deus" loading="lazy">
+      src="https://static.wixstatic.com/media/940f31_70e5b32ff9924d2db04f34a229477c6c~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
+      alt="Meu Tempo com Deus" loading="lazy" decoding="async">
     <div class="card-body">
       <div class="card-tag">🙏 Devocional</div>
       <div class="card-title">Meu Tempo com Deus</div>
@@ -236,8 +247,8 @@ html,body{
 
   <a class="link-card" href="https://www.sejaminimalista.net/agenda-minimalista" target="_blank" rel="noopener">
     <img class="card-img"
-      src="https://static.wixstatic.com/media/940f31_27020325e45e467ca849f0c4bada0757~mv2.jpg"
-      alt="Minha Agenda Minimalista 2026" loading="lazy">
+      src="https://static.wixstatic.com/media/940f31_27020325e45e467ca849f0c4bada0757~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
+      alt="Minha Agenda Minimalista 2026" loading="lazy" decoding="async">
     <div class="card-body">
       <div class="card-tag">📆 Agenda 2026</div>
       <div class="card-title">Minha Agenda Minimalista</div>
@@ -248,8 +259,8 @@ html,body{
 
   <a class="link-card" href="https://www.sejaminimalista.net/planner2026" target="_blank" rel="noopener">
     <img class="card-img"
-      src="https://static.wixstatic.com/media/940f31_ac62788380af4d88bb0dcc76aab3b119~mv2.jpg"
-      alt="Meu Planner Minimalista" loading="lazy">
+      src="https://static.wixstatic.com/media/940f31_ac62788380af4d88bb0dcc76aab3b119~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
+      alt="Meu Planner Minimalista" loading="lazy" decoding="async">
     <div class="card-body">
       <div class="card-tag">📋 Planner permanente</div>
       <div class="card-title">Meu Planner Minimalista</div>
@@ -260,8 +271,8 @@ html,body{
 
   <a class="link-card" href="https://www.sejaminimalista.net/planner-viagens" target="_blank" rel="noopener">
     <img class="card-img"
-      src="https://static.wixstatic.com/media/940f31_b072ecf0afc44e79b7af4c62ea748e9c~mv2.jpg"
-      alt="Minhas Viagens dos Sonhos" loading="lazy">
+      src="https://static.wixstatic.com/media/940f31_b072ecf0afc44e79b7af4c62ea748e9c~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
+      alt="Minhas Viagens dos Sonhos" loading="lazy" decoding="async">
     <div class="card-body">
       <div class="card-tag">✈️ Planner de viagens</div>
       <div class="card-title">Minhas Viagens dos Sonhos</div>
@@ -275,8 +286,8 @@ html,body{
 
   <a class="link-card" href="https://www.sejaminimalista.net/catalogo" target="_blank" rel="noopener">
     <img class="card-img"
-      src="https://static.wixstatic.com/media/940f31_ac230b9dedb0499391d9e5a2b885de25~mv2.jpg"
-      alt="Combos com Desconto" loading="lazy">
+      src="https://static.wixstatic.com/media/940f31_ac230b9dedb0499391d9e5a2b885de25~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
+      alt="Combos com Desconto" loading="lazy" decoding="async">
     <div class="card-body">
       <div class="card-tag">🛍️ Combos especiais</div>
       <div class="card-title">Combos com Descontos</div>
