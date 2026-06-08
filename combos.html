@@ -43,9 +43,9 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .tb-dot{width:5px;height:5px;border-radius:50%;background:#C9A96E;flex-shrink:0;}
 
 /* HERO */
-.hero{background:#EFEFEF;padding:28px 0;}
-.hero h1{font-family:Georgia,serif;font-size:clamp(22px,2.5vw,30px);font-weight:400;color:#1C1C1A;margin-bottom:6px;}
-.hero p{font-size:14px;color:#5F5E5A;line-height:1.6;}
+.hero{background:linear-gradient(135deg,#1C1C1A 0%,#2A2A28 100%);padding:40px 0;}
+.hero h1{font-family:Georgia,serif;font-size:clamp(24px,2.8vw,36px);font-weight:400;color:#F5F0E8;margin-bottom:10px;letter-spacing:-.01em;}
+.hero p{font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:24px;max-width:560px;}
 
 /* SEÇÕES */
 .sec{width:100%;padding:28px 0;}
@@ -69,9 +69,9 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .mv-badge{display:inline-block;width:fit-content;background:#C9A96E;color:#1C1C1A;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;}
 .mv-name{font-size:13px;font-weight:600;color:#F5F0E8;line-height:1.4;}
 .mv-was{font-size:11px;color:#888780;text-decoration:line-through;}
-.mv-now{font-size:26px;font-weight:700;color:#C9A96E;line-height:1;}
+.mv-now{font-size:26px;font-weight:700;background:linear-gradient(90deg,#9A7A30 0%,#9A7A30 35%,#C9A96E 50%,#9A7A30 65%,#9A7A30 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:price-shine 6s linear infinite;line-height:1;}
 .mv-now sup{font-size:13px;font-weight:400;vertical-align:super;}
-.mv-btn{display:inline-block;width:fit-content;background:#C9A96E;color:#1C1C1A;font-size:11px;font-weight:700;padding:8px 16px;border-radius:5px;text-decoration:none;}
+.mv-btn{display:inline-block;width:fit-content;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:#1C1C1A;font-size:11px;font-weight:700;padding:10px 18px;border-radius:6px;text-decoration:none;animation:shimmer 6s linear infinite,btn-pulse 4s ease-in-out infinite;}
 
 /* FEATURED 3 cols */
 .grid-featured{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
@@ -80,37 +80,39 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .feat-card.best{border-color:#C9A96E;}
 .feat-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
 .feat-body{padding:14px 16px;}
-.feat-badge{display:inline-block;background:#C9A96E;color:#1C1C1A;font-size:11px;font-weight:700;padding:3px 12px;border-radius:20px;margin-bottom:10px;}
+.feat-badge{display:inline-block;background:linear-gradient(90deg,#8B6010,#C9A96E,#FFF0B0,#C9A96E,#8B6010);background-size:200% auto;color:#1C1C1A;font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:10px;animation:shimmer 5s linear infinite;}
 .feat-name{font-size:12px;color:#E8E2D8;line-height:1.5;margin-bottom:10px;}
 .feat-was{font-size:11px;color:#888780;text-decoration:line-through;margin-bottom:2px;}
-.feat-now{font-size:24px;font-weight:700;color:#C9A96E;line-height:1;margin-bottom:12px;}
-.feat-now sup{font-size:12px;font-weight:400;vertical-align:super;}
-.feat-btn{display:block;background:#C9A96E;color:#1C1C1A;text-align:center;font-size:12px;font-weight:700;padding:11px;border-radius:6px;text-decoration:none;}
+.feat-now{font-size:26px;font-weight:700;background:linear-gradient(90deg,#9A7A30 0%,#9A7A30 35%,#C9A96E 50%,#9A7A30 65%,#9A7A30 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:price-shine 6s linear infinite;line-height:1;margin-bottom:12px;}
+.feat-now sup{font-size:13px;font-weight:400;vertical-align:super;}
+.feat-btn{display:block;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:#1C1C1A;text-align:center;font-size:12px;font-weight:700;padding:12px;border-radius:6px;text-decoration:none;animation:shimmer 6s linear infinite,btn-pulse 4s ease-in-out infinite;}
 
 /* GRID 4 cols */
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-.reg-card{background:#fff;border:0.5px solid #D3D3D3;border-radius:9px;overflow:hidden;transition:border-color .2s;}
-.reg-card:hover{border-color:#C9A96E;}
+.reg-card{background:#fff;border:.5px solid #C0BAB0;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.08);transition:transform .2s,box-shadow .2s,border-color .2s;}
+.reg-card:hover{border-color:#C9A96E;transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.12);}
 .reg-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
 .reg-body{padding:11px 13px;}
-.b15{display:inline-block;background:#EAF3DE;color:#3B6D11;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;margin-bottom:7px;}
-.b20{display:inline-block;background:#FAEEDA;color:#854F0B;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;margin-bottom:7px;}
-.reg-name{font-size:11px;font-weight:500;color:#1C1C1A;line-height:1.4;margin-bottom:7px;}
+.b15{display:inline-block;background:#EAF3DE;color:#3B6D11;font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:7px;}
+.b20{display:inline-block;background:#FAEEDA;color:#854F0B;font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:7px;}
+.reg-name{font-size:12px;font-weight:600;color:#1C1C1A;line-height:1.3;margin-bottom:3px;}
+.reg-sub{font-size:10px;color:#888780;line-height:1.4;margin-bottom:7px;}
 .reg-was{font-size:10px;color:#888780;text-decoration:line-through;margin-bottom:1px;}
-.reg-now{font-size:18px;font-weight:700;color:#1C1C1A;line-height:1;margin-bottom:10px;}
+.reg-now{font-size:20px;font-weight:700;background:linear-gradient(90deg,#9A7A30 0%,#9A7A30 35%,#C9A96E 50%,#9A7A30 65%,#9A7A30 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:price-shine 6s linear infinite;line-height:1;margin-bottom:10px;}
 .reg-now sup{font-size:10px;font-weight:400;vertical-align:super;}
-.reg-btn{display:block;background:#1C1C1A;color:#F5F0E8;text-align:center;font-size:10px;font-weight:600;padding:8px;border-radius:5px;text-decoration:none;}
+.reg-btn{display:block;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:#1C1C1A;text-align:center;font-size:10px;font-weight:700;padding:9px;border-radius:6px;text-decoration:none;animation:shimmer 6s linear infinite;}
 
 /* GRID 5 cols */
 .grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
-.ind-card{background:#fff;border:0.5px solid #D3D3D3;border-radius:8px;overflow:hidden;transition:border-color .2s;}
-.ind-card:hover{border-color:#C9A96E;}
+.ind-card{background:#fff;border:.5px solid #C0BAB0;border-radius:10px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.07);transition:transform .2s,box-shadow .2s,border-color .2s;}
+.ind-card:hover{border-color:#C9A96E;transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.1);}
 .ind-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
 .ind-body{padding:9px 10px;}
-.ind-name{font-size:10px;font-weight:500;color:#1C1C1A;line-height:1.35;margin-bottom:5px;}
+.ind-name{font-size:11px;font-weight:600;color:#1C1C1A;line-height:1.3;margin-bottom:2px;}
+.ind-sub{font-size:9px;color:#888780;line-height:1.3;margin-bottom:5px;}
 .ind-coupon{font-size:9px;color:#888780;margin-bottom:7px;}
 .ind-coupon strong{color:#854F0B;}
-.ind-btn{display:block;background:#EFEFEF;color:#1C1C1A;text-align:center;font-size:9px;font-weight:600;padding:6px;border-radius:4px;border:0.5px solid #D3D3D3;text-decoration:none;}
+.ind-btn{display:block;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:#1C1C1A;text-align:center;font-size:9px;font-weight:700;padding:7px;border-radius:5px;text-decoration:none;animation:shimmer 6s linear infinite;}
 
 /* WHATSAPP */
 .wa{width:100%;background:#25D366;padding:16px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;}
@@ -122,7 +124,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 
 /* 1. Bolinhas da topbar — pulso sequencial */
 @keyframes dotPulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.8);opacity:.5;}}
-.tb-dot{animation:dotPulse 2.4s ease-in-out infinite;}
+.tb-dot{animation:dotPulse 4s ease-in-out infinite;}
 .tb-item:nth-child(2) .tb-dot{animation-delay:.5s;}
 .tb-item:nth-child(3) .tb-dot{animation-delay:1s;}
 
@@ -136,16 +138,18 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 
 /* 4. Badge "Mais vendido" — shimmer dourado */
 @keyframes shimmer{0%{background-position:-300px 0;}100%{background-position:300px 0;}}
+@keyframes price-shine{0%{background-position:150% center;}100%{background-position:-150% center;}}
+@keyframes btn-pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(201,169,110,0);}50%{transform:scale(1.02);box-shadow:0 0 0 6px rgba(201,169,110,.18);}}
 .mv-badge{
   background:linear-gradient(90deg,#C9A96E 20%,#F5D99A 50%,#C9A96E 80%);
   background-size:400px 100%;
-  animation:shimmer 2.8s linear infinite;
+  animation:shimmer 6s linear infinite;
   color:#1C1C1A;
 }
 
 /* 5. Botão WhatsApp — flutua levemente */
 @keyframes waFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
-.wa-btn{animation:waFloat 2.8s ease-in-out infinite;}
+.wa-btn{animation:waFloat 4s ease-in-out infinite;}
 
 /* 6. Cards — aparecem ao entrar na tela */
 .card-reveal{opacity:0;transform:translateY(18px);transition:opacity .45s ease, transform .45s ease;}
@@ -184,11 +188,13 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   <div class="tb-item"><div class="tb-dot"></div>Frete grátis para todo o Brasil</div>
   <div class="tb-item"><div class="tb-dot"></div>Cartão · Boleto · Pix</div>
   <div class="tb-item"><div class="tb-dot"></div>Descontos progressivos até 40%</div>
+  <div class="tb-item" style="background:rgba(201,169,110,.15);padding:2px 10px;border-radius:20px;"><span style="color:#C9A96E;font-weight:700;">+20</span>&nbsp;combos disponíveis</div>
 </div>
 
 <div class="hero"><div class="inner">
-  <h1>Combos com desconto</h1>
-  <p>Quanto mais você leva, maior o desconto. Escolha o combo certo — ou monte o seu pelo WhatsApp.</p>
+  <h1>Leve mais, pague menos.</h1>
+  <p>Combos exclusivos com até 40% de desconto — montados para cada momento da sua jornada minimalista.</p>
+  <a href="#combos-completos" style="display:inline-block;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:#1C1C1A;font-size:14px;font-weight:700;padding:16px 32px;border-radius:6px;text-decoration:none;animation:shimmer 6s linear infinite,btn-pulse 4s ease-in-out infinite;" onclick="document.querySelector('.sec.dark').scrollIntoView({behavior:'smooth'});return false;">Ver combos com desconto ↓</a>
 </div></div>
 
 <!-- COMBOS COMPLETOS -->
