@@ -16,18 +16,21 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 @keyframes lp{0%{width:0}60%{width:70%}100%{width:100%}}
 #loader-txt{font-size:10px;color:#888780;letter-spacing:.1em;text-transform:uppercase;}
 
+/* INNER — largura padrão do site */
+.inner{max-width:980px;margin:0 auto;width:100%;padding:0 40px;}
+
 /* TOPBAR */
 .topbar{width:100%;background:#1C1C1A;padding:10px 32px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
 .tb-item{font-size:12px;color:#E8E2D8;display:flex;align-items:center;gap:6px;}
 .tb-dot{width:5px;height:5px;border-radius:50%;background:#C9A96E;flex-shrink:0;}
 
 /* HERO */
-.hero{background:#EFEFEF;padding:28px 32px;}
+.hero{background:#EFEFEF;padding:28px 0;}
 .hero h1{font-family:Georgia,serif;font-size:clamp(22px,2.5vw,30px);font-weight:400;color:#1C1C1A;margin-bottom:6px;}
 .hero p{font-size:14px;color:#5F5E5A;line-height:1.6;}
 
 /* SEÇÕES */
-.sec{width:100%;padding:28px 32px;}
+.sec{width:100%;padding:28px 0;}
 .sec.dark{background:#1C1C1A;}
 .sec.warm{background:#F5F0E8;}
 .sec.mid{background:#2E2E2C;}
@@ -92,7 +95,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .ind-btn{display:block;background:#EFEFEF;color:#1C1C1A;text-align:center;font-size:9px;font-weight:600;padding:6px;border-radius:4px;border:0.5px solid #D3D3D3;text-decoration:none;}
 
 /* WHATSAPP */
-.wa{width:100%;background:#25D366;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.wa{width:100%;background:#25D366;padding:16px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;}
 .wa-copy{color:#fff;font-size:13px;line-height:1.5;}
 .wa-copy strong{display:block;font-size:15px;margin-bottom:2px;}
 .wa-btn{display:inline-block;background:#fff;color:#128C7E;font-size:12px;font-weight:700;padding:10px 20px;border-radius:25px;white-space:nowrap;flex-shrink:0;text-decoration:none;}
@@ -138,7 +141,8 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   html,body{width:320px;}
   .topbar{padding:8px 16px;gap:10px;} .tb-item{font-size:10px;}
   .hero{padding:20px 16px;} .hero h1{font-size:20px;} .hero p{font-size:12px;}
-  .sec{padding:18px 14px;}
+  .inner{padding:0 16px;}
+  .sec{padding:18px 0;}
   .grid-featured,.grid-4,.grid-5{grid-template-columns:1fr 1fr;gap:8px;}
   .feat-body{padding:10px 12px;} .feat-name{font-size:10px;} .feat-now{font-size:20px;} .feat-btn{font-size:10px;padding:8px;}
   .reg-name{font-size:10px;} .reg-now{font-size:16px;}
@@ -164,13 +168,14 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   <div class="tb-item"><div class="tb-dot"></div>Descontos progressivos até 40%</div>
 </div>
 
-<div class="hero">
+<div class="hero"><div class="inner">
   <h1>Combos com desconto</h1>
   <p>Quanto mais você leva, maior o desconto. Escolha o combo certo — ou monte o seu pelo WhatsApp.</p>
-</div>
+</div></div>
 
 <!-- COMBOS COMPLETOS -->
 <section class="sec dark">
+  <div class="inner">
   <div class="sec-title"><div class="sec-title-bar"></div><div class="sec-title-text">Combos completos · Maiores descontos — até 40% off</div></div>
   <div class="grid-featured">
     <a class="feat-card" href="https://chk.eduzz.com/G961Q3E5W1?pf=1&cupom=CLSM30OFF" target="_blank" rel="noopener">
@@ -186,12 +191,14 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <div class="feat-body"><div class="feat-badge">40% off</div><div class="feat-name">9 físicos — Seja Minimalista, Viajante, Armário, 365 Dias, Planner, Planner Viagens, Agenda, 45 Dias e Devocional</div><div class="feat-was">De R$ 1.103,00</div><div class="feat-now"><sup>R$</sup>661</div><div class="feat-btn">Eu quero com 40% off</div></div>
     </a>
   </div>
+  </div>
 </section>
 
-<div class="wa"><div class="wa-copy"><strong>Não encontrou o combo certo?</strong>Monte o seu combo personalizado com desconto pelo WhatsApp.</div><a class="wa-btn" href="https://wa.me/5516991065984?text=Ol%C3%A1%2C%20quero%20um%20combo%20personalizado!" target="_blank" rel="noopener">💬 Falar no WhatsApp</a></div>
+<div class="wa"><div class="inner" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;"><div class="wa-copy"><strong>Não encontrou o combo certo?</strong>Monte o seu combo personalizado com desconto pelo WhatsApp.</div><a class="wa-btn" href="https://wa.me/5516991065984?text=Ol%C3%A1%2C%20quero%20um%20combo%20personalizado!" target="_blank" rel="noopener">💬 Falar no WhatsApp</a></div></div>
 
 <!-- COMBOS FÍSICOS -->
 <section class="sec warm">
+  <div class="inner">
   <div class="sec-title"><div class="sec-title-bar"></div><div class="sec-title-text">Combos físicos · frete grátis</div></div>
   <div class="mv-wrap">
     <a class="mv-card" href="https://chk.eduzz.com/G92EJ68XWE?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">
@@ -218,12 +225,14 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_1fe8a3cf8e4440258f996e68b1cfd082~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(4).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quinteto físico — Seja Minimalista, Viajante, Armário Enxuto, Planner Minimalista e Planner Viagens</div><div class="reg-was">De R$ 615,00</div><div class="reg-now"><sup>R$</sup>492</div><a class="reg-btn" href="https://chk.eduzz.com/2136606?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
     <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_711391cba948445d8e3f145359fb9849~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(5).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Sexteto físico — Seja Minimalista, Viajante, Armário Enxuto, Planner Minimalista, Planner Viagens e 45 Dias</div><div class="reg-was">De R$ 712,00</div><div class="reg-now"><sup>R$</sup>569</div><a class="reg-btn" href="https://chk.eduzz.com/60EB6XZB03?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
   </div>
+  </div>
 </section>
 
-<div class="wa"><div class="wa-copy"><strong>Não encontrou o combo certo?</strong>Monte o seu combo personalizado com desconto pelo WhatsApp.</div><a class="wa-btn" href="https://wa.me/5516991065984?text=Ol%C3%A1%2C%20quero%20um%20combo%20personalizado!" target="_blank" rel="noopener">💬 Falar no WhatsApp</a></div>
+<div class="wa"><div class="inner" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;"><div class="wa-copy"><strong>Não encontrou o combo certo?</strong>Monte o seu combo personalizado com desconto pelo WhatsApp.</div><a class="wa-btn" href="https://wa.me/5516991065984?text=Ol%C3%A1%2C%20quero%20um%20combo%20personalizado!" target="_blank" rel="noopener">💬 Falar no WhatsApp</a></div></div>
 
 <!-- COMBOS DIGITAIS -->
 <section class="sec mid">
+  <div class="inner">
   <div class="sec-title"><div class="sec-title-bar"></div><div class="sec-title-text">Combos digitais · entrega imediata</div></div>
   <div class="mv-wrap">
     <a class="mv-card" href="https://chk.eduzz.com/89AQP25EWD?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">
@@ -245,12 +254,14 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_05ac7ad9ffb54aa78bfd2d80c58b9b1c~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(5).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quinteto digital — Seja Minimalista, Armário Enxuto, Viajante, 365 Dias e 45 Dias</div><div class="reg-was">De R$ 355,00</div><div class="reg-now"><sup>R$</sup>284</div><a class="reg-btn" href="https://chk.eduzz.com/60EE334803?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
     <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_16c546c805f04a09b0ff39bec0aad8d0~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(4).jpg" alt="" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quinteto digital — Seja Minimalista, Armário Enxuto, Viajante, Planner Viagens e 45 Dias</div><div class="reg-was">De R$ 375,00</div><div class="reg-now"><sup>R$</sup>300</div><a class="reg-btn" href="https://chk.eduzz.com/G96V6NAE01?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
   </div>
+  </div>
 </section>
 
-<div class="wa"><div class="wa-copy"><strong>Não encontrou o combo certo?</strong>Monte o seu combo personalizado com desconto pelo WhatsApp.</div><a class="wa-btn" href="https://wa.me/5516991065984?text=Ol%C3%A1%2C%20quero%20um%20combo%20personalizado!" target="_blank" rel="noopener">💬 Falar no WhatsApp</a></div>
+<div class="wa"><div class="inner" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;"><div class="wa-copy"><strong>Não encontrou o combo certo?</strong>Monte o seu combo personalizado com desconto pelo WhatsApp.</div><a class="wa-btn" href="https://wa.me/5516991065984?text=Ol%C3%A1%2C%20quero%20um%20combo%20personalizado!" target="_blank" rel="noopener">💬 Falar no WhatsApp</a></div>
 
 <!-- INDIVIDUAIS -->
 <section class="sec warm">
+  <div class="inner">
   <div class="sec-title"><div class="sec-title-bar"></div><div class="sec-title-text">Produtos individuais · Use o cupom GANHEI10</div></div>
   <div class="grid-5">
     <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_970975f22ab44c00804028dd9e3f46ba~mv2.jpeg/v1/crop/x_43,y_195,w_821,h_798/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_54AM.jpeg" alt="" loading="lazy"><div class="ind-body"><div class="ind-name">Seja Minimalista</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.net" target="_blank" rel="noopener">Ver produto</a></div></div>
@@ -263,7 +274,46 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_8ca1af23142444ee9315e4a2a2222a08~mv2.jpeg/v1/crop/x_112,y_236,w_728,h_706/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_42AM.jpeg" alt="" loading="lazy"><div class="ind-body"><div class="ind-name">Agenda Minimalista 2026</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.net/agenda-minimalista" target="_blank" rel="noopener">Ver produto</a></div></div>
     <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_359e87a3e419459f83c51b210bfa3d36~mv2.jpeg/v1/crop/x_90,y_218,w_764,h_742/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_31AM.jpeg" alt="" loading="lazy"><div class="ind-body"><div class="ind-name">Devocional: Meu Tempo com Deus</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.net/devocional" target="_blank" rel="noopener">Ver produto</a></div></div>
   </div>
+  </div>
 </section>
+
+<!-- RODAPÉ -->
+<footer style="background:#1C1C1A;padding:48px 0;">
+  <div class="inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;">
+      <div>
+        <img src="https://static.wixstatic.com/media/940f31_64ea155fc0b8427e898318695ef5ad7e~mv2.png/v1/crop/x_44,y_0,w_906,h_187/fill/w_260,h_54,al_c,q_90,enc_avif,quality_auto/logo.png"
+          alt="Seja Minimalista" width="260" height="54"
+          style="max-width:200px;height:auto;display:block;margin-bottom:14px;filter:brightness(0) invert(1);opacity:.55;"
+          loading="lazy" decoding="async">
+        <p style="font-size:12px;color:#888780;line-height:1.7;">Para uma vida mais leve e mais feliz.<br>© 2026. Todos os direitos reservados.</p>
+        <a href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener noreferrer"
+          style="display:inline-block;margin-top:16px;font-size:12px;padding:10px 20px;border-radius:6px;font-weight:700;text-decoration:none;letter-spacing:.02em;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);color:#1C1C1A;">
+          Seguir no Instagram
+        </a>
+      </div>
+      <div>
+        <h4 style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#888780;margin-bottom:14px;">Links úteis</h4>
+        <a href="https://www.sejaminimalista.net/vip/entrar" target="_blank" style="display:block;font-size:13px;color:#5F5E5A;text-decoration:none;margin-bottom:8px;">Área VIP</a>
+        <a href="https://www.sejaminimalista.net/" target="_blank" style="display:block;font-size:13px;color:#5F5E5A;text-decoration:none;margin-bottom:8px;">Seja Minimalista</a>
+        <a href="https://www.sejaminimalista.net/365-dias" target="_blank" style="display:block;font-size:13px;color:#5F5E5A;text-decoration:none;margin-bottom:8px;">365 Dias Minimalistas</a>
+        <a href="mailto:sejaminimalista@hotmail.com" style="display:block;font-size:13px;color:#5F5E5A;text-decoration:none;margin-bottom:8px;">Fale comigo</a>
+        <a href="https://www.sejaminimalista.net/termos-de-uso" target="_blank" style="display:block;font-size:13px;color:#5F5E5A;text-decoration:none;">Termos de uso</a>
+      </div>
+      <div>
+        <h4 style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#888780;margin-bottom:14px;">Newsletter gratuita</h4>
+        <p style="font-size:12px;color:#5F5E5A;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas direto no seu e-mail, toda semana.</p>
+        <iframe src="https://sejaminimalista.substack.com/embed?transparent=1&light=1" width="480" height="150"
+          style="border:0;background:transparent;max-width:100%;display:block;"
+          frameborder="0" scrolling="no" title="Newsletter Seja Minimalista"></iframe>
+      </div>
+    </div>
+    <div style="margin-top:36px;padding-top:22px;border-top:.5px solid #2E2E2C;display:flex;justify-content:space-between;font-size:11px;color:#888780;">
+      <span>Seja Minimalista · Alexandre Chahoud</span>
+      <span>sejaminimalista@hotmail.com</span>
+    </div>
+  </div>
+</footer>
 
 <script>
 /* LOADER */
