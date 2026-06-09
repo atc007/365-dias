@@ -312,6 +312,47 @@ html,body{
   .price-box{position:static;}
 }
 </style>
+
+<!-- Advanced Attribution — UTM Passthrough -->
+<script>
+(function(){
+  const KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid'];
+  const url=new URL(window.location.href);
+
+  KEYS.forEach(function(k){
+    const v=url.searchParams.get(k)||localStorage.getItem('trk_'+k);
+    if(v){ localStorage.setItem('trk_'+k,v); }
+  });
+
+  function buildParams(){
+    const p=new URLSearchParams();
+    KEYS.forEach(function(k){
+      const v=localStorage.getItem('trk_'+k);
+      if(v) p.set(k,v);
+    });
+    return p.toString();
+  }
+
+  function applyUtms(){
+    document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
+      try{
+        const u=new URL(link.href);
+        const extra=buildParams();
+        if(extra){
+          const p=new URLSearchParams(u.search);
+          new URLSearchParams(extra).forEach(function(v,k){ p.set(k,v); });
+          u.search=p.toString();
+          link.href=u.toString();
+        }
+      }catch(e){}
+    });
+  }
+
+  applyUtms();
+  document.addEventListener('DOMContentLoaded', applyUtms);
+})();
+</script>
+
 </head>
 <body>
 
