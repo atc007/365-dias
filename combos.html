@@ -431,5 +431,54 @@ function sendHeight(){window.parent.postMessage({height:document.documentElement
 window.addEventListener('load',sendHeight);
 window.addEventListener('resize',sendHeight);
 </script>
+
+<script>
+/* ── EVENTOS DE RASTREAMENTO — Página de Combos ── */
+document.addEventListener('DOMContentLoaded', function(){
+
+  /* InitiateCheckout — qualquer botão de checkout Eduzz */
+  document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
+    link.addEventListener('click', function(){
+      var name = link.closest('[class*="card"]') ?
+        (link.closest('[class*="card"]').querySelector('[class*="name"],[class*="title"]') || {}).innerText || 'Combo' : 'Combo';
+      if(window.fbq){
+        fbq('track','InitiateCheckout',{
+          content_name: name.trim(),
+          currency:'BRL'
+        });
+      }
+      if(window.gtag){
+        gtag('event','begin_checkout',{
+          currency:'BRL',
+          item_name: name.trim()
+        });
+      }
+    });
+  });
+
+  /* WhatsApp */
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
+    link.addEventListener('click', function(){
+      if(window.fbq) fbq('trackCustom','WhatsAppClick');
+    });
+  });
+
+  /* Engajamento por tempo */
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged30s');}, 30000);
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged60s');}, 60000);
+
+  /* Profundidade de scroll */
+  var s50=false,s75=false,s90=false;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement;
+    var pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+    if(pct>=50&&!s50){s50=true;if(window.fbq)fbq('trackCustom','Scroll50');}
+    if(pct>=75&&!s75){s75=true;if(window.fbq)fbq('trackCustom','Scroll75');}
+    if(pct>=90&&!s90){s90=true;if(window.fbq)fbq('trackCustom','Scroll90');}
+  });
+
+});
+</script>
+
 </body>
 </html>
