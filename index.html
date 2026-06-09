@@ -1100,6 +1100,39 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
 
 /* META PIXEL — eventos avançados */
 (function(){
+
+  /* ══ UTM PASSTHROUGH — repassa UTMs da URL para todos os links de checkout ══ */
+  (function(){
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
+      var hasTracking = utmKeys.some(function(k){ return params.has(k); });
+      if(!hasTracking) return;
+
+      /* Salva no sessionStorage para persistir entre páginas */
+      utmKeys.forEach(function(k){
+        if(params.has(k)) sessionStorage.setItem('sm_' + k, params.get(k));
+      });
+
+      function applyUtms(){
+        document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
+          try {
+            var url = new URL(link.href);
+            utmKeys.forEach(function(k){
+              var val = params.get(k) || sessionStorage.getItem('sm_' + k);
+              if(val) url.searchParams.set(k, val);
+            });
+            link.href = url.toString();
+          } catch(e){}
+        });
+      }
+
+      /* Aplica imediatamente e novamente após o DOM carregar */
+      applyUtms();
+      document.addEventListener('DOMContentLoaded', applyUtms);
+    } catch(e){}
+  })();
+
   document.addEventListener('DOMContentLoaded',function(){
 
     /* InitiateCheckout em todos os botões de checkout */
