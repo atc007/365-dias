@@ -157,6 +157,46 @@ html,body{
 .footer-logo{font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#4A4A48;letter-spacing:.04em;margin-bottom:4px;}
 .footer-copy{font-size:10px;color:#4A4A48;}
 </style>
+
+<!-- UTM Passthrough — repassa UTMs para as landing pages -->
+<script>
+(function(){
+  const KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid'];
+  const url=new URL(window.location.href);
+
+  /* Salva no localStorage */
+  KEYS.forEach(function(k){
+    const v=url.searchParams.get(k);
+    if(v){ localStorage.setItem('trk_'+k,v); }
+  });
+
+  function buildParams(){
+    const p=new URLSearchParams();
+    KEYS.forEach(function(k){
+      const v=url.searchParams.get(k) || localStorage.getItem('trk_'+k);
+      if(v) p.set(k,v);
+    });
+    return p.toString();
+  }
+
+  function applyUtms(){
+    var extra=buildParams();
+    if(!extra) return;
+    /* Repassa UTMs para todos os links de produto (não imagens, não iframe) */
+    document.querySelectorAll('a.link-card[href]').forEach(function(link){
+      try{
+        var u=new URL(link.href);
+        new URLSearchParams(extra).forEach(function(v,k){ u.searchParams.set(k,v); });
+        link.href=u.toString();
+      }catch(e){}
+    });
+  }
+
+  applyUtms();
+  document.addEventListener('DOMContentLoaded', applyUtms);
+})();
+</script>
+
 </head>
 <body>
 
