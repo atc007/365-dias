@@ -3,6 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JM7NSX9TDT"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-JM7NSX9TDT');
+</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src='https://connect.facebook.net/en_US/fbevents.js';s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script');
+fbq('init','239605191106043');
+fbq('track','PageView');
+fbq('track','InitiateCheckout',{content_name:'Boleto Gerado',currency:'BRL'});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></noscript>
+
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html,body{
@@ -380,5 +398,31 @@ function sendHeight(){
 window.addEventListener('load',sendHeight);
 window.addEventListener('resize',sendHeight);
 </script>
+
+<script>
+/* ── EVENTOS DE RASTREAMENTO ── */
+(function(){
+  /* Engajamento por tempo */
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged30s');},30000);
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged60s');},60000);
+
+  /* Profundidade de scroll */
+  var s50=false,s75=false;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement;
+    var pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+    if(pct>=50&&!s50){s50=true;if(window.fbq)fbq('trackCustom','Scroll50');}
+    if(pct>=75&&!s75){s75=true;if(window.fbq)fbq('trackCustom','Scroll75');}
+  });
+
+  /* Clique no Instagram ou Área VIP */
+  document.querySelectorAll('a[href*="instagram.com"],a[href*="vip/entrar"]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window.fbq)fbq('trackCustom','BoletoEngagement',{action:a.href});
+      if(window.gtag)gtag('event','boleto_engagement',{link:a.href});
+    });
+  });
+})();
+
 </body>
 </html>
