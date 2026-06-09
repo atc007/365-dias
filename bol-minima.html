@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JM7NSX9TDT"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-JM7NSX9TDT');
+</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src='https://connect.facebook.net/en_US/fbevents.js';s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script');
+fbq('init','239605191106043');
+fbq('track','PageView');
+fbq('track','InitiateCheckout',{content_name:'Boleto Gerado - Minimalize.IA',currency:'BRL'});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></noscript>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  width:100%;min-height:100vh;
+  background:#EFEFEF;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── TOPBAR ── */
+.topbar{
+  width:100%;background:#1C1C1A;
+  padding:11px 48px;text-align:center;
+  font-size:13px;color:#E8E2D8;letter-spacing:.02em;
+}
+.topbar strong{color:#C9A96E;}
+
+.page-wrap{width:100%;}
+
+.sec-inner{
+  max-width:680px;
+  margin:0 auto;
+  width:100%;
+}
+
+/* ── ANIMAÇÕES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse-ring{
+  0%{box-shadow:0 0 0 0 rgba(201,169,110,.45);}
+  70%{box-shadow:0 0 0 18px rgba(201,169,110,0);}
+  100%{box-shadow:0 0 0 0 rgba(201,169,110,0);}
+}
+@keyframes shimmer-gold{0%{background-position:200% center;}100%{background-position:-200% center;}}
+@keyframes bounce-icon{0%,100%{transform:translateY(0);}40%{transform:translateY(-6px);}60%{transform:translateY(-3px);}}
+@keyframes bar-fill{from{width:0%;}to{width:68%;}}
+@keyframes count-in{from{opacity:0;transform:scale(.7);}to{opacity:1;transform:scale(1);}}
+@keyframes robot-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+
+.anim-up{animation:fadeUp .6s ease both;}
+.d1{animation-delay:.1s;}.d2{animation-delay:.22s;}.d3{animation-delay:.34s;}
+.d4{animation-delay:.46s;}.d5{animation-delay:.58s;}.d6{animation-delay:.70s;}
+
+/* ── HERO PENDENTE ── */
+.sec-pending{
+  width:100%;background:#FAEEDA;
+  border-bottom:2px solid #EF9F27;
+  padding:44px 48px 40px;
+}
+.pending-header{display:flex;align-items:flex-start;gap:18px;margin-bottom:28px;}
+.pending-icon{
+  width:56px;height:56px;border-radius:50%;
+  background:#BA7517;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;flex-shrink:0;
+  animation:pulse-ring 2.2s ease infinite;
+}
+.pending-title{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:26px;font-weight:400;
+  color:#1C1C1A;line-height:1.3;margin-bottom:6px;
+}
+.pending-sub{font-size:14px;color:#854F0B;line-height:1.6;}
+
+.progress-wrap{margin-bottom:28px;}
+.progress-label{
+  display:flex;justify-content:space-between;
+  font-size:11px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:#854F0B;margin-bottom:8px;
+}
+.progress-track{width:100%;height:8px;background:rgba(239,159,39,.2);border-radius:4px;overflow:hidden;}
+.progress-bar{
+  height:100%;border-radius:4px;
+  background:linear-gradient(90deg,#BA7517 0%,#EF9F27 50%,#BA7517 100%);
+  background-size:200% auto;
+  animation:bar-fill 1.4s .3s ease both,shimmer-gold 2.5s linear infinite;
+  width:0%;
+}
+
+.steps-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.step-card{
+  background:#fff;border:.5px solid #EF9F27;border-radius:8px;
+  padding:16px 18px;display:flex;gap:12px;align-items:flex-start;
+  transition:transform .25s,box-shadow .25s;
+}
+.step-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(239,159,39,.15);}
+.step-num{
+  width:28px;height:28px;border-radius:50%;
+  background:#C9A96E;color:#1C1C1A;
+  font-size:13px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  animation:count-in .5s ease both;
+}
+.step-title{font-size:13px;font-weight:600;color:#1C1C1A;margin-bottom:3px;}
+.step-desc{font-size:12px;color:#854F0B;line-height:1.5;}
+
+/* ── ALERTA SPAM ── */
+.spam-alert{
+  width:100%;background:#2E2E2C;
+  padding:16px 48px;
+  display:flex;align-items:center;gap:14px;
+  font-size:13px;color:#E8E2D8;
+}
+.spam-alert-icon{font-size:20px;flex-shrink:0;animation:bounce-icon 2s ease-in-out infinite;}
+.spam-alert strong{color:#C9A96E;}
+
+/* ── O QUE TE AGUARDA — seção específica do Minimalize ── */
+.sec-aguarda{
+  width:100%;background:#1C1C1A;
+  padding:44px 48px;
+}
+.aguarda-eyebrow{
+  font-size:11px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:#C9A96E;margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.aguarda-eyebrow::before{content:'';display:block;width:24px;height:1px;background:#C9A96E;}
+.aguarda-h2{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:22px;font-weight:400;color:#F5F0E8;
+  margin-bottom:8px;line-height:1.35;
+}
+.aguarda-sub{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:24px;}
+.robot-icon{
+  font-size:48px;text-align:center;margin-bottom:18px;
+  animation:robot-float 2.5s ease-in-out infinite;
+  display:block;
+}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.feature-card{
+  background:rgba(255,255,255,.06);
+  border:.5px solid rgba(255,255,255,.1);
+  border-radius:8px;padding:16px 18px;
+}
+.feature-card-icon{font-size:18px;margin-bottom:8px;}
+.feature-card-title{font-size:13px;font-weight:600;color:#F5F0E8;margin-bottom:4px;}
+.feature-card-desc{font-size:12px;color:rgba(255,255,255,.55);line-height:1.55;}
+
+/* ── MENSAGEM PESSOAL ── */
+.sec-letter{width:100%;background:#EFEFEF;padding:48px 48px;}
+.letter-eyebrow{
+  font-size:11px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:#C9A96E;margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.letter-eyebrow::before{content:'';display:block;width:24px;height:1px;background:#C9A96E;}
+.letter-body{max-width:640px;}
+.pullquote{
+  border-left:3px solid #C9A96E;
+  padding:12px 20px;
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:17px;color:#1C1C1A;
+  line-height:1.7;font-style:italic;
+  margin-bottom:24px;
+  background:rgba(201,169,110,.06);border-radius:0 6px 6px 0;
+}
+.letter-p{font-size:14px;color:#3D3D3B;line-height:1.85;margin-bottom:16px;}
+.letter-sign{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:16px;color:#1C1C1A;
+  margin-top:24px;padding-top:20px;
+  border-top:.5px solid #D3D3D3;
+}
+.letter-sign span{font-size:12px;color:#888780;display:block;margin-top:2px;}
+
+/* ── ENQUANTO AGUARDA ── */
+.sec-while{width:100%;background:#E8E8E6;padding:40px 48px;}
+.while-eyebrow{
+  font-size:11px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:#C9A96E;margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.while-eyebrow::before{content:'';display:block;width:24px;height:1px;background:#C9A96E;}
+.while-h2{font-family:Georgia,'Times New Roman',serif;font-size:22px;font-weight:400;color:#1C1C1A;margin-bottom:20px;line-height:1.35;}
+.while-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.while-card{
+  background:#EFEFEF;border:.5px solid #D3D3D3;border-radius:8px;
+  padding:16px 18px;display:flex;gap:14px;align-items:flex-start;
+  text-decoration:none;
+  transition:border-color .2s,transform .25s,box-shadow .25s;
+}
+.while-card:hover{border-color:#C9A96E;transform:translateY(-3px);box-shadow:0 8px 20px rgba(201,169,110,.12);}
+.while-card-icon{font-size:22px;flex-shrink:0;line-height:1.2;}
+.while-card-title{font-size:13px;font-weight:600;color:#1C1C1A;margin-bottom:3px;}
+.while-card-desc{font-size:12px;color:#5F5E5A;line-height:1.5;}
+
+/* ── FAIXA FINAL ── */
+.sec-footer-msg{width:100%;background:#1C1C1A;padding:36px 48px;text-align:center;}
+.footer-msg-title{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:21px;font-weight:400;color:#F5F0E8;margin-bottom:10px;
+}
+.footer-msg-title em{
+  font-style:normal;
+  background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer-gold 3s linear infinite;
+}
+.footer-msg-sub{font-size:13px;color:#888780;line-height:1.7;}
+.footer-msg-sub strong{color:#C9A96E;}
+
+/* ── MOBILE ── */
+@media(max-width:720px){
+  .topbar{padding:10px 16px;font-size:12px;}
+  .sec-pending{padding:32px 20px 28px;}
+  .pending-header{flex-direction:column;gap:12px;}
+  .spam-alert{padding:14px 20px;}
+  .sec-aguarda{padding:32px 20px;}
+  .feature-grid{grid-template-columns:1fr;}
+  .sec-letter{padding:36px 20px;}
+  .sec-while{padding:32px 20px;}
+  .sec-footer-msg{padding:28px 20px;}
+  .steps-grid{grid-template-columns:1fr;}
+  .while-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  Pedido recebido — <strong>aguardando compensação do boleto · Minimalize.IA</strong>
+</div>
+
+<div class="page-wrap">
+
+  <!-- HERO PENDENTE -->
+  <section class="sec-pending">
+   <div class="sec-inner">
+    <div class="pending-header anim-up d1">
+      <div class="pending-icon">⏳</div>
+      <div>
+        <div class="pending-title">Oba, falta apenas mais um passo!</div>
+        <p class="pending-sub">Seu pedido do Minimalize.IA foi registrado. Assim que o boleto for compensado, o acesso chega automaticamente no seu e-mail — junto com o curso completo de instalação.</p>
+      </div>
+    </div>
+
+    <div class="progress-wrap anim-up d2">
+      <div class="progress-label">
+        <span>Pedido registrado ✓</span>
+        <span>Aguardando pagamento...</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar"></div></div>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card anim-up d2">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">Pague o boleto</div>
+          <div class="step-desc">No app do seu banco, internet banking ou lotérica.</div>
+        </div>
+      </div>
+      <div class="step-card anim-up d3">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">Aguarde até 3 dias úteis</div>
+          <div class="step-desc">Boletos levam até 3 dias úteis para compensar no sistema.</div>
+        </div>
+      </div>
+      <div class="step-card anim-up d4">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Acesse o Minimalize.IA</div>
+          <div class="step-desc">O link de acesso e o curso de instalação chegam no e-mail da compra.</div>
+        </div>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ALERTA SPAM -->
+  <div class="spam-alert anim-up d3">
+   <div class="sec-inner" style="display:flex;align-items:center;gap:14px;">
+    <div class="spam-alert-icon">📩</div>
+    <div>
+      Fique atento à caixa de <strong>spam</strong> — o e-mail de acesso é enviado pela <strong>Eduzz</strong>, nossa plataforma de vendas, e pode cair no filtro de spam.
+    </div>
+   </div>
+  </div>
+
+  <!-- O QUE TE AGUARDA — seção específica do Minimalize -->
+  <section class="sec-aguarda">
+   <div class="sec-inner">
+    <span class="robot-icon anim-up d2">🤖</span>
+    <div class="aguarda-eyebrow anim-up d2">O que está te esperando</div>
+    <h2 class="aguarda-h2 anim-up d2">Em breve você vai ter um guia de IA disponível a qualquer hora.</h2>
+    <p class="aguarda-sub anim-up d3">Assim que o boleto compensar, você recebe tudo para começar a destralhar com o Minimalize.IA — no seu celular, no seu ritmo, sem pressão.</p>
+    <div class="feature-grid">
+      <div class="feature-card anim-up d3">
+        <div class="feature-card-icon">💬</div>
+        <div class="feature-card-title">Ele conversa com você</div>
+        <div class="feature-card-desc">Entende sua casa, sua rotina e te guia de forma personalizada — sem julgamento.</div>
+      </div>
+      <div class="feature-card anim-up d4">
+        <div class="feature-card-icon">📷</div>
+        <div class="feature-card-title">Analisa fotos (opcional)</div>
+        <div class="feature-card-desc">Envie uma foto do ambiente e o agente identifica os excessos e orienta o destralhe.</div>
+      </div>
+      <div class="feature-card anim-up d5">
+        <div class="feature-card-icon">🔄</div>
+        <div class="feature-card-title">No seu ritmo</div>
+        <div class="feature-card-desc">Pausou? Retoma de onde parou, quantas vezes quiser. Acesso vitalício.</div>
+      </div>
+      <div class="feature-card anim-up d6">
+        <div class="feature-card-icon">📱</div>
+        <div class="feature-card-title">Funciona no ChatGPT gratuito</div>
+        <div class="feature-card-desc">Não precisa do ChatGPT pago. O curso incluso ensina a instalar do zero.</div>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- MENSAGEM PESSOAL -->
+  <section class="sec-letter">
+   <div class="sec-inner">
+    <div class="letter-eyebrow anim-up d3">Uma mensagem de Alexandre Chahoud</div>
+    <div class="letter-body">
+      <div class="pullquote anim-up d4">
+        "O Minimalize.IA não vai fazer o trabalho por você — mas vai te acompanhar em cada passo. E às vezes é exatamente isso que precisamos."
+      </div>
+      <p class="letter-p anim-up d4">
+        Eu criei o Minimalize.IA porque sabia que o maior obstáculo não é falta de vontade — é não saber por onde começar, ou travar na hora de decidir o que fica e o que vai.
+      </p>
+      <p class="letter-p anim-up d5">
+        O agente não julga. Não cobra. Não exige que você seja radical. Ele entende a sua casa, o seu contexto, e te mostra o caminho mais simples para ir em frente.
+      </p>
+      <p class="letter-p anim-up d5">
+        Em breve você vai ter essa ferramenta nas suas mãos. Valeu a espera.
+      </p>
+      <div class="letter-sign anim-up d6">
+        Alexandre Chahoud
+        <span>Criador do Minimalize.IA e do Seja Minimalista</span>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ENQUANTO AGUARDA -->
+  <section class="sec-while">
+   <div class="sec-inner">
+    <div class="while-eyebrow anim-up d4">Enquanto o boleto compensa</div>
+    <h2 class="while-h2 anim-up d4">Comece a se preparar para o seu destralhe</h2>
+    <div class="while-grid">
+      <a class="while-card anim-up d5" href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener">
+        <div class="while-card-icon">📱</div>
+        <div>
+          <div class="while-card-title">Siga no Instagram</div>
+          <div class="while-card-desc">Conteúdo diário sobre minimalismo desde 2018. Mais de 150 mil pessoas já acompanham.</div>
+        </div>
+      </a>
+      <a class="while-card anim-up d6" href="https://www.sejaminimalista.net/vip/entrar" target="_blank" rel="noopener">
+        <div class="while-card-icon">🌟</div>
+        <div>
+          <div class="while-card-title">Cadastre-se na Área VIP</div>
+          <div class="while-card-desc">O acesso será liberado após o pagamento. Cadastre-se agora com o e-mail da compra.</div>
+        </div>
+      </a>
+    </div>
+   </div>
+  </section>
+
+  <!-- FAIXA FINAL -->
+  <div class="sec-footer-msg anim-up d5">
+   <div class="sec-inner">
+    <div class="footer-msg-title">Seu Minimalize.IA está <em>quase aqui</em> 🤖</div>
+    <p class="footer-msg-sub">
+      Pague o boleto e em até <strong>3 dias úteis</strong> você recebe o acesso no e-mail.<br>
+      Qualquer dúvida, fale conosco em <strong>sejaminimalista@hotmail.com</strong>
+    </p>
+   </div>
+  </div>
+
+</div>
+
+<script>
+function sendHeight(){
+  window.parent.postMessage({height:document.documentElement.scrollHeight},'*');
+}
+window.addEventListener('load',sendHeight);
+window.addEventListener('resize',sendHeight);
+</script>
+
+<script>
+(function(){
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged30s');},30000);
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged60s');},60000);
+
+  var s50=false,s75=false;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement;
+    var pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+    if(pct>=50&&!s50){s50=true;if(window.fbq)fbq('trackCustom','Scroll50');}
+    if(pct>=75&&!s75){s75=true;if(window.fbq)fbq('trackCustom','Scroll75');}
+  });
+
+  document.querySelectorAll('a[href*="instagram.com"],a[href*="vip/entrar"]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window.fbq)fbq('trackCustom','BoletoEngagement',{action:a.href,product:'Minimalize.IA'});
+      if(window.gtag)gtag('event','boleto_engagement',{link:a.href,product:'Minimalize.IA'});
+    });
+  });
+})();
+</script>
+</body>
+</html>
