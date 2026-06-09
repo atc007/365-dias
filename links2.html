@@ -24,7 +24,7 @@
 <script>
 window.addEventListener('load',function(){
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init','239605191106043');fbq('track','PageView');
+  fbq('init','239605191106043');fbq('track','PageView');fbq('track','ViewContent',{content_name:'Links Bio Instagram',content_type:'page'});
 });
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></noscript>
@@ -331,6 +331,47 @@ html,body{
   </div>
 
 </div>
+
+
+<script>
+/* ── EVENTOS — Página de Links da Bio ── */
+window.addEventListener('load', function(){
+
+  /* CardClick — rastreia qual produto o usuário clicou */
+  document.querySelectorAll('.link-card').forEach(function(card){
+    card.addEventListener('click', function(){
+      var title = (card.querySelector('.card-title') || {}).innerText || 'produto';
+      var tag   = (card.querySelector('.card-tag')   || {}).innerText || '';
+      if(window.fbq){
+        fbq('trackCustom','CardClick',{
+          content_name: title.trim(),
+          content_category: tag.trim(),
+          source: 'links_bio'
+        });
+      }
+      if(window.gtag){
+        gtag('event','select_content',{
+          content_type: 'product_card',
+          content_id: title.trim()
+        });
+      }
+    });
+  });
+
+  /* Engajamento por tempo */
+  setTimeout(function(){ if(window.fbq) fbq('trackCustom','Engaged30s'); }, 30000);
+
+  /* Scroll */
+  var s50=false, s75=false;
+  window.addEventListener('scroll', function(){
+    var h   = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+    if(pct >= 50 && !s50){ s50=true; if(window.fbq) fbq('trackCustom','Scroll50'); }
+    if(pct >= 75 && !s75){ s75=true; if(window.fbq) fbq('trackCustom','Scroll75'); }
+  });
+
+});
+</script>
 
 </body>
 </html>
