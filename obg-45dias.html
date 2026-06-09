@@ -4,6 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JM7NSX9TDT"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-JM7NSX9TDT');
+</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src='https://connect.facebook.net/en_US/fbevents.js';s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script');
+fbq('init','239605191106043');
+fbq('track','PageView');
+/* Purchase — compra confirmada */
+fbq('track','Purchase',{
+  content_name:'45 Dias / Minimalize',
+  currency:'BRL',
+  value:0
+});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></noscript>
+
 <link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
 <link rel="preconnect" href="https://video.wixstatic.com" crossorigin>
 <link rel="preload" as="image" fetchpriority="high"
@@ -433,5 +456,46 @@ function sendHeight(){window.parent.postMessage({height:document.documentElement
 window.addEventListener('load',sendHeight);
 window.addEventListener('resize',sendHeight);
 </script>
+
+<script>
+/* ── EVENTOS PÓS-COMPRA + UPSELL ── */
+document.addEventListener('DOMContentLoaded', function(){
+
+  /* InitiateCheckout no upsell — cliente clicou no upsell */
+  document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
+    link.addEventListener('click', function(){
+      var name = (link.closest('[class*="price-box"],[class*="upsell"],[class*="cta"]') || {});
+      if(window.fbq){
+        fbq('track','InitiateCheckout',{
+          content_name:'Upsell - 45 Dias / Minimalize',
+          currency:'BRL'
+        });
+      }
+      if(window.gtag){
+        gtag('event','begin_checkout',{
+          currency:'BRL',
+          item_name:'Upsell - 45 Dias / Minimalize'
+        });
+      }
+    });
+  });
+
+  /* Engajamento por tempo */
+  setTimeout(function(){ if(window.fbq) fbq('trackCustom','Engaged30s'); }, 30000);
+  setTimeout(function(){ if(window.fbq) fbq('trackCustom','Engaged60s'); }, 60000);
+
+  /* Scroll */
+  var s50=false, s75=false, s90=false;
+  window.addEventListener('scroll', function(){
+    var h=document.documentElement;
+    var pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+    if(pct>=50&&!s50){s50=true;if(window.fbq)fbq('trackCustom','Scroll50');}
+    if(pct>=75&&!s75){s75=true;if(window.fbq)fbq('trackCustom','Scroll75');}
+    if(pct>=90&&!s90){s90=true;if(window.fbq)fbq('trackCustom','Scroll90');}
+  });
+
+});
+</script>
+
 </body>
 </html>
