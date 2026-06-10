@@ -216,10 +216,26 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .book-stat-num{font-family:Georgia,serif;font-size:32px;color:var(--rose);font-weight:400;line-height:1;margin-bottom:6px;}
 .book-stat-lbl{font-size:12px;color:var(--ink-soft);line-height:1.5;}
 
-/* ══ CARROSSEL SIMPLES ══ */
-.carousel-wrap{background:var(--bg-alt);border-radius:12px;padding:24px;margin:24px 0;}
-.carousel-imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-.carousel-imgs img{width:100%;height:140px;object-fit:cover;border-radius:6px;display:block;}
+/* ══ CARROSSEL GRANDE ══ */
+.carousel-outer{position:relative;display:flex;align-items:center;gap:12px;margin:24px 0 14px;}
+.car-track-wrap{flex:1;overflow:hidden;border-radius:12px;}
+.car-track{display:flex;transition:transform .4s ease;will-change:transform;}
+.car-slide{flex:0 0 100%;position:relative;}
+.car-slide img{width:100%;height:460px;object-fit:cover;display:block;border-radius:12px;}
+.car-btn{
+  width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;flex-shrink:0;
+  background:var(--rose);color:#fff;font-size:18px;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,transform .2s;box-shadow:0 4px 14px rgba(196,136,111,.3);
+}
+.car-btn:hover{background:var(--rose-dark);transform:scale(1.08);}
+.car-dots{display:flex;justify-content:center;gap:8px;}
+.car-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .2s,transform .2s;}
+.car-dot.active{background:var(--rose);transform:scale(1.3);}
+@media(max-width:720px){
+  .car-slide img{height:260px;}
+  .car-btn{width:36px;height:36px;font-size:14px;}
+}
 
 /* ══ DEPOIMENTOS ══ */
 .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
@@ -494,6 +510,48 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   </div>
 </section>
 
+<!-- AUTORES -->
+<section class="sec cream">
+  <div class="inner">
+    <h2 class="sec-h2 anim-up d1" style="text-align:center;max-width:700px;margin:0 auto 40px;font-size:clamp(18px,2.2vw,26px);">Esse Livro foi escrito por quem acredita que roupa é pra ser usada e não guardada. E que o caro é aquilo que você não usa.</h2>
+    <div class="grid2" style="align-items:start;gap:20px;">
+
+      <!-- ALEXANDRE -->
+      <div style="background:#fff;border:.5px solid var(--border);border-radius:14px;padding:28px 24px;box-shadow:0 4px 16px rgba(44,36,32,.06);">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+          <img src="https://static.wixstatic.com/media/940f31_49f56ef051ba45f3b106dce993ef899d~mv2.webp/v1/fill/w_120,h_120,al_c,q_90,enc_avif,quality_auto/alexandre.webp"
+            alt="Alexandre Chahoud — autor do Armário Enxuto"
+            width="80" height="80"
+            style="width:80px;height:80px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--border);"
+            loading="lazy" decoding="async">
+          <div>
+            <div style="font-size:14px;color:var(--ink-soft);font-family:Georgia,serif;">Prazer, eu sou</div>
+            <div style="font-family:Georgia,serif;font-size:22px;font-weight:400;color:var(--ink);line-height:1.2;"><strong>Alexandre<br>Chahoud.</strong></div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--ink-mid);line-height:1.8;">Sou Designer Gráfico, e acredito que a organização já estava no meu coração desde pequeno. Desde 2018 venho trazendo conteúdo para <strong>mais de 125 mil pessoas diariamente</strong>, de forma prática em meu Instagram: <strong>@seja.minimalista</strong>. <strong>Em 2021 escrevi meu primeiro livro, que se tornou best-seller: Seja Minimalista - O guia para uma vida mais Leve e mais Feliz!</strong> Um livro com o propósito de levar as pessoas a conhecerem o minimalismo como estilo de vida, fugindo dos excessos do consumo desenfreado e a buscarem uma <strong>vida mais leve e com muito mais significado. Em 2022 escrevi o Viajante Minimalista - Guia para uma Viagem Incrível.</strong> Um livro escrito com propósito de ensinar a se organizar financeiramente para realizar a sua viagem dos sonhos.</p>
+      </div>
+
+      <!-- FABIANNA -->
+      <div style="background:#fff;border:.5px solid var(--border);border-radius:14px;padding:28px 24px;box-shadow:0 4px 16px rgba(44,36,32,.06);">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+          <img src="https://static.wixstatic.com/media/940f31_c503051d75f242f8a18d6429143d054f~mv2.jpg/v1/crop/x_700,y_0,w_400,h_400/fill/w_120,h_120,al_c,q_90,enc_avif,quality_auto/fabianna.jpg"
+            alt="Fabianna Carraro — consultora de estilo e coautora do Armário Enxuto"
+            width="80" height="80"
+            style="width:80px;height:80px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--border);"
+            loading="lazy" decoding="async">
+          <div>
+            <div style="font-size:14px;color:var(--ink-soft);font-family:Georgia,serif;">Prazer, eu sou</div>
+            <div style="font-family:Georgia,serif;font-size:22px;font-weight:400;color:var(--ink);line-height:1.2;"><strong>Fabianna<br>Carraro.</strong></div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--ink-mid);line-height:1.8;">Oi! Sou a Fabianna Carraro, consultora de estilo e idealizadora do Armário Enxuto. <strong>Sou especialista em deixar mulheres lindas e bem vestidas com poucas roupas no armário.</strong> Minha missão é ajudá-la a explorar toda a funcionalidade das suas roupas e fazê-la economizar tempo e dinheiro ao se vestir.<br><br>Acredito que a beleza está na simplicidade e que caro é aquilo que você não usa. <strong>Esse livro será um divisor de águas na sua vida.</strong></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- CAPÍTULOS -->
 <section class="sec cream">
   <div class="inner">
@@ -521,14 +579,34 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   <div class="inner">
     <div class="sec-eyebrow anim-up d1">Veja o livro por dentro</div>
     <h2 class="sec-h2 anim-up d1">Conteúdo recheado de <em>exercícios, checklists e orientações práticas</em></h2>
-    <div class="carousel-wrap anim-up d2">
-      <div class="carousel-imgs">
-        <img src="https://static.wixstatic.com/media/940f31_12e89dec2b054bb58eb77208f11c191f~mv2.jpg/v1/fill/w_400,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/interior1.jpg" alt="Interior do livro Armário Enxuto — exercícios práticos" loading="lazy" decoding="async">
-        <img src="https://static.wixstatic.com/media/940f31_0093452946b84168b75df6aa979e08f9~mv2.jpg/v1/fill/w_400,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/interior2.jpg" alt="Interior do livro Armário Enxuto — checklists" loading="lazy" decoding="async">
-        <img src="https://static.wixstatic.com/media/940f31_01370172ed17402787c6fb88072ec0f7~mv2.jpg/v1/fill/w_400,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/interior3.jpg" alt="Interior do livro Armário Enxuto — orientações de estilo" loading="lazy" decoding="async">
+
+    <!-- CARROSSEL -->
+    <div class="carousel-outer anim-up d2">
+      <button class="car-btn car-prev" onclick="carMove(-1)" aria-label="Anterior">&#8592;</button>
+      <div class="car-track-wrap">
+        <div class="car-track" id="carTrack">
+          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_0093452946b84168b75df6aa979e08f9~mv2.jpg" alt="Interior do livro Armário Enxuto — página 1" loading="lazy" decoding="async"></div>
+          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_52a0b24d31a2447d8ffe9b30d06d6fa6~mv2.jpg" alt="Interior do livro Armário Enxuto — página 2" loading="lazy" decoding="async"></div>
+          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_12e89dec2b054bb58eb77208f11c191f~mv2.jpg" alt="Interior do livro Armário Enxuto — página 3" loading="lazy" decoding="async"></div>
+          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_1070052ee3644b299d7263f27b3efc78~mv2.jpg" alt="Interior do livro Armário Enxuto — página 4" loading="lazy" decoding="async"></div>
+          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_01370172ed17402787c6fb88072ec0f7~mv2.jpg" alt="Interior do livro Armário Enxuto — página 5" loading="lazy" decoding="async"></div>
+          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_d674809512fc45dfabc6588303049c0b~mv2.jpg" alt="Interior do livro Armário Enxuto — página 6" loading="lazy" decoding="async"></div>
+        </div>
       </div>
+      <button class="car-btn car-next" onclick="carMove(1)" aria-label="Próximo">&#8594;</button>
     </div>
-    <p style="text-align:center;font-size:14px;color:var(--ink-soft);margin-top:12px;">O livro possui versão digital e física — estude, aplique e consulte sempre que precisar.</p>
+
+    <!-- DOTS -->
+    <div class="car-dots" id="carDots">
+      <span class="car-dot active" onclick="carGo(0)"></span>
+      <span class="car-dot" onclick="carGo(1)"></span>
+      <span class="car-dot" onclick="carGo(2)"></span>
+      <span class="car-dot" onclick="carGo(3)"></span>
+      <span class="car-dot" onclick="carGo(4)"></span>
+      <span class="car-dot" onclick="carGo(5)"></span>
+    </div>
+
+    <p style="text-align:center;font-size:14px;color:var(--ink-soft);margin-top:16px;">O livro possui versão digital e física — estude, aplique e consulte sempre que precisar.</p>
   </div>
 </section>
 
@@ -760,6 +838,18 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 </a>
 
 <script>
+/* CARROSSEL */
+var carIdx=0;
+var carTotal=6;
+function carUpdate(){
+  document.getElementById('carTrack').style.transform='translateX(-'+carIdx*100+'%)';
+  document.querySelectorAll('.car-dot').forEach(function(d,i){d.classList.toggle('active',i===carIdx);});
+}
+function carMove(dir){carIdx=(carIdx+dir+carTotal)%carTotal;carUpdate();}
+function carGo(i){carIdx=i;carUpdate();}
+/* Auto-play a cada 4s */
+setInterval(function(){carMove(1);},4000);
+
 function irParaVersoes(e){if(e)e.preventDefault();var el=document.getElementById('versoes');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
 
 /* COUNTDOWN com auto-reinício */
