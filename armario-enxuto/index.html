@@ -363,7 +363,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   <div class="inner">
     <div class="hero-grid">
       <div class="hero-img-wrap anim-up d1">
-        <img src="https://static.wixstatic.com/media/940f31_50e72c55adf7427d80709576faa775cb~mv2.jpg/v1/fill/w_600,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/armario-enxuto-capa.jpg"
+        <img src="https://static.wixstatic.com/media/940f31_3f1672a79414422e849e73912d40127d~mv2.jpg/v1/fill/w_600,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/armario-enxuto-capa.jpg"
           alt="Livro Armário Enxuto — guia prático de estilo e organização de Alexandre Chahoud"
           width="600" height="800" loading="eager" fetchpriority="high" decoding="sync">
         <div class="hero-badges">
@@ -482,10 +482,12 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       </div>
       <div>
         <div class="pullquote anim-up d2">"Este livro foi escrito para ser leve e sem complicações. Assim como a vida deve ser."</div>
-        <div class="book-stats">
-          <div class="book-stat anim-up d3"><div class="book-stat-num">+140</div><div class="book-stat-lbl">páginas de conteúdo prático</div></div>
-          <div class="book-stat anim-up d4"><div class="book-stat-num">12</div><div class="book-stat-lbl">capítulos de autoconhecimento</div></div>
-          <div class="book-stat anim-up d5"><div class="book-stat-num">∞</div><div class="book-stat-lbl">acesso vitalício para consultar sempre</div></div>
+        <!-- Vídeo sem som, lazy load -->
+        <div style="border-radius:10px;overflow:hidden;background:var(--bg-warm);aspect-ratio:9/16;max-width:280px;margin:20px auto 0;box-shadow:0 8px 28px rgba(44,36,32,.12);">
+          <video id="armario-video" muted loop playsinline autoplay preload="metadata"
+            src="https://video.wixstatic.com/video/940f31_d9314b976d934e55be413a9a02f5bf3b/1080p/mp4/file.mp4"
+            style="width:100%;height:100%;object-fit:cover;display:block;">
+          </video>
         </div>
       </div>
     </div>
@@ -785,6 +787,10 @@ function irParaVersoes(e){if(e)e.preventDefault();var el=document.getElementById
 
 /* FAQ */
 function faq(btn){btn.parentElement.classList.toggle('open');}
+
+/* Vídeo lazy load */
+var av=document.getElementById('armario-video');
+if(av){var avObs=new IntersectionObserver(function(e){if(e[0].isIntersecting){av.load();av.play().catch(function(){});avObs.disconnect();}},{threshold:.1});avObs.observe(av);}
 
 /* Meta Pixel — eventos avançados */
 document.addEventListener('DOMContentLoaded',function(){
