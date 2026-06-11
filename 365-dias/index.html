@@ -1117,7 +1117,13 @@ s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
 (window, document,'script');
 fbq('init', '239605191106043');
 fbq('track', 'PageView');
-fbq('track', 'ViewContent');
+fbq('track', 'ViewContent', {
+  content_ids:  ['365-dias-minimalistas'],
+  content_type: 'product',
+  content_name: '365 Dias Minimalistas',
+  currency:     'BRL',
+  value:        77.00
+});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></noscript>
@@ -1813,9 +1819,20 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
         }
 
         link.addEventListener('click',function(){
-          if(window.fbq){
-            fbq('track','InitiateCheckout');
-          }
+          var href = link.href;
+          var val  = 77.00;
+          var name = '365 Dias Minimalistas — Digital';
+          var ids  = ['365-dias-digital'];
+          if(href.indexOf('39ZQYBOB9E') > -1){ val=107.00; name='365 Dias Minimalistas — Físico'; ids=['365-dias-fisico']; }
+          if(href.indexOf('E0D6XBPD91') > -1){ val=147.00; name='365 Dias Minimalistas — Combo';  ids=['365-dias-combo'];  }
+          if(window.fbq){ fbq('track','InitiateCheckout',{
+            content_ids:  ids,
+            content_type: 'product',
+            content_name: name,
+            currency:     'BRL',
+            value:        val,
+            num_items:    1
+          }); }
         });
       }catch(e){}
     });
