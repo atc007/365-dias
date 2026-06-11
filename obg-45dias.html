@@ -503,8 +503,12 @@ document.addEventListener('DOMContentLoaded', function(){
       var name = (link.closest('[class*="price-box"],[class*="upsell"],[class*="cta"]') || {});
       if(window.fbq){
         fbq('track','InitiateCheckout',{
-          content_name:'Upsell - 45 Dias / Minimalize',
-          currency:'BRL'
+          content_ids:  ['45-dias-digital'],
+          content_type: 'product',
+          content_name: 'Upsell — 45 Dias de Destralhe Digital',
+          currency:     'BRL',
+          value:        47.00,
+          num_items:    1
         });
       }
       if(window.gtag){
