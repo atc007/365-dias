@@ -85,9 +85,9 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 
 /* HERO */
 .sec-hero{background:var(--bg);padding:56px 40px 64px;}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
-.hero-img{border-radius:10px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.15);}
-.hero-img img{width:100%;height:auto;display:block;}
+.hero-grid{display:grid;grid-template-columns:360px 1fr;gap:56px;align-items:center;}
+.hero-video-wrap{border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.18);background:#000;aspect-ratio:9/16;width:100%;}
+.hero-video-wrap video{width:100%;height:100%;object-fit:cover;display:block;}
 .hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0;}
 .hero-h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:10px;}
@@ -123,7 +123,13 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .content-list li{font-size:14px;color:var(--ink-mid);line-height:1.6;display:flex;align-items:flex-start;gap:10px;}
 .content-list li::before{content:"✓";color:var(--gold);font-weight:700;flex-shrink:0;margin-top:2px;}
 .content-divider{margin:20px 0;border:none;border-top:.5px solid var(--border);}
-.spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;}
+.content-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:24px 0;}
+.content-col{}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;}
+@media(max-width:720px){
+  .content-cols{grid-template-columns:1fr;gap:24px;}
+  .spec-grid{grid-template-columns:1fr 1fr;}
+}
 .spec-item{background:var(--bg-alt);border-radius:8px;padding:12px 14px;}
 .spec-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:4px;}
 .spec-val{font-size:13px;font-weight:600;color:var(--ink);}
@@ -181,8 +187,8 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   html,body{overflow-x:hidden;}
   .inner,.sec-hero,.sec-video,.sec-content,.sec-gallery,.sec-price,.sec-faq,.footer,.topbar,.stats-bar{padding-left:18px;padding-right:18px;}
   .topbar{gap:12px;flex-direction:column;}
-  .hero-grid,.content-grid{grid-template-columns:1fr;gap:28px;}
-  .hero-img{order:-1;}
+  .hero-grid{grid-template-columns:1fr;gap:24px;}
+  .hero-video-wrap{max-width:320px;margin:0 auto;}
   .gallery-grid{grid-template-columns:1fr 1fr;gap:8px;}
   .gallery-grid .wide{grid-column:span 2;}
   .stats-inner{display:grid;grid-template-columns:1fr 1fr;gap:10px;justify-items:center;}
@@ -208,10 +214,10 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 <!-- HERO -->
 <section class="sec-hero">
   <div class="hero-grid">
-    <div class="hero-img anim-up d1">
-      <img src="https://static.wixstatic.com/media/940f31_71d207865e9d4c8db21e301b67acf253~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/planner-capa.jpg"
-        alt="Meu Planner Minimalista — versão permanente 2026" width="700" height="933"
-        loading="eager" fetchpriority="high" decoding="sync">
+    <div class="hero-video-wrap anim-up d1">
+      <video id="hero-video" muted loop playsinline preload="metadata"
+        src="https://video.wixstatic.com/video/940f31_be55eed5b1174bd59bca7adbd682feaa/720p/mp4/file.mp4">
+      </video>
     </div>
     <div>
       <div class="hero-eyebrow anim-up d1">Alexandre Chahoud · Seja Minimalista</div>
@@ -239,33 +245,16 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   </div>
 </div>
 
-<!-- VÍDEO -->
-<section class="sec-video">
-  <div class="inner">
-    <div class="sec-eyebrow anim-up d1">Veja como é por dentro</div>
-    <h2 class="sec-h2 anim-up d1">Conheça cada detalhe do <em>Planner Minimalista</em></h2>
-    <div class="video-wrap anim-up d2">
-      <iframe
-        src="https://www.youtube.com/embed/videoseries?list=PLplanner"
-        title="Meu Planner Minimalista — vídeo"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen loading="lazy">
-      </iframe>
-    </div>
-    <p style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:16px;">Assista e conheça cada seção do planner antes de comprar.</p>
-  </div>
-</section>
-
 <!-- CONTEÚDO -->
 <section class="sec-content">
   <div class="inner">
-    <div class="content-grid">
-      <div>
-        <div class="sec-eyebrow anim-up d1">O que vem dentro</div>
-        <h2 class="sec-h2 anim-up d1">Tudo o que você precisa para <em>planejar o ano inteiro</em></h2>
+    <div class="sec-eyebrow anim-up d1">O que vem dentro</div>
+    <h2 class="sec-h2 anim-up d1">Tudo o que você precisa para <em>planejar o ano inteiro</em></h2>
 
+    <div class="content-cols anim-up d2">
+      <div class="content-col">
         <div class="content-title">Seções anuais:</div>
-        <ul class="content-list anim-up d2">
+        <ul class="content-list">
           <li>Dados pessoais e profissionais</li>
           <li>Calendário 2026 e 2027 com feriados</li>
           <li>Planejamento, objetivos e metas anuais</li>
@@ -277,11 +266,10 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
           <li>Cuidados com a saúde e ciclo anual</li>
           <li>Peso e medidas · Compras parceladas</li>
         </ul>
-
-        <hr class="content-divider">
-
+      </div>
+      <div class="content-col">
         <div class="content-title">Por mês:</div>
-        <ul class="content-list anim-up d3">
+        <ul class="content-list">
           <li>Divisória do mês com aba</li>
           <li>Página de abertura com prioridades, metas e gratidão</li>
           <li>Financeiro mensal em duas páginas</li>
@@ -290,33 +278,29 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
           <li>Visão semanal com prioridades</li>
           <li>Análise mensal</li>
         </ul>
-
-        <hr class="content-divider">
-
-        <div class="content-title">Especificações:</div>
-        <div class="spec-grid anim-up d4">
-          <div class="spec-item"><div class="spec-label">Capa</div><div class="spec-val">Dura com revestimento fosco</div></div>
-          <div class="spec-item"><div class="spec-label">Encadernação</div><div class="spec-val">Wire-o</div></div>
-          <div class="spec-item"><div class="spec-label">Tamanho</div><div class="spec-val">15 × 21 cm</div></div>
-          <div class="spec-item"><div class="spec-label">Páginas</div><div class="spec-val">210 páginas</div></div>
-          <div class="spec-item"><div class="spec-label">Gramatura</div><div class="spec-val">90 g/m²</div></div>
-          <div class="spec-item"><div class="spec-label">Divisórias</div><div class="spec-val">12 com abas</div></div>
-        </div>
-
-      </div>
-      <div class="anim-up d2">
-        <img src="https://static.wixstatic.com/media/940f31_946a43c613fc413baa6cb919d91fae0b~mv2.jpg/v1/fill/w_600,h_425,al_c,q_90,enc_avif,quality_auto/planner-interior.jpg"
-          alt="Interior do Planner Minimalista" width="600" height="425" loading="lazy" decoding="async"
-          style="border-radius:10px;box-shadow:0 10px 36px rgba(0,0,0,.1);width:100%;margin-bottom:14px;">
-        <div style="text-align:center;margin-top:20px;">
-          <a class="btn-gold small" href="https://chk.eduzz.com/2113425?pf=1" target="_blank" rel="noopener"
-            onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_ids:['planner-minimalista'],content_type:'product',content_name:'Meu Planner Minimalista',currency:'BRL',value:167.00,num_items:1});">
-            Quero meu Planner!
-          </a>
-          <div style="font-size:11px;color:var(--ink-muted);margin-top:8px;">📦 Frete grátis para todo o Brasil</div>
-        </div>
       </div>
     </div>
+
+    <hr class="content-divider" style="margin:32px 0;">
+
+    <div class="content-title">Especificações:</div>
+    <div class="spec-grid anim-up d3">
+      <div class="spec-item"><div class="spec-label">Capa</div><div class="spec-val">Dura com revestimento fosco</div></div>
+      <div class="spec-item"><div class="spec-label">Encadernação</div><div class="spec-val">Wire-o</div></div>
+      <div class="spec-item"><div class="spec-label">Tamanho</div><div class="spec-val">15 × 21 cm</div></div>
+      <div class="spec-item"><div class="spec-label">Páginas</div><div class="spec-val">210 páginas</div></div>
+      <div class="spec-item"><div class="spec-label">Gramatura</div><div class="spec-val">90 g/m²</div></div>
+      <div class="spec-item"><div class="spec-label">Divisórias</div><div class="spec-val">12 com abas</div></div>
+    </div>
+
+    <div style="text-align:center;margin-top:36px;" class="anim-up d4">
+      <a class="btn-gold" href="https://chk.eduzz.com/2113425?pf=1" target="_blank" rel="noopener"
+        onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_ids:['planner-minimalista'],content_type:'product',content_name:'Meu Planner Minimalista',currency:'BRL',value:167.00,num_items:1});">
+        Quero meu Planner!
+      </a>
+      <div style="font-size:12px;color:var(--ink-muted);margin-top:10px;">📦 Frete grátis para todo o Brasil</div>
+    </div>
+
   </div>
 </section>
 
@@ -326,14 +310,21 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="sec-eyebrow anim-up d1" style="justify-content:center;">Veja o planner por dentro</div>
     <h2 class="sec-h2 anim-up d1" style="text-align:center;max-width:520px;margin:10px auto 0;">Cada detalhe pensado para <em>simplificar seu dia.</em></h2>
     <div class="gallery-grid">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_946a43c613fc413baa6cb919d91fae0b~mv2.jpg/v1/fill/w_800,h_566,al_c,q_90,enc_avif,quality_auto/g1.jpg" alt="Planner Minimalista aberto" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_b711610c29ae48f295f1f9d6a7ecff79~mv2.jpg/v1/fill/w_400,h_566,al_c,q_90,enc_avif,quality_auto/g2.jpg" alt="Planner Minimalista capa" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_8d9ee98cfc8c43fdb255e208acafaa5c~mv2.jpg/v1/fill/w_400,h_566,al_c,q_90,enc_avif,quality_auto/g3.jpg" alt="Planner Minimalista divisórias" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_7c9afb495c674f4f8d4407126db5be6c~mv2.jpg/v1/fill/w_800,h_566,al_c,q_90,enc_avif,quality_auto/g4.jpg" alt="Planner Minimalista seção mensal" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_92a64a7faa154d02aad44425260469e7~mv2.jpg/v1/fill/w_400,h_566,al_c,q_90,enc_avif,quality_auto/g5.jpg" alt="Planner Minimalista semanal" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_adab8c29a9504ad5b5da5d60ce9c9d93~mv2.jpg/v1/fill/w_400,h_566,al_c,q_90,enc_avif,quality_auto/g6.jpg" alt="Planner Minimalista hábitos" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_86c87a977ab14f7ea417aa2df751c46a~mv2.jpg/v1/fill/w_800,h_566,al_c,q_90,enc_avif,quality_auto/g7.jpg" alt="Planner Minimalista financeiro" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_7836ced6b69d4e21a102098c291107eb~mv2.jpg/v1/fill/w_400,h_566,al_c,q_90,enc_avif,quality_auto/g8.jpg" alt="Planner Minimalista metas" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_71d207865e9d4c8db21e301b67acf253~mv2.jpg" alt="Planner Minimalista — foto 1" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_45b9b5b6d2ac48bb997bf73e4709b662~mv2.jpg" alt="Planner Minimalista — foto 2" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_573e1a50624a418da0f815c58d404df4~mv2.jpg" alt="Planner Minimalista — foto 3" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_8d9ee98cfc8c43fdb255e208acafaa5c~mv2.jpg" alt="Planner Minimalista — foto 4" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_92a64a7faa154d02aad44425260469e7~mv2.jpg" alt="Planner Minimalista — foto 5" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_adab8c29a9504ad5b5da5d60ce9c9d93~mv2.jpg" alt="Planner Minimalista — foto 6" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_d95d7692f5dd4f4d9701230b4482e93d~mv2.jpg" alt="Planner Minimalista — foto 7" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_946a43c613fc413baa6cb919d91fae0b~mv2.jpg" alt="Planner Minimalista — foto 8" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_86c87a977ab14f7ea417aa2df751c46a~mv2.jpg" alt="Planner Minimalista — foto 9" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_6d460aac6a644ecf80768f5a7652b6d0~mv2.jpg" alt="Planner Minimalista — foto 10" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_7c9afb495c674f4f8d4407126db5be6c~mv2.jpg" alt="Planner Minimalista — foto 11" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_de4fc9cbd6e34f9da24265121b8ecd4c~mv2.jpg" alt="Planner Minimalista — foto 12" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_7836ced6b69d4e21a102098c291107eb~mv2.jpg" alt="Planner Minimalista — foto 13" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_8461501633254e77b3b9460d72d7fb7f~mv2.jpg" alt="Planner Minimalista — foto 14" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_b711610c29ae48f295f1f9d6a7ecff79~mv2.jpg" alt="Planner Minimalista — foto 15" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -428,6 +419,10 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 </a>
 
 <script>
+/* Vídeo hero lazy load */
+var hv=document.getElementById('hero-video');
+if(hv){var hvObs=new IntersectionObserver(function(e){if(e[0].isIntersecting){hv.load();hv.play().catch(function(){});hvObs.disconnect();}},{threshold:.1});hvObs.observe(hv);}
+
 function faq(btn){btn.parentElement.classList.toggle('open');}
 
 document.addEventListener('DOMContentLoaded',function(){
