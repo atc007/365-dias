@@ -475,7 +475,13 @@ s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
 (window, document,'script');
 fbq('init', '239605191106043');
 fbq('track', 'PageView');
-fbq('track', 'ViewContent');
+fbq('track', 'ViewContent', {
+  content_ids: ['seja-minimalista'],
+  content_type: 'product',
+  content_name: 'Seja Minimalista',
+  currency: 'BRL',
+  value: 77.00
+});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></noscript>
@@ -1138,7 +1144,20 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
     /* InitiateCheckout em todos os botões de checkout */
     document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
       link.addEventListener('click',function(){
-        if(window.fbq){ fbq('track','InitiateCheckout'); }
+        var href = link.href;
+        var val  = 77.00;
+        var name = 'Seja Minimalista — Digital';
+        var ids  = ['seja-minimalista-digital'];
+        if(href.indexOf('1046549') > -1){ val=107.00; name='Seja Minimalista — Físico'; ids=['seja-minimalista-fisico']; }
+        if(href.indexOf('1804864') > -1){ val=147.00; name='Seja Minimalista — Combo';  ids=['seja-minimalista-combo'];  }
+        if(window.fbq){ fbq('track','InitiateCheckout',{
+          content_ids:  ids,
+          content_type: 'product',
+          content_name: name,
+          currency:     'BRL',
+          value:        val,
+          num_items:    1
+        }); }
       });
     });
 
