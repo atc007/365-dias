@@ -33,7 +33,13 @@ s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
 (window,document,'script');
 fbq('init','239605191106043');
 fbq('track','PageView');
-fbq('track','ViewContent');
+fbq('track','ViewContent',{
+  content_ids:  ['45-dias-destralhe'],
+  content_type: 'product',
+  content_name: '45 Dias de Destralhe',
+  currency:     'BRL',
+  value:        47.00
+});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></noscript>
@@ -963,7 +969,19 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
 document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
     link.addEventListener('click',function(){
-      if(window.fbq)fbq('track','InitiateCheckout');
+      var href = link.href;
+      var val  = 47.00;
+      var name = '45 Dias de Destralhe — Digital';
+      var ids  = ['45-dias-digital'];
+      if(href.indexOf('E9OBQJZV0B') > -1){ val=97.00; name='45 Dias de Destralhe — Combo Físico + Digital'; ids=['45-dias-combo']; }
+      if(window.fbq){ fbq('track','InitiateCheckout',{
+        content_ids:  ids,
+        content_type: 'product',
+        content_name: name,
+        currency:     'BRL',
+        value:        val,
+        num_items:    1
+      }); }
     });
   });
   document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
