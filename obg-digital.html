@@ -502,8 +502,12 @@ document.addEventListener('DOMContentLoaded', function(){
       var name = (link.closest('[class*="price-box"],[class*="upsell"],[class*="cta"]') || {});
       if(window.fbq){
         fbq('track','InitiateCheckout',{
-          content_name:'Upsell - Livro Digital',
-          currency:'BRL'
+          content_ids:  ['minimalize-ia'],
+          content_type: 'product',
+          content_name: 'Upsell — Minimalize.IA',
+          currency:     'BRL',
+          value:        77.00,
+          num_items:    1
         });
       }
       if(window.gtag){
