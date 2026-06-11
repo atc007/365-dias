@@ -60,7 +60,13 @@
 <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src='https://connect.facebook.net/en_US/fbevents.js';s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script');
-fbq('init','239605191106043');fbq('track','PageView');fbq('track','ViewContent',{content_name:'Armário Enxuto',content_type:'product',currency:'BRL'});
+fbq('init','239605191106043');fbq('track','PageView');fbq('track','ViewContent',{
+  content_ids:  ['armario-enxuto'],
+  content_type: 'product',
+  content_name: 'Armário Enxuto',
+  currency:     'BRL',
+  value:        77.00
+});
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></noscript>
 
@@ -967,7 +973,20 @@ if(av){var avObs=new IntersectionObserver(function(e){if(e[0].isIntersecting){av
 document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
     link.addEventListener('click',function(){
-      if(window.fbq)fbq('track','InitiateCheckout',{content_name:'Armário Enxuto',currency:'BRL'});
+      var href = link.href;
+      var val  = 77.00;
+      var name = 'Armário Enxuto — Digital';
+      var ids  = ['armario-enxuto-digital'];
+      if(href.indexOf('2097528') > -1){ val=107.00; name='Armário Enxuto — Físico'; ids=['armario-enxuto-fisico']; }
+      if(href.indexOf('2097846') > -1){ val=147.00; name='Armário Enxuto — Combo';  ids=['armario-enxuto-combo'];  }
+      if(window.fbq){ fbq('track','InitiateCheckout',{
+        content_ids:  ids,
+        content_type: 'product',
+        content_name: name,
+        currency:     'BRL',
+        value:        val,
+        num_items:    1
+      }); }
     });
   });
   document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
