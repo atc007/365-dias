@@ -326,6 +326,24 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .faq-a{display:none;font-size:15px;color:var(--ink-soft);line-height:1.8;padding-bottom:18px;}
 .faq-item.open .faq-a{display:block;}
 
+/* ══ BÔNUS ══ */
+.bonus-valor-box{background:var(--ink);border-radius:12px;padding:20px 24px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.bonus-valor-left{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;}
+.bonus-valor-left strong{color:var(--cream);}
+.bonus-valor-right{text-align:right;flex-shrink:0;}
+.bonus-was{font-size:12px;color:rgba(255,255,255,.4);text-decoration:line-through;display:block;}
+.bonus-gratis{font-size:24px;font-weight:700;color:var(--rose-light);display:block;line-height:1;font-family:Georgia,serif;}
+.bonus-list{display:flex;flex-direction:column;gap:8px;}
+.bonus-item{background:#fff;border:.5px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;}
+.bonus-num{width:28px;height:28px;border-radius:50%;background:var(--rose);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.bonus-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:3px;}
+.bonus-val{font-size:11px;color:var(--ink-muted);}
+.vip-extra{background:var(--bg-warm);border-radius:10px;padding:18px;}
+.vip-extra-badge{display:inline-block;background:rgba(196,136,111,.15);color:var(--rose-dark);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:8px;}
+.vip-extra-highlight{font-size:13px;color:var(--ink-mid);line-height:1.9;border-top:.5px solid var(--border);padding-top:12px;margin-top:12px;}
+.anchor-strip{background:var(--rose);color:#fff;text-align:center;padding:14px var(--sec-h);font-size:13px;font-weight:600;letter-spacing:.01em;}
+@media(max-width:720px){.bonus-valor-box{flex-direction:column;align-items:flex-start;}}
+
 /* ══ WHATSAPP ══ */
 .whatsapp-float{position:fixed;right:22px;bottom:22px;width:62px;height:62px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(0,0,0,.25);z-index:9999;transition:.25s ease;text-decoration:none;}
 .whatsapp-float:hover{transform:translateY(-3px) scale(1.05);}
@@ -393,7 +411,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <div class="hero-img-wrap anim-up d1">
         <img src="https://static.wixstatic.com/media/940f31_3f1672a79414422e849e73912d40127d~mv2.jpg/v1/fill/w_600,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/armario-enxuto-capa.jpg"
           alt="Livro Armário Enxuto — guia prático de estilo e organização de Alexandre Chahoud"
-          width="600" height="800" loading="eager" fetchpriority="high" decoding="sync">
+          width="520" height="693" loading="eager" fetchpriority="high" decoding="sync" style="max-height:520px;object-fit:contain;">
         <div class="hero-badges">
           <div class="hero-badge">📖 +140 páginas</div>
           <div class="hero-badge">✅ 12 capítulos</div>
@@ -401,7 +419,6 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         </div>
       </div>
       <div>
-        <div class="eyebrow anim-up d1">Guia de Alexandre Chahoud · Seja Minimalista</div>
         <h1 class="hero-h1 anim-up d2">Armário Enxuto: faça as pazes com o seu guarda-roupa e <em>vista quem você realmente é.</em></h1>
         <p class="hero-sub anim-up d2">O guia prático com exercícios, checklists e autoconhecimento para construir um armário funcional, estiloso e alinhado à sua vida — sem precisar comprar mais.</p>
         <div class="anim-up d3">
@@ -661,7 +678,51 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   </div>
 </section>
 
-<!-- ÂNCORA PREÇO -->
+<!-- BÔNUS -->
+<section class="sec" style="background:var(--cream);">
+  <div class="inner">
+    <div class="grid2" style="align-items:start;">
+      <div>
+        <div class="sec-eyebrow anim-up d1">Comprando hoje você recebe de presente</div>
+        <h2 class="sec-h2 anim-up d1">Acesso à Área VIP + bônus digitais exclusivos</h2>
+
+        <!-- BOX VALOR TOTAL -->
+        <div class="bonus-valor-box anim-up d2">
+          <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 197 em bônus digitais — inclusos sem custo adicional</strong></div>
+          <div class="bonus-valor-right"><span class="bonus-was">R$ 197,00</span><span class="bonus-gratis">Grátis 🎁</span></div>
+        </div>
+
+        <!-- LISTA DE BÔNUS -->
+        <div class="bonus-list anim-up d3">
+          <div class="bonus-item"><div class="bonus-num">1</div><div><div class="bonus-title">Ebook — 50 dicas para implementar o minimalismo em sua vida</div><div class="bonus-val">Valor: R$ 47</div></div></div>
+          <div class="bonus-item"><div class="bonus-num">2</div><div><div class="bonus-title">Planner digital permanente pronto para impressão</div><div class="bonus-val">Valor: R$ 27</div></div></div>
+          <div class="bonus-item"><div class="bonus-num">3</div><div><div class="bonus-title">Guia de combinação de cores e biotipos exclusivo</div><div class="bonus-val">Valor: R$ 37</div></div></div>
+          <div class="bonus-item"><div class="bonus-num">4</div><div><div class="bonus-title">Checklist de destralhe do guarda-roupa passo a passo</div><div class="bonus-val">Valor: R$ 27</div></div></div>
+          <div class="bonus-item"><div class="bonus-num">5</div><div><div class="bonus-title">Videoaula — Como montar looks com menos peças</div><div class="bonus-val">Valor: R$ 37</div></div></div>
+          <div class="bonus-item"><div class="bonus-num">6</div><div><div class="bonus-title">Exercícios extras de autoconhecimento e estilo</div><div class="bonus-val">Valor: R$ 22</div></div></div>
+        </div>
+      </div>
+
+      <!-- COLUNA DIREITA — Área VIP -->
+      <div class="anim-up d2">
+        <img src="https://static.wixstatic.com/media/940f31_05fb396bf8cd4739908671d71fba4773~mv2.png"
+          alt="Área VIP Seja Minimalista" loading="lazy" decoding="async"
+          style="width:100%;border-radius:10px;display:block;margin-bottom:18px;">
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.65;margin-bottom:18px;">A Área VIP contém conteúdos extras e é atualizada com frequência.</p>
+        <div class="vip-extra">
+          <div class="vip-extra-badge">🎁 Conteúdo em expansão</div>
+          <h4 style="font-family:Georgia,serif;font-size:16px;font-weight:400;color:var(--ink);margin:10px 0 8px;">Os bônus acima são apenas uma parte do que você recebe.</h4>
+          <p style="font-size:13px;color:var(--ink-soft);line-height:1.65;margin-bottom:14px;">Na Área VIP você também acessa materiais extras exclusivos — planners, exercícios, videoaulas e desafios complementares.</p>
+          <div class="vip-extra-highlight">✔ Acesso vitalício à Área VIP<br>✔ Atualizações sem custo adicional<br>✔ Novos bônus liberados ao longo do tempo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="anchor-strip">Tudo isso — R$ 197 em bônus — inclusos com a sua compra hoje, sem custo adicional.</div>
+
+
 <div class="ancora-sec">
   <div class="ancora-inner">
     <div class="ancora-calc">R$ 0,25 <em style="font-size:14px;font-style:normal;font-family:-apple-system,sans-serif;color:var(--ink-muted)">por dia</em><span>no primeiro mês de uso</span></div>
