@@ -217,7 +217,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   .sec-price .inner{padding-left:18px;padding-right:18px;}
   .sec-faq{padding-left:0;padding-right:0;}
   .sec-faq .inner{padding-left:18px;padding-right:18px;}
-  .footer{padding-left:18px;padding-right:18px;}
+  .footer{padding-left:18px!important;padding-right:18px!important;}
   .footer-grid{grid-template-columns:1fr;gap:28px;}
   .footer-divider{flex-direction:column;gap:6px;}
   .sec-hero{padding-top:32px;padding-bottom:40px;}
@@ -238,10 +238,14 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 <!-- HERO -->
 <section class="sec-hero">
   <div class="hero-grid">
-    <div class="hero-video-wrap anim-up d1">
+    <div class="hero-video-wrap anim-up d1" style="position:relative;">
       <video id="hero-video" muted loop playsinline preload="metadata"
         src="https://video.wixstatic.com/video/940f31_be55eed5b1174bd59bca7adbd682feaa/720p/mp4/file.mp4">
       </video>
+      <button id="sound-btn" onclick="toggleSound()" title="Ativar som"
+        style="position:absolute;bottom:14px;right:14px;width:40px;height:40px;border-radius:50%;border:none;cursor:pointer;background:rgba(0,0,0,.55);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;z-index:10;backdrop-filter:blur(4px);transition:.2s;">
+        🔇
+      </button>
     </div>
     <div>
       <div class="hero-eyebrow anim-up d1">Alexandre Chahoud · Seja Minimalista</div>
@@ -464,6 +468,14 @@ document.addEventListener('DOMContentLoaded',function(){
   imgs.forEach(function(img,i){lbImgs.push(img.src);img.addEventListener('click',function(){lbOpen(i);});});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')lbCloseAll();if(e.key==='ArrowRight')lbNav(1);if(e.key==='ArrowLeft')lbNav(-1);});
 });
+
+/* Som do vídeo hero */
+function toggleSound(){
+  var v=document.getElementById('hero-video');
+  var btn=document.getElementById('sound-btn');
+  v.muted=!v.muted;
+  btn.textContent=v.muted?'🔇':'🔊';
+}
 
 /* Vídeo hero lazy load */
 var hv=document.getElementById('hero-video');
