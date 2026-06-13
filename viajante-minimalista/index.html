@@ -183,11 +183,16 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .pullquote{border-left:3px solid var(--purple);padding:14px 22px;font-family:Georgia,serif;font-size:18px;line-height:1.7;font-style:italic;color:var(--ink);margin-bottom:28px;background:rgba(107,75,200,.06);border-radius:0 6px 6px 0;}
 
 /* AGITAÇÃO */
-.agit-problems{display:flex;flex-direction:column;gap:12px;margin:24px 0;}
-.agit-problem{background:#fff;border:.5px solid var(--border);border-left:3px solid var(--purple);border-radius:8px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;}
+.agit-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;}
+.agit-left{display:flex;flex-direction:column;}
+.agit-right{display:flex;flex-direction:column;gap:20px;position:sticky;top:24px;}
+.agit-img-wrap{border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(107,75,200,.15);}
+.agit-img-wrap img{width:100%;height:auto;display:block;}
+.agit-problems{display:flex;flex-direction:column;gap:10px;margin:20px 0 0;}
+.agit-problem{background:#fff;border:.5px solid var(--border);border-left:3px solid var(--purple);border-radius:8px;padding:14px 18px;display:flex;gap:12px;align-items:flex-start;}
 .agit-problem-icon{font-size:18px;flex-shrink:0;}
 .agit-problem-text{font-size:14px;color:var(--ink-mid);line-height:1.6;}
-.agit-virada{font-family:Georgia,serif;font-size:18px;color:var(--ink);font-style:italic;line-height:1.65;margin-top:24px;padding:16px 20px;background:rgba(107,75,200,.08);border-radius:8px;border-left:3px solid var(--purple);}
+.agit-virada{font-family:Georgia,serif;font-size:17px;color:var(--ink);font-style:italic;line-height:1.7;padding:18px 22px;background:rgba(107,75,200,.08);border-radius:10px;border-left:3px solid var(--purple);}
 
 /* MOTIVOS */
 .motivos-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;}
@@ -346,6 +351,8 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   .hero-img-wrap img{max-height:340px;object-fit:cover;border-radius:10px;}
   .sec{padding:40px 18px;}
   .grid2{grid-template-columns:1fr;gap:28px;}
+  .agit-grid{grid-template-columns:1fr;gap:28px;}
+  .agit-right{position:static;order:-1;}
   .motivos-grid,.for-grid{grid-template-columns:1fr;}
   .cap-grid{grid-template-columns:1fr 1fr;gap:8px;}
   .motivo-full{grid-column:span 1;}
@@ -428,21 +435,25 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 <!-- AGITAÇÃO -->
 <section class="sec warm">
   <div class="inner">
-    <div class="grid2" style="align-items:start;">
-      <div>
+    <div class="agit-grid">
+      <!-- COLUNA ESQUERDA -->
+      <div class="agit-left">
         <div class="sec-eyebrow anim-up d1">Você se identifica com isso?</div>
         <h2 class="sec-h2 anim-up d1">Você sonha em viajar — mas nunca parece ser a hora certa.</h2>
         <div class="agit-problems">
-          <div class="agit-problem"><div class="agit-problem-icon">💸</div><div class="agit-problem-text">Você diz que não tem dinheiro para viajar — mas será que é verdade?</div></div>
-          <div class="agit-problem"><div class="agit-problem-icon">😟</div><div class="agit-problem-text">Você quer planejar a viagem, mas não sabe por onde começar.</div></div>
-          <div class="agit-problem"><div class="agit-problem-icon">✈️</div><div class="agit-problem-text">Quando finalmente viaja, sente que desperdiça dinheiro em coisas que não valem a pena.</div></div>
-          <div class="agit-problem"><div class="agit-problem-icon">😔</div><div class="agit-problem-text">Volta pra casa sem a sensação de que aproveitou de verdade.</div></div>
+          <div class="agit-problem anim-up d2"><div class="agit-problem-icon">💸</div><div class="agit-problem-text">Você diz que não tem dinheiro para viajar — mas será que é verdade?</div></div>
+          <div class="agit-problem anim-up d3"><div class="agit-problem-icon">😟</div><div class="agit-problem-text">Você quer planejar a viagem, mas não sabe por onde começar.</div></div>
+          <div class="agit-problem anim-up d4"><div class="agit-problem-icon">✈️</div><div class="agit-problem-text">Quando finalmente viaja, sente que desperdiça dinheiro em coisas que não valem a pena.</div></div>
+          <div class="agit-problem anim-up d5"><div class="agit-problem-icon">😔</div><div class="agit-problem-text">Volta pra casa sem a sensação de que aproveitou de verdade.</div></div>
         </div>
-        <div class="agit-virada anim-up d3">"O problema não é falta de dinheiro. É falta de organização e planejamento. E isso tem solução."</div>
       </div>
-      <div class="img-box anim-up d2">
-        <img src="https://static.wixstatic.com/media/940f31_24dc2bc636384642a28049e5f998a7ab~mv2.jpg"
-          alt="Viajante Minimalista — paisagem de viagem" width="699" height="492" loading="lazy" decoding="async">
+      <!-- COLUNA DIREITA -->
+      <div class="agit-right anim-up d2">
+        <div class="agit-img-wrap">
+          <img src="https://static.wixstatic.com/media/940f31_24dc2bc636384642a28049e5f998a7ab~mv2.jpg"
+            alt="Viajante Minimalista — conteúdo do livro em dispositivos" width="699" height="492" loading="lazy" decoding="async">
+        </div>
+        <div class="agit-virada">"O problema não é falta de dinheiro. É falta de organização e planejamento. E isso tem solução."</div>
       </div>
     </div>
   </div>
@@ -574,10 +585,6 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <span class="car-dot" onclick="carGo(1)"></span>
       <span class="car-dot" onclick="carGo(2)"></span>
       <span class="car-dot" onclick="carGo(3)"></span>
-      <span class="car-dot" onclick="carGo(4)"></span>
-      <span class="car-dot" onclick="carGo(5)"></span>
-      <span class="car-dot" onclick="carGo(6)"></span>
-      <span class="car-dot" onclick="carGo(7)"></span>
       <span class="car-dot" onclick="carGo(4)"></span>
       <span class="car-dot" onclick="carGo(5)"></span>
       <span class="car-dot" onclick="carGo(6)"></span>
