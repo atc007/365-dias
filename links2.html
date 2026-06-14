@@ -42,11 +42,11 @@ html,body{
 :root{
   --gold:#C9A96E;
   --border:#3A3A38;
-  --max:520px;
+  --max:600px;
 }
 
 /* ══ WRAPPER ══ */
-.page{max-width:var(--max);margin:0 auto;padding:8px 20px 56px;}
+.page{max-width:var(--max);margin:0 auto;padding:8px 16px 56px;}
 
 /* ══ SECTION LABEL ══ */
 .section-label{
@@ -62,7 +62,7 @@ html,body{
   border:.5px solid #3A3A38;
   border-radius:14px;overflow:hidden;
   display:flex;flex-direction:column;
-  width:260px;
+  width:100%;max-width:340px;
   margin:0 auto 14px;
   text-decoration:none;
   /* tap feedback no mobile */
@@ -78,7 +78,7 @@ html,body{
 
 /* imagem — sem zoom no hover */
 .card-img{
-  width:260px;height:345px;
+  width:100%;aspect-ratio:520/690;height:auto;
   object-fit:cover;display:block;
 }
 
