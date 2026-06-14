@@ -8,7 +8,10 @@
 <meta property="og:title" content="Viajante Minimalista — O Guia Para uma Viagem Incrível">
 <meta property="og:description" content="Chega de adiar a viagem dos sonhos. O guia que te ensina a planejar, economizar e viajar com leveza e propósito.">
 <meta property="og:image" content="https://static.wixstatic.com/media/940f31_d7b8db9b3e924ef7bd675dc94e0c32f8~mv2.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:type" content="product">
+<meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.sejaminimalista.net/livro-viagens">
 
 <script type="application/ld+json">
@@ -21,9 +24,9 @@
   "inLanguage":"pt-BR",
   "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"5000","bestRating":"5"},
   "offers":[
-    {"@type":"Offer","name":"Livro Digital","price":"77.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://chk.eduzz.com/909488?pf=1"},
-    {"@type":"Offer","name":"Livro Físico","price":"107.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://chk.eduzz.com/1046549?pf=1"},
-    {"@type":"Offer","name":"Combo Digital + Físico","price":"147.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://chk.eduzz.com/1804864?pf=1"}
+    {"@type":"Offer","name":"Livro Digital","price":"77.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://chk.eduzz.com/1152731?pf=1"},
+    {"@type":"Offer","name":"Livro Físico","price":"107.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://chk.eduzz.com/1222443?pf=1"},
+    {"@type":"Offer","name":"Combo Digital + Físico","price":"147.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://chk.eduzz.com/1804896?pf=1"}
   ]
 }
 </script>
@@ -103,13 +106,15 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   --bg-alt:#B8D8E8;
   --bg-warm:#F0A882;
   --border:#D8D0C8;
+  --terra:#C4956A;
+  --terra-light:#FFCF9D;
 }
 
 .inner{max-width:960px;margin:0 auto;width:100%;padding:0 40px;}
 
 /* ANIMAÇÕES */
 @keyframes shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
-@keyframes btn-pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(201,169,110,0);}50%{transform:scale(1.02);box-shadow:0 0 0 8px rgba(107,75,200,.18);}}
+@keyframes btn-pulse{0%,100%{transform:scale(1);box-shadow:0 2px 10px rgba(106,63,28,.25);}50%{transform:scale(1.02);box-shadow:0 2px 10px rgba(106,63,28,.25),0 0 0 8px rgba(217,166,104,.25);}}
 @keyframes price-shine{0%{background-position:150% center;}100%{background-position:-150% center;}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 @keyframes shimmer-seal{0%{background-position:150% center;}100%{background-position:-150% center;}}
@@ -120,13 +125,14 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 /* BOTÕES */
 .btn-gold{
   display:inline-block;
-  background:linear-gradient(90deg,#6B3F22 0%,#8B5E3C 30%,#C4956A 50%,#8B5E3C 70%,#6B3F22 100%);
-  background-size:200% auto;color:#1C1C1A;
+  background:linear-gradient(90deg,#D9A668 0%,#F0C896 30%,#FFE0B8 50%,#F0C896 70%,#D9A668 100%);
+  background-size:200% auto;color:#3A2410;
   font-size:15px;font-weight:700;padding:18px 36px;border-radius:6px;
   text-decoration:none;letter-spacing:.02em;
+  box-shadow:0 2px 10px rgba(106,63,28,.25);
   animation:shimmer 3s linear infinite,btn-pulse 3.5s ease-in-out infinite;
 }
-.btn-gold:hover{animation:none;background:var(--purple);filter:brightness(1.08);transform:scale(1.02);}
+.btn-gold:hover{animation:none;background:var(--purple);color:#fff;filter:brightness(1.08);transform:scale(1.02);}
 .btn-dark{display:inline-block;background:var(--ink);color:var(--cream);font-size:15px;font-weight:700;padding:18px 36px;border-radius:6px;text-decoration:none;transition:background .2s,transform .2s;}
 .btn-dark:hover{background:#2A2A28;transform:scale(1.02);}
 
@@ -156,12 +162,12 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .hero-note::before{content:"🔒";font-size:11px;}
 
 /* STATS */
-.stats-bar{background:#B8D8E8;padding:20px 40px;}
+.stats-bar{background:var(--salmon);padding:20px 40px;}
 .stats-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;}
 .stat{padding:8px 28px;display:flex;align-items:center;gap:14px;}
-.stat:not(:last-child){border-right:.5px solid #3A3A38;}
-.stat-num{font-family:Georgia,serif;font-size:24px;color:var(--terra);line-height:1;}
-.stat-lbl{font-size:12px;color:var(--ink-mid);line-height:1.45;}
+.stat:not(:last-child){border-right:.5px solid rgba(58,58,56,.25);}
+.stat-num{font-family:Georgia,serif;font-size:24px;color:#7A3E1A;line-height:1;font-weight:600;}
+.stat-lbl{font-size:12px;color:#5C3015;line-height:1.45;}
 
 /* SEÇÕES */
 .sec{width:100%;padding:64px 40px;}
@@ -215,6 +221,18 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .cap-card{background:#fff;border-radius:8px;padding:14px 16px;display:flex;gap:10px;align-items:flex-start;box-shadow:0 2px 8px rgba(0,0,0,.06);}
 .cap-num{font-family:Georgia,serif;font-size:13px;color:var(--purple);font-weight:400;min-width:28px;flex-shrink:0;margin-top:1px;}
 .cap-title{font-size:12px;font-weight:500;color:var(--ink);line-height:1.4;}
+
+/* CARROSSEL DE CAPÍTULOS (mobile only) */
+.cap-car-wrap{display:none;}
+.cap-car-track{display:flex;transition:transform .38s cubic-bezier(.4,0,.2,1);will-change:transform;}
+.cap-car-page{flex:0 0 100%;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:4px 0;}
+.cap-car-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px;}
+.cap-car-btn{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--purple);background:transparent;color:var(--purple);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s;}
+.cap-car-btn:hover{background:var(--purple);color:#fff;}
+.cap-car-dots{display:flex;gap:8px;}
+.cap-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .2s,transform .2s;}
+.cap-dot.active{background:var(--purple);transform:scale(1.3);}
+.cap-car-label{text-align:center;font-size:12px;color:var(--ink-muted);margin-top:10px;}
 
 /* CARROSSEL */
 .carousel-outer{position:relative;display:flex;align-items:center;gap:12px;margin:24px 0 14px;}
@@ -328,11 +346,11 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .footer{background:var(--ink);padding:48px 40px;}
 .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;}
 .footer-logo img{max-width:200px;height:auto;display:block;margin-bottom:14px;filter:brightness(0) invert(1);opacity:.5;}
-.footer-copy{font-size:12px;color:#5C5C5A;line-height:1.7;}
-.footer-links h4{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5C5C5A;margin-bottom:14px;}
-.footer-links a{display:block;font-size:13px;color:#3A3A38;text-decoration:none;margin-bottom:8px;}
-.footer-links a:hover{color:var(--terra);}
-.footer-divider{margin-top:36px;padding-top:22px;border-top:.5px solid #2A2A28;display:flex;justify-content:space-between;font-size:11px;color:#3A3A38;}
+.footer-copy{font-size:12px;color:#A8A8A4;line-height:1.7;}
+.footer-links h4{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A8A8A4;margin-bottom:14px;}
+.footer-links a{display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;}
+.footer-links a:hover{color:var(--terra-light);}
+.footer-divider{margin-top:36px;padding-top:22px;border-top:.5px solid #3A3A38;display:flex;justify-content:space-between;font-size:11px;color:#8A8A86;}
 .footer-btn{display:inline-block;margin-top:16px;font-size:12px;padding:10px 20px;border-radius:6px;font-weight:700;text-decoration:none;background:linear-gradient(90deg,#4A2FA8,#6B4BC8,#9B7BE8,#6B4BC8,#4A2FA8);background-size:200% auto;color:#fff;animation:shimmer 3s linear infinite;}
 
 /* WHATSAPP */
@@ -354,7 +372,8 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   .agit-grid{grid-template-columns:1fr;gap:28px;}
   .agit-right{position:static;order:-1;}
   .motivos-grid,.for-grid{grid-template-columns:1fr;}
-  .cap-grid{grid-template-columns:1fr 1fr;gap:8px;}
+  .cap-grid{display:none;}
+  .cap-car-wrap{display:block;overflow:hidden;margin-top:20px;}
   .motivo-full{grid-column:span 1;}
   .motivo-card{display:grid;grid-template-columns:48px 1fr;grid-template-rows:auto auto;gap:0 12px;align-items:start;}
   .motivo-num{font-size:28px;grid-row:1/3;grid-column:1;padding-top:2px;line-height:1;margin-bottom:0;}
@@ -386,7 +405,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   <div class="urgency-inner">
     <span class="urgency-text"><strong>Frete grátis</strong> · Garantia de 7 dias · Bônus inclusos</span>
     <div class="countdown">
-      <span style="color:#888780;">Oferta encerra em</span>
+      <span style="color:#F0E8E0;font-size:12px;">Esta oferta com bônus encerra em:</span>
       <span class="countdown-unit" id="cd-h">00</span><span class="countdown-sep">:</span>
       <span class="countdown-unit" id="cd-m">00</span><span class="countdown-sep">:</span>
       <span class="countdown-unit" id="cd-s">00</span>
@@ -411,7 +430,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       </div>
       <div>
         <div class="hero-seal anim-up d1">✈️ Best-seller</div>
-        <h1 class="hero-h1 anim-up d2">Viajante Minimalista: o guia para <em>a viagem dos seus sonhos.</em></h1>
+        <h1 class="hero-h1 anim-up d2">Viajante Minimalista: aprenda a planejar, economizar e <em>viajar com leveza.</em></h1>
         <p class="hero-sub anim-up d2">Aprenda a se organizar financeiramente, planejar cada detalhe e viajar com mais leveza — gastando menos e aproveitando muito mais.</p>
         <div class="anim-up d3">
           <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero meu Viajante Minimalista!</a>
@@ -495,7 +514,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="grid2" style="align-items:start;">
       <div>
         <div class="sec-eyebrow anim-up d1">Este livro foi escrito para você</div>
-        <h2 class="sec-h2 anim-up d1">Para quem nunca mais quer <em>adiar a viagem dos sonhos.</em></h2>
+        <h2 class="sec-h2 anim-up d1">Para quem quer transformar <em>viajar em hábito, não em exceção.</em></h2>
         <div class="for-grid">
           <div class="for-card anim-up d2"><div class="for-icon">✔️</div><div class="for-text">Nunca mais quer adiar a viagem dos sonhos</div></div>
           <div class="for-card anim-up d3"><div class="for-icon">✔️</div><div class="for-text">Quer viagens transformadoras, inesquecíveis e significativas</div></div>
@@ -505,7 +524,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         <div style="margin-top:24px;"><a class="btn-gold anim-up d4" href="#versoes" onclick="irParaVersoes(event)">Quero começar a planejar minha viagem</a></div>
       </div>
       <div>
-        <div class="pullquote anim-up d2">"Este livro foi escrito com o objetivo de ser leve e sem complicações. Assim como a vida deve ser."</div>
+        <div class="pullquote anim-up d2">"Viajar não é luxo. É a melhor decisão que você pode tomar por si mesmo — e qualquer pessoa pode fazer isso acontecer com o planejamento certo."</div>
         <div style="background:#fff;border:.5px solid var(--border);border-radius:10px;padding:20px;margin-top:16px;">
           <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:12px;">O que você vai aprender</div>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
@@ -526,7 +545,9 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   <div class="inner">
     <div class="sec-eyebrow anim-up d1">O que você vai aprender</div>
     <h2 class="sec-h2 anim-up d1">Capítulos que você vai <em>encontrar no livro</em></h2>
-    <div class="cap-grid anim-up d2">
+
+    <!-- DESKTOP: grid completo -->
+    <div class="cap-grid cap-grid-desktop anim-up d2">
       <div class="cap-card"><div class="cap-num">01</div><div class="cap-title">Por que planejamento e organização são tão importantes em uma viagem?</div></div>
       <div class="cap-card"><div class="cap-num">02</div><div class="cap-title">Como se planejar para uma viagem incrível</div></div>
       <div class="cap-card"><div class="cap-num">03</div><div class="cap-title">Matemática da Viagem</div></div>
@@ -540,7 +561,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <div class="cap-card"><div class="cap-num">11</div><div class="cap-title">Passo 2: Definir as datas</div></div>
       <div class="cap-card"><div class="cap-num">12</div><div class="cap-title">Passo 3: Reunir os documentos</div></div>
       <div class="cap-card"><div class="cap-num">13</div><div class="cap-title">Passo 4: Comprar as passagens</div></div>
-      <div class="cap-card"><div class="cap-num">14</div><div class="cap-title">Reservar os transportes durante a viagem</div></div>
+      <div class="cap-card"><div class="cap-num">14</div><div class="cap-title">Passo 5: Reservar os transportes durante a viagem</div></div>
       <div class="cap-card"><div class="cap-num">15</div><div class="cap-title">Passo 6: Reservar as hospedagens</div></div>
       <div class="cap-card"><div class="cap-num">16</div><div class="cap-title">Passo 7: Alugar o carro</div></div>
       <div class="cap-card"><div class="cap-num">17</div><div class="cap-title">Passo 8: Seguro viagem</div></div>
@@ -553,8 +574,65 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <div class="cap-card"><div class="cap-num">24</div><div class="cap-title">Apps que facilitam a sua vida durante as viagens</div></div>
       <div class="cap-card"><div class="cap-num">25</div><div class="cap-title">Como lidar com o dinheiro durante a viagem</div></div>
     </div>
+
+    <!-- MOBILE: carrossel de páginas -->
+    <div class="cap-car-wrap">
+      <div class="cap-car-track" id="capTrack">
+
+        <div class="cap-car-page">
+          <div class="cap-card"><div class="cap-num">01</div><div class="cap-title">Por que planejamento e organização são tão importantes em uma viagem?</div></div>
+          <div class="cap-card"><div class="cap-num">02</div><div class="cap-title">Como se planejar para uma viagem incrível</div></div>
+          <div class="cap-card"><div class="cap-num">03</div><div class="cap-title">Matemática da Viagem</div></div>
+          <div class="cap-card"><div class="cap-num">04</div><div class="cap-title">O método das três canetas coloridas</div></div>
+          <div class="cap-card"><div class="cap-num">05</div><div class="cap-title">Mão na Massa: Organize as suas finanças</div></div>
+          <div class="cap-card"><div class="cap-num">06</div><div class="cap-title">Mão na Massa: Defina o seu orçamento</div></div>
+        </div>
+
+        <div class="cap-car-page">
+          <div class="cap-card"><div class="cap-num">07</div><div class="cap-title">Mão na Massa: Custos da viagem</div></div>
+          <div class="cap-card"><div class="cap-num">08</div><div class="cap-title">Como aumentar sua renda</div></div>
+          <div class="cap-card"><div class="cap-num">09</div><div class="cap-title">O que você deve fazer antes da viagem</div></div>
+          <div class="cap-card"><div class="cap-num">10</div><div class="cap-title">Passo 1: Definir o destino</div></div>
+          <div class="cap-card"><div class="cap-num">11</div><div class="cap-title">Passo 2: Definir as datas</div></div>
+          <div class="cap-card"><div class="cap-num">12</div><div class="cap-title">Passo 3: Reunir os documentos</div></div>
+        </div>
+
+        <div class="cap-car-page">
+          <div class="cap-card"><div class="cap-num">13</div><div class="cap-title">Passo 4: Comprar as passagens</div></div>
+          <div class="cap-card"><div class="cap-num">14</div><div class="cap-title">Passo 5: Reservar os transportes durante a viagem</div></div>
+          <div class="cap-card"><div class="cap-num">15</div><div class="cap-title">Passo 6: Reservar as hospedagens</div></div>
+          <div class="cap-card"><div class="cap-num">16</div><div class="cap-title">Passo 7: Alugar o carro</div></div>
+          <div class="cap-card"><div class="cap-num">17</div><div class="cap-title">Passo 8: Seguro viagem</div></div>
+          <div class="cap-card"><div class="cap-num">18</div><div class="cap-title">Preparativos finais para a sua viagem</div></div>
+        </div>
+
+        <div class="cap-car-page">
+          <div class="cap-card"><div class="cap-num">19</div><div class="cap-title">Dicas para comer muito bem na sua viagem</div></div>
+          <div class="cap-card"><div class="cap-num">20</div><div class="cap-title">Montando uma Bagagem Minimalista</div></div>
+          <div class="cap-card"><div class="cap-num">21</div><div class="cap-title">Como fazer uma mala de mão funcional?</div></div>
+          <div class="cap-card"><div class="cap-num">22</div><div class="cap-title">Como levar dinheiro em viagens</div></div>
+          <div class="cap-card"><div class="cap-num">23</div><div class="cap-title">É necessário ter internet durante a viagem?</div></div>
+          <div class="cap-card"><div class="cap-num">24</div><div class="cap-title">Apps que facilitam a sua vida durante as viagens</div></div>
+          <div class="cap-card"><div class="cap-num">25</div><div class="cap-title">Como lidar com o dinheiro durante a viagem</div></div>
+        </div>
+
+      </div>
+      <!-- Dots + navegação -->
+      <div class="cap-car-nav">
+        <button class="cap-car-btn" id="capPrev" onclick="capMove(-1)" aria-label="Anterior">&#8592;</button>
+        <div class="cap-car-dots" id="capDots">
+          <span class="cap-dot active" onclick="capGo(0)"></span>
+          <span class="cap-dot" onclick="capGo(1)"></span>
+          <span class="cap-dot" onclick="capGo(2)"></span>
+          <span class="cap-dot" onclick="capGo(3)"></span>
+        </div>
+        <button class="cap-car-btn" id="capNext" onclick="capMove(1)" aria-label="Próximo">&#8594;</button>
+      </div>
+      <div class="cap-car-label" id="capLabel">Capítulos 1–6 de 25</div>
+    </div>
+
     <div style="text-align:center;margin-top:32px;">
-      <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero meu Viajante Minimalista!</a>
+      <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Ver versões e preços ↓</a>
     </div>
   </div>
 </section>
@@ -568,14 +646,14 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <button class="car-btn car-prev" onclick="carMove(-1)" aria-label="Anterior">&#8592;</button>
       <div class="car-track-wrap">
         <div class="car-track" id="carTrack">
-          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_9da8968608594b718e5b0fb3c9296445~mv2.jpg" alt="Viajante Minimalista — interior 1" loading="lazy" decoding="async"></div>
-          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_721621aed2c64245802a789db1af0fa1~mv2.jpg" alt="Viajante Minimalista — interior 2" loading="lazy" decoding="async"></div>
-          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_ebcb3b51cd1240339cb936c40f57aa04~mv2.jpg" alt="Viajante Minimalista — interior 3" loading="lazy" decoding="async"></div>
-          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_37c94adbe31a426e851cd43268f7eac6~mv2.jpg" alt="Viajante Minimalista — interior 4" loading="lazy" decoding="async"></div>
-          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_b0555669291f486bae5545e0336f29b1~mv2.jpg" alt="Viajante Minimalista — interior 5" loading="lazy" decoding="async"></div>
-          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_6bee50e6487645f48243d826ffd52673~mv2.jpg" alt="Viajante Minimalista — interior 6" loading="lazy" decoding="async"></div>
-          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_b75140ce948c43818466130ad7abf555~mv2.jpg" alt="Viajante Minimalista — interior 7" loading="lazy" decoding="async"></div>
-          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_477ada98983447da961d4f3dcb1793c5~mv2.jpg" alt="Viajante Minimalista — interior 8" loading="lazy" decoding="async"></div>
+          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_9da8968608594b718e5b0fb3c9296445~mv2.jpg" alt="Viajante Minimalista — perguntas básicas para definir uma compra de viagem" loading="lazy" decoding="async"></div>
+          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_721621aed2c64245802a789db1af0fa1~mv2.jpg" alt="Viajante Minimalista — gastos com a viagem: os 5 pilares do custo final" loading="lazy" decoding="async"></div>
+          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_ebcb3b51cd1240339cb936c40f57aa04~mv2.jpg" alt="Viajante Minimalista — como se planejar financeiramente para viajar" loading="lazy" decoding="async"></div>
+          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_37c94adbe31a426e851cd43268f7eac6~mv2.jpg" alt="Viajante Minimalista — método das três canetas coloridas" loading="lazy" decoding="async"></div>
+          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_b0555669291f486bae5545e0336f29b1~mv2.jpg" alt="Viajante Minimalista — como montar uma bagagem minimalista" loading="lazy" decoding="async"></div>
+          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_6bee50e6487645f48243d826ffd52673~mv2.jpg" alt="Viajante Minimalista — dicas para comer bem durante a viagem" loading="lazy" decoding="async"></div>
+          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_b75140ce948c43818466130ad7abf555~mv2.jpg" alt="Viajante Minimalista — como levar dinheiro em viagens internacionais" loading="lazy" decoding="async"></div>
+          <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_477ada98983447da961d4f3dcb1793c5~mv2.jpg" alt="Viajante Minimalista — apps essenciais que facilitam sua vida na viagem" loading="lazy" decoding="async"></div>
         </div>
       </div>
       <button class="car-btn car-next" onclick="carMove(1)" aria-label="Próximo">&#8594;</button>
@@ -591,7 +669,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <span class="car-dot" onclick="carGo(7)"></span>
     </div>
     <div style="text-align:center;margin-top:28px;">
-      <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero meu Viajante Minimalista!</a>
+      <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Garantir meu exemplar →</a>
     </div>
   </div>
 </section>
@@ -710,7 +788,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       </div>
     </div>
     <div style="text-align:center;margin-top:36px;">
-      <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero meu Viajante Minimalista!</a>
+      <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero começar a planejar minha viagem</a>
     </div>
   </div>
 </section>
@@ -757,7 +835,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
             <li>Bônus digitais inclusos</li>
             <li>Acesso vitalício</li>
           </ul>
-          <a class="pc-btn dark" href="https://chk.eduzz.com/909488?pf=1&cupom=GANHEI10" target="_blank" rel="noopener"
+          <a class="pc-btn dark" href="https://chk.eduzz.com/1152731?pf=1&cupom=GANHEI10" target="_blank" rel="noopener"
             onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_ids:['viajante-digital'],content_type:'product',content_name:'Viajante Minimalista — Digital',currency:'BRL',value:77.00,num_items:1});">
             Quero o Digital + Bônus
           </a>
@@ -770,6 +848,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         </div>
         <div class="pc-body">
           <div class="pc-type">Livro Físico + Frete Grátis</div>
+          <div style="display:inline-block;background:#EAF3DE;color:#27500A;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;margin-bottom:8px;">📦 Frete grátis para todo o Brasil</div>
           <div class="pc-was">De R$ 147,00</div>
           <div class="pc-now"><sup>R$</sup>107</div>
           <div class="pc-parc">ou 12x de R$ 11,07</div>
@@ -780,7 +859,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
             <li>Bônus digitais inclusos</li>
             <li>Acesso vitalício</li>
           </ul>
-          <a class="pc-btn dark" href="https://chk.eduzz.com/1046549?pf=1&cupom=GANHEI10" target="_blank" rel="noopener"
+          <a class="pc-btn dark" href="https://chk.eduzz.com/1222443?pf=1&cupom=GANHEI10" target="_blank" rel="noopener"
             onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_ids:['viajante-fisico'],content_type:'product',content_name:'Viajante Minimalista — Físico',currency:'BRL',value:107.00,num_items:1});">
             Quero o Físico + Bônus
           </a>
@@ -804,7 +883,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
             <li>Bônus digitais inclusos</li>
             <li>Acesso vitalício</li>
           </ul>
-          <a class="pc-btn gold" href="https://chk.eduzz.com/1804864?pf=1&cupom=GANHEI10" target="_blank" rel="noopener"
+          <a class="pc-btn gold" href="https://chk.eduzz.com/1804896?pf=1&cupom=GANHEI10" target="_blank" rel="noopener"
             onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_ids:['viajante-combo'],content_type:'product',content_name:'Viajante Minimalista — Combo',currency:'BRL',value:147.00,num_items:1});">
             Quero o Combo + Bônus
           </a>
@@ -834,7 +913,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 <section class="sec cream">
   <div class="inner">
     <div class="sec-eyebrow">Perguntas frequentes</div>
-    <h2 class="sec-h2">Tire suas dúvidas</h2>
+    <h2 class="sec-h2">Ainda tem dúvidas? Veja as respostas mais frequentes.</h2>
     <div class="faq-list">
       <div class="faq-item"><button class="faq-q" onclick="faq(this)">Preciso ter muito dinheiro para viajar?<div class="faq-icon">+</div></button><div class="faq-a">Não. O livro ensina exatamente como se organizar financeiramente para viajar dentro da sua realidade — o foco é gastar o mínimo necessário e aproveitar o máximo possível.</div></div>
       <div class="faq-item"><button class="faq-q" onclick="faq(this)">O livro funciona para qualquer destino?<div class="faq-icon">+</div></button><div class="faq-a">Sim. O método é aplicável a qualquer viagem — nacional ou internacional, mochilão ou viagem mais confortável. O que muda é o seu perfil de viajante, e o livro te ajuda a descobrir o seu.</div></div>
@@ -870,8 +949,8 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         <a href="mailto:sejaminimalista@hotmail.com">Fale comigo</a>
       </div>
       <div>
-        <h4 style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5C5C5A;margin-bottom:14px;">Newsletter gratuita</h4>
-        <p style="font-size:12px;color:#3A3A38;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas direto no seu e-mail, toda semana.</p>
+        <h4 style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A8A8A4;margin-bottom:14px;">Newsletter gratuita</h4>
+        <p style="font-size:12px;color:#D8D8D4;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas direto no seu e-mail, toda semana.</p>
         <iframe src="https://sejaminimalista.substack.com/embed?transparent=1&light=1" width="480" height="150" style="border:0;background:transparent;max-width:100%;display:block;" frameborder="0" scrolling="no" title="Newsletter Seja Minimalista"></iframe>
       </div>
     </div>
@@ -915,7 +994,20 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
   tick();
 })();
 
-/* CARROSSEL */
+/* CARROSSEL CAPÍTULOS */
+var capIdx=0,capTotal=4;
+var capLabels=['Capítulos 1–6 de 25','Capítulos 7–12 de 25','Capítulos 13–18 de 25','Capítulos 19–25 de 25'];
+function capUpdate(){
+  var track=document.getElementById('capTrack');
+  var label=document.getElementById('capLabel');
+  if(track)track.style.transform='translateX(-'+capIdx*100+'%)';
+  if(label)label.textContent=capLabels[capIdx];
+  document.querySelectorAll('.cap-dot').forEach(function(d,i){d.classList.toggle('active',i===capIdx);});
+}
+function capMove(dir){capIdx=(capIdx+dir+capTotal)%capTotal;capUpdate();}
+function capGo(i){capIdx=i;capUpdate();}
+
+/* CARROSSEL IMAGENS */
 var carIdx=0,carTotal=8;
 function carUpdate(){
   document.getElementById('carTrack').style.transform='translateX(-'+carIdx*100+'%)';
