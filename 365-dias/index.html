@@ -1022,25 +1022,30 @@ html,body{
   .countdown-unit{font-size:19px;min-width:34px;padding:4px 8px;}
   .urgency-text{font-size:12px;text-align:center;}
 
-  /* hero: imagem ocupa a largura toda, mesma altura da coluna de texto */
-  .sec-hero{padding:28px var(--sec-h) 36px;}
+  /* hero: imagem encostada na barra de urgência, sem espaços */
+  .sec-hero{padding:0 0 36px;}
   .hero-grid{
     grid-template-columns:1fr;
     gap:0;
   }
-  /* imagem vem primeiro e ocupa largura total com altura generosa */
+  .hero-grid > div:not(.hero-img-wrap){padding:16px var(--sec-h) 0;}
+  /* imagem vem primeiro, full-bleed, sem padding nem margem */
   .hero-img-wrap{
     order:-1;
-    min-height:280px;
+    min-height:auto;
     width:100%;
-    padding:16px 0;
+    padding:0;
+    margin:0;
   }
   .hero-img-wrap img{
     max-width:100%;
     max-height:340px;
-    width:auto;
+    width:100%;
     height:auto;
-    margin:0 auto;
+    object-fit:cover;
+    border-radius:0;
+    box-shadow:none;
+    margin:0;
   }
   .badges{gap:6px;}
   .badge{font-size:11px;}
