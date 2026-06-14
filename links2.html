@@ -42,11 +42,11 @@ html,body{
 :root{
   --gold:#C9A96E;
   --border:#3A3A38;
-  --max:600px;
+  --max:560px;
 }
 
 /* ══ WRAPPER ══ */
-.page{max-width:var(--max);margin:0 auto;padding:8px 16px 56px;}
+.page{max-width:var(--max);margin:0 auto;padding:8px 18px 56px;}
 
 /* ══ SECTION LABEL ══ */
 .section-label{
@@ -57,21 +57,31 @@ html,body{
 .section-label::before,.section-label::after{content:'';flex:1;height:.5px;background:#3A3A38;}
 
 /* ══ CARD ══ */
+@keyframes card-float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-6px);}
+}
 .link-card{
   background:#242422;
   border:.5px solid #3A3A38;
   border-radius:14px;overflow:hidden;
   display:flex;flex-direction:column;
-  width:100%;max-width:340px;
+  width:100%;max-width:300px;
   margin:0 auto 14px;
   text-decoration:none;
   /* tap feedback no mobile */
   -webkit-tap-highlight-color:transparent;
   transition:transform .15s ease,box-shadow .15s ease;
   position:relative;
+  animation:card-float 4.5s ease-in-out infinite;
 }
+.link-card:nth-child(2n){animation-delay:.6s;}
+.link-card:nth-child(3n){animation-delay:1.2s;}
+.link-card:nth-child(4n){animation-delay:1.8s;}
+@media(prefers-reduced-motion:reduce){.link-card{animation:none;}}
 /* tap press — funciona em touch */
 .link-card:active{
+  animation-play-state:paused;
   transform:scale(.97);
   box-shadow:0 4px 16px rgba(0,0,0,.4);
 }
