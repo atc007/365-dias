@@ -681,6 +681,12 @@ html,body{
 }
 .pc:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.15);}
 .pc.dest{border:2px solid var(--gold);position:relative;box-shadow:0 6px 28px rgba(201,169,110,.25);}
+.pc-highlight{animation:pc-flash 1.8s ease;}
+@keyframes pc-flash{
+  0%{box-shadow:0 0 0 0 rgba(201,169,110,.6),0 4px 20px rgba(0,0,0,.10);}
+  30%{box-shadow:0 0 0 8px rgba(201,169,110,.35),0 4px 20px rgba(0,0,0,.10);}
+  100%{box-shadow:0 0 0 0 rgba(201,169,110,0),0 4px 20px rgba(0,0,0,.10);}
+}
 .dest-tag{
   position:absolute;top:-1px;left:50%;transform:translateX(-50%);
   background:var(--gold);color:var(--ink);
@@ -1563,7 +1569,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
           <div class="pc-urgency-note">⚡ Acesso imediato após o pagamento</div>
         </div>
       </div>
-      <div class="pc">
+      <div class="pc" id="versao-fisica">
         <div class="pc-img">
           <img src="https://static.wixstatic.com/media/940f31_f7a8fc091af94a9da1eebd78ef0ba579~mv2.png/v1/fill/w_280,h_228,al_c,q_90,enc_avif,quality_auto/capa-sm.png" alt="Versão física" width="280" height="228" loading="lazy" decoding="async">
         </div>
@@ -1724,8 +1730,12 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 /* SCROLL */
 function irParaVersoes(e){
   if(e) e.preventDefault();
-  var el=document.getElementById('versoes');
-  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  var el=document.getElementById('versao-fisica')||document.getElementById('versoes');
+  if(el){
+    el.scrollIntoView({behavior:'smooth',block:'center'});
+    el.classList.add('pc-highlight');
+    setTimeout(function(){el.classList.remove('pc-highlight');},1800);
+  }
 }
 
 /* COUNTDOWN — 23h59 persistente por localStorage */
