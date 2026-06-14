@@ -415,10 +415,11 @@ html,body{
   .countdown-unit{font-size:19px;min-width:34px;padding:4px 8px;}
   .urgency-text{font-size:12px;text-align:center;}
   .urgency-badge{display:none;}
-  .sec-hero{padding:28px var(--sec-h) 36px;}
+  .sec-hero{padding:0 0 36px;}
   .hero-grid{grid-template-columns:1fr;gap:0;}
-  .hero-img-wrap{order:-1;min-height:260px;width:100%;padding:16px 0;}
-  .hero-img-wrap img{max-height:320px;}
+  .hero-grid > div:not(.hero-img-wrap){padding:16px var(--sec-h) 0;}
+  .hero-img-wrap{order:-1;min-height:auto;width:100%;padding:0;margin:0;}
+  .hero-img-wrap img{max-height:340px;width:100%;object-fit:cover;border-radius:0;box-shadow:none;}
   .grid2{grid-template-columns:1fr;gap:28px;}
   .cap-grid{grid-template-columns:1fr;}
   .dif-grid{grid-template-columns:1fr;}
