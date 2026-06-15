@@ -200,6 +200,9 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .dif-icon{font-size:28px;margin-bottom:12px;}
 .dif-title{font-family:Georgia,serif;font-size:17px;font-weight:400;color:var(--cream);margin-bottom:8px;}
 .dif-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;}
+.dif-grid-light .dif-card{background:#fff;border:.5px solid var(--border);}
+.dif-grid-light .dif-title{color:var(--ink);}
+.dif-grid-light .dif-desc{color:var(--ink-soft);}
 
 /* ══ BÔNUS ══ */
 .bonus-list{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
@@ -483,20 +486,20 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
           fetchpriority="high" loading="eager" decoding="sync">
         <div class="hero-badges">
           <div class="hero-badge">🤖 Agente de IA</div>
-          <div class="hero-badge">📱 No seu celular</div>
+          <div class="hero-badge">✅ ChatGPT gratuito</div>
           <div class="hero-badge">♾️ Acesso vitalício</div>
         </div>
       </div>
       <div>
         <div class="eyebrow">Criado por Alexandre Chahoud</div>
-        <h1 class="hero-h1">Sua casa mais leve começa com <em>uma conversa.</em></h1>
-        <p class="hero-sub">Um agente de IA que entende sua casa, analisa seus ambientes e te guia no destralhe — no seu ritmo, sem pressão, sem julgamento.</p>
+        <h1 class="hero-h1">O agente de <em>IA</em> que te ajuda a destralhar a casa — uma conversa por vez.</h1>
+        <p class="hero-sub">Funciona direto no ChatGPT, no seu celular, sem instalar nada. Você conversa, envia fotos se quiser, e ele te guia no destralhe — no seu ritmo, sem pressão, sem julgamento.</p>
         <div class="hero-pills">
-          <div class="hero-pill">Sem pressão</div>
-          <div class="hero-pill">Sem métodos extremos</div>
+          <div class="hero-pill" style="color:var(--gold);font-weight:600;">⭐ 4,9 de avaliação · +25 mil pessoas já destralharam</div>
+          <div class="hero-pill">Sem pressão, sem métodos extremos</div>
           <div class="hero-pill">Com acompanhamento personalizado</div>
         </div>
-        <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Acessar o Minimalize.IA agora</a>
+        <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero entender como funciona</a>
         <div class="hero-note">Compra segura · Acesso imediato · Garantia de 7 dias</div>
       </div>
     </div>
@@ -512,6 +515,36 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="stat"><div class="stat-num">Vitalício</div><div class="stat-lbl">acesso<br>sem expirar</div></div>
   </div>
 </div>
+
+<!-- RESUMO RÁPIDO — COMO FUNCIONA -->
+<section class="sec" style="padding-top:40px;padding-bottom:40px;">
+  <div class="inner">
+    <div class="sec-eyebrow" style="justify-content:center;">Em 3 passos simples</div>
+    <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 28px;">É assim que funciona, na prática.</h2>
+    <div class="dif-grid dif-grid-light" style="margin-top:0;">
+      <div class="dif-card">
+        <div class="dif-icon">💬</div>
+        <div class="dif-title">1. Você conversa com o agente</div>
+        <div class="dif-desc">Direto no ChatGPT — sem instalar nada. Conte como é sua casa e o que está te pesando.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">📷</div>
+        <div class="dif-title">2. Ele entende sua realidade</div>
+        <div class="dif-desc">Se quiser, envie fotos dos ambientes. O agente identifica excessos e cria um plano possível para você.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">🧹</div>
+        <div class="dif-title">3. Você destralha no seu ritmo</div>
+        <div class="dif-desc">Passo a passo, sem pressão. Pausa quando quiser e retoma de onde parou — sem culpa.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px;">
+      <div style="font-family:Georgia,serif;font-size:15px;color:var(--ink-soft);margin-bottom:14px;">Menos que um café por dia: <strong style="color:var(--ink);">a partir de R$ 0,21/dia</strong> no primeiro ano de acesso vitalício.</div>
+      <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero meu acesso vitalício</a>
+      <div class="hero-note" style="justify-content:center;margin-top:10px;color:var(--ink-muted);">Garantia de 7 dias · Acesso vitalício</div>
+    </div>
+  </div>
+</section>
 
 <!-- O PROBLEMA -->
 <section class="sec alt">
@@ -584,33 +617,6 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         </video>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- O DIFERENCIAL -->
-<section class="sec dark">
-  <div class="inner">
-    <div class="sec-eyebrow" style="justify-content:center;">O que o Minimalize faz de diferente</div>
-    <h2 class="sec-h2" style="text-align:center;max-width:560px;margin:10px auto 0;">Ele não só te ajuda a destralhar a casa. Ele conversa com você.</h2>
-    <p class="sec-p" style="text-align:center;max-width:600px;margin:16px auto 0;">Antes de qualquer coisa, o Minimalize.IA entende com quantas pessoas você mora, quantos cômodos sua casa tem e quais ambientes fazem parte da sua rotina. A partir disso, cria um plano possível e fácil de aplicar.</p>
-    <div class="dif-grid" style="margin-top:36px;">
-      <div class="dif-card">
-        <div class="dif-icon">💬</div>
-        <div class="dif-title">Ele conversa com você</div>
-        <div class="dif-desc">Não é um checklist. É um agente que entende sua realidade, adapta o processo à sua vida — e te mostra exatamente por onde começar.</div>
-      </div>
-      <div class="dif-card">
-        <div class="dif-icon">📷</div>
-        <div class="dif-title">Analisa fotos (opcional)</div>
-        <div class="dif-desc">Envie uma foto do ambiente. O Minimalize.IA identifica excessos e orienta — sem julgar.</div>
-      </div>
-      <div class="dif-card">
-        <div class="dif-icon">🔄</div>
-        <div class="dif-title">No seu ritmo</div>
-        <div class="dif-desc">Pausou? Pode retomar de onde parou. Quer um novo destralhe? Começa um novo processo.</div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:36px;"><a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Começar a destralhar com IA</a></div>
   </div>
 </section>
 
@@ -816,6 +822,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         style="width:100%;height:auto;display:block;max-height:420px;object-fit:cover;"
         loading="lazy" decoding="async">
     </div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-bottom:20px;">Cada item abaixo já tem valor próprio se vendido separadamente. Somados, chegam a R$ 227 — mas comprando hoje você leva tudo isso por R$ 77, no acesso vitalício.</p>
     <!-- Conteúdo em 2 colunas abaixo da imagem -->
     <div class="grid2" style="align-items:start;">
       <div>
@@ -897,7 +904,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
           <li>Funciona com conta gratuita do ChatGPT</li>
         </ul>
         <a class="pc-btn gold" href="https://chk.eduzz.com/89AQ2V75WD?pf=1&cupom=150DESCONTO" target="_blank" rel="noopener">Quero meu Minimalize.IA agora</a>
-        <div class="pc-urgency-note">⚡ Acesso imediato após o pagamento</div>
+        <div class="pc-urgency-note">⚡ Acesso imediato · 🔒 Garantia de 7 dias</div>
       </div>
     </div>
 
