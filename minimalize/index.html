@@ -607,14 +607,21 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         <div style="margin-top:28px;"><a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Esse sou eu — quero começar</a></div>
       </div>
       <!-- VÍDEO LAZY -->
-      <div class="video-col" style="border-radius:10px;overflow:hidden;background:var(--ink);aspect-ratio:9/16;max-width:320px;margin:0 auto;">
-        <video id="qual-video"
-          muted loop playsinline autoplay
-          preload="metadata"
-          src="https://video.wixstatic.com/video/940f31_89f9e0b610e349a4b378f2a8546ec812/720p/mp4/file.mp4"
-          poster="https://static.wixstatic.com/media/940f31_1706864bd97e4e77a3f6c9a63b6025bb~mv2.jpg/v1/crop/x_0,y_120,w_1024,h_1297/fill/w_484,h_613,al_c,q_85,enc_avif,quality_auto/minimalize-poster.jpg"
-          style="width:100%;height:100%;object-fit:cover;display:block;">
-        </video>
+      <div>
+        <div class="video-col" style="border-radius:10px;overflow:hidden;background:var(--ink);aspect-ratio:9/16;max-width:320px;margin:0 auto;position:relative;">
+          <video id="qual-video"
+            muted loop playsinline autoplay
+            preload="metadata"
+            src="https://video.wixstatic.com/video/940f31_89f9e0b610e349a4b378f2a8546ec812/720p/mp4/file.mp4"
+            poster="https://static.wixstatic.com/media/940f31_1706864bd97e4e77a3f6c9a63b6025bb~mv2.jpg/v1/crop/x_0,y_120,w_1024,h_1297/fill/w_484,h_613,al_c,q_85,enc_avif,quality_auto/minimalize-poster.jpg"
+            style="width:100%;height:100%;object-fit:cover;display:block;">
+          </video>
+          <button id="qual-video-sound" onclick="toggleQualVideoSound()" title="Ativar som"
+            style="position:absolute;bottom:14px;right:14px;width:40px;height:40px;border-radius:50%;border:none;cursor:pointer;background:rgba(0,0,0,.55);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;z-index:10;backdrop-filter:blur(4px);transition:.2s;">
+            🔇
+          </button>
+        </div>
+        <p style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:12px;max-width:320px;margin-left:auto;margin-right:auto;">👆 Veja como funciona uma conversa real com o Minimalize.IA — toque no ícone para ativar o som.</p>
       </div>
     </div>
   </div>
@@ -1021,6 +1028,13 @@ function irParaVersoes(e){if(e)e.preventDefault();var el=document.getElementById
 /* VÍDEO lazy — para quem é */
 var qv=document.getElementById('qual-video');
 if(qv){var qvObs=new IntersectionObserver(function(e){if(e[0].isIntersecting){qv.load();qv.play().catch(function(){});qvObs.disconnect();}},{threshold:.1});qvObs.observe(qv);}
+
+function toggleQualVideoSound(){
+  var v=document.getElementById('qual-video');
+  var btn=document.getElementById('qual-video-sound');
+  v.muted=!v.muted;
+  btn.textContent=v.muted?'🔇':'🔊';
+}
 
 /* FAQ */
 function faq(btn){btn.parentElement.classList.toggle('open');}
