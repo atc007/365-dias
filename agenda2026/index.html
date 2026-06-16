@@ -285,7 +285,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <p class="hero-sub anim-up d2">Capa dura fosca, encadernação wire-o e 2 dias por página com espaço extra para anotar. Tudo o que você precisa para planejar seu ano com clareza e leveza.</p>
       <div class="anim-up d3">
         <a class="btn-gold" href="https://chk.eduzz.com/801VB7JQ97?pf=1" target="_blank" rel="noopener"
-          onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_ids:['agenda-minimalista'],content_type:'product',content_name:'Agenda Minimalista 2026',currency:'BRL',value:127.00,num_items:1});">
+          ">
           Quero começar a organizar 2026
         </a>
       </div>
@@ -350,7 +350,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 
     <div style="text-align:center;margin-top:36px;" class="anim-up d4">
       <a class="btn-gold" href="https://chk.eduzz.com/801VB7JQ97?pf=1" target="_blank" rel="noopener"
-        onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_ids:['agenda-minimalista'],content_type:'product',content_name:'Agenda Minimalista 2026',currency:'BRL',value:127.00,num_items:1});">
+        ">
         Ver detalhes completos
       </a>
       <div style="font-size:12px;color:var(--ink-muted);margin-top:10px;">📦 Frete grátis para todo o Brasil</div>
@@ -402,7 +402,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         <li>Garantia de 7 dias</li>
       </ul>
       <a class="btn-gold" href="https://chk.eduzz.com/801VB7JQ97?pf=1" target="_blank" rel="noopener" style="width:100%;text-align:center;display:block;"
-        onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_ids:['agenda-minimalista'],content_type:'product',content_name:'Agenda Minimalista 2026',currency:'BRL',value:127.00,num_items:1});">
+        ">
         Garantir minha Agenda
       </a>
       <div class="price-note">📦 Frete grátis · 🔒 Compra segura · 7 dias de garantia</div>
@@ -425,7 +425,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     </div>
     <div style="text-align:center;margin-top:40px;">
       <a class="btn-gold" href="https://chk.eduzz.com/801VB7JQ97?pf=1" target="_blank" rel="noopener"
-        onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_ids:['agenda-minimalista'],content_type:'product',content_name:'Agenda Minimalista 2026',currency:'BRL',value:127.00,num_items:1});">
+        ">
         Quero minha Agenda Minimalista
       </a>
     </div>
@@ -502,19 +502,33 @@ if(hv){var hvObs=new IntersectionObserver(function(e){if(e[0].isIntersecting){hv
 function faq(btn){btn.parentElement.classList.toggle('open');}
 
 document.addEventListener('DOMContentLoaded',function(){
+
+  function getFbc(){try{var u=new URL(window.location.href);var fbclid=u.searchParams.get('fbclid')||localStorage.getItem('trk_fbclid');if(!fbclid)return undefined;return 'fb.1.'+Date.now()+'.'+fbclid;}catch(e){return undefined;}}
+  function getFbp(){try{var m=document.cookie.match(/_fbp=([^;]+)/);return m?m[1]:undefined;}catch(e){return undefined;}}
+  var _sourceUrl=window.location.href;
+  function pixelData(extra){var base={event_source_url:_sourceUrl};var fbc=getFbc();if(fbc)base.fbc=fbc;var fbp=getFbp();if(fbp)base.fbp=fbp;return Object.assign({},base,extra||{});}
+  window._px=pixelData;
+
   /* Scroll events */
   var s50=false,s75=false,s90=false;
   window.addEventListener('scroll',function(){
     var h=document.documentElement;
     var pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
-    if(pct>=50&&!s50){s50=true;if(window.fbq)fbq('trackCustom','Scroll50');}
-    if(pct>=75&&!s75){s75=true;if(window.fbq)fbq('trackCustom','Scroll75');}
-    if(pct>=90&&!s90){s90=true;if(window.fbq)fbq('trackCustom','Scroll90');}
+    if(pct>=50&&!s50){s50=true;if(window.fbq)fbq('trackCustom','Scroll50',pixelData());}
+    if(pct>=75&&!s75){s75=true;if(window.fbq)fbq('trackCustom','Scroll75',pixelData());}
+    if(pct>=90&&!s90){s90=true;if(window.fbq)fbq('trackCustom','Scroll90',pixelData());}
   });
-  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged30s');},30000);
-  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged60s');},60000);
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged30s',pixelData());},30000);
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged60s',pixelData());},60000);
   document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){
-    a.addEventListener('click',function(){if(window.fbq)fbq('trackCustom','WhatsAppClick');});
+    a.addEventListener('click',function(){if(window.fbq)fbq('trackCustom','WhatsAppClick',pixelData());});
+  });
+  /* InitiateCheckout via event listener — substitui os onclick inline */
+  document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
+    link.removeAttribute('onclick');
+    link.addEventListener('click',function(){
+      if(window.fbq)fbq('track','InitiateCheckout',pixelData({content_ids:['agenda-minimalista'],content_type:'product',content_name:'Agenda Minimalista 2026',currency:'BRL',value:127.00,num_items:1}));
+    });
   });
 });
 </script>
