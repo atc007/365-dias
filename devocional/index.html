@@ -249,9 +249,11 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 <!-- HERO -->
 <section class="sec-hero">
   <div class="hero-grid">
-    <div class="hero-video-wrap anim-up d1">
-      <img src="https://static.wixstatic.com/media/940f31_12324fb304cf4c0b9bda4a883ab6c682~mv2.jpg/v1/crop/x_0,y_363,w_2304,h_1554/fill/w_600,h_520,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/devocional-capa.jpg"
-        alt="Devocional Meu Tempo com Deus — capa" width="600" height="520" style="width:100%;height:100%;object-fit:cover;display:block;" loading="eager" decoding="async">
+    <div class="hero-video-wrap anim-up d1" style="position:relative;">
+      <video id="hero-video" muted loop playsinline preload="metadata"
+        src="https://video.wixstatic.com/video/940f31_f295a6ed835e47f2a729028a8ff40508/1080p/mp4/file.mp4"
+        style="width:100%;height:100%;object-fit:cover;display:block;">
+      </video>
     </div>
     <div>
       <div class="hero-badge anim-up d1">Diário espiritual · Capa Dura</div>
@@ -340,14 +342,16 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="sec-eyebrow anim-up d1" style="justify-content:center;">Veja o devocional por dentro</div>
     <h2 class="sec-h2 anim-up d1" style="text-align:center;max-width:520px;margin:10px auto 0;">Cada detalhe pensado para <em>nutrir sua fé no dia a dia.</em></h2>
     <div class="gallery-grid">
-      <img src="https://static.wixstatic.com/media/940f31_1384df113d704e48a13748f856eb707f~mv2.jpg" alt="Devocional Meu Tempo com Deus — capa" width="324" height="458" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_07be07b3bafe432d83d052b76c87c7ac~mv2.jpg" alt="Devocional Meu Tempo com Deus — páginas internas" width="647" height="458" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_55a618e09741457db81f4a52b16b9714~mv2.jpg" alt="Devocional Meu Tempo com Deus — devocional diário" width="647" height="458" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_07be07b3bafe432d83d052b76c87c7ac~mv2.jpg" alt="Devocional Meu Tempo com Deus — páginas internas" width="647" height="458" loading="lazy" decoding="async" class="wide">
+      <img src="https://static.wixstatic.com/media/940f31_55a618e09741457db81f4a52b16b9714~mv2.jpg" alt="Devocional Meu Tempo com Deus — devocional diário" width="647" height="458" loading="lazy" decoding="async" class="wide">
       <img src="https://static.wixstatic.com/media/940f31_113230872354494b9958d409b52fcfeb~mv2.jpg" alt="Devocional Meu Tempo com Deus — seção de orações" width="324" height="458" loading="lazy" decoding="async">
       <img src="https://static.wixstatic.com/media/940f31_0d536fb364934d36b294c4f76506af9e~mv2.jpg" alt="Devocional Meu Tempo com Deus — metas espirituais" width="324" height="458" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_c5a5ccb487fe430396027bbe204f65b4~mv2.jpg" alt="Devocional Meu Tempo com Deus — versículos que me inspiram" width="647" height="458" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_cd5e82615063448bae003a2078980e6a~mv2.jpg" alt="Devocional Meu Tempo com Deus — leitura bíblica diária" width="647" height="458" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_c5a5ccb487fe430396027bbe204f65b4~mv2.jpg" alt="Devocional Meu Tempo com Deus — versículos que me inspiram" width="647" height="458" loading="lazy" decoding="async" class="wide">
+      <img src="https://static.wixstatic.com/media/940f31_cd5e82615063448bae003a2078980e6a~mv2.jpg" alt="Devocional Meu Tempo com Deus — leitura bíblica diária" width="647" height="458" loading="lazy" decoding="async" class="wide">
       <img src="https://static.wixstatic.com/media/940f31_1b730149601744119575763ceba017f3~mv2.jpg" alt="Devocional Meu Tempo com Deus — gratidão do dia" width="324" height="458" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_e6aace85877f442281ceb218e23190ca~mv2.jpg" alt="Devocional Meu Tempo com Deus — carta para Deus" width="324" height="458" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_34b971f392874267b9b209d8025dfbf3~mv2.jpg" alt="Devocional Meu Tempo com Deus — história com Jesus" width="647" height="458" loading="lazy" decoding="async" class="wide">
+      <img src="https://static.wixstatic.com/media/940f31_12324fb304cf4c0b9bda4a883ab6c682~mv2.jpg" alt="Devocional Meu Tempo com Deus — capa dura fosca" width="324" height="458" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -358,6 +362,11 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="price-eyebrow">Garanta agora o seu</div>
     <h2 class="price-h2">Um devocional completo para cultivar <br>sua fé — com frete grátis.</h2>
     <div class="price-box anim-up d2">
+      <div class="pc-img" style="border-radius:8px;overflow:hidden;margin-bottom:20px;line-height:0;">
+        <img src="https://static.wixstatic.com/media/940f31_12324fb304cf4c0b9bda4a883ab6c682~mv2.jpg/v1/crop/x_0,y_363,w_2304,h_1554/fill/w_457,h_397,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_20250324_132626.jpg"
+          alt="Devocional Meu Tempo com Deus — capa" width="457" height="397" loading="lazy" decoding="async"
+          style="width:100%;height:auto;display:block;">
+      </div>
       <div class="price-name">Devocional Meu Tempo com Deus · Capa Dura</div>
       <div class="price-was">De R$ 247,00</div>
       <div class="price-now"><sup>R$</sup>147</div>
@@ -462,6 +471,10 @@ document.addEventListener('DOMContentLoaded',function(){
   imgs.forEach(function(img,i){lbImgs.push(img.src);img.addEventListener('click',function(){lbOpen(i);});});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')lbCloseAll();if(e.key==='ArrowRight')lbNav(1);if(e.key==='ArrowLeft')lbNav(-1);});
 });
+
+/* Vídeo hero lazy load */
+var hv=document.getElementById('hero-video');
+if(hv){var hvObs=new IntersectionObserver(function(e){if(e[0].isIntersecting){hv.load();hv.play().catch(function(){});hvObs.disconnect();}},{threshold:.1});hvObs.observe(hv);}
 
 function faq(btn){btn.parentElement.classList.toggle('open');}
 
