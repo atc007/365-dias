@@ -1857,6 +1857,28 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
     return p.toString();
   }
 
+  /* ══ HELPERS — fbc, fbp, source_url ══ */
+  function getFbc(){
+    try{
+      var fbclid=url.searchParams.get('fbclid')||localStorage.getItem('trk_fbclid');
+      if(!fbclid) return undefined;
+      return 'fb.1.'+Date.now()+'.'+fbclid;
+    }catch(e){return undefined;}
+  }
+  function getFbp(){
+    try{
+      var m=document.cookie.match(/_fbp=([^;]+)/);
+      return m?m[1]:undefined;
+    }catch(e){return undefined;}
+  }
+  var sourceUrl=window.location.href;
+  function pixelData(extra){
+    var base={event_source_url:sourceUrl};
+    var fbc=getFbc(); if(fbc) base.fbc=fbc;
+    var fbp=getFbp(); if(fbp) base.fbp=fbp;
+    return Object.assign({},base,extra||{});
+  }
+
   document.addEventListener('DOMContentLoaded',function(){
 
     document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
@@ -1877,32 +1899,30 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
           var ids  = ['365-dias-digital'];
           if(href.indexOf('39ZQYBOB9E') > -1){ val=107.00; name='365 Dias Minimalistas — Físico'; ids=['365-dias-fisico']; }
           if(href.indexOf('E0D6XBPD91') > -1){ val=147.00; name='365 Dias Minimalistas — Combo';  ids=['365-dias-combo'];  }
-          if(window.fbq){ fbq('track','InitiateCheckout',{
+          if(window.fbq){ fbq('track','InitiateCheckout', pixelData({
             content_ids:  ids,
             content_type: 'product',
             content_name: name,
             currency:     'BRL',
             value:        val,
             num_items:    1
-          }); }
+          })); }
         });
       }catch(e){}
     });
 
     document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
       link.addEventListener('click',function(){
-        if(window.fbq){
-          fbq('trackCustom','WhatsAppClick');
-        }
+        if(window.fbq){ fbq('trackCustom','WhatsAppClick', pixelData()); }
       });
     });
 
     setTimeout(function(){
-      if(window.fbq){ fbq('trackCustom','Engaged30s'); }
+      if(window.fbq){ fbq('trackCustom','Engaged30s', pixelData()); }
     },30000);
 
     setTimeout(function(){
-      if(window.fbq){ fbq('trackCustom','Engaged60s'); }
+      if(window.fbq){ fbq('trackCustom','Engaged60s', pixelData()); }
     },60000);
 
     let fired50=false,fired75=false,fired90=false;
@@ -1912,15 +1932,15 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
 
       if(pct>=50 && !fired50){
         fired50=true;
-        if(window.fbq) fbq('trackCustom','Scroll50');
+        if(window.fbq) fbq('trackCustom','Scroll50', pixelData());
       }
       if(pct>=75 && !fired75){
         fired75=true;
-        if(window.fbq) fbq('trackCustom','Scroll75');
+        if(window.fbq) fbq('trackCustom','Scroll75', pixelData());
       }
       if(pct>=90 && !fired90){
         fired90=true;
-        if(window.fbq) fbq('trackCustom','Scroll90');
+        if(window.fbq) fbq('trackCustom','Scroll90', pixelData());
       }
     });
   });
