@@ -17,7 +17,7 @@
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src='https://connect.facebook.net/en_US/fbevents.js';s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script');
 fbq('init','239605191106043');
 fbq('track','PageView');
-fbq('track','InitiateCheckout',{content_name:'Boleto Gerado - Minimalize.IA',currency:'BRL'});
+fbq('track','Lead',{content_name:'Boleto Gerado — Minimalize.IA',currency:'BRL',value:77.00,content_ids:['minimalize-ia'],content_type:'product'});
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></noscript>
 
@@ -409,20 +409,25 @@ window.addEventListener('resize',sendHeight);
 
 <script>
 (function(){
-  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged30s');},30000);
-  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged60s');},60000);
+  function getFbc(){try{var u=new URL(window.location.href);var fbclid=u.searchParams.get('fbclid')||localStorage.getItem('trk_fbclid')||sessionStorage.getItem('sm_fbclid');if(!fbclid)return undefined;return 'fb.1.'+Date.now()+'.'+fbclid;}catch(e){return undefined;}}
+  function getFbp(){try{var m=document.cookie.match(/_fbp=([^;]+)/);return m?m[1]:undefined;}catch(e){return undefined;}}
+  var _sourceUrl=window.location.href;
+  function pixelData(extra){var base={event_source_url:_sourceUrl};var fbc=getFbc();if(fbc)base.fbc=fbc;var fbp=getFbp();if(fbp)base.fbp=fbp;return Object.assign({},base,extra||{});}
+
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged30s',pixelData());},30000);
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged60s',pixelData());},60000);
 
   var s50=false,s75=false;
   window.addEventListener('scroll',function(){
     var h=document.documentElement;
     var pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
-    if(pct>=50&&!s50){s50=true;if(window.fbq)fbq('trackCustom','Scroll50');}
-    if(pct>=75&&!s75){s75=true;if(window.fbq)fbq('trackCustom','Scroll75');}
+    if(pct>=50&&!s50){s50=true;if(window.fbq)fbq('trackCustom','Scroll50',pixelData());}
+    if(pct>=75&&!s75){s75=true;if(window.fbq)fbq('trackCustom','Scroll75',pixelData());}
   });
 
   document.querySelectorAll('a[href*="instagram.com"],a[href*="vip/entrar"]').forEach(function(a){
     a.addEventListener('click',function(){
-      if(window.fbq)fbq('trackCustom','BoletoEngagement',{action:a.href,product:'Minimalize.IA'});
+      if(window.fbq)fbq('trackCustom','BoletoEngagement',pixelData({action:a.href,product:'Minimalize.IA'}));
       if(window.gtag)gtag('event','boleto_engagement',{link:a.href,product:'Minimalize.IA'});
     });
   });
