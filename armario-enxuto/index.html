@@ -713,10 +713,10 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         <div class="bonus-list anim-up d3">
           <div class="bonus-item"><div class="bonus-num">1</div><div><div class="bonus-title">Ebook — 50 dicas para implementar o minimalismo em sua vida</div><div class="bonus-val">Valor: R$ 47</div></div></div>
           <div class="bonus-item"><div class="bonus-num">2</div><div><div class="bonus-title">Planner digital permanente pronto para impressão</div><div class="bonus-val">Valor: R$ 27</div></div></div>
-          <div class="bonus-item"><div class="bonus-num">3</div><div><div class="bonus-title">Guia de combinação de cores e biotipos exclusivo</div><div class="bonus-val">Valor: R$ 37</div></div></div>
-          <div class="bonus-item"><div class="bonus-num">4</div><div><div class="bonus-title">Checklist de destralhe do guarda-roupa passo a passo</div><div class="bonus-val">Valor: R$ 27</div></div></div>
-          <div class="bonus-item"><div class="bonus-num">5</div><div><div class="bonus-title">Videoaula — Como montar looks com menos peças</div><div class="bonus-val">Valor: R$ 37</div></div></div>
-          <div class="bonus-item"><div class="bonus-num">6</div><div><div class="bonus-title">Exercícios extras de autoconhecimento e estilo</div><div class="bonus-val">Valor: R$ 22</div></div></div>
+          <div class="bonus-item"><div class="bonus-num">3</div><div><div class="bonus-title">Planejamento de viagens super completo pronto para impressão</div><div class="bonus-val">Valor: R$ 27</div></div></div>
+          <div class="bonus-item"><div class="bonus-num">4</div><div><div class="bonus-title">Ebook — 7 passos para emitir seu passaporte</div><div class="bonus-val">Valor: R$ 27</div></div></div>
+          <div class="bonus-item"><div class="bonus-num">5</div><div><div class="bonus-title">Videoaula — Método dos Envelopes</div><div class="bonus-val">Valor: R$ 47</div></div></div>
+          <div class="bonus-item"><div class="bonus-num">6</div><div><div class="bonus-title">Exercícios extras e técnicas especiais</div><div class="bonus-val">Valor: R$ 22</div></div></div>
         </div>
       </div>
 
@@ -971,6 +971,12 @@ if(av){var avObs=new IntersectionObserver(function(e){if(e[0].isIntersecting){av
 
 /* Meta Pixel — eventos avançados */
 document.addEventListener('DOMContentLoaded',function(){
+
+  function getFbc(){try{var u=new URL(window.location.href);var fbclid=u.searchParams.get('fbclid')||localStorage.getItem('trk_fbclid')||sessionStorage.getItem('sm_fbclid');if(!fbclid)return undefined;return 'fb.1.'+Date.now()+'.'+fbclid;}catch(e){return undefined;}}
+  function getFbp(){try{var m=document.cookie.match(/_fbp=([^;]+)/);return m?m[1]:undefined;}catch(e){return undefined;}}
+  var _sourceUrl=window.location.href;
+  function pixelData(extra){var base={event_source_url:_sourceUrl};var fbc=getFbc();if(fbc)base.fbc=fbc;var fbp=getFbp();if(fbp)base.fbp=fbp;return Object.assign({},base,extra||{});}
+
   document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
     link.addEventListener('click',function(){
       var href = link.href;
@@ -979,28 +985,28 @@ document.addEventListener('DOMContentLoaded',function(){
       var ids  = ['armario-enxuto-digital'];
       if(href.indexOf('2097528') > -1){ val=107.00; name='Armário Enxuto — Físico'; ids=['armario-enxuto-fisico']; }
       if(href.indexOf('2097846') > -1){ val=147.00; name='Armário Enxuto — Combo';  ids=['armario-enxuto-combo'];  }
-      if(window.fbq){ fbq('track','InitiateCheckout',{
+      if(window.fbq){ fbq('track','InitiateCheckout', pixelData({
         content_ids:  ids,
         content_type: 'product',
         content_name: name,
         currency:     'BRL',
         value:        val,
         num_items:    1
-      }); }
+      })); }
     });
   });
   document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
-    link.addEventListener('click',function(){if(window.fbq)fbq('trackCustom','WhatsAppClick');});
+    link.addEventListener('click',function(){if(window.fbq)fbq('trackCustom','WhatsAppClick', pixelData());});
   });
-  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged30s');},30000);
-  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged60s');},60000);
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged30s', pixelData());},30000);
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged60s', pixelData());},60000);
   var s50=false,s75=false,s90=false;
   window.addEventListener('scroll',function(){
     var h=document.documentElement;
     var pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
-    if(pct>=50&&!s50){s50=true;if(window.fbq)fbq('trackCustom','Scroll50');}
-    if(pct>=75&&!s75){s75=true;if(window.fbq)fbq('trackCustom','Scroll75');}
-    if(pct>=90&&!s90){s90=true;if(window.fbq)fbq('trackCustom','Scroll90');}
+    if(pct>=50&&!s50){s50=true;if(window.fbq)fbq('trackCustom','Scroll50', pixelData());}
+    if(pct>=75&&!s75){s75=true;if(window.fbq)fbq('trackCustom','Scroll75', pixelData());}
+    if(pct>=90&&!s90){s90=true;if(window.fbq)fbq('trackCustom','Scroll90', pixelData());}
   });
 });
 </script>
