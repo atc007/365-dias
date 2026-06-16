@@ -249,10 +249,11 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 <!-- HERO -->
 <section class="sec-hero">
   <div class="hero-grid">
-    <div class="hero-video-wrap anim-up d1">
-      <img src="https://static.wixstatic.com/media/940f31_6c4bd2f8d26046898f74b426612b5608~mv2.jpg/v1/fill/w_600,h_520,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/planner-viagens-capa.jpg"
-        alt="Planner Minhas Viagens dos Sonhos — capa" width="600" height="520"
-        style="width:100%;height:100%;object-fit:cover;display:block;" loading="eager" decoding="async">
+    <div class="hero-video-wrap anim-up d1" style="position:relative;">
+      <video id="hero-video" muted loop playsinline preload="metadata"
+        src="https://video.wixstatic.com/video/940f31_a9f35354f1c241798df52ff70e93adfe/720p/mp4/file.mp4"
+        style="width:100%;height:100%;object-fit:cover;display:block;">
+      </video>
     </div>
     <div>
       <div class="hero-badge anim-up d1">Digital + Físico disponíveis</div>
@@ -260,7 +261,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <p class="hero-sub anim-up d2">130 páginas, capa dura, divisórias com abas e encadernação wire-o. Planejamento financeiro completo e roteiro detalhado para cada viagem. Disponível em digital editável ou físico.</p>
       <div class="anim-up d3" style="display:flex;gap:12px;flex-wrap:wrap;">
         <a class="btn-gold" href="https://chk.eduzz.com/1769743?pf=1" target="_blank" rel="noopener">Quero o Digital</a>
-        <a class="btn-gold" href="https://chk.eduzz.com/1759215?pf=1" target="_blank" rel="noopener" style="background:linear-gradient(90deg,#1C1C1A,#3A3A38,#1C1C1A);background-size:200% auto;">Quero o Físico</a>
+        <a class="btn-gold" href="https://chk.eduzz.com/1759215?pf=1" target="_blank" rel="noopener" style="background:linear-gradient(90deg,#4A2FA8,#6B4BC8,#9B7BE8,#6B4BC8,#4A2FA8);background-size:200% auto;">Quero o Físico</a>
       </div>
       <div class="hero-note anim-up d3">Compra segura · Frete grátis (físico) · Garantia de 7 dias</div>
     </div>
@@ -481,6 +482,10 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
 function faq(btn){btn.parentElement.classList.toggle('open');}
+
+/* Vídeo hero lazy load */
+var hv=document.getElementById('hero-video');
+if(hv){var hvObs=new IntersectionObserver(function(e){if(e[0].isIntersecting){hv.load();hv.play().catch(function(){});hvObs.disconnect();}},{threshold:.1});hvObs.observe(hv);}
 
 document.addEventListener('DOMContentLoaded',function(){
 
