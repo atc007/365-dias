@@ -1122,10 +1122,40 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
 /* META PIXEL — eventos avançados */
 (function(){
 
+  /* ══ HELPERS — fbc, fbp, source_url ══ */
+  var params = new URLSearchParams(window.location.search);
+
+  /* fbc: Click ID do Facebook (maior ganho de correspondência) */
+  function getFbc(){
+    try{
+      var fbclid = params.get('fbclid') || sessionStorage.getItem('sm_fbclid');
+      if(!fbclid) return undefined;
+      return 'fb.1.' + Date.now() + '.' + fbclid;
+    }catch(e){return undefined;}
+  }
+
+  /* fbp: cookie _fbp setado automaticamente pelo Pixel */
+  function getFbp(){
+    try{
+      var m = document.cookie.match(/_fbp=([^;]+)/);
+      return m ? m[1] : undefined;
+    }catch(e){return undefined;}
+  }
+
+  /* URL da página de origem */
+  var sourceUrl = window.location.href;
+
+  /* Monta objeto base de user_data para qualquer evento */
+  function pixelData(extra){
+    var base = { event_source_url: sourceUrl };
+    var fbc = getFbc(); if(fbc) base.fbc = fbc;
+    var fbp = getFbp(); if(fbp) base.fbp = fbp;
+    return Object.assign({}, base, extra || {});
+  }
+
   /* ══ UTM PASSTHROUGH — repassa UTMs da URL para todos os links de checkout ══ */
   (function(){
     try {
-      var params = new URLSearchParams(window.location.search);
       var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
       var hasTracking = utmKeys.some(function(k){ return params.has(k); });
       if(!hasTracking) return;
@@ -1165,36 +1195,36 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
         var ids  = ['seja-minimalista-digital'];
         if(href.indexOf('1046549') > -1){ val=107.00; name='Seja Minimalista — Físico'; ids=['seja-minimalista-fisico']; }
         if(href.indexOf('1804864') > -1){ val=147.00; name='Seja Minimalista — Combo';  ids=['seja-minimalista-combo'];  }
-        if(window.fbq){ fbq('track','InitiateCheckout',{
+        if(window.fbq){ fbq('track','InitiateCheckout', pixelData({
           content_ids:  ids,
           content_type: 'product',
           content_name: name,
           currency:     'BRL',
           value:        val,
           num_items:    1
-        }); }
+        })); }
       });
     });
 
     /* WhatsApp click */
     document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
       link.addEventListener('click',function(){
-        if(window.fbq){ fbq('trackCustom','WhatsAppClick'); }
+        if(window.fbq){ fbq('trackCustom','WhatsAppClick', pixelData()); }
       });
     });
 
     /* Tempo de engajamento */
-    setTimeout(function(){ if(window.fbq){ fbq('trackCustom','Engaged30s'); } },30000);
-    setTimeout(function(){ if(window.fbq){ fbq('trackCustom','Engaged60s'); } },60000);
+    setTimeout(function(){ if(window.fbq){ fbq('trackCustom','Engaged30s', pixelData()); } },30000);
+    setTimeout(function(){ if(window.fbq){ fbq('trackCustom','Engaged60s', pixelData()); } },60000);
 
     /* Profundidade de scroll */
     var fired50=false,fired75=false,fired90=false;
     window.addEventListener('scroll',function(){
       var h=document.documentElement;
       var pct=((h.scrollTop)/(h.scrollHeight-h.clientHeight))*100;
-      if(pct>=50&&!fired50){fired50=true;if(window.fbq)fbq('trackCustom','Scroll50');}
-      if(pct>=75&&!fired75){fired75=true;if(window.fbq)fbq('trackCustom','Scroll75');}
-      if(pct>=90&&!fired90){fired90=true;if(window.fbq)fbq('trackCustom','Scroll90');}
+      if(pct>=50&&!fired50){fired50=true;if(window.fbq)fbq('trackCustom','Scroll50', pixelData());}
+      if(pct>=75&&!fired75){fired75=true;if(window.fbq)fbq('trackCustom','Scroll75', pixelData());}
+      if(pct>=90&&!fired90){fired90=true;if(window.fbq)fbq('trackCustom','Scroll90', pixelData());}
     });
 
   });
