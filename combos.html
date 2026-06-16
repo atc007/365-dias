@@ -483,31 +483,47 @@ window.addEventListener('resize',sendHeight);
 /* ── EVENTOS DE RASTREAMENTO — Página de Combos ── */
 document.addEventListener('DOMContentLoaded', function(){
 
+  /* ══ HELPERS — fbc, fbp, source_url ══ */
+  var _url=new URL(window.location.href);
+  function getFbc(){
+    try{
+      var fbclid=_url.searchParams.get('fbclid')||localStorage.getItem('trk_fbclid');
+      if(!fbclid) return undefined;
+      return 'fb.1.'+Date.now()+'.'+fbclid;
+    }catch(e){return undefined;}
+  }
+  function getFbp(){
+    try{var m=document.cookie.match(/_fbp=([^;]+)/);return m?m[1]:undefined;}catch(e){return undefined;}
+  }
+  var sourceUrl=window.location.href;
+  function pixelData(extra){
+    var base={event_source_url:sourceUrl};
+    var fbc=getFbc(); if(fbc) base.fbc=fbc;
+    var fbp=getFbp(); if(fbp) base.fbp=fbp;
+    return Object.assign({},base,extra||{});
+  }
+
   /* InitiateCheckout — qualquer botão de checkout Eduzz */
   document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
     link.addEventListener('click', function(){
       var name = link.closest('[class*="card"]') ?
         (link.closest('[class*="card"]').querySelector('[class*="name"],[class*="title"]') || {}).innerText || 'Combo' : 'Combo';
-      /* Detecta value pelo preço no card */
       var priceEl = link.closest('[class*="card"],[class*="mv-card"],[class*="ind-card"],[class*="feat-card"]');
       var priceText = priceEl ? (priceEl.querySelector('[class*="now"],[class*="price"]') || {}).innerText || '' : '';
       var priceNum = parseFloat(priceText.replace(/[^0-9,]/g,'').replace(',','.')) || 0;
       var slugName = name.trim().toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'').substring(0,40);
       if(window.fbq){
-        fbq('track','InitiateCheckout',{
+        fbq('track','InitiateCheckout', pixelData({
           content_ids:  ['combo-' + slugName],
           content_type: 'product',
           content_name: name.trim(),
           currency:     'BRL',
           value:        priceNum,
           num_items:    1
-        });
+        }));
       }
       if(window.gtag){
-        gtag('event','begin_checkout',{
-          currency:'BRL',
-          item_name: name.trim()
-        });
+        gtag('event','begin_checkout',{currency:'BRL',item_name:name.trim()});
       }
     });
   });
@@ -515,22 +531,22 @@ document.addEventListener('DOMContentLoaded', function(){
   /* WhatsApp */
   document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
     link.addEventListener('click', function(){
-      if(window.fbq) fbq('trackCustom','WhatsAppClick');
+      if(window.fbq) fbq('trackCustom','WhatsAppClick', pixelData());
     });
   });
 
   /* Engajamento por tempo */
-  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged30s');}, 30000);
-  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged60s');}, 60000);
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged30s', pixelData());}, 30000);
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged60s', pixelData());}, 60000);
 
   /* Profundidade de scroll */
   var s50=false,s75=false,s90=false;
   window.addEventListener('scroll',function(){
     var h=document.documentElement;
     var pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
-    if(pct>=50&&!s50){s50=true;if(window.fbq)fbq('trackCustom','Scroll50');}
-    if(pct>=75&&!s75){s75=true;if(window.fbq)fbq('trackCustom','Scroll75');}
-    if(pct>=90&&!s90){s90=true;if(window.fbq)fbq('trackCustom','Scroll90');}
+    if(pct>=50&&!s50){s50=true;if(window.fbq)fbq('trackCustom','Scroll50', pixelData());}
+    if(pct>=75&&!s75){s75=true;if(window.fbq)fbq('trackCustom','Scroll75', pixelData());}
+    if(pct>=90&&!s90){s90=true;if(window.fbq)fbq('trackCustom','Scroll90', pixelData());}
   });
 
 });
