@@ -606,10 +606,18 @@ html,body{
   color:#3D3D3B;margin-bottom:16px;
 }
 .urg-bonus-tag{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(201,169,110,.1);border:.5px solid rgba(201,169,110,.3);
-  color:var(--gold);font-size:13px;font-weight:600;
-  padding:8px 20px;border-radius:20px;margin-bottom:24px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin:0 auto 24px;
+  background:rgba(201,169,110,.10);
+  border:1px solid rgba(201,169,110,.35);
+  color:var(--gold);
+  font-size:14px;
+  font-weight:600;
+  padding:10px 22px;
+  border-radius:999px;
 }
 
 /* ══ BÔNUS ══ */
@@ -1128,6 +1136,13 @@ html,body{
   }
 }
 
+
+.urg-cta-wrap{text-align:center;}
+.urg-cta-wrap .btn-gold{min-width:420px;max-width:520px;width:100%;}
+.urg-note{margin-top:14px;font-size:12px;color:#888780;}
+@media(max-width:720px){
+ .urg-cta-wrap .btn-gold{min-width:auto;width:100%;}
+}
 </style>
 
  <!-- Google tag (gtag.js) -->
@@ -1558,8 +1573,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       <span class="urg-sep">:</span>
       <div class="urg-unit"><span class="urg-digit" id="urg-s">00</span><span class="urg-dlabel">seg</span></div>
     </div>
-    <div class="urg-bonus-tag">🎁 R$ 197 em bônus inclusos — por tempo limitado</div>
-    <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Garantir meu exemplar com bônus</a>
+    <div class="urg-cta-wrap"><div class="urg-bonus-tag">🎁 R$ 197 em bônus inclusos — por tempo limitado</div>
+<div><a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Garantir meu exemplar com bônus</a></div>
+<div class="urg-note">Compra segura • Garantia de 7 dias</div>
+</div>
   </div>
 </div>
 
