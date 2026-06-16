@@ -967,6 +967,12 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
 
 /* META PIXEL — eventos avançados */
 document.addEventListener('DOMContentLoaded',function(){
+
+  function getFbc(){try{var u=new URL(window.location.href);var fbclid=u.searchParams.get('fbclid')||localStorage.getItem('trk_fbclid');if(!fbclid)return undefined;return 'fb.1.'+Date.now()+'.'+fbclid;}catch(e){return undefined;}}
+  function getFbp(){try{var m=document.cookie.match(/_fbp=([^;]+)/);return m?m[1]:undefined;}catch(e){return undefined;}}
+  var _sourceUrl=window.location.href;
+  function pixelData(extra){var base={event_source_url:_sourceUrl};var fbc=getFbc();if(fbc)base.fbc=fbc;var fbp=getFbp();if(fbp)base.fbp=fbp;return Object.assign({},base,extra||{});}
+
   document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
     link.addEventListener('click',function(){
       var href = link.href;
@@ -974,30 +980,30 @@ document.addEventListener('DOMContentLoaded',function(){
       var name = '45 Dias de Destralhe — Digital';
       var ids  = ['45-dias-digital'];
       if(href.indexOf('E9OBQJZV0B') > -1){ val=97.00; name='45 Dias de Destralhe — Combo Físico + Digital'; ids=['45-dias-combo']; }
-      if(window.fbq){ fbq('track','InitiateCheckout',{
+      if(window.fbq){ fbq('track','InitiateCheckout', pixelData({
         content_ids:  ids,
         content_type: 'product',
         content_name: name,
         currency:     'BRL',
         value:        val,
         num_items:    1
-      }); }
+      })); }
     });
   });
   document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
     link.addEventListener('click',function(){
-      if(window.fbq)fbq('trackCustom','WhatsAppClick');
+      if(window.fbq)fbq('trackCustom','WhatsAppClick', pixelData());
     });
   });
-  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged30s');},30000);
-  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged60s');},60000);
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged30s', pixelData());},30000);
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged60s', pixelData());},60000);
   var fired50=false,fired75=false,fired90=false;
   window.addEventListener('scroll',function(){
     var h=document.documentElement;
     var pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
-    if(pct>=50&&!fired50){fired50=true;if(window.fbq)fbq('trackCustom','Scroll50');}
-    if(pct>=75&&!fired75){fired75=true;if(window.fbq)fbq('trackCustom','Scroll75');}
-    if(pct>=90&&!fired90){fired90=true;if(window.fbq)fbq('trackCustom','Scroll90');}
+    if(pct>=50&&!fired50){fired50=true;if(window.fbq)fbq('trackCustom','Scroll50', pixelData());}
+    if(pct>=75&&!fired75){fired75=true;if(window.fbq)fbq('trackCustom','Scroll75', pixelData());}
+    if(pct>=90&&!fired90){fired90=true;if(window.fbq)fbq('trackCustom','Scroll90', pixelData());}
   });
 });
 </script>
