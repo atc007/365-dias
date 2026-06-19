@@ -362,18 +362,28 @@ html,body{
 .pc-off{position:absolute;top:12px;right:12px;background:var(--gold);color:var(--ink);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;z-index:2;}
 .pc-body{padding:24px;}
 .pc-type{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:10px;font-family:Georgia,'Times New Roman',serif;line-height:1.2;}
-.pc-was{font-size:13px;color:var(--ink-muted);text-decoration:line-through;margin-bottom:3px;}
+.pc-was{font-size:13px;color:#C0392B;text-decoration:line-through;margin-bottom:3px;}
 @keyframes price-shine{0%{background-position:200% center;}100%{background-position:-200% center;}}
-.pc-now{
-  font-family:Georgia,serif;font-size:48px;font-weight:700;
+/* Parcelamento em destaque — tudo em uma linha grande */
+.pc-parc-destaque{
+  font-family:Georgia,serif;font-size:28px;font-weight:700;
   background:linear-gradient(90deg,#9A7A30 0%,#9A7A30 35%,#C9A96E 50%,#9A7A30 65%,#9A7A30 100%);
   background-size:300% auto;
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   animation:price-shine 5s linear infinite;
-  line-height:1;margin-bottom:4px;letter-spacing:-.02em;will-change:background-position;
+  line-height:1;letter-spacing:-.02em;will-change:background-position;
+  margin-bottom:8px;white-space:nowrap;
+  font-stretch:condensed;
 }
-.pc-now sup{font-size:20px;font-weight:700;vertical-align:super;letter-spacing:0;}
-.pc-parc{font-size:13px;color:var(--ink-soft);margin-bottom:20px;}
+/* À vista — menor mas legível */
+.pc-now{
+  font-size:15px;font-weight:600;color:var(--ink);
+  margin-bottom:20px;
+  padding:8px 14px;
+  background:var(--bg-alt);
+  border-radius:6px;
+  display:inline-block;
+}
 .pc-feats{list-style:none;margin-bottom:24px;}
 .pc-feats li{font-size:13px;color:var(--ink-soft);padding:6px 0;border-bottom:.5px solid #E8E5DF;display:flex;align-items:center;gap:10px;}
 .pc-feats li:last-child{border:none;}
@@ -662,7 +672,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       </div>
       <!-- VÍDEO DO LIVRO -->
       <div>
-        <p style="font-size:12px;color:var(--ink-muted);text-align:center;margin-bottom:10px;font-style:italic;">Veja em 2 minutos como é o livro</p>
+        <p style="font-size:12px;color:var(--ink-muted);text-align:center;margin-bottom:10px;font-style:italic;">Veja como é o livro por dentro</p>
         <div style="border-radius:10px;overflow:hidden;background:var(--ink);aspect-ratio:9/16;max-width:100%;">
           <video id="qual-video"
             src="https://video.wixstatic.com/video/940f31_f4dfd1313d7a4db088f8d64c25046bda/720p/mp4/file.mp4"
@@ -905,7 +915,9 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       <div class="urg-unit"><span class="urg-digit" id="urg-s">00</span><span class="urg-dlabel">seg</span></div>
     </div>
     <div class="urg-bonus-tag">🎁 R$ 197 em bônus inclusos — por tempo limitado</div>
-    <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Garantir meu exemplar com bônus</a>
+    <div style="margin-top:16px;">
+      <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Garantir meu exemplar com bônus</a>
+    </div>
   </div>
 </div>
 
@@ -923,8 +935,8 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <div class="pc-body">
           <div class="pc-type">Livro Digital</div>
           <div class="pc-was">De R$ 97,00</div>
-          <div class="pc-now"><sup>R$</sup>77</div>
-          <div class="pc-parc">ou 12x de R$ 7,96</div>
+          <div class="pc-parc-destaque">12x de R$ 7,96</div>
+          <div class="pc-now">ou R$ 77 à vista</div>
           <ul class="pc-feats">
             <li>Área VIP e bônus inclusos</li>
             <li>Receba imediatamente no e-mail</li>
@@ -944,8 +956,8 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <div class="pc-body">
           <div class="pc-type">Livro Físico + Frete Grátis</div>
           <div class="pc-was">De R$ 147,00</div>
-          <div class="pc-now"><sup>R$</sup>107</div>
-          <div class="pc-parc">ou 12x de R$ 11,07</div>
+          <div class="pc-parc-destaque">12x de R$ 11,07</div>
+          <div class="pc-now">ou R$ 107 à vista</div>
           <ul class="pc-feats">
             <li>Área VIP e bônus inclusos</li>
             <li>Capa dura — mais de 150 páginas</li>
@@ -967,8 +979,8 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <div class="pc-body">
           <div class="pc-type">Combo — Digital + Físico + Frete Grátis</div>
           <div class="pc-was">De R$ 244,00</div>
-          <div class="pc-now"><sup>R$</sup>147</div>
-          <div class="pc-parc">ou 12x de R$ 15,20</div>
+          <div class="pc-parc-destaque">12x de R$ 15,20</div>
+          <div class="pc-now">ou R$ 147 à vista</div>
           <ul class="pc-feats">
             <li>Área VIP e bônus inclusos</li>
             <li>Digital imediato ao comprar</li>
