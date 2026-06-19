@@ -187,6 +187,12 @@ html,body{
 .qual-text{font-size:15px;color:var(--ink);line-height:1.6;}
 
 /* ══ CARROSSEL ══ */
+/* PREVIEW GRID — texto + pullquote abaixo do carrossel (desktop) */
+.preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start;margin-top:8px;}
+.preview-mobile-text{display:none;}
+.preview-desktop-text{display:block;}
+.preview-text,.preview-car{display:flex;flex-direction:column;}
+
 .car-wrap{background:var(--ink);border-radius:10px;overflow:hidden;}
 .car-slides{display:flex;transition:transform .4s ease;}
 .car-slide{min-width:100%;display:flex;align-items:center;justify-content:center;background:#EFEFEF;}
@@ -427,6 +433,9 @@ html,body{
   .hero-img-wrap{order:-1;min-height:auto;width:100%;padding:0;margin:0;}
   .hero-img-wrap img{max-height:340px;width:100%;object-fit:cover;border-radius:0;box-shadow:none;}
   .grid2{grid-template-columns:1fr;gap:28px;}
+  .preview-grid{grid-template-columns:1fr;gap:20px;}
+  .preview-mobile-text{display:block;}
+  .preview-desktop-text{display:none;}
   .cap-grid{grid-template-columns:1fr;}
   .dif-grid{grid-template-columns:1fr;}
   .pres-grid{grid-template-columns:1fr;gap:18px;}
@@ -554,8 +563,15 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <!-- BENEFÍCIOS + CARROSSEL -->
 <section class="sec alt">
   <div class="inner">
+
+    <!-- TEXTO ACIMA DO CARROSSEL — igual em desktop e mobile -->
+    <div class="sec-eyebrow">O que você vai encontrar</div>
+    <h2 class="sec-h2" style="max-width:680px;">O guia de minimalismo que transforma sua casa, sua mente e sua relação com o dinheiro.</h2>
+    <p class="sec-p" style="max-width:680px;margin-bottom:32px;">Seja Minimalista não é um livro de teoria. É um guia prático com exercícios, checklists e orientações divididos por categorias — para você aprender, aplicar e consultar sempre que precisar.</p>
+
+    <!-- CARROSSEL — largura total -->
     <p style="font-size:12px;color:var(--ink-muted);text-align:center;margin-bottom:12px;font-style:italic;">Veja o livro por dentro</p>
-    <div class="car-wrap" style="max-width:100%;margin-bottom:48px;">
+    <div class="car-wrap" style="max-width:100%;margin-bottom:32px;">
       <div class="car-slides" id="slides">
         <div class="car-slide" style="min-height:380px;">
           <img src="https://static.wixstatic.com/media/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg/v1/fill/w_751,h_487,al_c,q_90,enc_avif,quality_auto/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg"
@@ -598,23 +614,12 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       <div class="car-cap">Mais de <strong>150 páginas</strong> com exercícios, checklists e orientações práticas divididos por categorias.</div>
     </div>
 
-    <!-- TEXTO + AMOSTRA — abaixo do carrossel, em 2 colunas -->
-    <div class="grid2" style="align-items:start;">
-      <div>
-        <div class="sec-eyebrow">O que você vai encontrar</div>
-        <h2 class="sec-h2">O guia de minimalismo que transforma sua casa, sua mente e sua relação com o dinheiro.</h2>
-        <p class="sec-p">Seja Minimalista não é um livro de teoria. É um guia prático com exercícios, checklists e orientações divididos por categorias — para você aprender, aplicar e consultar sempre que precisar.</p>
-        <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)" style="margin-top:8px;">Quero meu exemplar agora</a>
-      </div>
-      <div>
-        <div class="amostra">
-          <div class="amostra-cap">Trecho — Capítulo Destralhe</div>
-          <div class="amostra-quote">"Cada objeto que você guarda sem usar ocupa não só um espaço físico — ocupa energia mental. Toda vez que você olha para ele, seu cérebro processa uma decisão que nunca foi tomada."</div>
-          <div class="amostra-pratica"><strong>Exercício prático:</strong> Pegue uma sacola e percorra sua casa por 10 minutos. Coloque dentro tudo que você não usou nos últimos 6 meses e não tem valor sentimental real. Não pense. Só pegue. Você pode revisar depois — mas primeiro, tire do lugar.</div>
-        </div>
-        <div class="pullquote" style="margin-top:20px;">"O guia definitivo para quem quer começar uma vida mais leve — sem extremismos, sem culpa."</div>
-      </div>
+    <!-- PULLQUOTE + CTA abaixo do carrossel -->
+    <div class="pullquote" style="max-width:680px;">"O guia definitivo para quem quer começar uma vida mais leve — sem extremismos, sem culpa."</div>
+    <div style="margin-top:24px;">
+      <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Quero meu exemplar agora</a>
     </div>
+
   </div>
 </section>
 
