@@ -234,6 +234,16 @@ html,body{
   border-radius:5px;padding:7px 13px;
   font-size:12px;font-weight:500;color:var(--ink);
 }
+.badge-link{
+  text-decoration:none;cursor:pointer;
+  transition:border-color .2s,background .2s,color .2s;
+  display:inline-flex;align-items:center;
+}
+.badge-link:hover{
+  border-color:var(--gold);
+  background:rgba(201,169,110,.07);
+  color:var(--ink);
+}
 /* ══ KEYFRAMES DOS BOTÕES ══ */
 @keyframes shimmer{
   0%{background-position:200% center;}
@@ -385,6 +395,8 @@ html,body{
 .preview-cards-desktop{display:none;}
 /* Autor — foto mobile oculta no desktop */
 .sec-autor-img-mobile{display:none;}
+/* Scroll indicator — só mobile */
+.scroll-indicator{display:none;}
 
 /* ══ VÍDEO ══ */
 .video-intro{
@@ -1074,8 +1086,8 @@ html,body{
   .stat-num{font-size:20px;}
   .grid2{grid-template-columns:1fr;gap:28px;}
   .preview-grid-78{grid-template-columns:1fr;}
-  .preview-media-78{margin-top:0;} /* remove espaço entre pullquote e vídeo */
-  .pullquote{margin-bottom:0;} /* remove margem inferior do pullquote */
+  .preview-media-78{margin-top:0;}
+  .pullquote{margin-bottom:0;}
   .ben-cards{grid-template-columns:1fr 1fr;}
   .preview-cta-desktop{display:none !important;}
   .preview-cta-mobile{display:block;text-align:center;}
@@ -1087,6 +1099,22 @@ html,body{
   .sec-autor-grid{grid-template-columns:1fr !important;}
   .sec-autor-img-desktop{display:none !important;}
   .sec-autor-img-mobile{display:block;margin:16px 0;}
+
+  /* ── SCROLL INDICATOR ── */
+  .scroll-indicator{
+    display:flex;flex-direction:column;align-items:center;gap:4px;
+    padding:10px 0 2px;color:var(--ink-muted);
+    opacity:1;transition:opacity .5s ease;pointer-events:none;
+  }
+  .scroll-indicator.hidden{opacity:0;}
+  .scroll-indicator-text{font-size:11px;letter-spacing:.08em;text-transform:uppercase;}
+  .scroll-indicator-arrow{animation:scroll-bounce 1.4s ease-in-out infinite;}
+  @keyframes scroll-bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(6px);}
+  }
+  /* Peek — deixa a stats-bar aparecer levemente */
+  .sec-hero{padding-bottom:0 !important;}
   .precos{grid-template-columns:1fr;gap:16px;}
   .gar-grid{grid-template-columns:1fr;gap:24px;text-align:center;}
   .gar-img{display:flex;justify-content:center;}
@@ -1240,10 +1268,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
           width="474" height="457"
           fetchpriority="high" loading="eager" decoding="sync">
         <div class="badges" style="margin-top:20px;justify-content:center;">
-          <div class="badge">📖 372 páginas</div>
-          <div class="badge">📦 Frete grátis</div>
-          <div class="badge">⚡ Digital imediato</div>
-          <div class="badge">🎁 Bônus inclusos</div>
+          <a class="badge badge-link" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;">📖 372 páginas</a>
+          <a class="badge badge-link" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;">📦 Frete grátis</a>
+          <a class="badge badge-link" href="#versao-digital" onclick="document.getElementById('versao-digital').scrollIntoView({behavior:'smooth',block:'center'});return false;">⚡ Digital imediato</a>
+          <a class="badge badge-link" href="#bonus" onclick="document.getElementById('bonus').scrollIntoView({behavior:'smooth',block:'start'});return false;">🎁 Bônus inclusos</a>
         </div>
       </div>
       <div>
@@ -1253,6 +1281,16 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero começar minha jornada de 365 dias</a>
         <div class="hero-note">Compra segura · Garantia incondicional de 7 dias</div>
       </div>
+    </div>
+  </div>
+
+  <!-- SCROLL INDICATOR — só mobile -->
+  <div class="scroll-indicator" id="scroll-indicator">
+    <span class="scroll-indicator-text">continue vendo</span>
+    <div class="scroll-indicator-arrow">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 4v12M5 11l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
   </div>
 </section>
@@ -1531,7 +1569,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 </section>
 
 <!-- BÔNUS -->
-<section class="sec alt">
+<section class="sec alt" id="bonus">
   <div class="inner">
     <div class="grid2">
       <div>
@@ -1652,7 +1690,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
           <div class="pc-urgency-note">📦 Frete grátis para todo o Brasil</div>
         </div>
       </div>
-      <div class="pc dest">
+      <div class="pc dest" id="versao-digital">
         <div class="dest-tag">🔥 Melhor custo-benefício</div>
         <div class="pc-img" style="position:relative;">
           <img src="https://static.wixstatic.com/media/940f31_104feb48e90949d78620d3444814c8f5~mv2.png/v1/crop/x_126,y_307,w_612,h_568/fill/w_360,h_334,al_c,q_90,enc_avif,quality_auto/combo.png" alt="Combo" width="360" height="334" loading="lazy" decoding="async">
@@ -1953,7 +1991,10 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
     },60000);
 
     let fired50=false,fired75=false,fired90=false;
+    /* Esconde scroll indicator ao primeiro scroll */
+    var scrollInd=document.getElementById('scroll-indicator');
     window.addEventListener('scroll',function(){
+      if(scrollInd && window.scrollY > 40) scrollInd.classList.add('hidden');
       const h=document.documentElement;
       const pct=((h.scrollTop)/(h.scrollHeight-h.clientHeight))*100;
 
