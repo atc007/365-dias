@@ -383,6 +383,8 @@ html,body{
 .preview-cta-mobile{display:none;}
 .preview-cards-mobile{display:none;}
 .preview-cards-desktop{display:none;}
+/* Autor — foto mobile oculta no desktop */
+.sec-autor-img-mobile{display:none;}
 
 /* ══ VÍDEO ══ */
 .video-intro{
@@ -1081,6 +1083,10 @@ html,body{
   .ben-cards{grid-template-columns:1fr 1fr;}
   .pres-grid{grid-template-columns:1fr;gap:18px;}
   .pres-img img{width:100%;max-width:200px;margin:0 auto;}
+  /* Autor mobile */
+  .sec-autor-grid{grid-template-columns:1fr !important;}
+  .sec-autor-img-desktop{display:none !important;}
+  .sec-autor-img-mobile{display:block;margin:16px 0;}
   .precos{grid-template-columns:1fr;gap:16px;}
   .gar-grid{grid-template-columns:1fr;gap:24px;text-align:center;}
   .gar-img{display:flex;justify-content:center;}
@@ -1435,14 +1441,20 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <!-- AUTOR -->
 <section class="sec">
   <div class="inner">
-    <div class="grid2">
-      <div class="img-box">
+    <div class="grid2 sec-autor-grid">
+      <!-- Foto desktop (coluna esquerda) -->
+      <div class="img-box sec-autor-img-desktop">
         <img src="https://static.wixstatic.com/media/940f31_49f56ef051ba45f3b106dce993ef899d~mv2.webp/v1/fill/w_440,h_636,al_c,q_90,enc_avif,quality_auto/alexandre.webp"
           alt="Alexandre Chahoud — autor minimalista e criador do Seja Minimalista" width="440" height="636" loading="lazy" decoding="async">
       </div>
-      <div>
+      <div class="sec-autor-texto">
         <div class="sec-eyebrow">Sobre o autor</div>
         <h2 class="sec-h2">Alexandre Chahoud: o autor minimalista que ensina pelo exemplo.</h2>
+        <!-- Foto mobile — entre H2 e parágrafo -->
+        <div class="img-box sec-autor-img-mobile">
+          <img src="https://static.wixstatic.com/media/940f31_49f56ef051ba45f3b106dce993ef899d~mv2.webp/v1/fill/w_440,h_636,al_c,q_90,enc_avif,quality_auto/alexandre.webp"
+            alt="Alexandre Chahoud — autor minimalista e criador do Seja Minimalista" width="440" height="636" loading="lazy" decoding="async">
+        </div>
         <p class="sec-p">Em 2014, eu olhei para o meu apartamento e percebi que tinha me tornado refém das coisas que eu acumulava. Roupas que nunca usava, objetos que "poderiam ser úteis um dia", uma vida cheia de barulho. Foi quando decidi mudar — não de uma vez, mas aos poucos. Uma escolha por dia.</p>
         <p class="sec-p">Desde então, compartilho com mais de <strong>150 mil pessoas no Instagram</strong> como viver com menos pode trazer mais liberdade e felicidade. Escrevi 4 livros, incluindo o best-seller Seja Minimalista, e já transformei a vida de <strong>mais de 25 mil leitores em 15 países</strong>. O 365 Dias Minimalistas nasceu do que eu aprendi nessa jornada — compilado em uma página por dia, para você.</p>
         <div class="media-badges">
