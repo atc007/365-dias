@@ -376,6 +376,15 @@ html,body{
 /* ══ GRID 2 COLUNAS ══ */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center;}
 
+/* Preview grid 365 */
+.preview-grid-78{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start;}
+.preview-text-78{display:flex;flex-direction:column;}
+.preview-text-78 .pullquote{order:3;}
+.preview-text-78 .ben-cards{order:4;margin-top:20px;}
+.preview-text-78 .btn-dark{order:5;}
+.preview-video-mobile{display:none;}
+.ben-cards-mobile{display:none;}
+
 /* ══ VÍDEO ══ */
 .video-intro{
   font-size:13px;color:var(--ink-muted);
@@ -1064,9 +1073,17 @@ html,body{
   .stat{padding:6px 12px;border:none!important;}
   .stat-num{font-size:20px;}
   .grid2{grid-template-columns:1fr;gap:28px;}
-  .preview-grid-78{display:flex;flex-direction:column;}
-  .preview-text-78{order:0;}
-  .preview-media-78{order:1;}
+  /* Mobile preview 365 — vídeo entre parágrafo e pullquote */
+  .preview-grid-78{display:flex;flex-direction:column;gap:0;}
+  .preview-text-78{display:flex;flex-direction:column;}
+  .preview-text-78 .sec-eyebrow{order:0;}
+  .preview-text-78 .sec-h2{order:1;}
+  .preview-text-78 .sec-p{order:2;}
+  .preview-media-78{order:3;margin:20px 0;}
+  .preview-text-78 .pullquote{order:4;}
+  .preview-text-78 .ben-cards{order:5;margin-top:16px;}
+  .preview-text-78 .btn-dark{order:6;}
+  .preview-media-78{display:block !important;}
   .ben-cards{grid-template-columns:1fr 1fr;}
   .pres-grid{grid-template-columns:1fr;gap:18px;}
   .pres-img img{width:100%;max-width:200px;margin:0 auto;}
@@ -1253,18 +1270,22 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <!-- BENEFÍCIOS + VÍDEO -->
 <section class="sec alt">
   <div class="inner">
-    <div class="grid2 preview-grid-78" style="align-items:start;">
+    <div class="preview-grid-78">
 
-      <!-- COLUNA ESQUERDA — texto + pullquote + CTA -->
       <div class="preview-text-78">
         <div class="sec-eyebrow">O que você vai encontrar</div>
         <h2 class="sec-h2">O livro de minimalismo que cabe na sua rotina — sem teoria, sem extremismos.</h2>
         <p class="sec-p">Inspirado na sabedoria atemporal, "365 Dias Minimalistas" é um convite diário para uma vida mais leve, intencional e plena. Uma reflexão, uma frase de autor e uma prática simples — tudo em uma única página, todo dia.</p>
-        <div class="pullquote" style="margin-top:20px;">"Um companheiro diário que vai guiar você na arte de viver com menos excessos e mais sentido."</div>
+        <div class="pullquote">"Um companheiro diário que vai guiar você na arte de viver com menos excessos e mais sentido."</div>
+        <div class="ben-cards">
+          <div class="ben-card"><div class="ben-num">01</div><div class="ben-title">365 passos simples</div><div class="ben-desc">Um por dia, para tornar o minimalismo parte da sua rotina.</div></div>
+          <div class="ben-card"><div class="ben-num">02</div><div class="ben-title">Reflexões profundas</div><div class="ben-desc">Frases que despertam novas formas de enxergar a vida.</div></div>
+          <div class="ben-card"><div class="ben-num">03</div><div class="ben-title">Transformação real</div><div class="ben-desc">Organize espaços, finanças, mente e relações.</div></div>
+          <div class="ben-card"><div class="ben-num">04</div><div class="ben-title">Companheiro diário</div><div class="ben-desc">Prática, presença e mudança constante.</div></div>
+        </div>
         <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)" style="margin-top:20px;">Quero meu exemplar agora</a>
       </div>
 
-      <!-- COLUNA DIREITA — vídeo + ben-cards -->
       <div class="preview-media-78">
         <p class="video-intro">Veja como é o livro por dentro</p>
         <div class="video-box">
@@ -1273,12 +1294,6 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
             preload="none" loop muted playsinline
             poster="https://static.wixstatic.com/media/940f31_f7a8fc091af94a9da1eebd78ef0ba579~mv2.png/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/capa.png">
           </video>
-        </div>
-        <div class="ben-cards" style="margin-top:20px;">
-          <div class="ben-card"><div class="ben-num">01</div><div class="ben-title">365 passos simples</div><div class="ben-desc">Um por dia, para tornar o minimalismo parte da sua rotina.</div></div>
-          <div class="ben-card"><div class="ben-num">02</div><div class="ben-title">Reflexões profundas</div><div class="ben-desc">Frases que despertam novas formas de enxergar a vida.</div></div>
-          <div class="ben-card"><div class="ben-num">03</div><div class="ben-title">Transformação real</div><div class="ben-desc">Organize espaços, finanças, mente e relações.</div></div>
-          <div class="ben-card"><div class="ben-num">04</div><div class="ben-title">Companheiro diário</div><div class="ben-desc">Prática, presença e mudança constante.</div></div>
         </div>
       </div>
 
