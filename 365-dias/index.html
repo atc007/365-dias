@@ -1100,21 +1100,24 @@ html,body{
   .sec-autor-img-desktop{display:none !important;}
   .sec-autor-img-mobile{display:block;margin:16px 0;}
 
-  /* ── SCROLL INDICATOR ── */
+  /* ── SCROLL INDICATOR — fixo na base da tela ── */
   .scroll-indicator{
-    display:flex;flex-direction:column;align-items:center;gap:4px;
-    padding:14px 0 4px;color:var(--ink-muted);
+    position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+    display:flex;flex-direction:column;align-items:center;gap:3px;
+    background:rgba(255,255,255,.85);backdrop-filter:blur(6px);
+    border:.5px solid rgba(0,0,0,.08);border-radius:20px;
+    padding:8px 18px 10px;
+    color:var(--ink-muted);z-index:999;
     opacity:1;transition:opacity .5s ease;
-    cursor:pointer;
+    cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.08);
   }
   .scroll-indicator.hidden{opacity:0;pointer-events:none;}
-  .scroll-indicator-text{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,sans-serif;}
+  .scroll-indicator-text{font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;}
   .scroll-indicator-arrow{animation:scroll-bounce 1.4s ease-in-out infinite;}
   @keyframes scroll-bounce{
     0%,100%{transform:translateY(0);}
-    50%{transform:translateY(7px);}
+    50%{transform:translateY(5px);}
   }
-  .sec-hero{padding-bottom:0 !important;}
   .precos{grid-template-columns:1fr;gap:16px;}
   .gar-grid{grid-template-columns:1fr;gap:24px;text-align:center;}
   .gar-img{display:flex;justify-content:center;}
@@ -1284,7 +1287,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     </div>
   </div>
 
-  <!-- SCROLL INDICATOR — só mobile -->
+  <!-- SCROLL INDICATOR — só mobile, posição fixa -->
   <div class="scroll-indicator" id="scroll-indicator" onclick="window.scrollBy({top:300,behavior:'smooth'})">
     <span class="scroll-indicator-text">continue vendo</span>
     <svg class="scroll-indicator-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1292,6 +1295,14 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     </svg>
   </div>
 </section>
+
+<!-- SCROLL INDICATOR — posição fixa, só mobile -->
+<div class="scroll-indicator" id="scroll-indicator" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'})">
+  <span class="scroll-indicator-text">continue vendo</span>
+  <svg class="scroll-indicator-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
 
 <!-- STATS -->
 <div class="stats-bar">
@@ -1648,7 +1659,9 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <div class="sec-eyebrow" style="justify-content:center;">Escolha sua versão</div>
     <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 0;">Comece sua jornada de 365 dias hoje.</h2>
     <div class="precos">
-      <div class="pc" id="versao-digital"> alt="Versão digital" width="320" height="250" loading="lazy" decoding="async">
+      <div class="pc" id="versao-digital">
+        <div class="pc-img">
+          <img src="https://static.wixstatic.com/media/940f31_f6a9c1e0aae3410690030764c997e29e~mv2.png/v1/crop/x_0,y_257,w_864,h_675/fill/w_320,h_250,al_c,q_90,enc_avif,quality_auto/digital.png" alt="Versão digital" width="320" height="250" loading="lazy" decoding="async">
         </div>
         <div class="pc-body">
           <div class="pc-type">Livro Digital</div>
