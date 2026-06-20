@@ -1064,6 +1064,9 @@ html,body{
   .stat{padding:6px 12px;border:none!important;}
   .stat-num{font-size:20px;}
   .grid2{grid-template-columns:1fr;gap:28px;}
+  .preview-grid-78{display:flex;flex-direction:column;}
+  .preview-text-78{order:0;}
+  .preview-media-78{order:1;}
   .ben-cards{grid-template-columns:1fr 1fr;}
   .pres-grid{grid-template-columns:1fr;gap:18px;}
   .pres-img img{width:100%;max-width:200px;margin:0 auto;}
@@ -1250,23 +1253,19 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <!-- BENEFÍCIOS + VÍDEO -->
 <section class="sec alt">
   <div class="inner">
-    <div class="grid2" style="align-items:start;">
-      <div>
+    <div class="grid2 preview-grid-78" style="align-items:start;">
+
+      <!-- COLUNA ESQUERDA — texto + pullquote + CTA -->
+      <div class="preview-text-78">
         <div class="sec-eyebrow">O que você vai encontrar</div>
         <h2 class="sec-h2">O livro de minimalismo que cabe na sua rotina — sem teoria, sem extremismos.</h2>
         <p class="sec-p">Inspirado na sabedoria atemporal, "365 Dias Minimalistas" é um convite diário para uma vida mais leve, intencional e plena. Uma reflexão, uma frase de autor e uma prática simples — tudo em uma única página, todo dia.</p>
-
-        <div class="amostra">
-          <div class="amostra-dia">Dia 47 — exemplo real</div>
-          <div class="amostra-quote">"A perfeição é alcançada não quando não há mais nada para adicionar, mas quando não há mais nada para tirar."</div>
-          <div class="amostra-autor">— Antoine de Saint-Exupéry</div>
-          <div class="amostra-pratica"><strong>Prática de hoje:</strong> Escolha um cômodo da sua casa. Retire apenas três objetos que você não usa há mais de seis meses. Não precisa ser a casa inteira — apenas três itens. Observe como o espaço respira diferente.</div>
-        </div>
-
-        <div class="pullquote">"Um companheiro diário que vai guiar você na arte de viver com menos excessos e mais sentido."</div>
-        <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)" style="margin-top:4px;">Quero meu exemplar agora</a>
+        <div class="pullquote" style="margin-top:20px;">"Um companheiro diário que vai guiar você na arte de viver com menos excessos e mais sentido."</div>
+        <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)" style="margin-top:20px;">Quero meu exemplar agora</a>
       </div>
-      <div>
+
+      <!-- COLUNA DIREITA — vídeo + ben-cards -->
+      <div class="preview-media-78">
         <p class="video-intro">Veja como é o livro por dentro</p>
         <div class="video-box">
           <video id="book-video"
@@ -1282,6 +1281,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
           <div class="ben-card"><div class="ben-num">04</div><div class="ben-title">Companheiro diário</div><div class="ben-desc">Prática, presença e mudança constante.</div></div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
