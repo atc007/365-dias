@@ -2021,19 +2021,19 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
 
 <!-- Scroll indicator hide on scroll -->
 <script>
-(function(){
+window.addEventListener('load', function(){
   var ind = document.getElementById('scroll-indicator');
   if(!ind) return;
   function hideInd(){
-    ind.style.display = 'none';
+    ind.style.setProperty('display','none','important');
     window.removeEventListener('scroll', hideInd);
   }
   window.addEventListener('scroll', hideInd, {passive:true});
   ind.addEventListener('click', function(){
     window.scrollBy({top: window.innerHeight, behavior:'smooth'});
-    setTimeout(function(){ ind.style.display = 'none'; }, 400);
+    setTimeout(hideInd, 600);
   });
-})();
+});
 </script>
 </body>
 </html>
