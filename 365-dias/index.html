@@ -1109,6 +1109,14 @@ html,body{
     padding:8px 18px 10px;
     color:var(--ink-muted);z-index:9999;
     cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.08);
+    /* Some ao rolar via animation-timeline */
+    animation:hide-on-scroll linear both;
+    animation-timeline:scroll();
+    animation-range:0px 120px;
+  }
+  @keyframes hide-on-scroll{
+    0%{opacity:1;pointer-events:auto;}
+    100%{opacity:0;pointer-events:none;}
   }
   .scroll-indicator-text{font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;}
   .scroll-indicator-arrow{animation:scroll-bounce 1.4s ease-in-out infinite;}
