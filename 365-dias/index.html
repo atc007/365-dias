@@ -2000,10 +2000,7 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
     },60000);
 
     let fired50=false,fired75=false,fired90=false;
-    /* Esconde scroll indicator ao primeiro scroll */
-    var scrollInd=document.getElementById('scroll-indicator');
     window.addEventListener('scroll',function(){
-      if(scrollInd && window.scrollY > 40) scrollInd.classList.add('hidden');
       const h=document.documentElement;
       const pct=((h.scrollTop)/(h.scrollHeight-h.clientHeight))*100;
 
@@ -2024,5 +2021,25 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
 })();
 </script>
 
+<!-- Scroll indicator hide on scroll -->
+<script>
+(function(){
+  var ind = document.getElementById('scroll-indicator');
+  if(!ind) return;
+  var gone = false;
+  function hideInd(){
+    if(gone) return;
+    if(window.scrollY > 60){
+      gone = true;
+      ind.classList.add('hidden');
+    }
+  }
+  window.addEventListener('scroll', hideInd, {passive:true});
+  ind.addEventListener('click', function(){
+    gone = true;
+    ind.classList.add('hidden');
+  });
+})();
+</script>
 </body>
 </html>
