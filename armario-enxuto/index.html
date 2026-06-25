@@ -3,13 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <title>Armário Enxuto — Guia Prático de Organização do Guarda-Roupa</title>
 <meta name="description" content="O guia de Alexandre Chahoud e Fabianna Carraro para organizar o guarda-roupa, descobrir seu estilo e se vestir com confiança. Mais de 140 páginas. Frete grátis.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1C1C1A">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:title" content="Armário Enxuto — Guia Prático para fazer as pazes com o seu Visual">
 <meta property="og:description" content="Chega de brigar com o guarda-roupa. O método de Fabianna Carraro e Alexandre Chahoud para montar um armário com menos peças — e se vestir com muito mais confiança.">
 <meta property="og:image" content="https://static.wixstatic.com/media/940f31_c503051d75f242f8a18d6429143d054f~mv2.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:type" content="product">
-<link rel="canonical" href="https://www.sejaminimalista.net/armario-enxuto">
+<meta property="og:url" content="https://sejaminimalista.com.br/armario-enxuto">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Seja Minimalista">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Armário Enxuto — Guia Prático para fazer as pazes com o seu Visual">
+<meta name="twitter:description" content="Chega de brigar com o guarda-roupa. O método de Fabianna Carraro e Alexandre Chahoud para montar um armário com menos peças — e se vestir com muito mais confiança.">
+<meta name="twitter:image" content="https://static.wixstatic.com/media/940f31_c503051d75f242f8a18d6429143d054f~mv2.jpg">
+<link rel="canonical" href="https://sejaminimalista.com.br/armario-enxuto">
 
 <script type="application/ld+json">
 {
@@ -1009,6 +1028,38 @@ document.addEventListener('DOMContentLoaded',function(){
     if(pct>=90&&!s90){s90=true;if(window.fbq)fbq('trackCustom','Scroll90', pixelData());}
   });
 });
+</script>
+<!-- TOOLTIP -->
+<style>
+#cupom-tooltip{top:20px;right:20px;bottom:auto;max-width:220px;}
+@media(max-width:720px){#cupom-tooltip{top:16px;right:12px;max-width:190px;}}
+@keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
+</style>
+<div id="cupom-tooltip" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none'">
+  <div style="background:#fff;border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.18);padding:14px 16px 12px;position:relative;border:.5px solid rgba(201,169,110,.3);">
+    <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #fff;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.06));"></div>
+    <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" style="position:absolute;top:8px;right:10px;background:none;border:none;cursor:pointer;font-size:14px;color:#888;line-height:1;">×</button>
+    <div>
+      <div style="font-size:12px;font-weight:700;color:#1C1C1A;margin-bottom:3px;">Já pensou em um armário enxuto?</div>
+      <div style="font-size:11px;color:#5C5C5A;line-height:1.5;margin-bottom:8px;">Garanta seu exemplar com frete grátis e comece hoje:</div>
+      <div style="background:#F5F0E8;border:1.5px solid #C9A96E;border-radius:7px;padding:6px 10px;text-align:center;">
+        <div style="font-family:Georgia,serif;font-size:14px;font-weight:700;color:#1C1C1A;">Ver versões disponíveis →</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var shown=false;
+  var tip=document.getElementById('cupom-tooltip');
+  function playDing(){try{var ctx=new(window.AudioContext||window.webkitAudioContext)();var osc=ctx.createOscillator();var gain=ctx.createGain();osc.connect(gain);gain.connect(ctx.destination);osc.type='sine';osc.frequency.setValueAtTime(880,ctx.currentTime);osc.frequency.exponentialRampToValueAtTime(1200,ctx.currentTime+0.1);gain.gain.setValueAtTime(0.4,ctx.currentTime);gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.6);osc.start(ctx.currentTime);osc.stop(ctx.currentTime+0.6);}catch(e){}}
+  window.addEventListener('scroll',function(){
+    if(shown)return;
+    var h=document.documentElement;
+    var pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+    if(pct>=50){shown=true;tip.style.display='block';tip.style.animation='tooltip-in .4s cubic-bezier(.34,1.56,.64,1) both';playDing();}
+  },{passive:true});
+})();
 </script>
 </body>
 </html>
