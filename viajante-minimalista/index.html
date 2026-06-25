@@ -12,7 +12,26 @@
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="product">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.sejaminimalista.net/livro-viagens">
+<link rel="canonical" href="https://sejaminimalista.com.br/viajante-minimalista">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- SEO e Segurança -->
+<meta name="theme-color" content="#1C1C1A">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:url" content="https://sejaminimalista.com.br/viajante-minimalista">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Seja Minimalista">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Viajante Minimalista — O Guia Para uma Viagem Incrível">
+<meta name="twitter:description" content="Chega de adiar a viagem dos sonhos. O guia que te ensina a planejar, economizar e viajar com leveza e propósito.">
+<meta name="twitter:image" content="https://static.wixstatic.com/media/940f31_d7b8db9b3e924ef7bd675dc94e0c32f8~mv2.jpg">
 
 <script type="application/ld+json">
 {
@@ -406,6 +425,30 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   .footer-grid{grid-template-columns:1fr;gap:28px;}
   .footer-divider{flex-direction:column;gap:6px;}
   .footer{padding-left:18px!important;padding-right:18px!important;}
+}
+
+/* ══ TOOLTIP CUPOM GANHEI10 ══ */
+@keyframes tooltipIn{from{opacity:0;transform:translateY(-12px);}to{opacity:1;transform:translateY(0);}}
+#tooltip-cupom{
+  display:none;position:fixed;top:20px;right:20px;z-index:99998;
+  background:#1C1C1A;color:#F5F0E8;
+  border-radius:8px;padding:14px 16px;max-width:220px;
+  font-size:12px;line-height:1.55;
+  box-shadow:0 8px 28px rgba(0,0,0,.35);
+  cursor:pointer;animation:tooltipIn .35s ease both;
+}
+#tooltip-cupom .tip-bico{
+  position:absolute;top:-8px;right:24px;
+  width:0;height:0;
+  border-left:8px solid transparent;
+  border-right:8px solid transparent;
+  border-bottom:8px solid #1C1C1A;
+}
+#tooltip-cupom .tip-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B4BC8;margin-bottom:6px;}
+#tooltip-cupom .tip-code{font-size:18px;font-weight:700;color:#FFAF80;letter-spacing:.06em;display:block;margin-bottom:4px;}
+#tooltip-cupom .tip-sub{font-size:11px;color:#A8A8A4;}
+@media(max-width:720px){
+  #tooltip-cupom{top:16px;right:12px;max-width:200px;font-size:11px;padding:12px 14px;}
 }
 </style>
 </head>
@@ -996,6 +1039,15 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   </svg>
 </a>
 
+
+<!-- TOOLTIP CUPOM -->
+<div id="tooltip-cupom" onclick="tooltipClick()" role="button" aria-label="Usar cupom GANHEI10">
+  <div class="tip-bico"></div>
+  <div class="tip-label">Cupom exclusivo</div>
+  <span class="tip-code">GANHEI10</span>
+  <div class="tip-sub">Clique e aplique no checkout</div>
+</div>
+
 <script>
 function irParaVersoes(e){if(e)e.preventDefault();var el=document.getElementById('versoes');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
 function faq(btn){btn.parentElement.classList.toggle('open');}
@@ -1077,6 +1129,37 @@ document.addEventListener('DOMContentLoaded',function(){
     });
   });
 });
+
+/* TOOLTIP CUPOM */
+(function(){
+  var shown=false;
+  var tip=document.getElementById('tooltip-cupom');
+  var ding=false;
+  function playDing(){
+    if(ding)return;ding=true;
+    try{
+      var ctx=new(window.AudioContext||window.webkitAudioContext)();
+      var o=ctx.createOscillator();var g=ctx.createGain();
+      o.connect(g);g.connect(ctx.destination);
+      o.type='sine';o.frequency.value=880;
+      g.gain.setValueAtTime(0,ctx.currentTime);
+      g.gain.linearRampToValueAtTime(.18,ctx.currentTime+.01);
+      g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.5);
+      o.start(ctx.currentTime);o.stop(ctx.currentTime+.5);
+    }catch(e){}
+  }
+  window.addEventListener('scroll',function(){
+    if(shown)return;
+    var h=document.documentElement;
+    var pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+    if(pct>=50){shown=true;tip.style.display='block';playDing();}
+  });
+  window.tooltipClick=function(){
+    tip.style.display='none';
+    irParaVersoes(null);
+  };
+})();
+
 </script>
 </body>
 </html>
