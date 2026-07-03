@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Disallow: /bol-digital.html
+Disallow: /bol-fisico.html
+Disallow: /bol-minima.html
+Disallow: /obg-45dias.html
+Disallow: /obg-digital.html
+Disallow: /obg-fisico-minima.html
+
+Sitemap: https://sejaminimalista.com.br/sitemap.xml
