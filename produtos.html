@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<title>Todos os Produtos — Seja Minimalista | Alexandre Chahoud</title>
+<meta name="description" content="Explore toda a linha Seja Minimalista — guias práticos, planners, devocionais e agendas para uma vida mais leve, organizada e com propósito.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1C1C1A">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Todos os Produtos — Seja Minimalista">
+<meta property="og:description" content="Explore toda a linha Seja Minimalista — guias práticos, planners, devocionais e agendas para uma vida mais leve, organizada e com propósito.">
+<meta property="og:image" content="https://static.wixstatic.com/media/940f31_9838f95851d04fae89e45d43a6fe0e09~mv2.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sejaminimalista.com.br/catalogo">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Seja Minimalista">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Todos os Produtos — Seja Minimalista">
+<meta name="twitter:description" content="Explore toda a linha Seja Minimalista — guias práticos, planners, devocionais e agendas para uma vida mais leve, organizada e com propósito.">
+<meta name="twitter:image" content="https://static.wixstatic.com/media/940f31_9838f95851d04fae89e45d43a6fe0e09~mv2.jpg">
+<link rel="canonical" href="https://sejaminimalista.com.br/catalogo">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#1C1C1A;
+  --ink-soft:#4A4A48;
+  --ink-muted:#888780;
+  --gold:#C9A96E;
+  --gold-dark:#9A7A30;
+  --bg:#EFEFEF;
+  --bg-alt:#E8E8E6;
+  --cream:#F5F0E8;
+  --white:#fff;
+  --border:rgba(0,0,0,.08);
+  --sec-h:clamp(20px,5vw,80px);
+  --gap:32px;
+  --radius:12px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+
+/* TOPBAR */
+.topbar{background:var(--ink);color:var(--cream);text-align:center;font-size:12px;padding:10px var(--sec-h);letter-spacing:.04em;}
+.topbar a{color:var(--gold);text-decoration:none;}
+
+/* HEADER */
+.site-header{background:var(--white);border-bottom:.5px solid var(--border);padding:18px var(--sec-h);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{font-family:Georgia,serif;font-size:18px;font-weight:400;color:var(--ink);text-decoration:none;letter-spacing:.02em;}
+.logo span{color:var(--gold);}
+.header-nav{display:flex;align-items:center;gap:24px;}
+.header-nav a{font-size:13px;color:var(--ink-soft);text-decoration:none;letter-spacing:.04em;}
+.header-nav a:hover{color:var(--gold);}
+
+/* HERO */
+.page-hero{background:var(--ink);padding:64px var(--sec-h) 56px;text-align:center;}
+.page-eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:10px;}
+.page-eyebrow::before,.page-eyebrow::after{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.page-h1{font-family:Georgia,serif;font-size:clamp(32px,5vw,52px);font-weight:400;color:var(--cream);line-height:1.2;margin-bottom:16px;letter-spacing:-.01em;}
+.page-sub{font-size:16px;color:var(--ink-muted);max-width:520px;margin:0 auto;}
+
+/* FILTROS */
+.filters{padding:28px var(--sec-h) 0;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.filter-btn{background:var(--white);border:.5px solid var(--border);border-radius:20px;padding:8px 18px;font-size:12px;font-weight:600;color:var(--ink-soft);cursor:pointer;transition:all .2s;letter-spacing:.04em;}
+.filter-btn:hover,.filter-btn.active{background:var(--ink);color:var(--cream);border-color:var(--ink);}
+
+/* GRID DE PRODUTOS */
+.products-section{padding:40px var(--sec-h) 80px;}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto;}
+
+/* CARD DE PRODUTO */
+.prod-card{background:var(--white);border-radius:var(--radius);overflow:hidden;border:.5px solid var(--border);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;}
+.prod-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.1);}
+.prod-card-img{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--bg-alt);}
+.prod-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+.prod-card:hover .prod-card-img img{transform:scale(1.04);}
+.prod-badge{position:absolute;top:12px;left:12px;background:var(--ink);color:var(--cream);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:20px;}
+.prod-badge.novo{background:var(--gold);color:var(--ink);}
+.prod-body{padding:20px;flex:1;display:flex;flex-direction:column;}
+.prod-cat{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.prod-name{font-family:Georgia,serif;font-size:17px;font-weight:400;color:var(--ink);line-height:1.35;margin-bottom:8px;}
+.prod-desc{font-size:13px;color:var(--ink-soft);line-height:1.6;flex:1;margin-bottom:16px;}
+.prod-price{font-size:12px;color:var(--ink-muted);margin-bottom:16px;}
+.prod-price strong{font-size:15px;color:var(--ink);}
+.prod-cta{display:block;background:var(--ink);color:var(--cream);text-align:center;padding:12px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:.04em;transition:background .2s;}
+.prod-cta:hover{background:#3A3A38;}
+.prod-cta.gold{background:linear-gradient(90deg,#B8925A,#C9A96E,#E8D09A,#C9A96E,#B8925A);background-size:200% auto;color:var(--ink);animation:shimmer 3s linear infinite;}
+@keyframes shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
+
+/* COMBO BANNER */
+.combo-banner{max-width:1100px;margin:0 auto 40px;background:var(--ink);border-radius:var(--radius);padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.combo-text h2{font-family:Georgia,serif;font-size:24px;color:var(--cream);font-weight:400;margin-bottom:8px;}
+.combo-text p{font-size:14px;color:var(--ink-muted);max-width:480px;}
+.combo-btn{flex-shrink:0;background:var(--gold);color:var(--ink);padding:14px 28px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;}
+.combo-btn:hover{filter:brightness(1.1);}
+
+/* WHATSAPP */
+.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;background:#25D366;color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s;}
+.whatsapp-float:hover{transform:scale(1.1);}
+.whatsapp-float svg{width:26px;height:26px;fill:#fff;}
+
+/* FOOTER */
+.footer{background:var(--ink);padding:48px var(--sec-h);}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;}
+.footer-logo{font-family:Georgia,serif;font-size:20px;color:var(--cream);margin-bottom:10px;}
+.footer-logo span{color:var(--gold);}
+.footer-copy{font-size:12px;color:#A8A8A4;line-height:1.7;}
+.footer-links h4{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A8A8A4;margin-bottom:14px;}
+.footer-links a{display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;}
+.footer-links a:hover{color:var(--gold);}
+.footer-divider{margin-top:36px;padding-top:22px;border-top:.5px solid #3A3A38;display:flex;justify-content:space-between;font-size:11px;color:#8A8A86;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .products-grid{grid-template-columns:repeat(2,1fr);}
+  .combo-banner{flex-direction:column;text-align:center;}
+  .combo-text p{margin:0 auto;}
+}
+@media(max-width:600px){
+  .products-grid{grid-template-columns:1fr;}
+  .header-nav{display:none;}
+  .footer-grid{grid-template-columns:1fr;gap:28px;}
+  .footer-divider{flex-direction:column;gap:6px;}
+  .page-hero{padding:48px var(--sec-h) 40px;}
+  .filters{padding:20px var(--sec-h) 0;}
+  .combo-banner{padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  📦 Frete grátis nos pedidos físicos · <a href="https://sejaminimalista.com.br/combos">Ver combos com desconto</a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a class="logo" href="https://sejaminimalista.com.br/">seja<span>minimalista</span></a>
+  <nav class="header-nav">
+    <a href="https://sejaminimalista.com.br/">Início</a>
+    <a href="https://sejaminimalista.com.br/combos">Combos</a>
+    <a href="https://www.sejaminimalista.net/vip/entrar">Área VIP</a>
+    <a href="mailto:sejaminimalista@hotmail.com">Contato</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-eyebrow">Linha completa</div>
+  <h1 class="page-h1">Todos os produtos<br><em style="font-style:italic;color:var(--gold);">Seja Minimalista</em></h1>
+  <p class="page-sub">Guias, planners e devocionais para quem quer viver com mais leveza, propósito e organização — sem extremismos.</p>
+</section>
+
+<!-- FILTROS -->
+<div class="filters">
+  <button class="filter-btn active" onclick="filterProducts('todos',this)">Todos</button>
+  <button class="filter-btn" onclick="filterProducts('livro',this)">Livros</button>
+  <button class="filter-btn" onclick="filterProducts('planner',this)">Planners</button>
+  <button class="filter-btn" onclick="filterProducts('agenda',this)">Agendas</button>
+  <button class="filter-btn" onclick="filterProducts('devocional',this)">Devocional</button>
+  <button class="filter-btn" onclick="filterProducts('digital',this)">Digital</button>
+</div>
+
+<!-- PRODUTOS -->
+<section class="products-section">
+  <div class="products-grid" id="products-grid">
+
+    <!-- Minimalize.IA -->
+    <div class="prod-card" data-cat="digital">
+      <div class="prod-card-img">
+        <img src="https://static.wixstatic.com/media/940f31_72a8a2628b3c4b55a6ac43905e3c9853~mv2.png" alt="Minimalize.IA — Destralhe e organize sua casa com IA" loading="lazy" decoding="async">
+        <div class="prod-badge novo">Novo</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Digital · IA</div>
+        <div class="prod-name">Minimalize.IA — Organize sua casa com Inteligência Artificial</div>
+        <div class="prod-desc">Envie uma foto do cômodo. O agente analisa, identifica os excessos e guia o destralhe — no seu ritmo, sem pressão.</div>
+        <div class="prod-price">a partir de <strong>R$ 77</strong> · Acesso vitalício</div>
+        <a class="prod-cta gold" href="https://sejaminimalista.com.br/minimalize">Conhecer →</a>
+      </div>
+    </div>
+
+    <!-- Seja Minimalista -->
+    <div class="prod-card" data-cat="livro">
+      <div class="prod-card-img">
+        <img src="https://static.wixstatic.com/media/940f31_aa1a63c13d8b4026ae6cb6dcb53233ac~mv2.jpg" alt="Seja Minimalista — livro de Alexandre Chahoud" loading="lazy" decoding="async">
+        <div class="prod-badge">Best-Seller</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Livro · Digital e Físico</div>
+        <div class="prod-name">Seja Minimalista — O guia para uma vida mais leve e mais feliz</div>
+        <div class="prod-desc">Mais de 150 páginas com exercícios, checklists e orientações práticas para desapegar do que não faz sentido.</div>
+        <div class="prod-price">a partir de <strong>R$ 77</strong> · Digital e Físico</div>
+        <a class="prod-cta" href="https://sejaminimalista.com.br/">Conhecer →</a>
+      </div>
+    </div>
+
+    <!-- 365 Dias Minimalistas -->
+    <div class="prod-card" data-cat="livro">
+      <div class="prod-card-img">
+        <img src="https://static.wixstatic.com/media/940f31_f7a8fc091af94a9da1eebd78ef0ba579~mv2.png" alt="365 Dias Minimalistas — livro de Alexandre Chahoud" loading="lazy" decoding="async">
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Livro · Digital e Físico</div>
+        <div class="prod-name">365 Dias Minimalistas — Uma página por dia</div>
+        <div class="prod-desc">Uma reflexão, uma frase de autor e uma prática simples — tudo em uma única página, todo dia. 365 passos para uma vida mais leve.</div>
+        <div class="prod-price">a partir de <strong>R$ 77</strong> · Digital e Físico</div>
+        <a class="prod-cta" href="https://sejaminimalista.com.br/365-dias">Conhecer →</a>
+      </div>
+    </div>
+
+    <!-- Viajante Minimalista -->
+    <div class="prod-card" data-cat="livro">
+      <div class="prod-card-img">
+        <img src="https://static.wixstatic.com/media/940f31_41d333b25e6a41d0aeef62be6fcc8e38~mv2.jpeg" alt="Viajante Minimalista — livro de Alexandre Chahoud" loading="lazy" decoding="async">
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Livro · Digital e Físico</div>
+        <div class="prod-name">Viajante Minimalista — O guia para uma viagem incrível</div>
+        <div class="prod-desc">Viaje mais com menos. O guia prático para planejar viagens incríveis de forma simples, leve e sem excessos.</div>
+        <div class="prod-price">a partir de <strong>R$ 77</strong> · Digital e Físico</div>
+        <a class="prod-cta" href="https://sejaminimalista.com.br/viajante-minimalista">Conhecer →</a>
+      </div>
+    </div>
+
+    <!-- Armário Enxuto -->
+    <div class="prod-card" data-cat="livro">
+      <div class="prod-card-img">
+        <img src="https://static.wixstatic.com/media/940f31_c503051d75f242f8a18d6429143d054f~mv2.jpg" alt="Armário Enxuto — guia prático de organização do guarda-roupa" loading="lazy" decoding="async">
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Livro · Físico</div>
+        <div class="prod-name">Armário Enxuto — Faça as pazes com o seu visual</div>
+        <div class="prod-desc">O método de Fabianna Carraro e Alexandre Chahoud para montar um armário com menos peças e se vestir com muito mais confiança.</div>
+        <div class="prod-price">a partir de <strong>R$ 107</strong> · Frete grátis</div>
+        <a class="prod-cta" href="https://sejaminimalista.com.br/armario-enxuto">Conhecer →</a>
+      </div>
+    </div>
+
+    <!-- 45 Dias de Destralhe -->
+    <div class="prod-card" data-cat="livro">
+      <div class="prod-card-img">
+        <img src="https://static.wixstatic.com/media/940f31_7c3c504c1a15465cbbbe613882c29ca2~mv2.jpeg" alt="45 Dias de Destralhe — guia prático de Alexandre Chahoud" loading="lazy" decoding="async">
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Livro · Digital e Físico</div>
+        <div class="prod-name">45 Dias de Destralhe — Uma missão por dia</div>
+        <div class="prod-desc">45 missões simples para deixar sua casa mais leve — uma por dia, no seu ritmo. Ao final, você mal vai reconhecer seus espaços.</div>
+        <div class="prod-price">a partir de <strong>R$ 47</strong> · Digital e Físico</div>
+        <a class="prod-cta" href="https://sejaminimalista.com.br/45-dias">Conhecer →</a>
+      </div>
+    </div>
+
+    <!-- Agenda Minimalista -->
+    <div class="prod-card" data-cat="agenda">
+      <div class="prod-card-img">
+        <img src="https://static.wixstatic.com/media/940f31_8f4fd23c605e49e6bbb2cf76a174581d~mv2.jpg" alt="Agenda Minimalista 2026 — capa dura, 228 páginas" loading="lazy" decoding="async">
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Agenda · Física</div>
+        <div class="prod-name">Agenda Minimalista 2026 — 228 páginas, capa dura</div>
+        <div class="prod-desc">228 páginas, capa dura fosca, wire-o, bolso interno. A agenda mais completa para organizar sua rotina em 2026 e 2027.</div>
+        <div class="prod-price">a partir de <strong>R$ 127</strong> · Frete grátis</div>
+        <a class="prod-cta" href="https://sejaminimalista.com.br/agenda-minimalista">Conhecer →</a>
+      </div>
+    </div>
+
+    <!-- Planner Minimalista -->
+    <div class="prod-card" data-cat="planner">
+      <div class="prod-card-img">
+        <img src="https://static.wixstatic.com/media/940f31_4c5644caab0841a79bc860a670edd306~mv2.jpeg" alt="Planner Minimalista Permanente" loading="lazy" decoding="async">
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Planner · Físico</div>
+        <div class="prod-name">Planner Minimalista Permanente — Sem data fixa</div>
+        <div class="prod-desc">O planner sem data fixa para organizar sua rotina do jeito minimalista — para sempre usar, sem desperdício.</div>
+        <div class="prod-price">a partir de <strong>R$ 167</strong> · Frete grátis</div>
+        <a class="prod-cta" href="https://sejaminimalista.com.br/planner-minimalista">Conhecer →</a>
+      </div>
+    </div>
+
+    <!-- Planner de Viagens -->
+    <div class="prod-card" data-cat="planner">
+      <div class="prod-card-img">
+        <img src="https://static.wixstatic.com/media/940f31_6c4bd2f8d26046898f74b426612b5608~mv2.jpg" alt="Planner Minhas Viagens dos Sonhos — digital e físico" loading="lazy" decoding="async">
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Planner · Digital e Físico</div>
+        <div class="prod-name">Planner Minhas Viagens dos Sonhos</div>
+        <div class="prod-desc">130 páginas com planejamento financeiro completo e roteiro detalhado para cada viagem. Disponível em digital editável ou físico.</div>
+        <div class="prod-price">a partir de <strong>R$ 47</strong> · Digital ou Físico</div>
+        <a class="prod-cta" href="https://sejaminimalista.com.br/planner-viagens">Conhecer →</a>
+      </div>
+    </div>
+
+    <!-- Devocional -->
+    <div class="prod-card" data-cat="devocional">
+      <div class="prod-card-img">
+        <img src="https://static.wixstatic.com/media/940f31_12324fb304cf4c0b9bda4a883ab6c682~mv2.jpg" alt="Devocional Meu Tempo com Deus — 230 páginas, capa dura" loading="lazy" decoding="async">
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Devocional · Físico</div>
+        <div class="prod-name">Devocional Meu Tempo com Deus — 230 páginas</div>
+        <div class="prod-desc">230 páginas, capa dura fosca, wire-o. Um devocional para quem busca leveza, propósito e conexão espiritual no dia a dia.</div>
+        <div class="prod-price">a partir de <strong>R$ 147</strong> · Frete grátis</div>
+        <a class="prod-cta" href="https://sejaminimalista.com.br/devocional">Conhecer →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COMBO BANNER -->
+  <div class="combo-banner" style="margin-top:48px;">
+    <div class="combo-text">
+      <h2>Quer economizar? Confira os combos com desconto.</h2>
+      <p>Leve mais de um produto com preço reduzido — combinações pensadas para potencializar sua jornada minimalista.</p>
+    </div>
+    <a class="combo-btn" href="https://sejaminimalista.com.br/combos">Ver combos →</a>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">seja<span>minimalista</span></div>
+      <p class="footer-copy">Para uma vida mais leve e mais feliz.<br>Alexandre Chahoud · @seja.minimalista</p>
+    </div>
+    <div class="footer-links">
+      <h4>Links úteis</h4>
+      <a href="https://sejaminimalista.com.br/" target="_blank">Seja Minimalista — Best Seller</a>
+      <a href="https://sejaminimalista.com.br/365-dias" target="_blank">365 Dias Minimalistas</a>
+      <a href="https://sejaminimalista.com.br/combos" target="_blank">Combos com desconto</a>
+      <a href="https://www.sejaminimalista.net/vip/entrar" target="_blank">Área VIP</a>
+      <a href="mailto:sejaminimalista@hotmail.com">Fale comigo</a>
+    </div>
+    <div>
+      <h4 style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A8A8A4;margin-bottom:14px;">Newsletter gratuita</h4>
+      <p style="font-size:12px;color:#D8D8D4;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas direto no seu e-mail, toda semana.</p>
+      <iframe src="https://sejaminimalista.substack.com/embed?transparent=1&light=1" width="100%" height="100" style="border:none;background:transparent;" loading="lazy"></iframe>
+    </div>
+  </div>
+  <div class="footer-divider">
+    <span>© 2026 Seja Minimalista. Todos os direitos reservados.</span>
+    <span>sejaminimalista.com.br</span>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a class="whatsapp-float" href="https://wa.me/5516991065984?text=Oi%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20os%20produtos!" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.prod-card').forEach(card => {
+    if (cat === 'todos' || card.dataset.cat === cat) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
