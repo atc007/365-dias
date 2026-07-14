@@ -573,7 +573,14 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "x9zztciwhm");
 </script>
-</head>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<style>
+.hero-img-wrap img{animation:floatBook 6s ease-in-out infinite;filter:drop-shadow(0 30px 60px rgba(0,0,0,.18))}
+@keyframes floatBook{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.btn-gold,.btn-dark,.pc,.cap-card,.qual-card,.dif-card,.t-card{transition:transform .35s ease,box-shadow .35s ease}
+.pc:hover,.cap-card:hover,.qual-card:hover,.dif-card:hover,.t-card:hover{transform:translateY(-6px);box-shadow:0 20px 45px rgba(0,0,0,.12)}
+</style></head>
 <body>
 
 <!-- URGÊNCIA BAR -->
@@ -1372,5 +1379,14 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
   }, {passive:true});
 })();
 </script>
-</body>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+if(!window.gsap)return;
+gsap.registerPlugin(ScrollTrigger);
+gsap.timeline().from('.hero-h1',{y:45,opacity:0,duration:.8}).from('.hero-sub',{y:25,opacity:0,duration:.6},'-=.4').from('.btn-gold',{opacity:0,y:20,duration:.5},'-=.3').from('.hero-img-wrap',{opacity:0,scale:.94,duration:1},'-=.7');
+document.querySelectorAll('section,.stat,.cap-card,.qual-card,.dif-card,.t-card,.pc').forEach(function(el){
+gsap.from(el,{scrollTrigger:{trigger:el,start:'top 85%'},y:40,opacity:0,duration:.8});
+});
+});
+</script></body>
 </html>
