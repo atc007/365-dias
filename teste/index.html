@@ -184,21 +184,21 @@ html,body{
 .hero-button:hover{transform:translateY(-4px);background:#596848;}
 .hero-button svg{width:18px;height:18px;flex-shrink:0;}
 .hero-security{margin-top:28px;font-size:14px;color:var(--ink-soft);letter-spacing:.05em;}
-.hero-right{position:relative;height:760px;}
+.hero-right{position:relative;width:100%;aspect-ratio:4/3.4;max-width:640px;margin-left:auto;}
 .hero-right .book{
-  position:absolute;bottom:40px;left:80px;width:430px;max-width:100%;
+  position:absolute;bottom:2%;left:8%;width:52%;height:auto;
   filter:drop-shadow(0 45px 60px rgba(0,0,0,.22));
 }
 .hero-right .tablet{
-  position:absolute;bottom:0;right:20px;width:350px;max-width:100%;
+  position:absolute;bottom:0;right:4%;width:42%;height:auto;
   filter:drop-shadow(0 35px 45px rgba(0,0,0,.18));
 }
 @media(max-width:980px){
   .hero-container{grid-template-columns:1fr;text-align:center;padding:56px var(--sec-h) 40px;}
   .hero-left{max-width:100%;}
-  .hero-right{height:420px;margin-top:24px;}
-  .hero-right .book{left:50%;transform:translateX(-55%);width:230px;bottom:20px;}
-  .hero-right .tablet{right:50%;transform:translateX(65%);width:180px;bottom:0;}
+  .hero-right{max-width:420px;aspect-ratio:4/3.6;margin:24px auto 0;}
+  .hero-right .book{left:6%;width:52%;bottom:0;}
+  .hero-right .tablet{right:4%;width:42%;bottom:0;}
   .hero-left h1{font-size:clamp(34px,9vw,48px);}
   .hero-left p{font-size:17px;}
   .hero-eyebrow{justify-content:center;margin-bottom:24px;}
@@ -1450,19 +1450,6 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
 document.addEventListener('DOMContentLoaded',function(){
 if(!window.gsap)return;
 gsap.registerPlugin(ScrollTrigger);
-
-var heroTl=gsap.timeline();
-heroTl.from('.hero-eyebrow',{opacity:0,y:30,duration:.6})
-  .from('.hero-left h1',{opacity:0,y:45,duration:.8},'-=.3')
-  .from('.hero-line',{scaleX:0,transformOrigin:'left',duration:.5},'-=.5')
-  .from('.hero-left p',{opacity:0,y:25,duration:.6},'-=.4')
-  .from('.hero-benefits div',{opacity:0,y:20,duration:.5,stagger:.08},'-=.3')
-  .from('.hero-button',{opacity:0,y:25,duration:.5},'-=.2')
-  .from('.hero-right .book',{opacity:0,x:120,scale:.92,duration:1},'-=.8')
-  .from('.hero-right .tablet',{opacity:0,x:180,scale:.9,duration:1},'-=.8');
-
-gsap.to('.hero-right .book',{y:-12,duration:3,repeat:-1,yoyo:true,ease:'sine.inOut'});
-gsap.to('.hero-right .tablet',{y:-8,duration:3.8,repeat:-1,yoyo:true,ease:'sine.inOut'});
 
 document.querySelectorAll('section,.stat,.cap-card,.qual-card,.dif-card,.t-card,.pc').forEach(function(el){
 gsap.from(el,{scrollTrigger:{trigger:el,start:'top 85%'},y:40,opacity:0,duration:.8});
