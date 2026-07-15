@@ -244,8 +244,9 @@ html,body{
 .topbar-nav a:hover{color:var(--gold);}
 
 /* ══ HERO ══ */
-.sec-hero{background:var(--bg-page);padding:56px var(--sec-h) 64px;}
+.sec-hero{background:var(--bg-page);padding:56px var(--sec-h) 64px;position:relative;}
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center;}
+.hero-bg-desktop{display:none;}
 .hero-img-wrap{
   text-align:center;
   display:flex;flex-direction:column;
@@ -259,6 +260,39 @@ html,body{
   display:block;margin:0 auto;
   border-radius:6px;object-fit:contain;
   flex:1;
+}
+
+/* ══ HERO DESKTOP — fundo e livros em camadas, ocupando a tela inteira até a barra de estatísticas ══ */
+@media(min-width:721px){
+  .sec-hero{
+    padding:0 var(--sec-h);
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    min-height:560px;
+  }
+  .hero-bg-desktop{
+    display:block;
+    position:absolute;inset:0;
+    background:url('https://static.wixstatic.com/media/940f31_dcdaf2a795a341e7bf2c434eefcc7a43~mv2.jpg') center center/cover no-repeat;
+    z-index:0;
+  }
+  .hero-bg-desktop::after{
+    content:'';
+    position:absolute;inset:0;
+    background:linear-gradient(90deg,
+      rgba(236,230,222,0) 0%,
+      rgba(236,230,222,0) 38%,
+      rgba(236,230,222,.9) 60%,
+      rgba(236,230,222,1) 100%);
+  }
+  .sec-hero .inner{position:relative;z-index:1;width:100%;}
+  .hero-img-wrap img,
+  .hero-img-wrap picture img{
+    max-height:min(66vh,600px);
+    border-radius:0;
+    filter:drop-shadow(0 30px 40px rgba(30,25,15,.22));
+  }
 }
 .eyebrow{
   font-size:var(--eyebrow);
@@ -1486,14 +1520,18 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <main>
 <!-- HERO -->
 <section class="sec-hero">
+  <div class="hero-bg-desktop" aria-hidden="true"></div>
   <div class="inner">
     <div class="hero-grid">
       <div class="hero-img-wrap">
-        <img
-          src="https://static.wixstatic.com/media/940f31_dd69aabf5a2845cc8e895f48114dee17~mv2.jpg"
-          alt="Capa do livro 365 Dias Minimalistas de Alexandre Chahoud"
-          width="474" height="457"
-          fetchpriority="high" loading="eager" decoding="sync">
+        <picture>
+          <source media="(min-width:721px)" srcset="https://static.wixstatic.com/media/940f31_78b1b096592f4a91b467f98b3ade5b92~mv2.png">
+          <img
+            src="https://static.wixstatic.com/media/940f31_dd69aabf5a2845cc8e895f48114dee17~mv2.jpg"
+            alt="Capa do livro 365 Dias Minimalistas de Alexandre Chahoud"
+            width="474" height="457"
+            fetchpriority="high" loading="eager" decoding="sync">
+        </picture>
         <div class="badges" style="margin-top:20px;justify-content:center;">
           <a class="badge badge-link" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;">📖 372 páginas</a>
           <a class="badge badge-link" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;">📦 Frete grátis</a>
@@ -2185,8 +2223,9 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
       pBar.style.width=pct+'%';
     }
 
-    /* parallax sutil na capa do livro, só nos primeiros ~900px */
-    if(heroImg && !reducedMotion && y<900){
+    /* parallax sutil na capa, só no desktop (no mobile a imagem já usa
+       um transform de zoom/recorte fixo — sobrescrever via JS quebraria o crop) */
+    if(heroImg && !reducedMotion && y<900 && window.innerWidth>720){
       heroImg.style.transform='translateY('+(y*0.08).toFixed(1)+'px)';
     }
     ticking=false;
@@ -2196,6 +2235,35 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
   }
   window.addEventListener('scroll', requestTick, {passive:true});
   onScroll();
+})();
+
+/* ══ HERO DESKTOP OCUPA A TELA INTEIRA ATÉ A BARRA DE ESTATÍSTICAS ══ */
+(function(){
+  var heroSec=document.querySelector('.sec-hero');
+  var statsBar=document.querySelector('.stats-bar');
+  var uBar=document.getElementById('urgency-bar');
+  if(!heroSec || !statsBar) return;
+
+  function fitHero(){
+    if(window.innerWidth<=720){
+      heroSec.style.height='';
+      return;
+    }
+    var urgencyH = uBar ? uBar.offsetHeight : 0;
+    var statsH = statsBar.offsetHeight;
+    var vh = window.innerHeight;
+    var heroH = vh - urgencyH - statsH;
+    heroSec.style.height = Math.max(heroH, 480)+'px';
+  }
+
+  var resizeTimer=null;
+  function onResize(){
+    clearTimeout(resizeTimer);
+    resizeTimer=setTimeout(fitHero,150);
+  }
+  fitHero();
+  window.addEventListener('resize', onResize);
+  window.addEventListener('load', fitHero);
 })();
 
 /* ══ LIGHTBOX — clique nas páginas do carrossel para ampliar ══ */
