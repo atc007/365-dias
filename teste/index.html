@@ -1151,24 +1151,40 @@ html,body{
 /* ══ ÂNCORA DE PREÇO ══ */
 .ancora-preco{
   background:var(--cream);
-  padding:28px var(--sec-h);
+  padding:20px 18px;
   text-align:center;
   border-top:.5px solid var(--border);
 }
 .ancora-inner{
-  max-width:640px;margin:0 auto;
-  display:flex;align-items:center;justify-content:center;
-  gap:32px;flex-wrap:wrap;
+  max-width:640px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
 }
 .ancora-calc{
   font-family:Georgia,serif;
-  font-size:clamp(22px,3vw,36px);
-  font-weight:400;color:var(--ink);
-  line-height:1.1;
+  font-size:42px;
+  font-weight:400;
+  color:var(--ink);
+  line-height:1.05;
+  margin:0;
 }
-.ancora-calc span{display:block;font-size:13px;font-family:-apple-system,sans-serif;color:var(--ink-muted);font-weight:400;margin-top:4px;}
-.ancora-sep{font-size:28px;color:var(--border);}
-.ancora-compare{font-size:14px;color:var(--ink-soft);line-height:1.7;text-align:left;max-width:320px;}
+.ancora-calc span{
+  display:block;
+  font-size:14px;
+  color:var(--ink-muted);
+  margin-top:4px;
+}
+.ancora-sep{display:none;}
+.ancora-compare{
+  max-width:100%;
+  margin:0;
+  font-size:16px;
+  line-height:1.7;
+  text-align:center;
+}
 .ancora-compare strong{color:var(--ink);font-weight:500;}
 
 /* ══ WHATSAPP ══ */
@@ -1312,8 +1328,11 @@ html,body{
     grid-template-columns:1fr!important;
     gap:28px!important;
   }
-  .ancora-inner{flex-direction:column;gap:16px;text-align:center;}
-  .ancora-compare{text-align:center;}
+  .ancora-preco{padding:16px 18px;}
+  .ancora-inner{flex-direction:column;gap:10px;text-align:center;}
+  .ancora-calc{font-size:28px;margin:0;}
+  .ancora-calc span{font-size:13px;margin-top:2px;}
+  .ancora-compare{margin:0;text-align:center;font-size:15px;line-height:1.65;}
   .agit-lista{text-align:left;}
   .amostra{padding:22px 18px;}
   .car-wrap{margin:0 -10px;}
