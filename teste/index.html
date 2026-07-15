@@ -1212,31 +1212,35 @@ html,body{
   .countdown-unit{font-size:20px;min-width:34px;padding:4px 8px;}
   .urgency-text{font-size:13px;text-align:center;}
 
-  /* hero: imagem full-bleed */
-  .sec-hero{padding:0 0 36px;}
-  .hero-grid{grid-template-columns:1fr;gap:0;}
-  .hero-grid > div:not(.hero-img-wrap){padding:16px var(--sec-h) 0;}
+  /* hero mobile */
+  .sec-hero{padding:0 0 36px;background:#ECE6DE;}
+  .hero-grid{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
   .hero-img-wrap{
-    order:-1;
-    width:calc(100vw + 2px);
-    margin-left:calc(50% - 1px);
-    transform:translateX(-50%);
+    order:0;
+    width:100%;
+    margin:0;
     padding:0;
     overflow:hidden;
-    background:#ECE6DE;
+    align-self:stretch;
   }
   .hero-img-wrap img{
     display:block;
     width:100%;
     height:560px;
-    max-width:none;
-    max-height:none;
     object-fit:cover;
-    object-position:center center;
+    object-position:center;
     transform:scale(1.28);
-    transform-origin:center center;
+    transform-origin:center;
     border-radius:0;
     margin:0;
+  }
+  .hero-grid>div:last-child{
+    width:100%;
+    padding:0;
   }
   .badges{gap:6px;margin-bottom:14px;grid-template-columns:1fr 1fr;display:grid;}
   .badge{font-size:12px;text-align:center;display:flex;align-items:center;justify-content:center;}
