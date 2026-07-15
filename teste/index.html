@@ -191,15 +191,32 @@ html,body{
   filter:drop-shadow(0 45px 60px rgba(0,0,0,.2));
 }
 @media(max-width:980px){
-  .hero-container{grid-template-columns:1fr;text-align:center;padding:56px var(--sec-h) 40px;}
+  .hero-premium{min-height:auto;display:block;padding-bottom:0;}
+  .hero-container{grid-template-columns:1fr;text-align:center;padding:64px var(--sec-h) 0;gap:0;}
   .hero-left{max-width:100%;}
-  .hero-right{max-width:460px;aspect-ratio:4/4.6;margin:24px auto 0;}
-  .hero-left h1{font-size:clamp(34px,9vw,48px);}
-  .hero-left p{font-size:17px;}
-  .hero-eyebrow{justify-content:center;margin-bottom:24px;}
+  .hero-eyebrow{
+    flex-direction:column;justify-content:center;gap:10px;
+    margin-bottom:22px;font-size:13px;
+  }
+  .hero-eyebrow svg{width:30px;height:30px;}
+  .hero-left h1{font-size:clamp(32px,10vw,44px);margin-bottom:24px;}
+  .hero-left h1 .accent{color:#495437;}
   .hero-line{margin-left:auto;margin-right:auto;}
-  .hero-benefits{justify-content:center;gap:24px;margin-bottom:32px;}
-  .hero-button{width:100%;padding:20px;font-size:17px;}
+  .hero-left p{font-size:16px;margin-bottom:32px;}
+  .hero-benefits{
+    justify-content:center;gap:0;margin-bottom:32px;flex-wrap:nowrap;row-gap:0;
+  }
+  .hero-benefits div{
+    flex-direction:column;text-align:center;gap:8px;
+    padding:0 10px;border-right:1px solid var(--border);flex:1;min-width:0;
+  }
+  .hero-benefits div:last-child{border-right:none;}
+  .hero-benefits svg{width:22px;height:22px;}
+  .hero-benefits span{font-size:10px;white-space:nowrap;}
+  .hero-benefits span em{font-size:10px;white-space:normal;}
+  .hero-button{width:100%;padding:20px;font-size:17px;margin-bottom:20px;}
+  .hero-security{margin-top:0;margin-bottom:32px;}
+  .hero-right{max-width:100%;width:calc(100% + 2*var(--sec-h));margin:0 calc(-1*var(--sec-h));aspect-ratio:4/4.4;}
 }
 
 /* ══ BOTÕES ANIMADOS ══ */
@@ -657,7 +674,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" style="color:var(--gold);flex-shrink:0;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
         +25 MIL LEITORES TRANSFORMANDO SUAS VIDAS
       </div>
-      <h1>Menos excesso.<br>Mais vida.</h1>
+      <h1>Menos excesso.<br><span class="accent">Mais vida.</span></h1>
       <div class="hero-line"></div>
       <p>O guia prático de Alexandre Chahoud para quem quer uma casa mais organizada, uma mente mais leve e uma vida com menos excessos.</p>
       <div class="hero-benefits">
