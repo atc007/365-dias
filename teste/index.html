@@ -1212,33 +1212,28 @@ html,body{
   .countdown-unit{font-size:20px;min-width:34px;padding:4px 8px;}
   .urgency-text{font-size:13px;text-align:center;}
 
-  /* hero: imagem encostada na barra de urgência, sem espaços */
+  /* hero: imagem full-bleed */
   .sec-hero{padding:0 0 36px;}
-  .hero-grid{
-    grid-template-columns:1fr;
-    gap:0;
-  }
+  .hero-grid{grid-template-columns:1fr;gap:0;}
   .hero-grid > div:not(.hero-img-wrap){padding:16px var(--sec-h) 0;}
-  /* imagem vem primeiro, full-bleed, sem padding nem margem */
   .hero-img-wrap{
     order:-1;
-    min-height:auto;
-    width:100%;
-    padding:0;
-    margin:0;
-  }
-  .hero-img-wrap img{
     width:100vw;
-    max-width:none;
-    height:420px;
-    max-height:none;
-    object-fit:cover;
-    object-position:center center;
-    display:block;
     margin-left:50%;
     transform:translateX(-50%);
+    padding:0;
+    overflow:hidden;
+  }
+  .hero-img-wrap img{
+    display:block;
+    width:100%;
+    height:420px;
+    max-width:none;
+    max-height:none;
+    object-fit:cover;
+    object-position:65% center;
     border-radius:0;
-    box-shadow:none;
+    margin:0;
   }
   .badges{gap:6px;margin-bottom:14px;grid-template-columns:1fr 1fr;display:grid;}
   .badge{font-size:12px;text-align:center;display:flex;align-items:center;justify-content:center;}
