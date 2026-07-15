@@ -262,14 +262,14 @@ html,body{
   flex:1;
 }
 
-/* ══ HERO DESKTOP — fundo e livros em camadas, ocupando a tela inteira até a barra de estatísticas ══ */
+/* ══ HERO DESKTOP — fundo e livros em camadas ══ */
 @media(min-width:721px){
   .sec-hero{
-    padding:0 var(--sec-h);
+    padding:112px var(--sec-h);
     display:flex;
     align-items:center;
     overflow:hidden;
-    min-height:620px;
+    min-height:460px;
   }
   .hero-bg-desktop{
     display:block;
@@ -2239,35 +2239,6 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
   }
   window.addEventListener('scroll', requestTick, {passive:true});
   onScroll();
-})();
-
-/* ══ HERO DESKTOP OCUPA A TELA INTEIRA ATÉ A BARRA DE ESTATÍSTICAS ══ */
-(function(){
-  var heroSec=document.querySelector('.sec-hero');
-  var statsBar=document.querySelector('.stats-bar');
-  var uBar=document.getElementById('urgency-bar');
-  if(!heroSec || !statsBar) return;
-
-  function fitHero(){
-    if(window.innerWidth<=720){
-      heroSec.style.height='';
-      return;
-    }
-    var urgencyH = uBar ? uBar.offsetHeight : 0;
-    var statsH = statsBar.offsetHeight;
-    var vh = window.innerHeight;
-    var heroH = vh - urgencyH - statsH;
-    heroSec.style.height = Math.max(heroH, 480)+'px';
-  }
-
-  var resizeTimer=null;
-  function onResize(){
-    clearTimeout(resizeTimer);
-    resizeTimer=setTimeout(fitHero,150);
-  }
-  fitHero();
-  window.addEventListener('resize', onResize);
-  window.addEventListener('load', fitHero);
 })();
 
 /* ══ LIGHTBOX — clique nas páginas do carrossel para ampliar ══ */
