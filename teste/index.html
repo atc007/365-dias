@@ -1261,15 +1261,17 @@ html,body{
   .countdown-unit{font-size:20px;min-width:34px;padding:4px 8px;}
   .urgency-text{font-size:13px;text-align:center;}
 
-  /* hero: imagem full-bleed, maior e sem sobra de fundo nas bordas */
+  /* hero: imagem full-bleed, maior e sem sobra de fundo nas bordas.
+     Em vez de width:100vw + margem negativa (frágil no iOS e responsável
+     pelo desalinhamento), zeramos o padding do .inner só nesta seção e
+     deixamos a imagem ocupar 100% do container — sem cálculo de viewport. */
   .sec-hero{padding:0 0 var(--sec-v);}
+  .sec-hero .inner{padding:0;max-width:none;}
   .hero-grid{grid-template-columns:1fr;gap:0;}
   .hero-grid > div:not(.hero-img-wrap){padding:22px var(--sec-h) 4px;}
   .hero-img-wrap{
     order:-1;
-    width:100vw;
-    margin-left:50%;
-    transform:translateX(-50%);
+    width:100%;
     padding:0;
     overflow:hidden;
     background:var(--bg-page);
@@ -1507,14 +1509,6 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <div class="hero-note">Compra segura · Garantia incondicional de 7 dias</div>
       </div>
     </div>
-  </div>
-
-  <!-- SCROLL INDICATOR — só mobile, posição fixa -->
-  <div class="scroll-indicator" id="scroll-indicator" onclick="window.scrollBy({top:300,behavior:'smooth'})">
-    <span class="scroll-indicator-text">continue vendo</span>
-    <svg class="scroll-indicator-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
   </div>
 </section>
 
