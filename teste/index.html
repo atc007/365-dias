@@ -290,27 +290,27 @@ html,body{
 .preview-desktop-text{display:block;}
 .preview-text,.preview-car{display:flex;flex-direction:column;}
 
-.coverflow{position:relative;height:400px;perspective:1600px;overflow:hidden;margin:0 -40px;}
-.cf-track{position:relative;width:100%;height:100%;}
-.cf-item{
-  position:absolute;top:50%;left:50%;width:260px;height:340px;
-  margin-left:-130px;margin-top:-170px;
-  border-radius:8px;overflow:hidden;background:#EFEFEF;
-  box-shadow:0 20px 45px rgba(28,28,26,.18);
-  transition:transform .55s cubic-bezier(.22,.9,.28,1),opacity .55s ease,box-shadow .55s ease;
+.gallery-strip{display:flex;gap:20px;overflow-x:auto;padding:24px 4px 34px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;}
+.gallery-strip::-webkit-scrollbar{height:6px;}
+.gallery-strip::-webkit-scrollbar-track{background:transparent;}
+.gallery-strip::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
+.gallery-item{
+  flex:0 0 auto;width:260px;scroll-snap-align:start;
+  border-radius:10px;overflow:hidden;background:#EFEFEF;
+  box-shadow:0 10px 26px rgba(28,28,26,.10);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s ease;
+  transform:perspective(900px) rotateX(0) rotateY(0) scale(1);
   cursor:pointer;
 }
-.cf-item.is-active{box-shadow:0 30px 60px rgba(28,28,26,.24);cursor:default;}
-.cf-item img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;}
-.cf-dots{display:flex;gap:7px;justify-content:center;padding:22px 0 4px;flex-wrap:wrap;}
-.cf-dot{width:7px;height:7px;border-radius:50%;background:var(--border);border:none;cursor:pointer;padding:0;transition:background .2s,transform .2s;}
-.cf-dot.active{background:var(--gold);transform:scale(1.3);}
+.gallery-item img{width:100%;height:auto;display:block;pointer-events:none;}
+.gallery-item:hover{
+  transform:perspective(900px) rotateX(5deg) rotateY(-7deg) scale(1.045);
+  box-shadow:0 34px 55px rgba(28,28,26,.24);
+}
+.gallery-item:nth-child(even):hover{transform:perspective(900px) rotateX(5deg) rotateY(7deg) scale(1.045);}
 .gallery-cap{padding:0 20px;font-size:13px;color:var(--ink-muted);text-align:center;line-height:1.5;}
 .gallery-cap strong{color:var(--ink);}
-@media(max-width:720px){
-  .coverflow{height:300px;margin:0 -18px;}
-  .cf-item{width:190px;height:248px;margin-left:-95px;margin-top:-124px;}
-}
+@media(max-width:720px){.gallery-item{width:200px;}}
 
 /* ══ PULLQUOTE ══ */
 .pullquote{border-left:3px solid var(--gold);padding:14px 22px;font-family:Georgia,serif;font-size:18px;line-height:1.7;font-style:italic;color:var(--ink);margin-bottom:32px;background:rgba(201,169,110,.06);border-radius:0 6px 6px 0;}
@@ -745,41 +745,38 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <h2 class="sec-h2" style="max-width:680px;">O guia de minimalismo que transforma sua casa, sua mente e sua relação com o dinheiro.</h2>
     <p class="sec-p" style="max-width:680px;margin-bottom:32px;">Seja Minimalista não é um livro de teoria. É um guia prático com exercícios, checklists e orientações divididos por categorias — para você aprender, aplicar e consultar sempre que precisar.</p>
 
-    <!-- COVERFLOW — imagem central em destaque, laterais em 3D -->
-    <p style="font-size:12px;color:var(--ink-muted);text-align:center;margin-bottom:4px;font-style:italic;">Veja o livro por dentro · clique em qualquer página para focar</p>
-    <div class="coverflow" id="coverflow">
-      <div class="cf-track" id="cfTrack">
-        <div class="cf-item" data-i="0">
-          <img src="https://static.wixstatic.com/media/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg"
-            alt="Interior do livro Seja Minimalista — técnicas de desapego" loading="eager" decoding="async">
-        </div>
-        <div class="cf-item" data-i="1">
-          <img src="https://static.wixstatic.com/media/940f31_dd00c5f5589f48989c93c7e9cd2da473~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_dd00c5f5589f48989c93c7e9cd2da473~mv2.jpg"
-            alt="Interior do livro Seja Minimalista — exercícios práticos" loading="lazy" decoding="async">
-        </div>
-        <div class="cf-item" data-i="2">
-          <img src="https://static.wixstatic.com/media/940f31_8af9f0de80cd4045a2e6627709d920a8~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_8af9f0de80cd4045a2e6627709d920a8~mv2.jpg"
-            alt="Interior do livro Seja Minimalista — checklists" loading="lazy" decoding="async">
-        </div>
-        <div class="cf-item" data-i="3">
-          <img src="https://static.wixstatic.com/media/940f31_e70a3c2a95ef46cf89b162c572653a7c~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_e70a3c2a95ef46cf89b162c572653a7c~mv2.jpg"
-            alt="Interior do livro Seja Minimalista — minimalismo digital" loading="lazy" decoding="async">
-        </div>
-        <div class="cf-item" data-i="4">
-          <img src="https://static.wixstatic.com/media/940f31_58487c12663243e48ad5ec0d70577285~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_58487c12663243e48ad5ec0d70577285~mv2.jpg"
-            alt="Interior do livro Seja Minimalista — minimalismo nas finanças" loading="lazy" decoding="async">
-        </div>
-        <div class="cf-item" data-i="5">
-          <img src="https://static.wixstatic.com/media/940f31_b0cd553ea26b4eb78fcce7ca4102a2a2~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_b0cd553ea26b4eb78fcce7ca4102a2a2~mv2.jpg"
-            alt="Interior do livro Seja Minimalista — guia de organização" loading="lazy" decoding="async">
-        </div>
-        <div class="cf-item" data-i="6">
-          <img src="https://static.wixstatic.com/media/940f31_72043983ba6642888bcb0d31173234a1~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_72043983ba6642888bcb0d31173234a1~mv2.jpg"
-            alt="Interior do livro Seja Minimalista — minimalismo mental" loading="lazy" decoding="async">
-        </div>
+    <!-- GALERIA — largura total, com scroll horizontal e efeito 3D no hover -->
+    <p style="font-size:12px;color:var(--ink-muted);text-align:center;margin-bottom:4px;font-style:italic;">Veja o livro por dentro</p>
+    <div class="gallery-strip" style="max-width:100%;">
+      <div class="gallery-item">
+        <img src="https://static.wixstatic.com/media/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg"
+          alt="Interior do livro Seja Minimalista — técnicas de desapego" width="596" height="387" loading="eager" decoding="async">
+      </div>
+      <div class="gallery-item">
+        <img src="https://static.wixstatic.com/media/940f31_dd00c5f5589f48989c93c7e9cd2da473~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_dd00c5f5589f48989c93c7e9cd2da473~mv2.jpg"
+          alt="Interior do livro Seja Minimalista — exercícios práticos" width="596" height="387" loading="lazy" decoding="async">
+      </div>
+      <div class="gallery-item">
+        <img src="https://static.wixstatic.com/media/940f31_8af9f0de80cd4045a2e6627709d920a8~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_8af9f0de80cd4045a2e6627709d920a8~mv2.jpg"
+          alt="Interior do livro Seja Minimalista — checklists" width="596" height="387" loading="lazy" decoding="async">
+      </div>
+      <div class="gallery-item">
+        <img src="https://static.wixstatic.com/media/940f31_e70a3c2a95ef46cf89b162c572653a7c~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_e70a3c2a95ef46cf89b162c572653a7c~mv2.jpg"
+          alt="Interior do livro Seja Minimalista — minimalismo digital" width="596" height="387" loading="lazy" decoding="async">
+      </div>
+      <div class="gallery-item">
+        <img src="https://static.wixstatic.com/media/940f31_58487c12663243e48ad5ec0d70577285~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_58487c12663243e48ad5ec0d70577285~mv2.jpg"
+          alt="Interior do livro Seja Minimalista — minimalismo nas finanças" width="596" height="387" loading="lazy" decoding="async">
+      </div>
+      <div class="gallery-item">
+        <img src="https://static.wixstatic.com/media/940f31_b0cd553ea26b4eb78fcce7ca4102a2a2~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_b0cd553ea26b4eb78fcce7ca4102a2a2~mv2.jpg"
+          alt="Interior do livro Seja Minimalista — guia de organização" width="596" height="387" loading="lazy" decoding="async">
+      </div>
+      <div class="gallery-item">
+        <img src="https://static.wixstatic.com/media/940f31_72043983ba6642888bcb0d31173234a1~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_72043983ba6642888bcb0d31173234a1~mv2.jpg"
+          alt="Interior do livro Seja Minimalista — minimalismo mental" width="596" height="387" loading="lazy" decoding="async">
       </div>
     </div>
-    <div class="cf-dots" id="cfDots"></div>
     <div class="gallery-cap">Mais de <strong>150 páginas</strong> com exercícios, checklists e orientações práticas divididos por categorias.</div>
 
     <!-- PULLQUOTE + CTA abaixo do carrossel -->
@@ -1288,68 +1285,6 @@ if(qv){
   qvObs.observe(qv);
 }
 
-
-/* COVERFLOW — carrossel 3D estilo "Veja por dentro" */
-(function(){
-  var track=document.getElementById('cfTrack');
-  var dotsWrap=document.getElementById('cfDots');
-  var wrap=document.getElementById('coverflow');
-  if(!track||!wrap)return;
-  var items=Array.prototype.slice.call(track.querySelectorAll('.cf-item'));
-  var total=items.length;
-  var current=0;
-
-  items.forEach(function(el,i){
-    var dot=document.createElement('button');
-    dot.className='cf-dot'+(i===0?' active':'');
-    dot.setAttribute('aria-label','Ir para página '+(i+1));
-    dot.addEventListener('click',function(){goTo(i);});
-    dotsWrap.appendChild(dot);
-    el.addEventListener('click',function(){ if(i!==current) goTo(i); });
-  });
-  var dots=Array.prototype.slice.call(dotsWrap.children);
-
-  function render(){
-    var narrow=window.innerWidth<=720;
-    var step=narrow?150:230;
-    var scaleStep=.15;
-    var rotStep=narrow?26:34;
-    items.forEach(function(el,i){
-      var off=i-current;
-      var abs=Math.abs(off);
-      var x=off*step;
-      var scale=Math.max(1-abs*scaleStep,.45);
-      var rot=Math.max(-1,Math.min(1,off))*-rotStep;
-      var z=-abs*90;
-      var opacity=abs>4?0:(abs>=3?.35:1);
-      el.style.transform='translateX('+x+'px) translateZ('+z+'px) rotateY('+rot+'deg) scale('+scale+')';
-      el.style.opacity=opacity;
-      el.style.zIndex=String(50-abs);
-      el.style.pointerEvents=abs>4?'none':'auto';
-      el.classList.toggle('is-active',i===current);
-    });
-    dots.forEach(function(d,i){d.classList.toggle('active',i===current);});
-  }
-
-  function goTo(i){
-    current=Math.max(0,Math.min(total-1,i));
-    render();
-  }
-
-  /* swipe / drag */
-  var startX=0,dragging=false;
-  wrap.addEventListener('pointerdown',function(e){startX=e.clientX;dragging=true;});
-  window.addEventListener('pointerup',function(e){
-    if(!dragging)return;
-    dragging=false;
-    var dx=e.clientX-startX;
-    if(dx>40) goTo(current-1);
-    else if(dx<-40) goTo(current+1);
-  });
-
-  window.addEventListener('resize',render);
-  render();
-})();
 
 /* FAQ */
 function faq(btn){btn.parentElement.classList.toggle('open');}
