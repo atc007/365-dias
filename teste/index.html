@@ -290,15 +290,27 @@ html,body{
 .preview-desktop-text{display:block;}
 .preview-text,.preview-car{display:flex;flex-direction:column;}
 
-.car-wrap{background:var(--ink);border-radius:10px;overflow:hidden;}
-.car-slides{display:flex;transition:transform .4s ease;}
-.car-slide{min-width:100%;display:flex;align-items:center;justify-content:center;background:#EFEFEF;}
-.car-slide img{width:100%;height:auto;object-fit:contain;display:block;}
-.car-dots{display:flex;gap:6px;justify-content:center;padding:14px;}
-.cdot{width:7px;height:7px;border-radius:50%;background:#3D3D3B;border:none;cursor:pointer;padding:0;transition:background .2s;}
-.cdot.active{background:var(--gold);}
-.car-cap{padding:8px 20px 18px;font-size:13px;color:var(--ink-muted);text-align:center;line-height:1.5;}
-.car-cap strong{color:var(--cream-dark);}
+.gallery-strip{display:flex;gap:20px;overflow-x:auto;padding:24px 4px 34px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;}
+.gallery-strip::-webkit-scrollbar{height:6px;}
+.gallery-strip::-webkit-scrollbar-track{background:transparent;}
+.gallery-strip::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
+.gallery-item{
+  flex:0 0 auto;width:260px;scroll-snap-align:start;
+  border-radius:10px;overflow:hidden;background:#EFEFEF;
+  box-shadow:0 10px 26px rgba(28,28,26,.10);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s ease;
+  transform:perspective(900px) rotateX(0) rotateY(0) scale(1);
+  cursor:pointer;
+}
+.gallery-item img{width:100%;height:auto;display:block;pointer-events:none;}
+.gallery-item:hover{
+  transform:perspective(900px) rotateX(5deg) rotateY(-7deg) scale(1.045);
+  box-shadow:0 34px 55px rgba(28,28,26,.24);
+}
+.gallery-item:nth-child(even):hover{transform:perspective(900px) rotateX(5deg) rotateY(7deg) scale(1.045);}
+.gallery-cap{padding:0 20px;font-size:13px;color:var(--ink-muted);text-align:center;line-height:1.5;}
+.gallery-cap strong{color:var(--ink);}
+@media(max-width:720px){.gallery-item{width:200px;}}
 
 /* ══ PULLQUOTE ══ */
 .pullquote{border-left:3px solid var(--gold);padding:14px 22px;font-family:Georgia,serif;font-size:18px;line-height:1.7;font-style:italic;color:var(--ink);margin-bottom:32px;background:rgba(201,169,110,.06);border-radius:0 6px 6px 0;}
@@ -733,50 +745,39 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <h2 class="sec-h2" style="max-width:680px;">O guia de minimalismo que transforma sua casa, sua mente e sua relação com o dinheiro.</h2>
     <p class="sec-p" style="max-width:680px;margin-bottom:32px;">Seja Minimalista não é um livro de teoria. É um guia prático com exercícios, checklists e orientações divididos por categorias — para você aprender, aplicar e consultar sempre que precisar.</p>
 
-    <!-- CARROSSEL — largura total -->
-    <p style="font-size:12px;color:var(--ink-muted);text-align:center;margin-bottom:12px;font-style:italic;">Veja o livro por dentro</p>
-    <div class="car-wrap" style="max-width:100%;margin-bottom:32px;">
-      <div class="car-slides" id="slides">
-        <div class="car-slide" style="min-height:380px;">
-          <img src="https://static.wixstatic.com/media/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg"
-            alt="Interior do livro Seja Minimalista — técnicas de desapego" width="596" height="387" loading="eager" decoding="async">
-        </div>
-        <div class="car-slide" style="min-height:380px;">
-          <img data-src="https://static.wixstatic.com/media/940f31_dd00c5f5589f48989c93c7e9cd2da473~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_dd00c5f5589f48989c93c7e9cd2da473~mv2.jpg"
-            alt="Interior do livro Seja Minimalista — exercícios práticos" width="596" height="387" loading="lazy" decoding="async">
-        </div>
-        <div class="car-slide" style="min-height:380px;">
-          <img data-src="https://static.wixstatic.com/media/940f31_8af9f0de80cd4045a2e6627709d920a8~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_8af9f0de80cd4045a2e6627709d920a8~mv2.jpg"
-            alt="Interior do livro Seja Minimalista — checklists" width="596" height="387" loading="lazy" decoding="async">
-        </div>
-        <div class="car-slide" style="min-height:380px;">
-          <img data-src="https://static.wixstatic.com/media/940f31_e70a3c2a95ef46cf89b162c572653a7c~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_e70a3c2a95ef46cf89b162c572653a7c~mv2.jpg"
-            alt="Interior do livro Seja Minimalista — minimalismo digital" width="596" height="387" loading="lazy" decoding="async">
-        </div>
-        <div class="car-slide" style="min-height:380px;">
-          <img data-src="https://static.wixstatic.com/media/940f31_58487c12663243e48ad5ec0d70577285~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_58487c12663243e48ad5ec0d70577285~mv2.jpg"
-            alt="Interior do livro Seja Minimalista — minimalismo nas finanças" width="596" height="387" loading="lazy" decoding="async">
-        </div>
-        <div class="car-slide" style="min-height:380px;">
-          <img data-src="https://static.wixstatic.com/media/940f31_b0cd553ea26b4eb78fcce7ca4102a2a2~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_b0cd553ea26b4eb78fcce7ca4102a2a2~mv2.jpg"
-            alt="Interior do livro Seja Minimalista — guia de organização" width="596" height="387" loading="lazy" decoding="async">
-        </div>
-        <div class="car-slide" style="min-height:380px;">
-          <img data-src="https://static.wixstatic.com/media/940f31_72043983ba6642888bcb0d31173234a1~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_72043983ba6642888bcb0d31173234a1~mv2.jpg"
-            alt="Interior do livro Seja Minimalista — minimalismo mental" width="596" height="387" loading="lazy" decoding="async">
-        </div>
+    <!-- GALERIA — largura total, com scroll horizontal e efeito 3D no hover -->
+    <p style="font-size:12px;color:var(--ink-muted);text-align:center;margin-bottom:4px;font-style:italic;">Veja o livro por dentro</p>
+    <div class="gallery-strip" style="max-width:100%;">
+      <div class="gallery-item">
+        <img src="https://static.wixstatic.com/media/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg"
+          alt="Interior do livro Seja Minimalista — técnicas de desapego" width="596" height="387" loading="eager" decoding="async">
       </div>
-      <div class="car-dots">
-        <button class="cdot active" onclick="slideTo(0)" aria-label="Ir para imagem 1 do carrossel"></button>
-        <button class="cdot" onclick="slideTo(1)" aria-label="Ir para imagem 2 do carrossel"></button>
-        <button class="cdot" onclick="slideTo(2)" aria-label="Ir para imagem 3 do carrossel"></button>
-        <button class="cdot" onclick="slideTo(3)" aria-label="Ir para imagem 4 do carrossel"></button>
-        <button class="cdot" onclick="slideTo(4)" aria-label="Ir para imagem 5 do carrossel"></button>
-        <button class="cdot" onclick="slideTo(5)" aria-label="Ir para imagem 6 do carrossel"></button>
-        <button class="cdot" onclick="slideTo(6)" aria-label="Ir para imagem 7 do carrossel"></button>
+      <div class="gallery-item">
+        <img src="https://static.wixstatic.com/media/940f31_dd00c5f5589f48989c93c7e9cd2da473~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_dd00c5f5589f48989c93c7e9cd2da473~mv2.jpg"
+          alt="Interior do livro Seja Minimalista — exercícios práticos" width="596" height="387" loading="lazy" decoding="async">
       </div>
-      <div class="car-cap">Mais de <strong>150 páginas</strong> com exercícios, checklists e orientações práticas divididos por categorias.</div>
+      <div class="gallery-item">
+        <img src="https://static.wixstatic.com/media/940f31_8af9f0de80cd4045a2e6627709d920a8~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_8af9f0de80cd4045a2e6627709d920a8~mv2.jpg"
+          alt="Interior do livro Seja Minimalista — checklists" width="596" height="387" loading="lazy" decoding="async">
+      </div>
+      <div class="gallery-item">
+        <img src="https://static.wixstatic.com/media/940f31_e70a3c2a95ef46cf89b162c572653a7c~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_e70a3c2a95ef46cf89b162c572653a7c~mv2.jpg"
+          alt="Interior do livro Seja Minimalista — minimalismo digital" width="596" height="387" loading="lazy" decoding="async">
+      </div>
+      <div class="gallery-item">
+        <img src="https://static.wixstatic.com/media/940f31_58487c12663243e48ad5ec0d70577285~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_58487c12663243e48ad5ec0d70577285~mv2.jpg"
+          alt="Interior do livro Seja Minimalista — minimalismo nas finanças" width="596" height="387" loading="lazy" decoding="async">
+      </div>
+      <div class="gallery-item">
+        <img src="https://static.wixstatic.com/media/940f31_b0cd553ea26b4eb78fcce7ca4102a2a2~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_b0cd553ea26b4eb78fcce7ca4102a2a2~mv2.jpg"
+          alt="Interior do livro Seja Minimalista — guia de organização" width="596" height="387" loading="lazy" decoding="async">
+      </div>
+      <div class="gallery-item">
+        <img src="https://static.wixstatic.com/media/940f31_72043983ba6642888bcb0d31173234a1~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_avif,quality_auto/940f31_72043983ba6642888bcb0d31173234a1~mv2.jpg"
+          alt="Interior do livro Seja Minimalista — minimalismo mental" width="596" height="387" loading="lazy" decoding="async">
+      </div>
     </div>
+    <div class="gallery-cap">Mais de <strong>150 páginas</strong> com exercícios, checklists e orientações práticas divididos por categorias.</div>
 
     <!-- PULLQUOTE + CTA abaixo do carrossel -->
     <div class="pullquote" style="max-width:680px;">"O guia definitivo para quem quer começar uma vida mais leve — sem extremismos, sem culpa."</div>
@@ -1284,11 +1285,6 @@ if(qv){
   qvObs.observe(qv);
 }
 
-/* CARROSSEL — 7 slides */
-var ci=0,TOTAL=7,loaded=[true,false,false,false,false,false,false];
-function loadSlide(i){if(loaded[i])return;var imgs=document.querySelectorAll('.car-slide img');if(imgs[i]&&imgs[i].dataset.src){imgs[i].src=imgs[i].dataset.src;loaded[i]=true;}}
-function slideTo(i){ci=i;loadSlide(i);loadSlide((i+1)%TOTAL);document.getElementById('slides').style.transform='translateX(-'+(i*100)+'%)';document.querySelectorAll('.cdot').forEach(function(d,j){d.classList.toggle('active',j===i);});}
-setInterval(function(){slideTo((ci+1)%TOTAL);},4000);
 
 /* FAQ */
 function faq(btn){btn.parentElement.classList.toggle('open');}
