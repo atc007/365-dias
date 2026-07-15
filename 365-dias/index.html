@@ -177,15 +177,30 @@ html,body{
 
 .inner{max-width:980px;margin:0 auto;width:100%;padding:0 var(--sec-h);}
 
-/* ══ URGÊNCIA BAR ══ */
+/* ══ URGÊNCIA BAR (também atua como header fixo) ══ */
 .urgency-bar{
   background:var(--ink);
   padding:11px var(--sec-h);
   text-align:center;
+  position:sticky;top:0;z-index:9000;
+  transition:padding .3s ease,background .3s ease,box-shadow .3s ease;
+}
+.urgency-bar.scrolled{
+  padding:6px var(--sec-h);
+  background:rgba(28,28,26,.94);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  box-shadow:0 6px 24px rgba(0,0,0,.28);
+}
+.urgency-bar.scrolled .countdown-unit{
+  font-size:14px;padding:2px 6px;min-width:26px;
+}
+.urgency-bar.scrolled .urgency-badge{
+  padding:2px 9px;
 }
 .urgency-inner{
   display:flex;align-items:center;justify-content:center;
   gap:20px;flex-wrap:wrap;
+  transition:gap .3s ease;
 }
 .urgency-text{font-size:14px;color:var(--cream-dark);line-height:1.4;}
 .urgency-text strong{color:var(--gold);}
@@ -194,14 +209,31 @@ html,body{
   font-size:10px;font-weight:700;
   padding:3px 10px;border-radius:20px;
   letter-spacing:.06em;white-space:nowrap;
+  transition:padding .3s ease;
 }
 .countdown{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--ink-muted);}
 .countdown-unit{
   background:#2E2E2C;color:var(--gold);
   font-family:Georgia,serif;font-size:17px;font-weight:700;
   padding:3px 8px;border-radius:4px;min-width:32px;text-align:center;line-height:1.2;
+  transition:font-size .3s ease,padding .3s ease,min-width .3s ease;
 }
 .countdown-sep{color:var(--gold);font-weight:700;}
+@media(prefers-reduced-motion:reduce){
+  .urgency-bar,.urgency-inner,.urgency-badge,.countdown-unit{transition:none!important;}
+}
+
+/* ══ BARRA DE PROGRESSO DE LEITURA ══ */
+.progress-bar{
+  position:fixed;top:0;left:0;height:3px;width:0%;
+  background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light));
+  z-index:9998;
+  transition:width .12s linear;
+  pointer-events:none;
+}
+@media(prefers-reduced-motion:reduce){
+  .progress-bar{transition:none;}
+}
 
 /* ══ TOPBAR ══ */
 .topbar{background:var(--ink);padding:8px var(--sec-h);border-bottom:.5px solid #2E2E2C;}
@@ -282,6 +314,18 @@ html,body{
 @media(prefers-reduced-motion:reduce){
   .btn-gold,.btn-dark{animation:none!important;}
   .btn-gold::after,.btn-dark::after{display:none;}
+}
+
+/* ══ SCROLL REVEAL ══ */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);
+  will-change:opacity,transform;
+}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1!important;transform:none!important;transition:none!important;}
 }
 
 .btn-gold{
@@ -492,22 +536,115 @@ html,body{
   color:var(--ink-muted);text-align:center;line-height:1.5;
 }
 .car-cap strong{color:var(--cream-dark);}
+.car-slide img{cursor:zoom-in;transition:transform .3s ease;}
+.car-slide:hover img{transform:scale(1.015);}
+.car-zoom-hint{
+  text-align:center;font-size:11px;color:var(--ink-muted);
+  letter-spacing:.04em;margin-top:2px;
+  display:flex;align-items:center;justify-content:center;gap:5px;
+}
 
-/* ══ PRESENTE ══ */
-.pres-grid{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;}
-.pres-img{border-radius:8px;overflow:hidden;background:#E0E0DE;flex-shrink:0;}
-.pres-img img{width:220px;display:block;}
+/* ══ LIGHTBOX ══ */
+.lightbox-overlay{
+  position:fixed;inset:0;background:rgba(18,17,15,.93);
+  display:flex;align-items:center;justify-content:center;
+  padding:32px;z-index:10001;
+  opacity:0;visibility:hidden;
+  transition:opacity .25s ease,visibility 0s linear .25s;
+}
+.lightbox-overlay.active{
+  opacity:1;visibility:visible;
+  transition:opacity .25s ease,visibility 0s linear 0s;
+}
+.lightbox-overlay img{
+  max-width:min(92vw,880px);max-height:86vh;
+  border-radius:8px;display:block;
+  box-shadow:0 24px 64px rgba(0,0,0,.5);
+  transform:scale(.96);transition:transform .3s cubic-bezier(.22,1,.36,1);
+}
+.lightbox-overlay.active img{transform:scale(1);}
+.lightbox-close{
+  position:absolute;top:18px;right:20px;width:38px;height:38px;
+  border-radius:50%;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.22);color:#fff;
+  font-size:18px;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.lightbox-close:hover{background:rgba(255,255,255,.18);}
+@media(prefers-reduced-motion:reduce){
+  .lightbox-overlay,.lightbox-overlay img,.car-slide img{transition:none!important;}
+}
+
+/* ══ MARQUEE DE DEPOIMENTOS ══ */
+.t-marquee{
+  overflow:hidden;margin-bottom:44px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+}
+.t-marquee-track{
+  display:flex;gap:14px;width:max-content;
+  animation:t-marquee-scroll 42s linear infinite;
+}
+.t-marquee:hover .t-marquee-track{animation-play-state:paused;}
+@keyframes t-marquee-scroll{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+.t-mchip{
+  display:flex;align-items:center;gap:10px;flex-shrink:0;
+  background:#fff;border:1px solid #e4dfd8;border-radius:30px;
+  padding:8px 18px 8px 8px;white-space:nowrap;
+}
+.t-mchip-avatar{
+  width:28px;height:28px;border-radius:50%;background:var(--gold);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:Georgia,serif;font-size:13px;flex-shrink:0;
+}
+.t-mchip-stars{color:var(--gold);font-size:11px;letter-spacing:1px;}
+.t-mchip-text{font-size:13px;color:#3a3632;}
+.t-mchip-text strong{font-weight:600;}
+@media(prefers-reduced-motion:reduce){
+  .t-marquee-track{animation:none;}
+}
+@media(max-width:720px){
+  .t-mchip-text{font-size:12px;}
+}
+
+/* ══ PRESENTE — cartão estilo etiqueta de presente ══ */
+.gift-card{
+  position:relative;
+  max-width:620px;margin:0 auto;
+  background:#fff;
+  border:1.5px dashed var(--gold);
+  border-radius:18px;
+  padding:44px 44px 40px;
+  text-align:center;
+  box-shadow:0 24px 60px rgba(58,54,50,.07);
+}
+.gift-card-icon{
+  width:58px;height:58px;margin:0 auto 20px;
+  display:flex;align-items:center;justify-content:center;
+}
+.gift-card-icon svg{width:100%;height:100%;}
 .pres-tag{
   display:inline-block;background:var(--gold);color:var(--ink);
   font-size:11px;font-weight:700;
-  padding:4px 14px;border-radius:20px;margin-bottom:14px;
+  padding:4px 14px;border-radius:20px;margin-bottom:16px;
 }
 .pres-h3{
   font-family:Georgia,serif;
   font-size:var(--h3);font-weight:400;
   color:var(--ink);margin-bottom:14px;line-height:1.3;
+  max-width:460px;margin-left:auto;margin-right:auto;
 }
-.pres-p{font-size:var(--body);color:var(--ink-soft);line-height:1.75;}
+.pres-p{
+  font-size:var(--body);color:var(--ink-soft);line-height:1.75;
+  max-width:440px;margin:0 auto;
+}
+@media(max-width:720px){
+  .gift-card{padding:36px 24px 32px;border-radius:14px;}
+}
 
 /* ══ MÍDIA BADGES ══ */
 .media-badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 28px;}
@@ -1115,8 +1252,7 @@ html,body{
   .preview-cta-mobile{display:block;text-align:center;}
   .preview-cta-mobile .btn-dark{display:inline-block;}
   .ben-cards{grid-template-columns:1fr 1fr;}
-  .pres-grid{grid-template-columns:1fr;gap:18px;}
-  .pres-img img{width:100%;max-width:200px;margin:0 auto;}
+  .gift-card{padding:32px 20px 28px;}
   /* Autor mobile */
   .sec-autor-grid{grid-template-columns:1fr !important;}
   .sec-autor-img-desktop{display:none !important;}
@@ -1273,8 +1409,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 </head>
 <body>
 
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
 <!-- URGÊNCIA BAR -->
-<div class="urgency-bar">
+<div class="urgency-bar" id="urgency-bar">
   <div class="urgency-inner">
     <span class="urgency-badge">⏳ Oferta especial</span>
     <span class="urgency-text"><strong>Bônus digitais inclusos</strong> · Frete grátis · Garantia de 7 dias</span>
@@ -1409,6 +1547,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <button class="cdot" onclick="slideTo(4)" aria-label="Ir para imagem 5 do carrossel"></button>
       </div>
       <div class="car-cap">O livro possui <strong>duas versões</strong> (digital e física), <strong>372 páginas</strong> — 1 reflexão e 1 prática por dia.</div>
+      <div class="car-zoom-hint">🔍 Clique na imagem para ampliar</div>
     </div>
 
     <div style="margin-top:55px;text-align:center;">
@@ -1501,16 +1640,19 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 </section>
 <section class="sec warm">
   <div class="inner">
-    <div class="pres-grid">
-      <div class="pres-img">
-        <img src="https://static.wixstatic.com/media/940f31_652b6bb4631848d683224bf02e2e6cf5~mv2.jpg/v1/fill/w_220,h_142,al_c,q_90,enc_avif,quality_auto/presente.jpg"
-          alt="O presente que dura o ano inteiro" width="220" height="142" loading="lazy" decoding="async">
+    <div class="gift-card">
+      <div class="gift-card-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="27" width="46" height="29" rx="3"/>
+          <rect x="5" y="18" width="54" height="10" rx="2.5"/>
+          <line x1="32" y1="18" x2="32" y2="56"/>
+          <path d="M32 18C26 5 11 8 13.5 16.5C15.5 23 28 20.5 32 18Z"/>
+          <path d="M32 18C38 5 53 8 50.5 16.5C48.5 23 36 20.5 32 18Z"/>
+        </svg>
       </div>
-      <div>
-        <div class="pres-tag">🎁 O presente que dura o ano inteiro</div>
-        <h3 class="pres-h3">365 Dias Minimalistas é o tipo de livro que as pessoas guardam na mesa de cabeceira.</h3>
-        <p class="pres-p">Uma página por dia. Uma reflexão. Uma prática simples. E ao final do ano, uma vida genuinamente mais leve. Perfeito para dar de presente — ou para se presentear.</p>
-      </div>
+      <div class="pres-tag">🎁 O presente que dura o ano inteiro</div>
+      <h3 class="pres-h3">365 Dias Minimalistas é o tipo de livro que as pessoas guardam na mesa de cabeceira.</h3>
+      <p class="pres-p">Uma página por dia. Uma reflexão. Uma prática simples. E ao final do ano, uma vida genuinamente mais leve. Perfeito para dar de presente — ou para se presentear.</p>
     </div>
   </div>
 </section>
@@ -1557,6 +1699,29 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       <div class="t-stat"><span class="t-stat-num">⭐ 4,9</span><span class="t-stat-label">avaliação média</span></div>
       <div class="t-stat"><span class="t-stat-num">15</span><span class="t-stat-label">países</span></div>
     </div>
+
+    <div class="t-marquee" aria-hidden="true">
+      <div class="t-marquee-track" id="t-marquee-track">
+        <div class="t-mchip"><div class="t-mchip-avatar">B</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "ficou na mesa de cabeceira o ano inteiro" <strong>— Beatriz S.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">T</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "melhor presente que já dei na vida" <strong>— Thiago M.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">P</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "a vida vai ficando mais leve sem perceber" <strong>— Patrícia L.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">R</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "parece que ele está do seu lado, todo dia" <strong>— Rodrigo C.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">M</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "virou ritual, não consigo imaginar o dia sem" <strong>— Mariana F.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">E</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "o livro já se pagou sozinho" <strong>— Eduardo R.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">C</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "livro bonito, bem feito, conteúdo de verdade" <strong>— Carolina V.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">A</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "chegou rápido e bem embalado" <strong>— Amanda K.</strong></div></div>
+        <!-- duplicado para loop contínuo -->
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">B</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "ficou na mesa de cabeceira o ano inteiro" <strong>— Beatriz S.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">T</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "melhor presente que já dei na vida" <strong>— Thiago M.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">P</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "a vida vai ficando mais leve sem perceber" <strong>— Patrícia L.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">R</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "parece que ele está do seu lado, todo dia" <strong>— Rodrigo C.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">M</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "virou ritual, não consigo imaginar o dia sem" <strong>— Mariana F.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">E</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "o livro já se pagou sozinho" <strong>— Eduardo R.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">C</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "livro bonito, bem feito, conteúdo de verdade" <strong>— Carolina V.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">A</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "chegou rápido e bem embalado" <strong>— Amanda K.</strong></div></div>
+      </div>
+    </div>
+
     <div class="t-grid">
       <div class="t-card featured">
         <span class="t-quote-mark">"</span>
@@ -1869,6 +2034,12 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
   </svg>
 </a>
 
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fechar imagem ampliada">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
 <script>
 /* SCROLL */
 function irParaVersoes(e){
@@ -1941,6 +2112,164 @@ setInterval(function(){slideTo((ci+1)%5);},4000);
 
 /* FAQ */
 function faq(btn){btn.parentElement.classList.toggle('open');}
+
+/* ══ HEADER SHRINK/BLUR + BARRA DE PROGRESSO + PARALLAX DA CAPA ══ */
+(function(){
+  var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var uBar=document.getElementById('urgency-bar');
+  var pBar=document.getElementById('progress-bar');
+  var heroImg=document.querySelector('.hero-img-wrap img');
+  var ticking=false;
+
+  function onScroll(){
+    var y=window.scrollY||document.documentElement.scrollTop;
+
+    /* header encolhe + ganha blur depois de 40px */
+    if(uBar){ uBar.classList.toggle('scrolled', y>40); }
+
+    /* barra de progresso de leitura */
+    if(pBar){
+      var h=document.documentElement;
+      var max=h.scrollHeight-h.clientHeight;
+      var pct= max>0 ? (y/max)*100 : 0;
+      pBar.style.width=pct+'%';
+    }
+
+    /* parallax sutil na capa do livro, só nos primeiros ~900px */
+    if(heroImg && !reducedMotion && y<900){
+      heroImg.style.transform='translateY('+(y*0.08).toFixed(1)+'px)';
+    }
+    ticking=false;
+  }
+  function requestTick(){
+    if(!ticking){ requestAnimationFrame(onScroll); ticking=true; }
+  }
+  window.addEventListener('scroll', requestTick, {passive:true});
+  onScroll();
+})();
+
+/* ══ LIGHTBOX — clique nas páginas do carrossel para ampliar ══ */
+(function(){
+  function upsizeWix(url){
+    if(!url) return url;
+    return url.replace(/w_\d+,h_\d+/, 'w_1200,h_780');
+  }
+  var lb=document.getElementById('lightbox');
+  var lbImg=document.getElementById('lightbox-img');
+  var slidesWrap=document.getElementById('slides');
+
+  window.openLightbox=function(imgEl){
+    var real = imgEl.currentSrc || imgEl.src || imgEl.dataset.src;
+    if(!real) return;
+    lbImg.src = upsizeWix(real);
+    lbImg.alt = imgEl.alt || '';
+    lb.classList.add('active');
+    document.body.style.overflow='hidden';
+  };
+  window.closeLightbox=function(){
+    lb.classList.remove('active');
+    document.body.style.overflow='';
+  };
+
+  if(slidesWrap){
+    slidesWrap.addEventListener('click', function(e){
+      var img=e.target.closest('img');
+      if(img) openLightbox(img);
+    });
+  }
+  lb.addEventListener('click', function(e){
+    if(e.target===lb) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape') closeLightbox();
+  });
+})();
+
+/* ══ SCROLL REVEAL + CONTADORES ANIMADOS ══ */
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* -- Reveal: marca elementos e escalona o delay dentro de cada grupo -- */
+  var revealGroups = [
+    '.stats-bar .stat',
+    '.t-marquee',
+    '.gift-card',
+    '.ben-cards .ben-card',
+    '.qual-cards .qual-card',
+    '.t-counter .t-stat',
+    '.t-grid .t-card',
+    '#versoes .pc',
+    '.sec-h2, .sec-eyebrow, .t-headline, .t-eyebrow-dep',
+    '.pullquote'
+  ];
+  var revealEls = [];
+  revealGroups.forEach(function(sel){
+    document.querySelectorAll(sel).forEach(function(el,i){
+      el.classList.add('reveal');
+      el.style.transitionDelay = (Math.min(i,6)*70)+'ms';
+      revealEls.push(el);
+    });
+  });
+
+  if(reduced || !('IntersectionObserver' in window)){
+    revealEls.forEach(function(el){el.classList.add('in-view');});
+  } else {
+    var rObs=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          rObs.unobserve(entry.target);
+        }
+      });
+    },{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(function(el){rObs.observe(el);});
+  }
+
+  /* -- Contadores animados nos números de prova social (stats-bar e t-counter) -- */
+  function animateCount(el){
+    var raw = el.textContent.trim();
+    var m = raw.match(/^([^\d]*)(\d[\d.,]*)([^\d]*)$/);
+    if(!m) return;
+    var prefix=m[1], numStr=m[2], suffix=m[3];
+    var hasComma = numStr.indexOf(',')>-1;
+    var clean = numStr.replace(/\./g,'').replace(',','.');
+    var target = parseFloat(clean);
+    if(isNaN(target)) return;
+    var decimals = hasComma ? (clean.split('.')[1]||'').length : 0;
+
+    function fmt(v){
+      var s=v.toFixed(decimals);
+      if(decimals>0) s=s.replace('.',',');
+      return prefix+s+suffix;
+    }
+    if(reduced){ el.textContent=fmt(target); return; }
+
+    var start=null, dur=1400;
+    function step(ts){
+      if(!start) start=ts;
+      var p=Math.min((ts-start)/dur,1);
+      var eased=1-Math.pow(1-p,3);
+      el.textContent=fmt(target*eased);
+      if(p<1) requestAnimationFrame(step);
+      else el.textContent=fmt(target);
+    }
+    requestAnimationFrame(step);
+  }
+  var countEls=document.querySelectorAll('.stat-num, .t-stat-num');
+  if('IntersectionObserver' in window){
+    var cObs=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          animateCount(entry.target);
+          cObs.unobserve(entry.target);
+        }
+      });
+    },{threshold:.5});
+    countEls.forEach(function(el){cObs.observe(el);});
+  } else {
+    countEls.forEach(animateCount);
+  }
+})();
 </script>
 
 <!-- Advanced Attribution -->
