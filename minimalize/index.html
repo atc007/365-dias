@@ -354,7 +354,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;}
 .footer-logo img{width:auto;height:auto;max-width:240px;max-height:48px;display:block;margin-bottom:14px;filter:brightness(0) invert(1);opacity:.55;}
 .footer-copy{font-size:12px;color:var(--ink-muted);line-height:1.7;}
-.footer-links h4,.footer-news h4{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:14px;}
+.footer-links h3,.footer-news h3{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:14px;}
 .footer-links a{display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;}
 .footer-links a:hover{color:var(--gold);}
 .footer-news p{font-size:13px;color:#D8D8D4;line-height:1.65;margin-bottom:14px;}
@@ -527,6 +527,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   </div>
 </div>
 
+<main>
 <!-- HERO — fundo escuro -->
 <section class="sec-hero">
   <div class="inner">
@@ -677,7 +678,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
             poster="https://static.wixstatic.com/media/940f31_1706864bd97e4e77a3f6c9a63b6025bb~mv2.jpg/v1/crop/x_0,y_120,w_1024,h_1297/fill/w_484,h_613,al_c,q_85,enc_avif,quality_auto/minimalize-poster.jpg"
             style="width:100%;height:100%;object-fit:cover;display:block;">
           </video>
-          <button id="qual-video-sound" onclick="toggleQualVideoSound()" title="Ativar som"
+          <button id="qual-video-sound" onclick="toggleQualVideoSound()" title="Ativar som" aria-label="Ativar som do vídeo"
             style="position:absolute;bottom:14px;right:14px;width:40px;height:40px;border-radius:50%;border:none;cursor:pointer;background:rgba(0,0,0,.55);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;z-index:10;backdrop-filter:blur(4px);transition:.2s;">
             🔇
           </button>
@@ -957,6 +958,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <div style="overflow:hidden;background:var(--cream);position:relative;">
         <img src="https://static.wixstatic.com/media/940f31_72a8a2628b3c4b55a6ac43905e3c9853~mv2.png/v1/crop/x_379,y_0,w_1162,h_1080/fill/w_454,h_460,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/Black%20and%20Beige%20Minimal%20Professional%20Beauty%20Logo%20(1920%20x%201080%20px)%20(12).png"
           alt="Minimalize.IA — acesso vitalício"
+          width="454" height="460"
           style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;"
           loading="lazy" decoding="async">
       </div>
@@ -1020,6 +1022,8 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   </div>
 </section>
 
+</main>
+
 <!-- RODAPÉ -->
 <footer class="footer">
   <div class="inner">
@@ -1032,7 +1036,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         <a class="btn-gold" href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener noreferrer" style="font-size:12px;padding:10px 20px;margin-top:16px;display:inline-block;">Seguir no Instagram</a>
       </div>
       <div class="footer-links">
-        <h4>Links úteis</h4>
+        <h3>Links úteis</h3>
         <a href="https://sejaminimalista.com.br/" target="_blank">Seja Minimalista — Best Seller</a>
         <a href="https://sejaminimalista.com.br/365-dias" target="_blank">365 Dias Minimalistas</a>
         <a href="https://sejaminimalista.com.br/combos" target="_blank">Combos com desconto</a>
@@ -1040,9 +1044,9 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         <a href="mailto:sejaminimalista@hotmail.com">Fale comigo</a>
       </div>
       <div class="footer-news">
-        <h4>Newsletter gratuita</h4>
+        <h3>Newsletter gratuita</h3>
         <p style="font-size:12px;color:#D8D8D4;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas direto no seu e-mail, toda semana.</p>
-        <iframe src="https://sejaminimalista.substack.com/embed?transparent=1&light=1" width="480" height="150" style="border:0;background:transparent;max-width:100%;display:block;" frameborder="0" scrolling="no" title="Newsletter Seja Minimalista"></iframe>
+        <iframe src="https://sejaminimalista.substack.com/embed?transparent=1&light=1" width="480" height="150" style="border:0;background:transparent;max-width:100%;display:block;" frameborder="0" scrolling="no" loading="lazy" title="Newsletter Seja Minimalista"></iframe>
       </div>
     </div>
     <div class="footer-divider">
