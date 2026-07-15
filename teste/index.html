@@ -611,27 +611,42 @@ html,body{
   .t-mchip-text{font-size:12px;}
 }
 
-/* ══ PRESENTE — cartão estilo etiqueta de presente ══ */
-.gift-card{
+/* ══ PRESENTE — a própria caixa é o presente ══ */
+.gift-box-wrap{max-width:620px;margin:0 auto;}
+.gift-box{
   position:relative;
-  max-width:620px;margin:0 auto;
+  background:linear-gradient(155deg,var(--gold-dark) 0%,var(--gold) 45%,var(--gold-light) 70%,var(--gold-dark) 100%);
+  border-radius:22px;
+  padding:20px;
+  box-shadow:0 30px 60px rgba(120,90,40,.22),0 8px 22px rgba(0,0,0,.08);
+  transform-origin:50% 100%;
+  animation:gift-wobble 6.5s ease-in-out infinite;
+}
+.gift-box-bow{
+  position:absolute;top:-32px;left:50%;
+  width:72px;height:72px;
+  transform:translateX(-50%);
+  filter:drop-shadow(0 6px 12px rgba(60,45,20,.25));
+}
+.gift-box-bow svg{width:100%;height:100%;}
+.gift-box-panel{
   background:#fff;
-  border:1.5px dashed var(--gold);
-  border-radius:18px;
-  padding:44px 44px 40px;
+  border-radius:15px;
+  padding:44px 40px 38px;
   text-align:center;
-  box-shadow:0 24px 60px rgba(58,54,50,.07);
+  box-shadow:inset 0 0 0 1px rgba(201,169,110,.14);
 }
-.gift-card-icon{
-  width:58px;height:58px;margin:0 auto 20px;
-  display:flex;align-items:center;justify-content:center;
-}
-.gift-card-icon svg{width:100%;height:100%;}
 .pres-tag{
-  display:inline-block;background:var(--gold);color:var(--ink);
-  font-size:11px;font-weight:700;
-  padding:4px 14px;border-radius:20px;margin-bottom:16px;
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(90deg,var(--gold-dark),var(--gold-light),var(--gold),var(--gold-light),var(--gold-dark));
+  background-size:220% auto;
+  color:var(--ink);
+  font-size:12.5px;font-weight:700;letter-spacing:.02em;
+  padding:8px 20px;border-radius:30px;margin-bottom:18px;
+  box-shadow:0 6px 18px rgba(201,169,110,.4);
+  animation:shimmer 3.2s linear infinite;
 }
+.pres-tag-emoji{display:inline-block;animation:gift-emoji-bounce 2.2s ease-in-out infinite;}
 .pres-h3{
   font-family:Georgia,serif;
   font-size:var(--h3);font-weight:400;
@@ -642,8 +657,26 @@ html,body{
   font-size:var(--body);color:var(--ink-soft);line-height:1.75;
   max-width:440px;margin:0 auto;
 }
+@keyframes gift-wobble{
+  0%,82%,100%{transform:rotate(0deg);}
+  85%{transform:rotate(-2.2deg);}
+  88%{transform:rotate(2deg);}
+  91%{transform:rotate(-1.3deg);}
+  94%{transform:rotate(1deg);}
+  97%{transform:rotate(0deg);}
+}
+@keyframes gift-emoji-bounce{
+  0%,100%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(-3px) rotate(-8deg);}
+}
+@media(prefers-reduced-motion:reduce){
+  .gift-box{animation:none;}
+  .pres-tag,.pres-tag-emoji{animation:none;}
+}
 @media(max-width:720px){
-  .gift-card{padding:36px 24px 32px;border-radius:14px;}
+  .gift-box{padding:14px;border-radius:16px;}
+  .gift-box-panel{padding:36px 22px 30px;border-radius:12px;}
+  .gift-box-bow{width:58px;height:58px;top:-26px;}
 }
 
 /* ══ MÍDIA BADGES ══ */
@@ -1228,30 +1261,32 @@ html,body{
   .countdown-unit{font-size:20px;min-width:34px;padding:4px 8px;}
   .urgency-text{font-size:13px;text-align:center;}
 
-  /* hero: imagem full-bleed */
-  .sec-hero{padding:0 0 36px;}
+  /* hero: imagem full-bleed, maior e sem sobra de fundo nas bordas */
+  .sec-hero{padding:0 0 var(--sec-v);}
   .hero-grid{grid-template-columns:1fr;gap:0;}
-  .hero-grid > div:not(.hero-img-wrap){padding:16px var(--sec-h) 0;}
+  .hero-grid > div:not(.hero-img-wrap){padding:22px var(--sec-h) 4px;}
   .hero-img-wrap{
     order:-1;
-    width:calc(100vw + 2px);
-    margin-left:calc(50% - 1px);
+    width:100vw;
+    margin-left:50%;
     transform:translateX(-50%);
     padding:0;
     overflow:hidden;
-    background:#ECE6DE;
+    background:var(--bg-page);
   }
   .hero-img-wrap img{
     display:block;
     width:100%;
-    height:560px;
+    height:640px;
     max-width:none;
     max-height:none;
     object-fit:cover;
     object-position:center center;
-    transform:scale(1.28);
+    transform:scale(1.4);
     transform-origin:center center;
     border-radius:0;
+    border:none;
+    box-shadow:none;
     margin:0;
   }
   .badges{gap:6px;margin-bottom:14px;grid-template-columns:1fr 1fr;display:grid;}
@@ -1269,7 +1304,6 @@ html,body{
   .preview-cta-mobile{display:block;text-align:center;}
   .preview-cta-mobile .btn-dark{display:inline-block;}
   .ben-cards{grid-template-columns:1fr 1fr;}
-  .gift-card{padding:32px 20px 28px;}
   /* Autor mobile */
   .sec-autor-grid{grid-template-columns:1fr !important;}
   .sec-autor-img-desktop{display:none !important;}
@@ -1659,19 +1693,22 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 </section>
 <section class="sec warm">
   <div class="inner">
-    <div class="gift-card">
-      <div class="gift-card-icon" aria-hidden="true">
-        <svg viewBox="0 0 64 64" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="9" y="27" width="46" height="29" rx="3"/>
-          <rect x="5" y="18" width="54" height="10" rx="2.5"/>
-          <line x1="32" y1="18" x2="32" y2="56"/>
-          <path d="M32 18C26 5 11 8 13.5 16.5C15.5 23 28 20.5 32 18Z"/>
-          <path d="M32 18C38 5 53 8 50.5 16.5C48.5 23 36 20.5 32 18Z"/>
-        </svg>
+    <div class="gift-box-wrap">
+      <div class="gift-box">
+        <div class="gift-box-bow" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 34C26 20 10 22 13 31C15.5 38 27 36 32 34Z" fill="var(--cream)" stroke="var(--gold-dark)" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M32 34C38 20 54 22 51 31C48.5 38 37 36 32 34Z" fill="var(--cream)" stroke="var(--gold-dark)" stroke-width="1.8" stroke-linejoin="round"/>
+            <circle cx="32" cy="34" r="5.5" fill="var(--gold)" stroke="var(--gold-dark)" stroke-width="1.4"/>
+            <path d="M32 39L27 50M32 39L37 50" stroke="var(--gold-dark)" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="gift-box-panel">
+          <div class="pres-tag"><span class="pres-tag-emoji">🎁</span> O presente que dura o ano inteiro</div>
+          <h3 class="pres-h3">365 Dias Minimalistas é o tipo de livro que as pessoas guardam na mesa de cabeceira.</h3>
+          <p class="pres-p">Uma página por dia. Uma reflexão. Uma prática simples. E ao final do ano, uma vida genuinamente mais leve. Perfeito para dar de presente — ou para se presentear.</p>
+        </div>
       </div>
-      <div class="pres-tag">🎁 O presente que dura o ano inteiro</div>
-      <h3 class="pres-h3">365 Dias Minimalistas é o tipo de livro que as pessoas guardam na mesa de cabeceira.</h3>
-      <p class="pres-p">Uma página por dia. Uma reflexão. Uma prática simples. E ao final do ano, uma vida genuinamente mais leve. Perfeito para dar de presente — ou para se presentear.</p>
     </div>
   </div>
 </section>
@@ -2212,7 +2249,7 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
   var revealGroups = [
     '.stats-bar .stat',
     '.t-marquee',
-    '.gift-card',
+    '.gift-box-wrap',
     '.ben-cards .ben-card',
     '.qual-cards .qual-card',
     '.t-counter .t-stat',
