@@ -611,21 +611,40 @@ html,body{
   .t-mchip-text{font-size:12px;}
 }
 
-/* ══ PRESENTE ══ */
-.pres-grid{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;}
-.pres-img{border-radius:8px;overflow:hidden;background:#E0E0DE;flex-shrink:0;}
-.pres-img img{width:220px;display:block;}
+/* ══ PRESENTE — cartão estilo etiqueta de presente ══ */
+.gift-card{
+  position:relative;
+  max-width:620px;margin:0 auto;
+  background:#fff;
+  border:1.5px dashed var(--gold);
+  border-radius:18px;
+  padding:44px 44px 40px;
+  text-align:center;
+  box-shadow:0 24px 60px rgba(58,54,50,.07);
+}
+.gift-card-icon{
+  width:58px;height:58px;margin:0 auto 20px;
+  display:flex;align-items:center;justify-content:center;
+}
+.gift-card-icon svg{width:100%;height:100%;}
 .pres-tag{
   display:inline-block;background:var(--gold);color:var(--ink);
   font-size:11px;font-weight:700;
-  padding:4px 14px;border-radius:20px;margin-bottom:14px;
+  padding:4px 14px;border-radius:20px;margin-bottom:16px;
 }
 .pres-h3{
   font-family:Georgia,serif;
   font-size:var(--h3);font-weight:400;
   color:var(--ink);margin-bottom:14px;line-height:1.3;
+  max-width:460px;margin-left:auto;margin-right:auto;
 }
-.pres-p{font-size:var(--body);color:var(--ink-soft);line-height:1.75;}
+.pres-p{
+  font-size:var(--body);color:var(--ink-soft);line-height:1.75;
+  max-width:440px;margin:0 auto;
+}
+@media(max-width:720px){
+  .gift-card{padding:36px 24px 32px;border-radius:14px;}
+}
 
 /* ══ MÍDIA BADGES ══ */
 .media-badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 28px;}
@@ -1233,8 +1252,7 @@ html,body{
   .preview-cta-mobile{display:block;text-align:center;}
   .preview-cta-mobile .btn-dark{display:inline-block;}
   .ben-cards{grid-template-columns:1fr 1fr;}
-  .pres-grid{grid-template-columns:1fr;gap:18px;}
-  .pres-img img{width:100%;max-width:200px;margin:0 auto;}
+  .gift-card{padding:32px 20px 28px;}
   /* Autor mobile */
   .sec-autor-grid{grid-template-columns:1fr !important;}
   .sec-autor-img-desktop{display:none !important;}
@@ -1622,16 +1640,19 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 </section>
 <section class="sec warm">
   <div class="inner">
-    <div class="pres-grid">
-      <div class="pres-img">
-        <img src="https://static.wixstatic.com/media/940f31_652b6bb4631848d683224bf02e2e6cf5~mv2.jpg/v1/fill/w_220,h_142,al_c,q_90,enc_avif,quality_auto/presente.jpg"
-          alt="O presente que dura o ano inteiro" width="220" height="142" loading="lazy" decoding="async">
+    <div class="gift-card">
+      <div class="gift-card-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="27" width="46" height="29" rx="3"/>
+          <rect x="5" y="18" width="54" height="10" rx="2.5"/>
+          <line x1="32" y1="18" x2="32" y2="56"/>
+          <path d="M32 18C26 5 11 8 13.5 16.5C15.5 23 28 20.5 32 18Z"/>
+          <path d="M32 18C38 5 53 8 50.5 16.5C48.5 23 36 20.5 32 18Z"/>
+        </svg>
       </div>
-      <div>
-        <div class="pres-tag">🎁 O presente que dura o ano inteiro</div>
-        <h3 class="pres-h3">365 Dias Minimalistas é o tipo de livro que as pessoas guardam na mesa de cabeceira.</h3>
-        <p class="pres-p">Uma página por dia. Uma reflexão. Uma prática simples. E ao final do ano, uma vida genuinamente mais leve. Perfeito para dar de presente — ou para se presentear.</p>
-      </div>
+      <div class="pres-tag">🎁 O presente que dura o ano inteiro</div>
+      <h3 class="pres-h3">365 Dias Minimalistas é o tipo de livro que as pessoas guardam na mesa de cabeceira.</h3>
+      <p class="pres-p">Uma página por dia. Uma reflexão. Uma prática simples. E ao final do ano, uma vida genuinamente mais leve. Perfeito para dar de presente — ou para se presentear.</p>
     </div>
   </div>
 </section>
@@ -2172,6 +2193,7 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
   var revealGroups = [
     '.stats-bar .stat',
     '.t-marquee',
+    '.gift-card',
     '.ben-cards .ben-card',
     '.qual-cards .qual-card',
     '.t-counter .t-stat',
