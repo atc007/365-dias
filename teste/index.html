@@ -133,6 +133,11 @@ html,body{
   width:100%;height:auto;max-width:100%;max-height:500px;
   display:block;margin:0 auto;border-radius:6px;object-fit:contain;
 }
+@media(min-width:721px){
+  .sec-hero{padding:120px var(--sec-h);}
+  .hero-grid{grid-template-columns:1.5fr 1fr;gap:40px;}
+  .hero-img-wrap img{max-height:700px;}
+}
 .eyebrow{font-size:var(--eyebrow);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0;}
 .hero-h1{font-family:Georgia,'Times New Roman',serif;font-size:var(--h1);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:20px;letter-spacing:-.01em;}
