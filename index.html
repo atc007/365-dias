@@ -450,6 +450,54 @@ html,body{
 .whatsapp-float{position:fixed;right:22px;bottom:22px;width:62px;height:62px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(0,0,0,.25);z-index:9999;transition:.25s ease;text-decoration:none;}
 .whatsapp-float:hover{transform:translateY(-3px) scale(1.05);}
 
+/* ══ SCROLL REVEAL ══ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);will-change:opacity,transform;}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important;}}
+
+/* ══ LIGHTBOX (carrossel "veja o livro por dentro") ══ */
+.car-slide img{cursor:zoom-in;transition:transform .3s ease;}
+.car-slide:hover img{transform:scale(1.015);}
+.car-zoom-hint{text-align:center;font-size:11px;color:var(--ink-muted);letter-spacing:.04em;margin-top:2px;display:flex;align-items:center;justify-content:center;gap:5px;}
+.lightbox-overlay{position:fixed;inset:0;background:rgba(18,17,15,.93);display:flex;align-items:center;justify-content:center;padding:32px;z-index:10001;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility 0s linear .25s;}
+.lightbox-overlay.active{opacity:1;visibility:visible;transition:opacity .25s ease,visibility 0s linear 0s;}
+.lightbox-overlay img{max-width:min(92vw,880px);max-height:86vh;border-radius:8px;display:block;box-shadow:0 24px 64px rgba(0,0,0,.5);transform:scale(.96);transition:transform .3s cubic-bezier(.22,1,.36,1);}
+.lightbox-overlay.active img{transform:scale(1);}
+.lightbox-close{position:absolute;top:18px;right:20px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:18px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.lightbox-close:hover{background:rgba(255,255,255,.18);}
+@media(prefers-reduced-motion:reduce){.lightbox-overlay,.lightbox-overlay img,.car-slide img{transition:none!important;}}
+
+/* ══ MARQUEE DE DEPOIMENTOS ══ */
+.t-marquee{overflow:hidden;margin-bottom:44px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+.t-marquee-track{display:flex;gap:14px;width:max-content;animation:t-marquee-scroll 42s linear infinite;}
+.t-marquee:hover .t-marquee-track{animation-play-state:paused;}
+@keyframes t-marquee-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.t-mchip{display:flex;align-items:center;gap:10px;flex-shrink:0;background:#fff;border:1px solid #e4dfd8;border-radius:30px;padding:8px 18px 8px 8px;white-space:nowrap;}
+.t-mchip-avatar{width:28px;height:28px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:13px;flex-shrink:0;}
+.t-mchip-stars{color:var(--gold);font-size:11px;letter-spacing:1px;}
+.t-mchip-text{font-size:13px;color:#3a3632;}
+.t-mchip-text strong{font-weight:600;}
+@media(prefers-reduced-motion:reduce){.t-marquee-track{animation:none;}}
+@media(max-width:720px){.t-mchip-text{font-size:12px;}}
+
+/* ══ URGÊNCIA BAR — também header sticky com shrink/blur ══ */
+.urgency-bar{position:sticky;top:0;z-index:9000;transition:padding .3s ease,background .3s ease,box-shadow .3s ease;}
+.urgency-bar.scrolled{padding:6px var(--sec-h);background:rgba(28,28,26,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(0,0,0,.28);}
+.urgency-bar.scrolled .countdown-unit{font-size:14px;padding:2px 6px;min-width:26px;}
+.urgency-bar.scrolled .urgency-badge{padding:2px 9px;}
+.urgency-badge{transition:padding .3s ease;}
+.countdown-unit{transition:font-size .3s ease,padding .3s ease,min-width .3s ease;}
+@media(prefers-reduced-motion:reduce){.urgency-bar,.urgency-badge,.countdown-unit{transition:none!important;}}
+
+/* ══ BARRA DE PROGRESSO DE LEITURA ══ */
+.progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light));z-index:9998;transition:width .12s linear;pointer-events:none;}
+@media(prefers-reduced-motion:reduce){.progress-bar{transition:none;}}
+
+/* ══ HERO MOBILE FULL-BLEED (sem técnica de 100vw, sem bordas) ══ */
+@media(max-width:720px){
+  .sec-hero .inner{padding:0;max-width:none;}
+}
+
 /* ══ MOBILE ══ */
 /* Scroll indicator */
 .scroll-indicator{display:none;}
@@ -492,7 +540,7 @@ html,body{
   .hero-grid .badges{justify-content:center;}
   .hero-grid > div:not(.hero-img-wrap){padding:16px var(--sec-h) 0;}
   .hero-img-wrap{order:-1;min-height:auto;width:100%;padding:0;margin:0;}
-  .hero-img-wrap img{max-height:340px;width:100%;object-fit:cover;border-radius:0;box-shadow:none;}
+  .hero-img-wrap img{height:400px;max-height:none;width:100%;object-fit:cover;object-position:center center;border-radius:0;border:none;box-shadow:none;}
   .grid2{grid-template-columns:1fr;gap:28px;}
   .preview-grid{grid-template-columns:1fr;gap:20px;}
   .preview-mobile-text{display:block;}
@@ -576,8 +624,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 </head>
 <body>
 
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
 <!-- URGÊNCIA BAR -->
-<div class="urgency-bar">
+<div class="urgency-bar" id="urgency-bar">
   <div class="urgency-inner">
     <span class="urgency-badge">⏳ Oferta especial</span>
     <span class="urgency-text"><strong>Bônus digitais inclusos</strong> · Frete grátis · Garantia de 7 dias</span>
@@ -691,6 +741,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <button class="cdot" onclick="slideTo(6)" aria-label="Ir para imagem 7 do carrossel"></button>
       </div>
       <div class="car-cap">Mais de <strong>150 páginas</strong> com exercícios, checklists e orientações práticas divididos por categorias.</div>
+      <div class="car-zoom-hint">🔍 Clique na imagem para ampliar</div>
     </div>
 
     <!-- PULLQUOTE + CTA abaixo do carrossel -->
@@ -820,6 +871,28 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       <div class="t-stat"><span class="t-stat-num">15</span><span class="t-stat-label">países</span></div>
       <div class="t-stat"><span class="t-stat-num">⭐ 4,9</span><span class="t-stat-label">avaliação média</span></div>
       <div class="t-stat"><span class="t-stat-num">180 mil+</span><span class="t-stat-label">seguidores</span></div>
+    </div>
+
+    <div class="t-marquee" aria-hidden="true">
+      <div class="t-marquee-track">
+        <div class="t-mchip"><div class="t-mchip-avatar">B</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "mudou minha relação com as coisas" <strong>— Bianca S.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">R</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "hoje tenho mais espaço pro que importa" <strong>— Rodrigo T.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">S</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "leitura leve, prática e honesta" <strong>— Simone A.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">V</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "é um livro sobre escolhas" <strong>— Vinícius O.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">D</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "o melhor presente do ano" <strong>— Débora L.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">H</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "todo mundo precisa ler isso" <strong>— Henrique P.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">N</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "vale muito cada centavo" <strong>— Natália F.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">D</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "virou esse conceito de cabeça, leitura obrigatória" <strong>— Diego M.</strong></div></div>
+        <!-- duplicado para loop contínuo -->
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">B</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "mudou minha relação com as coisas" <strong>— Bianca S.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">R</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "hoje tenho mais espaço pro que importa" <strong>— Rodrigo T.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">S</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "leitura leve, prática e honesta" <strong>— Simone A.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">V</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "é um livro sobre escolhas" <strong>— Vinícius O.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">D</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "o melhor presente do ano" <strong>— Débora L.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">H</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "todo mundo precisa ler isso" <strong>— Henrique P.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">N</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "vale muito cada centavo" <strong>— Natália F.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">D</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "virou esse conceito de cabeça, leitura obrigatória" <strong>— Diego M.</strong></div></div>
+      </div>
     </div>
 
     <div class="t-grid">
@@ -1153,6 +1226,12 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
   </svg>
 </a>
 
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fechar imagem ampliada">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
 <script>
 function irParaVersoes(e){
   if(e) e.preventDefault();
@@ -1207,6 +1286,154 @@ setInterval(function(){slideTo((ci+1)%TOTAL);},4000);
 
 /* FAQ */
 function faq(btn){btn.parentElement.classList.toggle('open');}
+
+/* ══ HEADER SHRINK/BLUR + BARRA DE PROGRESSO ══ */
+(function(){
+  var uBar=document.getElementById('urgency-bar');
+  var pBar=document.getElementById('progress-bar');
+  var ticking=false;
+
+  function onScroll(){
+    var y=window.scrollY||document.documentElement.scrollTop;
+    if(uBar){ uBar.classList.toggle('scrolled', y>40); }
+    if(pBar){
+      var h=document.documentElement;
+      var max=h.scrollHeight-h.clientHeight;
+      var pct= max>0 ? (y/max)*100 : 0;
+      pBar.style.width=pct+'%';
+    }
+    ticking=false;
+  }
+  function requestTick(){
+    if(!ticking){ requestAnimationFrame(onScroll); ticking=true; }
+  }
+  window.addEventListener('scroll', requestTick, {passive:true});
+  onScroll();
+})();
+
+/* ══ LIGHTBOX — clique nas páginas do carrossel para ampliar ══ */
+(function(){
+  function upsizeWix(url){
+    if(!url) return url;
+    return url.replace(/w_\d+,h_\d+/, 'w_1200,h_780');
+  }
+  var lb=document.getElementById('lightbox');
+  var lbImg=document.getElementById('lightbox-img');
+  var slidesWrap=document.getElementById('slides');
+
+  window.openLightbox=function(imgEl){
+    var real = imgEl.currentSrc || imgEl.src || imgEl.dataset.src;
+    if(!real) return;
+    lbImg.src = upsizeWix(real);
+    lbImg.alt = imgEl.alt || '';
+    lb.classList.add('active');
+    document.body.style.overflow='hidden';
+  };
+  window.closeLightbox=function(){
+    lb.classList.remove('active');
+    document.body.style.overflow='';
+  };
+
+  if(slidesWrap){
+    slidesWrap.addEventListener('click', function(e){
+      var img=e.target.closest('img');
+      if(img) openLightbox(img);
+    });
+  }
+  lb.addEventListener('click', function(e){
+    if(e.target===lb) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape') closeLightbox();
+  });
+})();
+
+/* ══ SCROLL REVEAL + CONTADORES ANIMADOS ══ */
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var revealGroups = [
+    '.stats-bar .stat',
+    '.t-marquee',
+    '.t-counter .t-stat',
+    '.qual-card',
+    '.dif-card',
+    '.cap-card',
+    '.agit-item',
+    '.bonus-item',
+    '.t-card',
+    '.pc',
+    '.sec-h2, .sec-eyebrow, .t-headline, .t-eyebrow-dep',
+    '.pullquote'
+  ];
+  var revealEls = [];
+  revealGroups.forEach(function(sel){
+    document.querySelectorAll(sel).forEach(function(el,i){
+      el.classList.add('reveal');
+      el.style.transitionDelay = (Math.min(i,6)*70)+'ms';
+      revealEls.push(el);
+    });
+  });
+
+  if(reduced || !('IntersectionObserver' in window)){
+    revealEls.forEach(function(el){el.classList.add('in-view');});
+  } else {
+    var rObs=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          rObs.unobserve(entry.target);
+        }
+      });
+    },{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(function(el){rObs.observe(el);});
+  }
+
+  /* Contadores animados */
+  function animateCount(el){
+    var raw = el.textContent.trim();
+    var m = raw.match(/^([^\d]*)(\d[\d.,]*)([^\d]*)$/);
+    if(!m) return;
+    var prefix=m[1], numStr=m[2], suffix=m[3];
+    var hasComma = numStr.indexOf(',')>-1;
+    var clean = numStr.replace(/\./g,'').replace(',','.');
+    var target = parseFloat(clean);
+    if(isNaN(target)) return;
+    var decimals = hasComma ? (clean.split('.')[1]||'').length : 0;
+
+    function fmt(v){
+      var s=v.toFixed(decimals);
+      if(decimals>0) s=s.replace('.',',');
+      return prefix+s+suffix;
+    }
+    if(reduced){ el.textContent=fmt(target); return; }
+
+    var start=null, dur=1400;
+    function step(ts){
+      if(!start) start=ts;
+      var p=Math.min((ts-start)/dur,1);
+      var eased=1-Math.pow(1-p,3);
+      el.textContent=fmt(target*eased);
+      if(p<1) requestAnimationFrame(step);
+      else el.textContent=fmt(target);
+    }
+    requestAnimationFrame(step);
+  }
+  var countEls=document.querySelectorAll('.stat-num, .t-stat-num');
+  if('IntersectionObserver' in window){
+    var cObs=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          animateCount(entry.target);
+          cObs.unobserve(entry.target);
+        }
+      });
+    },{threshold:.5});
+    countEls.forEach(function(el){cObs.observe(el);});
+  } else {
+    countEls.forEach(animateCount);
+  }
+})();
 
 /* META PIXEL — eventos avançados */
 (function(){
@@ -1326,16 +1553,13 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
 @keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
 </style>
 <div id="cupom-tooltip" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none'">
-  <div style="background:#fff;border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.18);padding:14px 16px 12px;position:relative;border:.5px solid rgba(201,169,110,.3);">
-    <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #fff;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.06));"></div>
-    <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" style="position:absolute;top:8px;right:10px;background:none;border:none;cursor:pointer;font-size:14px;color:#888;line-height:1;">×</button>
-    <div>
-      <div style="font-size:12px;font-weight:700;color:#1C1C1A;margin-bottom:3px;">Dica de quem já escolheu!</div>
-      <div style="font-size:11px;color:#5C5C5A;line-height:1.5;margin-bottom:8px;">Use o cupom no carrinho e economize 10%:</div>
-      <div style="background:#F5F0E8;border:1.5px dashed #C9A96E;border-radius:7px;padding:6px 10px;text-align:center;">
-        <div style="font-size:9px;color:#9A7A30;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1px;">Cupom</div>
-        <div style="font-family:Georgia,serif;font-size:17px;font-weight:700;color:#1C1C1A;letter-spacing:.05em;">GANHEI10</div>
-      </div>
+  <div style="background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(201,169,110,.45);">
+    <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
+    <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" style="position:absolute;top:7px;right:9px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;">×</button>
+    <div style="font-size:10px;font-weight:700;color:#C9A96E;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;">🎁 Cupom exclusivo</div>
+    <div style="background:rgba(255,255,255,.05);border:1.5px dashed #C9A96E;border-radius:8px;padding:9px 12px 8px;text-align:center;">
+      <div style="font-family:Georgia,serif;font-size:21px;font-weight:700;color:#F5F0E8;letter-spacing:.07em;">GANHEI10</div>
+      <div style="font-size:10.5px;color:#B8925A;margin-top:2px;letter-spacing:.02em;">10% OFF no carrinho</div>
     </div>
   </div>
 </div>
