@@ -77,7 +77,7 @@
 <link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
 <link rel="preconnect" href="https://video.wixstatic.com" crossorigin>
 <link rel="preload" as="image" fetchpriority="high"
-  href="https://static.wixstatic.com/media/940f31_aa1a63c13d8b4026ae6cb6dcb53233ac~mv2.jpg/v1/fill/w_474,h_457,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/seja-minimalista.jpg">
+  href="https://static.wixstatic.com/media/940f31_08e0db726d064e23860acc03613499ba~mv2.jpg">
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -132,6 +132,17 @@ html,body{
 .hero-img-wrap img{
   width:100%;height:auto;max-width:100%;max-height:500px;
   display:block;margin:0 auto;border-radius:6px;object-fit:contain;
+}
+@media(min-width:721px){
+  .sec-hero{padding:120px var(--sec-h);}
+  .sec-hero .inner{max-width:1300px;}
+  .hero-grid{grid-template-columns:520px 1fr;gap:120px;}
+  .hero-img-wrap img{
+    width:100%;height:440px;max-height:none;
+    object-fit:cover;object-position:center center;
+  }
+  .hero-img-wrap .badges{flex-wrap:nowrap;gap:6px;}
+  .hero-img-wrap .badge{padding:7px 10px;font-size:12px;white-space:nowrap;}
 }
 .eyebrow{font-size:var(--eyebrow);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0;}
@@ -532,15 +543,15 @@ html,body{
   .countdown-unit{font-size:20px;min-width:34px;padding:4px 8px;}
   .urgency-text{font-size:13px;text-align:center;}
   .urgency-badge{display:none;}
-  .sec-hero{padding:0 0 36px;}
+  .sec-hero{padding:0 0 var(--sec-v);}
   .hero-grid{grid-template-columns:1fr;gap:0;}
   .hero-grid > div:not(.hero-img-wrap){text-align:center;}
   .hero-grid .eyebrow{justify-content:center;}
   .hero-grid .hero-note{justify-content:center;}
   .hero-grid .badges{justify-content:center;}
-  .hero-grid > div:not(.hero-img-wrap){padding:16px var(--sec-h) 0;}
+  .hero-grid > div:not(.hero-img-wrap){padding:22px var(--sec-h) 4px;}
   .hero-img-wrap{order:-1;min-height:auto;width:100%;padding:0;margin:0;}
-  .hero-img-wrap img{height:400px;max-height:none;width:100%;object-fit:cover;object-position:center center;border-radius:0;border:none;box-shadow:none;}
+  .hero-img-wrap img{display:block;width:100%;height:360px;max-width:none;max-height:none;object-fit:cover;object-position:center center;border-radius:0;border:none;box-shadow:none;margin:0;}
   .grid2{grid-template-columns:1fr;gap:28px;}
   .preview-grid{grid-template-columns:1fr;gap:20px;}
   .preview-mobile-text{display:block;}
@@ -649,7 +660,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <div class="hero-grid">
       <div class="hero-img-wrap">
         <img
-          src="https://static.wixstatic.com/media/940f31_aa1a63c13d8b4026ae6cb6dcb53233ac~mv2.jpg/v1/fill/w_474,h_457,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/seja-minimalista.jpg"
+          src="https://static.wixstatic.com/media/940f31_08e0db726d064e23860acc03613499ba~mv2.jpg"
           alt="Livro Seja Minimalista — guia prático de minimalismo de Alexandre Chahoud"
           width="474" height="457"
           fetchpriority="high" loading="eager" decoding="sync">
