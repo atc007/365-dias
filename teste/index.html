@@ -523,7 +523,7 @@ object-fit:contain;
 @media(prefers-reduced-motion:reduce){.urgency-bar,.urgency-badge,.countdown-unit{transition:none!important;}}
 
 /* ══ BARRA DE PROGRESSO DE LEITURA ══ */
-.progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light));z-index:9998;transition:none;pointer-events:none;}
+.progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light));z-index:9998;transition:width .12s linear;pointer-events:none;}
 @media(prefers-reduced-motion:reduce){.progress-bar{transition:none;}}
 
 /* ══ HERO MOBILE FULL-BLEED (sem técnica de 100vw, sem bordas) ══ */
@@ -675,7 +675,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 </head>
 <body>
 
-<div class="progress-bar" id="progress-bar" style="transform-origin:left center;transform:scaleX(0)" aria-hidden="true"></div>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
 
 <!-- URGÊNCIA BAR -->
 <div class="urgency-bar" id="urgency-bar">
@@ -1651,82 +1651,5 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
   }, {passive:true});
 })();
 </script>
-
-<script>
-(()=>{
-
-const rafThrottle=(fn)=>{
- let ticking=false,lastArgs;
- return (...args)=>{
-   lastArgs=args;
-   if(ticking) return;
-   ticking=true;
-   requestAnimationFrame(()=>{
-      ticking=false;
-      fn(...lastArgs);
-   });
- };
-};
-
-const slides=document.getElementById('slides');
-if(slides){
-  slides.style.willChange='transform';
-  slides.style.contain='layout paint';
-}
-
-const progress=document.getElementById('progress-bar');
-const urgency=document.getElementById('urgency-bar');
-const indicator=document.querySelector('.scroll-indicator');
-
-const update=rafThrottle(()=>{
- const y=window.scrollY;
- const h=document.documentElement.scrollHeight-innerHeight;
- if(progress) progress.style.transform=`scaleX(${Math.max(0,Math.min(1,y/h||0))})`;
- if(urgency) urgency.classList.toggle('scrolled',y>40);
- if(indicator){
-   indicator.style.opacity=y<120?1:0;
-   indicator.style.visibility=y<120?'visible':'hidden';
- }
-});
-
-window.addEventListener('scroll',update,{passive:true});
-window.addEventListener('resize',update,{passive:true});
-update();
-
-const ids=['cd-h','cd-m','cd-s'];
-const els=ids.map(id=>document.getElementById(id));
-let prev=["","",""];
-function tick(){
- const now=new Date();
- const end=new Date(now); end.setHours(23,59,59,999);
- let s=((end-now)/1000)|0;
- const vals=[
-   String((s/3600)|0).padStart(2,'0'),
-   String(((s%3600)/60)|0).padStart(2,'0'),
-   String(s%60).padStart(2,'0')
- ];
- requestAnimationFrame(()=>{
-   vals.forEach((v,i)=>{ if(v!==prev[i]){ els[i].textContent=v; prev[i]=v; }});
- });
-}
-tick();
-setInterval(tick,1000);
-
-if(window.IntersectionObserver){
- document.querySelectorAll('.reveal').forEach(el=>{
-   new IntersectionObserver((entries,o)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add('in-view');
-          o.unobserve(e.target);
-        }
-      });
-   },{rootMargin:"80px"}).observe(el);
- });
-}
-
-})();
-</script>
-
 </body>
 </html>
