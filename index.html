@@ -3,6 +3,10 @@
 
 
 
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -82,7 +86,7 @@
 <link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
 <link rel="preconnect" href="https://video.wixstatic.com" crossorigin>
 <link rel="preload" as="image" fetchpriority="high"
-  href="https://static.wixstatic.com/media/940f31_b5a81dee1d6c4202b4360226066b9e65~mv2.avif">
+  href="https://static.wixstatic.com/media/940f31_eb8f910c5d954e29a62245b38afb8ead~mv2.avif">
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -125,7 +129,7 @@ html,body{
 .urgency-text strong{color:var(--gold);}
 .urgency-badge{background:var(--gold);color:var(--ink);font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.06em;white-space:nowrap;}
 .countdown{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--ink-muted);}
-.countdown-unit{background:#2E2E2C;color:var(--gold);font-family:Georgia,serif;font-size:17px;font-weight:700;padding:3px 8px;border-radius:4px;min-width:32px;text-align:center;line-height:1.2;}
+.countdown-unit{background:#2E2E2C;color:var(--gold);font-family:Georgia,serif;font-size:17px;font-weight:700;padding:3px 8px;border-radius:4px;min-width:48px;width:48px;text-align:center;line-height:1.2;font-variant-numeric:tabular-nums;}
 .countdown-sep{color:var(--gold);font-weight:700;}
 
 /* ══ HERO ══ */
@@ -137,6 +141,8 @@ padding:112px var(--sec-h);
 .hero-img-wrap{
   text-align:center;display:flex;flex-direction:column;
   align-items:center;justify-content:center;
+  min-height:620px;
+  contain:layout;
 }
 .hero-img-wrap img{
 width:100%;
@@ -242,9 +248,9 @@ object-fit:contain;
 .preview-desktop-text{display:block;}
 .preview-text,.preview-car{display:flex;flex-direction:column;}
 
-.car-wrap{background:var(--ink);border-radius:10px;overflow:hidden;}
+.car-wrap{background:var(--ink);border-radius:10px;overflow:hidden;min-height:430px;contain:layout;}
 .car-slides{display:flex;transition:transform .4s ease;}
-.car-slide{min-width:100%;display:flex;align-items:center;justify-content:center;background:#EFEFEF;}
+.car-slide{min-width:100%;display:flex;align-items:center;justify-content:center;background:#EFEFEF;aspect-ratio:596/387;}
 .car-slide img{width:100%;height:auto;object-fit:contain;display:block;}
 .car-dots{display:flex;gap:6px;justify-content:center;padding:14px;}
 .cdot{width:7px;height:7px;border-radius:50%;background:#3D3D3B;border:none;cursor:pointer;padding:0;transition:background .2s;}
@@ -375,7 +381,7 @@ object-fit:contain;
 .urg-p{font-size:15px;color:var(--ink-muted);line-height:1.75;margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto;}
 .urg-timer{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:28px;}
 .urg-unit{display:flex;flex-direction:column;align-items:center;gap:5px;}
-.urg-digit{background:#2E2E2C;border:.5px solid #3D3D3B;color:var(--gold);font-family:Georgia,serif;font-size:34px;font-weight:700;padding:10px 16px;border-radius:8px;min-width:60px;text-align:center;line-height:1;}
+.urg-digit{background:#2E2E2C;border:.5px solid #3D3D3B;color:var(--gold);font-family:Georgia,serif;font-size:34px;font-weight:700;padding:10px 16px;border-radius:8px;min-width:64px;width:64px;text-align:center;line-height:1;font-variant-numeric:tabular-nums;}
 .urg-dlabel{font-size:10px;color:#D0CEC8;letter-spacing:.1em;text-transform:uppercase;}
 .urg-sep{font-family:Georgia,serif;font-size:28px;color:#3D3D3B;margin-bottom:16px;}
 .urg-bonus-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(201,169,110,.1);border:.5px solid rgba(201,169,110,.3);color:var(--gold);font-size:13px;font-weight:600;padding:8px 20px;border-radius:20px;margin-bottom:24px;}
@@ -527,7 +533,7 @@ object-fit:contain;
 
 /* ══ MOBILE ══ */
 /* Scroll indicator */
- .scroll-indicator{display:none;}
+ .scroll-indicator{display:flex;opacity:0;visibility:hidden;pointer-events:none;}
 @media(max-width:720px){
    .scroll-indicator{
     position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
@@ -564,10 +570,28 @@ object-fit:contain;
   .hero-grid > div:not(.hero-img-wrap){text-align:center;}
   .hero-grid .eyebrow{justify-content:center;}
   .hero-grid .hero-note{justify-content:center;}
-  .hero-grid .badges{justify-content:center;}
+  .hero-grid .badges{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    width:100%;
+    justify-content:stretch;
+    margin-top:18px;
+  }
+  .hero-grid .badge{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    width:100%;
+    min-height:52px;
+    padding:10px 12px;
+    line-height:1.3;
+  }
   .hero-grid > div:not(.hero-img-wrap){padding:22px var(--sec-h) 4px;}
   .hero-img-wrap{order:-1;min-height:auto;width:100%;padding:0;margin:0;}
-  .hero-img-wrap img{display:block;width:92%;height:auto;max-width:520px;max-height:none;object-fit:contain;object-position:center;border-radius:0;border:none;box-shadow:none;margin:16px auto 0;}
+  .hero-img-wrap{min-height:420px;}
+  .hero-img-wrap img{display:block;width:112%;height:auto;max-width:760px;max-height:none;object-fit:contain;object-position:center;border-radius:0;border:none;box-shadow:none;margin:0 auto -8px;transform:translateX(-6%);}
   .grid2{grid-template-columns:1fr;gap:28px;}
   .preview-grid{grid-template-columns:1fr;gap:20px;}
   .preview-mobile-text{display:block;}
@@ -676,9 +700,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <div class="hero-grid">
       <div class="hero-img-wrap">
         <picture>
-          <source srcset="https://static.wixstatic.com/media/940f31_b5a81dee1d6c4202b4360226066b9e65~mv2.avif" type="image/avif">
+          <source media="(max-width:720px)" srcset="https://static.wixstatic.com/media/940f31_1838b3822c4641b198bb875a2aeb075e~mv2.avif" type="image/avif">
+          <source media="(min-width:721px)" srcset="https://static.wixstatic.com/media/940f31_eb8f910c5d954e29a62245b38afb8ead~mv2.avif" type="image/avif">
           <img
-          src="https://static.wixstatic.com/media/940f31_b5a81dee1d6c4202b4360226066b9e65~mv2.avif"
+          src="https://static.wixstatic.com/media/940f31_eb8f910c5d954e29a62245b38afb8ead~mv2.avif"
           alt="Livro Seja Minimalista — guia prático de minimalismo de Alexandre Chahoud"
           width="474" height="457"
           fetchpriority="high" loading="eager" decoding="sync">
