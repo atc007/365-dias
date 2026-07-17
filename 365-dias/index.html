@@ -2210,25 +2210,30 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
   var uBar=document.getElementById('urgency-bar');
   var pBar=document.getElementById('progress-bar');
   var heroImg=document.querySelector('.hero-img-wrap img');
+  var docEl=document.documentElement;
   var ticking=false;
 
   function onScroll(){
-    var y=window.scrollY||document.documentElement.scrollTop;
+    /* ── LEITURAS primeiro (evita reflow forçado misturando com escritas) ── */
+    var y=window.scrollY||docEl.scrollTop;
+    var scrollHeight=docEl.scrollHeight;
+    var clientHeight=docEl.clientHeight;
+    var innerWidth=window.innerWidth;
 
+    var max=scrollHeight-clientHeight;
+    var pct= max>0 ? (y/max)*100 : 0;
+    var doParallax = heroImg && !reducedMotion && y<900 && innerWidth>720;
+
+    /* ── ESCRITAS depois ── */
     /* header encolhe + ganha blur depois de 40px */
     if(uBar){ uBar.classList.toggle('scrolled', y>40); }
 
     /* barra de progresso de leitura */
-    if(pBar){
-      var h=document.documentElement;
-      var max=h.scrollHeight-h.clientHeight;
-      var pct= max>0 ? (y/max)*100 : 0;
-      pBar.style.width=pct+'%';
-    }
+    if(pBar){ pBar.style.width=pct+'%'; }
 
     /* parallax sutil na capa, só no desktop (no mobile a imagem já usa
        um transform de zoom/recorte fixo — sobrescrever via JS quebraria o crop) */
-    if(heroImg && !reducedMotion && y<900 && window.innerWidth>720){
+    if(doParallax){
       heroImg.style.transform='translateY('+(y*0.08).toFixed(1)+'px)';
     }
     ticking=false;
