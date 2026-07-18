@@ -137,7 +137,7 @@ padding:112px var(--sec-h);
 }
 .hero-img-wrap img{
 width:100%;
-max-width:720px;
+max-width:800px;
 max-height:min(96vh,980px);
 height:auto;
 display:block;
@@ -399,11 +399,12 @@ object-fit:contain;
   30%{box-shadow:0 0 0 8px rgba(201,169,110,.35),0 4px 20px rgba(0,0,0,.10);}
   100%{box-shadow:0 0 0 0 rgba(201,169,110,0),0 4px 20px rgba(0,0,0,.10);}
 }
-.dest-tag{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:11px;font-weight:700;padding:5px 18px;border-radius:0 0 10px 10px;white-space:nowrap;z-index:2;}
+.dest-badge{position:relative;overflow:hidden;background:linear-gradient(135deg,#B8935A 0%,var(--gold) 50%,#B8935A 100%);color:var(--ink);font-weight:700;font-size:13px;text-align:center;padding:10px 16px;border-radius:10px 10px 0 0;letter-spacing:.02em;}
+.dest-badge::after{content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(120deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.55) 50%,rgba(255,255,255,0) 100%);transform:skewX(-20deg);animation:dest-shine 3.5s ease-in-out infinite;}
+@keyframes dest-shine{0%{left:-75%;}40%{left:130%;}100%{left:130%;}}
 .pc-img{background:var(--cream);padding:0;height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
 .pc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
 .pc:hover .pc-img img{transform:scale(1.04);}
-.pc-off{position:absolute;top:12px;right:12px;background:var(--gold);color:var(--ink);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;z-index:2;}
 .pc-body{padding:24px;}
 .pc-type{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:10px;font-family:Georgia,'Times New Roman',serif;line-height:1.2;}
 .pc-was{font-size:13px;color:#C0392B;text-decoration:line-through;margin-bottom:3px;}
@@ -564,7 +565,7 @@ object-fit:contain;
   .hero-grid > div:not(.hero-img-wrap){padding:22px var(--sec-h) 4px;}
   .hero-img-wrap{order:-1;min-height:auto;width:100%;padding:0;margin:0;}
   .hero-img-wrap{min-height:420px;}
-  .hero-img-wrap img{display:block;width:112%;height:auto;max-width:760px;max-height:none;object-fit:contain;object-position:center;border-radius:0;border:none;box-shadow:none;margin:0 auto -8px;transform:translateX(-6%);}
+  .hero-img-wrap img{display:block;width:124%;height:auto;max-width:760px;max-height:none;object-fit:contain;object-position:center;border-radius:0;border:none;box-shadow:none;margin:0 auto -8px;transform:translateX(-9%);}
   .grid2{grid-template-columns:1fr;gap:28px;}
   .preview-grid{grid-template-columns:1fr;gap:20px;}
   .preview-mobile-text{display:block;}
@@ -1140,11 +1141,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         </div>
       </div>
       <div class="pc dest" id="versao-combo">
-        <div class="dest-tag">🔥 Melhor custo-benefício</div>
+        <div class="dest-badge"><span>🔥 Melhor custo-benefício · 40% OFF</span></div>
         <div class="pc-img" style="position:relative;">
           <img src="https://static.wixstatic.com/media/940f31_a8f7644fcec6436ba4ff96a6278524ff~mv2.webp/v1/fill/w_454,h_422,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/LIVRO-MINIMALISMO_edited.webp"
             alt="Seja Minimalista combo digital + físico" width="454" height="422" loading="lazy" decoding="async">
-          <div class="pc-off">40% off</div>
         </div>
         <div class="pc-body">
           <div class="pc-type">Combo — Digital + Físico + Frete Grátis</div>
