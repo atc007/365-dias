@@ -48,7 +48,7 @@
 
   <!-- Planners -->
   <url>
-    <loc>https://sejaminimalista.com.br/planner-minimalista</loc>
+    <loc>https://sejaminimalista.com.br/planner</loc>
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -63,7 +63,7 @@
 
   <!-- Agenda -->
   <url>
-    <loc>https://sejaminimalista.com.br/agenda-minimalista</loc>
+    <loc>https://sejaminimalista.com.br/agenda2026</loc>
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -79,7 +79,7 @@
 
   <!-- Catálogo e Combos -->
   <url>
-    <loc>https://sejaminimalista.com.br/catalogo</loc>
+    <loc>https://sejaminimalista.com.br/produtos</loc>
     <lastmod>2026-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
