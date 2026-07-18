@@ -946,13 +946,20 @@ html,body{
   30%{box-shadow:0 0 0 8px rgba(201,169,110,.35),0 4px 20px rgba(0,0,0,.10);}
   100%{box-shadow:0 0 0 0 rgba(201,169,110,0),0 4px 20px rgba(0,0,0,.10);}
 }
-.dest-tag{
-  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
-  background:var(--gold);color:var(--ink);
-  font-size:11px;font-weight:700;
-  padding:5px 18px;border-radius:0 0 10px 10px;white-space:nowrap;
-  z-index:2;
+.dest-badge{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#B8935A 0%,var(--gold) 50%,#B8935A 100%);
+  color:var(--ink);
+  font-weight:700;font-size:13px;text-align:center;
+  padding:10px 16px;border-radius:10px 10px 0 0;letter-spacing:.02em;
 }
+.dest-badge::after{
+  content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;
+  background:linear-gradient(120deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.55) 50%,rgba(255,255,255,0) 100%);
+  transform:skewX(-20deg);
+  animation:dest-shine 3.5s ease-in-out infinite;
+}
+@keyframes dest-shine{0%{left:-75%;}40%{left:130%;}100%{left:130%;}}
 /* imagem preenche todo o quadrado */
 .pc-img{
   background:var(--cream);
@@ -969,13 +976,6 @@ html,body{
   transition:transform .4s ease;
 }
 .pc:hover .pc-img img{transform:scale(1.04);}
-.pc-off{
-  position:absolute;top:12px;right:12px;
-  background:var(--gold);color:var(--ink);
-  font-size:11px;font-weight:700;
-  padding:4px 10px;border-radius:20px;
-  z-index:2;
-}
 .pc-body{padding:24px;}
 .pc-type{
   font-size:16px;font-weight:700;
@@ -1986,10 +1986,9 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         </div>
       </div>
       <div class="pc dest" id="versao-combo">
-        <div class="dest-tag">🔥 Melhor custo-benefício</div>
+        <div class="dest-badge"><span>🔥 Melhor custo-benefício · 40% OFF</span></div>
         <div class="pc-img" style="position:relative;">
           <img src="https://static.wixstatic.com/media/940f31_104feb48e90949d78620d3444814c8f5~mv2.png/v1/crop/x_126,y_307,w_612,h_568/fill/w_360,h_334,al_c,q_90,enc_avif,quality_auto/combo.png" alt="Combo" width="360" height="334" loading="lazy" decoding="async">
-          <div class="pc-off">40% off</div>
         </div>
         <div class="pc-body">
           <div class="pc-type">Combo — Digital + Físico + Frete Grátis</div>
