@@ -191,7 +191,17 @@ html,body{
 .footer{text-align:center;margin-top:32px;}
 .footer-logo{font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#86837C;letter-spacing:.04em;margin-bottom:4px;}
 .footer-copy{font-size:10px;color:#86837C;}
+/* ══ SCROLL REVEAL ══ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+/* os link-cards já têm animação própria de flutuação (transform) — aqui só a opacidade entra suave, sem brigar com o float */
+.reveal-fade{opacity:0;transition:opacity .6s ease;}
+.reveal-fade.in-view{opacity:1;}
+@media(prefers-reduced-motion:reduce){
+  .reveal,.reveal-fade{opacity:1!important;transform:none!important;transition:none!important;}
+}
 </style>
+
 
 <!-- UTM Passthrough — repassa UTMs para as landing pages -->
 <script>
@@ -477,6 +487,39 @@ window.addEventListener('load', function(){
   window.addEventListener('scroll', onScrollDepth, {passive:true});
 
 });
+
+/* ══ SCROLL REVEAL — cards, newsletter e rodapé aparecendo ao rolar ══ */
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var fadeEls = Array.prototype.slice.call(document.querySelectorAll('.link-card'));
+  var slideEls = Array.prototype.slice.call(document.querySelectorAll('.section-label, .newsletter-box, .footer'));
+
+  fadeEls.forEach(function(el,i){
+    el.classList.add('reveal-fade');
+    el.style.transitionDelay=(Math.min(i,6)*60)+'ms';
+  });
+  slideEls.forEach(function(el,i){
+    el.classList.add('reveal');
+    el.style.transitionDelay=(Math.min(i,6)*60)+'ms';
+  });
+
+  var allEls = fadeEls.concat(slideEls);
+
+  if(reduced || !('IntersectionObserver' in window)){
+    allEls.forEach(function(el){el.classList.add('in-view');});
+    return;
+  }
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        obs.unobserve(entry.target);
+      }
+    });
+  },{threshold:.15,rootMargin:'0px 0px -30px 0px'});
+  allEls.forEach(function(el){obs.observe(el);});
+})();
 </script>
 
 </body>
