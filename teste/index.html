@@ -215,6 +215,10 @@ object-fit:contain;
 
 /* ══ GRID ══ */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center;}
+.autor-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"img head" "img body";gap:var(--gap);align-items:center;}
+.autor-img{grid-area:img;}
+.autor-head{grid-area:head;align-self:end;}
+.autor-body{grid-area:body;align-self:start;}
 
 /* ══ CAPÍTULOS ══ */
 .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px;}
@@ -560,13 +564,14 @@ object-fit:contain;
   .hero-grid > div:not(.hero-img-wrap){text-align:center;}
   .hero-grid .eyebrow{justify-content:center;}
   .hero-grid .hero-note{justify-content:center;}
-  .hero-grid .badges{gap:6px;margin-bottom:14px;grid-template-columns:1fr 1fr;display:grid;}
+  .hero-grid .badges{gap:6px;margin-top:4px;margin-bottom:14px;grid-template-columns:1fr 1fr;display:grid;}
   .hero-grid .badge{font-size:12px;text-align:center;display:flex;align-items:center;justify-content:center;}
   .hero-grid > div:not(.hero-img-wrap){padding:22px var(--sec-h) 4px;}
   .hero-img-wrap{order:-1;min-height:auto;width:100%;padding:0;margin:0;}
   .hero-img-wrap{min-height:420px;}
-  .hero-img-wrap img{display:block;width:124%;height:auto;max-width:760px;max-height:none;object-fit:contain;object-position:center;border-radius:0;border:none;box-shadow:none;margin:0 auto -8px;transform:translateX(-9%);}
+  .hero-img-wrap img{display:block;width:124%;height:auto;max-width:760px;max-height:none;object-fit:contain;object-position:center;border-radius:0;border:none;box-shadow:none;margin:0 auto -24px;transform:translateX(-14%);}
   .grid2{grid-template-columns:1fr;gap:28px;}
+  .autor-grid{grid-template-columns:1fr;grid-template-areas:"head" "img" "body";gap:20px;}
   .preview-grid{grid-template-columns:1fr;gap:20px;}
   .preview-mobile-text{display:block;}
   .preview-desktop-text{display:none;}
@@ -871,14 +876,16 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <!-- AUTOR -->
 <section class="sec">
   <div class="inner">
-    <div class="grid2">
-      <div class="img-box">
+    <div class="autor-grid">
+      <div class="autor-head">
+        <div class="sec-eyebrow">Sobre o autor</div>
+        <h2 class="sec-h2">Alexandre Chahoud: o autor minimalista que ensina pelo exemplo.</h2>
+      </div>
+      <div class="img-box autor-img">
         <img src="https://static.wixstatic.com/media/940f31_49f56ef051ba45f3b106dce993ef899d~mv2.webp/v1/fill/w_440,h_636,al_c,q_90,enc_avif,quality_auto/alexandre.webp"
           alt="Alexandre Chahoud — autor minimalista e criador do Seja Minimalista" width="440" height="636" loading="lazy" decoding="async">
       </div>
-      <div>
-        <div class="sec-eyebrow">Sobre o autor</div>
-        <h2 class="sec-h2">Alexandre Chahoud: o autor minimalista que ensina pelo exemplo.</h2>
+      <div class="autor-body">
         <p class="sec-p">Em 2014, eu olhei para o meu apartamento e percebi que tinha me tornado refém das coisas que eu acumulava. Roupas que nunca usava, objetos que "poderiam ser úteis um dia", uma vida cheia de barulho. Foi quando decidi mudar — não de uma vez, mas aos poucos. Uma escolha de cada vez.</p>
         <p class="sec-p">Desde então, compartilho com mais de <strong>150 mil pessoas no Instagram</strong> como viver com menos pode trazer mais liberdade e felicidade. Seja Minimalista foi meu primeiro livro — e ainda é o ponto de partida de quem quer começar do jeito certo: com um guia prático, sem jargão, sem extremismos.</p>
         <div class="media-badges"><span class="mbadge">SBT</span><span class="mbadge">UOL</span><span class="mbadge">Vida Simples</span><span class="mbadge">Revista Claudia</span><span class="mbadge">Gama</span><span class="mbadge">Hype</span><span class="mbadge">O Povo</span></div>
