@@ -406,6 +406,8 @@ object-fit:contain;
 .dest-badge{position:relative;overflow:hidden;background:linear-gradient(135deg,#B8935A 0%,var(--gold) 50%,#B8935A 100%);color:var(--ink);font-weight:700;font-size:13px;text-align:center;padding:10px 16px;border-radius:10px 10px 0 0;letter-spacing:.02em;}
 .dest-badge::after{content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(120deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.55) 50%,rgba(255,255,255,0) 100%);transform:skewX(-20deg);animation:dest-shine 3.5s ease-in-out infinite;}
 @keyframes dest-shine{0%{left:-75%;}40%{left:130%;}100%{left:130%;}}
+.dest-badge.muted{background:#C7C4BC;color:#5C5A54;font-weight:600;}
+.dest-badge.muted::after{content:none;}
 .pc-img{background:var(--cream);padding:0;height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
 .pc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
 .pc:hover .pc-img img{transform:scale(1.04);}
@@ -437,6 +439,8 @@ object-fit:contain;
 .pc-feats li{font-size:13px;color:var(--ink-soft);padding:6px 0;border-bottom:.5px solid #E8E5DF;display:flex;align-items:center;gap:10px;}
 .pc-feats li:last-child{border:none;}
 .pc-feats li::before{content:"✓";color:var(--gold);font-weight:700;flex-shrink:0;}
+.pc-feats li.no{color:#B0ADA5;text-decoration:line-through;}
+.pc-feats li.no::before{content:"✕";color:#B0ADA5;font-weight:700;}
 .pc-btn{display:block;text-align:center;font-size:14px;font-weight:700;padding:16px;border-radius:8px;text-decoration:none;letter-spacing:.02em;position:relative;overflow:hidden;will-change:transform,background-position;}
 .pc-btn.gold{background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:var(--ink);animation:shimmer 2.8s linear infinite,btn-pulse 3s ease-in-out infinite;}
 .pc-btn.gold:hover{animation:none;background:#C9A96E;filter:brightness(1.08);transform:scale(1.02);box-shadow:0 4px 14px rgba(201,169,110,.4);}
@@ -1109,6 +1113,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 0;">Comece sua jornada minimalista hoje.</h2>
     <div class="precos">
       <div class="pc" id="versao-digital">
+        <div class="dest-badge muted"><span>💰 Mais acessível</span></div>
         <div class="pc-img">
           <img src="https://static.wixstatic.com/media/940f31_1d7cb94e5cb44938818f79f4a7333c79~mv2.jpg/v1/crop/x_0,y_4,w_550,h_342/fill/w_491,h_305,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Design%20sem%20nome%20(6).jpg"
             alt="Seja Minimalista versão digital" width="491" height="305" loading="lazy" decoding="async">
@@ -1124,12 +1129,14 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
             <li>Alta resolução — PDF</li>
             <li>Celular, Kindle ou tablet</li>
             <li>Disponível para o mundo todo</li>
+            <li class="no">Livro físico</li>
           </ul>
           <a class="pc-btn dark" href="https://chk.eduzz.com/909488?pf=1" target="_blank" rel="noopener">Quero Livro Digital + Bônus</a>
           <div class="pc-urgency-note">⚡ Acesso imediato após o pagamento</div>
         </div>
       </div>
       <div class="pc" id="versao-fisica">
+        <div class="dest-badge muted"><span>🎁 Ideal para presentear</span></div>
         <div class="pc-img">
           <img src="https://static.wixstatic.com/media/940f31_48251b9f7e3d4e498e290a45765efed1~mv2.webp/v1/fill/w_336,h_274,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/design-sem-nome-4.webp"
             alt="Seja Minimalista versão física" width="336" height="274" loading="lazy" decoding="async">
@@ -1145,6 +1152,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
             <li>Embalado com carinho</li>
             <li>Enviado pelos Correios</li>
             <li>Frete grátis para todo o Brasil</li>
+            <li class="no">Livro digital</li>
           </ul>
           <a class="pc-btn dark" href="https://chk.eduzz.com/1046549?pf=1" target="_blank" rel="noopener">Quero Livro Físico + Bônus</a>
           <div class="pc-urgency-note">📦 Frete grátis para todo o Brasil</div>
@@ -1613,9 +1621,9 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
       var gain = ctx.createGain();
       osc.connect(gain); gain.connect(ctx.destination);
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(880, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.1);
-      gain.gain.setValueAtTime(0.4, ctx.currentTime);
+      osc.frequency.setValueAtTime(660, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(840, ctx.currentTime + 0.12);
+      gain.gain.setValueAtTime(0.15, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
       osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.6);
     }catch(e){}
