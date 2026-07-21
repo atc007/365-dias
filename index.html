@@ -540,14 +540,10 @@ object-fit:contain;
     border:.5px solid rgba(0,0,0,.08);border-radius:20px;
     padding:8px 18px 10px;color:#4F4B46;z-index:9999;
     cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.08);
-    animation:hide-on-scroll linear both;
-    animation-timeline:scroll();
-    animation-range:0px 120px;
+    opacity:1;visibility:visible;pointer-events:auto;
+    transition:opacity .3s ease;
   }
-  @keyframes hide-on-scroll{
-    0%{opacity:1;pointer-events:auto;}
-    100%{opacity:0;pointer-events:none;}
-  }
+  .scroll-indicator.is-hidden{opacity:0;pointer-events:none;}
   .scroll-indicator-text{font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;}
   .scroll-indicator-arrow{animation:scroll-bounce 1.4s ease-in-out infinite;}
   @keyframes scroll-bounce{
@@ -713,12 +709,21 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 </section>
 
 <!-- SCROLL INDICATOR — fixo, só mobile -->
-<div class="scroll-indicator" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'})">
+<div class="scroll-indicator" id="scroll-indicator" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'})">
   <span class="scroll-indicator-text">continue vendo</span>
   <svg class="scroll-indicator-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
 </div>
+<script>
+(function(){
+  var el = document.getElementById('scroll-indicator');
+  if(!el) return;
+  window.addEventListener('scroll', function(){
+    el.classList.toggle('is-hidden', window.scrollY > 120);
+  }, {passive:true});
+})();
+</script>
 
 <!-- STATS -->
 <div class="stats-bar">
