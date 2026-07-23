@@ -119,6 +119,14 @@
         "@type": "Answer",
         "text": "Comprando por cartão ou Pix, você recebe imediatamente no seu e-mail."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "É seguro comprar pelo link de pagamento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. O pagamento é processado pela Eduzz, uma das maiores plataformas de pagamento digital do Brasil, com criptografia de dados e nota fiscal emitida automaticamente."
+      }
     }
   ]
 }
@@ -286,8 +294,8 @@ html,body{
       rgba(236,230,222,.78) 56%,
       rgba(236,230,222,.92) 100%);
   }
-  .sec-hero .inner{position:relative;z-index:1;width:100%;max-width:1180px;}
-  .hero-grid{grid-template-columns:1.9fr 1fr;gap:8px;}
+  .sec-hero .inner{position:relative;z-index:1;width:100%;max-width:1320px;}
+  .hero-grid{grid-template-columns:1.5fr 1fr;gap:56px;}
   .hero-img-wrap img,
   .hero-img-wrap picture img{
     width:100%;
@@ -436,6 +444,8 @@ html,body{
   margin-top:14px;display:flex;align-items:center;gap:6px;
 }
 .hero-note::before{content:"🔒";font-size:11px;}
+.hero-note-wrap{align-items:flex-start;}
+.hero-note-wrap::before{margin-top:1px;}
 
 /* ══ STATS ══ */
 .stats-bar{background:var(--ink);padding:20px var(--sec-h);}
@@ -1548,10 +1558,11 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       </div>
       <div>
         <div class="eyebrow">Livro de Alexandre Chahoud</div>
-        <h1 class="hero-h1">365 Dias Minimalistas: uma página por dia para uma vida <em style="font-style:italic;color:#9A7A30;">mais leve e mais sua.</em></h1>
-        <p class="hero-sub">Uma página por dia. Uma prática simples. Ao final do ano, você vai olhar para trás e não reconhecer a quantidade de peso que soltou.</p>
+        <h1 class="hero-h1">365 Dias Minimalistas: a prática de um minuto por dia que <em style="font-style:italic;color:#9A7A30;">espera você voltar,</em> mesmo se pular uma semana.</h1>
+        <p class="hero-sub">Pra quem já tentou organizar a vida e desistiu na primeira semana, acumula coisas e pensamentos até sentir o peso no corpo, ou vive no automático. Uma página por dia, sem cobrança, sem reinício.</p>
         <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero começar minha jornada de 365 dias</a>
         <div class="hero-note">Compra segura · Garantia incondicional de 7 dias</div>
+        <div class="hero-note hero-note-wrap">Pagamento processado pela Eduzz, plataforma usada por mais de 1 milhão de compradores no Brasil · Cartão, Pix ou boleto</div>
       </div>
     </div>
   </div>
@@ -1831,17 +1842,17 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       </div>
       <div class="t-card">
         <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
-        <p class="t-text">O formato de uma tarefa por dia é o que faz a diferença. Não sobrecarrega, não pressiona. Você vai devagar e a vida vai ficando mais leve sem você perceber.</p>
+        <p class="t-text">Já tinha desistido de três desafios de organização antes desse. O formato de uma tarefa por dia foi o que me fez chegar até o fim: nada de sobrecarga, nada de pressão. Hoje minha casa tem metade das coisas que tinha em janeiro.</p>
         <div class="t-author"><div class="t-avatar">P</div><div class="t-author-info"><span class="t-author-name">Patrícia L.</span><span class="t-author-city">Curitiba, PR</span></div><span class="t-badge-dep">Livro Digital</span></div>
       </div>
       <div class="t-card">
         <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
-        <p class="t-text">Tinha o primeiro livro do Alexandre e amei. O 365 Dias é diferente: mais íntimo, mais reflexivo. Parece que ele está do seu lado te lembrando todo dia que menos é mais.</p>
+        <p class="t-text">Depois do primeiro livro do Alexandre eu tinha voltado ao mesmo acúmulo de sempre em poucos meses. O 365 Dias resolveu isso: como é uma página por vez, virou hábito de verdade, não um esforço que passa.</p>
         <div class="t-author"><div class="t-avatar">R</div><div class="t-author-info"><span class="t-author-name">Rodrigo C.</span><span class="t-author-city">Porto Alegre, RS</span></div><span class="t-badge-dep">Livro Físico</span></div>
       </div>
       <div class="t-card">
         <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
-        <p class="t-text">Uso na minha rotina matinal antes do café. Cinco minutos de leitura e já entro no dia com outra cabeça. Virou ritual. Não consigo imaginar o dia sem.</p>
+        <p class="t-text">Minha manhã sempre começava no automático, direto pro celular. Troquei isso por cinco minutos de leitura antes do café. Três meses depois, virou o único ritual que não pulo, nem nos dias corridos.</p>
         <div class="t-author"><div class="t-avatar">M</div><div class="t-author-info"><span class="t-author-name">Mariana F.</span><span class="t-author-city">Florianópolis, SC</span></div><span class="t-badge-dep">Combo Físico + Digital</span></div>
       </div>
       <div class="t-card">
@@ -1851,12 +1862,12 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       </div>
       <div class="t-card">
         <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
-        <p class="t-text">Comprei o físico porque queria algo que eu pudesse segurar, sublinhar e voltar. 372 páginas e cada uma delas vale. Livro bonito, bem feito, com conteúdo de verdade.</p>
+        <p class="t-text">Eu comprava livro de organização e nunca terminava, ficava esquecido na estante. Escolhi o físico justamente pra poder sublinhar e voltar. Das 372 páginas, já apliquei mais de 100 práticas e o livro continua na minha mesa, não na estante.</p>
         <div class="t-author"><div class="t-avatar">C</div><div class="t-author-info"><span class="t-author-name">Carolina V.</span><span class="t-author-city">Fortaleza, CE</span></div><span class="t-badge-dep">Livro Físico</span></div>
       </div>
       <div class="t-card">
         <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
-        <p class="t-text">Comprei pra mim e acabei comprando mais três pra presentear. É daqueles livros que a gente quer que as pessoas que ama também leiam. Chegou rápido e bem embalado.</p>
+        <p class="t-text">Comprei achando que ia largar como todo desafio de ano novo que eu já tentei. Passei fevereiro e março sem pular um dia, e acabei comprando mais três exemplares pra presentear quem eu sabia que ia se identificar do mesmo jeito.</p>
         <div class="t-author"><div class="t-avatar">A</div><div class="t-author-info"><span class="t-author-name">Amanda K.</span><span class="t-author-city">Goiânia, GO</span></div><span class="t-badge-dep">Livro Físico</span></div>
       </div>
     </div>
@@ -2074,6 +2085,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       <div class="faq-item">
         <button class="faq-q" onclick="faq(this)">Como rastreio o livro físico?<div class="faq-icon">+</div></button>
         <div class="faq-a">Assim que seu livro for despachado, você recebe o código de rastreio dos Correios no seu e-mail. Frete grátis para todo o Brasil.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">É seguro comprar pelo link de pagamento?<div class="faq-icon">+</div></button>
+        <div class="faq-a">Sim. O pagamento é processado pela Eduzz, uma das maiores plataformas de pagamento digital do Brasil, com criptografia de dados e nota fiscal emitida automaticamente.</div>
       </div>
     </div>
     <div style="margin-top:40px;text-align:center;">
