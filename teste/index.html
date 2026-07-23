@@ -148,8 +148,8 @@ object-fit:contain;
 }
 @media(min-width:721px){
   .sec-hero{padding:112px 40px;}
-  .sec-hero .inner{max-width:1180px;}
-  .hero-grid{grid-template-columns:1.9fr 1fr;gap:80px;}
+  .sec-hero .inner{max-width:1320px;}
+  .hero-grid{grid-template-columns:1.5fr 1fr;gap:64px;}
   .hero-img-wrap img{
     width:100%;
     height:auto;
@@ -167,6 +167,8 @@ object-fit:contain;
 .badge-link:hover{border-color:var(--gold);background:rgba(201,169,110,.07);}
 .hero-note{font-size:13px;color:#4F4B46;margin-top:14px;display:flex;align-items:center;gap:6px;}
 .hero-note::before{content:"🔒";font-size:11px;}
+.hero-note-wrap{align-items:flex-start;}
+.hero-note-wrap::before{margin-top:1px;}
 
 /* ══ BOTÕES ANIMADOS ══ */
 @keyframes shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
@@ -705,7 +707,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <p class="hero-sub">Pra quem chega em casa e sente a bagunça pesar, compra por impulso e se arrepende depois, ou já tentou organizar e desistiu no meio. Exercícios práticos, sem extremismo, no seu ritmo.</p>
         <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero o guia prático agora</a>
         <div class="hero-note">Compra segura · Garantia incondicional de 7 dias</div>
-        <div class="hero-note">🔒 Pagamento processado pela Eduzz, plataforma usada por mais de 1 milhão de compradores no Brasil · Cartão, Pix ou boleto</div>
+        <div class="hero-note hero-note-wrap">Pagamento processado pela Eduzz, plataforma usada por mais de 1 milhão de compradores no Brasil · Cartão, Pix ou boleto</div>
       </div>
     </div>
   </div>
