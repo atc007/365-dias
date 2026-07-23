@@ -82,10 +82,6 @@ html,body{
 .section-label::before,.section-label::after{content:'';flex:1;height:.5px;background:#3A3A38;}
 
 /* ══ CARD ══ */
-@keyframes card-float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-3px);}
-}
 .link-card{
   background:#242422;
   border:.5px solid #3A3A38;
@@ -98,15 +94,9 @@ html,body{
   -webkit-tap-highlight-color:transparent;
   transition:transform .15s ease,box-shadow .15s ease;
   position:relative;
-  animation:card-float 4.5s ease-in-out infinite;
 }
-.link-card:nth-child(2n){animation-delay:.6s;}
-.link-card:nth-child(3n){animation-delay:1.2s;}
-.link-card:nth-child(4n){animation-delay:1.8s;}
-@media(prefers-reduced-motion:reduce){.link-card{animation:none;}}
 /* tap press — funciona em touch */
 .link-card:active{
-  animation-play-state:paused;
   transform:scale(.97);
   box-shadow:0 4px 16px rgba(0,0,0,.4);
 }
@@ -194,7 +184,7 @@ html,body{
 /* ══ SCROLL REVEAL ══ */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
 .reveal.in-view{opacity:1;transform:translateY(0);}
-/* os link-cards já têm animação própria de flutuação (transform) — aqui só a opacidade entra suave, sem brigar com o float */
+/* fade suave de entrada ao rolar */
 .reveal-fade{opacity:0;transition:opacity .6s ease;}
 .reveal-fade.in-view{opacity:1;}
 @media(prefers-reduced-motion:reduce){
