@@ -8,15 +8,15 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<title>Minimalize.IA — Organize sua casa com Inteligência Artificial</title>
-<meta name="description" content="Um agente de IA que conversa com você, analisa sua casa e guia o destralhe — no seu ritmo, sem pressão. Acesso vitalício por R$ 77. Garantia de 7 dias.">
+<title>Minimalize.IA: Organize sua casa com Inteligência Artificial</title>
+<meta name="description" content="Um agente de IA que conversa com você, analisa sua casa e guia o destralhe, no seu ritmo, sem pressão. Acesso vitalício por R$ 77. Garantia de 7 dias.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#1C1C1A">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-DNS-Prefetch-Control" content="on">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta property="og:title" content="Minimalize — Destralhe e organize sua casa com IA">
-<meta property="og:description" content="Envie uma foto do seu cômodo. O Minimalize.IA analisa, identifica os excessos e te guia no destralhe — sem julgamento, no seu ritmo. Acesso vitalício.">
+<meta property="og:title" content="Minimalize: Destralhe e organize sua casa com IA">
+<meta property="og:description" content="Envie uma foto do seu cômodo. O Minimalize.IA analisa, identifica os excessos e te guia no destralhe, sem julgamento, no seu ritmo. Acesso vitalício.">
 <meta property="og:image" content="https://static.wixstatic.com/media/940f31_72a8a2628b3c4b55a6ac43905e3c9853~mv2.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -25,8 +25,8 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Seja Minimalista">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Minimalize — Destralhe e organize sua casa com IA">
-<meta name="twitter:description" content="Envie uma foto do seu cômodo. O Minimalize.IA analisa, identifica os excessos e te guia no destralhe — sem julgamento, no seu ritmo. Acesso vitalício.">
+<meta name="twitter:title" content="Minimalize: Destralhe e organize sua casa com IA">
+<meta name="twitter:description" content="Envie uma foto do seu cômodo. O Minimalize.IA analisa, identifica os excessos e te guia no destralhe, sem julgamento, no seu ritmo. Acesso vitalício.">
 <meta name="twitter:image" content="https://static.wixstatic.com/media/940f31_72a8a2628b3c4b55a6ac43905e3c9853~mv2.png">
 <link rel="canonical" href="https://sejaminimalista.com.br/minimalize">
 
@@ -48,10 +48,11 @@
   "mainEntity":[
     {"@type":"Question","name":"Preciso ter o ChatGPT pago?","acceptedAnswer":{"@type":"Answer","text":"Não. O Minimalize.IA funciona com a conta gratuita do ChatGPT."}},
     {"@type":"Question","name":"Posso analisar fotos dos meus ambientes?","acceptedAnswer":{"@type":"Answer","text":"Sim. Você pode enviar fotos e o agente analisa o espaço, identifica excessos e orienta o destralhe."}},
-    {"@type":"Question","name":"Funciona para qualquer tamanho de casa?","acceptedAnswer":{"@type":"Answer","text":"Sim. O método se adapta à sua realidade — de um quarto a uma casa grande, com ou sem filhos."}},
-    {"@type":"Question","name":"O acesso realmente não expira?","acceptedAnswer":{"@type":"Answer","text":"Não expira. O acesso é vitalício — você pode usar hoje, daqui a seis meses, ou retomar quando quiser."}},
+    {"@type":"Question","name":"Funciona para qualquer tamanho de casa?","acceptedAnswer":{"@type":"Answer","text":"Sim. O método se adapta à sua realidade, de um quarto a uma casa grande, com ou sem filhos."}},
+    {"@type":"Question","name":"O acesso realmente não expira?","acceptedAnswer":{"@type":"Answer","text":"Não expira. O acesso é vitalício, você pode usar hoje, daqui a seis meses, ou retomar quando quiser."}},
     {"@type":"Question","name":"Posso parcelar a compra?","acceptedAnswer":{"@type":"Answer","text":"Sim. O pagamento por cartão pode ser parcelado em até 12x. O acesso chega imediatamente após a confirmação."}},
-    {"@type":"Question","name":"Posso pausar e retomar o destralhe?","acceptedAnswer":{"@type":"Answer","text":"Sim. Não há obrigação de sequência ou prazo. Você continua de onde parou sempre que quiser — sem culpa, sem recomeço forçado."}}
+    {"@type":"Question","name":"Posso pausar e retomar o destralhe?","acceptedAnswer":{"@type":"Answer","text":"Sim. Não há obrigação de sequência ou prazo. Você continua de onde parou sempre que quiser, sem culpa, sem recomeço forçado."}},
+    {"@type":"Question","name":"É seguro comprar pelo link de pagamento?","acceptedAnswer":{"@type":"Answer","text":"Sim. O pagamento é processado pela Eduzz, uma das maiores plataformas de pagamento digital do Brasil, com criptografia de dados e nota fiscal emitida automaticamente."}}
   ]
 }
 </script>
@@ -125,6 +126,8 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .hero-pill{font-size:14px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px;}
 .hero-pill::before{content:'—';color:var(--gold);font-weight:700;}
 .hero-note{font-size:13px;color:rgba(255,255,255,.4);margin-top:14px;display:flex;align-items:center;gap:6px;}
+.hero-note-wrap{align-items:flex-start;}
+.hero-note-wrap::before{margin-top:1px;}
 .hero-note::before{content:"🔒";font-size:11px;}
 
 /* ══ BOTÕES ANIMADOS ══ */
@@ -583,7 +586,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <div class="hero-img-wrap">
         <img
           src="https://static.wixstatic.com/media/940f31_1706864bd97e4e77a3f6c9a63b6025bb~mv2.jpg/v1/crop/x_0,y_120,w_1024,h_1297/fill/w_484,h_613,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/minimalize-hero.jpg"
-          alt="Minimalize.IA — agente de IA para destralhar e organizar sua casa com Alexandre Chahoud"
+          alt="Minimalize.IA, agente de IA para destralhar e organizar sua casa com Alexandre Chahoud"
           width="484" height="613"
           fetchpriority="high" loading="eager" decoding="sync">
         <div class="hero-badges">
@@ -594,8 +597,8 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       </div>
       <div>
         <div class="eyebrow">Criado por Alexandre Chahoud</div>
-        <h1 class="hero-h1">O agente de <em>IA</em> que te ajuda a destralhar a casa, <em>no seu ritmo.</em></h1>
-        <p class="hero-sub">Funciona direto no ChatGPT, no seu celular, sem instalar nada. Você conversa, envia fotos se quiser, e ele te guia no destralhe — no seu ritmo, sem pressão, sem julgamento.</p>
+        <h1 class="hero-h1"><span style="color:var(--gold);font-style:italic;">Minimalize.IA:</span> o agente de IA para quem já tentou <span style="color:var(--gold);font-style:italic;">organizar a casa</span> sozinho e não conseguiu terminar.</h1>
+        <p class="hero-sub">Dessa vez você não fica sozinho: o agente conversa com você, entende sua casa e guia cada passo, sem pressão e sem julgamento. Funciona no ChatGPT grátis, direto do celular.</p>
         <div class="hero-pills">
           <div class="hero-pill" style="color:var(--gold);font-weight:600;">⭐ 4,9 de avaliação · +25 mil pessoas já destralharam</div>
           <div class="hero-pill">Sem pressão, sem métodos extremos</div>
@@ -603,6 +606,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         </div>
         <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero destralhar minha casa</a>
         <div class="hero-note">Compra segura · Acesso imediato · Garantia de 7 dias</div>
+        <div class="hero-note hero-note-wrap">Pagamento processado pela Eduzz, plataforma usada por mais de 1 milhão de compradores no Brasil · Cartão, Pix ou boleto</div>
       </div>
     </div>
   </div>
@@ -635,7 +639,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <div class="dif-card">
         <div class="dif-icon">💬</div>
         <div class="dif-title">1. Você conversa com o agente</div>
-        <div class="dif-desc">Direto no ChatGPT — sem instalar nada. Conte como é sua casa e o que está te pesando.</div>
+        <div class="dif-desc">Direto no ChatGPT, sem instalar nada. Conte como é sua casa e o que está te pesando.</div>
       </div>
       <div class="dif-card">
         <div class="dif-icon">📷</div>
@@ -645,7 +649,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <div class="dif-card">
         <div class="dif-icon">🧹</div>
         <div class="dif-title">3. Você destralha no seu ritmo</div>
-        <div class="dif-desc">Passo a passo, sem pressão. Pausa quando quiser e retoma de onde parou — sem culpa.</div>
+        <div class="dif-desc">Passo a passo, sem pressão. Pausa quando quiser e retoma de onde parou, sem culpa.</div>
       </div>
     </div>
     <div style="text-align:center;margin-top:28px;">
@@ -663,7 +667,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <div>
         <div class="sec-eyebrow">A verdade que quase ninguém te fala</div>
         <h2 class="sec-h2">O problema não é falta de força de vontade. É excesso de decisões adiadas.</h2>
-        <p class="sec-p">Você até começa: arruma um canto, dobra algumas coisas, separa o que "talvez vá embora". Mas logo a bagunça volta. Porque o cansaço não vem da bagunça — vem do excesso de decisões que você não consegue tomar sozinha.</p>
+        <p class="sec-p">Você até começa: arruma um canto, dobra algumas coisas, separa o que "talvez vá embora". Mas logo a bagunça volta. Porque o cansaço não vem da bagunça, vem do excesso de decisões que você não consegue tomar sozinha.</p>
         <div class="pullquote">"Organização não é sobre arrumar tudo. É sobre escolher melhor o que fica."</div>
       </div>
       <div>
@@ -682,7 +686,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
           <div class="fail-card">
             <div class="fail-icon">📅</div>
             <div class="fail-title">Tratam como evento</div>
-            <div class="fail-desc">Uma arrumação que dura uma semana — não um processo.</div>
+            <div class="fail-desc">Uma arrumação que dura uma semana, não um processo.</div>
           </div>
           <div class="fail-card">
             <div class="fail-icon">😔</div>
@@ -701,10 +705,10 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="grid2" style="align-items:start;">
       <div>
         <div class="sec-eyebrow">Para quem é o Minimalize.IA</div>
-        <h2 class="sec-h2">Para quem quer leveza — não perfeição.</h2>
+        <h2 class="sec-h2">Para quem quer leveza, não perfeição.</h2>
         <div class="for-grid">
           <div class="for-card"><div class="for-icon">✔️</div><div class="for-text">Para quem abre o armário e sente um peso no peito</div></div>
-          <div class="for-card"><div class="for-icon">✔️</div><div class="for-text">Para quem já tentou organizar várias vezes — e desistiu</div></div>
+          <div class="for-card"><div class="for-icon">✔️</div><div class="for-text">Para quem já tentou organizar várias vezes e desistiu</div></div>
           <div class="for-card"><div class="for-icon">✔️</div><div class="for-text">Para quem gosta da ideia do minimalismo, mas não do extremismo</div></div>
           <div class="for-card"><div class="for-icon">✔️</div><div class="for-text">Para quem quer resultados reais no seu próprio ritmo</div></div>
         </div>
@@ -714,7 +718,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
           <div class="not-for-item">Quer resultados sem fazer nada</div>
           <div class="not-for-item">Busca um app automático que faz tudo sem interação</div>
         </div>
-        <div style="margin-top:28px;"><a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Esse sou eu — quero começar</a></div>
+        <div style="margin-top:28px;"><a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Esse sou eu, quero começar</a></div>
       </div>
       <!-- VÍDEO LAZY -->
       <div>
@@ -731,7 +735,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
             🔇
           </button>
         </div>
-        <p style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:12px;max-width:320px;margin-left:auto;margin-right:auto;">👆 Veja como funciona uma conversa real com o Minimalize.IA — toque no ícone para ativar o som.</p>
+        <p style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:12px;max-width:320px;margin-left:auto;margin-right:auto;">👆 Veja como funciona uma conversa real com o Minimalize.IA, toque no ícone para ativar o som.</p>
       </div>
     </div>
   </div>
@@ -753,7 +757,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         <div>
           <div class="step-badge">📷 Passo 1</div>
           <h3 class="step-h3">Análise do ambiente</h3>
-          <p class="step-p">O processo começa entendendo você e sua casa. Você pode enviar fotos ou descrever os ambientes. O Minimalize.IA analisa o espaço, identifica excessos e padrões de acúmulo com clareza — sem julgar e sem criticar.</p>
+          <p class="step-p">O processo começa entendendo você e sua casa. Você pode enviar fotos ou descrever os ambientes. O Minimalize.IA analisa o espaço, identifica excessos e padrões de acúmulo com clareza, sem julgar e sem criticar.</p>
         </div>
       </div>
 
@@ -850,14 +854,14 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="grid2">
       <div class="img-box">
         <img src="https://static.wixstatic.com/media/940f31_49f56ef051ba45f3b106dce993ef899d~mv2.webp/v1/fill/w_473,h_685,al_c,lg_1,q_90,enc_avif,quality_auto/alexandre.webp"
-          alt="Alexandre Chahoud — criador do Minimalize.IA e autor do Seja Minimalista" width="473" height="685" loading="lazy" decoding="async">
+          alt="Alexandre Chahoud, criador do Minimalize.IA e autor do Seja Minimalista" width="473" height="685" loading="lazy" decoding="async">
       </div>
       <div>
         <div class="sec-eyebrow">Sobre o criador</div>
         <h2 class="sec-h2">Criado por alguém que acredita que menos peso abre espaço para mais significado.</h2>
-        <p class="sec-p">Prazer, eu sou <strong style="color:var(--cream);">Alexandre Chahoud</strong>. Eu já fui a pessoa que comprava organizadores para tentar resolver a bagunça — caixinhas, labels, prateleiras — e em três semanas estava tudo igual ou pior.</p>
+        <p class="sec-p">Prazer, eu sou <strong style="color:var(--cream);">Alexandre Chahoud</strong>. Eu já fui a pessoa que comprava organizadores para tentar resolver a bagunça, caixinhas, labels, prateleiras, e em três semanas estava tudo igual ou pior.</p>
         <p class="sec-p">Foi quando entendi: o problema nunca foi falta de organização. Foi excesso de coisas. E o excesso de coisas é um excesso de decisões adiadas.</p>
-        <p class="sec-p">Desde 2018, compartilho esse caminho com mais de 150 mil pessoas no Instagram — e em 4 livros, incluindo o best-seller Seja Minimalista, que já transformou mais de 25 mil leitores em 15 países. O Minimalize.IA nasceu desse aprendizado — para te acompanhar no processo que eu gostaria que alguém tivesse me acompanhado.</p>
+        <p class="sec-p">Desde 2018, compartilho esse caminho com mais de 150 mil pessoas no Instagram e em 4 livros, incluindo o best-seller Seja Minimalista, que já transformou mais de 25 mil leitores em 15 países. O Minimalize.IA nasceu desse aprendizado, para te acompanhar no processo que eu gostaria que alguém tivesse me acompanhado.</p>
         <div class="media-badges">
           <span class="mbadge">SBT</span><span class="mbadge">UOL</span><span class="mbadge">Vida Simples</span><span class="mbadge">Revista Claudia</span><span class="mbadge">Gama</span><span class="mbadge">O Povo</span>
         </div>
@@ -884,65 +888,65 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 
     <div class="t-marquee" aria-hidden="true">
       <div class="t-marquee-track">
-        <div class="t-mchip"><div class="t-mchip-avatar">J</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "resolveu o que quatro tentativas não resolveram" <strong>— Juliana P.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">M</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "análise de foto certeira, sem pressão" <strong>— Marcelo A.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">S</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "uso toda vez que a casa pesa" <strong>— Simone T.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">G</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "parei de guardar coisas por culpa" <strong>— Gustavo L.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">F</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "recomendo de olhos fechados" <strong>— Fernanda R.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">B</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "vai além da teoria, te acompanha de verdade" <strong>— Bruno C.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">C</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "pausei e voltei sem culpa nenhuma" <strong>— Camila N.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">R</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "ideal pra quem mora sozinho" <strong>— Rafael S.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">J</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "resolveu o que quatro tentativas não resolveram," <strong>Juliana P.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">M</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "análise de foto certeira, sem pressão," <strong>Marcelo A.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">S</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "uso toda vez que a casa pesa," <strong>Simone T.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">G</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "parei de guardar coisas por culpa," <strong>Gustavo L.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">F</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "recomendo de olhos fechados," <strong>Fernanda R.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">B</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "vai além da teoria, te acompanha de verdade," <strong>Bruno C.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">C</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "pausei e voltei sem culpa nenhuma," <strong>Camila N.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">R</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "ideal pra quem mora sozinho," <strong>Rafael S.</strong></div></div>
         <!-- duplicado para loop contínuo -->
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">J</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "resolveu o que quatro tentativas não resolveram" <strong>— Juliana P.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">M</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "análise de foto certeira, sem pressão" <strong>— Marcelo A.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">S</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "uso toda vez que a casa pesa" <strong>— Simone T.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">G</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "parei de guardar coisas por culpa" <strong>— Gustavo L.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">F</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "recomendo de olhos fechados" <strong>— Fernanda R.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">B</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "vai além da teoria, te acompanha de verdade" <strong>— Bruno C.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">C</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "pausei e voltei sem culpa nenhuma" <strong>— Camila N.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">R</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "ideal pra quem mora sozinho" <strong>— Rafael S.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">J</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "resolveu o que quatro tentativas não resolveram," <strong>Juliana P.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">M</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "análise de foto certeira, sem pressão," <strong>Marcelo A.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">S</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "uso toda vez que a casa pesa," <strong>Simone T.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">G</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "parei de guardar coisas por culpa," <strong>Gustavo L.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">F</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "recomendo de olhos fechados," <strong>Fernanda R.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">B</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "vai além da teoria, te acompanha de verdade," <strong>Bruno C.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">C</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "pausei e voltei sem culpa nenhuma," <strong>Camila N.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">R</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "ideal pra quem mora sozinho," <strong>Rafael S.</strong></div></div>
       </div>
     </div>
 
     <div class="t-grid">
       <div class="t-card featured">
         <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
-        <p class="t-text">Tentei organizar minha casa umas quatro vezes esse ano. Sempre travava na hora de decidir o que fica. O Minimalize.IA foi diferente — ele me pergunta, eu respondo, ele orienta. Sem pressão, sem choque. Em dois fins de semana, meu quarto estava outro. Nunca tinha conseguido isso sozinha.</p>
+        <p class="t-text">Tentei organizar minha casa umas quatro vezes esse ano. Sempre travava na hora de decidir o que fica. O Minimalize.IA foi diferente: ele me pergunta, eu respondo, ele orienta. Sem pressão, sem choque. Em dois fins de semana, meu quarto estava outro. Nunca tinha conseguido isso sozinha.</p>
         <div class="t-author"><div class="t-avatar">R</div><div class="t-author-info"><span class="t-author-name">Renata M.</span><span class="t-author-city">São Paulo, SP</span></div><span class="t-badge-dep">Acesso Vitalício</span></div>
       </div>
       <div class="t-card">
         <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
-        <p class="t-text">Funcionou melhor do que eu esperava. Enviei foto do closet, ele analisou e me deu um plano claro. Doei 40% do que tinha.</p>
+        <p class="t-text">Já tinha comprado curso de organização que não usei nem uma vez. Aqui, mandei foto do meu closet sem muita expectativa e recebi um plano claro pro que via ali, não genérico. Doei 40% do que tinha guardado há anos sem usar.</p>
         <div class="t-author"><div class="t-avatar">C</div><div class="t-author-info"><span class="t-author-name">Carolina V.</span><span class="t-author-city">Curitiba, PR</span></div><span class="t-badge-dep">Acesso Vitalício</span></div>
       </div>
       <div class="t-card">
         <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
-        <p class="t-text">Uso toda vez que sinto que a casa "pesou". É como ter um guia de plantão — disponível quando eu quero, no meu ritmo.</p>
+        <p class="t-text">Minha casa sempre voltava a acumular depois de duas semanas organizada. Agora, toda vez que sinto que "pesou" de novo, abro uma conversa com o agente e ele me orienta na hora. Parei de deixar acumular até virar bagunça grande.</p>
         <div class="t-author"><div class="t-avatar">M</div><div class="t-author-info"><span class="t-author-name">Mariana F.</span><span class="t-author-city">Porto Alegre, RS</span></div><span class="t-badge-dep">Acesso Vitalício</span></div>
       </div>
       <div class="t-card">
         <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
-        <p class="t-text">As perguntas do agente me fizeram perceber que eu guardava coisas por culpa, não por necessidade. Libertador.</p>
+        <p class="t-text">Eu guardava coisas achando que precisava, mas era mais culpa do que necessidade. As perguntas do agente me fizeram perceber isso, e hoje decido guardar ou doar em minutos, não em semanas de indecisão.</p>
         <div class="t-author"><div class="t-avatar">P</div><div class="t-author-info"><span class="t-author-name">Patrícia L.</span><span class="t-author-city">Florianópolis, SC</span></div><span class="t-badge-dep">Acesso Vitalício</span></div>
       </div>
       <div class="t-card">
         <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
-        <p class="t-text">Comprei sem muito expectativa e me surpreendi. A análise de foto é real e certeira. Recomendo muito.</p>
+        <p class="t-text">Comprei achando que ia ser mais um app que eu ia abrir uma vez e esquecer, como os outros que já tentei. Segui as conversas por três semanas seguidas e minha cozinha, que era o cômodo que eu mais evitava, ficou irreconhecível.</p>
         <div class="t-author"><div class="t-avatar">A</div><div class="t-author-info"><span class="t-author-name">Amanda K.</span><span class="t-author-city">Goiânia, GO</span></div><span class="t-badge-dep">Acesso Vitalício</span></div>
       </div>
       <div class="t-card">
         <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
-        <p class="t-text">Já tinha lido o Seja Minimalista. O Minimalize.IA é o próximo passo — te acompanha na prática, não só na teoria.</p>
+        <p class="t-text">Já tinha lido o Seja Minimalista, mas ficava só na intenção. O Minimalize.IA me colocou pra agir: conversei com o agente sobre meu guarda-roupa e, na mesma semana, já tinha doado três sacolas de roupa que não usava.</p>
         <div class="t-author"><div class="t-avatar">T</div><div class="t-author-info"><span class="t-author-name">Thiago M.</span><span class="t-author-city">Belo Horizonte, MG</span></div><span class="t-badge-dep">Acesso Vitalício</span></div>
       </div>
       <div class="t-card">
         <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
-        <p class="t-text">O melhor é poder pausar e voltar sem culpa. Fiz por partes, ao longo de um mês. A casa mudou de verdade.</p>
+        <p class="t-text">Não conseguia terminar nada de uma vez, sempre travava no meio. Aqui pude pausar e voltar sem culpa, fazendo por partes ao longo de um mês. No fim, cada cômodo que toquei realmente mudou.</p>
         <div class="t-author"><div class="t-avatar">L</div><div class="t-author-info"><span class="t-author-name">Larissa K.</span><span class="t-author-city">Recife, PE</span></div><span class="t-badge-dep">Acesso Vitalício</span></div>
       </div>
       <div class="t-card">
         <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
-        <p class="t-text">Indicaria para qualquer pessoa que mora sozinha e não sabe por onde começar. Simples, prático e sem julgamento.</p>
+        <p class="t-text">Morava sozinha e não sabia nem por onde começar, ficava paralisada só de olhar a bagunça. O agente foi me guiando cômodo por cômodo, e hoje sei exatamente o próximo passo sempre que a casa volta a pesar.</p>
         <div class="t-author"><div class="t-avatar">E</div><div class="t-author-info"><span class="t-author-name">Eduardo R.</span><span class="t-author-city">Salvador, BA</span></div><span class="t-badge-dep">Acesso Vitalício</span></div>
       </div>
     </div>
@@ -961,21 +965,21 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <!-- Imagem paisagem em largura total antes do conteúdo -->
     <div style="margin-bottom:32px;border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.10);">
       <img src="https://static.wixstatic.com/media/940f31_d31ccc5e4f584f09abd851f306bec2f7~mv2.jpg"
-        alt="Conteúdo inclusos no Minimalize.IA — bônus e curso"
+        alt="Conteúdo inclusos no Minimalize.IA, bônus e curso"
         style="width:100%;height:auto;display:block;max-height:420px;object-fit:cover;"
         loading="lazy" decoding="async">
     </div>
-    <p style="font-size:14px;color:var(--ink-soft);margin-bottom:20px;">Cada item abaixo já tem valor próprio se vendido separadamente. Somados, chegam a R$ 227 — mas comprando hoje você leva tudo isso por R$ 77, no acesso vitalício.</p>
+    <p style="font-size:14px;color:var(--ink-soft);margin-bottom:20px;">Cada item abaixo já tem valor próprio se vendido separadamente. Somados, chegam a R$ 227, mas comprando hoje você leva tudo isso por R$ 77, no acesso vitalício.</p>
     <!-- Conteúdo em 2 colunas abaixo da imagem -->
     <div class="grid2" style="align-items:start;">
       <div>
         <div class="bonus-valor-box">
-          <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 227 em conteúdo — disponível com desconto agora</strong></div>
+          <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 227 em conteúdo, disponível com desconto agora</strong></div>
           <div class="bonus-valor-right"><span class="was">R$ 227,00</span><span class="gratis">R$ 77 🎁</span></div>
         </div>
         <div class="bonus-list">
-          <div class="bonus-item"><div class="bonus-num">1</div><div><div class="bonus-title">Agente Minimalize.IA — acesso vitalício</div><div class="bonus-val">O agente de IA completo com todos os módulos de destralhe</div></div></div>
-          <div class="bonus-item"><div class="bonus-num">2</div><div><div class="bonus-title">Curso completo — instalar e usar do zero</div><div class="bonus-val">Videoaulas simples e práticas para começar imediatamente</div></div></div>
+          <div class="bonus-item"><div class="bonus-num">1</div><div><div class="bonus-title">Agente Minimalize.IA: acesso vitalício</div><div class="bonus-val">O agente de IA completo com todos os módulos de destralhe</div></div></div>
+          <div class="bonus-item"><div class="bonus-num">2</div><div><div class="bonus-title">Curso completo: instalar e usar do zero</div><div class="bonus-val">Videoaulas simples e práticas para começar imediatamente</div></div></div>
         </div>
       </div>
       <div>
@@ -994,7 +998,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   <div class="ancora-inner">
     <div class="ancora-calc">R$ 0,21 <em style="font-size:14px;font-style:normal;font-family:-apple-system,sans-serif;color:var(--ink-muted)">por dia</em><span>no primeiro ano de uso</span></div>
     <div class="ancora-sep">·</div>
-    <div class="ancora-compare">Menos que um café. <strong>Por menos de R$ 0,21 por dia</strong> você tem um guia de IA vitalício que te acompanha em qualquer destralhe — no seu ritmo, quantas vezes quiser.</div>
+    <div class="ancora-compare">Menos que um café. <strong>Por menos de R$ 0,21 por dia</strong> você tem um guia de IA vitalício que te acompanha em qualquer destralhe, no seu ritmo, quantas vezes quiser.</div>
   </div>
 </div>
 
@@ -1003,7 +1007,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   <div class="inner">
     <div class="urg-label">Oferta com R$ 150 de desconto</div>
     <h3 class="urg-h3">Esta condição é exclusiva e pode encerrar a qualquer momento.</h3>
-    <p class="urg-p">O acesso vitalício ao Minimalize.IA normalmente custa R$ 227. Com o desconto desta página, você garante por R$ 77 — com todos os bônus inclusos.</p>
+    <p class="urg-p">O acesso vitalício ao Minimalize.IA normalmente custa R$ 227. Com o desconto desta página, você garante por R$ 77, com todos os bônus inclusos.</p>
     <div class="urg-timer">
       <div class="urg-unit"><span class="urg-digit" id="urg-h">00</span><span class="urg-dlabel">horas</span></div>
       <span class="urg-sep">:</span>
@@ -1028,14 +1032,14 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <!-- IMAGEM -->
       <div style="overflow:hidden;background:var(--cream);position:relative;">
         <img src="https://static.wixstatic.com/media/940f31_72a8a2628b3c4b55a6ac43905e3c9853~mv2.png/v1/crop/x_379,y_0,w_1162,h_1080/fill/w_454,h_460,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/Black%20and%20Beige%20Minimal%20Professional%20Beauty%20Logo%20(1920%20x%201080%20px)%20(12).png"
-          alt="Minimalize.IA — acesso vitalício"
+          alt="Minimalize.IA, acesso vitalício"
           width="454" height="460"
           style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;"
           loading="lazy" decoding="async">
       </div>
       <!-- CONTEÚDO -->
       <div class="pc-body" style="display:flex;flex-direction:column;justify-content:center;">
-        <div class="pc-type">Minimalize.IA — Acesso Vitalício</div>
+        <div class="pc-type">Minimalize.IA: Acesso Vitalício</div>
         <div class="pc-was">De R$ 227,00</div>
         <div class="pc-parc-destaque">12x de R$ 7,96</div>
         <div class="pc-now">ou R$ 77 à vista</div>
@@ -1065,7 +1069,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       </div>
       <div>
         <h3 class="gar-h3">Se por qualquer motivo você não gostar, <strong style="color:var(--gold);">devolvo tudo.</strong></h3>
-        <p class="gar-p">Garantia incondicional de 7 dias. É só me avisar — sem formulário complicado, sem pergunta, sem demora. Você recebe 100% do valor de volta. <strong>Simples assim, porque eu confio no que criei.</strong></p>
+        <p class="gar-p">Garantia incondicional de 7 dias. É só me avisar, sem formulário complicado, sem pergunta, sem demora. Você recebe 100% do valor de volta. <strong>Simples assim, porque eu confio no que criei.</strong></p>
       </div>
     </div>
   </div>
@@ -1077,17 +1081,18 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="sec-eyebrow">Tire suas dúvidas</div>
     <h2 class="sec-h2">Perguntas sobre o Minimalize.IA</h2>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Preciso ter o ChatGPT pago?<div class="faq-icon">+</div></button><div class="faq-a">Não. O Minimalize.IA funciona com a conta gratuita do ChatGPT — sem necessidade de assinatura Plus. O curso incluso ensina como instalar e usar tudo do zero.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Posso analisar fotos dos meus ambientes?<div class="faq-icon">+</div></button><div class="faq-a">Sim. Você pode enviar fotos dos cômodos e o agente analisa o espaço, identifica excessos e orienta o destralhe com base no que vê — sem julgamentos, sem críticas.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Funciona para qualquer tamanho de casa?<div class="faq-icon">+</div></button><div class="faq-a">Sim. O método se adapta à sua realidade — de um quarto a uma casa grande, sozinha ou com família. O agente entende o seu contexto antes de propor qualquer ação.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">O acesso realmente não expira?<div class="faq-icon">+</div></button><div class="faq-a">Não expira. O acesso ao Minimalize.IA é vitalício — você pode usá-lo hoje, daqui a seis meses, ou começar um novo destralhe quando a vida pesar novamente.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Posso pausar e retomar o destralhe depois?<div class="faq-icon">+</div></button><div class="faq-a">Sim. Não há nenhuma obrigação de sequência ou prazo. Você continua de onde parou sempre que quiser — sem culpa, sem recomeço forçado.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Preciso ter o ChatGPT pago?<div class="faq-icon">+</div></button><div class="faq-a">Não. O Minimalize.IA funciona com a conta gratuita do ChatGPT, sem necessidade de assinatura Plus. O curso incluso ensina como instalar e usar tudo do zero.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Posso analisar fotos dos meus ambientes?<div class="faq-icon">+</div></button><div class="faq-a">Sim. Você pode enviar fotos dos cômodos e o agente analisa o espaço, identifica excessos e orienta o destralhe com base no que vê, sem julgamentos, sem críticas.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Funciona para qualquer tamanho de casa?<div class="faq-icon">+</div></button><div class="faq-a">Sim. O método se adapta à sua realidade, de um quarto a uma casa grande, sozinha ou com família. O agente entende o seu contexto antes de propor qualquer ação.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">O acesso realmente não expira?<div class="faq-icon">+</div></button><div class="faq-a">Não expira. O acesso ao Minimalize.IA é vitalício, você pode usá-lo hoje, daqui a seis meses, ou começar um novo destralhe quando a vida pesar novamente.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Posso pausar e retomar o destralhe depois?<div class="faq-icon">+</div></button><div class="faq-a">Sim. Não há nenhuma obrigação de sequência ou prazo. Você continua de onde parou sempre que quiser, sem culpa, sem recomeço forçado.</div></div>
       <div class="faq-item"><button class="faq-q" onclick="faq(this)">Quando recebo o acesso?<div class="faq-icon">+</div></button><div class="faq-a">Imediatamente após a compra por cartão ou Pix. O link de acesso e as instruções chegam no seu e-mail em segundos.</div></div>
       <div class="faq-item"><button class="faq-q" onclick="faq(this)">Posso parcelar a compra?<div class="faq-icon">+</div></button><div class="faq-a">Sim. O pagamento por cartão de crédito pode ser parcelado em até 12x. O acesso ao Minimalize.IA chega imediatamente após a confirmação do pagamento.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Funciona para quem mora com outras pessoas?<div class="faq-icon">+</div></button><div class="faq-a">Sim. Existe um modo específico de destralhe para quem mora com outras pessoas — respeitando os espaços compartilhados e as dinâmicas de casa.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Funciona para quem mora com outras pessoas?<div class="faq-icon">+</div></button><div class="faq-a">Sim. Existe um modo específico de destralhe para quem mora com outras pessoas, respeitando os espaços compartilhados e as dinâmicas de casa.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">É seguro comprar pelo link de pagamento?<div class="faq-icon">+</div></button><div class="faq-a">Sim. O pagamento é processado pela Eduzz, uma das maiores plataformas de pagamento digital do Brasil, com criptografia de dados e nota fiscal emitida automaticamente.</div></div>
     </div>
     <div style="margin-top:40px;text-align:center;">
-      <p style="font-family:Georgia,serif;font-size:18px;color:var(--ink-soft);margin-bottom:20px;font-style:italic;">Mais um ano com a casa pesando — ou a primeira conversa que muda tudo?</p>
+      <p style="font-family:Georgia,serif;font-size:18px;color:var(--ink-soft);margin-bottom:20px;font-style:italic;">Mais um ano com a casa pesando, ou a primeira conversa que muda tudo?</p>
       <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero começar minha primeira conversa hoje</a>
     </div>
   </div>
@@ -1108,7 +1113,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       </div>
       <div class="footer-links">
         <h3>Links úteis</h3>
-        <a href="https://sejaminimalista.com.br/" target="_blank">Seja Minimalista — Best Seller</a>
+        <a href="https://sejaminimalista.com.br/" target="_blank">Seja Minimalista: Best Seller</a>
         <a href="https://sejaminimalista.com.br/365-dias" target="_blank">365 Dias Minimalistas</a>
         <a href="https://sejaminimalista.com.br/combos" target="_blank">Combos com desconto</a>
         <a href="https://www.sejaminimalista.net/vip/entrar" target="_blank">Área VIP</a>
