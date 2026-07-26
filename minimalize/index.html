@@ -20,6 +20,7 @@
 <meta property="og:image" content="https://static.wixstatic.com/media/940f31_72a8a2628b3c4b55a6ac43905e3c9853~mv2.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Minimalize.IA — agente de inteligência artificial para destralhar sua casa">
 <meta property="og:type" content="product">
 <meta property="og:url" content="https://sejaminimalista.com.br/minimalize">
 <meta property="og:locale" content="pt_BR">
@@ -28,6 +29,9 @@
 <meta name="twitter:title" content="Minimalize: Destralhe e organize sua casa com IA">
 <meta name="twitter:description" content="Envie uma foto do seu cômodo. O Minimalize.IA analisa, identifica os excessos e te guia no destralhe, sem julgamento, no seu ritmo. Acesso vitalício.">
 <meta name="twitter:image" content="https://static.wixstatic.com/media/940f31_72a8a2628b3c4b55a6ac43905e3c9853~mv2.png">
+<meta name="twitter:image:alt" content="Minimalize.IA — agente de inteligência artificial para destralhar sua casa">
+<meta name="twitter:site" content="@seja.minimalista">
+<meta name="twitter:creator" content="@seja.minimalista">
 <link rel="canonical" href="https://sejaminimalista.com.br/minimalize">
 
 <script type="application/ld+json">
@@ -89,7 +93,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 
 :root{
   --gold:#C9A96E;--gold-dark:#B8925A;--gold-light:#DCC7A0;
-  --ink:#1C1C1A;--ink-mid:#3D3D3B;--ink-soft:#5F5E5A;--ink-muted:#888780;
+  --ink:#1C1C1A;--ink-mid:#3D3D3B;--ink-soft:#5F5E5A;--ink-muted:#6B6A63;
   --cream:#F5F0E8;--cream-dark:#E8E2D8;
   --bg-page:#EFEFEF;--bg-alt:#E8E8E6;--bg-warm:#F5F0E8;--border:#D3D1C7;
   --h1:clamp(28px,4vw,46px);--h2:clamp(26px,3.2vw,38px);--h3:clamp(20px,2.4vw,28px);
@@ -1341,13 +1345,18 @@ document.addEventListener('DOMContentLoaded',function(){
   setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged30s', pixelData());},30000);
   setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged60s', pixelData());},60000);
   var fired50=false,fired75=false,fired90=false;
-  window.addEventListener('scroll',function(){
+  var scrollTicking=false;
+  function onScrollTrack(){
     var h=document.documentElement;
     var pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
     if(pct>=50&&!fired50){fired50=true;if(window.fbq)fbq('trackCustom','Scroll50', pixelData());}
     if(pct>=75&&!fired75){fired75=true;if(window.fbq)fbq('trackCustom','Scroll75', pixelData());}
     if(pct>=90&&!fired90){fired90=true;if(window.fbq)fbq('trackCustom','Scroll90', pixelData());}
-  });
+    scrollTicking=false;
+  }
+  window.addEventListener('scroll',function(){
+    if(!scrollTicking){ requestAnimationFrame(onScrollTrack); scrollTicking=true; }
+  },{passive:true});
 });
 </script>
 </body>
