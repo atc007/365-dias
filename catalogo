@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url=https://sejaminimalista.com.br/produtos">
+    <link rel="canonical" href="https://sejaminimalista.com.br/produtos">
+    <title>Redirecionando...</title>
+    <script>
+        window.location.replace("https://sejaminimalista.com.br/produtos");
+    </script>
+</head>
+<body>
+    <p>Redirecionando para <a href="https://sejaminimalista.com.br/produtos">sejaminimalista.com.br/produtos</a>...</p>
+</body>
+</html>
