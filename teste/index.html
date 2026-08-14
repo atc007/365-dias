@@ -3,897 +3,602 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Combos com Desconto — Seja Minimalista | Alexandre Chahoud</title>
+<meta name="description" content="Combos especiais com descontos progressivos em todos os produtos do Seja Minimalista. Livros físicos, digitais e planners com até 40% off.">
+<meta property="og:title" content="Combos com Desconto — Seja Minimalista">
+<meta property="og:description" content="Combos especiais com descontos progressivos em todos os produtos do Seja Minimalista. Até 40% off.">
+<meta property="og:image" content="https://static.wixstatic.com/media/940f31_9838f95851d04fae89e45d43a6fe0e09~mv2.jpg">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://sejaminimalista.com.br/combos">
 
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- SEO e Segurança -->
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1C1C1A">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:url" content="https://sejaminimalista.com.br/combos">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Seja Minimalista">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Combos com Desconto — Seja Minimalista">
+<meta name="twitter:description" content="Combos especiais com descontos progressivos em todos os produtos do Seja Minimalista. Até 40% off.">
+<meta name="twitter:image" content="https://static.wixstatic.com/media/940f31_9838f95851d04fae89e45d43a6fe0e09~mv2.jpg">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JM7NSX9TDT"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-JM7NSX9TDT');
+</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src='https://connect.facebook.net/en_US/fbevents.js';s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script');
+fbq('init','239605191106043');
+fbq('track','PageView');
+fbq('track','ViewContent',{
+  content_ids:  ['combos-seja-minimalista'],
+  content_type: 'product',
+  content_name: 'Combos Seja Minimalista',
+  currency:     'BRL',
+  value:        184.00
+});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></noscript>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;background:#EFEFEF;}
 
 /* LOADER */
-#page-loader{
-  position:fixed;
-  inset:0;
-  background:#1C1C1A;
-  z-index:99999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap:14px;
-  transition:opacity .35s ease, visibility .35s ease;
-}
+#loader{position:fixed;inset:0;background:#1C1C1A;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .5s ease;}
+#loader-logo{font-family:Georgia,serif;font-size:20px;color:#F5F0E8;letter-spacing:.06em;}
+#loader-logo span{color:#C9A96E;}
+#loader-track{width:160px;height:2px;background:#2E2E2C;border-radius:2px;overflow:hidden;}
+#loader-bar{height:100%;width:0;background:#C9A96E;animation:lp 1.4s cubic-bezier(.4,0,.2,1) forwards;}
+@keyframes lp{0%{width:0}60%{width:70%}100%{width:100%}}
+#loader-txt{font-size:10px;color:#888780;letter-spacing:.1em;text-transform:uppercase;}
 
-#page-loader.hide{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-}
+/* INNER — largura padrão do site */
+.inner{max-width:1600px;margin:0 auto;width:100%;padding:0 48px;}
 
-.loader-mark{
-  width:42px;
-  height:42px;
-  border:3px solid rgba(201,169,110,.25);
-  border-top-color:#C9A96E;
-  border-radius:50%;
-  animation:spin .8s linear infinite;
-}
+/* TOPBAR */
+.topbar{width:100%;background:#1C1C1A;padding:10px 32px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
+.tb-item{font-size:12px;color:#E8E2D8;display:flex;align-items:center;gap:6px;}
+.tb-dot{width:5px;height:5px;border-radius:50%;background:#C9A96E;flex-shrink:0;}
 
-.loader-text{
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:#C9A96E;
-}
+/* HERO */
+.hero{background:linear-gradient(135deg,#1C1C1A 0%,#2A2A28 100%);padding:40px 0;}
+.hero h1{font-family:Georgia,serif;font-size:clamp(24px,2.8vw,36px);font-weight:400;color:#F5F0E8;margin-bottom:10px;letter-spacing:-.01em;}
+.hero p{font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:24px;max-width:560px;}
 
-@keyframes spin{
-  to{transform:rotate(360deg);}
-}
+/* SEÇÕES */
+.sec{width:100%;padding:28px 0;}
+.sec.dark{background:#1C1C1A;}
+.sec.warm{background:#F5F0E8;}
+.sec.mid{background:#2E2E2C;}
 
-.vip-header{background:#1C1C1A;padding:32px 40px 0;}
-.vip-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C9A96E;margin-bottom:8px;}
-.vip-h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(24px,2.8vw,32px);font-weight:400;color:#F5F0E8;margin-bottom:8px;line-height:1.25;}
-.vip-sub{font-size:13px;color:#888780;line-height:1.6;margin-bottom:24px;}
+/* TÍTULO DESTAQUE */
+.sec-title{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+.sec-title-bar{width:4px;min-height:28px;border-radius:2px;background:#C9A96E;flex-shrink:0;align-self:stretch;}
+.sec-title-text{font-family:Georgia,serif;font-size:clamp(17px,2vw,22px);font-weight:400;line-height:1.25;color:#1C1C1A;}
+.sec.dark .sec-title-text,.sec.mid .sec-title-text{color:#F5F0E8;}
 
-.tab-nav{display:flex;border-bottom:2px solid #2E2E2C;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
-.tab-nav::-webkit-scrollbar{display:none;}
-.tab-btn{font-size:12px;font-weight:600;padding:10px 18px;color:#888780;cursor:pointer;white-space:nowrap;border:none;background:none;font-family:inherit;border-bottom:2px solid transparent;margin-bottom:-2px;}
-.tab-btn.active{color:#F5F0E8;border-bottom-color:#C9A96E;}
-.tab-badge{display:inline-block;background:#2E2E2C;color:#888780;font-size:9px;font-weight:600;padding:1px 5px;border-radius:20px;margin-left:4px;}
-.tab-btn.active .tab-badge{background:#C9A96E;color:#1C1C1A;}
+/* MAIS VENDIDO */
+.mv-wrap{margin-bottom:18px;}
+.mv-card{display:flex;background:#1C1C1A;border:1.5px solid #C9A96E;border-radius:10px;overflow:hidden;text-decoration:none;max-width:540px;transition:opacity .2s;}
+.mv-card:hover{opacity:.9;}
+.mv-img{width:150px;flex-shrink:0;}
+.mv-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.mv-body{padding:16px 18px;display:flex;flex-direction:column;justify-content:center;gap:6px;}
+.mv-badge{display:inline-block;width:fit-content;background:#C9A96E;color:#1C1C1A;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;}
+.mv-name{font-size:13px;font-weight:600;color:#F5F0E8;line-height:1.4;}
+.mv-was{font-size:11px;color:#888780;text-decoration:line-through;}
+.mv-now{font-size:26px;font-weight:700;background:linear-gradient(90deg,#9A7A30 0%,#9A7A30 35%,#C9A96E 50%,#9A7A30 65%,#9A7A30 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:price-shine 6s linear infinite;line-height:1;}
+.mv-now sup{font-size:13px;font-weight:400;vertical-align:super;}
+.mv-btn{display:inline-block;width:fit-content;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:#1C1C1A;font-size:11px;font-weight:700;padding:10px 18px;border-radius:6px;text-decoration:none;animation:shimmer 6s linear infinite,btn-pulse 4s ease-in-out infinite;}
 
-@media(max-width:720px){
-  .tab-nav{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:8px;
-    border-bottom:none;
-    padding:16px 16px 4px;
-    overflow:visible;
-  }
-  .tab-btn{
-    border:1.5px solid #3D3D3B;
-    border-radius:8px;
-    padding:10px 12px;
-    text-align:center;
-    font-size:11px;
-    margin-bottom:0;
-    white-space:normal;
-    line-height:1.3;
-    color:#A8A5A0;
-    background:#2E2E2C;
-  }
-  .tab-btn.active{
-    border-color:#C9A96E;
-    background:#C9A96E;
-    color:#1C1C1A;
-  }
-  .tab-btn.active .tab-badge{
-    background:#1C1C1A;
-    color:#C9A96E;
-  }
-  .tab-badge{
-    background:#3D3D3B;
-    color:#888780;
-    margin-left:4px;
-  }
-}
-
-.sec{width:100%;padding:28px 40px;}
-.sec.light{background:#EFEFEF;}
-.sec.alt{background:#E8E8E6;}
-.sec-eyebrow{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C9A96E;margin-bottom:8px;}
-.sec-h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(18px,2vw,22px);font-weight:400;color:#1C1C1A;margin-bottom:20px;line-height:1.35;}
-
-.grid-featured{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;}
+/* FEATURED 3 cols */
+.grid-featured{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
 .feat-card{background:#2E2E2C;border-radius:10px;overflow:hidden;border:0.5px solid #3D3D3B;text-decoration:none;display:block;transition:opacity .2s;}
-.feat-card:hover{opacity:.88;}
-.feat-card.gold{border-color:#C9A96E;}
-.feat-thumb{width:100%;aspect-ratio:4/3;overflow:hidden;background:#3D3D3B;display:flex;align-items:center;justify-content:center;font-size:32px;position:relative;}
-.feat-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.feat-card:hover{opacity:.9;}
+.feat-card.best{border-color:#C9A96E;}
+.feat-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
 .feat-body{padding:14px 16px;}
-.feat-tag{display:inline-block;background:#C9A96E;color:#1C1C1A;font-size:8px;font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:7px;letter-spacing:0.06em;text-transform:uppercase;}
-.feat-tag.b{background:#2E2E2C;color:#C9A96E;border:0.5px solid #C9A96E;}
-.feat-title{font-size:12px;font-weight:600;color:#F5F0E8;line-height:1.4;margin-bottom:4px;}
-.feat-desc{font-size:11px;color:#888780;line-height:1.45;}
+.feat-badge{display:inline-block;background:linear-gradient(90deg,#8B6010,#C9A96E,#FFF0B0,#C9A96E,#8B6010);background-size:200% auto;color:#1C1C1A;font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:10px;animation:shimmer 5s linear infinite;}
+.feat-name{font-size:12px;color:#E8E2D8;line-height:1.5;margin-bottom:10px;}
+.feat-was{font-size:11px;color:#888780;text-decoration:line-through;margin-bottom:2px;}
+.feat-now{font-size:26px;font-weight:700;background:linear-gradient(90deg,#9A7A30 0%,#9A7A30 35%,#C9A96E 50%,#9A7A30 65%,#9A7A30 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:price-shine 6s linear infinite;line-height:1;margin-bottom:12px;}
+.feat-now sup{font-size:13px;font-weight:400;vertical-align:super;}
+.feat-btn{display:block;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:#1C1C1A;text-align:center;font-size:12px;font-weight:700;padding:12px;border-radius:6px;text-decoration:none;animation:shimmer 6s linear infinite,btn-pulse 4s ease-in-out infinite;}
 
-.youtube-drawing{
-  width:100%;
-  height:100%;
-  background:linear-gradient(135deg,#241F1E,#3A332F);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
+/* GRID 4 cols */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.reg-card{background:#fff;border:.5px solid #C0BAB0;border-radius:22px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.08);transition:transform .35s cubic-bezier(.25,.8,.25,1),box-shadow .35s ease,border-color .35s ease;}
+.reg-card:hover{border-color:#C9A96E;transform:scale(1.045);box-shadow:0 20px 42px rgba(0,0,0,.16);z-index:2;position:relative;}
+.reg-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.25,.8,.25,1);}
+.reg-card:hover img{transform:scale(1.06);}
+.reg-body{padding:11px 13px;}
+.b15{display:inline-block;background:#EAF3DE;color:#3B6D11;font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:7px;}
+.b20{display:inline-block;background:#FAEEDA;color:#854F0B;font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:7px;}
+.reg-name{font-size:12px;font-weight:600;color:#1C1C1A;line-height:1.3;margin-bottom:3px;}
+.reg-sub{font-size:10px;color:#888780;line-height:1.4;margin-bottom:7px;}
+.reg-was{font-size:10px;color:#888780;text-decoration:line-through;margin-bottom:1px;}
+.reg-now{font-size:20px;font-weight:700;background:linear-gradient(90deg,#9A7A30 0%,#9A7A30 35%,#C9A96E 50%,#9A7A30 65%,#9A7A30 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:price-shine 6s linear infinite;line-height:1;margin-bottom:10px;}
+.reg-now sup{font-size:10px;font-weight:400;vertical-align:super;}
+.reg-btn{display:block;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:#1C1C1A;text-align:center;font-size:10px;font-weight:700;padding:9px;border-radius:6px;text-decoration:none;animation:shimmer 6s linear infinite;}
+
+/* GRID 5 cols */
+.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+.ind-card{background:#fff;border:.5px solid #C0BAB0;border-radius:18px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.07);transition:transform .35s cubic-bezier(.25,.8,.25,1),box-shadow .35s ease,border-color .35s ease;}
+.ind-card:hover{border-color:#C9A96E;transform:scale(1.05);box-shadow:0 16px 34px rgba(0,0,0,.14);z-index:2;position:relative;}
+.ind-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.25,.8,.25,1);}
+.ind-card:hover img{transform:scale(1.07);}
+.ind-body{padding:9px 10px;}
+.ind-name{font-size:11px;font-weight:600;color:#1C1C1A;line-height:1.3;margin-bottom:2px;}
+.ind-sub{font-size:9px;color:#888780;line-height:1.3;margin-bottom:5px;}
+.ind-coupon{font-size:9px;color:#888780;margin-bottom:7px;}
+.ind-coupon strong{color:#854F0B;}
+.ind-btn{display:block;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:#1C1C1A;text-align:center;font-size:9px;font-weight:700;padding:7px;border-radius:5px;text-decoration:none;animation:shimmer 6s linear infinite;}
+
+/* WHATSAPP */
+.wa{width:100%;background:#25D366;padding:16px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.wa-copy{color:#fff;font-size:13px;line-height:1.5;}
+.wa-copy strong{display:block;font-size:15px;margin-bottom:2px;}
+.wa-btn{display:inline-block;background:#fff;color:#128C7E;font-size:12px;font-weight:700;padding:10px 20px;border-radius:25px;white-space:nowrap;flex-shrink:0;text-decoration:none;}
+
+/* ══ MICROANIMAÇÕES ══ */
+
+/* 1. Bolinhas da topbar — pulso sequencial */
+@keyframes dotPulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.8);opacity:.5;}}
+.tb-dot{animation:dotPulse 4s ease-in-out infinite;}
+.tb-item:nth-child(2) .tb-dot{animation-delay:.5s;}
+.tb-item:nth-child(3) .tb-dot{animation-delay:1s;}
+
+/* 2. Barra dourada das seções — cresce de cima para baixo */
+.sec-title-bar{transform:scaleY(0);transform-origin:top;transition:transform .55s cubic-bezier(.4,0,.2,1);}
+.sec-title-bar.bar-on{transform:scaleY(1);}
+
+/* 3. Texto do título — fade + slide da esquerda */
+.sec-title-text{opacity:0;transform:translateX(-14px);transition:opacity .5s ease .15s, transform .5s ease .15s;}
+.sec-title-text.txt-on{opacity:1;transform:translateX(0);}
+
+/* 4. Badge "Mais vendido" — shimmer dourado */
+@keyframes shimmer{0%{background-position:-300px 0;}100%{background-position:300px 0;}}
+@keyframes price-shine{0%{background-position:150% center;}100%{background-position:-150% center;}}
+@keyframes btn-pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(201,169,110,0);}50%{transform:scale(1.02);box-shadow:0 0 0 6px rgba(201,169,110,.18);}}
+.mv-badge{
+  background:linear-gradient(90deg,#C9A96E 20%,#F5D99A 50%,#C9A96E 80%);
+  background-size:400px 100%;
+  animation:shimmer 6s linear infinite;
+  color:#1C1C1A;
 }
 
-.youtube-logo-box{
-  width:82px;
-  height:56px;
-  background:#C9A96E;
-  border-radius:16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 10px 22px rgba(0,0,0,.22);
-}
+/* 5. Botão WhatsApp — flutua levemente */
+@keyframes waFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+.wa-btn{animation:waFloat 4s ease-in-out infinite;}
 
-.youtube-logo-box::after{
-  content:'';
-  border-style:solid;
-  border-width:11px 0 11px 20px;
-  border-color:transparent transparent transparent #1C1C1A;
-  margin-left:4px;
-}
+/* 6. Cards — aparecem ao entrar na tela */
+.card-reveal{opacity:0;transform:translateY(18px);transition:opacity .45s ease, transform .45s ease;}
+.card-reveal.r-on{opacity:1;transform:translateY(0);}
 
-.youtube-label{
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:#C9A96E;
-}
-
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-.ic{background:#fff;border:0.5px solid #D3D3D3;border-radius:9px;overflow:hidden;text-decoration:none;display:block;transition:border-color .2s;}
-.ic:hover{border-color:#C9A96E;}
-.ic-thumb{width:100%;aspect-ratio:4/3;background:#E8E8E6;display:flex;align-items:center;justify-content:center;font-size:28px;overflow:hidden;}
-.ic-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
-.ic-body{padding:11px 13px 13px;}
-.t-pdf{display:inline-block;background:#E8E8E6;color:#5F5E5A;border:0.5px solid #D3D3D3;font-size:8px;font-weight:700;padding:2px 7px;border-radius:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
-.t-bon{display:inline-block;background:#F5F0E8;color:#8B6B3D;border:0.5px solid #C9A96E;font-size:8px;font-weight:700;padding:2px 7px;border-radius:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
-.t-vid{display:inline-block;background:#1C1C1A;color:#C9A96E;font-size:8px;font-weight:700;padding:2px 7px;border-radius:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
-.t-exc{display:inline-block;background:#C9A96E;color:#1C1C1A;font-size:8px;font-weight:700;padding:2px 7px;border-radius:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
-.t-blog{display:inline-block;background:#1C1C1A;color:#F5F0E8;font-size:8px;font-weight:700;padding:2px 7px;border-radius:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
-.ic-title{font-size:11px;font-weight:600;color:#1C1C1A;line-height:1.4;margin-bottom:3px;}
-.ic-desc{font-size:10px;color:#888780;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
-.ic-meta{font-size:9px;color:#B0AFA9;margin-top:6px;}
-.ic-btn{display:block;margin-top:10px;background:#1C1C1A;color:#F5F0E8;text-align:center;font-size:10px;font-weight:600;padding:8px;border-radius:5px;}
-.ic-btn.g{background:#C9A96E;color:#1C1C1A;}
-
-.grid-v{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-.yt-wrap{background:#1C1C1A;border-radius:9px;overflow:hidden;border:0.5px solid #2E2E2C;text-decoration:none;display:block;transition:opacity .2s;}
-.yt-wrap:hover{opacity:.88;}
-.yt-lite{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#000;}
-.yt-wrap:hover .youtube-drawing{filter:brightness(1.08);}
-.yt-body{padding:10px 13px 13px;}
-.vc-label{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#C9A96E;margin-bottom:4px;}
-.vc-title{font-size:11px;font-weight:500;color:#E8E2D8;line-height:1.4;}
-
-.notice{background:#F5F0E8;border:0.5px solid #C9A96E;border-radius:8px;padding:14px 16px;font-size:12px;color:#5F5E5A;line-height:1.6;margin-bottom:20px;}
-.notice strong{color:#1C1C1A;}
-
-.blog-more{display:block;text-align:center;margin-top:18px;background:#1C1C1A;color:#F5F0E8;font-size:11px;font-weight:600;padding:12px;border-radius:6px;text-decoration:none;letter-spacing:.03em;}
-.blog-more:hover{opacity:.88;}
-
-.blog-skel{background:#fff;border:0.5px solid #D3D3D3;border-radius:9px;overflow:hidden;}
-.blog-skel .sk-thumb{width:100%;aspect-ratio:4/3;background:linear-gradient(90deg,#E8E8E6 25%,#F2F2F0 37%,#E8E8E6 63%);background-size:400% 100%;animation:sk 1.4s ease infinite;}
-.blog-skel .sk-body{padding:11px 13px 13px;}
-.blog-skel .sk-line{height:9px;border-radius:4px;background:linear-gradient(90deg,#E8E8E6 25%,#F2F2F0 37%,#E8E8E6 63%);background-size:400% 100%;animation:sk 1.4s ease infinite;margin-bottom:7px;}
-.blog-skel .sk-line.w60{width:60%;}
-.blog-skel .sk-line.w90{width:90%;}
-.blog-skel .sk-line.w40{width:40%;}
-@keyframes sk{0%{background-position:100% 0;}100%{background-position:-100% 0;}}
-
-.blog-status{font-size:10px;color:#A8A5A0;text-align:center;margin-top:10px;}
+/* 7. Loader — pulso do logo */
+@keyframes logoPulse{0%,100%{opacity:.7;}50%{opacity:1;}}
+#loader-logo{animation:logoPulse 1.4s ease-in-out infinite;}
 
 @media(max-width:720px){
-  html,body{width:320px;}
-  .vip-header{padding:24px 0 0;}
-  .vip-eyebrow,.vip-h1,.vip-sub{padding-left:16px;padding-right:16px;}
-  .sec{padding:20px 16px;}
-  .grid-featured,.grid-3,.grid-v{grid-template-columns:1fr 1fr;}
+  html,body{width:100%;overflow-x:hidden;}
+  .inner{padding:0 16px;}
+
+  /* topbar mobile — só frete + descontos na mesma linha */
+  .topbar{padding:8px 16px;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;gap:8px;}
+  .tb-item:nth-child(2){display:none;}
+  .tb-item:nth-child(4){display:none;}
+  .tb-item{font-size:11px;}
+
+  .hero{padding:28px 0;}
+  .hero h1{font-size:clamp(22px,6vw,30px);}
+  .hero p{font-size:13px;}
+  .sec{padding:22px 0;}
+  .grid-featured{grid-template-columns:1fr 1fr;gap:10px;}
+  .grid-4{grid-template-columns:1fr 1fr;gap:8px;}
+  .grid-5{grid-template-columns:1fr 1fr;gap:8px;}
+  .feat-body{padding:10px 12px;}
+  .feat-name{font-size:10px;}
+  .feat-now{font-size:20px;}
+  .feat-btn{font-size:10px;padding:9px;}
+  .reg-name{font-size:10px;}
+  .reg-now{font-size:16px;}
+  .ind-name{font-size:10px;}
+  .mv-card{max-width:100%;flex-direction:column;}
+  .mv-img{width:100%;height:180px;}
+  .mv-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .mv-body{padding:14px 16px;}
+  .wa{padding:14px 0;flex-direction:column;align-items:flex-start;gap:10px;}
+  .wa-btn{width:100%;text-align:center;}
+  .sec-title-text{font-size:clamp(14px,4vw,18px);}
+
+  /* rodapé — empilha colunas em coluna única */
+  #footer-grid{
+    grid-template-columns:1fr!important;
+    gap:28px!important;
+  }
+  footer .inner>div[style*="justify-content:space-between"]{
+    flex-direction:column!important;
+    gap:6px!important;
+  }
 }
 </style>
-</head>
 
+<!-- Advanced Attribution — UTM Passthrough -->
+<script>
+(function(){
+  const KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid'];
+  const url=new URL(window.location.href);
+
+  KEYS.forEach(function(k){
+    const v=url.searchParams.get(k);
+    if(v){ localStorage.setItem('trk_'+k,v); }
+  });
+
+  function buildParams(){
+    const p=new URLSearchParams();
+    KEYS.forEach(function(k){
+      const v=localStorage.getItem('trk_'+k);
+      if(v) p.set(k,v);
+    });
+    return p.toString();
+  }
+
+  function applyUtms(){
+    document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
+      try{
+        const u=new URL(link.href);
+        const extra=buildParams();
+        if(extra){
+          const p=new URLSearchParams(u.search);
+          new URLSearchParams(extra).forEach(function(v,k){ p.set(k,v); });
+          u.search=p.toString();
+          link.href=u.toString();
+        }
+      }catch(e){}
+    });
+  }
+
+  applyUtms();
+  document.addEventListener('DOMContentLoaded', applyUtms);
+})();
+</script>
+
+</head>
 <body>
 
-<div id="page-loader">
-  <div class="loader-mark"></div>
-  <div class="loader-text">Carregando área VIP</div>
+<div id="loader">
+  <div id="loader-logo">seja<span>minimalista</span></div>
+  <div id="loader-track"><div id="loader-bar"></div></div>
+  <div id="loader-txt">carregando combos</div>
 </div>
 
-<div class="vip-header">
-  <div class="vip-eyebrow">Área exclusiva para membros</div>
-  <h1 class="vip-h1">Bem-vindo à Área VIP 🌟</h1>
-  <p class="vip-sub">Aqui estão todos os bônus e conteúdos exclusivos inclusos na sua compra.</p>
-
-  <div class="tab-nav">
-    <button class="tab-btn active" onclick="show('destaques',this)">Destaques <span class="tab-badge">6</span></button>
-    <button class="tab-btn" onclick="show('checklists',this)">Checklists <span class="tab-badge">6</span></button>
-    <button class="tab-btn" onclick="show('ferramentas',this)">Ferramentas <span class="tab-badge">6</span></button>
-    <button class="tab-btn" onclick="show('recursos',this)">Recursos Extras <span class="tab-badge">10</span></button>
-    <button class="tab-btn" onclick="show('promocoes',this)">Promoções <span class="tab-badge">2</span></button>
-    <button class="tab-btn" onclick="show('videos',this)">Vídeos <span class="tab-badge">17</span></button>
-    <button class="tab-btn" onclick="show('blog',this)">Blog <span class="tab-badge">6</span></button>
-  </div>
+<div class="topbar">
+  <div class="tb-item"><div class="tb-dot"></div>Frete grátis para todo o Brasil</div>
+  <div class="tb-item"><div class="tb-dot"></div>Cartão · Boleto · Pix</div>
+  <div class="tb-item"><div class="tb-dot"></div>Descontos progressivos até 40%</div>
+  <div class="tb-item" style="background:rgba(201,169,110,.15);padding:2px 10px;border-radius:20px;"><span style="color:#C9A96E;font-weight:700;">+20</span>&nbsp;combos disponíveis</div>
 </div>
 
-<div id="s-destaques" class="sec light">
-  <div class="sec-eyebrow">Bônus exclusivos para membros</div>
-  <h2 class="sec-h2">Os melhores conteúdos da sua coleção</h2>
+<div class="hero"><div class="inner">
+  <h1>Leve mais, pague menos.</h1>
+  <p>Combos exclusivos com até 40% de desconto — montados para cada momento da sua jornada minimalista.</p>
+  <a href="#combos-completos" style="display:inline-block;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:#1C1C1A;font-size:14px;font-weight:700;padding:16px 32px;border-radius:6px;text-decoration:none;animation:shimmer 6s linear infinite,btn-pulse 4s ease-in-out infinite;" onclick="document.querySelector('.sec.dark').scrollIntoView({behavior:'smooth'});return false;">Ver combos com desconto ↓</a>
+</div></div>
 
+<!-- COMBOS COMPLETOS -->
+<section class="sec dark">
+  <div class="inner">
+  <div class="sec-title"><div class="sec-title-bar"></div><div class="sec-title-text">Combos completos · Maiores descontos — até 40% off</div></div>
   <div class="grid-featured">
-
-    <a class="feat-card gold" href="https://youtu.be/oGCqrui51tQ?si=1rFNb0BBU7aJC0cc" target="_blank" rel="noopener">
-      <div class="feat-thumb">
-        <div class="youtube-drawing">
-          <div class="youtube-logo-box"></div>
-          <div class="youtube-label">YouTube</div>
-        </div>
-      </div>
-      <div class="feat-body">
-        <div class="feat-tag">Vídeo aula</div>
-        <div class="feat-title">Método dos 10 envelopes — finanças minimalistas</div>
-        <div class="feat-desc">Clique para assistir no YouTube.</div>
-      </div>
+    <a class="feat-card" href="https://chk.eduzz.com/G961Q3E5W1?pf=1&cupom=CLSM30OFF" target="_blank" rel="noopener">
+      <img src="https://static.wixstatic.com/media/940f31_c5e4ea9a098d45cf82eacf95da0e1f31~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(10).jpg" alt="Combo Seja Minimalista" loading="eager">
+      <div class="feat-body"><div class="feat-badge">30% off</div><div class="feat-name">6 produtos digitais — Seja Minimalista, Armário Enxuto, 365 Dias, Viajante, Planner Viagens e 45 Dias</div><div class="feat-was">De R$ 452,00</div><div class="feat-now"><sup>R$</sup>316</div><div class="feat-btn">Eu quero com 30% off</div></div>
     </a>
-
-    <a class="feat-card" href="https://940f31a2-5a1a-45b1-9537-368ed2f7dc46.usrfiles.com/ugd/940f31_0a3b09f46e974d9fb38e34652aeb69da.pdf" target="_blank" rel="noopener">
-      <div class="feat-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_8623c93490dd4552a9abecfd9bfe65c9~mv2.png/v1/crop/x_0,y_0,w_520,h_631/fill/w_268,h_282,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/50dicas2.png" alt="50 dicas para implementar o minimalismo em sua vida" loading="lazy">
-      </div>
-      <div class="feat-body">
-        <div class="feat-tag b">Bônus</div>
-        <div class="feat-title">50 dicas para implementar o minimalismo em sua vida</div>
-        <div class="feat-desc">Ebook exclusivo de Alexandre Chahoud.</div>
-      </div>
+    <a class="feat-card best" href="https://chk.eduzz.com/69KA3JRV0O?pf=1&cupom=CLSM40OFF" target="_blank" rel="noopener">
+      <img src="https://static.wixstatic.com/media/940f31_7f1f1ba8dfb14a4fb23625b0c69e16b6~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(15).jpg" alt="Combo Seja Minimalista" loading="eager">
+      <div class="feat-body"><div class="feat-badge">40% off</div><div class="feat-name">5 digitais + 5 físicos — Seja Minimalista, Viajante, Armário, 365 Dias e 45 Dias de Destralhe</div><div class="feat-was">De R$ 685,00</div><div class="feat-now"><sup>R$</sup>411</div><div class="feat-btn">Eu quero com 40% off</div></div>
     </a>
-
-    <a class="feat-card" href="https://www.sejaminimalista.net/_files/ugd/940f31_324cffc47eb847a39f76ae7e90b465a3.pdf" target="_blank" rel="noopener">
-      <div class="feat-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_a337912f06b5432c8c4d4c32d611b5b3~mv2.png/v1/fill/w_268,h_282,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/Generated%20Image%20October%2006%2C%202025%20-%2010_16AM.png" alt="Planner 2026 básico" loading="lazy">
-      </div>
-      <div class="feat-body">
-        <div class="feat-tag b">Bônus</div>
-        <div class="feat-title">Planner 2026 básico</div>
-        <div class="feat-desc">Planner gratuito para organizar o ano com leveza.</div>
-      </div>
+    <a class="feat-card" href="https://chk.eduzz.com/69KAY2G70O?pf=1&cupom=CLSM40OFF" target="_blank" rel="noopener">
+      <img src="https://static.wixstatic.com/media/940f31_1290e8e809ae42afafeb299d23c77204~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(6).jpg" alt="Combo Seja Minimalista" loading="eager">
+      <div class="feat-body"><div class="feat-badge">40% off</div><div class="feat-name">9 físicos — Seja Minimalista, Viajante, Armário, 365 Dias, Planner, Planner Viagens, Agenda, 45 Dias e Devocional</div><div class="feat-was">De R$ 1.103,00</div><div class="feat-now"><sup>R$</sup>661</div><div class="feat-btn">Eu quero com 40% off</div></div>
     </a>
-
-    <a class="feat-card" href="https://www.sejaminimalista.net/_files/ugd/940f31_b4039ab135e6469dba8cac94e416955b.pdf" target="_blank" rel="noopener">
-      <div class="feat-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_7dc8e3408620466aa86f92b16b178a8f~mv2.png/v1/fill/w_268,h_282,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/planner2.png" alt="Meu Planner Pessoal" loading="lazy">
-      </div>
-      <div class="feat-body">
-        <div class="feat-tag b">Bônus</div>
-        <div class="feat-title">Meu Planner Pessoal — não datado, em PDF</div>
-        <div class="feat-desc">Imprimível permanente para organização diária.</div>
-      </div>
-    </a>
-
-    <a class="feat-card" href="https://www.sejaminimalista.net/_files/ugd/940f31_a388e1c7d1ba4f8cb2fa0330a8caf6bc.pdf" target="_blank" rel="noopener">
-      <div class="feat-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_a0ab18c140494b17a261633e5e66d3e4~mv2.jpg/v1/crop/x_45,y_107,w_866,h_1050/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/pvia.jpg" alt="Planejamento de viagens super completo em PDF" loading="lazy">
-      </div>
-      <div class="feat-body">
-        <div class="feat-tag b">Bônus</div>
-        <div class="feat-title">Planejamento de viagens super completo em PDF</div>
-        <div class="feat-desc">Tudo para planejar sua viagem dos sonhos.</div>
-      </div>
-    </a>
-
-    <a class="feat-card" href="https://www.sejaminimalista.net/_files/ugd/940f31_d7af5c86e5d74d44b3a144b2ff793875.pdf" target="_blank" rel="noopener">
-      <div class="feat-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_7d93c541a22d48a9b08ce9992a509b4e~mv2.jpg/v1/crop/x_104,y_135,w_757,h_918/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/7passos.jpg" alt="7 passos para emitir seu passaporte" loading="lazy">
-      </div>
-      <div class="feat-body">
-        <div class="feat-tag b">Bônus</div>
-        <div class="feat-title">7 passos para emitir seu passaporte</div>
-        <div class="feat-desc">Guia completo passo a passo.</div>
-      </div>
-    </a>
-
   </div>
-</div>
+</section>
 
-<div id="s-checklists" class="sec alt" style="display:none;">
-  <div class="sec-eyebrow">Prontos para baixar e imprimir</div>
-  <h2 class="sec-h2">Checklists</h2>
+<div class="wa"><div class="inner" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;"><div class="wa-copy"><strong>Não encontrou o combo certo?</strong>Monte o seu combo personalizado com desconto pelo WhatsApp.</div><a class="wa-btn" href="https://wa.me/5516991065984?text=Ol%C3%A1%2C%20quero%20um%20combo%20personalizado!" target="_blank" rel="noopener">💬 Falar no WhatsApp</a></div></div>
 
-  <div class="grid-3">
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_b32f08d57bb847aca25829e5909937f3.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_185a72daea4142d4b0bb6e40cb51be2c~mv2.jpg/v1/crop/x_9,y_11,w_1316,h_1602/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/checlist%20limpeza.jpg" alt="Checklist para faxina geral de sua casa" loading="lazy">
-      </div>
-      <div class="ic-body">
-        <div class="t-pdf">PDF</div>
-        <div class="ic-title">Checklist para faxina geral de sua casa</div>
-        <div class="ic-desc">Lista completa por cômodo — casa em geral e quartos.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
+<!-- COMBOS FÍSICOS -->
+<section class="sec warm">
+  <div class="inner">
+  <div class="sec-title"><div class="sec-title-bar"></div><div class="sec-title-text">Combos físicos · frete grátis</div></div>
+  <div class="mv-wrap">
+    <a class="mv-card" href="https://chk.eduzz.com/G92EJ68XWE?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">
+      <div class="mv-img"><img src="https://static.wixstatic.com/media/940f31_8c61892b98874ec4b08ff6c77add5594~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(7).jpg" alt="Combo Seja Minimalista" loading="eager"></div>
+      <div class="mv-body"><div class="mv-badge">🏆 Mais vendido · 15% off</div><div class="mv-name">Dupla física — Seja Minimalista e 365 Dias Minimalistas</div><div class="mv-was">De R$ 214,00</div><div class="mv-now"><sup>R$</sup>181</div><div class="mv-btn">Quero com 15% off</div></div>
     </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_64983a6fa9344f268810b6298448b542.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_0e546b3f165f46478f2c32f503cb7c6f~mv2.jpg/v1/crop/x_200,y_1,w_571,h_694/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/natal.jpg" alt="Checklist de Natal pronto para impressão em A4" loading="lazy">
-      </div>
-      <div class="ic-body">
-        <div class="t-pdf">PDF</div>
-        <div class="ic-title">Checklist de Natal: pronto para impressão em A4</div>
-        <div class="ic-desc">Planejamento completo para as festas de fim de ano.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_025d36279a5e45a0974a50a81074f8ca.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_d20b7ef267f540748d71cda923905fd7~mv2.jpg/v1/crop/x_200,y_1,w_571,h_694/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/enxoval.jpg" alt="Checklist montagem do enxoval de bebê minimalista" loading="lazy">
-      </div>
-      <div class="ic-body">
-        <div class="t-pdf">PDF</div>
-        <div class="ic-title">Checklist: montagem do enxoval de bebê minimalista</div>
-        <div class="ic-desc">O essencial para o enxoval sem excessos.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_b4806e4060524b549be60c25bb068719.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_532a83453bbc405ba5104c87a74df777~mv2.jpg/v1/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/gratidao.jpg" alt="Folha da gratidão pronta para impressão" loading="lazy">
-      </div>
-      <div class="ic-body">
-        <div class="t-pdf">PDF</div>
-        <div class="ic-title">Folha da gratidão — pronto para impressão</div>
-        <div class="ic-desc">Registre diariamente o que você tem a agradecer.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_91bf8d20a4ee46079f6fc60e4170c463.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_2d513ea3d39e46b286bcefc0b7ea7195~mv2.jpg/v1/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/mood.jpg" alt="Moodboard quadro dos sonhos pronto para impressão" loading="lazy">
-      </div>
-      <div class="ic-body">
-        <div class="t-pdf">PDF</div>
-        <div class="ic-title">Moodboard (quadro dos sonhos) — pronto para impressão</div>
-        <div class="ic-desc">Visualize e manifeste seus objetivos.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://drive.google.com/drive/folders/196IvJFIpidnEikgphhromXzBKKywMtgE?usp=sharing" target="_blank" rel="noopener">
-      <div class="ic-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_866b86a48b6544789d5c7ce3d345f7c4~mv2.jpg/v1/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/wall.jpg" alt="Pack com wallpapers minimalistas" loading="lazy">
-      </div>
-      <div class="ic-body">
-        <div class="t-bon">Bônus</div>
-        <div class="ic-title">Pack com wallpapers minimalistas</div>
-        <div class="ic-desc">Papéis de parede exclusivos no estilo Seja Minimalista.</div>
-        <div class="ic-btn g">Acessar no Drive</div>
-      </div>
-    </a>
-
   </div>
-</div>
-
-<div id="s-ferramentas" class="sec light" style="display:none;">
-  <div class="sec-eyebrow">Métodos e técnicas exclusivas</div>
-  <h2 class="sec-h2">Ferramentas de produtividade e foco</h2>
-
-  <div class="grid-3">
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_600ad5fec111411a847b58a3573da489.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_31a40ee11cbf4cd7ad9406916eaaef6f~mv2.jpg/v1/crop/x_120,y_18,w_714,h_1110/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/exer.jpg" alt="Ferramenta Travel+ para viagem dos seus sonhos" loading="lazy">
-      </div>
-      <div class="ic-body">
-        <div class="t-bon">Bônus</div>
-        <div class="ic-title">Ferramenta Travel+ para viagem dos seus sonhos</div>
-        <div class="ic-desc">Método para desengavetar a viagem dos seus sonhos em 5 passos.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_51037c301bbf4f3a9696e6ed86a1b56c.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_27df305e2d204f8f94bd3e3ba84be297~mv2.jpg/v1/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/viagem.jpg" alt="Checklist de viagem em PDF pronto para impressão" loading="lazy">
-      </div>
-      <div class="ic-body">
-        <div class="t-pdf">PDF</div>
-        <div class="ic-title">Checklist de viagem: em PDF pronto para impressão</div>
-        <div class="ic-desc">Preparativos, mala de mão, documentos e necessários.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_023dc3e2dd7b409f83cf7946f5b9c21e.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_2cf9b808d66d411487fbae7ad80c0c96~mv2.jpg/v1/crop/x_61,y_0,w_1099,h_1333/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Inserir%20um%20t%C3%ADtulo.jpg" alt="Técnica Pomodoro de foco e produtividade" loading="lazy">
-      </div>
-      <div class="ic-body">
-        <div class="t-pdf">PDF</div>
-        <div class="ic-title">Técnica Pomodoro de foco e produtividade</div>
-        <div class="ic-desc">Concentre-se 25 min, pause 5 min — multiplique seu foco.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_381525466eaa462a8c21253403625e34.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_0408e09433964653a1a451aceb1ff67d~mv2.jpg/v1/crop/x_61,y_0,w_530,h_545/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/matiz2.jpg" alt="Matriz de Eisenhower quadro de prioridades" loading="lazy">
-      </div>
-      <div class="ic-body">
-        <div class="t-pdf">PDF</div>
-        <div class="ic-title">Matriz de Eisenhower — quadro de prioridades</div>
-        <div class="ic-desc">Classifique tarefas por urgência e importância.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_a591c996e0004c07afcaafe99995b9d5.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_28a8c4c9758742bbb6b0d67379b1dd0e~mv2.jpg/v1/crop/x_56,y_0,w_436,h_459/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/smart.jpg" alt="Definindo suas metas com o método SMART" loading="lazy">
-      </div>
-      <div class="ic-body">
-        <div class="t-pdf">PDF</div>
-        <div class="ic-title">Definindo suas metas com o método S.M.A.R.T</div>
-        <div class="ic-desc">Metas específicas, mensuráveis, alcançáveis, realistas e temporais.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_1263ac7fddb04aa5b9f94c5c0f0719cf.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_e05aa93bc6bd4e2b993f6feeea393f7b~mv2.png/v1/crop/x_293,y_0,w_854,h_1036/fill/w_268,h_282,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/tt5.png" alt="Exercício descubra seu propósito de vida" loading="lazy">
-      </div>
-      <div class="ic-body">
-        <div class="t-pdf">PDF</div>
-        <div class="ic-title">Exercício: descubra seu propósito de vida</div>
-        <div class="ic-desc">Reflexão guiada para encontrar o que realmente importa para você.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
+  <div class="grid-4">
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_9c67b05b05fd4b92b9114e592240dfcd~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(1).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — Seja Minimalista e 45 Dias de Destralhe</div><div class="reg-was">De R$ 204,00</div><div class="reg-now"><sup>R$</sup>173</div><a class="reg-btn" href="https://chk.eduzz.com/E9OBP1KQ0B?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_935744f26c2747978208f736a83e6785~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(8).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — 365 Dias Minimalistas e 45 Dias de Destralhe</div><div class="reg-was">De R$ 204,00</div><div class="reg-now"><sup>R$</sup>173</div><a class="reg-btn" href="https://chk.eduzz.com/79775E1A9E?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_fc606e445c86468fbeb0e2de73bb82be~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(1).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — Seja Minimalista e Armário Enxuto</div><div class="reg-was">De R$ 214,00</div><div class="reg-now"><sup>R$</sup>181</div><a class="reg-btn" href="https://chk.eduzz.com/2138008?pf=1&cupom=BFSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_26163478229d4bb1aee3ca3376f6c765~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(2).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — Seja Minimalista e Viajante Minimalista</div><div class="reg-was">De R$ 214,00</div><div class="reg-now"><sup>R$</sup>181</div><a class="reg-btn" href="https://chk.eduzz.com/1693130?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_085dc694ed5c4743850fc36cefdc826c~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS.jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — Viajante Minimalista e Armário Enxuto</div><div class="reg-was">De R$ 214,00</div><div class="reg-now"><sup>R$</sup>181</div><a class="reg-btn" href="https://chk.eduzz.com/2182336?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_d8210f2c1761483995ce3d0505332a4d~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(3).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — Viajante Minimalista e Planner Viagens dos Sonhos</div><div class="reg-was">De R$ 244,00</div><div class="reg-now"><sup>R$</sup>207</div><a class="reg-btn" href="https://chk.eduzz.com/1793125?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_80176f36128f453d86a22a0f6cbdd545~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(1).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — Seja Minimalista e Planner Minimalista Permanente</div><div class="reg-was">De R$ 264,00</div><div class="reg-now"><sup>R$</sup>224</div><a class="reg-btn" href="https://chk.eduzz.com/2239927?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_14dbbf2f29bb4952b55c284b711aae4d~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(3).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — 365 Dias Minimalistas e Planner Minimalista Permanente</div><div class="reg-was">De R$ 264,00</div><div class="reg-now"><sup>R$</sup>224</div><a class="reg-btn" href="https://chk.eduzz.com/39ZQD8379E?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_a765dda1186b4416b0722f9f05c9f4e9~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(2).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla física — Planner Minimalista e Planner Viagens dos Sonhos</div><div class="reg-was">De R$ 294,00</div><div class="reg-now"><sup>R$</sup>249</div><a class="reg-btn" href="https://chk.eduzz.com/2169129?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_519aa02734c54128a54fc5e5433a2aad~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(1).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Trio físico — Seja Minimalista, 365 Dias Minimalistas e 45 Dias de Destralhe</div><div class="reg-was">De R$ 311,00</div><div class="reg-now"><sup>R$</sup>248</div><a class="reg-btn" href="https://chk.eduzz.com/D0RADZ329Y?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_3fbdd90a4e4040fb9a97aec4025bc352~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(5).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Trio físico — Seja Minimalista, Viajante Minimalista e Armário Enxuto</div><div class="reg-was">De R$ 321,00</div><div class="reg-now"><sup>R$</sup>256</div><a class="reg-btn" href="https://chk.eduzz.com/2137953?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_87d9f5cc82154293822043ff7b98de4e~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(1).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quarteto físico — Seja Minimalista, Viajante, Armário Enxuto e 45 Dias de Destralhe</div><div class="reg-was">De R$ 418,00</div><div class="reg-now"><sup>R$</sup>334</div><a class="reg-btn" href="https://chk.eduzz.com/G96V6N8Y01?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_2b229e9cdeea49b185d58adc0354010a~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(14).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quarteto físico — Seja Minimalista, Viajante, Armário Enxuto e 365 Dias Minimalistas</div><div class="reg-was">De R$ 428,00</div><div class="reg-now"><sup>R$</sup>342</div><a class="reg-btn" href="https://sun.eduzz.com/7WXQA6O29A?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_3d48c5963ac141b68218e43e1e6afa19~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(3).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quarteto físico — Seja Minimalista, Viajante, Planner Minimalista e Planner Viagens</div><div class="reg-was">De R$ 508,00</div><div class="reg-now"><sup>R$</sup>406</div><a class="reg-btn" href="https://chk.eduzz.com/2132057?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_e90c72ee3aac4f96ba106c3c3670e5d9~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(4).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quinteto físico — Seja Minimalista, Viajante, Armário Enxuto, 365 Dias e 45 Dias</div><div class="reg-was">De R$ 525,00</div><div class="reg-now"><sup>R$</sup>420</div><a class="reg-btn" href="https://chk.eduzz.com/E05XVVRGWX?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_1fe8a3cf8e4440258f996e68b1cfd082~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(4).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quinteto físico — Seja Minimalista, Viajante, Armário Enxuto, Planner Minimalista e Planner Viagens</div><div class="reg-was">De R$ 615,00</div><div class="reg-now"><sup>R$</sup>492</div><a class="reg-btn" href="https://chk.eduzz.com/2136606?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_711391cba948445d8e3f145359fb9849~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(5).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Sexteto físico — Seja Minimalista, Viajante, Armário Enxuto, Planner Minimalista, Planner Viagens e 45 Dias</div><div class="reg-was">De R$ 712,00</div><div class="reg-now"><sup>R$</sup>569</div><a class="reg-btn" href="https://chk.eduzz.com/60EB6XZB03?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
   </div>
-</div>
+</section>
 
-<div id="s-recursos" class="sec alt" style="display:none;">
-  <div class="sec-eyebrow">Ebooks, links externos e materiais selecionados</div>
-  <h2 class="sec-h2">Recursos extras selecionados</h2>
+<div class="wa"><div class="inner" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;"><div class="wa-copy"><strong>Não encontrou o combo certo?</strong>Monte o seu combo personalizado com desconto pelo WhatsApp.</div><a class="wa-btn" href="https://wa.me/5516991065984?text=Ol%C3%A1%2C%20quero%20um%20combo%20personalizado!" target="_blank" rel="noopener">💬 Falar no WhatsApp</a></div></div>
 
-  <div class="notice">
-    <strong>Sobre estes recursos:</strong> ebooks selecionados por Alexandre por serem referências sobre minimalismo, produtividade e simplicidade. Alguns em inglês.
+<!-- COMBOS DIGITAIS -->
+<section class="sec mid">
+  <div class="inner">
+  <div class="sec-title"><div class="sec-title-bar"></div><div class="sec-title-text">Combos digitais · entrega imediata</div></div>
+  <div class="mv-wrap">
+    <a class="mv-card" href="https://chk.eduzz.com/89AQP25EWD?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">
+      <div class="mv-img"><img src="https://static.wixstatic.com/media/940f31_4ca783c67a264b41aa67b0402c73584f~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(12).jpg" alt="Combo Seja Minimalista" loading="lazy"></div>
+      <div class="mv-body"><div class="mv-badge">🏆 Mais vendido · 15% off</div><div class="mv-name">Dupla digital — Seja Minimalista e 365 Dias Minimalistas</div><div class="mv-was">De R$ 154,00</div><div class="mv-now"><sup>R$</sup>130</div><div class="mv-btn">Quero com 15% off</div></div>
+    </a>
   </div>
-
-  <div class="grid-3">
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_c4d168ea66ea4a7c9a02653dad32b387.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">📋</div>
-      <div class="ic-body">
-        <div class="t-pdf">PDF</div>
-        <div class="ic-title">Organizador diário para facilitar suas tarefas</div>
-        <div class="ic-desc">Pronto para impressão em PDF.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_051dfd736610484b8f0f2c532a4cfc10.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">💬</div>
-      <div class="ic-body">
-        <div class="t-pdf">Ebook</div>
-        <div class="ic-title">Comunicação Não-Violenta</div>
-        <div class="ic-desc">Ebook de Marcelo L. Pelizzoli sobre relacionamentos.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_d6ee0b8cc1b34d54b15296a108ff3356.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">🔥</div>
-      <div class="ic-body">
-        <div class="t-pdf">Ebook</div>
-        <div class="ic-title">Guia Prático sobre a Síndrome de Burnout</div>
-        <div class="ic-desc">Reconheça e supere o burnout.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_ef86ba9b3d564493a105debcb9df8cd7.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">✝️</div>
-      <div class="ic-body">
-        <div class="t-pdf">Ebook</div>
-        <div class="ic-title">Menos é Mais: consumismo, minimalismo e a vida cristã</div>
-        <div class="ic-desc">TCC de Guilherme Wurster.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_11a6a405b12e48649f292dfdb0d508fb.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">👗</div>
-      <div class="ic-body">
-        <div class="t-pdf">Ebook EN</div>
-        <div class="ic-title">Project 333 — The Minimalist Fashion Challenge</div>
-        <div class="ic-desc">Guia em inglês de Courtney Carver sobre moda minimalista.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_d82bfdb99b8245aba08f77bb36b1a8cf.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">🦠</div>
-      <div class="ic-body">
-        <div class="t-pdf">Ebook</div>
-        <div class="ic-title">Consumismo e minimalismo no contexto da Pandemia</div>
-        <div class="ic-desc">Babila Sperotto Martins — PUC-Goiás.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_3ed343d38e8144d9b1403bb1cc4f9c2a.pdf" target="_blank" rel="noopener">
-      <div class="ic-thumb">🧠</div>
-      <div class="ic-body">
-        <div class="t-pdf">Ebook</div>
-        <div class="ic-title">A Cartilha da Saúde Mental</div>
-        <div class="ic-desc">Cartilha oficial do Inmetro.</div>
-        <div class="ic-btn">Baixar grátis</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://open.spotify.com/playlist/2hrnNbt5AtFOjn0kOutUgw?si=8f039dbed3af427a" target="_blank" rel="noopener">
-      <div class="ic-thumb">🎵</div>
-      <div class="ic-body">
-        <div class="t-exc">Playlist</div>
-        <div class="ic-title">Playlist Spotify minimalista</div>
-        <div class="ic-desc">Músicas selecionadas para foco, leveza e produtividade.</div>
-        <div class="ic-btn g">Abrir no Spotify</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.sejaminimalista.net/afiliados" target="_blank" rel="noopener">
-      <div class="ic-thumb">🤝</div>
-      <div class="ic-body">
-        <div class="t-exc">Oportunidade</div>
-        <div class="ic-title">Seja um afiliado</div>
-        <div class="ic-desc">Revenda meus livros e ganhe comissão como renda extra.</div>
-        <div class="ic-btn g">Saiba mais</div>
-      </div>
-    </a>
-
-    <a class="ic" href="https://www.youtube.com/watch?v=ChomHxBhCRY&t=1s&ab_channel=Querosaber" target="_blank" rel="noopener">
-      <div class="ic-thumb">📱</div>
-      <div class="ic-body">
-        <div class="t-vid">Tutorial</div>
-        <div class="ic-title">Como ler meus livros no Kindle</div>
-        <div class="ic-desc">Tutorial completo para transferir e ler no dispositivo Kindle.</div>
-        <div class="ic-btn g">Assistir</div>
-      </div>
-    </a>
-
+  <div class="grid-4">
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_83e802c46cf942948ed06ac6b2b228a3~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS.jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla digital — Seja Minimalista e 45 Dias de Destralhe</div><div class="reg-was">De R$ 124,00</div><div class="reg-now"><sup>R$</sup>105</div><a class="reg-btn" href="https://chk.eduzz.com/6W4V435A0Z?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_d339169755d64e7da458b96a01868826~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(11).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla digital — 365 Dias Minimalistas e 45 Dias de Destralhe</div><div class="reg-was">De R$ 124,00</div><div class="reg-now"><sup>R$</sup>105</div><a class="reg-btn" href="https://chk.eduzz.com/VWGZXAE407?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_8a6b19d9be2c42aa83ba5edb68750daa~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(8).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla digital — Seja Minimalista e Viajante Minimalista</div><div class="reg-was">De R$ 154,00</div><div class="reg-now"><sup>R$</sup>130</div><a class="reg-btn" href="https://chk.eduzz.com/44BC921F?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_efb237c540b84512995247e815b60c5a~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(9).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla digital — Seja Minimalista e Armário Enxuto</div><div class="reg-was">De R$ 154,00</div><div class="reg-now"><sup>R$</sup>130</div><a class="reg-btn" href="https://chk.eduzz.com/2182389?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_873b14966ae24fea924976beefaf04e4~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(1).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla digital — Viajante Minimalista e Armário Enxuto</div><div class="reg-was">De R$ 154,00</div><div class="reg-now"><sup>R$</sup>130</div><a class="reg-btn" href="https://chk.eduzz.com/2182398?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_7df1682952c6431988787ba0cf18e55f~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(17).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b15">15% off</div><div class="reg-name">Dupla digital — Viajante Minimalista e Planner Viagens dos Sonhos</div><div class="reg-was">De R$ 174,00</div><div class="reg-now"><sup>R$</sup>147</div><a class="reg-btn" href="https://chk.eduzz.com/1792906?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">Quero com 15% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_fd490869d09241d996fe4ec661e0182f~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(2).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Trio digital — Seja Minimalista, 365 Dias Minimalistas e 45 Dias de Destralhe</div><div class="reg-was">De R$ 201,00</div><div class="reg-now"><sup>R$</sup>160</div><a class="reg-btn" href="https://chk.eduzz.com/cqie7piq?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_2d555f110a1f43d882279c6b0a158126~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS.jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Trio digital — Seja Minimalista, Armário Enxuto e 45 Dias de Destralhe</div><div class="reg-was">De R$ 201,00</div><div class="reg-now"><sup>R$</sup>160</div><a class="reg-btn" href="https://sun.eduzz.com/Q9N5GQQ101" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_b1c39bbefd744cadb4e5c18f3b2dfe0d~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(10).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Trio digital — Seja Minimalista, Viajante Minimalista e Armário Enxuto</div><div class="reg-was">De R$ 231,00</div><div class="reg-now"><sup>R$</sup>184</div><a class="reg-btn" href="https://chk.eduzz.com/2182383?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_b2783a9f46404cef9a3b5e4c2b7c81f5~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS.jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quarteto digital — Seja Minimalista, Viajante, Armário Enxuto e 45 Dias de Destralhe</div><div class="reg-was">De R$ 278,00</div><div class="reg-now"><sup>R$</sup>222</div><a class="reg-btn" href="https://chk.eduzz.com/E05ZPGA49X?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_05ac7ad9ffb54aa78bfd2d80c58b9b1c~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(5).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quinteto digital — Seja Minimalista, Armário Enxuto, Viajante, 365 Dias e 45 Dias</div><div class="reg-was">De R$ 355,00</div><div class="reg-now"><sup>R$</sup>284</div><a class="reg-btn" href="https://chk.eduzz.com/60EE334803?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
+    <div class="reg-card"><img src="https://static.wixstatic.com/media/940f31_16c546c805f04a09b0ff39bec0aad8d0~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(4).jpg" alt="Combo Seja Minimalista" loading="lazy"><div class="reg-body"><div class="b20">20% off</div><div class="reg-name">Quinteto digital — Seja Minimalista, Armário Enxuto, Viajante, Planner Viagens e 45 Dias</div><div class="reg-was">De R$ 375,00</div><div class="reg-now"><sup>R$</sup>300</div><a class="reg-btn" href="https://chk.eduzz.com/G96V6NAE01?pf=1&cupom=CLSM20OFF" target="_blank" rel="noopener">Quero com 20% off</a></div></div>
   </div>
-</div>
+</section>
 
-<div id="s-promocoes" class="sec light" style="display:none;">
-  <div class="sec-eyebrow">Ofertas e oportunidades especiais</div>
-  <h2 class="sec-h2">Promoções exclusivas para membros</h2>
+<div class="wa"><div class="inner" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;"><div class="wa-copy"><strong>Não encontrou o combo certo?</strong>Monte o seu combo personalizado com desconto pelo WhatsApp.</div><a class="wa-btn" href="https://wa.me/5516991065984?text=Ol%C3%A1%2C%20quero%20um%20combo%20personalizado!" target="_blank" rel="noopener">💬 Falar no WhatsApp</a></div></div>
 
-  <div class="grid-featured">
-
-    <a class="feat-card gold" href="https://www.sejaminimalista.net/minimalize" target="_blank" rel="noopener">
-      <div class="feat-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_9ceb0776e1784a919708c059e73b4e5d~mv2.jpg/v1/crop/x_201,y_0,w_558,h_540/fill/w_400,h_300,al_c,q_90,enc_avif,quality_auto/minimalize.jpg" alt="Minimalize" loading="lazy">
-      </div>
-      <div class="feat-body">
-        <div class="feat-tag">⭐ Exclusivo membros</div>
-        <div class="feat-title">Método Minimalize.IA</div>
-        <div class="feat-desc">R$ 150 de desconto exclusivo para membros VIP.</div>
-      </div>
-    </a>
-
-    <a class="feat-card" href="https://reserva.ink/sejaminimalista" target="_blank" rel="noopener">
-      <div class="feat-thumb">
-        <img src="https://static.wixstatic.com/media/940f31_16c76c0bf5cf4a1ebee805af0d5cfab1~mv2.jpg/v1/crop/x_12,y_0,w_516,h_500/fill/w_400,h_308,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(2).jpg" alt="Camisetas Minimalistas USE SM" loading="lazy">
-      </div>
-      <div class="feat-body">
-        <div class="feat-tag b">Loja</div>
-        <div class="feat-title">Camisetas Minimalistas — USE SM</div>
-        <div class="feat-desc">Coleção em parceria com a Reserva.</div>
-      </div>
-    </a>
-
+<!-- INDIVIDUAIS -->
+<section class="sec warm">
+  <div class="inner">
+  <div class="sec-title"><div class="sec-title-bar"></div><div class="sec-title-text">Produtos individuais · Use o cupom GANHEI10</div></div>
+  <div class="grid-5">
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_970975f22ab44c00804028dd9e3f46ba~mv2.jpeg/v1/crop/x_43,y_195,w_821,h_798/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_54AM.jpeg" alt="Combo Seja Minimalista" loading="lazy"><div class="ind-body"><div class="ind-name">Seja Minimalista</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.com.br" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_4a3bcea6d0604339995c5adf76ad8ba6~mv2.jpeg/v1/crop/x_99,y_244,w_708,h_687/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20September%2001%2C%202025%20-%203_31PM.jpeg" alt="Combo Seja Minimalista" loading="lazy"><div class="ind-body"><div class="ind-name">365 Dias Minimalistas</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.com.br/365-dias" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_7c3c504c1a15465cbbbe613882c29ca2~mv2.jpeg/v1/crop/x_487,y_0,w_725,h_704/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_52AM%20(1).jpeg" alt="Combo Seja Minimalista" loading="lazy"><div class="ind-body"><div class="ind-name">45 Dias de Destralhe</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.com.br/45-dias" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_41d333b25e6a41d0aeef62be6fcc8e38~mv2.jpeg/v1/crop/x_63,y_197,w_785,h_762/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_58AM.jpeg" alt="Combo Seja Minimalista" loading="lazy"><div class="ind-body"><div class="ind-name">Viajante Minimalista</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.com.br/viajante-minimalista" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_15755753bb5648a1b9c935287442ca3a~mv2.jpeg/v1/crop/x_43,y_203,w_810,h_785/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2011_00AM.jpeg" alt="Combo Seja Minimalista" loading="lazy"><div class="ind-body"><div class="ind-name">Armário Enxuto</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.com.br/armario-enxuto" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_4c5644caab0841a79bc860a670edd306~mv2.jpeg/v1/crop/x_92,y_230,w_762,h_740/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_47AM.jpeg" alt="Combo Seja Minimalista" loading="lazy"><div class="ind-body"><div class="ind-name">Planner Minimalista</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.com.br/planner" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_e067c51ec583467ca372db1eed5128b0~mv2.jpeg/v1/crop/x_86,y_212,w_762,h_740/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_27AM.jpeg" alt="Combo Seja Minimalista" loading="lazy"><div class="ind-body"><div class="ind-name">Planner Minhas Viagens dos Sonhos</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://sejaminimalista.com.br/planner-viagens" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_8ca1af23142444ee9315e4a2a2222a08~mv2.jpeg/v1/crop/x_112,y_236,w_728,h_706/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_42AM.jpeg" alt="Combo Seja Minimalista" loading="lazy"><div class="ind-body"><div class="ind-name">Agenda Minimalista 2026</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://www.sejaminimalista.com.br/agenda2026" target="_blank" rel="noopener">Ver produto</a></div></div>
+    <div class="ind-card"><img src="https://static.wixstatic.com/media/940f31_359e87a3e419459f83c51b210bfa3d36~mv2.jpeg/v1/crop/x_90,y_218,w_764,h_742/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_31AM.jpeg" alt="Combo Seja Minimalista" loading="lazy"><div class="ind-body"><div class="ind-name">Devocional: Meu Tempo com Deus</div><div class="ind-coupon">Cupom: <strong>GANHEI10</strong></div><a class="ind-btn" href="https://sejaminimalista.com.br/devocional" target="_blank" rel="noopener">Ver produto</a></div></div>
   </div>
-</div>
-
-<div id="s-videos" class="sec light" style="display:none;">
-  <div class="sec-eyebrow">Respondendo aos inscritos</div>
-  <h2 class="sec-h2">17 vídeos curtos sobre minimalismo</h2>
-
-  <div class="grid-v">
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=eXe62oZRBAU" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">O que eu achei do documentário Minimalismo já!</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=cPmABWoqLuI" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Como economizar se minha família não ajuda?</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=1aednAMKHt0" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Posso colecionar e ser minimalista?</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=KoAoSXyX3Ag" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Minimalismo e roupas: posso usar cores?</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=KJ8UbfqBjgM" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">O que fazer para meu parceiro ser minimalista?</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=oee9stLmWEY" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Técnica da caixa para desapego de itens</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=Up4rtLzt4xs" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Como desapegar sem sofrer: Técnica 2 por 1</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=n9byMcLwDdk" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Você deve se desapegar de lembranças?</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=WNQc8PjsCew" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Minimalismo com pets é possível?</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=cQ9DsRIuYms" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Como o marketing influencia suas compras</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=rzUTp6lCS5M" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Por que ser minimalista?</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=2e8t65hlr9Q" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Existe minimalismo na alimentação?</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=6Iam_39gHtA" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">E o minimalismo mental?</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=tIFnevgEGCw" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Como desapegar de roupas velhas</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=x9fa1Gpu3DQ" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">O destralhe é necessário?</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=Wktg3tZwV5o" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Gaveta de roupas velhas</div></div>
-    </a>
-
-    <a class="yt-wrap" href="https://www.youtube.com/watch?v=rcOatT7lcxg" target="_blank" rel="noopener">
-      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
-      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Onde doar e onde vender</div></div>
-    </a>
-
   </div>
-</div>
+</section>
 
-<div id="s-blog" class="sec alt" style="display:none;">
-  <div class="sec-eyebrow">Direto do blog</div>
-  <h2 class="sec-h2">Últimos textos publicados</h2>
+<!-- WHATSAPP FLUTUANTE -->
+<a href="https://wa.me/5516991065984?text=Oi%2C%20quero%20montar%20um%20combo%20personalizado!"
+  target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp"
+  style="position:fixed;right:22px;bottom:22px;width:62px;height:62px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(0,0,0,.25);z-index:9999;text-decoration:none;transition:.25s ease;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="currentColor">
+    <path d="M19.11 17.23c-.29-.15-1.69-.83-1.95-.92-.26-.1-.45-.15-.64.15-.19.29-.74.92-.9 1.11-.17.19-.33.22-.62.07-.29-.15-1.21-.45-2.3-1.43-.85-.76-1.42-1.7-1.58-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.54-.88-2.11-.23-.55-.47-.47-.64-.48h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.99 2.43 0 1.43 1.04 2.81 1.18 3 .15.19 2.04 3.12 5.03 4.25.71.31 1.27.49 1.71.63.72.23 1.38.2 1.9.12.58-.09 1.69-.69 1.93-1.35.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z"/>
+    <path d="M16.01 3C8.83 3 3 8.82 3 16c0 2.52.74 4.97 2.14 7.07L3 29l6.11-2.01A12.92 12.92 0 0 0 16.01 29C23.18 29 29 23.18 29 16S23.18 3 16.01 3zm0 23.67c-2.09 0-4.13-.56-5.91-1.63l-.42-.25-3.63 1.19 1.22-3.54-.27-.43A10.58 10.58 0 0 1 5.34 16c0-5.89 4.79-10.68 10.67-10.68 2.85 0 5.53 1.11 7.55 3.13A10.6 10.6 0 0 1 26.68 16c0 5.88-4.79 10.67-10.67 10.67z"/>
+  </svg>
+</a>
 
-  <div class="grid-3" id="blog-grid">
-    <!-- preenchido via JS a partir do RSS do blog; skeletons abaixo aparecem enquanto carrega -->
-    <div class="blog-skel"><div class="sk-thumb"></div><div class="sk-body"><div class="sk-line w40"></div><div class="sk-line w90"></div><div class="sk-line w60"></div></div></div>
-    <div class="blog-skel"><div class="sk-thumb"></div><div class="sk-body"><div class="sk-line w40"></div><div class="sk-line w90"></div><div class="sk-line w60"></div></div></div>
-    <div class="blog-skel"><div class="sk-thumb"></div><div class="sk-body"><div class="sk-line w40"></div><div class="sk-line w90"></div><div class="sk-line w60"></div></div></div>
-    <div class="blog-skel"><div class="sk-thumb"></div><div class="sk-body"><div class="sk-line w40"></div><div class="sk-line w90"></div><div class="sk-line w60"></div></div></div>
-    <div class="blog-skel"><div class="sk-thumb"></div><div class="sk-body"><div class="sk-line w40"></div><div class="sk-line w90"></div><div class="sk-line w60"></div></div></div>
-    <div class="blog-skel"><div class="sk-thumb"></div><div class="sk-body"><div class="sk-line w40"></div><div class="sk-line w90"></div><div class="sk-line w60"></div></div></div>
+<!-- RODAPÉ -->
+<footer style="background:#1C1C1A;padding:48px 0;">
+  <div class="inner">
+    <div id="footer-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;">
+      <div>
+        <img src="https://static.wixstatic.com/media/940f31_64ea155fc0b8427e898318695ef5ad7e~mv2.png/v1/crop/x_44,y_0,w_906,h_187/fill/w_260,h_54,al_c,q_90,enc_avif,quality_auto/logo.png"
+          alt="Seja Minimalista" width="260" height="54"
+          style="max-width:200px;height:auto;display:block;margin-bottom:14px;filter:brightness(0) invert(1);opacity:.55;"
+          loading="lazy" decoding="async">
+        <p style="font-size:12px;color:#888780;line-height:1.7;">Para uma vida mais leve e mais feliz.<br>© 2026. Todos os direitos reservados.</p>
+        <a href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener noreferrer"
+          style="display:inline-block;margin-top:16px;font-size:12px;padding:10px 20px;border-radius:6px;font-weight:700;text-decoration:none;letter-spacing:.02em;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);color:#1C1C1A;">
+          Seguir no Instagram
+        </a>
+      </div>
+      <div>
+        <h4 style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#888780;margin-bottom:14px;">Links úteis</h4>
+        <a href="https://sejaminimalista.com.br/" target="_blank" style="display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;">Seja Minimalista — Best Seller</a>
+        <a href="https://sejaminimalista.com.br/365-dias" target="_blank" style="display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;">365 Dias Minimalistas</a>
+        <a href="https://sejaminimalista.com.br/combos" target="_blank" style="display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;">Combos com desconto</a>
+        <a href="https://www.sejaminimalista.net/vip/entrar" target="_blank" style="display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;">Área VIP</a>
+        <a href="mailto:sejaminimalista@hotmail.com" style="display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;">Fale comigo</a>
+      </div>
+      <div>
+        <h4 style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#888780;margin-bottom:14px;">Newsletter gratuita</h4>
+        <p style="font-size:12px;color:#D8D8D4;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas direto no seu e-mail, toda semana.</p>
+        <iframe src="https://sejaminimalista.substack.com/embed?transparent=1&light=1" width="480" height="150"
+          style="border:0;background:transparent;max-width:100%;display:block;"
+          frameborder="0" scrolling="no" title="Newsletter Seja Minimalista"></iframe>
+      </div>
+    </div>
+    <div style="margin-top:36px;padding-top:22px;border-top:.5px solid #3A3A38;display:flex;justify-content:space-between;font-size:11px;color:#8A8A86;">
+      <span>Seja Minimalista · Alexandre Chahoud</span>
+      <span>sejaminimalista@hotmail.com</span>
+    </div>
   </div>
-
-  <a class="blog-more" href="https://www.sejaminimalista.net/blog" target="_blank" rel="noopener">Ver todos os posts do blog →</a>
-  <div class="blog-status" id="blog-status"></div>
-</div>
+</footer>
 
 <script>
-var secs = ['destaques','checklists','ferramentas','recursos','promocoes','videos','blog'];
-
-function show(id, btn) {
-  secs.forEach(function(s) {
-    var el = document.getElementById('s-' + s);
-    if (el) el.style.display = 'none';
-  });
-
-  var t = document.getElementById('s-' + id);
-  if (t) t.style.display = 'block';
-
-  document.querySelectorAll('.tab-btn').forEach(function(b) {
-    b.classList.remove('active');
-  });
-
-  if (btn) btn.classList.add('active');
-
-  setTimeout(sendHeight, 80);
-}
-
-function sendHeight() {
-  window.parent.postMessage({height: document.documentElement.scrollHeight}, '*');
-}
-
-window.addEventListener('load', function() {
-  sendHeight();
-
-  var loader = document.getElementById('page-loader');
-  if (loader) {
-    setTimeout(function() {
-      loader.classList.add('hide');
-    }, 450);
-  }
+/* LOADER */
+window.addEventListener('load',function(){
+  var l=document.getElementById('loader');
+  setTimeout(function(){l.style.opacity='0';setTimeout(function(){l.style.display='none';},500);},400);
 });
 
-window.addEventListener('resize', sendHeight);
+/* INTERSECTION OBSERVER — ativa animações ao entrar na tela */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(!e.isIntersecting) return;
+    var el = e.target;
 
-/* ===== Blog dinâmico via RSS ===== */
-var BLOG_RSS_URL = 'https://www.sejaminimalista.net/blog-feed.xml';
-var BLOG_PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(BLOG_RSS_URL);
-var BLOG_POST_COUNT = 6;
-var blogLoaded = false;
+    /* Barra dourada */
+    if(el.classList.contains('sec-title-bar')){
+      el.classList.add('bar-on');
+      el.nextElementSibling && el.nextElementSibling.classList.add('txt-on');
+    }
 
-/* fallback: usado só se a busca automática falhar */
-var BLOG_FALLBACK = [
-  {
-    title: 'Como desapegar de objetos sem sentir culpa',
-    link: 'https://www.sejaminimalista.net/post/como-desapegar-de-objetos-sem-sentir-culpa',
-    img: 'https://static.wixstatic.com/media/940f31_5e91cc119775406c977252efe4dc10f5~mv2.png/v1/fill/w_268,h_282,fp_0.50_0.50,q_90,enc_avif,quality_auto/940f31_5e91cc119775406c977252efe4dc10f5~mv2.webp',
-    desc: 'A culpa, o medo de se arrepender e o apego emocional criam barreiras para o destralhe. Estratégias práticas para transformar seu espaço.'
-  },
-  {
-    title: 'Minimalismo financeiro: como gastar menos e ter mais tranquilidade',
-    link: 'https://www.sejaminimalista.net/post/minimalismo-financeiro-como-gastar-menos-e-ter-mais-tranquilidade',
-    img: 'https://static.wixstatic.com/media/940f31_3ce427e127cd4ca2a3950863bb56b472~mv2.png/v1/fill/w_268,h_282,fp_0.50_0.50,q_90,enc_avif,quality_auto/940f31_3ce427e127cd4ca2a3950863bb56b472~mv2.webp',
-    desc: 'Como adotar uma vida simples, focada no essencial, para gastar menos e ter uma relação mais saudável com o dinheiro.'
-  },
-  {
-    title: 'Por que organizar a casa não resolve o problema do excesso',
-    link: 'https://www.sejaminimalista.net/post/por-que-organizar-a-casa-n%C3%A3o-resolve-o-problema-do-excesso',
-    img: 'https://static.wixstatic.com/media/940f31_ffaa45f9ec7a4ac9a3664c299448b478~mv2.png/v1/fill/w_268,h_282,fp_0.50_0.50,q_90,enc_avif,quality_auto/940f31_ffaa45f9ec7a4ac9a3664c299448b478~mv2.webp',
-    desc: 'Mesmo após horas de organização, a bagunça volta. Entenda por que arrumar não é o mesmo que desapegar.'
-  },
-  {
-    title: 'Como criar uma casa mais leve sem gastar dinheiro',
-    link: 'https://www.sejaminimalista.net/post/como-criar-uma-casa-mais-leve-sem-gastar-dinheiro',
-    img: 'https://static.wixstatic.com/media/940f31_757fd711608a41879a9df4c6fe1cb024~mv2.png/v1/fill/w_268,h_282,fp_0.50_0.50,q_90,enc_avif,quality_auto/940f31_757fd711608a41879a9df4c6fe1cb024~mv2.webp',
-    desc: 'Práticas simples de organização, destralhe e minimalismo no dia a dia para deixar sua casa mais leve.'
-  },
-  {
-    title: 'Como desacelerar em um mundo que exige pressa o tempo todo',
-    link: 'https://www.sejaminimalista.net/post/como-desacelerar-em-um-mundo-que-exige-pressa-o-tempo-todo',
-    img: 'https://static.wixstatic.com/media/940f31_cbb5e4dae19d426f955ba80250469190~mv2.png/v1/fill/w_268,h_282,fp_0.50_0.50,q_90,enc_avif,quality_auto/940f31_cbb5e4dae19d426f955ba80250469190~mv2.webp',
-    desc: 'Formas práticas para desacelerar, encontrar equilíbrio e melhorar sua qualidade de vida.'
-  }
-];
+    /* Cards com stagger */
+    if(el.classList.contains('card-reveal')){
+      var siblings = el.parentElement.querySelectorAll('.card-reveal');
+      var idx = Array.prototype.indexOf.call(siblings, el);
+      setTimeout(function(){ el.classList.add('r-on'); }, idx * 60);
+    }
 
-function stripHtml(html) {
-  var d = document.createElement('div');
-  d.innerHTML = html || '';
-  return (d.textContent || d.innerText || '').replace(/\s+/g, ' ').trim();
-}
-
-function truncate(str, n) {
-  if (!str) return '';
-  return str.length > n ? str.slice(0, n).trim() + '…' : str;
-}
-
-function firstImgFromHtml(html) {
-  var m = /<img[^>]+src="([^">]+)"/i.exec(html || '');
-  return m ? m[1] : null;
-}
-
-function renderBlogCards(posts) {
-  var grid = document.getElementById('blog-grid');
-  if (!grid) return;
-  var html = '';
-  posts.slice(0, BLOG_POST_COUNT).forEach(function (p) {
-    html += '' +
-      '<a class="ic" href="' + p.link + '" target="_blank" rel="noopener">' +
-        '<div class="ic-thumb">' + (p.img ? '<img src="' + p.img + '" alt="" loading="lazy">' : '📝') + '</div>' +
-        '<div class="ic-body">' +
-          '<div class="t-blog">Blog</div>' +
-          '<div class="ic-title">' + p.title + '</div>' +
-          '<div class="ic-desc">' + p.desc + '</div>' +
-          '<div class="ic-meta">Alexandre Chahoud</div>' +
-          '<div class="ic-btn">Ler no blog</div>' +
-        '</div>' +
-      '</a>';
+    io.unobserve(el);
   });
-  /* se vieram menos posts que o desejado, completa com um card de CTA */
-  if (posts.length < BLOG_POST_COUNT) {
-    html += '<a class="ic" href="https://www.sejaminimalista.net/blog" target="_blank" rel="noopener">' +
-      '<div class="ic-thumb">📚</div>' +
-      '<div class="ic-body">' +
-        '<div class="t-blog">Blog</div>' +
-        '<div class="ic-title">Ver mais textos no blog</div>' +
-        '<div class="ic-desc">Confira o arquivo completo de posts sobre minimalismo.</div>' +
-        '<div class="ic-btn g">Acessar blog</div>' +
-      '</div>' +
-    '</a>';
+}, { threshold: 0.15 });
+
+/* Observa barras de seção */
+document.querySelectorAll('.sec-title-bar').forEach(function(el){ io.observe(el); });
+
+/* Adiciona card-reveal e observa todos os cards */
+document.querySelectorAll('.feat-card, .reg-card, .ind-card').forEach(function(el){
+  el.classList.add('card-reveal');
+  io.observe(el);
+});
+
+/* Mais vendido — observa separado sem stagger */
+document.querySelectorAll('.mv-card').forEach(function(el){
+  el.style.opacity='0';
+  el.style.transform='translateY(14px)';
+  el.style.transition='opacity .5s ease, transform .5s ease';
+  var mvObs = new IntersectionObserver(function(ent){
+    if(ent[0].isIntersecting){
+      ent[0].target.style.opacity='1';
+      ent[0].target.style.transform='translateY(0)';
+      mvObs.disconnect();
+    }
+  },{threshold:.1});
+  mvObs.observe(el);
+});
+
+function sendHeight(){window.parent.postMessage({height:document.documentElement.scrollHeight},'*');}
+window.addEventListener('load',sendHeight);
+window.addEventListener('resize',sendHeight);
+</script>
+
+<script>
+/* ── EVENTOS DE RASTREAMENTO — Página de Combos ── */
+document.addEventListener('DOMContentLoaded', function(){
+
+  /* ══ HELPERS — fbc, fbp, source_url ══ */
+  var _url=new URL(window.location.href);
+  function getFbc(){
+    try{
+      var fbclid=_url.searchParams.get('fbclid')||localStorage.getItem('trk_fbclid');
+      if(!fbclid) return undefined;
+      return 'fb.1.'+Date.now()+'.'+fbclid;
+    }catch(e){return undefined;}
   }
-  grid.innerHTML = html;
-  setTimeout(sendHeight, 80);
-}
+  function getFbp(){
+    try{var m=document.cookie.match(/_fbp=([^;]+)/);return m?m[1]:undefined;}catch(e){return undefined;}
+  }
+  var sourceUrl=window.location.href;
+  function pixelData(extra){
+    var base={event_source_url:sourceUrl};
+    var fbc=getFbc(); if(fbc) base.fbc=fbc;
+    var fbp=getFbp(); if(fbp) base.fbp=fbp;
+    return Object.assign({},base,extra||{});
+  }
 
-function setBlogStatus(msg) {
-  var s = document.getElementById('blog-status');
-  if (s) s.textContent = msg;
-}
-
-function loadBlogPosts() {
-  if (blogLoaded) return;
-  blogLoaded = true;
-
-  fetch(BLOG_PROXY)
-    .then(function (r) {
-      if (!r.ok) throw new Error('bad status');
-      return r.json();
-    })
-    .then(function (data) {
-      if (!data || data.status !== 'ok' || !data.items || !data.items.length) {
-        throw new Error('empty feed');
-      }
-      var posts = data.items.slice(0, BLOG_POST_COUNT).map(function (item) {
-        var img = item.thumbnail || (item.enclosure && item.enclosure.link) || firstImgFromHtml(item.content || item.description);
-        return {
-          title: item.title || '',
-          link: item.link || 'https://www.sejaminimalista.net/blog',
-          img: img,
-          desc: truncate(stripHtml(item.description || item.content), 140)
-        };
-      });
-      renderBlogCards(posts);
-    })
-    .catch(function () {
-      renderBlogCards(BLOG_FALLBACK);
-      setBlogStatus('Não foi possível atualizar automaticamente agora — exibindo os posts mais recentes salvos.');
+  /* ══ PROPAGAÇÃO DE UTMs → links Eduzz ══ */
+  var _utmKeys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'];
+  var _utmParams=new URLSearchParams(window.location.search);
+  var _hasUtm=_utmKeys.some(function(k){return _utmParams.get(k);});
+  if(_hasUtm){
+    document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
+      try{
+        var u=new URL(link.href);
+        _utmKeys.forEach(function(k){
+          var v=_utmParams.get(k);
+          if(v) u.searchParams.set(k,v);
+        });
+        link.href=u.toString();
+      }catch(e){}
     });
-}
+  }
 
-/* dispara a busca assim que a aba Blog é aberta pela primeira vez */
-var originalShow = show;
-show = function (id, btn) {
-  originalShow(id, btn);
-  if (id === 'blog') loadBlogPosts();
-};
+  /* InitiateCheckout — qualquer botão de checkout Eduzz */
+  document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
+    link.addEventListener('click', function(){
+      var name = link.closest('[class*="card"]') ?
+        (link.closest('[class*="card"]').querySelector('[class*="name"],[class*="title"]') || {}).innerText || 'Combo' : 'Combo';
+      var priceEl = link.closest('[class*="card"],[class*="mv-card"],[class*="ind-card"],[class*="feat-card"]');
+      var priceText = priceEl ? (priceEl.querySelector('[class*="now"],[class*="price"]') || {}).innerText || '' : '';
+      var priceNum = parseFloat(priceText.replace(/[^0-9,]/g,'').replace(',','.')) || 0;
+      var slugName = name.trim().toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'').substring(0,40);
+      if(window.fbq){
+        fbq('track','InitiateCheckout', pixelData({
+          content_ids:  ['combo-' + slugName],
+          content_type: 'product',
+          content_name: name.trim(),
+          currency:     'BRL',
+          value:        priceNum,
+          num_items:    1
+        }));
+      }
+      if(window.gtag){
+        gtag('event','begin_checkout',{currency:'BRL',item_name:name.trim()});
+      }
+    });
+  });
+
+  /* WhatsApp */
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
+    link.addEventListener('click', function(){
+      if(window.fbq) fbq('trackCustom','WhatsAppClick', pixelData());
+    });
+  });
+
+  /* Engajamento por tempo */
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged30s', pixelData());}, 30000);
+  setTimeout(function(){if(window.fbq)fbq('trackCustom','Engaged60s', pixelData());}, 60000);
+
+  /* Profundidade de scroll */
+  var s50=false,s75=false,s90=false;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement;
+    var pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+    if(pct>=50&&!s50){s50=true;if(window.fbq)fbq('trackCustom','Scroll50', pixelData());}
+    if(pct>=75&&!s75){s75=true;if(window.fbq)fbq('trackCustom','Scroll75', pixelData());}
+    if(pct>=90&&!s90){s90=true;if(window.fbq)fbq('trackCustom','Scroll90', pixelData());}
+  });
+
+});
 </script>
 
 </body>
