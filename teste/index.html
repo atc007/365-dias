@@ -103,7 +103,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .sec.dark .sec-title-text,.sec.mid .sec-title-text{color:#F5F0E8;}
 
 /* MAIS VENDIDO */
-.mv-wrap{margin-bottom:18px;max-width:420px;}
+.mv-wrap{margin-bottom:18px;max-width:760px;}
 .mv-card{display:flex;background:#1C1C1A;border:1.5px solid #C9A96E;border-radius:10px;overflow:hidden;text-decoration:none;max-width:540px;transition:opacity .2s;}
 .mv-card:hover{opacity:.9;}
 .mv-img{width:150px;flex-shrink:0;}
@@ -133,6 +133,18 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .feat-now{font-size:36px;font-weight:700;background:linear-gradient(90deg,#9A7A30 0%,#9A7A30 35%,#C9A96E 50%,#9A7A30 65%,#9A7A30 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:price-shine 6s linear infinite;line-height:1;}
 .feat-now sup{font-size:17px;font-weight:400;vertical-align:super;}
 .feat-btn{display:block;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:#1C1C1A;text-align:center;font-size:13px;font-weight:700;padding:13px;border-radius:30px;text-decoration:none;animation:shimmer 6s linear infinite,btn-pulse 4s ease-in-out infinite;}
+
+/* MAIS VENDIDO — layout horizontal (desktop) */
+.mv-feat{display:flex;align-items:stretch;}
+.mv-feat .feat-img-wrap{width:260px;flex-shrink:0;}
+.mv-feat .feat-img-wrap img{height:100%;}
+.mv-feat .feat-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding:22px 34px;}
+.mv-feat .feat-name{font-size:16px;margin-bottom:14px;}
+.mv-feat .feat-price-row{margin-bottom:18px;}
+.mv-feat .feat-now{font-size:42px;}
+.mv-feat .feat-now sup{font-size:19px;}
+.mv-feat .feat-was{font-size:14px;}
+.mv-feat .feat-btn{display:inline-block;width:fit-content;padding:14px 32px;}
 
 /* GRID 4 cols */
 .grid-4{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
@@ -242,6 +254,13 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   .reg-now{font-size:19px;}
   .ind-name{font-size:11px;}
   .mv-wrap{max-width:100%;}
+  .mv-feat{flex-direction:column;}
+  .mv-feat .feat-img-wrap{width:100%;}
+  .mv-feat .feat-img-wrap img{height:auto;}
+  .mv-feat .feat-body{padding:16px 18px;}
+  .mv-feat .feat-name{font-size:13px;}
+  .mv-feat .feat-now{font-size:28px;}
+  .mv-feat .feat-btn{display:block;width:100%;}
   .mv-card{max-width:100%;flex-direction:column;}
   .mv-img{width:100%;height:180px;}
   .mv-img img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -361,7 +380,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   <div class="inner">
   <div class="sec-title"><div class="sec-title-bar"></div><div class="sec-title-text">Combos físicos · frete grátis</div></div>
   <div class="mv-wrap">
-    <a class="feat-card" href="https://chk.eduzz.com/G92EJ68XWE?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">
+    <a class="feat-card mv-feat" href="https://chk.eduzz.com/G92EJ68XWE?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">
       <div class="feat-img-wrap"><span class="feat-badge">🏆 Mais vendido · 15% off</span><img src="https://static.wixstatic.com/media/940f31_8c61892b98874ec4b08ff6c77add5594~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(7).jpg" alt="Combo Seja Minimalista" loading="eager"></div>
       <div class="feat-body"><div class="feat-name">Dupla física: <strong>Seja Minimalista e 365 Dias Minimalistas</strong></div><div class="feat-price-row"><span class="feat-now"><sup>R$</sup>181</span><span class="feat-was">R$ 214,00</span></div><div class="feat-btn">Quero com 15% off</div></div>
     </a>
@@ -394,7 +413,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   <div class="inner">
   <div class="sec-title"><div class="sec-title-bar"></div><div class="sec-title-text">Combos digitais · entrega imediata</div></div>
   <div class="mv-wrap">
-    <a class="feat-card" href="https://chk.eduzz.com/89AQP25EWD?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">
+    <a class="feat-card mv-feat" href="https://chk.eduzz.com/89AQP25EWD?pf=1&cupom=CLSM15OFF" target="_blank" rel="noopener">
       <div class="feat-img-wrap"><span class="feat-badge">🏆 Mais vendido · 15% off</span><img src="https://static.wixstatic.com/media/940f31_4ca783c67a264b41aa67b0402c73584f~mv2.jpg/v1/crop/x_0,y_4,w_540,h_492/fill/w_540,h_492,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(12).jpg" alt="Combo Seja Minimalista" loading="lazy"></div>
       <div class="feat-body"><div class="feat-name">Dupla digital: <strong>Seja Minimalista e 365 Dias Minimalistas</strong></div><div class="feat-price-row"><span class="feat-now"><sup>R$</sup>130</span><span class="feat-was">R$ 154,00</span></div><div class="feat-btn">Quero com 15% off</div></div>
     </a>
