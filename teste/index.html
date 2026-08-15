@@ -79,7 +79,9 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .tb-dot{width:5px;height:5px;border-radius:50%;background:#C9A96E;flex-shrink:0;}
 
 /* HERO */
-.hero{background:linear-gradient(135deg,#1C1C1A 0%,#2A2A28 100%);padding:40px 0;}
+.hero{background:linear-gradient(135deg,#3D0F0F 0%,#5A1414 100%);padding:40px 0;}
+.hero-logo{font-family:Georgia,serif;font-size:22px;color:#F5F0E8;letter-spacing:.06em;margin-bottom:16px;}
+.hero-logo span{color:#E8B4B4;}
 .hero h1{font-family:Georgia,serif;font-size:clamp(24px,2.8vw,36px);font-weight:400;color:#F5F0E8;margin-bottom:10px;letter-spacing:-.01em;}
 .hero p{font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:24px;max-width:560px;}
 
@@ -116,8 +118,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .feat-card:hover{border-color:#C9A96E;transform:translateY(-8px);box-shadow:0 24px 44px rgba(0,0,0,.35);z-index:2;}
 .feat-card.best{border-color:#C9A96E;}
 .feat-img-wrap{position:relative;}
-.feat-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.25,.8,.25,1);}
-.feat-card:hover img{transform:scale(1.06);}
+.feat-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
 .feat-badge{position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:3px;background:linear-gradient(90deg,#8B6010,#C9A96E,#FFF0B0,#C9A96E,#8B6010);background-size:200% auto;color:#1C1C1A;font-size:11px;font-weight:700;padding:5px 13px;border-radius:20px;z-index:2;animation:shimmer 5s linear infinite;}
 .feat-body{padding:16px 18px;}
 .feat-name{font-size:14px;color:#E8E2D8;line-height:1.5;margin-bottom:12px;}
@@ -133,8 +134,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .reg-card{background:#fff;border:.5px solid #C0BAB0;border-radius:22px;overflow:hidden;box-shadow:none;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;position:relative;display:block;text-decoration:none;color:inherit;}
 .reg-card:hover{border-color:#C9A96E;transform:translateY(-8px);box-shadow:0 24px 40px rgba(0,0,0,.18);z-index:2;}
 .reg-img-wrap{position:relative;}
-.reg-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.25,.8,.25,1);}
-.reg-card:hover img{transform:scale(1.06);}
+.reg-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
 .reg-badge{position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:3px;background:#1C1C1A;color:#fff;font-size:9px;font-weight:700;padding:5px 10px;border-radius:20px;z-index:2;}
 .reg-body{padding:12px 14px;}
 .reg-name{font-size:13px;font-weight:400;color:#1C1C1A;line-height:1.3;margin-bottom:7px;}
@@ -311,6 +311,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 </div>
 
 <div class="hero"><div class="inner">
+  <div class="hero-logo">seja<span>minimalista</span></div>
   <h1>Leve mais, pague menos.</h1>
   <p>Combos exclusivos com até 40% de desconto — montados para cada momento da sua jornada minimalista.</p>
   <a href="#combos-completos" style="display:inline-block;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:#1C1C1A;font-size:14px;font-weight:700;padding:16px 32px;border-radius:6px;text-decoration:none;animation:shimmer 6s linear infinite,btn-pulse 4s ease-in-out infinite;" onclick="document.querySelector('.sec.dark').scrollIntoView({behavior:'smooth'});return false;">Ver combos com desconto ↓</a>
@@ -339,7 +340,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 <div class="wa"><div class="inner" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;"><div class="wa-copy"><strong>Não encontrou o combo certo?</strong>Monte o seu combo personalizado com desconto pelo WhatsApp.</div><a class="wa-btn" href="https://wa.me/5516991065984?text=Ol%C3%A1%2C%20quero%20um%20combo%20personalizado!" target="_blank" rel="noopener">💬 Falar no WhatsApp</a></div></div>
 
 <!-- COMBOS FÍSICOS -->
-<section class="sec warm">
+<section class="sec dark">
   <div class="inner">
   <div class="sec-title"><div class="sec-title-bar"></div><div class="sec-title-text">Combos físicos · frete grátis</div></div>
   <div class="mv-wrap">
