@@ -468,6 +468,18 @@ object-fit:contain;
 .footer-news p{font-size:13px;color:#D0CEC8;line-height:1.65;margin-bottom:14px;}
 .footer-divider{margin-top:36px;padding-top:22px;border-top:.5px solid #3A3A38;display:flex;justify-content:space-between;font-size:11px;color:#8A8A86;}
 
+/* ══ FOCO E TOQUE (acessibilidade) ══ */
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--cream);padding:12px 20px;border-radius:0 0 8px 0;z-index:100000;text-decoration:none;font-size:14px;font-weight:600;}
+.skip-link:focus{left:0;}
+a,button{touch-action:manipulation;}
+a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visible{
+  outline:2px solid var(--gold-dark);outline-offset:3px;border-radius:4px;
+}
+.cdot:focus-visible{outline:2px solid var(--gold-dark);outline-offset:2px;}
+.lightbox-overlay{overscroll-behavior:contain;}
+#versoes,#versao-digital,#versao-fisica,#bonus{scroll-margin-top:64px;}
+.hero-h1,.sec-h2,.agit-h2,.t-headline{text-wrap:balance;}
+
 /* ══ WHATSAPP ══ */
 .whatsapp-float{position:fixed;right:22px;bottom:22px;width:62px;height:62px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(0,0,0,.25);z-index:9999;transition:.25s ease;text-decoration:none;}
 .whatsapp-float:hover{transform:translateY(-3px) scale(1.05);}
@@ -522,7 +534,7 @@ object-fit:contain;
 
 /* ══ MOBILE ══ */
 /* Scroll indicator */
- .scroll-indicator{display:flex;opacity:0;visibility:hidden;pointer-events:none;}
+ .scroll-indicator{display:flex;opacity:0;visibility:hidden;pointer-events:none;font:inherit;-webkit-appearance:none;appearance:none;}
 @media(max-width:720px){
    .scroll-indicator{
     position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
@@ -767,6 +779,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
 
 <!-- URGÊNCIA BAR -->
@@ -785,7 +798,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
   </div>
 </div>
 
-<main>
+<main id="main-content">
 <!-- HERO -->
 <section class="sec-hero">
   <div class="inner">
@@ -820,12 +833,12 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 </section>
 
 <!-- SCROLL INDICATOR — fixo, só mobile -->
-<div class="scroll-indicator" id="scroll-indicator" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'})">
+<button type="button" class="scroll-indicator" id="scroll-indicator" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'})">
   <span class="scroll-indicator-text">continue vendo</span>
-  <svg class="scroll-indicator-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg class="scroll-indicator-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
-</div>
+</button>
 <script>
 (function(){
   var el = document.getElementById('scroll-indicator');
@@ -902,7 +915,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     </div>
 
     <!-- PULLQUOTE + CTA abaixo do carrossel -->
-    <div class="pullquote" style="max-width:680px;">"O guia para uma vida mais leve e mais feliz para quem quer começar uma vida mais leve, sem extremismos, sem culpa."</div>
+    <div class="pullquote" style="max-width:680px;">“O guia para uma vida mais leve e mais feliz para quem quer começar uma vida mais leve, sem extremismos, sem culpa.”</div>
     <div style="margin-top:24px;">
       <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Quero meu exemplar agora</a>
     </div>
@@ -1034,30 +1047,30 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 
     <div class="t-marquee" aria-hidden="true">
       <div class="t-marquee-track">
-        <div class="t-mchip"><div class="t-mchip-avatar">B</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "mudou minha relação com as coisas," <strong>Bianca S.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">R</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "hoje tenho mais espaço pro que importa," <strong>Rodrigo T.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">S</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "leitura leve, prática e honesta," <strong>Simone A.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">V</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "é um livro sobre escolhas," <strong>Vinícius O.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">D</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "o melhor presente do ano," <strong>Débora L.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">H</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "todo mundo precisa ler isso," <strong>Henrique P.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">N</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "vale muito cada centavo," <strong>Natália F.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">D</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "virou esse conceito de cabeça, leitura obrigatória," <strong>Diego M.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">B</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “mudou minha relação com as coisas,” <strong>Bianca S.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">R</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “hoje tenho mais espaço pro que importa,” <strong>Rodrigo T.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">S</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “leitura leve, prática e honesta,” <strong>Simone A.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">V</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “é um livro sobre escolhas,” <strong>Vinícius O.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">D</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “o melhor presente do ano,” <strong>Débora L.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">H</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “todo mundo precisa ler isso,” <strong>Henrique P.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">N</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “vale muito cada centavo,” <strong>Natália F.</strong></div></div>
+        <div class="t-mchip"><div class="t-mchip-avatar">D</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “virou esse conceito de cabeça, leitura obrigatória,” <strong>Diego M.</strong></div></div>
         <!-- duplicado para loop contínuo -->
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">B</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "mudou minha relação com as coisas," <strong>Bianca S.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">R</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "hoje tenho mais espaço pro que importa," <strong>Rodrigo T.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">S</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "leitura leve, prática e honesta," <strong>Simone A.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">V</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "é um livro sobre escolhas," <strong>Vinícius O.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">D</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "o melhor presente do ano," <strong>Débora L.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">H</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "todo mundo precisa ler isso," <strong>Henrique P.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">N</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "vale muito cada centavo," <strong>Natália F.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">D</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> "virou esse conceito de cabeça, leitura obrigatória," <strong>Diego M.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">B</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “mudou minha relação com as coisas,” <strong>Bianca S.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">R</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “hoje tenho mais espaço pro que importa,” <strong>Rodrigo T.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">S</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “leitura leve, prática e honesta,” <strong>Simone A.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">V</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “é um livro sobre escolhas,” <strong>Vinícius O.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">D</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “o melhor presente do ano,” <strong>Débora L.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">H</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “todo mundo precisa ler isso,” <strong>Henrique P.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">N</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “vale muito cada centavo,” <strong>Natália F.</strong></div></div>
+        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">D</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “virou esse conceito de cabeça, leitura obrigatória,” <strong>Diego M.</strong></div></div>
       </div>
     </div>
 
     <div class="t-grid">
 
       <div class="t-card featured">
-        <span class="t-quote-mark">"</span>
+        <span class="t-quote-mark">“</span>
         <span class="t-stars">★★★★★</span>
         <p class="t-text">Eu comprava por impulso e guardava tudo achando que ia usar um dia. Depois do livro, antes de comprar ou guardar qualquer coisa, eu me pergunto se aquilo realmente importa, e minha casa (e meu cartão de crédito) sentiram a diferença.</p>
         <div class="t-author">
@@ -1068,7 +1081,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       </div>
 
       <div class="t-card">
-        <span class="t-quote-mark">"</span>
+        <span class="t-quote-mark">“</span>
         <span class="t-stars">★★★★★</span>
         <p class="t-text">Comecei pela casa, mas o minimalismo foi chegando em tudo. Hoje tenho menos coisa, mas mais espaço para o que importa de verdade.</p>
         <div class="t-author">
@@ -1079,7 +1092,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       </div>
 
       <div class="t-card">
-        <span class="t-quote-mark">"</span>
+        <span class="t-quote-mark">“</span>
         <span class="t-stars">★★★★★</span>
         <p class="t-text">Eu já tinha lido outros livros de organização e desistia no meio, cheios de regra difícil de seguir. Esse eu terminei em uma semana e apliquei os checklists no mesmo fim de semana, sem frescura, sem culpa.</p>
         <div class="t-author">
@@ -1090,7 +1103,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       </div>
 
       <div class="t-card">
-        <span class="t-quote-mark">"</span>
+        <span class="t-quote-mark">“</span>
         <span class="t-stars">★★★★★</span>
         <p class="t-text">Eu tomava decisão de compra no impulso e me arrependia depois. O livro me deu um jeito simples de parar e perguntar "isso é uma escolha ou um impulso?" antes de comprar, e isso cortou minhas compras por impulso quase pela metade.</p>
         <div class="t-author">
@@ -1101,7 +1114,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       </div>
 
       <div class="t-card">
-        <span class="t-quote-mark">"</span>
+        <span class="t-quote-mark">“</span>
         <span class="t-stars">★★★★★</span>
         <p class="t-text">Minha mãe sempre disse que não conseguia se desfazer de nada, nem do que não usava há anos. Dei o livro de presente e ela está na segunda releitura, já doou duas caixas de roupa que estavam só ocupando espaço no armário.</p>
         <div class="t-author">
@@ -1112,7 +1125,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       </div>
 
       <div class="t-card">
-        <span class="t-quote-mark">"</span>
+        <span class="t-quote-mark">“</span>
         <span class="t-stars">★★★★★</span>
         <p class="t-text">Morando fora, com mala de 23kg de limite, eu aprendi na marra o que era essencial. O livro me ajudou a levar esse mesmo raciocínio pra casa, pro guarda-roupa e pras finanças, não só pra viagem.</p>
         <div class="t-author">
@@ -1123,7 +1136,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       </div>
 
       <div class="t-card">
-        <span class="t-quote-mark">"</span>
+        <span class="t-quote-mark">“</span>
         <span class="t-stars">★★★★★</span>
         <p class="t-text">Minha rotina agitada sempre foi desculpa pra não organizar nada. Nas primeiras semanas apliquei os checklists de casa e de finanças, e virou hábito. Hoje releio o livro a cada trimestre pra revisar o que mudou.</p>
         <div class="t-author">
@@ -1134,7 +1147,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       </div>
 
       <div class="t-card">
-        <span class="t-quote-mark">"</span>
+        <span class="t-quote-mark">“</span>
         <span class="t-stars">★★★★★</span>
         <p class="t-text">Tinha resistência ao minimalismo, achava que era coisa de quem não gosta de viver bem. Hoje entendi que é o contrário: sobrou dinheiro no fim do mês e tempo que eu gastava cuidando de coisa que eu nem usava.</p>
         <div class="t-author">
@@ -1322,16 +1335,16 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <div class="sec-eyebrow">Tire suas dúvidas</div>
     <h2 class="sec-h2">Perguntas sobre o livro Seja Minimalista</h2>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Seja Minimalista é para quem está começando do zero?<div class="faq-icon">+</div></button><div class="faq-a">Sim, foi escrito exatamente para isso. Não assume nenhum conhecimento prévio sobre minimalismo. A linguagem é simples, direta e sem jargões. Se você nunca leu nada sobre o tema, este é o melhor ponto de partida.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Como o livro é diferente de conteúdo gratuito sobre minimalismo?<div class="faq-icon">+</div></button><div class="faq-a">O livro tem uma estrutura pensada do início ao fim, com exercícios práticos e checklists que você preenche. Não é um artigo que você lê e esquece, é um guia que você aplica e consulta quantas vezes quiser. A profundidade e a organização fazem toda a diferença.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Preciso ser radical ou me desfazer de tudo?<div class="faq-icon">+</div></button><div class="faq-a">Absolutamente não. O livro ensina minimalismo como estilo de vida adaptado à sua realidade. Sem extremismos, sem abrir mão do que você ama. A ideia é manter só o que tem valor real para você.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">O livro digital funciona no Kindle?<div class="faq-icon">+</div></button><div class="faq-a">Sim, funciona perfeitamente no Kindle via cabo USB. Na Área VIP há um tutorial em vídeo com o passo a passo completo.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Quando recebo meu livro digital?<div class="faq-icon">+</div></button><div class="faq-a">Comprando por cartão ou Pix, você recebe imediatamente no seu e-mail. Por boleto, em até 3 dias úteis após a compensação.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Funciona para quem tem casa grande, filhos, rotina agitada?<div class="faq-icon">+</div></button><div class="faq-a">Funciona para qualquer realidade. O guia cobre diferentes áreas da vida e você aplica no seu ritmo, começando por onde faz mais sentido pra você: casa, roupas, digital, finanças.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Posso parcelar a compra?<div class="faq-icon">+</div></button><div class="faq-a">Sim. O pagamento por cartão de crédito pode ser parcelado em até 12x. O digital chega imediatamente após a confirmação e o físico é despachado após o processamento do pagamento.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Como rastreio o livro físico?<div class="faq-icon">+</div></button><div class="faq-a">Assim que despachado, você recebe o código de rastreio dos Correios no seu e-mail. Frete grátis para todo o Brasil.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">E se eu comprar e não conseguir aplicar?<div class="faq-icon">+</div></button><div class="faq-a">O livro foi desenhado pra evitar exatamente isso: cada capítulo já vem com exercício e checklist prontos, você não precisa criar um plano do zero. E com a garantia de 7 dias, se sentir que não é pra você, é só avisar.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">É seguro comprar pelo link de pagamento?<div class="faq-icon">+</div></button><div class="faq-a">Sim. O pagamento é processado pela Eduzz, uma das maiores plataformas de pagamento digital do Brasil, com criptografia de dados e nota fiscal emitida automaticamente.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Seja Minimalista é para quem está começando do zero?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Sim, foi escrito exatamente para isso. Não assume nenhum conhecimento prévio sobre minimalismo. A linguagem é simples, direta e sem jargões. Se você nunca leu nada sobre o tema, este é o melhor ponto de partida.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Como o livro é diferente de conteúdo gratuito sobre minimalismo?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">O livro tem uma estrutura pensada do início ao fim, com exercícios práticos e checklists que você preenche. Não é um artigo que você lê e esquece, é um guia que você aplica e consulta quantas vezes quiser. A profundidade e a organização fazem toda a diferença.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Preciso ser radical ou me desfazer de tudo?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Absolutamente não. O livro ensina minimalismo como estilo de vida adaptado à sua realidade. Sem extremismos, sem abrir mão do que você ama. A ideia é manter só o que tem valor real para você.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">O livro digital funciona no Kindle?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Sim, funciona perfeitamente no Kindle via cabo USB. Na Área VIP há um tutorial em vídeo com o passo a passo completo.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Quando recebo meu livro digital?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Comprando por cartão ou Pix, você recebe imediatamente no seu e-mail. Por boleto, em até 3 dias úteis após a compensação.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Funciona para quem tem casa grande, filhos, rotina agitada?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Funciona para qualquer realidade. O guia cobre diferentes áreas da vida e você aplica no seu ritmo, começando por onde faz mais sentido pra você: casa, roupas, digital, finanças.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso parcelar a compra?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Sim. O pagamento por cartão de crédito pode ser parcelado em até 12x. O digital chega imediatamente após a confirmação e o físico é despachado após o processamento do pagamento.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Como rastreio o livro físico?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Assim que despachado, você recebe o código de rastreio dos Correios no seu e-mail. Frete grátis para todo o Brasil.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">E se eu comprar e não conseguir aplicar?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">O livro foi desenhado pra evitar exatamente isso: cada capítulo já vem com exercício e checklist prontos, você não precisa criar um plano do zero. E com a garantia de 7 dias, se sentir que não é pra você, é só avisar.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">É seguro comprar pelo link de pagamento?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Sim. O pagamento é processado pela Eduzz, uma das maiores plataformas de pagamento digital do Brasil, com criptografia de dados e nota fiscal emitida automaticamente.</div></div>
     </div>
     <div style="margin-top:40px;text-align:center;">
       <p style="font-family:var(--font-display);font-size:18px;color:var(--ink-soft);margin-bottom:20px;font-style:italic;">Mais um dia no automático, ou o começo de uma vida mais leve?</p>
@@ -1449,7 +1462,7 @@ function slideTo(i){ci=i;loadSlide(i);loadSlide((i+1)%TOTAL);document.getElement
 setInterval(function(){slideTo((ci+1)%TOTAL);},4000);
 
 /* FAQ */
-function faq(btn){btn.parentElement.classList.toggle('open');}
+function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
 
 /* ══ HEADER SHRINK/BLUR + BARRA DE PROGRESSO ══ */
 (function(){
@@ -1721,10 +1734,10 @@ function faq(btn){btn.parentElement.classList.toggle('open');}
 @media(max-width:720px){#cupom-tooltip{top:16px;right:12px;max-width:190px;}}
 @keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
 </style>
-<div id="cupom-tooltip" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none'">
+<div id="cupom-tooltip" role="button" tabindex="0" aria-label="Cupom GANHEI10, 10% off no carrinho. Ativar cupom" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none';}">
   <div style="background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(201,169,110,.45);">
     <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
-    <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" style="position:absolute;top:7px;right:9px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;">×</button>
+    <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:7px;right:9px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;">×</button>
     <div style="font-size:10px;font-weight:700;color:#C9A96E;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;">🎁 Cupom exclusivo</div>
     <div style="background:rgba(255,255,255,.05);border:1.5px dashed #C9A96E;border-radius:8px;padding:9px 12px 8px;text-align:center;">
       <div style="font-family:var(--font-display);font-size:21px;font-weight:700;color:#F5F0E8;letter-spacing:.07em;">GANHEI10</div>
