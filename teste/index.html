@@ -83,7 +83,7 @@ html,body{
   --font-display:'Fraunces',Georgia,'Times New Roman',serif;
   --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --gold:#C9A96E;
-  --gold-text:#8F6B2D;
+  --gold-text:#8A652A;
   --gold-light:#DCC7A0;
   --gold-dark:#B8925A;
   --ink:#1C1C1A;
@@ -238,9 +238,11 @@ object-fit:contain;
 .car-slides{display:flex;transition:transform .4s ease;}
 .car-slide{min-width:100%;display:flex;align-items:center;justify-content:center;background:#EFEFEF;aspect-ratio:596/387;}
 .car-slide img{width:100%;height:auto;object-fit:contain;display:block;}
-.car-dots{display:flex;gap:6px;justify-content:center;padding:14px;}
-.cdot{width:7px;height:7px;border-radius:50%;background:#3D3D3B;border:none;cursor:pointer;padding:0;transition:background .2s;}
-.cdot.active{background:var(--gold);}
+.car-dots{display:flex;gap:2px;justify-content:center;padding:14px;}
+.cdot{width:24px;height:24px;padding:0;position:relative;background:none;border:none;cursor:pointer;}
+.cdot::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:7px;height:7px;border-radius:50%;background:#3D3D3B;transition:background .2s;}
+.cdot.active::after{background:var(--gold);}
+
 .car-cap{padding:8px 20px 18px;font-size:13px;color:#555;text-align:center;line-height:1.5;}
 .car-cap strong{color:var(--cream-dark);}
 
@@ -250,7 +252,7 @@ object-fit:contain;
 /* ══ AMOSTRA ══ */
 .amostra{background:#fff;border:1px solid var(--gold-light);border-radius:12px;padding:28px 32px;margin:32px 0;position:relative;}
 .amostra::before{content:'Trecho real do livro';position:absolute;top:-12px;left:24px;background:var(--gold);color:var(--ink);font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px;letter-spacing:.06em;text-transform:uppercase;}
-.amostra-cap{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.amostra-cap{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-text);margin-bottom:8px;}
 .amostra-quote{font-family:var(--font-display);font-size:16px;font-style:italic;color:var(--ink);line-height:1.7;margin-bottom:16px;border-left:3px solid var(--gold);padding-left:16px;}
 .amostra-pratica{background:var(--bg-alt);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--ink-mid);line-height:1.7;}
 .amostra-pratica strong{color:var(--ink);font-weight:500;}
@@ -296,7 +298,7 @@ object-fit:contain;
 /* ══ DEPOIMENTOS ══ */
 .testimonials{padding:80px var(--sec-h) 64px;content-visibility:auto;contain-intrinsic-size:0 1050px;}
 .t-header{text-align:center;margin-bottom:56px;}
-.t-eyebrow-dep{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:block;}
+.t-eyebrow-dep{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-text);margin-bottom:18px;display:block;}
 .t-headline{font-family:var(--font-display);font-size:clamp(28px,3.8vw,44px);font-weight:400;line-height:1.2;color:#3a3632;max-width:640px;margin:0 auto 16px;}
 .t-headline em{font-style:italic;color:var(--gold);}
 .t-sub-dep{font-size:var(--body);color:#4F4A45;line-height:1.65;}
@@ -316,7 +318,7 @@ object-fit:contain;
 .t-card.featured .t-badge-dep{background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);}
 .t-quote-mark{font-family:var(--font-display);font-size:64px;line-height:.65;color:var(--gold);opacity:.35;margin-bottom:16px;display:block;font-weight:400;}
 .t-card.featured .t-quote-mark{opacity:.5;}
-.t-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:14px;display:block;}
+.t-stars{color:var(--gold-text);font-size:14px;letter-spacing:2px;margin-bottom:14px;display:block;}
 .t-text{font-size:16px;line-height:1.8;color:#3a3632;font-style:italic;margin-bottom:22px;}
 .t-card.featured .t-text{font-size:18px;}
 .t-author{display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid #e4dfd8;}
@@ -324,7 +326,7 @@ object-fit:contain;
 .t-author-info{flex:1;}
 .t-author-name{font-size:15px;font-weight:500;color:#3a3632;display:block;line-height:1.3;}
 .t-author-city{font-size:13px;color:#7a746d;display:block;margin-top:2px;}
-.t-badge-dep{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500;background:rgba(201,169,110,.12);padding:3px 8px;border-radius:20px;}
+.t-badge-dep{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-text);font-weight:500;background:rgba(201,169,110,.12);padding:3px 8px;border-radius:20px;}
 .t-cta{text-align:center;margin-top:40px;}
 .t-cta-text{font-family:var(--font-display);font-size:24px;font-weight:400;color:#7a746d;display:block;margin-bottom:24px;}
 
@@ -334,7 +336,7 @@ object-fit:contain;
 .bonus-valor-left strong{color:var(--cream-dark);}
 .bonus-valor-right{font-family:var(--font-display);font-size:13px;color:var(--ink-muted);text-align:right;flex-shrink:0;}
 .bonus-valor-right .was{font-size:13px;text-decoration:line-through;display:block;}
-.bonus-valor-right .gratis{font-size:26px;font-weight:700;color:var(--gold);display:block;line-height:1;}
+.bonus-valor-right .gratis{font-size:26px;font-weight:700;color:var(--gold-text);display:block;line-height:1;}
 .bonus-list{display:flex;flex-direction:column;gap:10px;}
 .bonus-item{background:#fff;border:.5px solid var(--border);border-radius:10px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;}
 .bonus-num{width:30px;height:30px;border-radius:50%;background:var(--gold);color:var(--ink);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
@@ -431,7 +433,7 @@ object-fit:contain;
 .pc-feats{list-style:none;margin-bottom:24px;}
 .pc-feats li{font-size:13px;color:var(--ink-soft);padding:6px 0;border-bottom:.5px solid #E8E5DF;display:flex;align-items:center;gap:10px;}
 .pc-feats li:last-child{border:none;}
-.pc-feats li::before{content:"✓";color:var(--gold);font-weight:700;flex-shrink:0;}
+.pc-feats li::before{content:"✓";color:var(--gold-text);font-weight:700;flex-shrink:0;}
 .pc-feats li.no{color:#B0ADA5;text-decoration:line-through;}
 .pc-feats li.no::before{content:"✕";color:#B0ADA5;font-weight:700;}
 .pc-btn{display:block;text-align:center;font-size:14px;font-weight:700;padding:16px;border-radius:8px;text-decoration:none;letter-spacing:.02em;position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease,filter .25s ease,background .25s ease;will-change:transform,background-position;}
@@ -439,7 +441,7 @@ object-fit:contain;
 .pc-btn.gold:hover{animation-play-state:paused;filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 6px 16px rgba(201,169,110,.35);}
 .pc-btn.dark{background:var(--ink);color:var(--cream);}
 .pc-btn.dark:hover{background:#2E2E2C;transform:translateY(-1px);box-shadow:0 6px 16px rgba(28,28,26,.3);}
-.pc-urgency-note{font-size:12px;color:var(--gold);text-align:center;margin-top:12px;font-weight:600;}
+.pc-urgency-note{font-size:12px;color:var(--gold-text);text-align:center;margin-top:12px;font-weight:600;}
 
 /* ══ GARANTIA ══ */
 .gar-grid{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;max-width:760px;margin:0 auto;}
@@ -473,9 +475,9 @@ object-fit:contain;
 .skip-link:focus{left:0;}
 a,button{touch-action:manipulation;}
 a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visible{
-  outline:2px solid var(--gold-dark);outline-offset:3px;border-radius:4px;
+  outline:2px solid var(--gold-text);outline-offset:3px;border-radius:4px;
 }
-.cdot:focus-visible{outline:2px solid var(--gold-dark);outline-offset:2px;}
+.cdot:focus-visible{outline:2px solid var(--gold-text);outline-offset:2px;}
 .lightbox-overlay{overscroll-behavior:contain;}
 #versoes,#versao-digital,#versao-fisica,#bonus{scroll-margin-top:64px;}
 .hero-h1,.sec-h2,.agit-h2,.t-headline{text-wrap:balance;}
@@ -508,7 +510,7 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 @keyframes t-marquee-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 .t-mchip{display:flex;align-items:center;gap:10px;flex-shrink:0;background:#fff;border:1px solid #e4dfd8;border-radius:30px;padding:8px 18px 8px 8px;white-space:nowrap;}
 .t-mchip-avatar{width:28px;height:28px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:13px;flex-shrink:0;}
-.t-mchip-stars{color:var(--gold);font-size:11px;letter-spacing:1px;}
+.t-mchip-stars{color:var(--gold-text);font-size:11px;letter-spacing:1px;}
 .t-mchip-text{font-size:13px;color:#3a3632;}
 .t-mchip-text strong{font-weight:600;}
 @media(prefers-reduced-motion:reduce){.t-marquee-track{animation:none;}}
@@ -1737,7 +1739,7 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
 <div id="cupom-tooltip" role="button" tabindex="0" aria-label="Cupom GANHEI10, 10% off no carrinho. Ativar cupom" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none';}">
   <div style="background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(201,169,110,.45);">
     <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
-    <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:7px;right:9px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;">×</button>
+    <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
     <div style="font-size:10px;font-weight:700;color:#C9A96E;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;">🎁 Cupom exclusivo</div>
     <div style="background:rgba(255,255,255,.05);border:1.5px dashed #C9A96E;border-radius:8px;padding:9px 12px 8px;text-align:center;">
       <div style="font-family:var(--font-display);font-size:21px;font-weight:700;color:#F5F0E8;letter-spacing:.07em;">GANHEI10</div>
