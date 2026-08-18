@@ -393,6 +393,8 @@ object-fit:contain;
   position:relative;
 }
 .pc-highlight{animation:pc-flash 1.8s ease;}
+.coupon-applied-note{max-width:420px;margin:16px auto 0;text-align:center;font-size:13px;font-weight:600;color:#3D6B3D;background:#E3EFE3;border:1px solid #B8D4B8;border-radius:20px;padding:8px 18px;opacity:0;transform:translateY(-6px);transition:opacity .3s ease,transform .3s ease;pointer-events:none;}
+.coupon-applied-note.show{opacity:1;transform:translateY(0);}
 @keyframes pc-flash{
   0%{box-shadow:0 0 0 0 rgba(201,169,110,.6),0 4px 20px rgba(0,0,0,.10);}
   30%{box-shadow:0 0 0 8px rgba(201,169,110,.35),0 4px 20px rgba(0,0,0,.10);}
@@ -1242,6 +1244,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
   <div class="inner">
     <div class="sec-eyebrow" style="justify-content:center;">Escolha sua versão</div>
     <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 0;">Comece sua jornada minimalista hoje.</h2>
+    <div id="coupon-applied-note" class="coupon-applied-note" role="status" aria-live="polite">✓ Cupom GANHEI10 aplicado — 10% off no carrinho</div>
     <div class="precos">
       <div class="pc" id="versao-digital">
         <div class="dest-badge muted"><span>💰 Mais acessível</span></div>
@@ -1412,13 +1415,21 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 </div>
 
 <script>
-function irParaVersoes(e){
+function irParaVersoes(e, fromCoupon){
   if(e) e.preventDefault();
   var el=document.getElementById('versao-fisica')||document.getElementById('versoes');
   if(el){
     el.scrollIntoView({behavior:'smooth',block:'center'});
     el.classList.add('pc-highlight');
     setTimeout(function(){el.classList.remove('pc-highlight');},1800);
+  }
+  if(fromCoupon){
+    var note=document.getElementById('coupon-applied-note');
+    if(note){
+      note.classList.add('show');
+      clearTimeout(note._hideTimer);
+      note._hideTimer=setTimeout(function(){note.classList.remove('show');},6000);
+    }
   }
 }
 
@@ -1736,7 +1747,7 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
 @media(max-width:720px){#cupom-tooltip{top:16px;right:12px;max-width:190px;}}
 @keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
 </style>
-<div id="cupom-tooltip" role="button" tabindex="0" aria-label="Cupom GANHEI10, 10% off no carrinho. Ativar cupom" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none';}">
+<div id="cupom-tooltip" role="button" tabindex="0" aria-label="Cupom GANHEI10, 10% off no carrinho. Ativar cupom" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event,true);document.getElementById('cupom-tooltip').style.display='none'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irParaVersoes(event,true);document.getElementById('cupom-tooltip').style.display='none';}">
   <div style="background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(201,169,110,.45);">
     <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
     <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
