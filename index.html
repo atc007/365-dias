@@ -393,6 +393,8 @@ object-fit:contain;
   position:relative;
 }
 .pc-highlight{animation:pc-flash 1.8s ease;}
+.coupon-applied-note{max-width:420px;margin:16px auto 0;text-align:center;font-size:13px;font-weight:600;color:#3D6B3D;background:#E3EFE3;border:1px solid #B8D4B8;border-radius:20px;padding:8px 18px;opacity:0;transform:translateY(-6px);transition:opacity .3s ease,transform .3s ease;pointer-events:none;}
+.coupon-applied-note.show{opacity:1;transform:translateY(0);}
 @keyframes pc-flash{
   0%{box-shadow:0 0 0 0 rgba(201,169,110,.6),0 4px 20px rgba(0,0,0,.10);}
   30%{box-shadow:0 0 0 8px rgba(201,169,110,.35),0 4px 20px rgba(0,0,0,.10);}
@@ -456,8 +458,12 @@ object-fit:contain;
 .faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:20px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;font-weight:600;font-family:inherit;color:var(--ink);line-height:1.4;}
 .faq-icon{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s;line-height:1;}
 .faq-item.open .faq-icon{transform:rotate(45deg);}
-.faq-a{display:none;font-size:15px;color:var(--ink-soft);line-height:1.8;padding-bottom:20px;}
-.faq-item.open .faq-a{display:block;}
+.faq-a{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .35s cubic-bezier(.16,1,.3,1),opacity .3s ease;}
+.faq-a-inner{overflow:hidden;min-height:0;}
+.faq-a-inner{font-size:15px;color:var(--ink-soft);line-height:1.8;padding-bottom:0;}
+.faq-item.open .faq-a{grid-template-rows:1fr;opacity:1;}
+.faq-item.open .faq-a-inner{padding-bottom:20px;}
+@media(prefers-reduced-motion:reduce){.faq-a{transition:opacity .15s ease;}}
 
 /* ══ RODAPÉ ══ */
 .footer{background:var(--ink);padding:48px var(--sec-h);}
@@ -1242,6 +1248,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
   <div class="inner">
     <div class="sec-eyebrow" style="justify-content:center;">Escolha sua versão</div>
     <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 0;">Comece sua jornada minimalista hoje.</h2>
+    <div id="coupon-applied-note" class="coupon-applied-note" role="status" aria-live="polite">✓ Cupom GANHEI10 aplicado — 10% off no carrinho</div>
     <div class="precos">
       <div class="pc" id="versao-digital">
         <div class="dest-badge muted"><span>💰 Mais acessível</span></div>
@@ -1337,16 +1344,16 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <div class="sec-eyebrow">Tire suas dúvidas</div>
     <h2 class="sec-h2">Perguntas sobre o livro Seja Minimalista</h2>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Seja Minimalista é para quem está começando do zero?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Sim, foi escrito exatamente para isso. Não assume nenhum conhecimento prévio sobre minimalismo. A linguagem é simples, direta e sem jargões. Se você nunca leu nada sobre o tema, este é o melhor ponto de partida.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Como o livro é diferente de conteúdo gratuito sobre minimalismo?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">O livro tem uma estrutura pensada do início ao fim, com exercícios práticos e checklists que você preenche. Não é um artigo que você lê e esquece, é um guia que você aplica e consulta quantas vezes quiser. A profundidade e a organização fazem toda a diferença.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Preciso ser radical ou me desfazer de tudo?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Absolutamente não. O livro ensina minimalismo como estilo de vida adaptado à sua realidade. Sem extremismos, sem abrir mão do que você ama. A ideia é manter só o que tem valor real para você.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">O livro digital funciona no Kindle?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Sim, funciona perfeitamente no Kindle via cabo USB. Na Área VIP há um tutorial em vídeo com o passo a passo completo.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Quando recebo meu livro digital?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Comprando por cartão ou Pix, você recebe imediatamente no seu e-mail. Por boleto, em até 3 dias úteis após a compensação.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Funciona para quem tem casa grande, filhos, rotina agitada?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Funciona para qualquer realidade. O guia cobre diferentes áreas da vida e você aplica no seu ritmo, começando por onde faz mais sentido pra você: casa, roupas, digital, finanças.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso parcelar a compra?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Sim. O pagamento por cartão de crédito pode ser parcelado em até 12x. O digital chega imediatamente após a confirmação e o físico é despachado após o processamento do pagamento.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Como rastreio o livro físico?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Assim que despachado, você recebe o código de rastreio dos Correios no seu e-mail. Frete grátis para todo o Brasil.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">E se eu comprar e não conseguir aplicar?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">O livro foi desenhado pra evitar exatamente isso: cada capítulo já vem com exercício e checklist prontos, você não precisa criar um plano do zero. E com a garantia de 7 dias, se sentir que não é pra você, é só avisar.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">É seguro comprar pelo link de pagamento?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a">Sim. O pagamento é processado pela Eduzz, uma das maiores plataformas de pagamento digital do Brasil, com criptografia de dados e nota fiscal emitida automaticamente.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Seja Minimalista é para quem está começando do zero?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim, foi escrito exatamente para isso. Não assume nenhum conhecimento prévio sobre minimalismo. A linguagem é simples, direta e sem jargões. Se você nunca leu nada sobre o tema, este é o melhor ponto de partida.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Como o livro é diferente de conteúdo gratuito sobre minimalismo?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">O livro tem uma estrutura pensada do início ao fim, com exercícios práticos e checklists que você preenche. Não é um artigo que você lê e esquece, é um guia que você aplica e consulta quantas vezes quiser. A profundidade e a organização fazem toda a diferença.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Preciso ser radical ou me desfazer de tudo?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Absolutamente não. O livro ensina minimalismo como estilo de vida adaptado à sua realidade. Sem extremismos, sem abrir mão do que você ama. A ideia é manter só o que tem valor real para você.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">O livro digital funciona no Kindle?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim, funciona perfeitamente no Kindle via cabo USB. Na Área VIP há um tutorial em vídeo com o passo a passo completo.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Quando recebo meu livro digital?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Comprando por cartão ou Pix, você recebe imediatamente no seu e-mail. Por boleto, em até 3 dias úteis após a compensação.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Funciona para quem tem casa grande, filhos, rotina agitada?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Funciona para qualquer realidade. O guia cobre diferentes áreas da vida e você aplica no seu ritmo, começando por onde faz mais sentido pra você: casa, roupas, digital, finanças.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso parcelar a compra?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim. O pagamento por cartão de crédito pode ser parcelado em até 12x. O digital chega imediatamente após a confirmação e o físico é despachado após o processamento do pagamento.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Como rastreio o livro físico?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Assim que despachado, você recebe o código de rastreio dos Correios no seu e-mail. Frete grátis para todo o Brasil.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">E se eu comprar e não conseguir aplicar?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">O livro foi desenhado pra evitar exatamente isso: cada capítulo já vem com exercício e checklist prontos, você não precisa criar um plano do zero. E com a garantia de 7 dias, se sentir que não é pra você, é só avisar.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">É seguro comprar pelo link de pagamento?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim. O pagamento é processado pela Eduzz, uma das maiores plataformas de pagamento digital do Brasil, com criptografia de dados e nota fiscal emitida automaticamente.</div></div></div>
     </div>
     <div style="margin-top:40px;text-align:center;">
       <p style="font-family:var(--font-display);font-size:18px;color:var(--ink-soft);margin-bottom:20px;font-style:italic;">Mais um dia no automático, ou o começo de uma vida mais leve?</p>
@@ -1412,13 +1419,21 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 </div>
 
 <script>
-function irParaVersoes(e){
+function irParaVersoes(e, fromCoupon){
   if(e) e.preventDefault();
   var el=document.getElementById('versao-fisica')||document.getElementById('versoes');
   if(el){
     el.scrollIntoView({behavior:'smooth',block:'center'});
     el.classList.add('pc-highlight');
     setTimeout(function(){el.classList.remove('pc-highlight');},1800);
+  }
+  if(fromCoupon){
+    var note=document.getElementById('coupon-applied-note');
+    if(note){
+      note.classList.add('show');
+      clearTimeout(note._hideTimer);
+      note._hideTimer=setTimeout(function(){note.classList.remove('show');},6000);
+    }
   }
 }
 
@@ -1736,7 +1751,7 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
 @media(max-width:720px){#cupom-tooltip{top:16px;right:12px;max-width:190px;}}
 @keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
 </style>
-<div id="cupom-tooltip" role="button" tabindex="0" aria-label="Cupom GANHEI10, 10% off no carrinho. Ativar cupom" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none';}">
+<div id="cupom-tooltip" role="button" tabindex="0" aria-label="Cupom GANHEI10, 10% off no carrinho. Ativar cupom" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event,true);document.getElementById('cupom-tooltip').style.display='none'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irParaVersoes(event,true);document.getElementById('cupom-tooltip').style.display='none';}">
   <div style="background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(201,169,110,.45);">
     <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
     <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
