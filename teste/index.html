@@ -270,10 +270,11 @@ html,body{
 
 /* ══ BARRA DE PROGRESSO DE LEITURA ══ */
 .progress-bar{
-  position:fixed;top:0;left:0;height:3px;width:0%;
+  position:fixed;top:0;left:0;height:3px;width:100%;
+  transform:scaleX(0);transform-origin:left;
   background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light));
   z-index:9998;
-  transition:width .12s linear;
+  transition:transform .12s linear;
   pointer-events:none;
 }
 @media(prefers-reduced-motion:reduce){
@@ -672,7 +673,7 @@ html,body{
   padding:20px;
   box-shadow:0 30px 60px rgba(120,90,40,.22),0 8px 22px rgba(0,0,0,.08);
   transform-origin:50% 100%;
-  animation:gift-wobble 6.5s ease-in-out infinite;
+  animation:gift-wobble 6.5s ease-in-out 3;
 }
 .gift-box-bow{
   position:absolute;top:-32px;left:50%;
@@ -698,7 +699,7 @@ html,body{
   box-shadow:0 6px 18px rgba(201,169,110,.4);
   animation:shimmer 3.2s linear infinite;
 }
-.pres-tag-emoji{display:inline-block;animation:gift-emoji-bounce 2.2s ease-in-out infinite;}
+.pres-tag-emoji{display:inline-block;animation:gift-emoji-bounce 2.2s ease-in-out 4;}
 .pres-h3{
   font-family:var(--font-display);
   font-size:var(--h3);font-weight:400;
@@ -2283,7 +2284,7 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
     if(uBar){ uBar.classList.toggle('scrolled', y>40); }
 
     /* barra de progresso de leitura */
-    if(pBar){ pBar.style.width=pct+'%'; }
+    if(pBar){ pBar.style.transform='scaleX('+(pct/100)+')'; }
 
     /* parallax sutil na capa, só no desktop (no mobile a imagem já usa
        um transform de zoom/recorte fixo — sobrescrever via JS quebraria o crop) */
@@ -2580,7 +2581,7 @@ window.addEventListener('load', function(){
     if(shown)return;
     var h=document.documentElement;
     var pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
-    if(pct>=50){shown=true;tip.style.display='block';tip.style.animation='tooltip-in .4s cubic-bezier(.34,1.56,.64,1) both';playDing();}
+    if(pct>=50){shown=true;tip.style.display='block';tip.style.animation='tooltip-in .45s cubic-bezier(.16,1,.3,1) both';playDing();}
   },{passive:true});
 })();
 </script>
