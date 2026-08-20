@@ -248,6 +248,13 @@ a:focus-visible,button:focus-visible{outline:2px solid #C9A96E;outline-offset:2p
   html,body{width:100%;overflow-x:hidden;}
   .inner{padding:0 16px;}
 
+  /* Sem hover no touch: sombra de repouso pros cards das seções claras
+     (combos-completos fica escuro, não precisa) */
+  #combos-fisicos .reg-card,#combos-digitais .reg-card,
+  #combos-fisicos .feat-card,#combos-digitais .feat-card{
+    box-shadow:0 6px 18px rgba(28,26,20,.16);
+  }
+
   #scroll-freight{font-size:11px;padding:10px 38px 10px 12px;gap:6px;flex-wrap:wrap;}
   .freight-timer{padding-left:0;border-left:none;width:100%;justify-content:center;}
 
@@ -525,7 +532,6 @@ a:focus-visible,button:focus-visible{outline:2px solid #C9A96E;outline-offset:2p
         <h3 style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#888780;margin-bottom:14px;">Links úteis</h3>
         <a href="https://sejaminimalista.com.br/" target="_blank" style="display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;">Seja Minimalista (Best Seller)</a>
         <a href="https://sejaminimalista.com.br/365-dias" target="_blank" style="display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;">365 Dias Minimalistas</a>
-        <a href="https://sejaminimalista.com.br/combos" target="_blank" style="display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;">Combos com desconto</a>
         <a href="https://www.sejaminimalista.net/vip/entrar" target="_blank" style="display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;">Área VIP</a>
         <a href="mailto:sejaminimalista@hotmail.com" style="display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;">Fale comigo</a>
       </div>
