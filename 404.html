@@ -81,11 +81,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold-text);outline-
 }
 
 .logo{
-  font-family:var(--font-display);font-size:16px;font-style:italic;
-  color:var(--ink-soft);text-decoration:none;margin-bottom:56px;
-  letter-spacing:.02em;
+  display:inline-block;margin-bottom:56px;opacity:.85;
+  transition:opacity .2s ease;
 }
-.logo:hover{color:var(--ink);}
+.logo img{display:block;height:30px;width:auto;}
+.logo:hover{opacity:1;}
 
 .num{
   font-family:var(--font-display);font-style:italic;font-weight:500;
@@ -146,7 +146,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold-text);outline-
 
 <main class="wrap" id="main-content">
 
-  <a href="https://sejaminimalista.com.br" class="logo">seja minimalista</a>
+  <a href="https://sejaminimalista.com.br" class="logo"><img src="https://static.wixstatic.com/media/940f31_64ea155fc0b8427e898318695ef5ad7e~mv2.png/v1/crop/x_44,y_0,w_906,h_187/fill/w_288,h_59,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/logoinip.png" alt="Seja Minimalista" width="144" height="30" loading="eager" decoding="async"></a>
 
   <div class="num" aria-hidden="true">404</div>
   <h1 class="h1">Essa página também decidiu viver com menos.</h1>
@@ -154,7 +154,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold-text);outline-
 
   <div class="actions">
     <a href="https://sejaminimalista.com.br" class="btn btn-gold">Voltar para o início</a>
-    <a href="https://sejaminimalista.com.br/catalogo" class="btn btn-outline">Ver todos os produtos</a>
+    <a href="https://sejaminimalista.com.br/produtos" class="btn btn-outline">Ver todos os produtos</a>
   </div>
 
   <div class="pop">
