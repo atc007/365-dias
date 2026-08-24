@@ -629,40 +629,35 @@ html,body{
   .lightbox-overlay,.lightbox-overlay img,.car-slide img{transition:none!important;}
 }
 
-/* ══ MARQUEE DE DEPOIMENTOS ══ */
-.t-marquee{
-  overflow:hidden;margin-bottom:44px;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+/* ══ CARROSSEL DE STORIES (fotos reais de leitores) — rolagem automática infinita ══ */
+.stories-block{margin-bottom:44px;}
+.stories-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text);text-align:center;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.stories-label::before,.stories-label::after{content:'';width:24px;height:1px;background:var(--border);}
+.stories-controls{max-width:900px;margin:0 auto 10px;padding:0 var(--sec-h);display:flex;justify-content:flex-end;}
+.stories-pause{width:auto;height:auto;border-radius:20px;padding:5px 12px 5px 10px;display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--ink-muted);letter-spacing:.02em;border:1px solid var(--border);background:#fff;cursor:pointer;transition:background .2s,color .2s;}
+.stories-pause:hover{background:var(--bg-alt);color:var(--ink);}
+.stories-viewport{
+  overflow:hidden;position:relative;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
 }
-.t-marquee-track{
-  display:flex;gap:14px;width:max-content;
-  animation:t-marquee-scroll 42s linear infinite;
+.stories-strip{
+  display:flex;gap:12px;width:max-content;padding:4px 0 12px;
+  animation:stories-scroll 38s linear infinite;
 }
-.t-marquee:hover .t-marquee-track{animation-play-state:paused;}
-@keyframes t-marquee-scroll{
-  from{transform:translateX(0);}
-  to{transform:translateX(-50%);}
+.stories-strip.paused{animation-play-state:paused;}
+.stories-viewport:hover .stories-strip{animation-play-state:paused;}
+@keyframes stories-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.story-card{
+  flex-shrink:0;
+  width:140px;aspect-ratio:9/16;border-radius:14px;overflow:hidden;
+  background:#e4dfd8;position:relative;box-shadow:0 4px 14px rgba(0,0,0,.08);
 }
-.t-mchip{
-  display:flex;align-items:center;gap:10px;flex-shrink:0;
-  background:#fff;border:1px solid #e4dfd8;border-radius:30px;
-  padding:8px 18px 8px 8px;white-space:nowrap;
-}
-.t-mchip-avatar{
-  width:28px;height:28px;border-radius:50%;background:var(--gold);
-  color:#fff;display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-display);font-size:13px;flex-shrink:0;
-}
-.t-mchip-stars{color:var(--gold-text);font-size:11px;letter-spacing:1px;}
-.t-mchip-text{font-size:13px;color:#3a3632;}
-.t-mchip-text strong{font-weight:600;}
-@media(prefers-reduced-motion:reduce){
-  .t-marquee-track{animation:none;}
-}
-@media(max-width:720px){
-  .t-mchip-text{font-size:12px;}
-}
+.story-card img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;}
+.story-card.skeleton{background:linear-gradient(100deg,#e4dfd8 30%,#ede8e0 50%,#e4dfd8 70%);background-size:220% 100%;animation:story-shimmer 1.4s ease-in-out infinite;}
+@keyframes story-shimmer{0%{background-position:200% 0;}100%{background-position:-20% 0;}}
+@media(prefers-reduced-motion:reduce){.story-card.skeleton{animation:none;}.stories-strip{animation:none;}}
+@media(max-width:720px){.story-card{width:118px;}}
 
 /* ══ PRESENTE — a própria caixa é o presente ══ */
 .gift-box-wrap{max-width:620px;margin:0 auto;}
@@ -1839,25 +1834,22 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       <div class="t-stat"><span class="t-stat-num">15</span><span class="t-stat-label">países</span></div>
     </div>
 
-    <div class="t-marquee" aria-hidden="true">
-      <div class="t-marquee-track" id="t-marquee-track">
-        <div class="t-mchip"><div class="t-mchip-avatar">C</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “ficou na mesa de cabeceira o ano inteiro,” <strong>Camila O.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">M</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “melhor presente que já dei na vida,” <strong>Marcelo D.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">R</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “a vida vai ficando mais leve sem perceber,” <strong>Renata Q.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">B</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “parece que ele está do seu lado, todo dia,” <strong>Bruno F.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">D</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “virou ritual, não consigo imaginar o dia sem,” <strong>Débora K.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">R</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “o livro já se pagou sozinho,” <strong>Ricardo P.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">A</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “livro bonito, bem feito, conteúdo de verdade,” <strong>Aline W.</strong></div></div>
-        <div class="t-mchip"><div class="t-mchip-avatar">D</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “chegou rápido e bem embalado,” <strong>Diego H.</strong></div></div>
-        <!-- duplicado para loop contínuo -->
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">J</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “presente perfeito, todo mundo elogia,” <strong>Juliana P.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">F</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “nunca imaginei que uma página bastasse,” <strong>Felipe A.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">L</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “mudou minha manhã, e o resto do dia junto,” <strong>Larissa N.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">G</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “leve de carregar, pesado de significado,” <strong>Gustavo B.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">V</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “indiquei pra três amigas essa semana,” <strong>Vanessa T.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">D</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “finalmente um hábito que ficou,” <strong>Daniel S.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">N</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “capa linda, papel ainda melhor,” <strong>Natália R.</strong></div></div>
-        <div class="t-mchip" aria-hidden="true"><div class="t-mchip-avatar">H</div><div class="t-mchip-text"><span class="t-mchip-stars">★★★★★</span> “entrega rápida e embalagem impecável,” <strong>Henrique M.</strong></div></div>
+    <!-- CARROSSEL DE STORIES: busca as fotos automaticamente da pasta do GitHub.
+         Pra atualizar, é só subir/apagar imagens na pasta GH_FOLDER do repositório —
+         não precisa editar este arquivo nunca mais. -->
+    <div class="stories-block" id="stories-block" aria-hidden="true">
+      <div class="stories-label">Direto do Instagram dos leitores</div>
+      <div class="stories-controls">
+        <button class="stories-pause" id="stories-pause-btn" onclick="toggleStoriesPause()" aria-label="Pausar fotos em movimento" aria-pressed="false"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><rect x="1" y="0.5" width="3" height="9"/><rect x="6" y="0.5" width="3" height="9"/></svg><span>pausar</span></button>
+      </div>
+      <div class="stories-viewport">
+        <div class="stories-strip" id="stories-strip" role="list" aria-label="Fotos de leitores compartilhando o livro nos Stories">
+          <div class="story-card skeleton"></div>
+          <div class="story-card skeleton"></div>
+          <div class="story-card skeleton"></div>
+          <div class="story-card skeleton"></div>
+          <div class="story-card skeleton"></div>
+        </div>
       </div>
     </div>
 
@@ -2259,6 +2251,98 @@ setInterval(function(){slideTo((ci+1)%5);},4000);
 /* FAQ */
 function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
 
+/* ══ CARROSSEL DE STORIES — busca automática na pasta do GitHub ══ */
+(function(){
+  // ▼▼▼ PREENCHA AQUI (confira se o repositório é o mesmo do livro 1) ▼▼▼
+  var GH_OWNER  = 'atc007';
+  var GH_REPO   = '365-dias';
+  var GH_BRANCH = 'main';
+  var GH_FOLDER = '365-dep';
+  var SAMPLE_SIZE = 16; // quantas fotos aparecem por visita (sorteadas da pasta inteira, embaralhadas)
+  // ▲▲▲ ATÉ AQUI ▲▲▲
+
+  var block = document.getElementById('stories-block');
+  var strip = document.getElementById('stories-strip');
+  if(!block || !strip) return;
+
+  var CACHE_KEY = 'sm_stories_' + GH_OWNER + '_' + GH_REPO + '_' + GH_FOLDER;
+  var CACHE_TTL = 1000 * 60 * 30; // 30 min — evita bater na API do GitHub toda vez que a página recarrega
+
+  // comprime e redimensiona a imagem na hora via wsrv.nl (gratuito, sem chave de API).
+  function compressed(url){
+    return 'https://wsrv.nl/?url=' + encodeURIComponent(url) + '&w=280&q=75&output=webp&fit=cover';
+  }
+
+  function shuffle(arr){
+    var a = arr.slice();
+    for(var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function render(allUrls){
+    if(!allUrls || !allUrls.length){ block.style.display = 'none'; return; }
+    var sample = shuffle(allUrls).slice(0, SAMPLE_SIZE);
+    var base = sample.slice();
+    while(base.length < 8){ base = base.concat(sample); }
+    var full = base.concat(base);
+    strip.innerHTML = '';
+    full.forEach(function(url, i){
+      var isDuplicate = i >= base.length;
+      var card = document.createElement('div');
+      card.className = 'story-card';
+      if(isDuplicate){ card.setAttribute('aria-hidden','true'); } else { card.setAttribute('role','listitem'); }
+      var img = document.createElement('img');
+      img.src = compressed(url);
+      img.alt = 'Leitor compartilhando o livro 365 Dias Minimalistas no Instagram';
+      img.loading = i < 3 ? 'eager' : 'lazy';
+      img.decoding = 'async';
+      card.appendChild(img);
+      strip.appendChild(card);
+    });
+    var halfWidth = strip.scrollWidth / 2;
+    var duration = Math.max(18, Math.round(halfWidth / 32));
+    strip.style.animationDuration = duration + 's';
+    block.setAttribute('aria-hidden','true');
+  }
+
+  window.toggleStoriesPause = function(){
+    var stripEl = document.getElementById('stories-strip');
+    var btn = document.getElementById('stories-pause-btn');
+    var paused = stripEl.classList.toggle('paused');
+    btn.innerHTML = paused
+      ? '<svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M1 0.5 L9 5 L1 9.5 Z"/></svg><span>retomar</span>'
+      : '<svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><rect x="1" y="0.5" width="3" height="9"/><rect x="6" y="0.5" width="3" height="9"/></svg><span>pausar</span>';
+    btn.setAttribute('aria-label', paused ? 'Retomar fotos em movimento' : 'Pausar fotos em movimento');
+    btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+  };
+
+  try{
+    var cached = JSON.parse(sessionStorage.getItem(CACHE_KEY) || 'null');
+    if(cached && (Date.now() - cached.t) < CACHE_TTL){
+      render(cached.urls);
+      return;
+    }
+  }catch(e){}
+
+  var apiUrl = 'https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + GH_FOLDER + '?ref=' + GH_BRANCH;
+
+  fetch(apiUrl, { headers: { 'Accept': 'application/vnd.github+json' } })
+    .then(function(r){ if(!r.ok) throw new Error('gh-api-' + r.status); return r.json(); })
+    .then(function(files){
+      var urls = files
+        .filter(function(f){ return f.type === 'file' && /\.(jpe?g|png|webp)$/i.test(f.name); })
+        .map(function(f){ return f.download_url; });
+      try{ sessionStorage.setItem(CACHE_KEY, JSON.stringify({t: Date.now(), urls: urls})); }catch(e){}
+      render(urls);
+    })
+    .catch(function(){
+      block.style.display = 'none';
+    });
+})();
+
 /* ══ HEADER SHRINK/BLUR + BARRA DE PROGRESSO + PARALLAX DA CAPA ══ */
 (function(){
   var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2344,7 +2428,6 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
   /* -- Reveal: marca elementos e escalona o delay dentro de cada grupo -- */
   var revealGroups = [
     '.stats-bar .stat',
-    '.t-marquee',
     '.gift-box-wrap',
     '.ben-cards .ben-card',
     '.qual-cards .qual-card',
