@@ -420,11 +420,13 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 
 /* ══ HERO DESKTOP — mais respiro e badges em uma linha ══ */
 @media(min-width:721px){
+  /* HERO DESKTOP — largura própria, mais ampla que o conteúdo normal */
   .sec-hero{padding:80px var(--sec-h) 88px;}
-  .hero-img-wrap img{max-height:620px;}
+  .sec-hero > .inner{max-width:1320px;}
+  .hero-grid{grid-template-columns:1.5fr 1fr;gap:72px;}
+  .hero-img-wrap img{max-height:620px;width:100%;} 
   .hero-img-wrap .hero-badges{flex-wrap:nowrap;}
   .hero-img-wrap .hero-badge{white-space:nowrap;}
-  .hero-grid{gap:88px;}
 }
 
 /* ══ MOBILE ══ */
