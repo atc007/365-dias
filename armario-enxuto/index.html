@@ -166,6 +166,14 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .btn-dark:hover{background:#3C2C28;transform:scale(1.02);}
 
 /* ══ HERO ══ */
+/* Desktop: hero mais ampla e assimétrica, sem alterar as demais seções */
+@media(min-width:721px){
+  .sec-hero .inner{max-width:1320px;}
+  .sec-hero .hero-grid{grid-template-columns:1.5fr 1fr;gap:88px;}
+  .sec-hero .hero-img-wrap img{max-height:560px;}
+  .sec-hero .hero-badges{flex-wrap:nowrap;}
+}
+
 .sec-hero{background:var(--bg-warm);padding:56px var(--sec-h) 64px;}
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center;}
 .hero-img-wrap{text-align:center;}
