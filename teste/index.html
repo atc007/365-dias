@@ -1262,10 +1262,11 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <section class="sec alt" id="versoes" style="background:#D8D8D6;">
   <div class="inner">
     <div class="sec-eyebrow" style="justify-content:center;">Escolha sua versão</div>
-    <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 24px;">Comece sua jornada minimalista hoje.</h2>
-
+    <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 0;">Comece sua jornada minimalista hoje.</h2>
+    <div id="coupon-applied-note" class="coupon-applied-note" role="status" aria-live="polite">✓ Cupom GANHEI10 aplicado — 10% off no carrinho</div>
     <div class="precos">
       <div class="pc" id="versao-digital">
+        <div class="dest-badge muted"><span>💰 Mais acessível</span></div>
         <div class="pc-img">
           <img src="https://static.wixstatic.com/media/940f31_1d7cb94e5cb44938818f79f4a7333c79~mv2.jpg/v1/crop/x_0,y_4,w_550,h_342/fill/w_550,h_342,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Design%20sem%20nome%20(6).jpg"
             alt="Seja Minimalista versão digital" width="550" height="342" loading="lazy" decoding="async">
@@ -1287,7 +1288,6 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
           <div class="pc-urgency-note">⚡ Acesso imediato após o pagamento</div>
         </div>
       </div>
-
       <div class="pc" id="versao-fisica">
         <div class="dest-badge muted"><span>🎁 Ideal para presentear</span></div>
         <div class="pc-img">
@@ -1311,7 +1311,6 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
           <div class="pc-urgency-note">📦 Frete grátis para todo o Brasil</div>
         </div>
       </div>
-
       <div class="pc dest" id="versao-combo">
         <div class="dest-badge"><span>🔥 Melhor custo-benefício · 40% OFF</span></div>
         <div class="pc-img" style="position:relative;">
@@ -1867,6 +1866,18 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
 #cupom-tooltip{top:20px;right:20px;bottom:auto;max-width:220px;}
 @media(max-width:720px){#cupom-tooltip{top:16px;right:12px;max-width:190px;}}
 @keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
+
+/* Largura adaptável — somente a seção "Escolha sua versão" */
+@media (min-width:721px){
+  #versoes .inner{
+    max-width:1320px;
+  }
+  #versoes .precos{
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+}
+
 </style>
 <div id="cupom-tooltip" role="button" tabindex="0" aria-label="Cupom GANHEI10, 10% off no carrinho. Ativar cupom" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event,true);document.getElementById('cupom-tooltip').style.display='none'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irParaVersoes(event,true);document.getElementById('cupom-tooltip').style.display='none';}">
   <div style="background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(201,169,110,.45);">
