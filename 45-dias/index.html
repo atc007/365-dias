@@ -557,6 +557,15 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 .footer-divider{margin-top:36px;padding-top:22px;border-top:.5px solid #3A3A38;font-size:11px;color:#8A8A86;}
 
 /* ══ MOBILE ══ */
+/* ══ HERO DESKTOP — mais respiro e imagem maior ══ */
+@media(min-width:721px){
+  .sec-hero > .inner{max-width:1320px;padding-left:var(--sec-h);padding-right:var(--sec-h);}
+  .hero-grid{grid-template-columns:1.5fr 1fr;gap:88px;}
+  .hero-img-wrap img{max-height:620px;}
+  .hero-img-wrap .badges{flex-wrap:nowrap;}
+  .hero-img-wrap .badge{white-space:nowrap;}
+}
+
 @media(max-width:720px){
   :root{--h1:clamp(24px,7vw,34px);--h2:clamp(22px,6vw,30px);--body:15px;--sec-v:36px;--sec-h:16px;--gap:24px;}
   html,body{overflow-x:hidden;}
