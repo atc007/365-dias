@@ -1866,6 +1866,9 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
 #cupom-tooltip{top:20px;right:20px;bottom:auto;max-width:220px;}
 @media(max-width:720px){#cupom-tooltip{top:16px;right:12px;max-width:190px;}}
 @keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
+
+/* RODAPÉ — largura adaptável ao navegador, como a HERO */
+@media (min-width:721px){.footer > .inner{width:min(calc(100vw - 80px),1320px);max-width:1320px;margin-left:auto;margin-right:auto;}}
 </style>
 <div id="cupom-tooltip" role="button" tabindex="0" aria-label="Cupom GANHEI10, 10% off no carrinho. Ativar cupom" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event,true);document.getElementById('cupom-tooltip').style.display='none'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irParaVersoes(event,true);document.getElementById('cupom-tooltip').style.display='none';}">
   <div style="background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(201,169,110,.45);">
