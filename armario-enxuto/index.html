@@ -178,6 +178,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   .sec-hero .hero-grid{grid-template-columns:1.5fr 1fr;gap:88px;}
   .sec-hero .hero-img-wrap img{max-height:560px;}
   .sec-hero .hero-badges{flex-wrap:nowrap;}
+  .footer .inner{max-width:1320px;}
 }
 
 .sec-hero{background:var(--bg-warm);padding:56px var(--sec-h) 64px;}
@@ -424,8 +425,9 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   .urgency-inner{flex-direction:column;gap:6px;text-align:center;}
   .sec-hero{padding:0 var(--sec-h) 32px;}
   .hero-grid{grid-template-columns:1fr;gap:0;}
-  .hero-img-wrap{order:-1;margin:24px auto 0;width:85%;max-width:300px;}
-  .hero-img-wrap img{max-height:420px;width:100%;object-fit:contain;border-radius:16px;box-shadow:0 12px 40px rgba(44,36,32,.18);}
+  /* Mobile: imagem da Hero ocupa exatamente a largura da viewport, sem deslocamento lateral */
+  .hero-img-wrap{order:-1;margin:0 calc(-1 * var(--sec-h)) 0;width:calc(100% + (2 * var(--sec-h)));max-width:none;text-align:center;}
+  .hero-img-wrap img{display:block;width:100%;height:auto;max-width:none;max-height:none;object-fit:contain;border-radius:0;box-shadow:none;}
   .hero-grid>div:last-child{padding-top:20px;}
   .grid2{grid-template-columns:1fr;gap:24px;}
   .motivos-grid,.for-grid,.cap-grid{grid-template-columns:1fr;}
@@ -471,7 +473,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   <div class="inner">
     <div class="hero-grid">
       <div class="hero-img-wrap anim-up d1">
-        <img src="https://static.wixstatic.com/media/940f31_3f1672a79414422e849e73912d40127d~mv2.jpg/v1/fill/w_600,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/armario-enxuto-capa.jpg"
+        <img src="https://static.wixstatic.com/media/940f31_cf366323fd1b403885055cf34e7879c2~mv2.webp"
           alt="Livro Armário Enxuto: guia prático de estilo e organização de Alexandre Chahoud"
           width="520" height="693" loading="eager" fetchpriority="high" decoding="sync" style="max-height:520px;object-fit:contain;">
         <div class="hero-badges">
@@ -962,7 +964,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
       </div>
     </div>
     <div class="footer-divider">
-      <span>Armário Enxuto: O guia prático para fazer as pazes com o seu visual<br>ISBN 9786500809572 · Alexandre Chahoud</span>
+      <span>Armário Enxuto: O guia prático para fazer as pazes com o seu visual<br>ISBN 9786500809572 · Alexandre Chahoud e Fabiana Carraro</span>
     </div>
   </div>
 </footer>
