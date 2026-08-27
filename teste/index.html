@@ -425,8 +425,9 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   .urgency-inner{flex-direction:column;gap:6px;text-align:center;}
   .sec-hero{padding:0 var(--sec-h) 32px;}
   .hero-grid{grid-template-columns:1fr;gap:0;}
-  .hero-img-wrap{order:-1;margin:24px auto 0;width:calc(100% + 30px);max-width:430px;}
-  .hero-img-wrap img{width:100%;max-height:none;object-fit:contain;border-radius:16px;box-shadow:0 12px 40px rgba(44,36,32,.18);}
+  /* Mobile: imagem da Hero ocupa exatamente a largura da viewport, sem deslocamento lateral */
+  .hero-img-wrap{order:-1;margin:0 calc(-1 * var(--sec-h)) 0;width:calc(100% + (2 * var(--sec-h)));max-width:none;text-align:center;}
+  .hero-img-wrap img{display:block;width:100%;height:auto;max-width:none;max-height:none;object-fit:contain;border-radius:0;box-shadow:none;}
   .hero-grid>div:last-child{padding-top:20px;}
   .grid2{grid-template-columns:1fr;gap:24px;}
   .motivos-grid,.for-grid,.cap-grid{grid-template-columns:1fr;}
