@@ -139,9 +139,16 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 @keyframes shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
 @keyframes price-shine{0%{background-position:150% center;}100%{background-position:-150% center;}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
-.anim-up{animation:fadeUp .6s ease both;}
-.d1{animation-delay:.08s;}.d2{animation-delay:.18s;}.d3{animation-delay:.28s;}.d4{animation-delay:.38s;}.d5{animation-delay:.48s;}
+/* Fade-up dispara ao entrar na tela (IntersectionObserver), não mais tudo de uma vez no load —
+   com 55 elementos marcados .anim-up pela página, a maioria ficava fora da vista no momento do load
+   e a animação já tinha acabado antes da pessoa rolar até lá. */
+.anim-up{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);}
+.anim-up.in-view{opacity:1;transform:translateY(0);}
+/* Momento autoral: a capa do livro "chega" com leve zoom, único elemento com essa assinatura */
+.hero-img-wrap.anim-up{transform:scale(.94) translateY(8px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+.hero-img-wrap.anim-up.in-view{transform:scale(1) translateY(0);}
+.d1.in-view{transition-delay:.08s;}.d2.in-view{transition-delay:.18s;}.d3.in-view{transition-delay:.28s;}.d4.in-view{transition-delay:.38s;}.d5.in-view{transition-delay:.48s;}
+@media(prefers-reduced-motion:reduce){.anim-up{opacity:1;transform:none;transition:none;}*{animation:none!important;}}
 
 /* ══ URGENCY BAR ══ */
 .urgency-bar{background:var(--ink);padding:11px var(--sec-h);text-align:center;}
@@ -163,6 +170,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   transition:filter .25s ease,transform .25s ease,box-shadow .25s ease;
 }
 .btn-rose:hover{animation-play-state:paused;filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 6px 18px rgba(196,136,111,.4);}
+.btn-rose:active,.btn-dark:active,.pc-btn:active{transform:scale(.97);transition:transform .12s ease;}
 .btn-dark{
   display:inline-block;background:var(--ink);color:var(--cream);
   font-size:15px;font-weight:700;padding:18px 36px;border-radius:6px;
@@ -318,6 +326,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 /* ══ ÂNCORA PREÇO ══ */
 .ancora-sec{background:var(--cream);padding:28px var(--sec-h);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);}
 .ancora-inner{max-width:700px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;}
+.ancora-price-line{display:flex;align-items:center;gap:32px;flex-shrink:0;}
 .ancora-calc{font-family:var(--font-display);font-size:clamp(22px,3vw,36px);color:var(--ink);line-height:1.1;}
 .ancora-calc span{display:block;font-size:13px;font-family:-apple-system,sans-serif;color:var(--ink-muted-light);font-weight:400;margin-top:4px;}
 .ancora-sep{font-size:28px;color:var(--border);}
@@ -527,7 +536,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
           </div>
           <div class="agit-problem">
             <div class="agit-problem-icon">💸</div>
-            <div class="agit-problem-text">Você continua comprando, mas a sensação de "não ter nada" não passa.</div>
+            <div class="agit-problem-text">Você continua comprando, mas a sensação de “não ter nada” não passa.</div>
           </div>
         </div>
       </div>
@@ -536,7 +545,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
           <img src="https://static.wixstatic.com/media/940f31_c503051d75f242f8a18d6429143d054f~mv2.jpg/v1/fill/w_651,h_678,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/armario-lifestyle.jpg"
             alt="Mulher segurando o livro Armário Enxuto de Alexandre Chahoud e Fabianna Carraro" width="651" height="678" loading="lazy" decoding="async">
         </div>
-        <div class="agit-virada anim-up d3">"O problema não é falta de roupas. É falta de conexão com quem você é hoje. E isso tem solução."</div>
+        <div class="agit-virada anim-up d3">“O problema não é falta de roupas. É falta de conexão com quem você é hoje. E isso tem solução.”</div>
       </div>
     </div>
   </div>
@@ -571,7 +580,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
       <div class="motivo-card motivo-full anim-up d2">
         <div class="motivo-num">05</div>
         <div class="motivo-title">Menos estresse, mais confiança</div>
-        <div class="motivo-desc">Chega de estresse matinal e da sensação de "não ter nada para vestir". Você vai sair de casa se sentindo exatamente quem é.</div>
+        <div class="motivo-desc">Chega de estresse matinal e da sensação de “não ter nada para vestir”. Você vai sair de casa se sentindo exatamente quem é.</div>
       </div>
     </div>
   </div>
@@ -586,14 +595,14 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
         <h2 class="sec-h2 anim-up d1">Para quem quer se vestir com confiança, sem complicação.</h2>
         <div class="for-grid">
           <div class="for-card anim-up d2"><div class="for-icon">✔️</div><div class="for-text">Está cansada de se sentir mal quando veste suas roupas</div></div>
-          <div class="for-card anim-up d3"><div class="for-icon">✔️</div><div class="for-text">Fica horas olhando pro armário "perdida" e acaba vestindo sempre as mesmas peças</div></div>
+          <div class="for-card anim-up d3"><div class="for-icon">✔️</div><div class="for-text">Fica horas olhando pro armário “perdida” e acaba vestindo sempre as mesmas peças</div></div>
           <div class="for-card anim-up d2"><div class="for-icon">✔️</div><div class="for-text">Tem dúvidas sobre o que usar em ocasiões importantes</div></div>
           <div class="for-card anim-up d3"><div class="for-icon">✔️</div><div class="for-text">Quer ter seu próprio estilo mas não sabe como montar um armário que funciona</div></div>
         </div>
         <div style="margin-top:28px;"><a class="btn-rose anim-up d4" href="#versoes" onclick="irParaVersoes(event)">Esse é o meu caso, quero começar</a></div>
       </div>
       <div>
-        <div class="pullquote anim-up d2">"Este livro foi escrito para ser leve e sem complicações. Assim como a vida deve ser."</div>
+        <div class="pullquote anim-up d2">“Este livro foi escrito para ser leve e sem complicações. Assim como a vida deve ser.”</div>
         <!-- Vídeo sem som, lazy load -->
         <div style="border-radius:10px;overflow:hidden;background:var(--bg-warm);aspect-ratio:9/16;max-width:280px;margin:20px auto 0;box-shadow:0 8px 28px rgba(44,36,32,.12);">
           <video id="armario-video" muted loop playsinline autoplay preload="metadata"
@@ -717,27 +726,27 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
     <h2 class="sec-h2 anim-up d1" style="text-align:center;max-width:520px;margin:10px auto 32px;">Mulheres que fizeram as pazes com o <em>próprio guarda-roupa.</em></h2>
     <div class="t-grid">
       <div class="t-card featured anim-up d2">
-        <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
+        <span class="t-quote-mark">“</span><span class="t-stars">★★★★★</span>
         <p class="t-text">Passei anos comprando roupas e me sentindo cada vez mais perdida. O Armário Enxuto me fez entender que o problema nunca foram as roupas, era a falta de autoconhecimento sobre o meu próprio estilo. Em menos de um mês já tinha doado metade do armário e me vestia com muito mais confiança.</p>
         <div class="t-author"><div class="t-avatar">R</div><div><span class="t-author-name">Renata M. · São Paulo, SP</span><span class="t-author-city">Livro Físico</span></div></div>
       </div>
       <div class="t-card anim-up d3">
-        <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
+        <span class="t-quote-mark">“</span><span class="t-stars">★★★★★</span>
         <p class="t-text">Finalmente entendi meu biotipo e as cores que funcionam para mim. Simples assim e mudou tudo na hora de escolher o que comprar.</p>
         <div class="t-author"><div class="t-avatar">C</div><div><span class="t-author-name">Carolina V. · Curitiba, PR</span><span class="t-author-city">Livro Digital</span></div></div>
       </div>
       <div class="t-card anim-up d2">
-        <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
+        <span class="t-quote-mark">“</span><span class="t-stars">★★★★★</span>
         <p class="t-text">Os exercícios do livro me ajudaram a entender meu estilo de verdade. Nunca mais comprei por impulso.</p>
         <div class="t-author"><div class="t-avatar">M</div><div><span class="t-author-name">Mariana F. · Porto Alegre, RS</span><span class="t-author-city">Livro Físico</span></div></div>
       </div>
       <div class="t-card anim-up d3">
-        <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
+        <span class="t-quote-mark">“</span><span class="t-stars">★★★★★</span>
         <p class="t-text">O capítulo de multiplicação de looks sozinho já valeu o investimento. Eu tinha mais combinações do que imaginava!</p>
         <div class="t-author"><div class="t-avatar">P</div><div><span class="t-author-name">Patrícia L. · Florianópolis, SC</span><span class="t-author-city">Livro Físico + Digital</span></div></div>
       </div>
       <div class="t-card anim-up d2">
-        <span class="t-quote-mark">"</span><span class="t-stars">★★★★★</span>
+        <span class="t-quote-mark">“</span><span class="t-stars">★★★★★</span>
         <p class="t-text">Linguagem leve, sem julgamento, sem estereótipos. Parece que foi escrito especialmente para mim.</p>
         <div class="t-author"><div class="t-avatar">A</div><div><span class="t-author-name">Amanda K. · Brasília, DF</span><span class="t-author-city">Livro Físico + Digital</span></div></div>
       </div>
@@ -795,8 +804,10 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 
 <div class="ancora-sec">
   <div class="ancora-inner">
-    <div class="ancora-calc">R$ 0,25 <em style="font-size:14px;font-style:normal;font-family:-apple-system,sans-serif;color:var(--ink-muted-light)">por dia</em><span>no primeiro mês de uso</span></div>
-    <div class="ancora-sep">·</div>
+    <div class="ancora-price-line">
+      <div class="ancora-calc">R$ 0,25 <em style="font-size:14px;font-style:normal;font-family:-apple-system,sans-serif;color:var(--ink-muted-light)">por dia</em><span>no primeiro mês de uso</span></div>
+      <div class="ancora-sep">·</div>
+    </div>
     <div class="ancora-compare">Uma sessão com personal stylist custa entre R$ 300 e R$ 800. <strong>Por R$ 0,25 por dia</strong> você tem um guia completo de estilo e autoconhecimento para consultar para sempre, sem mensalidade.</div>
   </div>
 </div>
@@ -1029,6 +1040,25 @@ function irParaVersoes(e){if(e)e.preventDefault();var el=document.getElementById
 })();
 
 /* FAQ */
+/* ══ REVELAÇÃO AO ROLAR — .anim-up entra em cena só quando alcançado ══ */
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.anim-up');
+  if(reduced || !('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.15, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
+
 function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
 
 /* Vídeo lazy load */
@@ -1082,14 +1112,14 @@ document.addEventListener('DOMContentLoaded',function(){
 @media(max-width:720px){#cupom-tooltip{top:16px;right:12px;max-width:190px;}}
 @keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
 </style>
-<div id="cupom-tooltip" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none'">
-  <div style="background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(201,169,110,.45);">
+<div id="cupom-tooltip" role="button" tabindex="0" aria-label="Cupom GANHEI10, 10% off no carrinho. Ativar cupom" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none';}">
+  <div style="background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(196,136,111,.45);">
     <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
-    <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" style="position:absolute;top:7px;right:9px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;">×</button>
-    <div style="font-size:10px;font-weight:700;color:#C9A96E;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;">🎁 Cupom exclusivo</div>
-    <div style="background:rgba(255,255,255,.05);border:1.5px dashed #C9A96E;border-radius:8px;padding:9px 12px 8px;text-align:center;">
+    <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
+    <div style="font-size:10px;font-weight:700;color:#C4886F;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;">🎁 Cupom exclusivo</div>
+    <div style="background:rgba(255,255,255,.05);border:1.5px dashed #C4886F;border-radius:8px;padding:9px 12px 8px;text-align:center;">
       <div style="font-family:var(--font-display);font-size:21px;font-weight:700;color:#F5F0E8;letter-spacing:.07em;">GANHEI10</div>
-      <div style="font-size:10.5px;color:#B8925A;margin-top:2px;letter-spacing:.02em;">10% OFF no carrinho</div>
+      <div style="font-size:10.5px;color:#E0BAA8;margin-top:2px;letter-spacing:.02em;">10% OFF no carrinho</div>
     </div>
   </div>
 </div>
