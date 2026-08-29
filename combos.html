@@ -243,6 +243,11 @@ a:focus-visible,button:focus-visible{outline:2px solid #C9A96E;outline-offset:2p
 .card-reveal.r-on.ind-card:hover{transform:translateY(-8px);}
 .card-reveal.r-on.feat-card:hover{transform:translateY(-8px);}
 .card-reveal.r-on.mv-card:hover{transform:translateY(-8px);}
+@media(prefers-reduced-motion:reduce){
+  .card-reveal,.sec-title-bar,.sec-title-text,.mv-card{
+    opacity:1!important;transform:none!important;transition:none!important;
+  }
+}
 
 @media(max-width:720px){
   html,body{width:100%;overflow-x:hidden;}
@@ -714,11 +719,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
   function updateWaPosition(visible){
     if(!waFloat) return;
-    if(visible){
-      waFloat.style.bottom = (bar.offsetHeight + 14) + 'px';
-    } else {
-      waFloat.style.bottom = '22px';
-    }
+    var offset = visible ? (bar.offsetHeight + 14) : 22;
+    waFloat.style.bottom = offset + 'px';
   }
 
   var ticking=false;
