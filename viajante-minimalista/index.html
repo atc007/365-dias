@@ -341,6 +341,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 /* ÂNCORA PREÇO */
 .ancora-sec{background:var(--cream);padding:28px 40px;border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);}
 .ancora-inner{max-width:700px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;}
+.ancora-price-line{display:flex;align-items:center;gap:32px;flex-shrink:0;}
 .ancora-calc{font-family:var(--font-display);font-size:clamp(22px,3vw,36px);color:var(--ink);line-height:1.1;}
 .ancora-calc span{display:block;font-size:13px;font-family:-apple-system,sans-serif;color:var(--ink-muted);font-weight:400;margin-top:4px;}
 .ancora-sep{font-size:28px;color:var(--border);}
@@ -947,8 +948,10 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 <!-- ÂNCORA PREÇO -->
 <div class="ancora-sec">
   <div class="ancora-inner">
-    <div class="ancora-calc">R$ 0,25 <em style="font-size:14px;font-style:normal;font-family:-apple-system,sans-serif;color:var(--ink-muted)">por dia</em><span>menos que um café, pelo guia completo</span></div>
-    <div class="ancora-sep">·</div>
+    <div class="ancora-price-line">
+      <div class="ancora-calc">R$ 0,25 <em style="font-size:14px;font-style:normal;font-family:-apple-system,sans-serif;color:var(--ink-muted)">por dia</em><span>menos que um café, pelo guia completo</span></div>
+      <div class="ancora-sep">·</div>
+    </div>
     <div class="ancora-compare"><strong>Uma agência de viagens cobra R$ 300–800</strong> só para planejar o roteiro. Por R$ 0,25 por dia você tem o método completo para consultar sempre que quiser.</div>
   </div>
 </div>
