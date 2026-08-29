@@ -3,13 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Boleto Gerado — Seja Minimalista | Aguardando Pagamento</title>
+<title>Boleto Gerado | Seja Minimalista - Aguardando Pagamento</title>
 <meta name="description" content="Seu pedido foi registrado. Pague o boleto e em até 3 dias úteis você recebe o livro digital no seu e-mail.">
-<meta property="og:title" content="Boleto Gerado — Seja Minimalista">
+<meta property="og:title" content="Boleto Gerado | Seja Minimalista">
 <meta property="og:description" content="Seu pedido foi registrado. Pague o boleto e em até 3 dias úteis você recebe o livro digital no seu e-mail.">
 <meta property="og:image" content="https://static.wixstatic.com/media/940f31_9838f95851d04fae89e45d43a6fe0e09~mv2.jpg">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://sejaminimalista.com.br/bol-digital">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -30,7 +33,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Seja Minimalista">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Boleto Gerado — Seja Minimalista">
+<meta name="twitter:title" content="Boleto Gerado | Seja Minimalista">
 <meta name="twitter:description" content="Seu pedido foi registrado. Pague o boleto e em até 3 dias úteis você recebe o livro digital no seu e-mail.">
 <meta name="twitter:image" content="https://static.wixstatic.com/media/940f31_9838f95851d04fae89e45d43a6fe0e09~mv2.jpg">
 <!-- Google tag (gtag.js) -->
@@ -74,6 +77,13 @@ html,body{
 }
 
 /* inner centraliza o conteúdo interno de cada seção */
+:root{--font-display:'Petrona',Georgia,'Times New Roman',serif;}
+/* ══ FOCO E TOQUE (acessibilidade) ══ */
+.skip-link{position:absolute;left:-9999px;top:0;background:#1C1C1A;color:#F5F0E8;padding:12px 20px;border-radius:0 0 8px 0;z-index:100000;text-decoration:none;font-size:14px;font-weight:600;}
+.skip-link:focus{left:0;}
+a,button{touch-action:manipulation;}
+a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2px;border-radius:4px;}
+
 .sec-inner{
   max-width:680px;
   margin:0 auto;
@@ -85,23 +95,9 @@ html,body{
   from{opacity:0;transform:translateY(24px);}
   to{opacity:1;transform:translateY(0);}
 }
-@keyframes pulse-ring{
-  0%{box-shadow:0 0 0 0 rgba(201,169,110,.45);}
-  70%{box-shadow:0 0 0 18px rgba(201,169,110,0);}
-  100%{box-shadow:0 0 0 0 rgba(201,169,110,0);}
-}
-@keyframes spin-slow{
-  from{transform:rotate(0deg);}
-  to{transform:rotate(360deg);}
-}
 @keyframes shimmer-gold{
   0%{background-position:200% center;}
   100%{background-position:-200% center;}
-}
-@keyframes bounce-icon{
-  0%,100%{transform:translateY(0);}
-  40%{transform:translateY(-6px);}
-  60%{transform:translateY(-3px);}
 }
 @keyframes bar-fill{
   from{width:0%;}
@@ -113,13 +109,14 @@ html,body{
 }
 
 /* stagger fade-up for cards */
-.anim-up{animation:fadeUp .6s ease both;}
-.d1{animation-delay:.1s;}
-.d2{animation-delay:.22s;}
-.d3{animation-delay:.34s;}
-.d4{animation-delay:.46s;}
-.d5{animation-delay:.58s;}
-.d6{animation-delay:.70s;}
+.anim-up{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);}
+.anim-up.in-view{opacity:1;transform:translateY(0);}
+.d1.in-view{transition-delay:.1s;}
+.d2.in-view{transition-delay:.22s;}
+.d3.in-view{transition-delay:.34s;}
+.d4.in-view{transition-delay:.46s;}
+.d5.in-view{transition-delay:.58s;}
+.d6.in-view{transition-delay:.70s;}
 
 /* ── HERO PENDENTE ── */
 .sec-pending{
@@ -135,10 +132,10 @@ html,body{
   background:#BA7517;
   display:flex;align-items:center;justify-content:center;
   font-size:24px;flex-shrink:0;
-  animation:pulse-ring 2.2s ease infinite;
+  
 }
 .pending-title{
-  font-family:Georgia,'Times New Roman',serif;
+  font-family:var(--font-display);
   font-size:26px;font-weight:400;
   color:#1C1C1A;line-height:1.3;margin-bottom:6px;
 }
@@ -159,7 +156,7 @@ html,body{
   height:100%;border-radius:4px;
   background:linear-gradient(90deg,#BA7517 0%,#EF9F27 50%,#BA7517 100%);
   background-size:200% auto;
-  animation:bar-fill 1.4s .3s ease both,shimmer-gold 2.5s linear infinite;
+  animation:bar-fill 1.4s .3s ease both,shimmer-gold 5.5s linear infinite;
   width:0%;
 }
 
@@ -190,7 +187,7 @@ html,body{
   display:flex;align-items:center;gap:14px;
   font-size:13px;color:#E8E2D8;
 }
-.spam-alert-icon{font-size:20px;flex-shrink:0;animation:bounce-icon 2s ease-in-out infinite;}
+.spam-alert-icon{font-size:20px;flex-shrink:0;}
 .spam-alert strong{color:#C9A96E;}
 
 /* ── MENSAGEM PESSOAL ── */
@@ -201,7 +198,7 @@ html,body{
 .letter-eyebrow{
   font-size:11px;font-weight:600;
   letter-spacing:.12em;text-transform:uppercase;
-  color:#C9A96E;margin-bottom:16px;
+  color:#7F5A24;margin-bottom:16px;
   display:flex;align-items:center;gap:10px;
 }
 .letter-eyebrow::before{content:'';display:block;width:24px;height:1px;background:#C9A96E;}
@@ -209,7 +206,7 @@ html,body{
 .pullquote{
   border-left:3px solid #C9A96E;
   padding:12px 20px;
-  font-family:Georgia,'Times New Roman',serif;
+  font-family:var(--font-display);
   font-size:17px;color:#1C1C1A;
   line-height:1.7;font-style:italic;
   margin-bottom:24px;
@@ -217,7 +214,7 @@ html,body{
 }
 .letter-p{font-size:14px;color:#3D3D3B;line-height:1.85;margin-bottom:16px;}
 .letter-sign{
-  font-family:Georgia,'Times New Roman',serif;
+  font-family:var(--font-display);
   font-size:16px;color:#1C1C1A;
   margin-top:24px;padding-top:20px;
   border-top:.5px solid #D3D3D3;
@@ -232,12 +229,12 @@ html,body{
 .while-eyebrow{
   font-size:11px;font-weight:600;
   letter-spacing:.12em;text-transform:uppercase;
-  color:#C9A96E;margin-bottom:14px;
+  color:#7F5A24;margin-bottom:14px;
   display:flex;align-items:center;gap:10px;
 }
 .while-eyebrow::before{content:'';display:block;width:24px;height:1px;background:#C9A96E;}
 .while-h2{
-  font-family:Georgia,'Times New Roman',serif;
+  font-family:var(--font-display);
   font-size:22px;font-weight:400;
   color:#1C1C1A;margin-bottom:20px;line-height:1.35;
 }
@@ -264,7 +261,7 @@ html,body{
   padding:36px 48px;text-align:center;
 }
 .footer-msg-title{
-  font-family:Georgia,'Times New Roman',serif;
+  font-family:var(--font-display);
   font-size:21px;font-weight:400;
   color:#F5F0E8;margin-bottom:10px;
 }
@@ -275,7 +272,7 @@ html,body{
   background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);
   background-size:200% auto;
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  animation:shimmer-gold 3s linear infinite;
+  animation:shimmer-gold 5.5s linear infinite;
 }
 .footer-msg-sub{font-size:13px;color:#888780;line-height:1.7;}
 .footer-msg-sub strong{color:#C9A96E;}
@@ -296,12 +293,14 @@ html,body{
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
 <!-- TOPBAR -->
 <div class="topbar">
-  Pedido recebido — <strong>aguardando compensação do boleto</strong>
+  Pedido recebido: <strong>aguardando compensação do boleto</strong>
 </div>
 
-<div class="page-wrap">
+<div class="page-wrap" id="main-content">
 
   <!-- HERO PENDENTE -->
   <section class="sec-pending">
@@ -354,7 +353,7 @@ html,body{
    <div class="sec-inner" style="display:flex;align-items:center;gap:14px;">
     <div class="spam-alert-icon">📩</div>
     <div>
-      Fique atento à caixa de <strong>spam</strong> — o e-mail de entrega é enviado pela <strong>Eduzz</strong>, nossa plataforma de vendas, e pode cair no filtro de spam.
+      Fique atento à caixa de <strong>spam</strong>. O e-mail de entrega é enviado pela <strong>Eduzz</strong>, nossa plataforma de vendas, e pode cair no filtro de spam.
     </div>
    </div>
   </div>
@@ -365,13 +364,13 @@ html,body{
     <div class="letter-eyebrow anim-up d3">Uma mensagem de Alexandre Chahoud</div>
     <div class="letter-body">
       <div class="pullquote anim-up d4">
-        "Este livro não é sobre fazer mais. É sobre tirar o peso do que não precisa mais estar aí."
+        “Este livro não é sobre fazer mais. É sobre tirar o peso do que não precisa mais estar aí.”
       </div>
       <p class="letter-p anim-up d4">
-        Se você chegou até aqui é porque entende que o minimalismo é o caminho para uma vida mais leve e mais feliz. Essa clareza já é o primeiro passo — e você acabou de dar.
+        Se você chegou até aqui é porque entende que o minimalismo é o caminho para uma vida mais leve e mais feliz. Essa clareza já é o primeiro passo, e você acabou de dar.
       </p>
       <p class="letter-p anim-up d5">
-        Quando você começar a aplicar o que compartilho nele, a mudança acontece. Aos poucos, do jeito certo, e de forma real. Sem radicalismos, sem cobranças — só o que faz sentido pra você.
+        Quando você começar a aplicar o que compartilho nele, a mudança acontece. Aos poucos, do jeito certo, e de forma real. Sem radicalismos, sem cobranças, só o que faz sentido pra você.
       </p>
       <p class="letter-p anim-up d5">
         Nos vemos em breve do outro lado dessa jornada. Um passo de cada vez.
@@ -437,6 +436,25 @@ window.addEventListener('resize',sendHeight);
 </script>
 
 <script>
+
+/* ══ REVELAÇÃO AO ROLAR — .anim-up entra em cena só quando alcançado ══ */
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.anim-up');
+  if(reduced || !('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.15, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
 /* ── EVENTOS DE RASTREAMENTO ── */
 (function(){
   /* ══ HELPERS — fbc, fbp, source_url ══ */
