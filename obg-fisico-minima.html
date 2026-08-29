@@ -71,6 +71,12 @@ html,body{
 }
 
 /* ── INNER centralizado sem limitar fundo ── */
+/* ══ FOCO E TOQUE (acessibilidade) ══ */
+.skip-link{position:absolute;left:-9999px;top:0;background:#1C1C1A;color:#F5F0E8;padding:12px 20px;border-radius:0 0 8px 0;z-index:100000;text-decoration:none;font-size:14px;font-weight:600;}
+.skip-link:focus{left:0;}
+a,button{touch-action:manipulation;}
+a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2px;border-radius:4px;}
+
 .sec-inner{max-width:680px;margin:0 auto;width:100%;}
 :root{--font-display:'Petrona',Georgia,'Times New Roman',serif;}
 
@@ -89,9 +95,10 @@ html,body{
 @keyframes card-hover-lift{from{transform:translateY(0);}to{transform:translateY(-4px);}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 
-.anim-up{animation:fadeUp .6s ease both;}
-.d1{animation-delay:.08s;}.d2{animation-delay:.18s;}.d3{animation-delay:.28s;}
-.d4{animation-delay:.38s;}.d5{animation-delay:.48s;}.d6{animation-delay:.58s;}
+.anim-up{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);}
+.anim-up.in-view{opacity:1;transform:translateY(0);}
+.d1.in-view{transition-delay:.08s;}.d2.in-view{transition-delay:.18s;}.d3.in-view{transition-delay:.28s;}
+.d4.in-view{transition-delay:.38s;}.d5.in-view{transition-delay:.48s;}.d6.in-view{transition-delay:.58s;}
 
 /* ── TOPBAR ── */
 .topbar{
@@ -389,13 +396,15 @@ html,body{
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
 <!-- TOPBAR -->
 <div class="topbar">
   Compra confirmada: <strong>seu livro já está sendo embalado</strong>
 </div>
 
 <!-- CONFIRMAÇÃO — fundo verde celebração -->
-<section class="sec-confirm">
+<section class="sec-confirm" id="main-content">
   <div class="sec-inner">
     <div class="confirm-header anim-up d1">
       <div class="confirm-icon">
@@ -587,6 +596,25 @@ window.addEventListener('resize',sendHeight);
 </script>
 
 <script>
+
+/* ══ REVELAÇÃO AO ROLAR — .anim-up entra em cena só quando alcançado ══ */
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.anim-up');
+  if(reduced || !('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.15, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
 /* ── EVENTOS PÓS-COMPRA + UPSELL ── */
 document.addEventListener('DOMContentLoaded', function(){
 
