@@ -1464,9 +1464,12 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <script>
 function irParaVersoes(e, fromCoupon){
   if(e) e.preventDefault();
-  var el=document.getElementById('versoes');
+  /* No mobile, o CTA deve pousar no card do Livro Físico.
+     No desktop, mantém o comportamento já corrigido: início da seção de versões. */
+  var isMobile = window.matchMedia && window.matchMedia('(max-width: 720px)').matches;
+  var el = document.getElementById(isMobile ? 'versao-fisica' : 'versoes');
   if(el){
-    el.scrollIntoView({behavior:'smooth',block:'start'});
+    el.scrollIntoView({behavior:'smooth', block: isMobile ? 'start' : 'start'});
   }
   if(fromCoupon){
     var note=document.getElementById('coupon-applied-note');
