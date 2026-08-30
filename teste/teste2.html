@@ -394,8 +394,8 @@ object-fit:contain;
   position:relative;
 }
 .pc-highlight{animation:pc-flash 1.8s ease;}
-.coupon-applied-note{max-width:420px;margin:16px auto 0;text-align:center;font-size:13px;font-weight:600;color:#3D6B3D;background:#E3EFE3;border:1px solid #B8D4B8;border-radius:20px;padding:8px 18px;opacity:0;transform:translateY(-6px);transition:opacity .3s ease,transform .3s ease;pointer-events:none;}
-.coupon-applied-note.show{opacity:1;transform:translateY(0);}
+.coupon-applied-note{display:none;max-width:420px;margin:16px auto 0;text-align:center;font-size:13px;font-weight:600;color:#3D6B3D;background:#E3EFE3;border:1px solid #B8D4B8;border-radius:20px;padding:8px 18px;opacity:0;transform:translateY(-6px);transition:opacity .3s ease,transform .3s ease;pointer-events:none;}
+.coupon-applied-note.show{display:block;opacity:1;transform:translateY(0);}
 @keyframes pc-flash{
   0%{box-shadow:0 0 0 0 rgba(201,169,110,.6),0 4px 20px rgba(0,0,0,.10);}
   30%{box-shadow:0 0 0 8px rgba(201,169,110,.35),0 4px 20px rgba(0,0,0,.10);}
