@@ -8,14 +8,14 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<title>Agenda Minimalista 2026 — Versão Permanente | Alexandre Chahoud</title>
+<title>Agenda Minimalista 2026 | Versão Permanente - Alexandre Chahoud</title>
 <meta name="description" content="A agenda mais completa para organizar sua rotina em 2026. 228 páginas, capa dura, wire-o, calendário 2026 e 2027. Frete grátis para todo o Brasil.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#1C1C1A">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-DNS-Prefetch-Control" content="on">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta property="og:title" content="Agenda Minimalista 2026 — capa dura, 228 páginas">
+<meta property="og:title" content="Agenda Minimalista 2026 | Capa dura, 228 páginas">
 <meta property="og:description" content="228 páginas, capa dura fosca, wire-o, bolso interno. A agenda mais completa para organizar sua rotina. Frete grátis.">
 <meta property="og:image" content="https://static.wixstatic.com/media/940f31_8f4fd23c605e49e6bbb2cf76a174581d~mv2.jpg">
 <meta property="og:image:width" content="1200">
@@ -25,7 +25,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Seja Minimalista">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Agenda Minimalista 2026 — capa dura, 228 páginas">
+<meta name="twitter:title" content="Agenda Minimalista 2026 | Capa dura, 228 páginas">
 <meta name="twitter:description" content="228 páginas, capa dura fosca, wire-o, bolso interno. A agenda mais completa para organizar sua rotina. Frete grátis.">
 <meta name="twitter:image" content="https://static.wixstatic.com/media/940f31_8f4fd23c605e49e6bbb2cf76a174581d~mv2.jpg">
 <link rel="canonical" href="https://sejaminimalista.com.br/agenda-minimalista">
@@ -82,10 +82,10 @@ fbq('track','ViewContent',{content_ids:['agenda-minimalista'],content_type:'prod
   "mainEntity":[
     {"@type":"Question","name":"Em quanto tempo recebo minha Agenda?","acceptedAnswer":{"@type":"Answer","text":"Nossas agendas são enviadas sob demanda, e o prazo médio é de 15 dias para chegar até a sua casa. Assim que o pedido for enviado, você recebe o código de rastreio por e-mail."}},
     {"@type":"Question","name":"Como faço para rastrear o envio da minha Agenda?","acceptedAnswer":{"@type":"Answer","text":"Assim que sua agenda for enviada, você recebe por e-mail o código de rastreio dos Correios."}},
-    {"@type":"Question","name":"A agenda é datada ou permanente?","acceptedAnswer":{"@type":"Answer","text":"É permanente — você pode começar a usar a partir de qualquer momento do ano, sem datas impressas fixas que desperdicem páginas. Tem o calendário 2026 e 2027 como referência, mas a estrutura é atemporal."}},
+    {"@type":"Question","name":"A agenda é datada ou permanente?","acceptedAnswer":{"@type":"Answer","text":"É permanente. Você pode começar a usar a partir de qualquer momento do ano, sem datas impressas fixas que desperdicem páginas. Tem o calendário 2026 e 2027 como referência, mas a estrutura é atemporal."}},
     {"@type":"Question","name":"Posso parcelar a compra?","acceptedAnswer":{"@type":"Answer","text":"Sim, em até 12x no cartão de crédito. No Pix e boleto é à vista com o valor cheio de R$ 127,00."}},
-    {"@type":"Question","name":"Tem garantia?","acceptedAnswer":{"@type":"Answer","text":"Sim, 7 dias de garantia. Se por qualquer motivo você não gostar, é só entrar em contato — devolvemos 100% do valor sem perguntas."}},
-    {"@type":"Question","name":"Qual o tamanho da Agenda?","acceptedAnswer":{"@type":"Answer","text":"15 × 21 cm — um tamanho prático que cabe na bolsa e é confortável para escrever. Folhas de 90 g/m² para não manchar com canetas."}}
+    {"@type":"Question","name":"Tem garantia?","acceptedAnswer":{"@type":"Answer","text":"Sim, 7 dias de garantia. Se por qualquer motivo você não gostar, é só entrar em contato. Devolvemos 100% do valor sem perguntas."}},
+    {"@type":"Question","name":"Qual o tamanho da Agenda?","acceptedAnswer":{"@type":"Answer","text":"15 × 21 cm, um tamanho prático que cabe na bolsa e é confortável para escrever. Folhas de 90 g/m² para não manchar com canetas."}}
   ]
 }
 </script>
@@ -111,22 +111,24 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 
 /* ANIMAÇÕES */
 @keyframes shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
-@keyframes btn-pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(201,169,110,0);}50%{transform:scale(1.02);box-shadow:0 0 0 8px rgba(201,169,110,.18);}}
 @keyframes price-shine{0%{background-position:150% center;}100%{background-position:-150% center;}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-.anim-up{animation:fadeUp .6s ease both;}
-.d1{animation-delay:.08s;}.d2{animation-delay:.18s;}.d3{animation-delay:.28s;}.d4{animation-delay:.38s;}
+.anim-up{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);}
+.anim-up.in-view{opacity:1;transform:translateY(0);}
+.d1.in-view{transition-delay:.08s;}.d2.in-view{transition-delay:.18s;}.d3.in-view{transition-delay:.28s;}.d4.in-view{transition-delay:.38s;}
 
 /* BOTÃO */
 .btn-gold{
-  display:inline-block;
+  display:inline-block;position:relative;overflow:hidden;
   background:linear-gradient(90deg,#8B6010 0%,#C9A96E 30%,#F0D898 50%,#C9A96E 70%,#8B6010 100%);
   background-size:200% auto;color:#1C1C1A;
   font-size:16px;font-weight:700;padding:18px 40px;border-radius:6px;
   text-decoration:none;letter-spacing:.02em;
-  animation:shimmer 3s linear infinite,btn-pulse 3.5s ease-in-out infinite;
+  animation:shimmer 5.5s linear infinite;
+  transition:filter .25s ease,transform .25s ease,box-shadow .25s ease;
 }
-.btn-gold:hover{animation:none;background:var(--gold);filter:brightness(1.08);transform:scale(1.02);}
+.btn-gold:hover{animation-play-state:paused;filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 6px 18px rgba(201,169,110,.4);}
+.btn-gold:active{transform:scale(.97);transition:transform .12s ease;}
 .btn-gold.small{font-size:13px;padding:12px 24px;}
 
 /* TOPBAR */
@@ -229,19 +231,22 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:18px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;font-weight:600;font-family:inherit;color:var(--ink);line-height:1.4;}
 .faq-icon{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s;}
 .faq-item.open .faq-icon{transform:rotate(45deg);}
-.faq-a{display:none;font-size:14px;color:var(--ink-soft);line-height:1.8;padding-bottom:18px;}
-.faq-item.open .faq-a{display:block;}
+.faq-a{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .35s cubic-bezier(.16,1,.3,1),opacity .3s ease;}
+.faq-a-inner{overflow:hidden;min-height:0;font-size:14px;color:var(--ink-soft);line-height:1.8;padding-bottom:0;}
+.faq-item.open .faq-a{grid-template-rows:1fr;opacity:1;}
+.faq-item.open .faq-a-inner{padding-bottom:18px;}
+@media(prefers-reduced-motion:reduce){.faq-a{transition:opacity .15s ease;}}
 
 /* RODAPÉ */
 .footer{background:var(--ink);padding:48px 40px;}
-.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px 48px;}
 .footer-logo img{max-width:180px;height:auto;display:block;margin-bottom:14px;filter:brightness(0) invert(1);opacity:.5;}
 .footer-copy{font-size:12px;color:#5C5C5A;line-height:1.7;}
-.footer-links h4{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5C5C5A;margin-bottom:14px;}
+.footer-links h3,.footer-news h3{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5C5C5A;margin-bottom:14px;}
 .footer-links a{display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;}
 .footer-links a:hover{color:var(--gold);}
-.footer-btn{display:inline-block;margin-top:16px;font-size:12px;padding:10px 20px;border-radius:6px;font-weight:700;text-decoration:none;background:linear-gradient(90deg,#8B6010,#C9A96E,#F0D898,#C9A96E,#8B6010);background-size:200% auto;color:#1C1C1A;animation:shimmer 3s linear infinite;}
-.footer-divider{margin-top:36px;padding-top:22px;border-top:.5px solid #3A3A38;display:flex;justify-content:space-between;font-size:11px;color:#8A8A86;}
+.footer-btn{display:inline-block;margin-top:16px;font-size:12px;padding:10px 20px;border-radius:6px;font-weight:700;text-decoration:none;background:linear-gradient(90deg,#8B6010,#C9A96E,#F0D898,#C9A96E,#8B6010);background-size:200% auto;color:#1C1C1A;animation:shimmer 5.5s linear infinite;}
+.footer-divider{margin-top:36px;padding-top:22px;border-top:.5px solid #3A3A38;font-size:11px;color:#8A8A86;}
 
 /* WHATSAPP */
 .wa-float{position:fixed;right:22px;bottom:22px;width:62px;height:62px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(0,0,0,.25);z-index:9999;transition:.25s;text-decoration:none;}
@@ -269,7 +274,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   .sec-faq{padding-left:0;padding-right:0;}
   .sec-faq .inner{padding-left:18px;padding-right:18px;}
   .footer{padding-left:18px!important;padding-right:18px!important;}
-  .footer-grid{grid-template-columns:1fr;gap:28px;}
+  .footer-grid{gap:28px;}
   .footer-divider{flex-direction:column;gap:6px;}
   .sec-hero{padding-top:32px;padding-bottom:40px;}
 }
@@ -342,7 +347,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <div class="content-col">
         <div class="content-title">No dia a dia:</div>
         <ul class="content-list">
-          <li>2 dias por página — espaço generoso para anotações</li>
+          <li>2 dias por página: espaço generoso para anotações</li>
           <li>Estrutura simples, sem excessos</li>
           <li>Bolso plástico interno para guardar coisas importantes</li>
           <li>Acompanhamento de metas ao longo do ano</li>
@@ -380,19 +385,19 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="sec-eyebrow anim-up d1" style="justify-content:center;">Veja a agenda por dentro</div>
     <h2 class="sec-h2 anim-up d1" style="text-align:center;max-width:520px;margin:10px auto 0;">Cada detalhe pensado para <em>simplificar seu dia.</em></h2>
     <div class="gallery-grid">
-      <img src="https://static.wixstatic.com/media/940f31_9cf973cc8dec489bbc96b43f773212df~mv2.jpg" alt="Agenda Minimalista 2026 — capa dura fosca com acabamento minimalista" width="324" height="458" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_da5e1a736b604f9bbb0bcee297ddc392~mv2.jpg" alt="Agenda Minimalista 2026 — encadernação wire-o e acabamento da capa" width="647" height="458" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_4bc22e3861bb433d8b51c88887a1958a~mv2.jpg" alt="Agenda Minimalista 2026 — seção de dados pessoais e profissionais" width="647" height="458" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_48e90d69be434d17b7e083cbebacf89e~mv2.jpg" alt="Agenda Minimalista 2026 — calendário 2026 e 2027 com feriados" width="324" height="458" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_ede11fbc2e2149df85fb5459ee2abc09~mv2.jpg" alt="Agenda Minimalista 2026 — página de vision board" width="324" height="458" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_80011f16fcc9491ea8fabee76b2b3fd3~mv2.jpg" alt="Agenda Minimalista 2026 — seção de controle financeiro" width="647" height="458" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_4c31f8f6326a43da9a291068b803cb47~mv2.jpg" alt="Agenda Minimalista 2026 — visão semanal com prioridades" width="647" height="458" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_218190eb38f0499bac2b59f3385df1aa~mv2.jpg" alt="Agenda Minimalista 2026 — bolso plástico interno para guardar documentos" width="324" height="458" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_3f2959ca943546ed830f1aa1795ba68c~mv2.jpg" alt="Agenda Minimalista 2026 — seção de cuidados com a saúde e ciclo" width="324" height="458" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_e2cb67914e3549d1a765556243557ab0~mv2.jpg" alt="Agenda Minimalista 2026 — planejamento e metas anuais" width="647" height="458" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_9c246ff16f374beda21a78bb6950e647~mv2.jpg" alt="Agenda Minimalista 2026 — página de contatos importantes" width="647" height="458" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_0010bff6406c470a946d79996b59366f~mv2.jpg" alt="Agenda Minimalista 2026 — duas páginas diárias com espaço extra para anotações" width="324" height="458" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_c82c647f53334450a8abe263990f0d86~mv2.jpeg" alt="Agenda Minimalista 2026 — capa fechada, formato 15x21 cm" width="324" height="458" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_9cf973cc8dec489bbc96b43f773212df~mv2.jpg" alt="Agenda Minimalista 2026: capa dura fosca com acabamento minimalista" width="324" height="458" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_da5e1a736b604f9bbb0bcee297ddc392~mv2.jpg" alt="Agenda Minimalista 2026: encadernação wire-o e acabamento da capa" width="647" height="458" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_4bc22e3861bb433d8b51c88887a1958a~mv2.jpg" alt="Agenda Minimalista 2026: seção de dados pessoais e profissionais" width="647" height="458" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_48e90d69be434d17b7e083cbebacf89e~mv2.jpg" alt="Agenda Minimalista 2026: calendário 2026 e 2027 com feriados" width="324" height="458" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_ede11fbc2e2149df85fb5459ee2abc09~mv2.jpg" alt="Agenda Minimalista 2026: página de vision board" width="324" height="458" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_80011f16fcc9491ea8fabee76b2b3fd3~mv2.jpg" alt="Agenda Minimalista 2026: seção de controle financeiro" width="647" height="458" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_4c31f8f6326a43da9a291068b803cb47~mv2.jpg" alt="Agenda Minimalista 2026: visão semanal com prioridades" width="647" height="458" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_218190eb38f0499bac2b59f3385df1aa~mv2.jpg" alt="Agenda Minimalista 2026: bolso plástico interno para guardar documentos" width="324" height="458" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_3f2959ca943546ed830f1aa1795ba68c~mv2.jpg" alt="Agenda Minimalista 2026: seção de cuidados com a saúde e ciclo" width="324" height="458" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_e2cb67914e3549d1a765556243557ab0~mv2.jpg" alt="Agenda Minimalista 2026: planejamento e metas anuais" width="647" height="458" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_9c246ff16f374beda21a78bb6950e647~mv2.jpg" alt="Agenda Minimalista 2026: página de contatos importantes" width="647" height="458" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_0010bff6406c470a946d79996b59366f~mv2.jpg" alt="Agenda Minimalista 2026: duas páginas diárias com espaço extra para anotações" width="324" height="458" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_c82c647f53334450a8abe263990f0d86~mv2.jpeg" alt="Agenda Minimalista 2026: capa fechada, formato 15x21 cm" width="324" height="458" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -401,7 +406,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 <section class="sec-price">
   <div class="inner">
     <div class="price-eyebrow">Garanta agora a sua</div>
-    <h2 class="price-h2">A agenda mais completa para organizar 2026 — <br>com frete grátis.</h2>
+    <h2 class="price-h2">A agenda mais completa para organizar 2026, <br>com frete grátis.</h2>
     <div class="price-box anim-up d2">
       <div class="price-name">Agenda Minimalista 2026 · Capa Dura</div>
       <div class="price-was">De R$ 187,00</div>
@@ -431,12 +436,12 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="sec-eyebrow">Perguntas frequentes</div>
     <h2 class="sec-h2">Tire suas dúvidas</h2>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Em quanto tempo recebo minha Agenda?<div class="faq-icon">+</div></button><div class="faq-a">Nossas agendas são enviadas sob demanda, e o prazo médio é de 15 dias para chegar até a sua casa. Assim que o pedido for enviado, você recebe o código de rastreio por e-mail.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Como faço para rastrear o envio da minha Agenda?<div class="faq-icon">+</div></button><div class="faq-a">Assim que sua agenda for enviada, você recebe por e-mail o código de rastreio dos Correios.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">A agenda é datada ou permanente?<div class="faq-icon">+</div></button><div class="faq-a">É permanente — você pode começar a usar a partir de qualquer momento do ano, sem datas impressas fixas que desperdicem páginas. Tem o calendário 2026 e 2027 como referência, mas a estrutura é atemporal.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Posso parcelar a compra?<div class="faq-icon">+</div></button><div class="faq-a">Sim, em até 12x no cartão de crédito. No Pix e boleto é à vista com o valor cheio de R$ 127,00.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Tem garantia?<div class="faq-icon">+</div></button><div class="faq-a">Sim, 7 dias de garantia. Se por qualquer motivo você não gostar, é só entrar em contato — devolvemos 100% do valor sem perguntas.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Qual o tamanho da Agenda?<div class="faq-icon">+</div></button><div class="faq-a">15 × 21 cm — um tamanho prático que cabe na bolsa e é confortável para escrever. Folhas de 90 g/m² para não manchar com canetas.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Em quanto tempo recebo minha Agenda?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Nossas agendas são enviadas sob demanda, e o prazo médio é de 15 dias para chegar até a sua casa. Assim que o pedido for enviado, você recebe o código de rastreio por e-mail.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Como faço para rastrear o envio da minha Agenda?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Assim que sua agenda for enviada, você recebe por e-mail o código de rastreio dos Correios.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">A agenda é datada ou permanente?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">É permanente. Você pode começar a usar a partir de qualquer momento do ano, sem datas impressas fixas que desperdicem páginas. Tem o calendário 2026 e 2027 como referência, mas a estrutura é atemporal.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso parcelar a compra?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim, em até 12x no cartão de crédito. No Pix e boleto é à vista com o valor cheio de R$ 127,00.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Tem garantia?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim, 7 dias de garantia. Se por qualquer motivo você não gostar, é só entrar em contato. Devolvemos 100% do valor sem perguntas.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Qual o tamanho da Agenda?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">15 × 21 cm, um tamanho prático que cabe na bolsa e é confortável para escrever. Folhas de 90 g/m² para não manchar com canetas.</div></div></div>
     </div>
     <div style="text-align:center;margin-top:40px;">
       <a class="btn-gold" href="https://chk.eduzz.com/801VB7JQ97?pf=1" target="_blank" rel="noopener"
@@ -459,22 +464,22 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         <a class="footer-btn" href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener">Seguir no Instagram</a>
       </div>
       <div class="footer-links">
-        <h4>Links úteis</h4>
-        <a href="https://sejaminimalista.com.br/" target="_blank">Seja Minimalista — Best Seller</a>
+        <h3>Links úteis</h3>
+        <a href="https://sejaminimalista.com.br/" target="_blank">Seja Minimalista (Best Seller)</a>
         <a href="https://sejaminimalista.com.br/365-dias" target="_blank">365 Dias Minimalistas</a>
         <a href="https://sejaminimalista.com.br/combos" target="_blank">Combos com desconto</a>
         <a href="https://www.sejaminimalista.net/vip/entrar" target="_blank">Área VIP</a>
+        <a href="https://chat.whatsapp.com/FnNU3DpCCXz3iGtkLH6qbR?s=cl&p=a&ilr=1" target="_blank">Comunidade no Whatsapp</a>
         <a href="mailto:sejaminimalista@hotmail.com">Fale comigo</a>
       </div>
-      <div>
-        <h4 style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A8A8A4;margin-bottom:14px;">Newsletter gratuita</h4>
+      <div class="footer-news">
+        <h3>Newsletter gratuita</h3>
         <p style="font-size:12px;color:#D8D8D4;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas direto no seu e-mail, toda semana.</p>
-        <iframe src="https://sejaminimalista.substack.com/embed?transparent=1&light=1" width="480" height="150" style="border:0;background:transparent;max-width:100%;display:block;" frameborder="0" scrolling="no" title="Newsletter Seja Minimalista"></iframe>
+        <iframe src="https://sejaminimalista.substack.com/embed?transparent=1&light=1" width="480" height="150" style="border:0;background:transparent;max-width:100%;display:block;" frameborder="0" scrolling="no" loading="lazy" title="Newsletter Seja Minimalista"></iframe>
       </div>
     </div>
     <div class="footer-divider">
-      <span>Seja Minimalista · Alexandre Chahoud</span>
-      <span>sejaminimalista@hotmail.com</span>
+      <span>© 2026 Seja Minimalista. Todos os direitos reservados. · sejaminimalista.com.br</span>
     </div>
   </div>
 </footer>
@@ -484,7 +489,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 <div class="lb-overlay" id="lbOverlay" onclick="lbClose(event)">
   <span class="lb-close" onclick="lbCloseAll()">×</span>
   <span class="lb-prev" onclick="lbNav(-1);event.stopPropagation();">‹</span>
-  <img class="lb-img" id="lbImg" src="" alt="Agenda Minimalista — imagem ampliada">
+  <img class="lb-img" id="lbImg" src="" alt="Agenda Minimalista: imagem ampliada">
   <span class="lb-next" onclick="lbNav(1);event.stopPropagation();">›</span>
 </div>
 
@@ -498,6 +503,25 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 </a>
 
 <script>
+
+/* ══ REVELAÇÃO AO ROLAR — .anim-up entra em cena só quando alcançado ══ */
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.anim-up');
+  if(reduced || !('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.15, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
 
 /* Lightbox */
 var lbImgs=[],lbCur=0;
@@ -515,7 +539,7 @@ document.addEventListener('DOMContentLoaded',function(){
 var hv=document.getElementById('hero-video');
 if(hv){var hvObs=new IntersectionObserver(function(e){if(e[0].isIntersecting){hv.load();hv.play().catch(function(){});hvObs.disconnect();}},{threshold:.1});hvObs.observe(hv);}
 
-function faq(btn){btn.parentElement.classList.toggle('open');}
+function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
 
 document.addEventListener('DOMContentLoaded',function(){
 
