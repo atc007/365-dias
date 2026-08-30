@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meu Planner Minimalista — Versão Permanente | Planner 2026</title>
+<title>Meu Planner Minimalista | Versão Permanente - Planner 2026</title>
 <meta name="description" content="O planner mais completo do Brasil. 210 páginas, capa dura, versão permanente. Organize seu ano com simplicidade e propósito. Frete grátis para todo o Brasil.">
-<meta property="og:title" content="Meu Planner Minimalista — Versão Permanente">
+<meta property="og:title" content="Meu Planner Minimalista | Versão Permanente">
 <meta property="og:description" content="210 páginas, capa dura, wire-o, 12 divisórias com abas. O planner mais completo do Brasil. Frete grátis.">
 <meta property="og:image" content="https://static.wixstatic.com/media/940f31_71d207865e9d4c8db21e301b67acf253~mv2.jpg">
 <meta property="og:type" content="product">
@@ -29,7 +29,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Seja Minimalista">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Meu Planner Minimalista — Versão Permanente">
+<meta name="twitter:title" content="Meu Planner Minimalista | Versão Permanente">
 <meta name="twitter:description" content="210 páginas, capa dura, wire-o, 12 divisórias com abas. O planner mais completo do Brasil. Frete grátis.">
 <meta name="twitter:image" content="https://static.wixstatic.com/media/940f31_71d207865e9d4c8db21e301b67acf253~mv2.jpg">
 
@@ -81,22 +81,24 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 
 /* ANIMAÇÕES */
 @keyframes shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
-@keyframes btn-pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(201,169,110,0);}50%{transform:scale(1.02);box-shadow:0 0 0 8px rgba(201,169,110,.18);}}
 @keyframes price-shine{0%{background-position:150% center;}100%{background-position:-150% center;}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-.anim-up{animation:fadeUp .6s ease both;}
-.d1{animation-delay:.08s;}.d2{animation-delay:.18s;}.d3{animation-delay:.28s;}.d4{animation-delay:.38s;}
+.anim-up{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);}
+.anim-up.in-view{opacity:1;transform:translateY(0);}
+.d1.in-view{transition-delay:.08s;}.d2.in-view{transition-delay:.18s;}.d3.in-view{transition-delay:.28s;}.d4.in-view{transition-delay:.38s;}
 
 /* BOTÃO */
 .btn-gold{
-  display:inline-block;
+  display:inline-block;position:relative;overflow:hidden;
   background:linear-gradient(90deg,#8B6010 0%,#C9A96E 30%,#F0D898 50%,#C9A96E 70%,#8B6010 100%);
   background-size:200% auto;color:#1C1C1A;
   font-size:16px;font-weight:700;padding:18px 40px;border-radius:6px;
   text-decoration:none;letter-spacing:.02em;
-  animation:shimmer 3s linear infinite,btn-pulse 3.5s ease-in-out infinite;
+  animation:shimmer 5.5s linear infinite;
+  transition:filter .25s ease,transform .25s ease,box-shadow .25s ease;
 }
-.btn-gold:hover{animation:none;background:var(--gold);filter:brightness(1.08);transform:scale(1.02);}
+.btn-gold:hover{animation-play-state:paused;filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 6px 18px rgba(201,169,110,.4);}
+.btn-gold:active{transform:scale(.97);transition:transform .12s ease;}
 .btn-gold.small{font-size:13px;padding:12px 24px;}
 
 /* TOPBAR */
@@ -199,19 +201,22 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:18px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;font-weight:600;font-family:inherit;color:var(--ink);line-height:1.4;}
 .faq-icon{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s;}
 .faq-item.open .faq-icon{transform:rotate(45deg);}
-.faq-a{display:none;font-size:14px;color:var(--ink-soft);line-height:1.8;padding-bottom:18px;}
-.faq-item.open .faq-a{display:block;}
+.faq-a{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .35s cubic-bezier(.16,1,.3,1),opacity .3s ease;}
+.faq-a-inner{overflow:hidden;min-height:0;font-size:14px;color:var(--ink-soft);line-height:1.8;padding-bottom:0;}
+.faq-item.open .faq-a{grid-template-rows:1fr;opacity:1;}
+.faq-item.open .faq-a-inner{padding-bottom:18px;}
+@media(prefers-reduced-motion:reduce){.faq-a{transition:opacity .15s ease;}}
 
 /* RODAPÉ */
 .footer{background:var(--ink);padding:48px 40px;}
-.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px 48px;}
 .footer-logo img{max-width:180px;height:auto;display:block;margin-bottom:14px;filter:brightness(0) invert(1);opacity:.5;}
 .footer-copy{font-size:12px;color:#A8A8A4;line-height:1.7;}
-.footer-links h4{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A8A8A4;margin-bottom:14px;}
+.footer-links h3,.footer-news h3{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A8A8A4;margin-bottom:14px;}
 .footer-links a{display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;}
 .footer-links a:hover{color:var(--gold);}
-.footer-btn{display:inline-block;margin-top:16px;font-size:12px;padding:10px 20px;border-radius:6px;font-weight:700;text-decoration:none;background:linear-gradient(90deg,#8B6010,#C9A96E,#F0D898,#C9A96E,#8B6010);background-size:200% auto;color:#1C1C1A;animation:shimmer 3s linear infinite;}
-.footer-divider{margin-top:36px;padding-top:22px;border-top:.5px solid #3A3A38;display:flex;justify-content:space-between;font-size:11px;color:#8A8A86;}
+.footer-btn{display:inline-block;margin-top:16px;font-size:12px;padding:10px 20px;border-radius:6px;font-weight:700;text-decoration:none;background:linear-gradient(90deg,#8B6010,#C9A96E,#F0D898,#C9A96E,#8B6010);background-size:200% auto;color:#1C1C1A;animation:shimmer 5.5s linear infinite;}
+.footer-divider{margin-top:36px;padding-top:22px;border-top:.5px solid #3A3A38;font-size:11px;color:#8A8A86;}
 
 /* WHATSAPP */
 .wa-float{position:fixed;right:22px;bottom:22px;width:62px;height:62px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(0,0,0,.25);z-index:9999;transition:.25s;text-decoration:none;}
@@ -239,7 +244,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   .sec-faq{padding-left:0;padding-right:0;}
   .sec-faq .inner{padding-left:18px;padding-right:18px;}
   .footer{padding-left:18px!important;padding-right:18px!important;}
-  .footer-grid{grid-template-columns:1fr;gap:28px;}
+  .footer-grid{gap:28px;}
   .footer-divider{flex-direction:column;gap:6px;}
   .sec-hero{padding-top:32px;padding-bottom:40px;}
 }
@@ -270,7 +275,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     </div>
     <div>
       <div class="hero-badge anim-up d1">Versão permanente</div>
-      <h1 class="hero-h1 anim-up d2">Meu Planner Minimalista — o mais completo <em>do Brasil.</em></h1>
+      <h1 class="hero-h1 anim-up d2">Meu Planner Minimalista: o mais completo <em>do Brasil.</em></h1>
       <p class="hero-sub anim-up d2">210 páginas, capa dura, 12 divisórias com abas e encadernação wire-o. Tudo o que você precisa para organizar seu ano com clareza, leveza e propósito.</p>
       <div class="anim-up d3">
         <a class="btn-gold" href="https://chk.eduzz.com/2113425?pf=1" target="_blank" rel="noopener">
@@ -356,21 +361,21 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="sec-eyebrow anim-up d1" style="justify-content:center;">Veja o planner por dentro</div>
     <h2 class="sec-h2 anim-up d1" style="text-align:center;max-width:520px;margin:10px auto 0;">Cada detalhe pensado para <em>simplificar seu dia.</em></h2>
     <div class="gallery-grid">
-      <img src="https://static.wixstatic.com/media/940f31_71d207865e9d4c8db21e301b67acf253~mv2.jpg" alt="Planner Minimalista — foto 1" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_45b9b5b6d2ac48bb997bf73e4709b662~mv2.jpg" alt="Planner Minimalista — foto 2" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_573e1a50624a418da0f815c58d404df4~mv2.jpg" alt="Planner Minimalista — foto 3" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_8d9ee98cfc8c43fdb255e208acafaa5c~mv2.jpg" alt="Planner Minimalista — foto 4" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_92a64a7faa154d02aad44425260469e7~mv2.jpg" alt="Planner Minimalista — foto 5" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_adab8c29a9504ad5b5da5d60ce9c9d93~mv2.jpg" alt="Planner Minimalista — foto 6" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_d95d7692f5dd4f4d9701230b4482e93d~mv2.jpg" alt="Planner Minimalista — foto 7" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_946a43c613fc413baa6cb919d91fae0b~mv2.jpg" alt="Planner Minimalista — foto 8" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_86c87a977ab14f7ea417aa2df751c46a~mv2.jpg" alt="Planner Minimalista — foto 9" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_6d460aac6a644ecf80768f5a7652b6d0~mv2.jpg" alt="Planner Minimalista — foto 10" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_7c9afb495c674f4f8d4407126db5be6c~mv2.jpg" alt="Planner Minimalista — foto 11" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_de4fc9cbd6e34f9da24265121b8ecd4c~mv2.jpg" alt="Planner Minimalista — foto 12" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_7836ced6b69d4e21a102098c291107eb~mv2.jpg" alt="Planner Minimalista — foto 13" loading="lazy" decoding="async">
-      <img class="wide" src="https://static.wixstatic.com/media/940f31_8461501633254e77b3b9460d72d7fb7f~mv2.jpg" alt="Planner Minimalista — foto 14" loading="lazy" decoding="async">
-      <img src="https://static.wixstatic.com/media/940f31_b711610c29ae48f295f1f9d6a7ecff79~mv2.jpg" alt="Planner Minimalista — foto 15" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_71d207865e9d4c8db21e301b67acf253~mv2.jpg" alt="Planner Minimalista: foto 1" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_45b9b5b6d2ac48bb997bf73e4709b662~mv2.jpg" alt="Planner Minimalista: foto 2" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_573e1a50624a418da0f815c58d404df4~mv2.jpg" alt="Planner Minimalista: foto 3" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_8d9ee98cfc8c43fdb255e208acafaa5c~mv2.jpg" alt="Planner Minimalista: foto 4" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_92a64a7faa154d02aad44425260469e7~mv2.jpg" alt="Planner Minimalista: foto 5" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_adab8c29a9504ad5b5da5d60ce9c9d93~mv2.jpg" alt="Planner Minimalista: foto 6" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_d95d7692f5dd4f4d9701230b4482e93d~mv2.jpg" alt="Planner Minimalista: foto 7" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_946a43c613fc413baa6cb919d91fae0b~mv2.jpg" alt="Planner Minimalista: foto 8" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_86c87a977ab14f7ea417aa2df751c46a~mv2.jpg" alt="Planner Minimalista: foto 9" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_6d460aac6a644ecf80768f5a7652b6d0~mv2.jpg" alt="Planner Minimalista: foto 10" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_7c9afb495c674f4f8d4407126db5be6c~mv2.jpg" alt="Planner Minimalista: foto 11" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_de4fc9cbd6e34f9da24265121b8ecd4c~mv2.jpg" alt="Planner Minimalista: foto 12" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_7836ced6b69d4e21a102098c291107eb~mv2.jpg" alt="Planner Minimalista: foto 13" loading="lazy" decoding="async">
+      <img class="wide" src="https://static.wixstatic.com/media/940f31_8461501633254e77b3b9460d72d7fb7f~mv2.jpg" alt="Planner Minimalista: foto 14" loading="lazy" decoding="async">
+      <img src="https://static.wixstatic.com/media/940f31_b711610c29ae48f295f1f9d6a7ecff79~mv2.jpg" alt="Planner Minimalista: foto 15" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -379,7 +384,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 <section class="sec-price">
   <div class="inner">
     <div class="price-eyebrow">Garanta agora o seu</div>
-    <h2 class="price-h2">O planner mais completo do Brasil — <br>com frete grátis.</h2>
+    <h2 class="price-h2">O planner mais completo do Brasil, <br>com frete grátis.</h2>
     <div class="price-box anim-up d2">
       <div class="price-name">Meu Planner Minimalista · Versão Permanente</div>
       <div class="price-was">De R$ 297,00</div>
@@ -408,11 +413,11 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="sec-eyebrow">Perguntas frequentes</div>
     <h2 class="sec-h2">Tire suas dúvidas</h2>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Quando recebo o planner?<div class="faq-icon">+</div></button><div class="faq-a">Após a confirmação do pagamento, o pedido é processado e despachado. O prazo médio de entrega é de 10 dias úteis. Você recebe o código de rastreio dos Correios no e-mail da compra.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">O planner é datado ou permanente?<div class="faq-icon">+</div></button><div class="faq-a">É permanente — você começa a usar a partir de qualquer mês do ano, sem datas impressas fixas que desperdicem páginas. Tem o calendário 2026 e 2027 como referência, mas a estrutura é atemporal.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Posso parcelar a compra?<div class="faq-icon">+</div></button><div class="faq-a">Sim, em até 12x no cartão de crédito. No Pix e boleto é à vista com o valor cheio de R$ 167,00.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Tem garantia?<div class="faq-icon">+</div></button><div class="faq-a">Sim, 7 dias de garantia. Se por qualquer motivo você não gostar, é só entrar em contato — devolvemos 100% do valor sem perguntas.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Qual o tamanho do planner?<div class="faq-icon">+</div></button><div class="faq-a">15 × 21 cm — um tamanho prático que cabe na bolsa e é confortável para escrever. Folhas de 90 g/m² para não manchar com canetas.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Quando recebo o planner?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Após a confirmação do pagamento, o pedido é processado e despachado. O prazo médio de entrega é de 10 dias úteis. Você recebe o código de rastreio dos Correios no e-mail da compra.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">O planner é datado ou permanente?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">É permanente. Você começa a usar a partir de qualquer mês do ano, sem datas impressas fixas que desperdicem páginas. Tem o calendário 2026 e 2027 como referência, mas a estrutura é atemporal.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso parcelar a compra?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim, em até 12x no cartão de crédito. No Pix e boleto é à vista com o valor cheio de R$ 167,00.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Tem garantia?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim, 7 dias de garantia. Se por qualquer motivo você não gostar, é só entrar em contato. Devolvemos 100% do valor sem perguntas.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Qual o tamanho do planner?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">15 × 21 cm, um tamanho prático que cabe na bolsa e é confortável para escrever. Folhas de 90 g/m² para não manchar com canetas.</div></div></div>
     </div>
     <div style="text-align:center;margin-top:40px;">
       <a class="btn-gold" href="https://chk.eduzz.com/2113425?pf=1" target="_blank" rel="noopener">
@@ -434,22 +439,22 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         <a class="footer-btn" href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener">Seguir no Instagram</a>
       </div>
       <div class="footer-links">
-        <h4>Links úteis</h4>
-        <a href="https://sejaminimalista.com.br/" target="_blank">Seja Minimalista — Best Seller</a>
+        <h3>Links úteis</h3>
+        <a href="https://sejaminimalista.com.br/" target="_blank">Seja Minimalista (Best Seller)</a>
         <a href="https://sejaminimalista.com.br/365-dias" target="_blank">365 Dias Minimalistas</a>
         <a href="https://sejaminimalista.com.br/combos" target="_blank">Combos com desconto</a>
         <a href="https://www.sejaminimalista.net/vip/entrar" target="_blank">Área VIP</a>
+        <a href="https://chat.whatsapp.com/FnNU3DpCCXz3iGtkLH6qbR?s=cl&p=a&ilr=1" target="_blank">Comunidade no Whatsapp</a>
         <a href="mailto:sejaminimalista@hotmail.com">Fale comigo</a>
       </div>
-      <div>
-        <h4 style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A8A8A4;margin-bottom:14px;">Newsletter gratuita</h4>
+      <div class="footer-news">
+        <h3>Newsletter gratuita</h3>
         <p style="font-size:12px;color:#D8D8D4;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas direto no seu e-mail, toda semana.</p>
-        <iframe src="https://sejaminimalista.substack.com/embed?transparent=1&light=1" width="480" height="150" style="border:0;background:transparent;max-width:100%;display:block;" frameborder="0" scrolling="no" title="Newsletter Seja Minimalista"></iframe>
+        <iframe src="https://sejaminimalista.substack.com/embed?transparent=1&light=1" width="480" height="150" style="border:0;background:transparent;max-width:100%;display:block;" frameborder="0" scrolling="no" loading="lazy" title="Newsletter Seja Minimalista"></iframe>
       </div>
     </div>
     <div class="footer-divider">
-      <span>Seja Minimalista · Alexandre Chahoud</span>
-      <span>sejaminimalista@hotmail.com</span>
+      <span>© 2026 Seja Minimalista. Todos os direitos reservados. · sejaminimalista.com.br</span>
     </div>
   </div>
 </footer>
@@ -473,6 +478,25 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 </a>
 
 <script>
+
+/* ══ REVELAÇÃO AO ROLAR — .anim-up entra em cena só quando alcançado ══ */
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.anim-up');
+  if(reduced || !('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.15, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
 
 /* Lightbox */
 var lbImgs=[],lbCur=0;
@@ -498,7 +522,7 @@ function toggleSound(){
 var hv=document.getElementById('hero-video');
 if(hv){var hvObs=new IntersectionObserver(function(e){if(e[0].isIntersecting){hv.load();hv.play().catch(function(){});hvObs.disconnect();}},{threshold:.1});hvObs.observe(hv);}
 
-function faq(btn){btn.parentElement.classList.toggle('open');}
+function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
 
 document.addEventListener('DOMContentLoaded',function(){
 
