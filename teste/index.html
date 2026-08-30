@@ -596,9 +596,7 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   }
 }
 @media(max-width:720px){
- html{overflow-anchor:none;scroll-behavior:smooth;}
-body{overflow-anchor:none;}
-:root{--h1:clamp(27px,7vw,37px);--h2:clamp(25px,6.5vw,33px);--h3:clamp(21px,5.5vw,27px);--body:16px;--sec-v:40px;--sec-h:18px;--gap:28px;}
+  :root{--h1:clamp(27px,7vw,37px);--h2:clamp(25px,6.5vw,33px);--h3:clamp(21px,5.5vw,27px);--body:16px;--sec-v:40px;--sec-h:18px;--gap:28px;}
   html,body{overflow-x:hidden;}
   .urgency-inner{flex-direction:column;gap:6px;}
   .countdown{display:flex;}
@@ -1466,29 +1464,12 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <script>
 function irParaVersoes(e, fromCoupon){
   if(e) e.preventDefault();
-
-  var el=document.getElementById('versoes');
+  var el=document.getElementById('versao-fisica')||document.getElementById('versoes');
   if(el){
-    /* O destino é a seção de preços, nunca um dos cards.
-       Usamos uma posição absoluta e desativamos o scroll anchoring
-       para que carregamentos/animações durante a descida não mudem
-       o ponto final. */
-    var top=el.getBoundingClientRect().top + window.pageYOffset - 64;
-    document.documentElement.style.overflowAnchor='none';
-    document.body.style.overflowAnchor='none';
-    window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
-
-    setTimeout(function(){
-      var finalTop=el.getBoundingClientRect().top + window.pageYOffset - 64;
-      if(Math.abs(finalTop) > 2){
-        window.scrollTo({top:Math.max(0,finalTop),behavior:'auto'});
-      }
-    },900);
-
+    el.scrollIntoView({behavior:'smooth',block:'center'});
     el.classList.add('pc-highlight');
     setTimeout(function(){el.classList.remove('pc-highlight');},1800);
   }
-
   if(fromCoupon){
     var note=document.getElementById('coupon-applied-note');
     if(note){
@@ -1928,6 +1909,24 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
 
 /* RODAPÉ — largura adaptável ao navegador, como a HERO */
 @media (min-width:721px){.footer > .inner{width:min(calc(100vw - 80px),1320px);max-width:1320px;margin-left:auto;margin-right:auto;}}
+
+/* ÂNCORA DE PREÇO — no mobile fica imediatamente acima do Livro Físico */
+@media(max-width:720px){
+  .precos > .ancora-preco{
+    grid-column:1 / -1;
+    width:100%;
+    padding:20px var(--sec-h);
+    margin:0;
+    border-top:.5px solid var(--border);
+  }
+  .precos > .ancora-preco .ancora-inner{
+    gap:12px;
+  }
+  .precos > .ancora-preco .ancora-compare{
+    max-width:100%;
+    line-height:1.55;
+  }
+}
 </style>
 <div id="cupom-tooltip" role="button" tabindex="0" aria-label="Cupom GANHEI10, 10% off no carrinho. Ativar cupom" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event,true);document.getElementById('cupom-tooltip').style.display='none'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irParaVersoes(event,true);document.getElementById('cupom-tooltip').style.display='none';}">
   <div class="cupom-box">
@@ -1940,6 +1939,35 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
     </div>
   </div>
 </div>
+<script>
+(function(){
+  /* No mobile, posiciona a âncora imediatamente antes do card Livro Físico.
+     No desktop, devolve a âncora ao ponto original, preservando a estrutura. */
+  var anchor = document.querySelector('.ancora-preco');
+  var physical = document.getElementById('versao-fisica');
+  var pricingGrid = document.querySelector('.precos');
+  var originalParent = anchor ? anchor.parentNode : null;
+  var originalNext = anchor ? anchor.nextElementSibling : null;
+
+  function positionPriceAnchor(){
+    if(!anchor || !physical || !pricingGrid) return;
+    if(window.matchMedia('(max-width: 720px)').matches){
+      if(anchor.parentNode !== pricingGrid || anchor.nextElementSibling !== physical){
+        pricingGrid.insertBefore(anchor, physical);
+      }
+    }else if(anchor.parentNode !== originalParent){
+      if(originalNext && originalNext.parentNode === originalParent){
+        originalParent.insertBefore(anchor, originalNext);
+      }else{
+        originalParent.appendChild(anchor);
+      }
+    }
+  }
+
+  positionPriceAnchor();
+  window.addEventListener('resize', positionPriceAnchor, {passive:true});
+})();
+</script>
 <script>
 (function(){
   var shown = false;
