@@ -1464,12 +1464,35 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <script>
 function irParaVersoes(e, fromCoupon){
   if(e) e.preventDefault();
+
+  /*
+   * CTA -> versões:
+   * o balão de cupom aparece ao atingir 50% do scroll. Se ele for exibido
+   * durante um scroll suave iniciado pelo CTA, alguns navegadores podem
+   * cancelar/alterar a animação. Durante esta navegação, o cupom fica
+   * explicitamente bloqueado para que o deslocamento chegue ao destino
+   * sem qualquer interrupção.
+   */
+  window.__scrollToVersoes = true;
+
+  var tip = document.getElementById('cupom-tooltip');
+  if(tip){
+    tip.style.display = 'none';
+    tip.style.animation = 'none';
+  }
+
   var el=document.getElementById('versao-fisica')||document.getElementById('versoes');
   if(el){
     el.scrollIntoView({behavior:'smooth',block:'center'});
     el.classList.add('pc-highlight');
-    setTimeout(function(){el.classList.remove('pc-highlight');},1800);
+    setTimeout(function(){
+      el.classList.remove('pc-highlight');
+      window.__scrollToVersoes = false;
+    }, 1400);
+  }else{
+    window.__scrollToVersoes = false;
   }
+
   if(fromCoupon){
     var note=document.getElementById('coupon-applied-note');
     if(note){
@@ -1942,7 +1965,12 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
   }
 
   window.addEventListener('scroll', function(){
-    if(shown) return;
+    /*
+     * Nunca abrir o cupom no meio de uma navegação iniciada por CTA.
+     * Isso evita que o balão interfira no scroll suave até as versões.
+     */
+    if(shown || window.__scrollToVersoes) return;
+
     var h = document.documentElement;
     var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
     if(pct >= 50){
