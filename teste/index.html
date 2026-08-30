@@ -673,6 +673,15 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   font-style:italic;
 }
 
+
+/* ÂNCORA DE PREÇO — no mobile aparece entre o Digital e o Físico */
+.ancora-mobile{display:none;}
+@media(max-width:720px){
+  .ancora-preco:not(.ancora-mobile){display:none;}
+  .ancora-mobile{display:block;grid-column:1 / -1;width:100%;padding:18px var(--sec-h);margin:0;border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);}
+  .ancora-mobile .ancora-inner{gap:12px;}
+  .ancora-mobile .ancora-compare{max-width:100%;line-height:1.55;}
+}
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -1316,6 +1325,18 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
           <div class="pc-urgency-note">⚡ Acesso imediato após o pagamento</div>
         </div>
       </div>
+      <div class="ancora-preco ancora-mobile">
+        <div class="ancora-inner">
+          <div class="ancora-price-line">
+            <div class="ancora-calc">
+              R$ 0,10 <em style="font-size:14px;font-style:normal;font-family:var(--font-body);color:var(--ink-muted)">por dia</em>
+              <span>365 dias com o guia do lado</span>
+            </div>
+            <div class="ancora-sep">·</div>
+          </div>
+          <div class="ancora-compare">Menos que um café. Menos que uma música no streaming. <strong>Por menos de R$ 0,10 por dia</strong> você tem o guia prático completo para transformar sua relação com as coisas, o dinheiro e a sua casa. Sem mensalidade. Sem renovação.</div>
+        </div>
+      </div>
       <div class="pc" id="versao-fisica">
         <div class="dest-badge muted"><span>🎁 Ideal para presentear</span></div>
         <div class="pc-img">
@@ -1910,24 +1931,7 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
 /* RODAPÉ — largura adaptável ao navegador, como a HERO */
 @media (min-width:721px){.footer > .inner{width:min(calc(100vw - 80px),1320px);max-width:1320px;margin-left:auto;margin-right:auto;}}
 
-/* ÂNCORA DE PREÇO — no mobile fica imediatamente acima do Livro Físico */
-@media(max-width:720px){
-  .precos > .ancora-preco{
-    grid-column:1 / -1;
-    width:100%;
-    padding:20px var(--sec-h);
-    margin:0;
-    border-top:.5px solid var(--border);
-  }
-  .precos > .ancora-preco .ancora-inner{
-    gap:12px;
-  }
-  .precos > .ancora-preco .ancora-compare{
-    max-width:100%;
-    line-height:1.55;
-  }
-}
-</style>
+
 <div id="cupom-tooltip" role="button" tabindex="0" aria-label="Cupom GANHEI10, 10% off no carrinho. Ativar cupom" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event,true);document.getElementById('cupom-tooltip').style.display='none'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irParaVersoes(event,true);document.getElementById('cupom-tooltip').style.display='none';}">
   <div class="cupom-box">
     <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
@@ -1940,34 +1944,7 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
   </div>
 </div>
 <script>
-(function(){
-  /* No mobile, posiciona a âncora imediatamente antes do card Livro Físico.
-     No desktop, devolve a âncora ao ponto original, preservando a estrutura. */
-  var anchor = document.querySelector('.ancora-preco');
-  var physical = document.getElementById('versao-fisica');
-  var pricingGrid = document.querySelector('.precos');
-  var originalParent = anchor ? anchor.parentNode : null;
-  var originalNext = anchor ? anchor.nextElementSibling : null;
 
-  function positionPriceAnchor(){
-    if(!anchor || !physical || !pricingGrid) return;
-    if(window.matchMedia('(max-width: 720px)').matches){
-      if(anchor.parentNode !== pricingGrid || anchor.nextElementSibling !== physical){
-        pricingGrid.insertBefore(anchor, physical);
-      }
-    }else if(anchor.parentNode !== originalParent){
-      if(originalNext && originalNext.parentNode === originalParent){
-        originalParent.insertBefore(anchor, originalNext);
-      }else{
-        originalParent.appendChild(anchor);
-      }
-    }
-  }
-
-  positionPriceAnchor();
-  window.addEventListener('resize', positionPriceAnchor, {passive:true});
-})();
-</script>
 <script>
 (function(){
   var shown = false;
