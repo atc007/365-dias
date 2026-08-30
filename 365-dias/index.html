@@ -738,7 +738,7 @@ html,body{
 /* ══════════════════════════════
    DEPOIMENTOS
 ══════════════════════════════ */
-.testimonials{padding:80px var(--sec-h) 64px;content-visibility:auto;contain-intrinsic-size:0 2250px;}
+.testimonials{padding:80px var(--sec-h) 64px;}
 .t-header{text-align:center;margin-bottom:56px;}
 .t-eyebrow-dep{
   font-size:11px;font-weight:600;
@@ -2184,9 +2184,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 /* SCROLL */
 function irParaVersoes(e){
   if(e) e.preventDefault();
-  var el=document.getElementById('versao-fisica')||document.getElementById('versoes');
+  var isMobile = window.matchMedia('(max-width:720px)').matches;
+  var el = document.getElementById(isMobile ? 'versao-fisica' : 'versoes');
   if(el){
-    el.scrollIntoView({behavior:'smooth',block:'center'});
+    el.scrollIntoView({behavior:'smooth',block:'start'});
     el.classList.add('pc-highlight');
     setTimeout(function(){el.classList.remove('pc-highlight');},1800);
   }
