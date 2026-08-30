@@ -1463,35 +1463,50 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 
 <script>
 function irParaVersoes(e, fromCoupon){
-  if(e) e.preventDefault();
+  if(e){ e.preventDefault(); e.stopPropagation(); }
 
-  /*
-   * CTA -> versões:
-   * o balão de cupom aparece ao atingir 50% do scroll. Se ele for exibido
-   * durante um scroll suave iniciado pelo CTA, alguns navegadores podem
-   * cancelar/alterar a animação. Durante esta navegação, o cupom fica
-   * explicitamente bloqueado para que o deslocamento chegue ao destino
-   * sem qualquer interrupção.
-   */
+  var el = document.getElementById('versao-fisica') || document.getElementById('versoes');
+  if(!el) return false;
+
+  /* Bloqueia completamente o popup durante a navegação do CTA. */
   window.__scrollToVersoes = true;
-
   var tip = document.getElementById('cupom-tooltip');
   if(tip){
     tip.style.display = 'none';
-    tip.style.animation = 'none';
+    tip.style.visibility = 'hidden';
+    tip.style.pointerEvents = 'none';
   }
 
-  var el=document.getElementById('versao-fisica')||document.getElementById('versoes');
-  if(el){
-    el.scrollIntoView({behavior:'smooth',block:'center'});
-    el.classList.add('pc-highlight');
-    setTimeout(function(){
-      el.classList.remove('pc-highlight');
-      window.__scrollToVersoes = false;
-    }, 1400);
-  }else{
-    window.__scrollToVersoes = false;
+  /*
+   * Não usamos scrollIntoView com smooth aqui. O scroll é feito manualmente
+   * em uma única animação controlada, portanto nenhum outro evento da página
+   * consegue interromper o deslocamento quando o cupom é acionado.
+   */
+  var startY = window.pageYOffset || document.documentElement.scrollTop || 0;
+  var rect = el.getBoundingClientRect();
+  var targetY = startY + rect.top - (window.innerHeight - el.offsetHeight) / 2;
+  var maxY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  targetY = Math.max(0, Math.min(targetY, maxY));
+  var distance = Math.abs(targetY - startY);
+  var duration = Math.max(650, Math.min(1100, distance * 0.7));
+  var startTime = null;
+
+  function animateScroll(now){
+    if(startTime === null) startTime = now;
+    var progress = Math.min(1, (now - startTime) / duration);
+    var eased = 1 - Math.pow(1 - progress, 4);
+    window.scrollTo(0, startY + (targetY - startY) * eased);
+    if(progress < 1){
+      requestAnimationFrame(animateScroll);
+    }else{
+      window.scrollTo(0, targetY);
+      el.classList.add('pc-highlight');
+      setTimeout(function(){ el.classList.remove('pc-highlight'); }, 1800);
+      /* Só libera o cupom depois que o scroll terminou. */
+      setTimeout(function(){ window.__scrollToVersoes = false; }, 300);
+    }
   }
+  requestAnimationFrame(animateScroll);
 
   if(fromCoupon){
     var note=document.getElementById('coupon-applied-note');
@@ -1501,6 +1516,7 @@ function irParaVersoes(e, fromCoupon){
       note._hideTimer=setTimeout(function(){note.classList.remove('show');},6000);
     }
   }
+  return false;
 }
 
 /* COUNTDOWN persistente 23h59 — reinicia ao zerar */
@@ -1942,8 +1958,6 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
       <div class="cupom-code">GANHEI10</div>
       <div class="cupom-sub">10% OFF no carrinho</div>
     </div>
-  </div>
-</div>
 <script>
 (function(){
   var shown = false;
@@ -1970,6 +1984,7 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
      * Isso evita que o balão interfira no scroll suave até as versões.
      */
     if(shown || window.__scrollToVersoes) return;
+    if(!tip) return;
 
     var h = document.documentElement;
     var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
