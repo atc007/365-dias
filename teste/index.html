@@ -355,6 +355,7 @@ object-fit:contain;
 /* ══ ÂNCORA PREÇO ══ */
 .ancora-preco{background:var(--cream);padding:28px var(--sec-h);text-align:center;border-top:.5px solid var(--border);}
 .ancora-inner{max-width:640px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;}
+.ancora-price-line{display:flex;align-items:center;gap:32px;flex-shrink:0;}
 .ancora-calc{font-family:var(--font-display);font-size:clamp(22px,3vw,36px);font-weight:400;color:var(--ink);line-height:1.1;}
 .ancora-calc span{display:block;font-size:13px;font-family:var(--font-body);color:var(--ink-muted);font-weight:400;margin-top:4px;}
 .ancora-sep{font-size:28px;color:var(--border);}
@@ -1229,11 +1230,13 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <!-- ÂNCORA PREÇO -->
 <div class="ancora-preco">
   <div class="ancora-inner">
-    <div class="ancora-calc">
-      R$ 0,10 <em style="font-size:14px;font-style:normal;font-family:var(--font-body);color:var(--ink-muted)">por dia</em>
-      <span>365 dias com o guia do lado</span>
+    <div class="ancora-price-line">
+      <div class="ancora-calc">
+        R$ 0,10 <em style="font-size:14px;font-style:normal;font-family:var(--font-body);color:var(--ink-muted)">por dia</em>
+        <span>365 dias com o guia do lado</span>
+      </div>
+      <div class="ancora-sep">·</div>
     </div>
-    <div class="ancora-sep">·</div>
     <div class="ancora-compare">Menos que um café. Menos que uma música no streaming. <strong>Por menos de R$ 0,10 por dia</strong> você tem o guia prático completo para transformar sua relação com as coisas, o dinheiro e a sua casa. Sem mensalidade. Sem renovação.</div>
   </div>
 </div>
