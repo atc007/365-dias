@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://sejaminimalista.com.br/armario-enxuto-curso">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
 
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -75,7 +75,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   --ink-muted-light:#7A6A62;
   --cream:#FAF6F2;
   --border:#E4D8D0;
-  --font-display:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --font-display:'Alegreya',Georgia,'Times New Roman',serif;
   --h1:clamp(28px,4vw,46px);
   --h2:clamp(24px,3.2vw,34px);
   --sec-h:clamp(20px,5vw,72px);
@@ -144,6 +144,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 .btn-outline{display:inline-block;background:transparent;color:var(--ink);border:1.5px solid var(--border);padding:16px 32px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;transition:border-color .2s,transform .2s;}
 .btn-outline:hover{border-color:var(--rose);transform:translateY(-1px);}
 .hero-note{font-size:12px;color:var(--ink-muted-light);margin-top:14px;display:flex;align-items:center;justify-content:center;gap:6px;}
+.hero-note-wrap{align-items:flex-start;}
 
 /* ══ STATS BAR ══ */
 .stats-bar{background:var(--ink);padding:20px var(--sec-h);}
@@ -182,6 +183,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 .module-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px;}
 .module-desc{font-size:13px;color:var(--ink-mid);line-height:1.6;}
 .module-meta{font-size:11px;color:var(--ink-muted-light);margin-top:6px;display:flex;gap:12px;flex-wrap:wrap;}
+.challenge-box{
+  margin-top:16px;background:var(--ink);border-radius:12px;padding:22px 24px;
+  border-left:3px solid var(--rose);
+}
+.challenge-badge{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--rose-light);margin-bottom:8px;}
+.challenge-title{font-family:var(--font-display);font-size:19px;font-weight:600;color:#fff;margin-bottom:6px;}
+.challenge-desc{font-size:14px;color:rgba(255,255,255,.7);line-height:1.6;}
 
 /* ══ DIFERENCIAL ══ */
 .dif-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px;}
@@ -208,6 +216,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 
 /* ══ BÔNUS ══ */
 .bonus-box{background:#fff;border:1.5px dashed var(--rose);border-radius:14px;padding:28px;margin-top:24px;}
+.vip-extra{margin-top:20px;background:var(--rose-pale);border:1px solid var(--rose);border-radius:12px;padding:24px;}
+.vip-extra-badge{display:inline-block;background:var(--rose);color:#fff;font-size:11px;font-weight:700;padding:4px 14px;border-radius:30px;margin-bottom:14px;}
+.vip-extra h3{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:12px;line-height:1.35;}
+.vip-extra p{font-size:14px;line-height:1.75;color:var(--ink-mid);margin-bottom:10px;}
+.vip-extra-highlight{margin-top:16px;padding-top:16px;border-top:1px solid var(--rose-light);font-size:14px;font-weight:600;line-height:1.9;color:var(--ink);}
 .bonus-item{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:.5px solid var(--border);}
 .bonus-item:last-child{border-bottom:none;}
 .bonus-num{width:26px;height:26px;border-radius:50%;background:var(--rose);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
@@ -224,9 +237,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 .price-card{background:#fff;border:2px solid var(--rose);border-radius:16px;padding:32px 28px;text-align:center;box-shadow:0 16px 40px rgba(140,90,64,.14);}
 .price-badge{display:inline-block;background:var(--rose);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px;}
 .price-was{font-size:15px;color:var(--ink-muted-light);text-decoration:line-through;}
-.price-now{font-family:var(--font-display);font-size:52px;font-weight:600;color:var(--ink);line-height:1;margin:6px 0;}
-.price-now sup{font-size:22px;top:-1.2em;}
-.price-install{font-size:13px;color:var(--ink-mid);margin-bottom:20px;}
+.price-parc-destaque{font-family:var(--font-display);font-size:34px;font-weight:700;color:var(--rose-text);line-height:1;margin-bottom:6px;letter-spacing:-.01em;}
+.price-now{font-size:15px;color:var(--ink-mid);margin-bottom:20px;}
 .price-feats{list-style:none;text-align:left;margin-bottom:24px;display:flex;flex-direction:column;gap:9px;}
 .price-feats li{font-size:14px;color:var(--ink-mid);display:flex;gap:8px;align-items:flex-start;}
 .price-feats li::before{content:'✓';color:var(--rose-text);font-weight:700;flex-shrink:0;}
@@ -284,7 +296,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 
 <div class="topbar">
-  🎥 <strong>Turma com acesso vitalício</strong> · Comece hoje, no seu ritmo
+  🎥 <strong>Turma com acesso vitalício</strong> · Comece hoje, sem esperar turma nova
 </div>
 
 <main id="main-content">
@@ -304,7 +316,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
     </div>
 
     <a href="#versoes" class="btn-rose anim-up d3">Quero começar o curso hoje</a>
-    <div class="hero-note anim-up d3">🔒 Compra segura · Acesso vitalício às aulas</div>
+    <div class="hero-note anim-up d3">Compra segura · Garantia incondicional de 7 dias</div>
+    <div class="hero-note anim-up d3 hero-note-wrap">Pagamento processado pela Eduzz, plataforma usada por mais de 1 milhão de compradores no Brasil · Cartão, Pix ou boleto</div>
 
     <div class="hero-badges anim-up d4">
       <span class="hero-badge">🎬 Videoaulas em módulos</span>
@@ -317,12 +330,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 <!-- STATS (placeholder — trocar por números reais) -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat anim-up"><span class="stat-num">XX</span><span class="stat-label">videoaulas</span></div>
-    <div class="stat anim-up d1"><span class="stat-num">X módulos</span><span class="stat-label">passo a passo</span></div>
+    <div class="stat anim-up"><span class="stat-num">53</span><span class="stat-label">videoaulas</span></div>
+    <div class="stat anim-up d1"><span class="stat-num">8 módulos</span><span class="stat-label">passo a passo</span></div>
     <div class="stat anim-up d2"><span class="stat-num">♾️</span><span class="stat-label">acesso vitalício</span></div>
-    <div class="stat anim-up d3"><span class="stat-num">⭐ X,X</span><span class="stat-label">avaliação do livro</span></div>
+    <div class="stat anim-up d3"><span class="stat-num">📖</span><span class="stat-label">livro digital incluso</span></div>
   </div>
-  <div class="stat-note">* números de exemplo, substituir pelos dados reais do curso</div>
 </div>
 
 <!-- AGITAÇÃO — problema -->
@@ -359,45 +371,76 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
       <div class="module-item anim-up d1">
         <div class="module-num">01</div>
         <div>
-          <div class="module-title">Autoconhecimento de estilo</div>
-          <div class="module-desc">Antes de organizar o armário, você descobre quem é sua imagem hoje e o que realmente combina com sua vida.</div>
-          <div class="module-meta"><span>🎬 X aulas</span><span>⏱ Xh de conteúdo</span></div>
+          <div class="module-title">Introdução ao armário enxuto</div>
+          <div class="module-desc">O que é moda com propósito, o que é ter um armário enxuto na prática, e por que respeitar o processo muda tudo.</div>
+          <div class="module-meta"><span>🎬 8 aulas</span></div>
+        </div>
+      </div>
+      <div class="module-item anim-up d1">
+        <div class="module-num">02</div>
+        <div>
+          <div class="module-title">Descobrindo o seu estilo</div>
+          <div class="module-desc">Não existe fórmula pronta: você descobre o que a decoração da sua casa e suas experiências dizem sobre o seu estilo pessoal.</div>
+          <div class="module-meta"><span>🎬 10 aulas</span></div>
         </div>
       </div>
       <div class="module-item anim-up d2">
-        <div class="module-num">02</div>
+        <div class="module-num">03</div>
         <div>
-          <div class="module-title">Triagem e desapego</div>
-          <div class="module-desc">O passo a passo prático para decidir o que fica e o que sai, sem culpa e sem radicalismo.</div>
-          <div class="module-meta"><span>🎬 X aulas</span><span>⏱ Xh de conteúdo</span></div>
+          <div class="module-title">Autoconhecimento</div>
+          <div class="module-desc">Por que o autoconhecimento é essencial nesse processo, os tipos que existem, e a técnica do espelho na prática.</div>
+          <div class="module-meta"><span>🎬 4 aulas</span></div>
+        </div>
+      </div>
+      <div class="module-item anim-up d2">
+        <div class="module-num">04</div>
+        <div>
+          <div class="module-title">Como usar e abusar das cores</div>
+          <div class="module-desc">Autoanálise de cores, quais investir estrategicamente, e como descobrir quais te favorecem de verdade.</div>
+          <div class="module-meta"><span>🎬 3 aulas</span></div>
         </div>
       </div>
       <div class="module-item anim-up d3">
-        <div class="module-num">03</div>
+        <div class="module-num">05</div>
         <div>
-          <div class="module-title">Organização e cápsula</div>
-          <div class="module-desc">Como montar um armário enxuto de verdade, com peças que conversam entre si.</div>
-          <div class="module-meta"><span>🎬 X aulas</span><span>⏱ Xh de conteúdo</span></div>
+          <div class="module-title">Buscando referências</div>
+          <div class="module-desc">Por que buscar referência importa, com exercício prático de moodboard e sondagem de estilo.</div>
+          <div class="module-meta"><span>🎬 3 aulas</span></div>
+        </div>
+      </div>
+      <div class="module-item anim-up d3">
+        <div class="module-num">06</div>
+        <div>
+          <div class="module-title">Construindo o seu armário enxuto</div>
+          <div class="module-desc">Ter menos para poder ser mais: revitalização, desrotular peças, e como desapegar do que já não serve.</div>
+          <div class="module-meta"><span>🎬 5 aulas</span></div>
         </div>
       </div>
       <div class="module-item anim-up d4">
-        <div class="module-num">04</div>
+        <div class="module-num">07</div>
         <div>
-          <div class="module-title">Compra consciente</div>
-          <div class="module-desc">O método para nunca mais comprar por impulso, e economizar de verdade no médio prazo.</div>
-          <div class="module-meta"><span>🎬 X aulas</span><span>⏱ Xh de conteúdo</span></div>
+          <div class="module-title">Organizando o seu Armário Enxuto</div>
+          <div class="module-desc">Como organizar de verdade, guardar roupa corretamente, separar por estampa, e cuidar bem do que você tem.</div>
+          <div class="module-meta"><span>🎬 4 aulas</span></div>
         </div>
       </div>
-      <div class="module-item anim-up d5">
-        <div class="module-num">05</div>
+      <div class="module-item anim-up d4">
+        <div class="module-num">08</div>
         <div>
-          <div class="module-title">Manutenção para sempre</div>
-          <div class="module-desc">Como manter o armário enxuto no longo prazo, sem voltar ao acúmulo de antes.</div>
-          <div class="module-meta"><span>🎬 X aulas</span><span>⏱ Xh de conteúdo</span></div>
+          <div class="module-title">Montagem e multiplicação de looks</div>
+          <div class="module-desc">Como multiplicar combinações, compra inteligente e experimentação consciente, fechando com a técnica do espelho revista.</div>
+          <div class="module-meta"><span>🎬 5 aulas</span></div>
         </div>
       </div>
     </div>
-    <p style="font-size:12px;color:var(--ink-muted-light);margin-top:16px;font-style:italic;">* estrutura de módulos de exemplo, ajustar para o índice real do curso</p>
+
+    <div class="challenge-box anim-up d5">
+      <div class="challenge-badge">🏆 Desafio prático incluso</div>
+      <div class="challenge-title">Desafio: Revitalização do Armário</div>
+      <div class="challenge-desc">5 dias de missões práticas para você aplicar o método na prática, direto no seu próprio armário.</div>
+    </div>
+
+    <p style="font-size:12px;color:var(--ink-muted-light);margin-top:16px;">53 aulas ao todo, entre os 8 módulos e o desafio prático de 5 dias.</p>
   </div>
 </section>
 
@@ -473,20 +516,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
     <div class="bonus-box anim-up d1">
       <div class="bonus-item">
         <div class="bonus-num">1</div>
-        <div><div class="bonus-title">Livro Armário Enxuto (digital)</div><div class="bonus-val">Valor: R$ 47</div></div>
+        <div><div class="bonus-title">Livro Armário Enxuto (digital)</div><div class="bonus-val">Valor: R$ 77</div></div>
       </div>
       <div class="bonus-item">
         <div class="bonus-num">2</div>
-        <div><div class="bonus-title">Planilha de cápsula de guarda-roupa</div><div class="bonus-val">Valor: R$ 27</div></div>
-      </div>
-      <div class="bonus-item">
-        <div class="bonus-num">3</div>
-        <div><div class="bonus-title">Comunidade de alunas no WhatsApp</div><div class="bonus-val">Valor: R$ 47</div></div>
+        <div><div class="bonus-title">6 aulas bônus (pontos focais, ajuste x reforma, organização da casa, beleza, estilo e como comprar em brechós)</div><div class="bonus-val">Valor: R$ 97</div></div>
       </div>
       <div class="bonus-valor-box">
-        <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 121 em bônus, inclusos sem custo adicional</strong></div>
-        <div style="text-align:right;"><span class="bonus-was">R$ 121,00</span><span class="bonus-gratis">Grátis 🎁</span></div>
+        <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 174 em bônus, inclusos sem custo adicional</strong></div>
+        <div style="text-align:right;"><span class="bonus-was">R$ 174,00</span><span class="bonus-gratis">Grátis 🎁</span></div>
       </div>
+    </div>
+
+    <div class="vip-extra anim-up d2">
+      <div class="vip-extra-badge">🎁 Conteúdo em expansão</div>
+      <h3>Acesso vitalício à Área VIP</h3>
+      <p>Além dos bônus acima, você também acessa a Área VIP, com materiais extras exclusivos que não estão listados aqui: planners, exercícios, videoaulas e desafios complementares.</p>
+      <div class="vip-extra-highlight">✔ Acesso vitalício à Área VIP<br>✔ Atualizações sem custo adicional<br>✔ Novos bônus liberados ao longo do tempo</div>
     </div>
   </div>
 </section>
@@ -499,17 +545,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
     <div class="price-wrap anim-up d1">
       <div class="price-card">
         <span class="price-badge">Acesso vitalício</span>
-        <div class="price-was">De R$ XXX,00</div>
-        <div class="price-now"><sup>R$</sup>XXX</div>
-        <div class="price-install">ou 12x de R$ XX,XX</div>
+        <div class="price-was">De R$ 497,00</div>
+        <div class="price-parc-destaque">12x de R$ 30,72</div>
+        <div class="price-now">ou R$ 297,00 à vista</div>
         <ul class="price-feats">
           <li>Acesso imediato após o pagamento</li>
           <li>Todos os módulos e videoaulas</li>
           <li>Bônus digitais inclusos</li>
-          <li>Comunidade exclusiva de alunas</li>
           <li>Acesso vitalício, sem mensalidade</li>
         </ul>
-        <a href="#" class="btn-rose" style="width:100%;">Quero me matricular agora</a>
+        <a href="https://chk.eduzz.com/E05NZAR49X" target="_blank" rel="noopener" class="btn-rose" style="width:100%;">Quero me matricular agora</a>
         <div class="price-lock">🔒 Pagamento seguro · Garantia de 7 dias</div>
       </div>
     </div>
@@ -567,7 +612,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 <div class="cta-final">
   <div class="inner">
     <h2 class="cta-final-title">Sua transformação de estilo começa <em>na primeira aula.</em></h2>
-    <p class="cta-final-sub">Acesso vitalício, no seu ritmo, com quem já ajudou milhares de pessoas a se vestirem com mais confiança.</p>
+    <p class="cta-final-sub">Acesso vitalício, sem mensalidade, com quem já ajudou milhares de pessoas a se vestirem com mais confiança.</p>
     <a href="#versoes" class="btn-rose">Quero me matricular agora</a>
   </div>
 </div>
