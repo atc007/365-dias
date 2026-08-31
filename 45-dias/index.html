@@ -315,6 +315,22 @@ html,body{
 
 /* ══ DIFERENCIAL / PROPOSTA ÚNICA ══ */
 .diferencial{background:var(--cream);padding:var(--sec-v) var(--sec-h);border-top:3px solid var(--gold);}
+
+/* ══ AGITAÇÃO DA DOR ══ */
+.agitacao{background:var(--ink);padding:var(--sec-v) var(--sec-h);}
+.agit-eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light);margin-bottom:16px;text-align:center;}
+.agit-h2{font-family:var(--font-display);font-size:var(--h2);font-weight:400;color:#fff;text-align:center;max-width:640px;margin:0 auto 40px;line-height:1.3;}
+.agit-h2 em{font-style:italic;color:var(--gold-light);}
+.agit-lista{display:flex;flex-direction:column;gap:14px;max-width:720px;margin:0 auto;}
+.agit-item{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px 20px;}
+.agit-icon{font-size:20px;flex-shrink:0;line-height:1.4;}
+.agit-text{font-size:15px;color:rgba(255,255,255,.75);line-height:1.65;}
+.agit-text strong{color:#fff;font-weight:600;}
+.agit-virada{font-family:var(--font-display);font-size:19px;font-style:italic;color:var(--gold-light);text-align:center;max-width:600px;margin:32px auto 0;line-height:1.5;}
+@media(max-width:720px){
+  .agit-item{padding:14px 16px;}
+  .agit-text{font-size:14px;}
+}
 .dif-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:28px;}
 .dif-card{background:#fff;border:.5px solid var(--border);border-radius:10px;padding:20px;text-align:center;}
 .dif-icon{font-size:26px;margin-bottom:10px;}
@@ -808,6 +824,36 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   </div>
 </div>
 
+<!-- AGITAÇÃO DA DOR -->
+<section class="agitacao">
+  <div class="inner">
+    <div class="agit-eyebrow">Antes de continuar</div>
+    <h2 class="agit-h2">Você reconhece algum desses <em>sentimentos</em>?</h2>
+    <div class="agit-lista">
+      <div class="agit-item">
+        <span class="agit-icon">🗄️</span>
+        <div class="agit-text">Você abre um armário, uma gaveta, um cômodo inteiro, e <strong>não sabe nem por onde começar</strong>. A quantidade de coisas paralisa antes mesmo de você tentar.</div>
+      </div>
+      <div class="agit-item">
+        <span class="agit-icon">🔁</span>
+        <div class="agit-text">Você já tentou organizar antes: separou sacolas pra doação, prometeu terminar no fim de semana. <strong>Ficou pela metade</strong>, e a bagunça voltou ao normal em poucos dias.</div>
+      </div>
+      <div class="agit-item">
+        <span class="agit-icon">😓</span>
+        <div class="agit-text">Cada objeto guardado é uma decisão adiada: “guardo ou doo?”, “ainda vou usar?”. <strong>São tantas escolhas pequenas</strong> que você acaba não decidindo nenhuma, e tudo fica onde está.</div>
+      </div>
+      <div class="agit-item">
+        <span class="agit-icon">🕰️</span>
+        <div class="agit-text">Você acha que precisa de um dia inteiro livre pra colocar a casa em ordem. <strong>Esse dia nunca chega</strong>, e a tralha vai se acumulando enquanto você espera o momento certo.</div>
+      </div>
+    </div>
+    <p class="agit-virada">O problema não é falta de tempo. É que ninguém te deu um plano pequeno o suficiente pra começar hoje.</p>
+    <div style="margin-top:32px;text-align:center;">
+      <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero meu plano de 45 dias</a>
+    </div>
+  </div>
+</section>
+
 <!-- BENEFÍCIOS -->
 <section class="sec alt" id="beneficios">
   <div class="inner">
@@ -815,7 +861,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
       <div>
         <div class="sec-eyebrow">O que você vai encontrar</div>
         <h2 class="sec-h2">Não é apenas sobre limpar a casa. É sobre liberar espaço para o que realmente importa.</h2>
-        <p class="sec-p">"45 Dias de Destralhe" é um guia essencial para quem busca simplificar e organizar a vida de forma prática e eficiente. Cada dia tem uma missão clara: um cômodo, um tipo de objeto, uma decisão.</p>
+        <p class="sec-p">“45 Dias de Destralhe” é um guia essencial para quem busca simplificar e organizar a vida de forma prática e eficiente. Cada dia tem uma missão clara: um cômodo, um tipo de objeto, uma decisão.</p>
         <div class="pullquote">“Uma jornada transformadora para criar espaços mais leves e uma vida mais equilibrada e plena.”</div>
       </div>
       <div class="ben-cards">
@@ -1111,11 +1157,11 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
     <div class="faq-list">
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Preciso fazer um cômodo por dia?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Não necessariamente. As missões são pensadas para serem rápidas e práticas. Você adapta ao seu ritmo. O importante é ir avançando, um dia de cada vez.</div></div></div>
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Quando recebo o guia digital?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Ao comprar por cartão de crédito ou Pix, você recebe imediatamente no seu e-mail. Por boleto, em até 3 dias úteis após a compensação.</div></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">O guia físico é encadernado? Como é a qualidade?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim! O guia físico tem acabamento Wire-o (aquela espiral de metal) com capa dura, impressão colorida e de alta qualidade. É um objeto bonito e funcional para usar no dia a dia.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">O guia físico é encadernado? Como é a qualidade?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim. O guia físico tem acabamento Wire-o (aquela espiral de metal) com capa dura, impressão colorida e de alta qualidade. É um objeto bonito e funcional para usar no dia a dia.</div></div></div>
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso imprimir o guia digital?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim, o PDF é preparado especialmente para impressão com alta resolução e ótima qualidade de cores.</div></div></div>
       
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">O guia funciona para apartamento pequeno?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Perfeitamente. O método é flexível e funciona para qualquer tamanho de espaço, de um quarto a uma casa grande.</div></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso fazer com outra pessoa?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim, e é ainda melhor! Fazer o desafio em dupla ou com a família cria responsabilidade mútua e deixa o processo mais divertido.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso fazer com outra pessoa?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim, e é ainda melhor. Fazer o desafio em dupla ou com a família cria responsabilidade mútua e deixa o processo mais divertido.</div></div></div>
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso parcelar a compra?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim. O pagamento por cartão de crédito pode ser parcelado em até 12x. O guia digital chega imediatamente após a confirmação e o físico é despachado após o processamento.</div></div></div>
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Quanto tempo o guia digital fica disponível?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">O acesso é vitalício. Você pode salvar o PDF no seu dispositivo e acessar quando quiser.</div></div></div>
     </div>
@@ -1295,7 +1341,8 @@ function toggleMarqueePause(){
   var revealGroups=[
     '.stats-bar .stat','.t-marquee','.ben-cards .ben-card','.qual-cards .qual-card',
     '.dif-grid .dif-card','.t-counter .t-stat','.t-grid .t-card','#versoes .pc',
-    '.sec-h2, .sec-eyebrow, .t-headline, .t-eyebrow-dep','.pullquote'
+    '.sec-h2, .sec-eyebrow, .t-headline, .t-eyebrow-dep','.pullquote',
+    '.agit-item','.agit-h2, .agit-eyebrow, .agit-virada'
   ];
   var revealEls=[];
   revealGroups.forEach(function(sel){
@@ -1410,17 +1457,29 @@ document.addEventListener('DOMContentLoaded',function(){
 <!-- TOOLTIP CUPOM -->
 <style>
 #cupom-tooltip{top:20px;right:20px;bottom:auto;max-width:220px;}
-@media(max-width:720px){#cupom-tooltip{top:16px;right:12px;max-width:190px;}}
+.cupom-box{background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(199,154,92,.45);}
+.cupom-label{font-size:10px;font-weight:700;color:#C79A5C;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;}
+.cupom-code-box{background:rgba(255,255,255,.05);border:1.5px dashed #C79A5C;border-radius:8px;padding:9px 12px 8px;text-align:center;}
+.cupom-code{font-family:var(--font-display);font-size:21px;font-weight:700;color:#F7F1E6;letter-spacing:.07em;}
+.cupom-sub{font-size:10.5px;color:#D9B589;margin-top:2px;letter-spacing:.02em;}
+@media(max-width:720px){
+  #cupom-tooltip{top:14px;right:10px;max-width:148px;}
+  .cupom-box{padding:10px 11px 9px;border-radius:11px;}
+  .cupom-label{font-size:8px;letter-spacing:.1em;margin-bottom:6px;white-space:nowrap;padding-right:20px;}
+  .cupom-code-box{padding:6px 8px 5px;border-radius:6px;}
+  .cupom-code{font-size:15px;letter-spacing:.04em;}
+  .cupom-sub{font-size:8.5px;margin-top:1px;}
+}
 @keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
 </style>
 <div id="cupom-tooltip" role="button" tabindex="0" aria-label="Cupom GANHEI10, 10% off no carrinho. Ativar cupom" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none';}">
-  <div style="background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(199,154,92,.45);">
+  <div class="cupom-box">
     <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
     <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
-    <div style="font-size:10px;font-weight:700;color:#C79A5C;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;">🎁 Cupom exclusivo</div>
-    <div style="background:rgba(255,255,255,.05);border:1.5px dashed #C79A5C;border-radius:8px;padding:9px 12px 8px;text-align:center;">
-      <div style="font-family:var(--font-display);font-size:21px;font-weight:700;color:#F7F1E6;letter-spacing:.07em;">GANHEI10</div>
-      <div style="font-size:10.5px;color:#D9B589;margin-top:2px;letter-spacing:.02em;">10% OFF no carrinho</div>
+    <div class="cupom-label">🎁 Cupom exclusivo</div>
+    <div class="cupom-code-box">
+      <div class="cupom-code">GANHEI10</div>
+      <div class="cupom-sub">10% OFF no carrinho</div>
     </div>
   </div>
 </div>
