@@ -46,7 +46,7 @@
 <link rel="dns-prefetch" href="https://static.wixstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@500;600;700;800&display=swap">
 
 <!-- Google tag — defer -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JM7NSX9TDT"></script>
@@ -65,9 +65,11 @@ window.addEventListener('load',function(){
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html,body{
   width:100%;min-height:100vh;
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   -webkit-font-smoothing:antialiased;
   background:#141413;
+  background-image:radial-gradient(ellipse 600px 500px at 50% -80px, rgba(201,169,110,.10), transparent 70%);
+  background-repeat:no-repeat;
   color:#E8E2D8;
 }
 
@@ -88,6 +90,16 @@ a{touch-action:manipulation;}
 .link-card:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
 iframe{border-radius:8px;}
 
+/* ══ PERFIL ══ */
+.profile{text-align:center;padding:22px 0 20px;}
+.profile-logo{max-width:150px;height:auto;margin:0 auto 18px;display:block;filter:brightness(0) invert(1);}
+.profile-handle{font-size:13px;color:#8A8880;letter-spacing:.02em;margin-bottom:10px;}
+.profile-handle a{color:#8A8880;text-decoration:none;}
+.profile-bio{font-family:'Spectral',Georgia,serif;font-size:17px;font-weight:400;color:#ECE6DC;line-height:1.5;max-width:340px;margin:0 auto 16px;}
+.profile-bio em{font-style:italic;color:var(--gold);}
+.profile-stat{font-size:11px;color:#8A8880;margin-bottom:4px;letter-spacing:.02em;}
+.profile-stat strong{color:#ECE6DC;font-weight:600;}
+
 /* ══ SECTION LABEL ══ */
 .section-label{
   font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
@@ -98,13 +110,14 @@ iframe{border-radius:8px;}
 
 /* ══ CARD ══ */
 .link-card{
-  background:#242422;
-  border:.5px solid #3A3A38;
+  background:#F5F0E8;
+  border:.5px solid rgba(0,0,0,.06);
   border-radius:14px;overflow:hidden;
   display:flex;flex-direction:column;
   width:100%;max-width:300px;
   margin:0 auto 14px;
   text-decoration:none;
+  box-shadow:0 6px 20px rgba(0,0,0,.28);
   /* tap feedback no mobile */
   -webkit-tap-highlight-color:transparent;
   transition:transform .15s ease,box-shadow .15s ease;
@@ -113,7 +126,7 @@ iframe{border-radius:8px;}
 /* tap press — funciona em touch */
 .link-card:active{
   transform:scale(.97);
-  box-shadow:0 4px 16px rgba(0,0,0,.4);
+  box-shadow:0 4px 14px rgba(0,0,0,.35);
 }
 
 /* imagem — sem zoom no hover */
@@ -127,20 +140,20 @@ iframe{border-radius:8px;}
 .card-body{
   padding:14px 16px 18px;
   display:flex;flex-direction:column;gap:5px;
-  background:linear-gradient(180deg,#242422 0%,#1e1e1c 100%);
+  background:#F5F0E8;
 }
-.card-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
+.card-tag{font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7C5D26;}
 .card-title{
   font-family:'Spectral',Georgia,serif;
-  font-size:16px;font-weight:400;color:#ECE6DC;line-height:1.3;
+  font-size:17px;font-weight:500;color:#1C1C1A;line-height:1.3;
 }
-.card-sub{font-size:13px;color:#B0ADA6;line-height:1.55;}
+.card-sub{font-family:'Manrope',sans-serif;font-size:12.5px;font-weight:500;color:#5F5B52;line-height:1.55;}
 
 /* hover apenas em dispositivos com ponteiro fino (desktop) */
 @media(hover:hover) and (pointer:fine){
   .link-card:hover{
     transform:translateY(-3px);
-    box-shadow:0 12px 32px rgba(0,0,0,.45);
+    box-shadow:0 14px 34px rgba(0,0,0,.4);
     border-color:var(--gold);
   }
   .link-card:hover .card-img{transform:scale(1.03);}
@@ -148,37 +161,35 @@ iframe{border-radius:8px;}
 }
 .link-card.featured{
   border:1.5px solid var(--gold);
-  background:#232017;
-  box-shadow:0 4px 20px rgba(201,169,110,.12);
+  background:#FBF3DE;
+  box-shadow:0 8px 26px rgba(201,169,110,.28);
 }
 .link-card.featured .card-body{
-  background:linear-gradient(180deg,#232017 0%,#1c1a12 100%);
+  background:#FBF3DE;
 }
-.link-card.featured .card-title{color:#F5EDD8;}
+.link-card.featured .card-title{color:#1C1C1A;}
 
 /* ══ SELOS ══ */
-@keyframes shimmer-seal{
-  0%{background-position:150% center;}
-  100%{background-position:-150% center;}
-}
 .card-seal{
-  display:inline-flex;align-items:center;gap:4px;
-  font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
-  padding:3px 10px;border-radius:20px;
-  margin-bottom:4px;align-self:flex-start;
-  background-size:250% auto;
-  animation:shimmer-seal 5s linear infinite;
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:'Manrope',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:.04em;
+  padding:4px 11px 4px 8px;border-radius:20px;
+  margin-bottom:6px;align-self:flex-start;
 }
+.card-seal::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0;}
 /* dourado — best-seller */
 .card-seal.best{
-  background:linear-gradient(90deg,#8B6010 0%,#C9A96E 30%,#FFF0B0 50%,#C9A96E 70%,#8B6010 100%);
-  color:#1C1C1A;
+  background:#1C1C1A;
+  color:#F0D898;
 }
+.card-seal.best::before{background:#F0D898;}
 /* verde — lançamento */
 .card-seal.launch{
-  background:linear-gradient(90deg,#0d3d1e 0%,#228B50 30%,#7fffa0 50%,#228B50 70%,#0d3d1e 100%);
-  color:#fff;
+  background:#173B27;
+  color:#8CE8AE;
 }
+.card-seal.launch::before{background:#8CE8AE;box-shadow:0 0 0 3px rgba(140,232,174,.25);}
 
 /* ══ NEWSLETTER ══ */
 .newsletter-box{
@@ -256,6 +267,13 @@ iframe{border-radius:8px;}
 
   <h1 class="visually-hidden">Seja Minimalista: todos os links e produtos</h1>
 
+  <!-- PERFIL -->
+  <div class="profile">
+    <img class="profile-logo" src="https://static.wixstatic.com/media/940f31_64ea155fc0b8427e898318695ef5ad7e~mv2.png/v1/crop/x_44,y_0,w_906,h_187/fill/w_260,h_54,al_c,q_90,enc_avif,quality_auto/logo.png" alt="Seja Minimalista" width="150" height="31" loading="eager">
+    <p class="profile-bio">Ajudando você a viver com <em>menos coisas e mais sentido</em>, desde 2018.</p>
+    <div class="profile-stat"><strong>200 mil+</strong> pessoas no Instagram</div>
+  </div>
+
   <!-- MINIMALIZE — destaque -->
 
   <a class="link-card featured" href="https://www.sejaminimalista.com.br/minimalize" >
@@ -263,7 +281,7 @@ iframe{border-radius:8px;}
       src="https://static.wixstatic.com/media/940f31_9ceb0776e1784a919708c059e73b4e5d~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       width="520" height="690" alt="Minimalize.IA" loading="eager">
     <div class="card-body">
-      <div class="card-seal launch">🚀 Lançamento</div>
+      <div class="card-seal launch">Lançamento</div>
       <div class="card-tag">🤖 Inteligência Artificial</div>
       <div class="card-title">Minimalize</div>
       <div class="card-sub">Método completo para destralhe e organização da sua casa com IA.</div>
@@ -278,7 +296,7 @@ iframe{border-radius:8px;}
       src="https://static.wixstatic.com/media/940f31_41451adb64ed46afa88a6c4be84c11c9~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       width="520" height="690" alt="Seja Minimalista" loading="lazy" decoding="async">
     <div class="card-body">
-      <div class="card-seal best">⭐ Best-seller</div>
+      <div class="card-seal best">Best-seller</div>
       <div class="card-title">Seja Minimalista</div>
       <div class="card-sub">O guia definitivo para uma vida mais leve e mais feliz.</div>
     </div>
@@ -289,7 +307,7 @@ iframe{border-radius:8px;}
       src="https://static.wixstatic.com/media/940f31_5eb2ddac6de34f93bcac689297349d54~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       width="520" height="690" alt="365 Dias Minimalistas" loading="lazy" decoding="async">
     <div class="card-body">
-      <div class="card-seal launch">🚀 Lançamento</div>
+      <div class="card-seal launch">Lançamento</div>
       <div class="card-tag">📅 Uma página por dia</div>
       <div class="card-title">365 Dias Minimalistas</div>
       <div class="card-sub">Um convite diário para uma vida com menos coisas e mais propósito.</div>
