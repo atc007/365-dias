@@ -416,7 +416,19 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 
 /* ══ CUPOM TOOLTIP ══ */
 #cupom-tooltip{top:20px;right:20px;bottom:auto;max-width:220px;}
-@media(max-width:720px){#cupom-tooltip{top:16px;right:12px;max-width:190px;}}
+.cupom-box{background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(201,169,110,.45);}
+.cupom-label{font-size:10px;font-weight:700;color:#C9A96E;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;}
+.cupom-code-box{background:rgba(255,255,255,.05);border:1.5px dashed #C9A96E;border-radius:8px;padding:9px 12px 8px;text-align:center;}
+.cupom-code{font-family:var(--font-display);font-size:18px;font-weight:700;color:#F5F0E8;letter-spacing:.03em;}
+.cupom-sub{font-size:10.5px;color:#B8925A;margin-top:2px;letter-spacing:.02em;}
+@media(max-width:720px){
+  #cupom-tooltip{top:14px;right:10px;max-width:148px;}
+  .cupom-box{padding:10px 11px 9px;border-radius:11px;}
+  .cupom-label{font-size:8px;letter-spacing:.1em;margin-bottom:6px;white-space:nowrap;padding-right:20px;}
+  .cupom-code-box{padding:6px 8px 5px;border-radius:6px;}
+  .cupom-code{font-size:14px;letter-spacing:.02em;}
+  .cupom-sub{font-size:8px;margin-top:1px;}
+}
 @keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
 
 /* ══ HERO DESKTOP — mais respiro e badges em uma linha ══ */
@@ -665,36 +677,6 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   </div>
 </div>
 
-<!-- RESUMO RÁPIDO — COMO FUNCIONA -->
-<section class="sec" style="padding-top:40px;padding-bottom:40px;">
-  <div class="inner">
-    <div class="sec-eyebrow" style="justify-content:center;">Em 3 passos simples</div>
-    <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 28px;">É assim que funciona, na prática.</h2>
-    <div class="dif-grid dif-grid-light" style="margin-top:0;">
-      <div class="dif-card">
-        <div class="dif-icon">💬</div>
-        <div class="dif-title">1. Você conversa com o agente</div>
-        <div class="dif-desc">Direto no ChatGPT, sem instalar nada. Conte como é sua casa e o que está te pesando.</div>
-      </div>
-      <div class="dif-card">
-        <div class="dif-icon">📷</div>
-        <div class="dif-title">2. Ele entende sua realidade</div>
-        <div class="dif-desc">Se quiser, envie fotos dos ambientes. O agente identifica excessos e cria um plano possível para você.</div>
-      </div>
-      <div class="dif-card">
-        <div class="dif-icon">🧹</div>
-        <div class="dif-title">3. Você destralha no seu ritmo</div>
-        <div class="dif-desc">Passo a passo, sem pressão. Pausa quando quiser e retoma de onde parou, sem culpa.</div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:28px;">
-      <div style="font-family:var(--font-display);font-size:15px;color:var(--ink-soft);margin-bottom:14px;">Menos que um café por dia: <strong style="color:var(--ink);">a partir de R$ 0,21/dia</strong> no primeiro ano de acesso vitalício.</div>
-      <a class="btn-gold" href="#versoes">Quero meu acesso vitalício</a>
-      <div class="hero-note" style="justify-content:center;margin-top:10px;color:var(--ink-muted);">Garantia de 7 dias · Acesso vitalício</div>
-    </div>
-  </div>
-</section>
-
 <!-- O PROBLEMA -->
 <section class="sec alt">
   <div class="inner">
@@ -703,7 +685,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
         <div class="sec-eyebrow">A verdade que quase ninguém te fala</div>
         <h2 class="sec-h2">O problema não é falta de força de vontade. É excesso de decisões adiadas.</h2>
         <p class="sec-p">Você até começa: arruma um canto, dobra algumas coisas, separa o que “talvez vá embora”. Mas logo a bagunça volta. Porque o cansaço não vem da bagunça, vem do excesso de decisões que você não consegue tomar sozinha.</p>
-        <div class="pullquote">"Organização não é sobre arrumar tudo. É sobre escolher melhor o que fica.”</div>
+        <div class="pullquote">“Organização não é sobre arrumar tudo. É sobre escolher melhor o que fica.”</div>
       </div>
       <div>
         <div style="margin-bottom:16px;font-size:14px;font-weight:600;color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase;">Por que os métodos tradicionais falham:</div>
@@ -730,6 +712,36 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUMO RÁPIDO — COMO FUNCIONA -->
+<section class="sec" style="padding-top:40px;padding-bottom:40px;">
+  <div class="inner">
+    <div class="sec-eyebrow" style="justify-content:center;">Em 3 passos simples</div>
+    <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 28px;">É assim que funciona, na prática.</h2>
+    <div class="dif-grid dif-grid-light" style="margin-top:0;">
+      <div class="dif-card">
+        <div class="dif-icon">💬</div>
+        <div class="dif-title">1. Você conversa com o agente</div>
+        <div class="dif-desc">Direto no ChatGPT, sem instalar nada. Conte como é sua casa e o que está te pesando.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">📷</div>
+        <div class="dif-title">2. Ele entende sua realidade</div>
+        <div class="dif-desc">Se quiser, envie fotos dos ambientes. O agente identifica excessos e cria um plano possível para você.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">🧹</div>
+        <div class="dif-title">3. Você destralha no seu ritmo</div>
+        <div class="dif-desc">Passo a passo, sem pressão. Pausa quando quiser e retoma de onde parou, sem culpa.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px;">
+      <div style="font-family:var(--font-display);font-size:15px;color:var(--ink-soft);margin-bottom:14px;">Menos que um café por dia: <strong style="color:var(--ink);">a partir de R$ 0,21/dia</strong> no primeiro ano de acesso vitalício.</div>
+      <a class="btn-gold" href="#versoes">Quero meu acesso vitalício</a>
+      <div class="hero-note" style="justify-content:center;margin-top:10px;color:var(--ink-muted);">Garantia de 7 dias · Acesso vitalício</div>
     </div>
   </div>
 </section>
@@ -1174,14 +1186,14 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 </footer>
 
 <!-- CUPOM TOOLTIP -->
-<div id="cupom-tooltip" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none'">
-  <div style="background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(201,169,110,.45);">
+<div id="cupom-tooltip" role="button" tabindex="0" aria-label="R$ 150 de desconto já aplicado no link de compra. Ativar oferta" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none';}">
+  <div class="cupom-box">
     <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
-    <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" style="position:absolute;top:7px;right:9px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;">×</button>
-    <div style="font-size:10px;font-weight:700;color:#C9A96E;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;">🎁 Oferta exclusiva</div>
-    <div style="background:rgba(255,255,255,.05);border:1.5px dashed #C9A96E;border-radius:8px;padding:9px 12px 8px;text-align:center;">
-      <div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:#F5F0E8;letter-spacing:.03em;">R$ 150 OFF</div>
-      <div style="font-size:10.5px;color:#B8925A;margin-top:2px;letter-spacing:.02em;">já aplicado no link de compra</div>
+    <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar aviso" style="position:absolute;top:2px;right:2px;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
+    <div class="cupom-label">🎁 Oferta exclusiva</div>
+    <div class="cupom-code-box">
+      <div class="cupom-code">R$ 150 OFF</div>
+      <div class="cupom-sub">já aplicado no link de compra</div>
     </div>
   </div>
 </div>
@@ -1199,7 +1211,7 @@ function irParaVersoes(e){
   if(e)e.preventDefault();
   var el=document.getElementById('versoes');
   if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
-});}
+}
 
 /* COUNTDOWN com auto-reinício */
 (function(){
