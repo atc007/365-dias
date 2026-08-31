@@ -298,7 +298,7 @@ object-fit:contain;
 .mbadge{background:var(--ink);color:var(--cream-dark);font-size:11px;font-weight:500;padding:5px 12px;border-radius:4px;}
 
 /* ══ DEPOIMENTOS ══ */
-.testimonials{padding:80px var(--sec-h) 64px;}
+.testimonials{padding:80px var(--sec-h) 64px;content-visibility:auto;contain-intrinsic-size:0 2200px;}
 .t-header{text-align:center;margin-bottom:56px;}
 .t-eyebrow-dep{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-text);margin-bottom:18px;display:block;}
 .t-headline{font-family:var(--font-display);font-size:clamp(28px,3.8vw,44px);font-weight:400;line-height:1.2;color:#3a3632;max-width:640px;margin:0 auto 16px;}
@@ -921,7 +921,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <div class="sec-eyebrow">O que você vai encontrar</div>
         <h2 class="sec-h2">Não é teoria: é exercício, checklist e prática, capítulo por capítulo.</h2>
         <p class="sec-p">Seja Minimalista não é um livro de teoria. É um guia prático com exercícios, checklists e orientações divididos por categorias, para você aprender, aplicar e consultar sempre que precisar.</p>
-        <div class="pullquote">“O guia para uma vida mais leve e mais feliz para quem quer começar uma vida mais leve, sem extremismos, sem culpa.”</div>
+        <div class="pullquote">“Não é sobre radicalismo. É sobre destralhar aos poucos, sem culpa, no seu ritmo.”</div>
         <div style="margin-top:24px;">
           <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Quero meu exemplar agora</a>
         </div>
@@ -1899,6 +1899,8 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
 .cupom-code{font-family:var(--font-display);font-size:21px;font-weight:700;color:#F5F0E8;letter-spacing:.07em;}
 .cupom-sub{font-size:10.5px;color:#B8925A;margin-top:2px;letter-spacing:.02em;}
 @media(max-width:720px){
+  .eyebrow,.sec-eyebrow{justify-content:center;}
+  .sec-h2{text-align:center;}
   #cupom-tooltip{top:14px;right:10px;max-width:148px;}
   .cupom-box{padding:10px 11px 9px;border-radius:11px;}
   .cupom-label{font-size:8px;letter-spacing:.1em;margin-bottom:6px;white-space:nowrap;padding-right:20px;}
