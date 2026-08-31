@@ -145,6 +145,22 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 
 /* CONTEÚDO */
 .sec-content{background:var(--bg);padding:64px 40px;}
+
+/* ══ AGITAÇÃO ══ */
+.sec-agit{background:var(--ink);padding:64px 40px;}
+.agit-eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;text-align:center;}
+.agit-h2{font-family:var(--font-display);font-size:clamp(22px,3vw,32px);font-weight:400;color:#fff;text-align:center;max-width:640px;margin:0 auto 40px;line-height:1.3;}
+.agit-h2 em{font-style:italic;color:var(--gold);}
+.agit-lista{display:flex;flex-direction:column;gap:14px;max-width:720px;margin:0 auto;}
+.agit-item{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px 20px;}
+.agit-icon{font-size:20px;flex-shrink:0;line-height:1.4;}
+.agit-text{font-size:15px;color:rgba(255,255,255,.75);line-height:1.65;}
+.agit-text strong{color:#fff;font-weight:600;}
+.agit-virada{font-family:var(--font-display);font-size:19px;font-style:italic;color:var(--gold);text-align:center;max-width:600px;margin:32px auto 0;line-height:1.5;}
+@media(max-width:720px){
+  .agit-item{padding:14px 16px;}
+  .agit-text{font-size:14px;}
+}
 .content-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
 .content-img img{width:100%;border-radius:10px;box-shadow:0 10px 36px rgba(0,0,0,.1);display:block;}
 .content-title{font-family:Georgia,serif;font-size:20px;font-weight:400;color:var(--ink);margin-bottom:18px;}
@@ -281,7 +297,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <p class="hero-sub anim-up d2">230 páginas, capa dura fosca, encadernação wire-o e 2 páginas por dia. Um devocional completo e acolhedor para fortalecer sua fé no dia a dia.</p>
       <div class="anim-up d3">
         <a class="btn-gold" href="https://chk.eduzz.com/G92VP3P79E?pf=1" target="_blank" rel="noopener">
-          Quero meu Devocional!
+          Quero meu Devocional
         </a>
       </div>
       <div class="hero-note anim-up d3">Compra segura · Frete grátis · Garantia de 7 dias</div>
@@ -298,6 +314,33 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="stat"><div class="stat-num">90g</div><div class="stat-lbl">gramatura<br>das folhas</div></div>
   </div>
 </div>
+
+<!-- AGITAÇÃO -->
+<section class="sec-agit">
+  <div class="inner">
+    <div class="agit-eyebrow anim-up d1">Antes de continuar</div>
+    <h2 class="agit-h2 anim-up d1">Você reconhece algum desses <em>sentimentos</em>?</h2>
+    <div class="agit-lista">
+      <div class="agit-item anim-up d2">
+        <span class="agit-icon">🙏</span>
+        <div class="agit-text">Você quer ter um tempo diário com Deus, mas <strong>os dias passam</strong> e esse momento nunca acontece de verdade.</div>
+      </div>
+      <div class="agit-item anim-up d2">
+        <span class="agit-icon">📖</span>
+        <div class="agit-text">Você abre a Bíblia com boa intenção, mas <strong>não sabe por onde começar</strong> nem como registrar o que sente enquanto lê.</div>
+      </div>
+      <div class="agit-item anim-up d3">
+        <span class="agit-icon">💭</span>
+        <div class="agit-text">Suas orações e reflexões ficam <strong>só na cabeça</strong>, sem nenhum registro pra olhar pra trás e ver o quanto sua fé já cresceu.</div>
+      </div>
+      <div class="agit-item anim-up d3">
+        <span class="agit-icon">😔</span>
+        <div class="agit-text">Você sente que sua conexão espiritual <strong>vem e vai</strong>, sem uma prática constante que sustente isso todos os dias.</div>
+      </div>
+    </div>
+    <p class="agit-virada anim-up d4">O problema não é falta de fé. É não ter um espaço, físico e diário, dedicado só a esse tempo com Deus.</p>
+  </div>
+</section>
 
 <!-- CONTEÚDO -->
 <section class="sec-content">
@@ -349,7 +392,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 
     <div style="text-align:center;margin-top:36px;" class="anim-up d4">
       <a class="btn-gold" href="https://chk.eduzz.com/G92VP3P79E?pf=1" target="_blank" rel="noopener">
-        Quero meu Devocional!
+        Quero meu Devocional
       </a>
       <div style="font-size:12px;color:var(--ink-muted);margin-top:10px;">📦 Frete grátis para todo o Brasil</div>
     </div>
@@ -401,7 +444,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         <li>Garantia de 7 dias</li>
       </ul>
       <a class="btn-gold" href="https://chk.eduzz.com/G92VP3P79E?pf=1" target="_blank" rel="noopener" style="width:100%;text-align:center;display:block;">
-        Quero meu Devocional!
+        Quero meu Devocional
       </a>
       <div class="price-note">📦 Frete grátis · 🔒 Compra segura · 7 dias de garantia</div>
     </div>
@@ -416,14 +459,14 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="faq-list">
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Em quanto tempo recebo o devocional?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">O prazo médio de entrega é de 10 a 15 dias úteis após a confirmação do pagamento. Você recebe o código de rastreio dos Correios no e-mail da compra.</div></div></div>
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">O devocional é datado ou permanente?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Permanente. Você começa a usar a partir de qualquer dia do ano, sem datas impressas fixas. A estrutura foi pensada para ser atemporal e adaptável ao seu ritmo.</div></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Funciona para católicos e evangélicos?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim! O devocional inclui Check List Bíblico tanto para leituras católicas quanto evangélicas, e o conteúdo foi pensado para quem busca se aproximar de Deus, independente da denominação.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Funciona para católicos e evangélicos?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim. O devocional inclui Check List Bíblico tanto para leituras católicas quanto evangélicas, e o conteúdo foi pensado para quem busca se aproximar de Deus, independente da denominação.</div></div></div>
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso parcelar a compra?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim, em até 12x no cartão de crédito. No Pix e boleto é à vista com o valor cheio de R$ 147,00.</div></div></div>
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Tem garantia?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim, 7 dias de garantia. Se por qualquer motivo você não gostar, é só entrar em contato. Devolvemos 100% do valor sem perguntas.</div></div></div>
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Qual o tamanho do devocional?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">15 × 21 cm, um tamanho confortável para escrever e levar para qualquer lugar. Folhas de 90 g/m² para não manchar com canetas.</div></div></div>
     </div>
     <div style="text-align:center;margin-top:40px;">
       <a class="btn-gold" href="https://chk.eduzz.com/G92VP3P79E?pf=1" target="_blank" rel="noopener">
-        Quero meu Devocional!
+        Quero meu Devocional
       </a>
     </div>
   </div>
