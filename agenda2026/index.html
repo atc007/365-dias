@@ -170,6 +170,22 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 
 /* CONTEÚDO */
 .sec-content{background:var(--bg);padding:64px 40px;}
+
+/* ══ AGITAÇÃO ══ */
+.sec-agit{background:var(--ink);padding:64px 40px;}
+.agit-eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;text-align:center;}
+.agit-h2{font-family:var(--font-display);font-size:clamp(22px,3vw,32px);font-weight:400;color:#fff;text-align:center;max-width:640px;margin:0 auto 40px;line-height:1.3;}
+.agit-h2 em{font-style:italic;color:var(--gold);}
+.agit-lista{display:flex;flex-direction:column;gap:14px;max-width:720px;margin:0 auto;}
+.agit-item{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px 20px;}
+.agit-icon{font-size:20px;flex-shrink:0;line-height:1.4;}
+.agit-text{font-size:15px;color:rgba(255,255,255,.75);line-height:1.65;}
+.agit-text strong{color:#fff;font-weight:600;}
+.agit-virada{font-family:var(--font-display);font-size:19px;font-style:italic;color:var(--gold);text-align:center;max-width:600px;margin:32px auto 0;line-height:1.5;}
+@media(max-width:720px){
+  .agit-item{padding:14px 16px;}
+  .agit-text{font-size:14px;}
+}
 .content-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
 .content-img img{width:100%;border-radius:10px;box-shadow:0 10px 36px rgba(0,0,0,.1);display:block;}
 .content-title{font-family:Georgia,serif;font-size:20px;font-weight:400;color:var(--ink);margin-bottom:18px;}
@@ -301,13 +317,10 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     </div>
     <div>
       <div class="hero-badge anim-up d1">Calendário 2026 e 2027 incluso</div>
-      <h1 class="hero-h1 anim-up d2">Agenda Minimalista 2026: planejamento diário com capa dura e <em>228 páginas.</em></h1>
+      <h1 class="hero-h1 anim-up d2">Agenda Minimalista 2026: <em>o ano inteiro, com clareza, numa página por vez.</em></h1>
       <p class="hero-sub anim-up d2">Capa dura fosca, encadernação wire-o e 2 dias por página com espaço extra para anotar. Tudo o que você precisa para planejar seu ano com clareza e leveza.</p>
       <div class="anim-up d3">
-        <a class="btn-gold" href="https://chk.eduzz.com/801VB7JQ97?pf=1" target="_blank" rel="noopener"
-          ">
-          Quero começar a organizar 2026
-        </a>
+        <a class="btn-gold" href="https://chk.eduzz.com/801VB7JQ97?pf=1" target="_blank" rel="noopener">Quero começar a organizar 2026</a>
       </div>
       <div class="hero-note anim-up d3">Compra segura · Garantia de 7 dias</div>
     </div>
@@ -323,6 +336,33 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <div class="stat"><div class="stat-num">90g</div><div class="stat-lbl">gramatura<br>das folhas</div></div>
   </div>
 </div>
+
+<!-- AGITAÇÃO -->
+<section class="sec-agit">
+  <div class="inner">
+    <div class="agit-eyebrow anim-up d1">Antes de continuar</div>
+    <h2 class="agit-h2 anim-up d1">Você reconhece algum desses <em>sentimentos</em>?</h2>
+    <div class="agit-lista">
+      <div class="agit-item anim-up d2">
+        <span class="agit-icon">📱</span>
+        <div class="agit-text">Você já tentou usar o app de agenda do celular, mas <strong>nunca olha de verdade</strong>. As notificações se perdem no meio de tudo o mais.</div>
+      </div>
+      <div class="agit-item anim-up d2">
+        <span class="agit-icon">📝</span>
+        <div class="agit-text">Suas anotações estão espalhadas: um pouco no celular, um pouco em post-it, um pouco na memória. <strong>Nada centralizado</strong>, nada com visão do ano inteiro.</div>
+      </div>
+      <div class="agit-item anim-up d3">
+        <span class="agit-icon">🗓️</span>
+        <div class="agit-text">Você já comprou agenda datada antes e, se atrasou uma semana pra começar a usar, <strong>sentiu que perdeu o timing</strong> e desistiu no meio do caminho.</div>
+      </div>
+      <div class="agit-item anim-up d3">
+        <span class="agit-icon">😮‍💨</span>
+        <div class="agit-text">No fim do ano, você sente que <strong>não lembra o que fez</strong> nos últimos 12 meses. Passou rápido demais, sem registro, sem clareza.</div>
+      </div>
+    </div>
+    <p class="agit-virada anim-up d4">O problema não é falta de organização. É não ter um lugar só, físico, que você realmente abre todo dia.</p>
+  </div>
+</section>
 
 <!-- CONTEÚDO -->
 <section class="sec-content">
@@ -369,10 +409,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     </div>
 
     <div style="text-align:center;margin-top:36px;" class="anim-up d4">
-      <a class="btn-gold" href="https://chk.eduzz.com/801VB7JQ97?pf=1" target="_blank" rel="noopener"
-        ">
-        Ver detalhes completos
-      </a>
+      <a class="btn-gold" href="https://chk.eduzz.com/801VB7JQ97?pf=1" target="_blank" rel="noopener">Ver detalhes completos</a>
       <div style="font-size:12px;color:var(--ink-muted);margin-top:10px;">📦 Frete grátis para todo o Brasil</div>
     </div>
 
@@ -421,10 +458,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         <li>Frete grátis para todo o Brasil</li>
         <li>Garantia de 7 dias</li>
       </ul>
-      <a class="btn-gold" href="https://chk.eduzz.com/801VB7JQ97?pf=1" target="_blank" rel="noopener" style="width:100%;text-align:center;display:block;"
-        ">
-        Garantir minha Agenda
-      </a>
+      <a class="btn-gold" href="https://chk.eduzz.com/801VB7JQ97?pf=1" target="_blank" rel="noopener" style="width:100%;text-align:center;display:block;">Garantir minha Agenda</a>
       <div class="price-note">📦 Frete grátis · 🔒 Compra segura · 7 dias de garantia</div>
     </div>
   </div>
@@ -444,10 +478,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Qual o tamanho da Agenda?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">15 × 21 cm, um tamanho prático que cabe na bolsa e é confortável para escrever. Folhas de 90 g/m² para não manchar com canetas.</div></div></div>
     </div>
     <div style="text-align:center;margin-top:40px;">
-      <a class="btn-gold" href="https://chk.eduzz.com/801VB7JQ97?pf=1" target="_blank" rel="noopener"
-        ">
-        Quero minha Agenda Minimalista
-      </a>
+      <a class="btn-gold" href="https://chk.eduzz.com/801VB7JQ97?pf=1" target="_blank" rel="noopener">Quero minha Agenda Minimalista</a>
     </div>
   </div>
 </section>
