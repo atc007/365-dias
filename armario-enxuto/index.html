@@ -648,7 +648,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
             <div style="font-family:var(--font-display);font-size:22px;color:var(--ink);line-height:1.2;"><strong>Fabianna Carraro.</strong></div>
           </div>
         </div>
-        <p style="font-size:13px;color:var(--ink-mid);line-height:1.85;">Oi! Sou a Fabianna Carraro, consultora de estilo e idealizadora do Armário Enxuto. <strong>Sou especialista em deixar mulheres lindas e bem vestidas com poucas roupas no armário.</strong> Minha missão é ajudá-la a explorar toda a funcionalidade das suas roupas e fazê-la economizar tempo e dinheiro ao se vestir.</p>
+        <p style="font-size:13px;color:var(--ink-mid);line-height:1.85;">Oi, sou a Fabianna Carraro, consultora de estilo e idealizadora do Armário Enxuto. <strong>Sou especialista em deixar mulheres lindas e bem vestidas com poucas roupas no armário.</strong> Minha missão é ajudá-la a explorar toda a funcionalidade das suas roupas e fazê-la economizar tempo e dinheiro ao se vestir.</p>
         <p style="font-size:13px;color:var(--ink-mid);line-height:1.85;margin-top:12px;">Acredito que a beleza está na simplicidade e que caro é aquilo que você não usa. <strong>Esse livro será um divisor de águas na sua vida.</strong></p>
       </div>
 
@@ -938,7 +938,6 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Quando recebo o livro digital?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Imediatamente após a confirmação do pagamento no cartão ou Pix. No boleto, em até 3 dias úteis após a compensação. O acesso chega no e-mail informado na compra.</div></div></div>
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">O acesso digital tem prazo?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Não. O acesso é vitalício: você compra uma vez e pode consultar para sempre. Ótimo para rever os capítulos sempre que precisar renovar o armário.</div></div></div>
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Preciso me desfazer de tudo que tenho?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Não. O método não é radical. Você mantém o que ama e faz sentido para a sua vida hoje, sem extremismos, no seu ritmo. O livro te ajuda a tomar decisões com mais clareza, não a jogar tudo fora.</div></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Quando recebo o livro digital?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Imediatamente após a confirmação do pagamento por cartão ou Pix. O acesso chega no e-mail da compra. No boleto, em até 3 dias úteis após a compensação.</div></div></div>
       <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Como rastreio o livro físico?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Após o despacho você recebe o código de rastreio dos Correios no e-mail da compra. O prazo médio de entrega é de 10 dias úteis. Frete grátis para todo o Brasil.</div></div></div>
     </div>
     <div style="text-align:center;margin-top:40px;">
@@ -1109,17 +1108,29 @@ document.addEventListener('DOMContentLoaded',function(){
 <!-- TOOLTIP CUPOM -->
 <style>
 #cupom-tooltip{top:20px;right:20px;bottom:auto;max-width:220px;}
-@media(max-width:720px){#cupom-tooltip{top:16px;right:12px;max-width:190px;}}
+.cupom-box{background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(196,136,111,.45);}
+.cupom-label{font-size:10px;font-weight:700;color:#C4886F;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;}
+.cupom-code-box{background:rgba(255,255,255,.05);border:1.5px dashed #C4886F;border-radius:8px;padding:9px 12px 8px;text-align:center;}
+.cupom-code{font-family:var(--font-display);font-size:21px;font-weight:700;color:#F5F0E8;letter-spacing:.07em;}
+.cupom-sub{font-size:10.5px;color:#E0BAA8;margin-top:2px;letter-spacing:.02em;}
+@media(max-width:720px){
+  #cupom-tooltip{top:14px;right:10px;max-width:148px;}
+  .cupom-box{padding:10px 11px 9px;border-radius:11px;}
+  .cupom-label{font-size:8px;letter-spacing:.1em;margin-bottom:6px;white-space:nowrap;padding-right:20px;}
+  .cupom-code-box{padding:6px 8px 5px;border-radius:6px;}
+  .cupom-code{font-size:15px;letter-spacing:.04em;}
+  .cupom-sub{font-size:8.5px;margin-top:1px;}
+}
 @keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
 </style>
 <div id="cupom-tooltip" role="button" tabindex="0" aria-label="Cupom GANHEI10, 10% off no carrinho. Ativar cupom" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irParaVersoes(event);document.getElementById('cupom-tooltip').style.display='none';}">
-  <div style="background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(196,136,111,.45);">
+  <div class="cupom-box">
     <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
     <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
-    <div style="font-size:10px;font-weight:700;color:#C4886F;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;">🎁 Cupom exclusivo</div>
-    <div style="background:rgba(255,255,255,.05);border:1.5px dashed #C4886F;border-radius:8px;padding:9px 12px 8px;text-align:center;">
-      <div style="font-family:var(--font-display);font-size:21px;font-weight:700;color:#F5F0E8;letter-spacing:.07em;">GANHEI10</div>
-      <div style="font-size:10.5px;color:#E0BAA8;margin-top:2px;letter-spacing:.02em;">10% OFF no carrinho</div>
+    <div class="cupom-label">🎁 Cupom exclusivo</div>
+    <div class="cupom-code-box">
+      <div class="cupom-code">GANHEI10</div>
+      <div class="cupom-sub">10% OFF no carrinho</div>
     </div>
   </div>
 </div>
