@@ -225,11 +225,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 
 /* ══ SOBRE AS CRIADORAS ══ */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:32px;}
-.about-card{background:#fff;border:.5px solid var(--border);border-radius:12px;padding:28px;}
-.about-photo{width:64px;height:64px;border-radius:50%;background:var(--rose-pale);border:1.5px solid var(--rose);margin-bottom:14px;overflow:hidden;font-size:0;}
-.about-photo img{width:100%;height:100%;object-fit:cover;}
-.about-role{font-size:12px;color:var(--ink-muted-light);margin-bottom:2px;}
-.about-name{font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--ink);margin-bottom:10px;}
+.about-card{background:#fff;border:.5px solid var(--border);border-radius:16px;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;}
+.about-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(140,90,64,.14);}
+.about-photo{width:100%;aspect-ratio:4/5;overflow:hidden;background:var(--rose-pale);position:relative;}
+.about-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.about-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(28,20,14,.55) 100%);}
+.about-role{
+  position:absolute;left:20px;bottom:16px;z-index:2;
+  font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--rose-light);
+}
+.about-body{padding:18px 22px 24px;}
+.about-name{font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--ink);margin-bottom:10px;}
 .about-bio{font-size:14px;color:var(--ink-mid);line-height:1.7;}
 
 /* ══ BÔNUS ══ */
@@ -512,16 +519,24 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
     <h2 class="sec-h2 anim-up" style="text-align:center;">Duas pessoas que já ajudaram milhares a viver mais leve.</h2>
     <div class="about-grid">
       <div class="about-card anim-up d1">
-        <div class="about-photo"><img src="https://static.wixstatic.com/media/940f31_03ca52ccc83141a3ba9e9ae923a43119~mv2.jpeg" alt="Fabianna Carraro" loading="lazy"></div>
-        <div class="about-role">Consultora de imagem e estilo</div>
-        <div class="about-name">Fabianna Carraro</div>
-        <div class="about-bio">Coautora do livro Armário Enxuto, Fabianna leva anos de experiência ajudando pessoas a construir um guarda-roupa funcional e um estilo autêntico, sem excessos.</div>
+        <div class="about-photo">
+          <img src="https://static.wixstatic.com/media/940f31_03ca52ccc83141a3ba9e9ae923a43119~mv2.jpeg" alt="Fabianna Carraro" loading="lazy">
+          <div class="about-role">Consultora de imagem e estilo</div>
+        </div>
+        <div class="about-body">
+          <div class="about-name">Fabianna Carraro</div>
+          <div class="about-bio">Coautora do livro Armário Enxuto, Fabianna leva anos de experiência ajudando pessoas a construir um guarda-roupa funcional e um estilo autêntico, sem excessos.</div>
+        </div>
       </div>
       <div class="about-card anim-up d2">
-        <div class="about-photo"><img src="https://static.wixstatic.com/media/940f31_f7489a1c5f9d4ee3b5cd8e4551053cd9~mv2.jpg" alt="Alexandre Chahoud" loading="lazy"></div>
-        <div class="about-role">Criador do Seja Minimalista</div>
-        <div class="about-name">Alexandre Chahoud</div>
-        <div class="about-bio">Desde 2018 ajudando pessoas a viverem com mais leveza e menos excesso. Autor de Seja Minimalista e criador do método aplicado por milhares de leitores.</div>
+        <div class="about-photo">
+          <img src="https://static.wixstatic.com/media/940f31_f7489a1c5f9d4ee3b5cd8e4551053cd9~mv2.jpg" alt="Alexandre Chahoud" loading="lazy">
+          <div class="about-role">Criador do Seja Minimalista</div>
+        </div>
+        <div class="about-body">
+          <div class="about-name">Alexandre Chahoud</div>
+          <div class="about-bio">Desde 2018 ajudando pessoas a viverem com mais leveza e menos excesso. Autor de Seja Minimalista e criador do método aplicado por milhares de leitores.</div>
+        </div>
       </div>
     </div>
   </div>
