@@ -117,6 +117,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 .hero-sub{font-size:17px;color:var(--ink-mid);max-width:560px;margin:0 auto 28px;line-height:1.65;}
 .hero-video-wrap{max-width:640px;margin:0 auto 24px;border-radius:14px;overflow:hidden;box-shadow:0 20px 50px rgba(140,90,64,.18);position:relative;background:#000;aspect-ratio:16/9;}
 .hero-video-wrap video,.hero-video-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
+.hero-video-wrap iframe{width:100%;height:100%;display:block;border:none;}
 .play-btn{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.92);
@@ -125,6 +126,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 }
 .play-btn:hover{transform:translate(-50%,-50%) scale(1.06);background:#fff;}
 .play-btn svg{margin-left:4px;}
+.sound-btn{
+  position:absolute;bottom:14px;right:14px;z-index:5;
+  display:flex;align-items:center;gap:7px;
+  background:rgba(28,20,14,.85);backdrop-filter:blur(4px);
+  color:#fff;border:1.5px solid rgba(255,255,255,.3);
+  padding:9px 16px;border-radius:30px;cursor:pointer;
+  font-family:inherit;font-size:12.5px;font-weight:700;
+  animation:sound-pulse 2s ease-in-out infinite;
+  transition:background .2s ease,border-color .2s ease;
+}
+.sound-btn:hover{background:var(--rose);border-color:var(--rose);}
+.sound-btn.is-unmuted{animation:none;background:rgba(28,20,14,.6);}
+@keyframes sound-pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(196,136,111,.55);}
+  50%{box-shadow:0 0 0 10px rgba(196,136,111,0);}
+}
+@media(prefers-reduced-motion:reduce){.sound-btn{animation:none;}}
 .hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;justify-content:center;}
 .hero-badge{background:rgba(196,136,111,.12);border:.5px solid rgba(196,136,111,.3);border-radius:5px;padding:6px 12px;font-size:12px;font-weight:500;color:var(--rose-dark);}
 
@@ -309,9 +327,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
     <p class="hero-sub anim-up d1">O curso completo com Fabianna Carraro e Alexandre Chahoud para você organizar o guarda-roupa, descobrir seu estilo e parar de comprar por impulso, de verdade.</p>
 
     <div class="hero-video-wrap anim-up d2">
-      <img src="" alt="Prévia do curso Armário Enxuto: O Curso" loading="eager">
-      <button class="play-btn" aria-label="Assistir vídeo de apresentação do curso" onclick="playIntro()">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="#2C2420"><path d="M8 5v14l11-7z"/></svg>
+      <div id="hero-yt-player"></div>
+      <button class="sound-btn" id="sound-btn" onclick="toggleHeroSound()" aria-label="Ativar som do vídeo">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" id="sound-icon"><path d="M16.5 12A4.5 4.5 0 0014 8v8a4.5 4.5 0 002.5-4z"/><path d="M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+        <span id="sound-label">Ativar som</span>
       </button>
     </div>
 
@@ -655,9 +674,59 @@ function faq(btn){
   btn.setAttribute('aria-expanded', open ? 'true' : 'false');
 }
 
-function playIntro(){
-  var wrap = document.querySelector('.hero-video-wrap');
-  wrap.innerHTML = '<video src="" controls autoplay playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>';
+/* ══ VÍDEO DO HERO — YouTube, autoplay mudo + legendas + botão de som ══
+   Navegadores bloqueiam autoplay COM som sem interação prévia da pessoa
+   (política de segurança do Chrome, Safari e Firefox, não é algo que dá
+   pra contornar por código). O padrão real de VSL é: autoplay mudo, com
+   legenda automática ligada, e um botão bem visível pra ativar o som —
+   é o que está implementado abaixo. */
+var heroYtPlayer;
+var heroVideoTracked = {p25:false, p50:false, p75:false, p100:false};
+
+function onYouTubeIframeAPIReady(){
+  heroYtPlayer = new YT.Player('hero-yt-player', {
+    videoId: '9-pqkat7XGE',
+    playerVars: {
+      autoplay: 1, mute: 1, controls: 1, rel: 0,
+      modestbranding: 1, playsinline: 1, cc_load_policy: 1, cc_lang_pref: 'pt'
+    },
+    events: {
+      onReady: function(e){ e.target.playVideo(); },
+      onStateChange: onHeroPlayerStateChange
+    }
+  });
+}
+
+function toggleHeroSound(){
+  if(!heroYtPlayer) return;
+  var btn = document.getElementById('sound-btn');
+  var label = document.getElementById('sound-label');
+  if(heroYtPlayer.isMuted()){
+    heroYtPlayer.unMute();
+    heroYtPlayer.setVolume(100);
+    btn.classList.add('is-unmuted');
+    label.textContent = 'Som ativado';
+    if(window.fbq) fbq('trackCustom','VideoSoundOn');
+  } else {
+    heroYtPlayer.mute();
+    btn.classList.remove('is-unmuted');
+    label.textContent = 'Ativar som';
+  }
+}
+
+function onHeroPlayerStateChange(e){
+  if(e.data !== YT.PlayerState.PLAYING) return;
+  var poll = setInterval(function(){
+    if(!heroYtPlayer || typeof heroYtPlayer.getDuration !== 'function') return;
+    var dur = heroYtPlayer.getDuration();
+    var cur = heroYtPlayer.getCurrentTime();
+    if(!dur) return;
+    var pct = (cur / dur) * 100;
+    if(pct >= 25 && !heroVideoTracked.p25){ heroVideoTracked.p25 = true; if(window.fbq) fbq('trackCustom','HeroVideo25'); }
+    if(pct >= 50 && !heroVideoTracked.p50){ heroVideoTracked.p50 = true; if(window.fbq) fbq('trackCustom','HeroVideo50'); }
+    if(pct >= 75 && !heroVideoTracked.p75){ heroVideoTracked.p75 = true; if(window.fbq) fbq('trackCustom','HeroVideo75'); }
+    if(pct >= 95 && !heroVideoTracked.p100){ heroVideoTracked.p100 = true; if(window.fbq) fbq('trackCustom','HeroVideo100'); clearInterval(poll); }
+  }, 1000);
 }
 
 /* ══ REVELAÇÃO AO ROLAR ══ */
@@ -680,5 +749,6 @@ function playIntro(){
 })();
 </script>
 
+<script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
