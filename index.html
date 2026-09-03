@@ -408,8 +408,8 @@ object-fit:contain;
 @keyframes dest-shine{0%{left:-75%;}40%{left:130%;}100%{left:130%;}}
 .dest-badge.muted{background:#C7C4BC;color:#5C5A54;font-weight:600;}
 .dest-badge.muted::after{content:none;}
-.pc-img{background:var(--cream);padding:0;height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-.pc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+.pc-img{background:var(--cream);padding:0;overflow:hidden;position:relative;}
+.pc-img img{width:100%;height:auto;display:block;transition:transform .4s ease;}
 .pc:hover .pc-img img{transform:scale(1.04);}
 .pc-body{padding:24px;}
 .pc-type{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:10px;font-family:var(--font-display);line-height:1.2;}
@@ -672,6 +672,10 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   color:#9A7A30;
   font-style:italic;
 }
+.rotate-word-wrap{display:inline-block;position:relative;vertical-align:top;overflow:hidden;height:1.2em;text-align:left;}
+.rotate-word{display:inline-block;transition:opacity .35s ease,transform .35s ease;}
+.rotate-word.is-out{opacity:0;transform:translateY(12px);}
+@media(prefers-reduced-motion:reduce){.rotate-word{transition:opacity .2s ease;}.rotate-word.is-out{transform:none;}}
 
 </style>
 
@@ -876,7 +880,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       </div>
       <div>
         <div class="eyebrow">Best-Seller de Alexandre Chahoud</div>
-        <h1 class="hero-h1"><span class="hero-gold">Seja Minimalista</span>: o guia prático para destralhar sua casa, organizar sua mente e consertar <span class="hero-gold">sua relação com o dinheiro</span>.</h1>
+        <h1 class="hero-h1"><span class="hero-gold">Seja Minimalista</span>: o guia prático para destralhar sua casa, organizar sua mente e consertar <span class="hero-gold">sua relação com <span class="rotate-word-wrap"><span id="rotate-word" class="rotate-word">o dinheiro.</span></span></span></h1>
         <p class="hero-sub">Com exercícios, checklists e orientações simples para você aplicar desde a primeira página, sem radicalismos e no seu ritmo.</p>
         <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero o guia prático agora</a>
         <div class="hero-note">Compra segura · Garantia incondicional de 7 dias</div>
@@ -1480,6 +1484,54 @@ function irParaVersoes(e, fromCoupon){
     }
   }
 }
+
+/* ══ PALAVRA GIRANDO NO HERO ══ */
+(function(){
+  var words = ['o dinheiro.','as coisas.','o consumo.','o tempo.','a rotina.','o excesso.'];
+  var el = document.getElementById('rotate-word');
+  var wrap = el ? el.closest('.rotate-word-wrap') : null;
+  if(!el || !wrap) return;
+  var i = 0;
+
+  /* trava a largura do espaço reservado na palavra mais longa da lista,
+     pra trocar de palavra nunca empurrar o resto da frase de lugar */
+  function lockWidth(){
+    var measurer = document.createElement('span');
+    var style = getComputedStyle(el);
+    measurer.style.font = style.font;
+    measurer.style.fontStyle = style.fontStyle;
+    measurer.style.letterSpacing = style.letterSpacing;
+    measurer.style.position = 'absolute';
+    measurer.style.visibility = 'hidden';
+    measurer.style.whiteSpace = 'nowrap';
+    document.body.appendChild(measurer);
+    var max = 0;
+    words.forEach(function(w){
+      measurer.textContent = w;
+      max = Math.max(max, measurer.getBoundingClientRect().width);
+    });
+    document.body.removeChild(measurer);
+    wrap.style.width = Math.ceil(max) + 'px';
+  }
+  lockWidth();
+  var resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(lockWidth, 150);
+  });
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced) return; // mantém só a primeira palavra, sem troca automática
+  setInterval(function(){
+    el.classList.add('is-out');
+    setTimeout(function(){
+      i = (i + 1) % words.length;
+      el.textContent = words[i];
+      el.classList.remove('is-out');
+    }, 350);
+  }, 2200);
+})();
+
 
 /* COUNTDOWN persistente 23h59 — reinicia ao zerar */
 (function(){
