@@ -187,6 +187,10 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--purple);flex-shrink:0;}
 .hero-h1{font-family:var(--font-display);font-size:clamp(26px,3.2vw,42px);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:16px;}
 .hero-h1 em{font-style:italic;color:var(--purple);}
+.rotate-word-wrap{display:inline-block;position:relative;vertical-align:top;overflow:hidden;height:1.2em;}
+.rotate-word{display:inline-block;transition:opacity .35s ease,transform .35s ease;}
+.rotate-word.is-out{opacity:0;transform:translateY(12px);}
+@media(prefers-reduced-motion:reduce){.rotate-word{transition:opacity .2s ease;}.rotate-word.is-out{transform:none;}}
 .hero-sub{font-size:16px;color:var(--ink-mid);line-height:1.75;margin-bottom:28px;}
 .hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
 .hero-badge{background:rgba(107,75,200,.08);border:.5px solid rgba(107,75,200,.3);border-radius:5px;padding:5px 12px;font-size:12px;font-weight:500;color:var(--purple);}
@@ -578,7 +582,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
       </div>
       <div>
         <div class="hero-seal anim-up d1">✈️ Guia prático</div>
-        <h1 class="hero-h1 anim-up d2">Viajante Minimalista: aprenda a planejar, economizar e <em>viajar com leveza.</em></h1>
+        <h1 class="hero-h1 anim-up d2">Viajante Minimalista: aprenda a planejar, economizar e <em>viajar com <span class="rotate-word-wrap"><span id="rotate-word" class="rotate-word">leveza</span></span>.</em></h1>
         <p class="hero-sub anim-up d2">Aprenda a se organizar financeiramente, planejar cada detalhe e viajar com mais leveza, gastando menos e aproveitando muito mais.</p>
         <div class="anim-up d3">
           <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero meu Viajante Minimalista</a>
@@ -1142,6 +1146,25 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 
 <script>
 function irParaVersoes(e){if(e)e.preventDefault();var el=document.getElementById('versoes');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
+
+/* ══ PALAVRA GIRANDO NO HERO ══ */
+(function(){
+  var words = ['leveza','economia','confiança','liberdade','tranquilidade','propósito'];
+  var el = document.getElementById('rotate-word');
+  if(!el) return;
+  var i = 0;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced) return; // mantém só a primeira palavra, sem troca automática
+  setInterval(function(){
+    el.classList.add('is-out');
+    setTimeout(function(){
+      i = (i + 1) % words.length;
+      el.textContent = words[i];
+      el.classList.remove('is-out');
+    }, 350);
+  }, 2200);
+})();
+
 /* ══ REVELAÇÃO AO ROLAR — .anim-up entra em cena só quando alcançado ══ */
 (function(){
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
