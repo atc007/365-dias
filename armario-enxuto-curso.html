@@ -707,12 +707,13 @@ function faq(btn){
   btn.setAttribute('aria-expanded', open ? 'true' : 'false');
 }
 
-/* ══ VÍDEO DO HERO — YouTube, autoplay mudo + legendas + botão de som ══
+/* ══ VÍDEO DO HERO — YouTube, autoplay mudo + botão de som ══
    Navegadores bloqueiam autoplay COM som sem interação prévia da pessoa
    (política de segurança do Chrome, Safari e Firefox, não é algo que dá
-   pra contornar por código). O padrão real de VSL é: autoplay mudo, com
-   legenda automática ligada, e um botão bem visível pra ativar o som —
-   é o que está implementado abaixo. */
+   pra contornar por código). O padrão real de VSL é: autoplay mudo, e
+   um botão bem visível pra ativar o som — é o que está implementado
+   abaixo. A legenda do YouTube fica desligada de propósito (cc_load_policy:0)
+   porque o vídeo já tem legenda nativa gravada na própria imagem. */
 var heroYtPlayer;
 var heroVideoTracked = {p25:false, p50:false, p75:false, p100:false};
 
@@ -721,7 +722,7 @@ function onYouTubeIframeAPIReady(){
     videoId: '9-pqkat7XGE',
     playerVars: {
       autoplay: 1, mute: 1, controls: 1, rel: 0,
-      modestbranding: 1, playsinline: 1, cc_load_policy: 1, cc_lang_pref: 'pt'
+      modestbranding: 1, playsinline: 1, cc_load_policy: 0
     },
     events: {
       onReady: function(e){ e.target.playVideo(); },
