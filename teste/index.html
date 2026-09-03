@@ -1151,8 +1151,37 @@ function irParaVersoes(e){if(e)e.preventDefault();var el=document.getElementById
 (function(){
   var words = ['leveza','economia','confiança','liberdade','tranquilidade','propósito'];
   var el = document.getElementById('rotate-word');
-  if(!el) return;
+  var wrap = el ? el.closest('.rotate-word-wrap') : null;
+  if(!el || !wrap) return;
   var i = 0;
+
+  /* trava a largura do espaço reservado na palavra mais longa da lista,
+     pra trocar de palavra nunca empurrar o resto da frase de lugar */
+  function lockWidth(){
+    var measurer = document.createElement('span');
+    var style = getComputedStyle(el);
+    measurer.style.font = style.font;
+    measurer.style.fontStyle = style.fontStyle;
+    measurer.style.letterSpacing = style.letterSpacing;
+    measurer.style.position = 'absolute';
+    measurer.style.visibility = 'hidden';
+    measurer.style.whiteSpace = 'nowrap';
+    document.body.appendChild(measurer);
+    var max = 0;
+    words.forEach(function(w){
+      measurer.textContent = w;
+      max = Math.max(max, measurer.getBoundingClientRect().width);
+    });
+    document.body.removeChild(measurer);
+    wrap.style.width = Math.ceil(max) + 'px';
+  }
+  lockWidth();
+  var resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(lockWidth, 150);
+  });
+
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduced) return; // mantém só a primeira palavra, sem troca automática
   setInterval(function(){
