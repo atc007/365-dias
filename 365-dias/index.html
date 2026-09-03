@@ -362,6 +362,10 @@ html,body{
   margin-bottom:20px;
   letter-spacing:-.01em;
 }
+.rotate-word-wrap{display:inline-block;position:relative;vertical-align:top;overflow:hidden;height:1.2em;text-align:left;}
+.rotate-word{display:inline-block;transition:opacity .35s ease,transform .35s ease;}
+.rotate-word.is-out{opacity:0;transform:translateY(12px);}
+@media(prefers-reduced-motion:reduce){.rotate-word{transition:opacity .2s ease;}.rotate-word.is-out{transform:none;}}
 .hero-sub{
   font-size:18px;color:var(--ink-soft);
   line-height:1.75;margin-bottom:32px;
@@ -941,6 +945,9 @@ html,body{
 
 /* ══ PREÇOS ══ */
 .precos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:28px;}
+@media(min-width:1000px){
+  .precos{max-width:1200px;margin-left:auto;margin-right:auto;gap:26px;}
+}
 .pc{
   background:#fff;
   border:.5px solid #C0BAB0;
@@ -976,14 +983,11 @@ html,body{
 .pc-img{
   background:var(--cream);
   padding:0;
-  height:220px;
-  display:flex;align-items:center;
-  justify-content:center;position:relative;
   overflow:hidden;
+  position:relative;
 }
 .pc-img img{
-  width:100%;height:100%;
-  object-fit:cover;
+  width:100%;height:auto;
   display:block;
   transition:transform .4s ease;
 }
@@ -1591,7 +1595,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       </div>
       <div>
         <div class="eyebrow">Livro de Alexandre Chahoud</div>
-        <h1 class="hero-h1"><span style="color:var(--gold-text);font-style:italic;">365 Dias Minimalistas</span>: uma página por dia, <span style="color:var(--gold-text);font-style:italic;">um ano inteiro mais leve.</span></h1>
+        <h1 class="hero-h1"><span style="color:var(--gold-text);font-style:italic;">365 Dias Minimalistas</span>: uma página por dia, <span style="color:var(--gold-text);font-style:italic;">um ano inteiro <span class="rotate-word-wrap"><span id="rotate-word" class="rotate-word">mais leve.</span></span></span></h1>
         <p class="hero-sub">Um livro com <strong>365 reflexões e práticas diárias</strong> para transformar sua casa, sua mente e sua rotina. Uma página por dia, no seu ritmo, sem cobranças e sem precisar esperar o próximo janeiro para começar.</p>
         <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero começar minha jornada de 365 dias</a>
         <div class="hero-note">Compra segura · Garantia incondicional de 7 dias</div>
@@ -2192,6 +2196,53 @@ function irParaVersoes(e){
     setTimeout(function(){el.classList.remove('pc-highlight');},1800);
   }
 }
+
+/* ══ PALAVRA GIRANDO NO HERO ══ */
+(function(){
+  var words = ['mais leve.','mais simples.','mais organizado.','mais tranquilo.','com mais foco.'];
+  var el = document.getElementById('rotate-word');
+  var wrap = el ? el.closest('.rotate-word-wrap') : null;
+  if(!el || !wrap) return;
+  var i = 0;
+
+  /* trava a largura do espaço reservado na palavra mais longa da lista,
+     pra trocar de palavra nunca empurrar o resto da frase de lugar */
+  function lockWidth(){
+    var measurer = document.createElement('span');
+    var style = getComputedStyle(el);
+    measurer.style.font = style.font;
+    measurer.style.fontStyle = style.fontStyle;
+    measurer.style.letterSpacing = style.letterSpacing;
+    measurer.style.position = 'absolute';
+    measurer.style.visibility = 'hidden';
+    measurer.style.whiteSpace = 'nowrap';
+    document.body.appendChild(measurer);
+    var max = 0;
+    words.forEach(function(w){
+      measurer.textContent = w;
+      max = Math.max(max, measurer.getBoundingClientRect().width);
+    });
+    document.body.removeChild(measurer);
+    wrap.style.width = Math.ceil(max) + 'px';
+  }
+  lockWidth();
+  var resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(lockWidth, 150);
+  });
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced) return; // mantém só a primeira palavra, sem troca automática
+  setInterval(function(){
+    el.classList.add('is-out');
+    setTimeout(function(){
+      i = (i + 1) % words.length;
+      el.textContent = words[i];
+      el.classList.remove('is-out');
+    }, 350);
+  }, 2200);
+})();
 
 /* COUNTDOWN — 23h59 persistente por localStorage */
 (function(){
