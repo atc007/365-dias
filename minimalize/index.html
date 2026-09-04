@@ -279,15 +279,30 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 @media(max-width:720px){.steps-list::before{display:none;}}
 
 /* ══ PARA QUEM É ══ */
-.for-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
-.for-card{background:#fff;border:.5px solid var(--border);border-radius:10px;padding:18px 20px;display:flex;gap:12px;align-items:flex-start;transition:transform .25s,box-shadow .25s;}
-.for-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.07);}
+.for-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;}
+.for-card{
+  background:#fff;border:.5px solid var(--border);border-radius:14px;
+  padding:18px 20px;display:flex;gap:14px;align-items:flex-start;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+.for-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.08);border-color:rgba(90,160,110,.35);}
+.for-icon-badge{
+  width:34px;height:34px;border-radius:10px;flex-shrink:0;
+  background:rgba(90,160,110,.1);border:.5px solid rgba(90,160,110,.25);
+  display:flex;align-items:center;justify-content:center;font-size:15px;color:#3F8A5B;
+}
 .for-icon{font-size:18px;flex-shrink:0;margin-top:2px;}
-.for-text{font-size:15px;color:var(--ink);line-height:1.6;}
-.not-for{background:var(--bg-alt);border-radius:10px;padding:20px 24px;margin-top:16px;}
-.not-for-title{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:12px;}
-.not-for-item{font-size:15px;color:var(--ink-soft);display:flex;align-items:baseline;gap:8px;margin-bottom:6px;}
-.not-for-item::before{content:'❌';font-size:12px;flex-shrink:0;}
+.for-text{font-size:15px;color:var(--ink);line-height:1.55;padding-top:4px;}
+
+.not-for{background:var(--bg-alt);border-radius:14px;padding:22px 24px;margin-top:18px;}
+.not-for-title{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:14px;}
+.not-for-item{font-size:15px;color:var(--ink-soft);display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;line-height:1.5;}
+.not-for-item:last-child{margin-bottom:0;}
+.not-for-icon{
+  width:20px;height:20px;border-radius:6px;flex-shrink:0;margin-top:1px;
+  background:rgba(226,75,74,.1);color:#C43F3E;
+  display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;
+}
 
 /* ══ DIFERENCIAL ══ */
 .dif-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:28px;}
@@ -858,22 +873,22 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
         <div class="sec-eyebrow">Para quem é o Minimalize.IA</div>
         <h2 class="sec-h2">Para quem quer leveza, não perfeição.</h2>
         <div class="for-grid">
-          <div class="for-card"><div class="for-icon">✔️</div><div class="for-text">Para quem abre o armário e sente um peso no peito</div></div>
-          <div class="for-card"><div class="for-icon">✔️</div><div class="for-text">Para quem já tentou organizar várias vezes e desistiu</div></div>
-          <div class="for-card"><div class="for-icon">✔️</div><div class="for-text">Para quem gosta da ideia do minimalismo, mas não do extremismo</div></div>
-          <div class="for-card"><div class="for-icon">✔️</div><div class="for-text">Para quem quer resultados reais no seu próprio ritmo</div></div>
+          <div class="for-card"><div class="for-icon-badge">✓</div><div class="for-text">Para quem abre o armário e sente um peso no peito</div></div>
+          <div class="for-card"><div class="for-icon-badge">✓</div><div class="for-text">Para quem já tentou organizar várias vezes e desistiu</div></div>
+          <div class="for-card"><div class="for-icon-badge">✓</div><div class="for-text">Para quem gosta da ideia do minimalismo, mas não do extremismo</div></div>
+          <div class="for-card"><div class="for-icon-badge">✓</div><div class="for-text">Para quem quer resultados reais no seu próprio ritmo</div></div>
         </div>
         <div class="not-for">
           <div class="not-for-title">Não é para quem:</div>
-          <div class="not-for-item">Busca uma solução milagrosa ou método rígido</div>
-          <div class="not-for-item">Quer resultados sem fazer nada</div>
-          <div class="not-for-item">Busca um app automático que faz tudo sem interação</div>
+          <div class="not-for-item"><span class="not-for-icon">✕</span>Busca uma solução milagrosa ou método rígido</div>
+          <div class="not-for-item"><span class="not-for-icon">✕</span>Quer resultados sem fazer nada</div>
+          <div class="not-for-item"><span class="not-for-icon">✕</span>Busca um app automático que faz tudo sem interação</div>
         </div>
         <div style="margin-top:28px;"><a class="btn-dark" href="#versoes">Esse sou eu, quero começar</a></div>
       </div>
       <!-- VÍDEO LAZY -->
       <div>
-        <div class="video-col" style="border-radius:10px;overflow:hidden;background:var(--ink);aspect-ratio:9/16;max-width:320px;margin:0 auto;position:relative;">
+        <div class="video-col" style="border-radius:22px;overflow:hidden;background:var(--ink);aspect-ratio:9/16;max-width:270px;margin:0 auto;position:relative;border:1px solid rgba(201,169,110,.2);box-shadow:0 20px 46px rgba(0,0,0,.28);">
           <video id="qual-video"
             muted loop playsinline autoplay
             preload="metadata"
@@ -886,7 +901,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
             🔇
           </button>
         </div>
-        <p style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:12px;max-width:320px;margin-left:auto;margin-right:auto;">👆 Veja como funciona uma conversa real com o Minimalize.IA, toque no ícone para ativar o som.</p>
+        <p style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:14px;max-width:270px;margin-left:auto;margin-right:auto;">👆 Veja como funciona uma conversa real com o Minimalize.IA, toque no ícone para ativar o som.</p>
       </div>
     </div>
   </div>
