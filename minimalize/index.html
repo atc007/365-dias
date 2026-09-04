@@ -344,12 +344,29 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .dif-grid-light .dif-desc{color:var(--ink-soft);}
 
 /* ══ BÔNUS ══ */
-.bonus-list{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
-.bonus-item{background:#fff;border:.5px solid var(--border);border-radius:10px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;}
-.bonus-num{width:30px;height:30px;border-radius:50%;background:var(--gold);color:var(--ink);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.bonus-title{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:3px;}
-.bonus-val{font-size:13px;color:var(--ink-muted);}
-.bonus-valor-box{background:var(--ink);border-radius:12px;padding:22px 26px;margin-bottom:22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.bonus-list{display:flex;flex-direction:column;gap:12px;margin-top:0;}
+.bonus-item{
+  background:#fff;border:.5px solid var(--border);border-radius:14px;
+  padding:18px 20px;display:flex;gap:16px;align-items:flex-start;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.bonus-item:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.08);}
+.bonus-num{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(160deg,var(--gold),#B8925A);
+  color:var(--ink);font-size:14px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  box-shadow:0 3px 8px rgba(201,169,110,.35);
+}
+.bonus-title{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+.bonus-val{font-size:13px;color:var(--ink-muted);line-height:1.5;}
+.bonus-valor-box{
+  background:linear-gradient(160deg,#1C1C1A,#0F0F0E);
+  border:1px solid rgba(201,169,110,.25);
+  border-radius:16px;padding:24px 28px;margin-bottom:24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  box-shadow:0 16px 36px rgba(0,0,0,.22);
+}
 .bonus-valor-left{font-size:14px;color:var(--ink-muted);line-height:1.6;}
 .bonus-valor-left strong{color:var(--cream-dark);}
 .bonus-valor-right{font-family:var(--font-display);font-size:13px;color:var(--ink-muted);text-align:right;flex-shrink:0;}
@@ -1143,13 +1160,13 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
         loading="lazy" decoding="async">
     </div>
     <p style="font-size:14px;color:var(--ink-soft);margin-bottom:20px;">Cada item abaixo já tem valor próprio se vendido separadamente. Somados, chegam a R$ 227, mas comprando hoje você leva tudo isso por R$ 77, no acesso vitalício.</p>
-    <!-- Conteúdo em 2 colunas abaixo da imagem -->
+    <div class="bonus-valor-box">
+      <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 227 em conteúdo, disponível com desconto agora</strong></div>
+      <div class="bonus-valor-right"><span class="was">R$ 227,00</span><span class="gratis">R$ 77 🎁</span></div>
+    </div>
+    <!-- Conteúdo em 2 colunas -->
     <div class="grid2" style="align-items:start;">
       <div>
-        <div class="bonus-valor-box">
-          <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 227 em conteúdo, disponível com desconto agora</strong></div>
-          <div class="bonus-valor-right"><span class="was">R$ 227,00</span><span class="gratis">R$ 77 🎁</span></div>
-        </div>
         <div class="bonus-list">
           <div class="bonus-item"><div class="bonus-num">1</div><div><div class="bonus-title">Agente Minimalize.IA: acesso vitalício</div><div class="bonus-val">O agente de IA completo com todos os módulos de destralhe</div></div></div>
           <div class="bonus-item"><div class="bonus-num">2</div><div><div class="bonus-title">Curso completo: instalar e usar do zero</div><div class="bonus-val">Videoaulas simples e práticas para começar imediatamente</div></div></div>
