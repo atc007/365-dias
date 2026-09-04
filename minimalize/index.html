@@ -652,9 +652,10 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   .footer-divider{flex-direction:column;gap:6px;}
   .urg-digit{font-size:26px;min-width:50px;padding:8px 12px;}
   .whatsapp-float{width:56px;height:56px;right:16px;bottom:16px;}
-  /* para quem é: vídeo primeiro no mobile */
+  /* para quem é: vídeo primeiro no mobile, e centralizado de verdade */
   #para-quem .grid2{display:flex;flex-direction:column;}
   #para-quem .grid2 .video-col{order:-1;}
+  #para-quem .grid2 > div:has(.video-col){display:flex;flex-direction:column;align-items:center;width:100%;}
   #versoes .pc.dest[style*="grid-template-columns"]{
     grid-template-columns:1fr!important;
     min-height:auto!important;
@@ -905,7 +906,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
       </div>
       <!-- VÍDEO LAZY -->
       <div>
-        <div class="video-col" style="border-radius:22px;overflow:hidden;background:var(--ink);aspect-ratio:9/16;max-width:270px;margin:0 auto;position:relative;border:1px solid rgba(201,169,110,.2);box-shadow:0 20px 46px rgba(0,0,0,.28);">
+        <div class="video-col" style="border-radius:22px;overflow:hidden;background:var(--ink);aspect-ratio:9/16;max-width:320px;margin:0 auto;position:relative;border:1px solid rgba(201,169,110,.2);box-shadow:0 20px 46px rgba(0,0,0,.28);">
           <video id="qual-video"
             muted loop playsinline autoplay
             preload="metadata"
@@ -918,7 +919,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
             🔇
           </button>
         </div>
-        <p style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:14px;max-width:270px;margin-left:auto;margin-right:auto;">👆 Veja como funciona uma conversa real com o Minimalize.IA, toque no ícone para ativar o som.</p>
+        <p style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:14px;max-width:320px;margin-left:auto;margin-right:auto;">👆 Veja como funciona uma conversa real com o Minimalize.IA, toque no ícone para ativar o som.</p>
       </div>
     </div>
   </div>
