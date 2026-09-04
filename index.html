@@ -214,18 +214,57 @@ object-fit:contain;
 .autor-body{grid-area:body;align-self:start;}
 
 /* ══ CAPÍTULOS ══ */
-.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px;}
-.cap-card{background:#fff;border:.5px solid var(--border);border-radius:10px;padding:20px;display:flex;gap:14px;align-items:flex-start;}
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;}
+.cap-card{
+  background:#fff;border:.5px solid var(--border);border-radius:16px;
+  padding:24px 22px;display:flex;gap:16px;align-items:flex-start;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+.cap-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 34px rgba(0,0,0,.09);
+  border-color:rgba(201,169,110,.35);
+}
+.cap-icon-badge{
+  width:46px;height:46px;border-radius:13px;flex-shrink:0;
+  background:linear-gradient(160deg,rgba(201,169,110,.16),rgba(201,169,110,.06));
+  border:.5px solid rgba(201,169,110,.28);
+  display:flex;align-items:center;justify-content:center;font-size:21px;
+}
 .cap-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
-.cap-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px;}
-.cap-desc{font-size:14px;color:var(--ink-soft);line-height:1.5;}
+.cap-title{font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:5px;}
+.cap-desc{font-size:14px;color:var(--ink-soft);line-height:1.55;}
 
 /* ══ QUAL CARDS ══ */
-.qual-cards{display:flex;flex-direction:column;gap:12px;margin-top:24px;}
-.qual-card{background:#fff;border:.5px solid var(--border);border-radius:10px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;}
-.qual-check{width:24px;height:24px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
-.qual-check svg{width:11px;height:11px;stroke:var(--gold);stroke-width:2.5;fill:none;}
-.qual-text{font-size:16px;color:var(--ink);line-height:1.6;}
+.qual-cards{
+  display:flex;flex-direction:column;gap:0;margin-top:36px;
+  position:relative;padding-left:36px;
+}
+.qual-cards::before{
+  content:'';position:absolute;left:11px;top:10px;bottom:10px;width:1px;
+  background:linear-gradient(180deg,var(--gold),rgba(201,169,110,.12));
+}
+.qual-card{
+  background:none;border:none;padding:22px 0;
+  display:block;position:relative;
+  border-bottom:.5px solid var(--border);
+}
+.qual-card:last-child{border-bottom:none;}
+.qual-check{
+  position:absolute;left:-36px;top:24px;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--cream);border:1.5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .3s ease;
+}
+.qual-check svg{width:10px;height:10px;stroke:var(--gold-text);stroke-width:2.5;fill:none;transition:stroke .3s ease;}
+.qual-card:hover .qual-check{background:var(--gold);}
+.qual-card:hover .qual-check svg{stroke:#fff;}
+.qual-text{
+  font-family:var(--font-display);font-size:19px;font-style:italic;
+  color:var(--ink);line-height:1.55;transition:color .3s ease;
+}
+.qual-card:hover .qual-text{color:var(--gold-text);}
 
 /* ══ CARROSSEL ══ */
 /* PREVIEW GRID — texto + pullquote abaixo do carrossel (desktop) */
@@ -264,8 +303,25 @@ object-fit:contain;
 .agit-eyebrow::before,.agit-eyebrow::after{content:'';display:block;width:28px;height:1px;background:var(--gold);}
 .agit-h2{font-family:var(--font-display);font-size:clamp(22px,2.8vw,32px);font-weight:400;color:var(--cream);line-height:1.35;margin-bottom:28px;}
 .agit-h2 em{font-style:italic;color:var(--gold);}
-.agit-lista{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;text-align:left;}
-.agit-item{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.04);border:.5px solid rgba(255,255,255,.08);border-radius:10px;padding:16px 18px;}
+.agit-lista{display:flex;flex-direction:column;gap:14px;margin-bottom:32px;text-align:left;}
+.agit-item{
+  display:flex;gap:18px;align-items:flex-start;
+  background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:.5px solid rgba(255,255,255,.09);border-radius:16px;
+  padding:20px 22px;
+  transition:transform .25s ease,border-color .25s ease,background .25s ease;
+}
+.agit-item:hover{
+  transform:translateX(4px);
+  border-color:rgba(201,169,110,.3);
+  background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.03));
+}
+.agit-icon-badge{
+  width:42px;height:42px;border-radius:12px;flex-shrink:0;
+  background:linear-gradient(160deg,rgba(201,169,110,.18),rgba(201,169,110,.06));
+  border:.5px solid rgba(201,169,110,.25);
+  display:flex;align-items:center;justify-content:center;font-size:19px;
+}
 .agit-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
 .agit-text{font-size:16px;color:rgba(255,255,255,.75);line-height:1.65;}
 .agit-text strong{color:var(--cream);font-weight:500;}
@@ -953,10 +1009,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <div class="agit-eyebrow">Antes de continuar</div>
     <h2 class="agit-h2">Você reconhece algum desses <em>sentimentos</em>?</h2>
     <div class="agit-lista">
-      <div class="agit-item"><span class="agit-icon">🌀</span><div class="agit-text">Você chega em casa e em vez de descansar, sente um desconforto difuso. <strong>A bagunça incomoda, mas parece impossível resolver.</strong> Você não sabe por onde começar.</div></div>
-      <div class="agit-item"><span class="agit-icon">🛍️</span><div class="agit-text">Você olha o extrato do cartão e <strong>não reconhece metade das compras</strong>. Comprou por impulso, guardou sem usar, e agora tem coisas demais numa vida que não cabe mais em você.</div></div>
-      <div class="agit-item"><span class="agit-icon">📱</span><div class="agit-text">Você passa horas no celular sem perceber. <strong>Notificações, redes sociais, e-mails.</strong> A sensação de que sua atenção pertence a todo mundo, menos a você.</div></div>
-      <div class="agit-item"><span class="agit-icon">💭</span><div class="agit-text">Sua cabeça nunca para. <strong>Pensamentos, tarefas, preocupações.</strong> Mesmo em momentos de descanso, algo parece sempre pendente e urgente.</div></div>
+      <div class="agit-item"><span class="agit-icon-badge">🌀</span><div class="agit-text">Você chega em casa e em vez de descansar, sente um desconforto difuso. <strong>A bagunça incomoda, mas parece impossível resolver.</strong> Você não sabe por onde começar.</div></div>
+      <div class="agit-item"><span class="agit-icon-badge">🛍️</span><div class="agit-text">Você olha o extrato do cartão e <strong>não reconhece metade das compras</strong>. Comprou por impulso, guardou sem usar, e agora tem coisas demais numa vida que não cabe mais em você.</div></div>
+      <div class="agit-item"><span class="agit-icon-badge">📱</span><div class="agit-text">Você passa horas no celular sem perceber. <strong>Notificações, redes sociais, e-mails.</strong> A sensação de que sua atenção pertence a todo mundo, menos a você.</div></div>
+      <div class="agit-item"><span class="agit-icon-badge">💭</span><div class="agit-text">Sua cabeça nunca para. <strong>Pensamentos, tarefas, preocupações.</strong> Mesmo em momentos de descanso, algo parece sempre pendente e urgente.</div></div>
     </div>
     <p class="agit-virada">Você não é desorganizada. Você só tem coisas demais. E existe um jeito simples de resolver isso.</p>
     <div style="margin-top:32px;"><a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero esse jeito simples</a></div>
@@ -1015,13 +1071,13 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     </div>    </div>
 
     <div class="cap-grid">
-      <div class="cap-card"><div class="cap-icon">🧠</div><div><div class="cap-title">Clareza mental</div><div class="cap-desc">Pratique o autoconhecimento e descubra seu propósito de vida com mais clareza e menos ruído.</div></div></div>
-      <div class="cap-card"><div class="cap-icon">🏠</div><div><div class="cap-title">Sua casa respirando</div><div class="cap-desc">Retire a tralha de casa e facilite a organização do seu lar sem complicar.</div></div></div>
-      <div class="cap-card"><div class="cap-icon">👗</div><div><div class="cap-title">Guarda-roupa que funciona</div><div class="cap-desc">Descubra seu estilo e monte um guarda-roupa que você realmente usa.</div></div></div>
-      <div class="cap-card"><div class="cap-icon">🔓</div><div><div class="cap-title">Desapego sem culpa</div><div class="cap-desc">Aprenda a se desapegar do que não faz mais sentido, sem culpa e sem drama.</div></div></div>
-      <div class="cap-card"><div class="cap-icon">📱</div><div><div class="cap-title">Menos tela, mais vida</div><div class="cap-desc">Organize e destralhe seu telefone, seus apps e seu uso nas redes sociais.</div></div></div>
-      <div class="cap-card"><div class="cap-icon">🥗</div><div><div class="cap-title">Refeições mais simples</div><div class="cap-desc">Organize melhor suas refeições, reduza o desperdício e simplifique as idas ao supermercado.</div></div></div>
-      <div class="cap-card"><div class="cap-icon">💰</div><div><div class="cap-title">Consumo com consciência</div><div class="cap-desc">Aprenda a organizar suas finanças pessoais e a consumir com consciência e sem culpa.</div></div></div>
+      <div class="cap-card"><div class="cap-icon-badge">🧠</div><div><div class="cap-title">Clareza mental</div><div class="cap-desc">Pratique o autoconhecimento e descubra seu propósito de vida com mais clareza e menos ruído.</div></div></div>
+      <div class="cap-card"><div class="cap-icon-badge">🏠</div><div><div class="cap-title">Sua casa respirando</div><div class="cap-desc">Retire a tralha de casa e facilite a organização do seu lar sem complicar.</div></div></div>
+      <div class="cap-card"><div class="cap-icon-badge">👗</div><div><div class="cap-title">Guarda-roupa que funciona</div><div class="cap-desc">Descubra seu estilo e monte um guarda-roupa que você realmente usa.</div></div></div>
+      <div class="cap-card"><div class="cap-icon-badge">🔓</div><div><div class="cap-title">Desapego sem culpa</div><div class="cap-desc">Aprenda a se desapegar do que não faz mais sentido, sem culpa e sem drama.</div></div></div>
+      <div class="cap-card"><div class="cap-icon-badge">📱</div><div><div class="cap-title">Menos tela, mais vida</div><div class="cap-desc">Organize e destralhe seu telefone, seus apps e seu uso nas redes sociais.</div></div></div>
+      <div class="cap-card"><div class="cap-icon-badge">🥗</div><div><div class="cap-title">Refeições mais simples</div><div class="cap-desc">Organize melhor suas refeições, reduza o desperdício e simplifique as idas ao supermercado.</div></div></div>
+      <div class="cap-card"><div class="cap-icon-badge">💰</div><div><div class="cap-title">Consumo com consciência</div><div class="cap-desc">Aprenda a organizar suas finanças pessoais e a consumir com consciência e sem culpa.</div></div></div>
     </div>
     <div style="text-align:center;margin-top:36px;">
       <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero começar minha jornada</a>
