@@ -640,9 +640,23 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   .t-stat-num{font-size:29px;}
   .testimonials{padding:44px var(--sec-h) 36px;}
   .t-header{margin-bottom:32px;}
-  .stats-bar{padding:12px var(--sec-h);}
-  .stat{padding:6px 10px;border:none!important;}
-  .stats-bar .inner{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 0;justify-items:center;}
+  .stats-bar{padding:24px var(--sec-h);}
+  .stat{
+    padding:10px 8px;border:none!important;
+    flex-direction:column;align-items:center;text-align:center;gap:6px;
+  }
+  .stat-num{font-size:22px;}
+  .stat-lbl{font-size:12px;line-height:1.4;}
+  .stats-bar .inner{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:20px 8px;justify-items:center;
+  }
+  .stats-bar .stat:nth-child(1)::after,
+  .stats-bar .stat:nth-child(3)::after{
+    content:'';position:absolute;right:0;top:10%;bottom:10%;width:1px;
+    background:rgba(255,255,255,.1);
+  }
+  .stats-bar .stat{position:relative;width:100%;}
   .ancora-inner{flex-direction:column;gap:16px;text-align:center;}
   .ancora-compare{text-align:center;}
   .ancora-sep{display:none;}
