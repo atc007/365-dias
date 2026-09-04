@@ -221,11 +221,22 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .pullquote{border-left:3px solid var(--gold);padding:14px 22px;font-family:var(--font-display);font-size:18px;line-height:1.7;font-style:italic;color:var(--ink);margin-bottom:28px;background:rgba(201,169,110,.06);border-radius:0 6px 6px 0;}
 
 /* ══ PROBLEMA — cards por que falha ══ */
-.fail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;}
-.fail-card{background:#fff;border:.5px solid var(--border);border-radius:10px;padding:18px 20px;border-left:3px solid #E24B4A;}
+.fail-grid{display:flex;flex-direction:column;gap:12px;margin-top:24px;}
+.fail-card{
+  background:#fff;border:.5px solid var(--border);border-radius:14px;
+  padding:20px 22px;display:flex;gap:16px;align-items:flex-start;
+  border-left:3px solid #E24B4A;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.fail-card:hover{transform:translateX(4px);box-shadow:0 10px 26px rgba(0,0,0,.08);}
+.fail-icon-badge{
+  width:40px;height:40px;border-radius:11px;flex-shrink:0;
+  background:rgba(226,75,74,.08);border:.5px solid rgba(226,75,74,.18);
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
 .fail-icon{font-size:20px;margin-bottom:8px;}
-.fail-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px;}
-.fail-desc{font-size:14px;color:var(--ink-soft);line-height:1.55;}
+.fail-title{font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.fail-desc{font-size:14px;color:var(--ink-soft);line-height:1.6;}
 
 /* ══ COMO FUNCIONA — steps com imagem ══ */
 .steps-list{display:flex;flex-direction:column;gap:32px;margin-top:8px;position:relative;}
@@ -781,24 +792,24 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
         <div style="margin-bottom:16px;font-size:14px;font-weight:600;color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase;">Por que os métodos tradicionais falham:</div>
         <div class="fail-grid">
           <div class="fail-card">
-            <div class="fail-icon">🗑️</div>
-            <div class="fail-title">Mandam jogar tudo fora</div>
-            <div class="fail-desc">Sem respeitar apego emocional ou necessidades reais.</div>
+            <div class="fail-icon-badge">🗑️</div>
+            <div><div class="fail-title">Mandam jogar tudo fora</div>
+            <div class="fail-desc">Sem respeitar apego emocional ou necessidades reais.</div></div>
           </div>
           <div class="fail-card">
-            <div class="fail-icon">📋</div>
-            <div class="fail-title">Ignoram sua rotina real</div>
-            <div class="fail-desc">Regras rígidas que não cabem na sua vida.</div>
+            <div class="fail-icon-badge">📋</div>
+            <div><div class="fail-title">Ignoram sua rotina real</div>
+            <div class="fail-desc">Regras rígidas que não cabem na sua vida.</div></div>
           </div>
           <div class="fail-card">
-            <div class="fail-icon">📅</div>
-            <div class="fail-title">Tratam como evento</div>
-            <div class="fail-desc">Uma arrumação que dura uma semana, não um processo.</div>
+            <div class="fail-icon-badge">📅</div>
+            <div><div class="fail-title">Tratam como evento</div>
+            <div class="fail-desc">Uma arrumação que dura uma semana, não um processo.</div></div>
           </div>
           <div class="fail-card">
-            <div class="fail-icon">😔</div>
-            <div class="fail-title">Geram culpa e abandono</div>
-            <div class="fail-desc">E a sensação de que o problema é você. Não é.</div>
+            <div class="fail-icon-badge">😔</div>
+            <div><div class="fail-title">Geram culpa e abandono</div>
+            <div class="fail-desc">E a sensação de que o problema é você. Não é.</div></div>
           </div>
         </div>
       </div>
