@@ -1410,8 +1410,21 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   .badges{gap:6px;margin-bottom:14px;grid-template-columns:1fr 1fr;display:grid;}
   .badge{font-size:12px;text-align:center;display:flex;align-items:center;justify-content:center;}
   .btn-gold,.btn-dark{font-size:14px;padding:16px 28px;}
-  .stats-bar{padding:12px var(--sec-h);}
-  .stat{padding:6px 12px;border:none!important;}
+  .stats-bar{padding:24px var(--sec-h);}
+  .stats-bar .inner{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:20px 8px;justify-items:center;
+  }
+  .stat{
+    padding:10px 8px;border:none!important;
+    flex-direction:column;align-items:center;text-align:center;gap:6px;
+    width:100%;position:relative;
+  }
+  .stats-bar .stat:nth-child(1)::after,
+  .stats-bar .stat:nth-child(3)::after{
+    content:'';position:absolute;right:0;top:10%;bottom:10%;width:1px;
+    background:rgba(255,255,255,.1);
+  }
   .stat-num{font-size:21px;}
   .grid2{grid-template-columns:1fr;gap:28px;}
   .preview-grid-78{grid-template-columns:1fr;}
