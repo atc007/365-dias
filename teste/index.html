@@ -192,6 +192,16 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .sec.dark .sec-p,.sec.dark2 .sec-p{color:rgba(255,255,255,.65);}
 
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center;}
+.autor-grid{align-items:start;}
+.autor-photo-col{grid-column:1;grid-row:1/3;}
+.autor-title-block{grid-column:2;grid-row:1;}
+.autor-body-block{grid-column:2;grid-row:2;}
+@media(max-width:720px){
+  .autor-grid{grid-template-columns:1fr;}
+  .autor-title-block{order:1;grid-column:1;grid-row:auto;margin-bottom:20px;}
+  .autor-photo-col{order:2;grid-column:1;grid-row:auto;margin-bottom:20px;}
+  .autor-body-block{order:3;grid-column:1;grid-row:auto;}
+}
 .img-box{border-radius:8px;overflow:hidden;background:#E0E0DE;}
 .img-box img{width:100%;height:auto;display:block;}
 .pullquote{border-left:3px solid var(--gold);padding:14px 22px;font-family:var(--font-display);font-size:18px;line-height:1.7;font-style:italic;color:var(--ink);margin-bottom:28px;background:rgba(201,169,110,.06);border-radius:0 6px 6px 0;}
@@ -255,12 +265,40 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .not-for-item::before{content:'❌';font-size:12px;flex-shrink:0;}
 
 /* ══ DIFERENCIAL ══ */
-.dif-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:28px;}
-.dif-card{background:rgba(255,255,255,.06);border:.5px solid rgba(255,255,255,.1);border-radius:10px;padding:22px;text-align:center;transition:background .25s,transform .25s;}
-.dif-card:hover{background:rgba(255,255,255,.1);transform:translateY(-3px);}
+.dif-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:28px;}
+.dif-card{
+  position:relative;overflow:hidden;
+  background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.02));
+  border:.5px solid rgba(255,255,255,.1);
+  border-radius:16px;padding:28px 24px;text-align:center;
+  transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+}
+.dif-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity .3s ease;
+}
+.dif-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(201,169,110,.4);
+  box-shadow:0 20px 44px rgba(0,0,0,.35),0 0 0 1px rgba(201,169,110,.08);
+}
+.dif-card:hover::before{opacity:1;}
+.dif-num{
+  position:absolute;top:6px;right:16px;
+  font-family:var(--font-display);font-size:56px;font-weight:400;
+  color:rgba(255,255,255,.06);line-height:1;user-select:none;
+}
+.dif-icon-badge{
+  width:52px;height:52px;border-radius:14px;margin:0 auto 16px;
+  background:linear-gradient(160deg,rgba(201,169,110,.22),rgba(201,169,110,.08));
+  border:.5px solid rgba(201,169,110,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;position:relative;z-index:1;
+}
 .dif-icon{font-size:28px;margin-bottom:12px;}
-.dif-title{font-family:var(--font-display);font-size:17px;font-weight:400;color:var(--cream);margin-bottom:8px;}
-.dif-desc{font-size:14px;color:rgba(255,255,255,.6);line-height:1.6;}
+.dif-title{font-family:var(--font-display);font-size:18px;font-weight:400;color:var(--cream);margin-bottom:8px;position:relative;z-index:1;}
+.dif-desc{font-size:14px;color:rgba(255,255,255,.6);line-height:1.65;position:relative;z-index:1;}
 .dif-grid-light .dif-card{background:#fff;border:.5px solid var(--border);}
 .dif-grid-light .dif-title{color:var(--ink);}
 .dif-grid-light .dif-desc{color:var(--ink-soft);}
@@ -533,8 +571,9 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   .fail-grid{grid-template-columns:1fr;}
   .dif-grid{grid-template-columns:1fr;}
   .for-grid{grid-template-columns:1fr;}
-  .steps-list .step-item{grid-template-columns:1fr;direction:ltr;}
+  .steps-list .step-item{grid-template-columns:1fr;direction:ltr;padding:18px;border-radius:16px;}
   .steps-list .step-item.reverse{direction:ltr;}
+  .step-img{border-radius:18px;border-width:5px;}
   .precos{grid-template-columns:1fr;max-width:100%;}
   .gar-grid{grid-template-columns:1fr;gap:24px;text-align:center;}
   .gar-img{display:flex;justify-content:center;}
@@ -754,31 +793,34 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 </section>
 
 <!-- RESUMO RÁPIDO — COMO FUNCIONA -->
-<section class="sec" style="padding-top:40px;padding-bottom:40px;">
+<section class="sec dark" style="padding-top:40px;padding-bottom:40px;">
   <div class="inner">
     <div class="sec-eyebrow" style="justify-content:center;">Em 3 passos simples</div>
     <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 28px;">É assim que funciona, na prática.</h2>
-    <div class="dif-grid dif-grid-light" style="margin-top:0;">
+    <div class="dif-grid" style="margin-top:0;">
       <div class="dif-card">
-        <div class="dif-icon">💬</div>
-        <div class="dif-title">1. Você conversa com o agente</div>
+        <div class="dif-num">01</div>
+        <div class="dif-icon-badge">💬</div>
+        <div class="dif-title">Você conversa com o agente</div>
         <div class="dif-desc">Direto no ChatGPT, sem instalar nada. Conte como é sua casa e o que está te pesando.</div>
       </div>
       <div class="dif-card">
-        <div class="dif-icon">📷</div>
-        <div class="dif-title">2. Ele entende sua realidade</div>
+        <div class="dif-num">02</div>
+        <div class="dif-icon-badge">📷</div>
+        <div class="dif-title">Ele entende sua realidade</div>
         <div class="dif-desc">Se quiser, envie fotos dos ambientes. O agente identifica excessos e cria um plano possível para você.</div>
       </div>
       <div class="dif-card">
-        <div class="dif-icon">🧹</div>
-        <div class="dif-title">3. Você destralha no seu ritmo</div>
+        <div class="dif-num">03</div>
+        <div class="dif-icon-badge">🧹</div>
+        <div class="dif-title">Você destralha no seu ritmo</div>
         <div class="dif-desc">Passo a passo, sem pressão. Pausa quando quiser e retoma de onde parou, sem culpa.</div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:28px;">
-      <div style="font-family:var(--font-display);font-size:15px;color:var(--ink-soft);margin-bottom:14px;">Menos que um café por dia: <strong style="color:var(--ink);">a partir de R$ 0,21/dia</strong> no primeiro ano de acesso vitalício.</div>
+    <div style="text-align:center;margin-top:32px;">
+      <div style="font-family:var(--font-display);font-size:15px;color:rgba(255,255,255,.65);margin-bottom:14px;">Menos que um café por dia: <strong style="color:var(--cream);">a partir de R$ 0,21/dia</strong> no primeiro ano de acesso vitalício.</div>
       <a class="btn-gold" href="#versoes">Quero meu acesso vitalício</a>
-      <div class="hero-note" style="justify-content:center;margin-top:10px;color:var(--ink-muted);">Garantia de 7 dias · Acesso vitalício</div>
+      <div class="hero-note" style="justify-content:center;margin-top:10px;color:rgba(255,255,255,.5);">Garantia de 7 dias · Acesso vitalício</div>
     </div>
   </div>
 </section>
@@ -935,14 +977,16 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 <!-- AUTOR -->
 <section class="sec dark">
   <div class="inner">
-    <div class="grid2">
-      <div class="img-box">
+    <div class="grid2 autor-grid">
+      <div class="autor-title-block">
+        <div class="sec-eyebrow">Sobre o criador</div>
+        <h2 class="sec-h2">Criado por alguém que acredita que menos peso abre espaço para mais significado.</h2>
+      </div>
+      <div class="img-box autor-photo-col">
         <img src="https://static.wixstatic.com/media/940f31_49f56ef051ba45f3b106dce993ef899d~mv2.webp/v1/fill/w_473,h_685,al_c,lg_1,q_90,enc_avif,quality_auto/alexandre.webp"
           alt="Alexandre Chahoud, criador do Minimalize.IA e autor do Seja Minimalista" width="473" height="685" loading="lazy" decoding="async">
       </div>
-      <div>
-        <div class="sec-eyebrow">Sobre o criador</div>
-        <h2 class="sec-h2">Criado por alguém que acredita que menos peso abre espaço para mais significado.</h2>
+      <div class="autor-body-block">
         <p class="sec-p">Prazer, eu sou <strong style="color:var(--cream);">Alexandre Chahoud</strong>. Eu já fui a pessoa que comprava organizadores para tentar resolver a bagunça, caixinhas, labels, prateleiras, e em três semanas estava tudo igual ou pior.</p>
         <p class="sec-p">Foi quando entendi: o problema nunca foi falta de organização. Foi excesso de coisas. E o excesso de coisas é um excesso de decisões adiadas.</p>
         <p class="sec-p">Desde 2018, compartilho esse caminho com mais de 200 mil pessoas no Instagram e em 4 livros, incluindo o best-seller Seja Minimalista, que já transformou mais de 25 mil leitores em 15 países. O Minimalize.IA nasceu desse aprendizado, para te acompanhar no processo que eu gostaria que alguém tivesse me acompanhado.</p>
