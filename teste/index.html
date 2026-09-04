@@ -1177,14 +1177,26 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 }
 .agit-h2 em{font-style:italic;color:var(--gold);}
 .agit-lista{
-  display:flex;flex-direction:column;gap:12px;
+  display:flex;flex-direction:column;gap:14px;
   margin-bottom:32px;text-align:left;
 }
 .agit-item{
-  display:flex;gap:14px;align-items:flex-start;
-  background:rgba(255,255,255,.04);
-  border:.5px solid rgba(255,255,255,.08);
-  border-radius:10px;padding:16px 18px;
+  display:flex;gap:18px;align-items:flex-start;
+  background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:.5px solid rgba(255,255,255,.09);border-radius:16px;
+  padding:20px 22px;
+  transition:transform .25s ease,border-color .25s ease,background .25s ease;
+}
+.agit-item:hover{
+  transform:translateX(4px);
+  border-color:rgba(201,169,110,.3);
+  background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.03));
+}
+.agit-icon-badge{
+  width:42px;height:42px;border-radius:12px;flex-shrink:0;
+  background:linear-gradient(160deg,rgba(201,169,110,.18),rgba(201,169,110,.06));
+  border:.5px solid rgba(201,169,110,.25);
+  display:flex;align-items:center;justify-content:center;font-size:19px;
 }
 .agit-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
 .agit-text{font-size:16px;color:rgba(255,255,255,.75);line-height:1.65;}
@@ -1688,19 +1700,19 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <h2 class="agit-h2">Você reconhece algum desses <em>sentimentos</em>?</h2>
     <div class="agit-lista">
       <div class="agit-item">
-        <span class="agit-icon">🌀</span>
+        <span class="agit-icon-badge">🌀</span>
         <div class="agit-text">Você chega ao fim do dia exausta. Sem conseguir dizer o que fez de verdade. <strong>A vida passa no automático</strong> e a sensação é de que você está sempre correndo para lugar nenhum.</div>
       </div>
       <div class="agit-item">
-        <span class="agit-icon">🛍️</span>
+        <span class="agit-icon-badge">🛍️</span>
         <div class="agit-text">Você olha o extrato do cartão e <strong>não reconhece metade das compras</strong>. Comprou por impulso, guardou sem usar, e agora tem coisas demais numa vida que não cabe mais em você.</div>
       </div>
       <div class="agit-item">
-        <span class="agit-icon">📋</span>
+        <span class="agit-icon-badge">📋</span>
         <div class="agit-text">Você já tentou organizar a vida: listas, aplicativos, desafios de 21 dias. <strong>Funcionou por uma semana</strong>. Depois voltou tudo ao normal. Você não é sem disciplina: você só nunca teve o método certo.</div>
       </div>
       <div class="agit-item">
-        <span class="agit-icon">💭</span>
+        <span class="agit-icon-badge">💭</span>
         <div class="agit-text">Sua cabeça nunca para. <strong>Pensamentos, tarefas, preocupações.</strong> A sensação de que tem sempre algo pendente, mesmo quando você está tentando descansar.</div>
       </div>
     </div>
