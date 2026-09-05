@@ -121,7 +121,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .sec-hero{background:var(--ink);padding:56px var(--sec-h) 64px;}
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center;}
 .hero-img-wrap{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.hero-img-wrap img{width:100%;height:auto;max-width:100%;max-height:560px;display:block;margin:0 auto;border-radius:22px;object-fit:cover;border:1px solid rgba(201,169,110,.22);box-shadow:0 20px 46px rgba(0,0,0,.28);}
+.hero-img-wrap img{width:100%;height:auto;max-width:100%;display:block;margin:0 auto;border-radius:22px;border:1px solid rgba(201,169,110,.22);box-shadow:0 20px 46px rgba(0,0,0,.28);}
 .hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;justify-content:center;}
 .hero-badge{background:rgba(255,255,255,.08);border:.5px solid rgba(255,255,255,.15);border-radius:5px;padding:7px 13px;font-size:13px;font-weight:500;color:var(--cream-dark);}
 .hero-badge-link{text-decoration:none;cursor:pointer;transition:border-color .2s,background .2s;display:inline-flex;align-items:center;}
@@ -628,15 +628,13 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   .hero-grid{grid-template-columns:1fr;gap:0;}
   .hero-img-wrap{
     order:-1;
-    margin:0 calc(-1 * var(--sec-h));
-    width:calc(100% + 2 * var(--sec-h));
   }
   .hero-img-wrap img{
-    max-height:520px;
     width:100%;
-    object-fit:cover;
-    object-position:center top;
-    border-radius:0;
+    height:auto;
+    border-radius:22px;
+    border:1px solid rgba(201,169,110,.22);
+    box-shadow:0 20px 46px rgba(0,0,0,.28);
   }
   .hero-img-wrap .hero-badges{margin-top:14px;margin-bottom:0;padding:0 var(--sec-h);}
   .hero-grid>div:last-child{padding-top:14px;}
