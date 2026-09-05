@@ -717,13 +717,17 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   .content-preview{margin:24px 0 30px;}
   .content-preview .car-wrap{
     max-width:none;
-    margin-left:calc(var(--sec-h) * -2);
-    margin-right:calc(var(--sec-h) * -2);
+    width:100vw;
+    position:relative;
+    left:50%;
+    right:50%;
+    margin-left:-50vw;
+    margin-right:-50vw;
     border-radius:0;
     border-left:none;
     border-right:none;
   }
-  .content-preview .car-slide{min-height:0!important;}
+  .content-preview .car-slide{min-height:0!important;width:100%;}
   .grid2{grid-template-columns:1fr;gap:28px;}
   .autor-grid{grid-template-columns:1fr;grid-template-areas:"head" "img" "body";gap:20px;}
   .preview-grid{grid-template-columns:1fr;gap:20px;}
