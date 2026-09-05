@@ -279,7 +279,11 @@ html,body{
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center;}
 
 /* ══ IMAGEM BOX ══ */
-.img-box{border-radius:8px;overflow:hidden;background:#E0E0DE;}
+.img-box{
+  border-radius:20px;overflow:hidden;background:#E0E0DE;
+  border:1px solid rgba(201,169,110,.25);
+  box-shadow:0 24px 50px rgba(0,0,0,.14);
+}
 .img-box img{width:100%;height:auto;display:block;}
 
 /* ══ PULLQUOTE ══ */
@@ -293,10 +297,22 @@ html,body{
 /* ══ BEN CARDS ══ */
 .ben-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
 .ben-card{
-  background:#fff;border:.5px solid var(--border);border-radius:10px;padding:18px 20px;
-  transition:transform .25s,box-shadow .25s;
+  background:#fff;border:.5px solid var(--border);
+  border-radius:14px;padding:20px 20px 22px;
+  position:relative;overflow:hidden;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
 }
-.ben-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.07);}
+.ben-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity .25s ease;
+}
+.ben-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 34px rgba(0,0,0,.09);
+  border-color:rgba(201,169,110,.35);
+}
+.ben-card:hover::before{opacity:1;}
 .ben-num{font-family:var(--font-display);font-size:24px;color:var(--gold-text);margin-bottom:6px;}
 .ben-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px;}
 .ben-desc{font-size:13px;color:var(--ink-soft);line-height:1.55;}
@@ -314,7 +330,11 @@ html,body{
 .qual-text{font-size:15px;color:var(--ink);line-height:1.6;}
 
 /* ══ DIFERENCIAL / PROPOSTA ÚNICA ══ */
-.diferencial{background:var(--cream);padding:var(--sec-v) var(--sec-h);border-top:3px solid var(--gold);}
+.diferencial{background:var(--cream);padding:var(--sec-v) var(--sec-h);position:relative;}
+.diferencial::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
 
 /* ══ AGITAÇÃO DA DOR ══ */
 .agitacao{background:var(--ink);padding:var(--sec-v) var(--sec-h);}
@@ -322,7 +342,24 @@ html,body{
 .agit-h2{font-family:var(--font-display);font-size:var(--h2);font-weight:400;color:#fff;text-align:center;max-width:640px;margin:0 auto 40px;line-height:1.3;}
 .agit-h2 em{font-style:italic;color:var(--gold-light);}
 .agit-lista{display:flex;flex-direction:column;gap:14px;max-width:720px;margin:0 auto;}
-.agit-item{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px 20px;}
+.agit-item{
+  display:flex;gap:18px;align-items:flex-start;
+  background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:.5px solid rgba(255,255,255,.09);border-radius:16px;
+  padding:20px 22px;
+  transition:transform .25s ease,border-color .25s ease,background .25s ease;
+}
+.agit-item:hover{
+  transform:translateX(4px);
+  border-color:rgba(201,169,110,.3);
+  background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.03));
+}
+.agit-icon-badge{
+  width:42px;height:42px;border-radius:12px;flex-shrink:0;
+  background:linear-gradient(160deg,rgba(201,169,110,.18),rgba(201,169,110,.06));
+  border:.5px solid rgba(201,169,110,.25);
+  display:flex;align-items:center;justify-content:center;font-size:19px;
+}
 .agit-icon{font-size:20px;flex-shrink:0;line-height:1.4;}
 .agit-text{font-size:15px;color:rgba(255,255,255,.75);line-height:1.65;}
 .agit-text strong{color:#fff;font-weight:600;}
@@ -332,7 +369,22 @@ html,body{
   .agit-text{font-size:14px;}
 }
 .dif-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:28px;}
-.dif-card{background:#fff;border:.5px solid var(--border);border-radius:10px;padding:20px;text-align:center;}
+.dif-card{
+  background:#fff;border:.5px solid var(--border);border-radius:14px;
+  padding:24px 20px;text-align:center;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+.dif-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 34px rgba(0,0,0,.08);
+  border-color:rgba(201,169,110,.35);
+}
+.dif-icon-badge{
+  width:46px;height:46px;border-radius:13px;margin:0 auto 12px;
+  background:linear-gradient(160deg,rgba(201,169,110,.18),rgba(201,169,110,.06));
+  border:.5px solid rgba(201,169,110,.28);
+  display:flex;align-items:center;justify-content:center;font-size:21px;
+}
 .dif-icon{font-size:26px;margin-bottom:10px;}
 .dif-title{font-family:var(--font-display);font-size:16px;font-weight:400;color:var(--ink);margin-bottom:6px;}
 .dif-desc{font-size:14px;color:var(--ink-soft);line-height:1.6;}
@@ -497,8 +549,8 @@ html,body{
 .urg-digit{background:#2E2E2C;border:.5px solid #3D3D3B;color:var(--gold);font-family:var(--font-display);font-size:34px;font-weight:700;padding:10px 16px;border-radius:8px;min-width:60px;text-align:center;line-height:1;}
 .urg-dlabel{font-size:10px;color:#5F5E5A;letter-spacing:.1em;text-transform:uppercase;}
 .urg-sep{font-family:var(--font-display);font-size:28px;color:#3D3D3B;margin-bottom:16px;}
-.pc-img{background:var(--cream);padding:0;height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-.pc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+.pc-img{background:var(--cream);padding:0;overflow:hidden;position:relative;}
+.pc-img img{width:100%;height:auto;display:block;transition:transform .4s ease;}
 .pc:hover .pc-img img{transform:scale(1.04);}
 .pc-body{padding:24px;}
 .pc-type{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:10px;font-family:var(--font-display);line-height:1.2;}
@@ -537,19 +589,27 @@ html,body{
 
 /* ══ GARANTIA ══ */
 .gar-grid{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;max-width:760px;margin:0 auto;}
-.gar-img img{width:110px;height:110px;object-fit:contain;display:block;}
+.gar-img{position:relative;width:110px;height:110px;display:flex;align-items:center;justify-content:center;}
+.gar-img::before{
+  content:'';position:absolute;inset:-14px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,169,110,.18),transparent 70%);
+}
+.gar-img img{width:110px;height:110px;object-fit:contain;display:block;position:relative;z-index:1;filter:drop-shadow(0 8px 18px rgba(0,0,0,.3));}
 .gar-h3{font-family:var(--font-display);font-size:var(--h3);font-weight:400;color:var(--cream);margin-bottom:12px;}
 .gar-p{font-size:var(--body);color:var(--ink-muted);line-height:1.8;}
 .gar-p strong{color:var(--gold);}
 
 /* ══ FAQ ══ */
 .faq-list{max-width:800px;margin-top:28px;}
-.faq-item{border-bottom:.5px solid var(--border);}
-.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:20px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;font-weight:600;font-family:inherit;color:var(--ink);line-height:1.4;}
-.faq-icon{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--gold-text);color:var(--gold-text);font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s;line-height:1;}
+.faq-item{border-bottom:.5px solid var(--border);transition:background .25s ease;border-radius:8px;}
+.faq-item.open{background:rgba(201,169,110,.04);}
+.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:20px 16px 20px 4px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;font-weight:600;font-family:inherit;color:var(--ink);line-height:1.4;transition:color .25s ease;}
+.faq-q:hover{color:var(--gold-text);}
+.faq-icon{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--gold-text);color:var(--gold-text);font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s ease,background .3s ease,color .3s ease;line-height:1;}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--gold-text);color:#fff;}
 .faq-item.open .faq-icon{transform:rotate(45deg);}
 .faq-a{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .35s cubic-bezier(.16,1,.3,1),opacity .3s ease;}
-.faq-a-inner{overflow:hidden;min-height:0;font-size:15px;color:var(--ink-soft);line-height:1.8;padding-bottom:0;}
+.faq-a-inner{overflow:hidden;min-height:0;font-size:15px;color:var(--ink-soft);line-height:1.8;padding:0 16px 0 4px;}
 .faq-item.open .faq-a{grid-template-rows:1fr;opacity:1;}
 .faq-item.open .faq-a-inner{padding-bottom:20px;}
 @media(prefers-reduced-motion:reduce){.faq-a{transition:opacity .15s ease;}}
@@ -645,10 +705,15 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   .t-card.featured{grid-column:span 1;}
   .t-card{padding:16px 14px 14px;}
   .t-text,.t-card.featured .t-text{font-size:14px;}
-  .stats-bar{padding:12px var(--sec-h);}
-  .stat{padding:6px 10px;border:none!important;flex-direction:column;align-items:center;text-align:center;gap:4px;}
+  .stats-bar{padding:24px var(--sec-h);}
+  .stat{padding:10px 8px;border:none!important;flex-direction:column;align-items:center;text-align:center;gap:6px;width:100%;position:relative;}
   .stat-num{font-size:22px;}
-  .stats-bar .inner{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 0;justify-items:center;}
+  .stats-bar .inner{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 8px;justify-items:center;}
+  .stats-bar .stat:nth-child(1)::after,
+  .stats-bar .stat:nth-child(3)::after{
+    content:'';position:absolute;right:0;top:10%;bottom:10%;width:1px;
+    background:rgba(255,255,255,.1);
+  }
   .pullquote{font-size:15px;}
   .dif-grid{grid-template-columns:1fr;}
   .urgency-section{padding:32px var(--sec-h);}
@@ -831,19 +896,19 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
     <h2 class="agit-h2">Você reconhece algum desses <em>sentimentos</em>?</h2>
     <div class="agit-lista">
       <div class="agit-item">
-        <span class="agit-icon">🗄️</span>
+        <span class="agit-icon-badge">🗄️</span>
         <div class="agit-text">Você abre um armário, uma gaveta, um cômodo inteiro, e <strong>não sabe nem por onde começar</strong>. A quantidade de coisas paralisa antes mesmo de você tentar.</div>
       </div>
       <div class="agit-item">
-        <span class="agit-icon">🔁</span>
+        <span class="agit-icon-badge">🔁</span>
         <div class="agit-text">Você já tentou organizar antes: separou sacolas pra doação, prometeu terminar no fim de semana. <strong>Ficou pela metade</strong>, e a bagunça voltou ao normal em poucos dias.</div>
       </div>
       <div class="agit-item">
-        <span class="agit-icon">😓</span>
+        <span class="agit-icon-badge">😓</span>
         <div class="agit-text">Cada objeto guardado é uma decisão adiada: “guardo ou doo?”, “ainda vou usar?”. <strong>São tantas escolhas pequenas</strong> que você acaba não decidindo nenhuma, e tudo fica onde está.</div>
       </div>
       <div class="agit-item">
-        <span class="agit-icon">🕰️</span>
+        <span class="agit-icon-badge">🕰️</span>
         <div class="agit-text">Você acha que precisa de um dia inteiro livre pra colocar a casa em ordem. <strong>Esse dia nunca chega</strong>, e a tralha vai se acumulando enquanto você espera o momento certo.</div>
       </div>
     </div>
@@ -929,17 +994,17 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
     <h2 class="sec-h2" style="text-align:center;max-width:560px;margin:10px auto 0;">Não é mais um livro sobre organização. É um plano que você segue, dia após dia.</h2>
     <div class="dif-grid">
       <div class="dif-card">
-        <div class="dif-icon">📋</div>
+        <div class="dif-icon-badge">📋</div>
         <div class="dif-title">Uma missão por dia</div>
         <div class="dif-desc">Não exige um fim de semana inteiro. Uma tarefa clara por dia, e sua casa já começa a mudar.</div>
       </div>
       <div class="dif-card">
-        <div class="dif-icon">🎯</div>
+        <div class="dif-icon-badge">🎯</div>
         <div class="dif-title">Prática real, não teoria</div>
         <div class="dif-desc">Cada dia tem uma ação concreta. Não é sobre ler e adiar, é sobre fazer e ver o resultado.</div>
       </div>
       <div class="dif-card">
-        <div class="dif-icon">🔄</div>
+        <div class="dif-icon-badge">🔄</div>
         <div class="dif-title">No seu ritmo</div>
         <div class="dif-desc">Perdeu um dia? Retoma de onde parou. Não há pressão, não há recomeço do zero. O guia te acompanha, não te cobra.</div>
       </div>
