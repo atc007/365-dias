@@ -39,12 +39,86 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type":"Question","name":"Seja Minimalista: O guia para uma vida mais leve e mais feliz","acceptedAnswer":{"@type":"Answer","text":"Sim, foi escrito exatamente para quem quer começar e não sabe por onde. Linguagem simples, exercícios práticos, sem jargões."}},
-    {"@type":"Question","name":"O livro digital funciona no Kindle?","acceptedAnswer":{"@type":"Answer","text":"Sim, funciona no Kindle via USB. Na Área VIP há tutorial em vídeo com o passo a passo."}},
-    {"@type":"Question","name":"Quando recebo o livro digital?","acceptedAnswer":{"@type":"Answer","text":"Imediatamente após o pagamento por cartão ou Pix, direto no e-mail."}},
-    {"@type":"Question","name":"Preciso ser radical para ser minimalista?","acceptedAnswer":{"@type":"Answer","text":"Não. O livro ensina minimalismo como estilo de vida adaptado à sua realidade, sem extremismos, sem abrir mão do que você ama."}},
-    {"@type":"Question","name":"E se eu comprar e não conseguir aplicar?","acceptedAnswer":{"@type":"Answer","text":"O livro já vem com exercício e checklist prontos em cada capítulo. E com a garantia de 7 dias, se sentir que não é pra você, é só avisar."}},
-    {"@type":"Question","name":"É seguro comprar pelo link de pagamento?","acceptedAnswer":{"@type":"Answer","text":"Sim. O pagamento é processado pela Eduzz, uma das maiores plataformas de pagamento digital do Brasil, com criptografia de dados e nota fiscal emitida automaticamente."}}
+    {
+      "@type": "Question",
+      "name": "Seja Minimalista é para quem está começando do zero?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, foi escrito exatamente para isso. Não assume nenhum conhecimento prévio sobre minimalismo. A linguagem é simples, direta e sem jargões. Se você nunca leu nada sobre o tema, este é o melhor ponto de partida."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como o livro é diferente de conteúdo gratuito sobre minimalismo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O livro tem uma estrutura pensada do início ao fim, com exercícios práticos e checklists que você preenche. Não é um artigo que você lê e esquece, é um guia que você aplica e consulta quantas vezes quiser. A profundidade e a organização fazem toda a diferença."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso ser radical ou me desfazer de tudo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutamente não. O livro ensina minimalismo como estilo de vida adaptado à sua realidade. Sem extremismos, sem abrir mão do que você ama. A ideia é manter só o que tem valor real para você."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O livro digital funciona no Kindle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, funciona perfeitamente no Kindle via cabo USB. Na Área VIP há um tutorial em vídeo com o passo a passo completo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando recebo meu livro digital?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Comprando por cartão ou Pix, você recebe imediatamente no seu e-mail. Por boleto, em até 3 dias úteis após a compensação."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Funciona para quem tem casa grande, filhos, rotina agitada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Funciona para qualquer realidade. O guia cobre diferentes áreas da vida e você aplica no seu ritmo, começando por onde faz mais sentido pra você: casa, roupas, digital, finanças."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso parcelar a compra?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. O pagamento por cartão de crédito pode ser parcelado em até 12x. O digital chega imediatamente após a confirmação e o físico é despachado após o processamento do pagamento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como rastreio o livro físico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Assim que despachado, você recebe o código de rastreio dos Correios no seu e-mail. Frete grátis para todo o Brasil."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "E se eu comprar e não conseguir aplicar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O livro foi desenhado pra evitar exatamente isso: cada capítulo já vem com exercício e checklist prontos, você não precisa criar um plano do zero. E com a garantia de 7 dias, se sentir que não é pra você, é só avisar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "É seguro comprar pelo link de pagamento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. O pagamento é processado pela Eduzz, uma das maiores plataformas de pagamento digital do Brasil, com criptografia de dados e nota fiscal emitida automaticamente."
+      }
+    }
   ]
 }
 </script>
@@ -217,7 +291,19 @@ object-fit:contain;
 /* ══ GRID ══ */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center;}
 .autor-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"img head" "img body";gap:var(--gap);align-items:center;}
-.autor-img{grid-area:img;}
+.autor-img{grid-area:img;position:relative;}
+.autor-legenda{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:36px 20px 16px;
+  background:linear-gradient(180deg,transparent,rgba(20,16,12,.78));
+  display:flex;flex-direction:column;gap:2px;
+}
+.autor-legenda-nome{
+  font-family:var(--font-display);font-size:19px;color:#fff;line-height:1.2;
+}
+.autor-legenda-papel{
+  font-size:12px;color:rgba(255,255,255,.72);letter-spacing:.02em;
+}
 .autor-head{grid-area:head;align-self:end;}
 .autor-body{grid-area:body;align-self:start;}
 
@@ -923,13 +1009,6 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
   "isRelatedTo":{
     "@id":"https://sejaminimalista.com.br/#book"
   },
-  "aggregateRating":{
-    "@type":"AggregateRating",
-    "ratingValue":"4.9",
-    "reviewCount":"25000",
-    "bestRating":"5",
-    "worstRating":"1"
-  },
   "offers":[
     {
       "@type":"Offer",
@@ -1206,6 +1285,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       <div class="img-box autor-img">
         <img src="https://static.wixstatic.com/media/940f31_49f56ef051ba45f3b106dce993ef899d~mv2.webp/v1/fill/w_440,h_636,al_c,q_90,enc_avif,quality_auto/alexandre.webp"
           alt="Alexandre Chahoud, autor minimalista e criador do Seja Minimalista" width="440" height="636" loading="lazy" decoding="async">
+        <figcaption class="autor-legenda">
+          <span class="autor-legenda-nome">Alexandre Chahoud</span>
+          <span class="autor-legenda-papel">Autor de Seja Minimalista</span>
+        </figcaption>
       </div>
       <div class="autor-body">
         <p class="sec-p">Em 2014, eu olhei para o meu apartamento e percebi que tinha me tornado refém das coisas que eu acumulava. Roupas que nunca usava, objetos que "poderiam ser úteis um dia", uma vida cheia de barulho. Foi quando decidi mudar. Não de uma vez, mas aos poucos. Uma escolha de cada vez.</p>
@@ -1393,12 +1476,11 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
   <div class="ancora-inner">
     <div class="ancora-price-line">
       <div class="ancora-calc">
-        R$ 0,10 <em style="font-size:14px;font-style:normal;font-family:var(--font-body);color:var(--ink-muted)">por dia</em>
-        <span>365 dias com o guia do lado</span>
+        R$ 0,21 <em style="font-size:14px;font-style:normal;font-family:var(--font-body);color:var(--ink-muted)">por dia</em>
+        <span>no primeiro ano de leitura</span>
       </div>
-      <div class="ancora-sep">·</div>
     </div>
-    <div class="ancora-compare">Menos que um café. Menos que uma música no streaming. <strong>Por menos de R$ 0,10 por dia</strong> você tem o guia prático completo para transformar sua relação com as coisas, o dinheiro e a sua casa. Sem mensalidade. Sem renovação.</div>
+    <div class="ancora-compare">Um pagamento único. Você lê, aplica, guarda e volta quando precisar recomeçar. <strong>Sem mensalidade, sem renovação, sem prazo de acesso.</strong></div>
   </div>
 </div>
 
@@ -1426,8 +1508,8 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <section class="sec alt" id="versoes" style="background:linear-gradient(160deg,#F5F0E8,#EDE4D0 55%,#E3D5B8);">
   <div class="inner">
     <div class="sec-eyebrow" style="justify-content:center;">Escolha sua versão</div>
-    <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 0;">Comece sua jornada minimalista hoje.</h2>
-    <div id="coupon-applied-note" class="coupon-applied-note" role="status" aria-live="polite">✓ Cupom GANHEI10 aplicado: 10% off no carrinho</div>
+    <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 0;">Escolha o formato. O conteúdo é o mesmo.</h2>
+    <div id="coupon-applied-note" class="coupon-applied-note" role="status" aria-live="polite">Cupom GANHEI10 copiado. Cole no carrinho para 10% de desconto.</div>
     <div class="precos">
       <div class="pc" id="versao-digital">
         <div class="dest-badge muted"><span>💰 Mais acessível</span></div>
@@ -1599,6 +1681,24 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 </div>
 
 <script>
+function copiarCupom(e){
+  if(e) e.stopPropagation();
+  var codigo = 'GANHEI10';
+  var sub = document.getElementById('cupom-sub-text');
+  function feedback(ok){
+    if(!sub) return;
+    var original = 'Toque para copiar · 10% OFF no carrinho';
+    sub.textContent = ok ? '✓ Copiado. Cole no carrinho.' : 'Anote: GANHEI10';
+    setTimeout(function(){ sub.textContent = original; }, 2600);
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(codigo).then(function(){feedback(true);}).catch(function(){feedback(false);});
+  } else {
+    /* navegadores sem acesso à área de transferência: mostra o código para a pessoa anotar */
+    feedback(false);
+  }
+}
+
 function irParaVersoes(e, fromCoupon){
   if(e) e.preventDefault();
   /* No mobile, o CTA deve pousar no card do Livro Físico.
@@ -2098,14 +2198,14 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
 /* RODAPÉ — largura adaptável ao navegador, como a HERO */
 @media (min-width:721px){.footer > .inner{width:min(calc(100vw - 80px),1320px);max-width:1320px;margin-left:auto;margin-right:auto;}}
 </style>
-<div id="cupom-tooltip" role="button" tabindex="0" aria-label="Cupom GANHEI10, 10% off no carrinho. Ativar cupom" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="irParaVersoes(event,true);document.getElementById('cupom-tooltip').style.display='none'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irParaVersoes(event,true);document.getElementById('cupom-tooltip').style.display='none';}">
+<div id="cupom-tooltip" role="button" tabindex="0" aria-label="Copiar cupom GANHEI10, 10% off no carrinho" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="copiarCupom(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copiarCupom(event);}">
   <div class="cupom-box">
     <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
     <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
     <div class="cupom-label">🎁 Cupom exclusivo</div>
     <div class="cupom-code-box">
-      <div class="cupom-code">GANHEI10</div>
-      <div class="cupom-sub">10% OFF no carrinho</div>
+      <div class="cupom-code" id="cupom-code-text">GANHEI10</div>
+      <div class="cupom-sub" id="cupom-sub-text">Toque para copiar · 10% OFF no carrinho</div>
     </div>
   </div>
 </div>
