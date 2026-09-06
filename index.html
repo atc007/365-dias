@@ -151,13 +151,21 @@ object-fit:contain;
 .eyebrow{font-size:var(--eyebrow);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-text);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0;}
 .hero-h1{font-family:var(--font-display);font-size:var(--h1);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:20px;letter-spacing:-.01em;}
-.hero-sub{font-size:18px;color:var(--ink-soft);line-height:1.75;margin-bottom:32px;}
+.hero-sub{font-size:18px;color:var(--ink-soft);line-height:1.75;margin-bottom:20px;}
+.hero-proof{
+  font-size:14.5px;font-weight:600;color:var(--gold-text);
+  margin-bottom:28px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;
+}
 .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;justify-content:center;}
 .badge{background:#fff;border:.5px solid var(--border);border-radius:5px;padding:7px 13px;font-size:13px;font-weight:500;color:var(--ink);}
 .badge-link{text-decoration:none;cursor:pointer;transition:border-color .2s,background .2s;display:inline-flex;align-items:center;}
 .badge-link:hover{border-color:var(--gold);background:rgba(201,169,110,.07);}
-.hero-note{font-size:13px;color:#4F4B46;margin-top:14px;display:flex;align-items:center;gap:6px;}
-.hero-note::before{content:"🔒";font-size:11px;}
+.hero-note{font-size:13px;color:#4F4B46;margin-top:14px;display:flex;align-items:flex-start;gap:6px;line-height:1.55;}
+.precos-pagamento{
+  text-align:center;font-size:13px;color:var(--ink-muted);
+  max-width:640px;margin:28px auto 0;line-height:1.6;
+}
+.hero-note::before{content:"🔒";font-size:11px;line-height:1.85;flex-shrink:0;}
 .hero-note-wrap{align-items:flex-start;}
 .hero-note-wrap::before{margin-top:1px;}
 
@@ -273,6 +281,28 @@ object-fit:contain;
   color:var(--ink);line-height:1.55;transition:color .3s ease;
 }
 .qual-card:hover .qual-text{color:var(--gold-text);}
+.qual-nao{
+  margin-top:32px;padding:22px 26px;
+  background:rgba(0,0,0,.025);border-radius:14px;
+  border:.5px solid var(--border);
+}
+.qual-nao-title{
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-muted);margin-bottom:14px;
+}
+.qual-nao-item{
+  font-size:15px;color:var(--ink-soft);line-height:1.55;
+  display:flex;align-items:flex-start;gap:11px;margin-bottom:10px;
+}
+.qual-nao-item:last-child{margin-bottom:0;}
+.qual-nao-item::before{
+  content:'✕';flex-shrink:0;
+  width:19px;height:19px;border-radius:6px;margin-top:1px;
+  background:rgba(190,90,80,.09);color:#B4564C;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;
+}
+@media(max-width:720px){.qual-nao{padding:18px 20px;}}
 
 /* ══ CARROSSEL ══ */
 /* PREVIEW GRID — texto + pullquote abaixo do carrossel (desktop) */
@@ -358,7 +388,11 @@ object-fit:contain;
 .img-box img{width:100%;height:auto;display:block;}
 
 /* ══ MÍDIA ══ */
-.media-badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 28px;}
+.media-label{
+  font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-muted);margin-top:22px;
+}
+.media-badges{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 28px;}
 .mbadge{background:var(--ink);color:var(--cream-dark);font-size:11px;font-weight:500;padding:5px 12px;border-radius:4px;}
 
 /* ══ DEPOIMENTOS ══ */
@@ -715,33 +749,7 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   .oq-copy > div[style*="margin-top:24px"]{order:6;margin-top:8px!important;}
   .qual-content{max-width:none;}
   .content-preview{margin:24px 0 30px;}
-  .content-preview .car-wrap{
-    max-width:none!important;
-    width:auto;
-    margin-left:calc(50% - 50vw);
-    margin-right:calc(50% - 50vw);
-    border-radius:0;
-    border-left:none;
-    border-right:none;
-    border-top:none;
-    border-bottom:none;
-  }
-  .content-preview .car-slide{
-    min-height:0!important;
-    height:0!important;
-    padding-top:64.93%!important;
-    aspect-ratio:auto!important;
-    width:100%;
-    position:relative;
-    overflow:hidden;
-  }
-  .content-preview .car-slide img{
-    position:absolute!important;
-    top:0;left:0;
-    width:100%!important;
-    height:100%!important;
-    object-fit:cover!important;
-  }
+  .content-preview .car-slide{min-height:0;}
   .grid2{grid-template-columns:1fr;gap:28px;}
   .autor-grid{grid-template-columns:1fr;grid-template-areas:"head" "img" "body";gap:20px;}
   .preview-grid{grid-template-columns:1fr;gap:20px;}
@@ -999,12 +1007,12 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         </div>
       </div>
       <div>
-        <div class="eyebrow">Best-Seller de Alexandre Chahoud</div>
-        <h1 class="hero-h1"><span class="hero-gold">Seja Minimalista</span>: o guia prático para destralhar sua casa, organizar sua mente e consertar <span class="hero-gold">sua relação com <span class="rotate-word-wrap"><span id="rotate-word" class="rotate-word">o dinheiro.</span></span></span></h1>
-        <p class="hero-sub">Com exercícios, checklists e orientações simples para você aplicar desde a primeira página, sem radicalismos e no seu ritmo.</p>
-        <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero o guia prático agora</a>
-        <div class="hero-note">Compra segura · Garantia incondicional de 7 dias</div>
-        <div class="hero-note hero-note-wrap">Pagamento processado pela Eduzz, plataforma usada por mais de 1 milhão de compradores no Brasil · Cartão, Pix ou boleto</div>
+        <div class="eyebrow">Seja Minimalista · Best-Seller de Alexandre Chahoud</div>
+        <h1 class="hero-h1">O problema não é falta de organização. <span class="hero-gold">É excesso de <span class="rotate-word-wrap"><span id="rotate-word" class="rotate-word">coisas.</span></span></span></h1>
+        <p class="hero-sub">Exercícios e checklists prontos, para você aplicar desde o primeiro capítulo. Sem radicalismo, sem jogar nada fora por impulso.</p>
+        <div class="hero-proof">⭐ 4,9 · mais de 25 mil leitores em 15 países</div>
+        <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero meu exemplar</a>
+        <div class="hero-note">Compra segura pela Eduzz · Cartão, Pix ou boleto · Garantia incondicional de 7 dias</div>
       </div>
     </div>
   </div>
@@ -1042,18 +1050,18 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
   <div class="inner">
     <div class="oq-grid">
       <div class="oq-copy">
-        <div class="sec-eyebrow">O que você vai encontrar</div>
-        <h2 class="sec-h2">Não é teoria: é exercício, checklist e prática, capítulo por capítulo.</h2>
-        <p class="sec-p">Seja Minimalista não é um livro de teoria. É um guia prático com exercícios, checklists e orientações divididos por categorias, para você aprender, aplicar e consultar sempre que precisar.</p>
-        <div class="pullquote">“Não é sobre radicalismo. É sobre destralhar aos poucos, sem culpa, no seu ritmo.”</div>
+        <div class="sec-eyebrow">Por dentro do livro</div>
+        <h2 class="sec-h2">Veja o miolo antes de decidir.</h2>
+        <p class="sec-p">São mais de 150 páginas separadas por área da vida: mente, casa, armário, celular, alimentação e dinheiro. Cada uma com exercício e checklist.</p>
+        <div class="pullquote">“Destralhar aos poucos, sem culpa, no seu ritmo.”</div>
         <div style="margin-top:24px;">
-          <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Quero meu exemplar agora</a>
+          <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Quero meu exemplar</a>
         </div>
       </div>
 
       <!-- VÍDEO DO LIVRO -->
       <div class="oq-video-wrap">
-        <p class="oq-video-label">Veja como é o livro por dentro</p>
+        <p class="oq-video-label">Toque para assistir</p>
         <div class="oq-video">
           <video id="oq-video"
             src="https://video.wixstatic.com/video/940f31_f4dfd1313d7a4db088f8d64c25046bda/720p/mp4/file.mp4"
@@ -1073,13 +1081,13 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <div class="agit-eyebrow">Antes de continuar</div>
     <h2 class="agit-h2">Você reconhece algum desses <em>sentimentos</em>?</h2>
     <div class="agit-lista">
-      <div class="agit-item"><span class="agit-icon-badge">🌀</span><div class="agit-text">Você chega em casa e em vez de descansar, sente um desconforto difuso. <strong>A bagunça incomoda, mas parece impossível resolver.</strong> Você não sabe por onde começar.</div></div>
-      <div class="agit-item"><span class="agit-icon-badge">🛍️</span><div class="agit-text">Você olha o extrato do cartão e <strong>não reconhece metade das compras</strong>. Comprou por impulso, guardou sem usar, e agora tem coisas demais numa vida que não cabe mais em você.</div></div>
-      <div class="agit-item"><span class="agit-icon-badge">📱</span><div class="agit-text">Você passa horas no celular sem perceber. <strong>Notificações, redes sociais, e-mails.</strong> A sensação de que sua atenção pertence a todo mundo, menos a você.</div></div>
-      <div class="agit-item"><span class="agit-icon-badge">💭</span><div class="agit-text">Sua cabeça nunca para. <strong>Pensamentos, tarefas, preocupações.</strong> Mesmo em momentos de descanso, algo parece sempre pendente e urgente.</div></div>
+      <div class="agit-item"><span class="agit-icon-badge">🌀</span><div class="agit-text">Você chega em casa e, em vez de descansar, sente um incômodo. <strong>A bagunça pesa, mas você não sabe por onde começar.</strong></div></div>
+      <div class="agit-item"><span class="agit-icon-badge">🛍️</span><div class="agit-text">Você olha o extrato e <strong>não reconhece metade das compras</strong>. Comprou por impulso, guardou sem usar.</div></div>
+      <div class="agit-item"><span class="agit-icon-badge">📱</span><div class="agit-text">Você passa horas no celular sem perceber. <strong>Sua atenção parece pertencer a todo mundo, menos a você.</strong></div></div>
+      <div class="agit-item"><span class="agit-icon-badge">💭</span><div class="agit-text">Sua cabeça não para. <strong>Mesmo descansando, algo parece sempre pendente.</strong></div></div>
     </div>
-    <p class="agit-virada">Você não é desorganizada. Você só tem coisas demais. E existe um jeito simples de resolver isso.</p>
-    <div style="margin-top:32px;"><a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero esse jeito simples</a></div>
+    <p class="agit-virada">Você já tentou arrumar. O que falta é tirar.</p>
+    <div style="margin-top:32px;"><a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero meu exemplar</a></div>
   </div>
 </section>
 
@@ -1087,7 +1095,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <section class="sec">
   <div class="inner">
     <div class="sec-eyebrow" style="justify-content:center;">Conteúdo do livro</div>
-    <h2 class="sec-h2" style="text-align:center;max-width:560px;margin:10px auto 20px;">7 capítulos para transformar cada área da sua vida.</h2>
+    <h2 class="sec-h2" style="text-align:center;max-width:560px;margin:10px auto 20px;">7 capítulos, uma área da sua vida por vez.</h2>
     <!-- CARROSSEL — acima dos cards -->
     <div class="content-preview">
     <div class="car-wrap" style="max-width:100%;margin-bottom:32px;">
@@ -1130,21 +1138,20 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <button class="cdot" onclick="slideTo(5)" aria-label="Ir para imagem 6 do carrossel"></button>
         <button class="cdot" onclick="slideTo(6)" aria-label="Ir para imagem 7 do carrossel"></button>
       </div>
-      <div class="car-cap">Mais de <strong>150 páginas</strong> com exercícios, checklists e orientações práticas divididos por categorias.</div>
-      <div class="car-zoom-hint">🔍 Clique na imagem para ampliar</div>
+      <div class="car-cap">Fotos das páginas reais do livro · Clique para ampliar</div>
     </div>    </div>
 
     <div class="cap-grid">
-      <div class="cap-card"><div class="cap-icon-badge">🧠</div><div><div class="cap-title">Clareza mental</div><div class="cap-desc">Pratique o autoconhecimento e descubra seu propósito de vida com mais clareza e menos ruído.</div></div></div>
-      <div class="cap-card"><div class="cap-icon-badge">🏠</div><div><div class="cap-title">Sua casa respirando</div><div class="cap-desc">Retire a tralha de casa e facilite a organização do seu lar sem complicar.</div></div></div>
-      <div class="cap-card"><div class="cap-icon-badge">👗</div><div><div class="cap-title">Guarda-roupa que funciona</div><div class="cap-desc">Descubra seu estilo e monte um guarda-roupa que você realmente usa.</div></div></div>
-      <div class="cap-card"><div class="cap-icon-badge">🔓</div><div><div class="cap-title">Desapego sem culpa</div><div class="cap-desc">Aprenda a se desapegar do que não faz mais sentido, sem culpa e sem drama.</div></div></div>
-      <div class="cap-card"><div class="cap-icon-badge">📱</div><div><div class="cap-title">Menos tela, mais vida</div><div class="cap-desc">Organize e destralhe seu telefone, seus apps e seu uso nas redes sociais.</div></div></div>
-      <div class="cap-card"><div class="cap-icon-badge">🥗</div><div><div class="cap-title">Refeições mais simples</div><div class="cap-desc">Organize melhor suas refeições, reduza o desperdício e simplifique as idas ao supermercado.</div></div></div>
-      <div class="cap-card"><div class="cap-icon-badge">💰</div><div><div class="cap-title">Consumo com consciência</div><div class="cap-desc">Aprenda a organizar suas finanças pessoais e a consumir com consciência e sem culpa.</div></div></div>
+      <div class="cap-card"><div class="cap-icon-badge">🧠</div><div><div class="cap-title">Menos ruído na cabeça</div><div class="cap-desc">Menos coisas para carregar mentalmente ao longo do dia.</div></div></div>
+      <div class="cap-card"><div class="cap-icon-badge">🏠</div><div><div class="cap-title">Uma casa que respira</div><div class="cap-desc">Tire a tralha primeiro. A organização vem depois, e sozinha.</div></div></div>
+      <div class="cap-card"><div class="cap-icon-badge">👗</div><div><div class="cap-title">Um armário que você usa inteiro</div><div class="cap-desc">Menos peças penduradas, e quase todas entrando no rodízio.</div></div></div>
+      <div class="cap-card"><div class="cap-icon-badge">🔓</div><div><div class="cap-title">Deixar ir sem culpa</div><div class="cap-desc">O que fazer com aquilo que você guarda só por culpa.</div></div></div>
+      <div class="cap-card"><div class="cap-icon-badge">📱</div><div><div class="cap-title">Recupere sua atenção</div><div class="cap-desc">Destralhe o celular: apps, notificações e o tempo que some.</div></div></div>
+      <div class="cap-card"><div class="cap-icon-badge">🥗</div><div><div class="cap-title">Menos decisão na hora da comida</div><div class="cap-desc">Rotina alimentar mais simples e menos desperdício na geladeira.</div></div></div>
+      <div class="cap-card"><div class="cap-icon-badge">💰</div><div><div class="cap-title">Pare de comprar no automático</div><div class="cap-desc">Como o consumo por impulso aparece na conta no fim do mês.</div></div></div>
     </div>
     <div style="text-align:center;margin-top:36px;">
-      <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero começar minha jornada</a>
+      <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero meu exemplar</a>
     </div>
   </div>
 </section>
@@ -1154,15 +1161,21 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
   <div class="inner">
     <div class="qual-content">
       <div class="sec-eyebrow">Para quem é este livro</div>
-      <h2 class="sec-h2">Para quem quer uma vida mais leve e não sabe por onde começar.</h2>
+      <h2 class="sec-h2">Este livro é para você?</h2>
       <div class="qual-cards">
-        <div class="qual-card"><div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><div class="qual-text">Para quem sente que acumulou objetos, compromissos e preocupações demais, e quer recuperar o controle da própria vida.</div></div>
-        <div class="qual-card"><div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><div class="qual-text">Para quem chega em casa e se sente estressada com a bagunça, mas não sabe por onde começar a organização.</div></div>
-        <div class="qual-card"><div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><div class="qual-text">Para quem compra por impulso e depois sente culpa, e quer mudar definitivamente essa relação com o consumo.</div></div>
-        <div class="qual-card"><div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><div class="qual-text">Para quem quer viver com mais propósito, mais liberdade e mais felicidade, sem abrir mão do que realmente importa.</div></div>
+        <div class="qual-card"><div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><div class="qual-text">Você já tentou organizar, e algumas semanas depois a bagunça voltou.</div></div>
+        <div class="qual-card"><div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><div class="qual-text">Você quer começar aos poucos, sem esvaziar a casa num fim de semana.</div></div>
+        <div class="qual-card"><div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><div class="qual-text">Você prefere um passo a passo a um livro de reflexão.</div></div>
+        <div class="qual-card"><div class="qual-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><div class="qual-text">Você quer fazer sozinho, no seu tempo, sem curso nem grupo.</div></div>
+      </div>
+      <div class="qual-nao">
+        <div class="qual-nao-title">Não é para você se:</div>
+        <div class="qual-nao-item">Você procura minimalismo radical, de morar com 30 objetos.</div>
+        <div class="qual-nao-item">Você quer resultado sem fazer os exercícios.</div>
+        <div class="qual-nao-item">Você já vive com pouco e busca teoria sobre o assunto.</div>
       </div>
       <div style="margin-top:32px;">
-        <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Esse sou eu: garanta com bônus inclusos</a>
+        <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Esse sou eu, quero meu exemplar</a>
       </div>
     </div>
   </div>
@@ -1171,14 +1184,14 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <!-- DIFERENCIAL -->
 <section class="diferencial">
   <div class="inner">
-    <div class="sec-eyebrow" style="justify-content:center;">Por que este guia é diferente</div>
-    <h2 class="sec-h2" style="text-align:center;max-width:560px;margin:10px auto 0;">Não é um livro de inspiração. É um guia de ação.</h2>
+    <div class="sec-eyebrow" style="justify-content:center;">Por que desta vez é diferente</div>
+    <h2 class="sec-h2" style="text-align:center;max-width:560px;margin:10px auto 0;">Feito para você não parar na segunda semana.</h2>
     <div class="dif-grid">
-      <div class="dif-card"><div class="dif-icon">01 · Prática</div><div class="dif-title">Exercícios práticos</div><div class="dif-desc">Cada capítulo tem atividades para você fazer agora, não apenas ler e esquecer depois.</div></div>
-      <div class="dif-card"><div class="dif-icon">02 · Aplicação</div><div class="dif-title">Checklists prontos</div><div class="dif-desc">Listas de verificação para aplicar em casa, no guarda-roupa, nas finanças e no celular.</div></div>
-      <div class="dif-card"><div class="dif-icon">03 · Permanência</div><div class="dif-title">Para consultar sempre</div><div class="dif-desc">Não tem prazo. Você lê, aplica, guarda e volta quando precisar recomeçar.</div></div>
+      <div class="dif-card"><div class="dif-icon">01 · Ordem</div><div class="dif-title">O que fazer primeiro</div><div class="dif-desc">Cada capítulo abre onde o anterior parou. Você não perde tempo decidindo por onde começar.</div></div>
+      <div class="dif-card"><div class="dif-icon">02 · Ritmo</div><div class="dif-title">Sem maratona de fim de semana</div><div class="dif-desc">Um capítulo por vez. Dá pra parar por semanas e retomar sem perder o fio.</div></div>
+      <div class="dif-card"><div class="dif-icon">03 · Permanência</div><div class="dif-title">Fica com você</div><div class="dif-desc">Comprou, é seu. Sem prazo de acesso, sem plataforma, sem mensalidade.</div></div>
     </div>
-    <div style="text-align:center;margin-top:36px;"><a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero meu exemplar com bônus inclusos</a></div>
+    <div style="text-align:center;margin-top:36px;"><a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero meu exemplar</a></div>
   </div>
 </section>
 
@@ -1188,7 +1201,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <div class="autor-grid">
       <div class="autor-head">
         <div class="sec-eyebrow">Sobre o autor</div>
-        <h2 class="sec-h2">Alexandre Chahoud: o autor minimalista que ensina pelo exemplo.</h2>
+        <h2 class="sec-h2">Eu não nasci minimalista.</h2>
       </div>
       <div class="img-box autor-img">
         <img src="https://static.wixstatic.com/media/940f31_49f56ef051ba45f3b106dce993ef899d~mv2.webp/v1/fill/w_440,h_636,al_c,q_90,enc_avif,quality_auto/alexandre.webp"
@@ -1196,9 +1209,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       </div>
       <div class="autor-body">
         <p class="sec-p">Em 2014, eu olhei para o meu apartamento e percebi que tinha me tornado refém das coisas que eu acumulava. Roupas que nunca usava, objetos que "poderiam ser úteis um dia", uma vida cheia de barulho. Foi quando decidi mudar. Não de uma vez, mas aos poucos. Uma escolha de cada vez.</p>
-        <p class="sec-p">Desde então, compartilho com mais de <strong>200 mil pessoas no Instagram</strong> como viver com menos pode trazer mais liberdade e felicidade. Seja Minimalista foi meu primeiro livro, e ainda é o ponto de partida de quem quer começar do jeito certo: com um guia prático, sem jargão, sem extremismos.</p>
+        <p class="sec-p">Desde então, compartilho com mais de <strong>200 mil pessoas no Instagram</strong> o que funcionou comigo. Seja Minimalista foi meu primeiro livro e continua sendo o que eu indico para quem está começando.</p>
+        <div class="media-label">Já falaram sobre o meu trabalho:</div>
         <div class="media-badges"><span class="mbadge">SBT</span><span class="mbadge">UOL</span><span class="mbadge">Vida Simples</span><span class="mbadge">Revista Claudia</span><span class="mbadge">Gama</span><span class="mbadge">Hype</span><span class="mbadge">O Povo</span></div>
-        <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Quero aprender com quem já viveu isso</a>
+        <a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Quero meu exemplar</a>
       </div>
     </div>
   </div>
@@ -1348,16 +1362,14 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <div class="sec-eyebrow">Comprando hoje você recebe de presente</div>
         <h2 class="sec-h2">Acesso à Área VIP + bônus digitais exclusivos</h2>
         <div class="bonus-valor-box">
-          <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 197 em bônus digitais, inclusos sem custo adicional</strong></div>
-          <div class="bonus-valor-right"><span class="was">R$ 197,00</span><span class="gratis">Grátis 🎁</span></div>
+          <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 143 em bônus digitais, inclusos sem custo adicional</strong></div>
+          <div class="bonus-valor-right"><span class="was">R$ 143,00</span><span class="gratis">Grátis 🎁</span></div>
         </div>
         <div class="bonus-list">
           <div class="bonus-item"><div class="bonus-num">1</div><div><div class="bonus-title">Ebook: 50 dicas para implementar o minimalismo em sua vida</div><div class="bonus-val">Valor: R$ 47</div></div></div>
           <div class="bonus-item"><div class="bonus-num">2</div><div><div class="bonus-title">Planner digital permanente pronto para impressão</div><div class="bonus-val">Valor: R$ 27</div></div></div>
-          <div class="bonus-item"><div class="bonus-num">3</div><div><div class="bonus-title">Planejamento de viagens super completo pronto para impressão</div><div class="bonus-val">Valor: R$ 27</div></div></div>
-          <div class="bonus-item"><div class="bonus-num">4</div><div><div class="bonus-title">Ebook: 7 passos para emitir seu passaporte</div><div class="bonus-val">Valor: R$ 27</div></div></div>
-          <div class="bonus-item"><div class="bonus-num">5</div><div><div class="bonus-title">Videoaula: Método dos Envelopes</div><div class="bonus-val">Valor: R$ 47</div></div></div>
-          <div class="bonus-item"><div class="bonus-num">6</div><div><div class="bonus-title">Exercícios extras e técnicas especiais</div><div class="bonus-val">Valor: R$ 22</div></div></div>
+          <div class="bonus-item"><div class="bonus-num">3</div><div><div class="bonus-title">Videoaula: Método dos Envelopes</div><div class="bonus-val">Valor: R$ 47</div></div></div>
+          <div class="bonus-item"><div class="bonus-num">4</div><div><div class="bonus-title">Exercícios extras e técnicas especiais</div><div class="bonus-val">Valor: R$ 22</div></div></div>
         </div>
       </div>
       <div>
@@ -1374,7 +1386,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
   </div>
 </section>
 
-<div class="anchor-strip">Tudo isso, R$ 197 em bônus, inclusos com a sua compra hoje, sem custo adicional.</div>
+<div class="anchor-strip">Os 4 bônus e a Área VIP estão inclusos nas três versões do livro.</div>
 
 <!-- ÂNCORA PREÇO -->
 <div class="ancora-preco">
@@ -1395,7 +1407,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
   <div class="inner">
     <div class="urg-label">Oferta com bônus inclusos</div>
     <h3 class="urg-h3">Os bônus são liberados para quem comprar enquanto esta página estiver ativa.</h3>
-    <p class="urg-p">Quando a oferta encerrar, o livro continua disponível, mas os bônus digitais (R$ 197 no total) podem não ser mais inclusos. Garanta o seu agora com tudo incluso.</p>
+    <p class="urg-p">Quando a oferta encerrar, o livro continua disponível, mas os bônus digitais (R$ 143 no total) podem não ser mais inclusos. Garanta o seu agora com tudo incluso.</p>
     <div class="urg-timer">
       <div class="urg-unit"><span class="urg-digit" id="urg-h">00</span><span class="urg-dlabel">horas</span></div>
       <span class="urg-sep">:</span>
@@ -1403,7 +1415,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       <span class="urg-sep">:</span>
       <div class="urg-unit"><span class="urg-digit" id="urg-s">00</span><span class="urg-dlabel">seg</span></div>
     </div>
-    <div class="urg-bonus-tag">🎁 R$ 197 em bônus inclusos, por tempo limitado</div>
+    <div class="urg-bonus-tag">🎁 R$ 143 em bônus inclusos, por tempo limitado</div>
     <div style="margin-top:16px;">
       <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Garantir meu exemplar com bônus</a>
     </div>
@@ -1485,6 +1497,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
           <div class="pc-urgency-note">⚡ Digital agora + físico em sua casa</div>
         </div>
       </div>
+      <p class="precos-pagamento">🔒 Pagamento processado pela Eduzz, plataforma usada por mais de 1 milhão de compradores no Brasil · Cartão, Pix ou boleto</p>
     </div>
   </div>
 </section>
@@ -1607,7 +1620,7 @@ function irParaVersoes(e, fromCoupon){
 
 /* ══ PALAVRA GIRANDO NO HERO ══ */
 (function(){
-  var words = ['o dinheiro.','as coisas.','o consumo.','o tempo.','a rotina.','o excesso.'];
+  var words = ['coisas.','roupa.','tela.','gasto.','decisão.','barulho.'];
   var el = document.getElementById('rotate-word');
   var wrap = el ? el.closest('.rotate-word-wrap') : null;
   if(!el || !wrap) return;
@@ -1649,7 +1662,7 @@ function irParaVersoes(e, fromCoupon){
       el.textContent = words[i];
       el.classList.remove('is-out');
     }, 350);
-  }, 2200);
+  }, 1600);
 })();
 
 
