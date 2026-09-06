@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR" prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
 <head>
@@ -717,18 +716,32 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   .qual-content{max-width:none;}
   .content-preview{margin:24px 0 30px;}
   .content-preview .car-wrap{
-    max-width:none;
-    width:100vw;
-    position:relative;
-    left:50%;
-    right:50%;
-    margin-left:-50vw;
-    margin-right:-50vw;
+    max-width:none!important;
+    width:auto;
+    margin-left:calc(50% - 50vw);
+    margin-right:calc(50% - 50vw);
     border-radius:0;
     border-left:none;
     border-right:none;
+    border-top:none;
+    border-bottom:none;
   }
-  .content-preview .car-slide{min-height:0!important;width:100%;}
+  .content-preview .car-slide{
+    min-height:0!important;
+    height:0!important;
+    padding-top:64.93%!important;
+    aspect-ratio:auto!important;
+    width:100%;
+    position:relative;
+    overflow:hidden;
+  }
+  .content-preview .car-slide img{
+    position:absolute!important;
+    top:0;left:0;
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+  }
   .grid2{grid-template-columns:1fr;gap:28px;}
   .autor-grid{grid-template-columns:1fr;grid-template-areas:"head" "img" "body";gap:20px;}
   .preview-grid{grid-template-columns:1fr;gap:20px;}
