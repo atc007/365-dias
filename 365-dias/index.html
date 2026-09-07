@@ -1506,7 +1506,8 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
     content:'';position:absolute;right:0;top:10%;bottom:10%;width:1px;
     background:rgba(255,255,255,.1);
   }
-  .stat-num{font-size:21px;}
+  .stat-num{font-size:24px;}
+  .stat-lbl{font-size:14px;}
   .grid2{grid-template-columns:1fr;gap:28px;}
   .preview-grid-78{grid-template-columns:1fr;}
   .preview-media-78{margin-top:0;}
@@ -1763,6 +1764,26 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 
   .ben-card{
     min-height:126px;
+  }
+}
+</style>
+
+
+<style>
+/* Stats maiores somente na versão web */
+@media(min-width:721px){
+  .stats-bar .stat-num{
+    font-size:32px;
+  }
+
+  .stats-bar .stat-lbl{
+    font-size:15px;
+    line-height:1.5;
+  }
+
+  .stats-bar .stat{
+    padding:10px 38px;
+    gap:16px;
   }
 }
 </style>
