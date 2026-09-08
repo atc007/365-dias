@@ -489,7 +489,7 @@ html,body{
   text-align:center;font-size:13px;color:var(--ink-muted);
   max-width:640px;margin:28px auto 0;line-height:1.6;
 }
-.hero-note::before{content:"🔒";font-size:11px;line-height:1.85;flex-shrink:0;}
+.hero-note::before{content:none;}
 .hero-note-wrap{align-items:flex-start;}
 .hero-note-wrap::before{margin-top:1px;}
 
@@ -1465,8 +1465,49 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   .sec-hero .inner{padding:0;max-width:none;}
   .hero-grid{grid-template-columns:1fr;gap:0;}
   .hero-grid > div:not(.hero-img-wrap){padding:22px var(--sec-h) 4px;text-align:center;}
-  .hero-grid .eyebrow{justify-content:center;}
-  .hero-grid .hero-note{justify-content:center;}
+  .hero-grid .eyebrow{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    text-align:center;
+    letter-spacing:.16em;
+    line-height:1.45;
+  }
+  .hero-grid .eyebrow::before{
+    margin:0 auto 2px;
+  }
+  .hero-grid .eyebrow-line1,
+  .hero-grid .eyebrow-line2{
+    display:block;
+    width:100%;
+    text-align:center;
+  }
+  .hero-grid .hero-note{
+    width:100%;
+    max-width:360px;
+    margin-left:auto;
+    margin-right:auto;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    gap:7px;
+  }
+  .hero-note-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 auto;
+    font-size:11px;
+    line-height:1;
+  }
+  .hero-note-text{
+    display:block;
+    text-align:center;
+    line-height:1.55;
+  }
   .hero-grid .hero-proof{justify-content:center;text-align:center;width:100%;}
   .hero-img-wrap{
     order:-1;
@@ -1851,12 +1892,18 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         </div>
       </div>
       <div>
-        <div class="eyebrow">365 Dias Minimalistas · Livro de Alexandre Chahoud</div>
+        <div class="eyebrow">
+          <span class="eyebrow-line1">365 Dias Minimalistas ·</span>
+          <span class="eyebrow-line2">Livro de Alexandre Chahoud</span>
+        </div>
         <h1 class="hero-h1">Você carrega mais do que precisa. <span style="color:var(--gold-text);font-style:italic;"><span class="rotate-word-wrap"><span id="rotate-word" class="rotate-word">Objetos.</span></span></span></h1>
         <p class="hero-sub">Uma frase, uma reflexão e uma tarefa para cada dia do ano. Poucos minutos por dia, no seu ritmo, sem esperar janeiro para começar.</p>
         <div class="hero-proof">⭐ 4,9 · mais de 20 mil leitores em 15 países</div>
         <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero começar meu Dia 1</a>
-        <div class="hero-note">Compra segura pela Eduzz · Cartão, Pix ou boleto · Garantia de 7 dias</div>
+        <div class="hero-note">
+          <span class="hero-note-icon" aria-hidden="true">🔒</span>
+          <span class="hero-note-text">Compra segura pela Eduzz · Cartão, Pix ou boleto · Garantia de 7 dias</span>
+        </div>
       </div>
     </div>
   </div>
