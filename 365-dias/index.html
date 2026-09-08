@@ -1563,6 +1563,24 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   .sec-autor-img-desktop{display:none !important;}
   .sec-autor-img-mobile{display:block;margin:16px 0;}
 
+  /* Cabeçalho da seção Sobre o autor centralizado */
+  .sec-autor-texto{
+    text-align:center;
+  }
+  .sec-autor-texto .sec-eyebrow{
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    width:100%;
+  }
+  .sec-autor-texto .sec-eyebrow::before{
+    flex-shrink:0;
+  }
+  .sec-autor-texto .sec-h2{
+    text-align:center;
+    width:100%;
+  }
+
   /* ── SCROLL INDICATOR — fixo na base da tela ── */
   .scroll-indicator{
     position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
@@ -1606,6 +1624,22 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   .urgency-section{padding:32px var(--sec-h);}
   .urg-digit{font-size:26px;min-width:50px;padding:8px 12px;}
   .urg-h3{font-size:22px;}
+  /* Bônus / Área VIP — cabeçalho centralizado no mobile */
+  #bonus .grid2 > div:first-child{
+    text-align:center;
+  }
+  #bonus .grid2 > div:first-child .sec-eyebrow{
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    width:100%;
+  }
+  #bonus .grid2 > div:first-child .sec-h2{
+    text-align:center;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+  }
   .bonus-valor-box{flex-direction:column;align-items:flex-start;}
   .bonus-valor-right{text-align:left;}
   .whatsapp-float{width:56px;height:56px;right:16px;bottom:16px;}
