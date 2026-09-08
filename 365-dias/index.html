@@ -1487,24 +1487,24 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   }
   .hero-grid .hero-note{
     width:100%;
-    max-width:360px;
+    max-width:none;
     margin-left:auto;
     margin-right:auto;
-    justify-content:center;
-    align-items:center;
+    display:block;
     text-align:center;
-    gap:7px;
+    line-height:1.55;
   }
   .hero-note-icon{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    flex:0 0 auto;
+    display:inline-block;
+    vertical-align:middle;
+    margin-right:5px;
     font-size:11px;
     line-height:1;
+    position:relative;
+    top:-1px;
   }
   .hero-note-text{
-    display:block;
+    display:inline;
     text-align:center;
     line-height:1.55;
   }
