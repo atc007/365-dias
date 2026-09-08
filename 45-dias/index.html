@@ -255,8 +255,8 @@ html,body{
 .stats-bar .inner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:0;}
 .stat{padding:8px 28px;display:flex;align-items:center;gap:14px;}
 .stat:not(:last-child){border-right:.5px solid #3D3D3B;}
-.stat-num{font-family:var(--font-display);font-size:24px;color:var(--gold);line-height:1;}
-.stat-lbl{font-size:12px;color:var(--ink-muted);line-height:1.45;}
+.stat-num{font-family:var(--font-display);font-size:30px;color:var(--gold);line-height:1;}
+.stat-lbl{font-size:14px;color:var(--ink-muted);line-height:1.45;}
 
 /* ══ SEÇÕES ══ */
 .sec{width:100%;padding:var(--sec-v) var(--sec-h);}
@@ -711,7 +711,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
     width:calc(100% + 2 * var(--sec-h));
   }
   .hero-img-wrap img{
-    max-height:320px;
+    max-height:210px;
     width:100%;
     object-fit:cover;
     object-position:center top;
@@ -751,7 +751,8 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   .t-text,.t-card.featured .t-text{font-size:14px;}
   .stats-bar{padding:24px var(--sec-h);}
   .stat{padding:10px 8px;border:none!important;flex-direction:column;align-items:center;text-align:center;gap:6px;width:100%;position:relative;}
-  .stat-num{font-size:22px;}
+  .stat-num{font-size:26px;}
+  .stat-lbl{font-size:13px;}
   .stats-bar .inner{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 8px;justify-items:center;}
   .stats-bar .stat:nth-child(1)::after,
   .stats-bar .stat:nth-child(3)::after{
@@ -764,18 +765,18 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 
   /* ── SCROLL INDICATOR — fixo na base da tela ── */
   .scroll-indicator{
-    display:flex;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+    display:flex;position:fixed;bottom:14px;right:14px;left:auto;transform:none;
     flex-direction:column;align-items:center;gap:3px;
     background:rgba(255,255,255,.9);backdrop-filter:blur(6px);
     border:.5px solid rgba(0,0,0,.08);border-radius:20px;
-    padding:8px 18px 10px;color:var(--ink-muted);z-index:9999;
+    padding:9px;color:var(--ink-muted);z-index:9999;
     cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.08);
     animation:hide-on-scroll linear both;
     animation-timeline:scroll();
     animation-range:0px 120px;
   }
   @keyframes hide-on-scroll{0%{opacity:1;pointer-events:auto;}100%{opacity:0;pointer-events:none;}}
-  .scroll-indicator-text{font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;}
+  .scroll-indicator-text{display:none;}
   .scroll-indicator-arrow{animation:scroll-bounce 1.4s ease-in-out infinite;}
   @keyframes scroll-bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(5px);}}
 }
@@ -909,7 +910,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
         <div class="eyebrow">45 Dias de Destralhe · método de Alexandre Chahoud</div>
         <h1 class="hero-h1">O guia decide por onde começar. <em style="font-style:italic;color:#9A7A30;">Você decide o que fica.</em></h1>
         <p class="hero-sub">São 45 missões, uma por dia. Cada uma com um começo e um fim, sem precisar reservar o fim de semana inteiro.</p>
-        <div class="hero-proof">⭐ Do método de Alexandre Chahoud · 50 mil livros vendidos em 15 países</div>
+        <div class="hero-proof">⭐ Do método de Alexandre Chahoud · autor de 4 livros e mais de 50 mil cópias vendidas em 15 países</div>
         <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero começar pelo Dia 1</a>
         <div class="hero-note">Compra segura · Garantia incondicional de 7 dias</div>
       </div>
