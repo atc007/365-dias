@@ -975,12 +975,33 @@ html,body{
 }
 
 /* ══ BÔNUS ══ */
+
+.bvx{
+  font-size:16px;line-height:1.75;color:rgba(255,255,255,.72);margin:0;
+}
+.bvx-old{
+  position:relative;display:inline-block;
+  color:rgba(255,255,255,.5);font-weight:600;
+}
+.bvx-old::after{
+  content:'';position:absolute;left:-3px;top:54%;height:2px;width:0;
+  background:var(--gold);border-radius:2px;
+  transition:width .55s cubic-bezier(.4,0,.2,1) .45s;
+}
+.bonus-valor-box.in-view .bvx-old::after{width:calc(100% + 6px);}
+.bvx-new{
+  font-family:var(--font-display);font-size:26px;font-weight:700;
+  color:var(--gold);letter-spacing:.01em;
+}
+@media(prefers-reduced-motion:reduce){
+  .bvx-old::after{transition:none;width:calc(100% + 6px);}
+}
+@media(max-width:720px){.bvx{font-size:15px;}.bvx-new{font-size:23px;}}
 .bonus-valor-box{
   background:linear-gradient(160deg,var(--ink),#0F0F0E);
   border:1px solid rgba(201,169,110,.28);
-  border-radius:16px;padding:24px 28px;margin-bottom:24px;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:16px;flex-wrap:wrap;
+  border-radius:16px;padding:26px 28px;margin-bottom:24px;
+  display:block;
   box-shadow:0 16px 36px rgba(0,0,0,.2);
 }
 .bonus-valor-left{font-size:14px;color:var(--ink-muted);line-height:1.6;}
@@ -989,15 +1010,17 @@ html,body{
   font-family:var(--font-display);font-size:13px;
   color:var(--ink-muted);text-align:right;flex-shrink:0;
 }
+.bonus-valor-right .incluso{font-size:12px;display:block;color:rgba(255,255,255,.6);margin-bottom:2px;}
 .bonus-valor-right .was{font-size:13px;text-decoration:line-through;display:block;}
 .bonus-valor-right .gratis{
   font-size:26px;font-weight:700;color:var(--gold-text);display:block;line-height:1;
 }
 .bonus-list{display:flex;flex-direction:column;gap:12px;}
 .bonus-item{
-  background:#fff;border:.5px solid var(--border);
-  border-radius:14px;padding:18px 20px;
-  display:flex;gap:16px;align-items:flex-start;
+  border:1px solid transparent;border-radius:14px;
+  background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#EBD3A2,#C79A5C 40%,rgba(199,154,92,.18)) border-box;
+  box-shadow:0 12px 28px rgba(120,95,50,.12);
+  padding:18px 20px;display:flex;gap:16px;align-items:flex-start;
   transition:transform .25s ease,box-shadow .25s ease;
 }
 .bonus-item:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.08);}
@@ -1028,8 +1051,19 @@ html,body{
 .vip-extra-highlight{
   margin-top:16px;padding-top:16px;
   border-top:1px solid #E3D5B8;
-  font-size:14px;font-weight:600;line-height:1.9;color:var(--ink);
+  display:flex;flex-direction:column;gap:11px;
 }
+.vip-hl-item{
+  display:flex;align-items:center;gap:11px;
+  font-size:14px;font-weight:600;color:var(--ink);line-height:1.4;
+}
+.vip-hl-ico{
+  width:22px;height:22px;border-radius:7px;flex-shrink:0;
+  background:linear-gradient(160deg,var(--gold),#B8925A);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 6px rgba(199,154,92,.35);
+}
+.vip-hl-ico svg{width:13px;height:13px;display:block;}
 
 /* ══ ANCHOR STRIP ══ */
 .anchor-strip{
@@ -2272,11 +2306,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
   <div class="inner">
     <div class="grid2">
       <div>
-        <div class="sec-eyebrow">Comprando hoje você recebe de presente</div>
-        <h2 class="sec-h2">Acesso à Área VIP + 4 bônus digitais exclusivos</h2>
+        <div class="sec-eyebrow">O que vem junto</div>
+        <h2 class="sec-h2">Acesso à Área VIP + 4 bônus digitais</h2>
         <div class="bonus-valor-box">
-          <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 143 em bônus digitais, inclusos sem custo adicional</strong></div>
-          <div class="bonus-valor-right"><span class="was">R$ 143,00</span><span class="gratis">Grátis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg></span></div>
+          <p class="bvx">Os 4 bônus juntos valem <span class="bvx-old">R$ 143</span>.<br>Hoje você paga <strong class="bvx-new">R$ 0,00</strong> por eles.</p>
         </div>
         <div class="bonus-list">
           <div class="bonus-item"><div class="bonus-num">1</div><div><div class="bonus-title">Ebook: 50 dicas para implementar o minimalismo em sua vida</div><div class="bonus-val">Valor: R$ 47</div></div></div>
@@ -2291,13 +2324,13 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <div class="vip-imgs">
           <img src="https://static.wixstatic.com/media/940f31_05fb396bf8cd4739908671d71fba4773~mv2.png/v1/fill/w_1200,h_800,al_c,q_90,enc_avif,quality_auto/area-vip.png" alt="Área VIP" width="1200" height="800" loading="lazy" decoding="async">
         </div>
-        <p style="font-size:13px;color:var(--ink-soft);line-height:1.65;margin-top:14px;">A Área VIP contém conteúdos extras e é atualizada com frequência.</p>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.65;margin-top:14px;">Planners, ebooks e videoaulas já disponíveis na Área VIP.</p>
         <div class="vip-extra">
           <div class="vip-extra-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Conteúdo em expansão</div>
           <h3>O livro tem 365 dias. Sua conta não tem prazo.</h3>
           <p>Na Área VIP entram planners, exercícios, videoaulas e desafios novos ao longo do tempo.</p>
           <p>Você continua tendo acesso depois de virar a última página.</p>
-          <div class="vip-extra-highlight">✔ Acesso vitalício à Área VIP<br>✔ Atualizações sem custo adicional<br>✔ Novos bônus liberados ao longo do tempo</div>
+          <div class="vip-extra-highlight"><div class="vip-hl-item"><span class="vip-hl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span>Acesso vitalício à Área VIP</div><div class="vip-hl-item"><span class="vip-hl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span>Atualizações sem custo adicional</div></div>
         </div>
       </div>
     </div>
@@ -2849,7 +2882,8 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
     '.t-grid .t-card',
     '#versoes .pc',
     '.sec-h2, .sec-eyebrow, .t-headline, .t-eyebrow-dep',
-    '.pullquote'
+    '.pullquote',
+    '.bonus-valor-box'
   ];
   var revealEls = [];
   revealGroups.forEach(function(sel){
