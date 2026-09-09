@@ -404,10 +404,25 @@ html,body{
 }
 .badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;}
 .badge{
-  background:#fff;border:.5px solid var(--border);
-  border-radius:5px;padding:7px 13px;
+  background:#fff;border:.5px solid rgba(199,154,92,.35);
+  border-radius:30px;padding:8px 15px;
   font-size:13px;font-weight:500;color:var(--ink);
+  box-shadow:0 2px 8px rgba(120,95,50,.07);
+  display:inline-flex;align-items:center;gap:7px;
 }
+.badge svg{width:15px;height:15px;flex-shrink:0;color:#A9772F;}
+.pres-tag-emoji svg,.gratis svg,.hero-note-icon svg,.precos-pagamento svg,.dest-badge svg{
+  width:14px;height:14px;flex-shrink:0;display:inline-block;vertical-align:-2px;
+}
+.gratis svg{width:22px;height:22px;vertical-align:-4px;}
+.hero-note-icon svg{width:13px;height:13px;}
+.vip-extra-badge svg,.urg-bonus-tag svg,.pc-urgency-note svg,.dest-badge svg,.cupom-label svg{
+  width:14px;height:14px;flex-shrink:0;vertical-align:-2px;display:inline-block;
+}
+.vip-extra-badge,.urg-bonus-tag,.pc-urgency-note,.cupom-label{
+  display:inline-flex;align-items:center;gap:6px;
+}
+.dest-badge{display:flex;align-items:center;justify-content:center;gap:7px;}
 .badge-link{
   text-decoration:none;cursor:pointer;
   transition:border-color .2s,background .2s,color .2s;
@@ -595,21 +610,18 @@ html,body{
 
 /* ══ BENEFIT CARDS ══ */
 .ben-card{
-  background:#fff;border:.5px solid var(--border);
-  border-radius:14px;padding:20px 20px 22px;
-  position:relative;overflow:hidden;
-  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  border:1px solid transparent;border-radius:14px;
+  background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#EBD3A2,#C79A5C 40%,rgba(199,154,92,.18)) border-box;
+  box-shadow:0 14px 32px rgba(120,95,50,.13);
+  padding:20px 20px 22px;position:relative;
+  transition:transform .25s ease,box-shadow .25s ease;
 }
 .ben-card::before{
   content:'';position:absolute;top:0;left:0;right:0;height:2px;
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
   opacity:0;transition:opacity .25s ease;
 }
-.ben-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 16px 34px rgba(0,0,0,.09);
-  border-color:rgba(201,169,110,.35);
-}
+.ben-card:hover{transform:translateY(-5px);box-shadow:0 22px 46px rgba(120,95,50,.2);}
 .ben-card:hover::before{opacity:1;}
 .ben-num{
   font-family:var(--font-display);font-size:24px;
@@ -622,16 +634,13 @@ html,body{
 /* ══ QUAL CARDS ══ */
 .qual-cards{display:flex;flex-direction:column;gap:12px;margin-top:24px;}
 .qual-card{
-  background:#fff;border:.5px solid var(--border);
-  border-radius:14px;padding:20px 22px;
-  display:flex;gap:16px;align-items:flex-start;
-  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  border:1px solid transparent;border-radius:14px;
+  background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#EBD3A2,#C79A5C 40%,rgba(199,154,92,.18)) border-box;
+  box-shadow:0 14px 32px rgba(120,95,50,.13);
+  padding:20px 22px;display:flex;gap:16px;align-items:flex-start;
+  transition:transform .25s ease,box-shadow .25s ease;
 }
-.qual-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 14px 30px rgba(0,0,0,.08);
-  border-color:rgba(201,169,110,.3);
-}
+.qual-card:hover{transform:translateY(-4px);box-shadow:0 22px 46px rgba(120,95,50,.2);}
 .qual-check{
   width:26px;height:26px;border-radius:50%;
   background:linear-gradient(160deg,var(--gold),#B8925A);
@@ -1034,14 +1043,14 @@ html,body{
   .precos{max-width:1200px;margin-left:auto;margin-right:auto;gap:26px;}
 }
 .pc{
-  background:#fff;
-  border:.5px solid #C0BAB0;
-  border-radius:12px;overflow:hidden;
-  box-shadow:0 4px 20px rgba(0,0,0,.10);
+  border:1px solid transparent;border-radius:18px;
+  background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#EBD3A2,#C79A5C 40%,rgba(199,154,92,.18)) border-box;
+  box-shadow:0 14px 34px rgba(120,95,50,.14);
+  overflow:hidden;
   transition:transform .25s,box-shadow .25s;
 }
 .pc:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.15);}
-.pc.dest{border:2px solid var(--gold);position:relative;box-shadow:0 6px 28px rgba(201,169,110,.25);}
+.pc.dest{border:2px solid transparent;position:relative;border-radius:18px;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#F2DCA8,#C79A5C 32%,#EBD3A2 62%,rgba(199,154,92,.35)) border-box;box-shadow:0 20px 48px rgba(199,154,92,.32),0 3px 10px rgba(120,95,50,.12);}
 .pc-highlight{animation:pc-flash 1.8s ease;}
 @keyframes pc-flash{
   0%{box-shadow:0 0 0 0 rgba(201,169,110,.6),0 4px 20px rgba(0,0,0,.10);}
@@ -1053,7 +1062,7 @@ html,body{
   background:linear-gradient(135deg,#B8935A 0%,var(--gold) 50%,#B8935A 100%);
   color:var(--ink);
   font-weight:700;font-size:13px;text-align:center;
-  padding:10px 16px;border-radius:10px 10px 0 0;letter-spacing:.02em;
+  padding:10px 16px;border-radius:16px 16px 0 0;letter-spacing:.02em;
 }
 .dest-badge::after{
   content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;
@@ -1275,10 +1284,12 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 }
 .agit-icon-badge{
   width:42px;height:42px;border-radius:12px;flex-shrink:0;
-  background:linear-gradient(160deg,rgba(201,169,110,.18),rgba(201,169,110,.06));
-  border:.5px solid rgba(201,169,110,.25);
-  display:flex;align-items:center;justify-content:center;font-size:19px;
+  background:linear-gradient(160deg,rgba(201,169,110,.26),rgba(201,169,110,.10));
+  border:.5px solid rgba(201,169,110,.42);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);
 }
+.agit-icon-badge svg{width:22px;height:22px;display:block;}
 .agit-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
 .agit-text{font-size:16px;color:rgba(255,255,255,.75);line-height:1.65;}
 .agit-text strong{color:var(--cream);font-weight:500;}
@@ -1311,10 +1322,12 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 .dif-title{font-family:var(--font-display);font-size:16px;font-weight:400;color:var(--cream);margin-bottom:12px;display:flex;align-items:center;gap:12px;}
 .dif-icon-badge{
   width:36px;height:36px;border-radius:10px;flex-shrink:0;
-  background:linear-gradient(160deg,rgba(201,169,110,.2),rgba(201,169,110,.07));
-  border:.5px solid rgba(201,169,110,.28);
-  display:flex;align-items:center;justify-content:center;font-size:16px;
+  background:linear-gradient(160deg,rgba(201,169,110,.26),rgba(201,169,110,.10));
+  border:.5px solid rgba(201,169,110,.42);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);
 }
+.dif-icon-badge svg{width:20px;height:20px;display:block;}
 .dif-icon{font-size:17px;line-height:1;flex-shrink:0;}
 .dif-desc{font-size:14px;color:rgba(255,255,255,.68);line-height:1.6;}
 
@@ -1919,23 +1932,20 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
             fetchpriority="high" loading="eager" decoding="sync">
         </picture>
         <div class="badges" style="margin-top:20px;justify-content:center;">
-          <a class="badge badge-link" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;">📖 372 páginas</a>
-          <a class="badge badge-link" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;">📦 Frete grátis</a>
-          <a class="badge badge-link" href="#versao-digital" onclick="document.getElementById('versao-digital').scrollIntoView({behavior:'smooth',block:'center'});return false;">⚡ Digital imediato</a>
-          <a class="badge badge-link" href="#bonus" onclick="document.getElementById('bonus').scrollIntoView({behavior:'smooth',block:'start'});return false;">🎁 Bônus inclusos</a>
+          <a class="badge badge-link" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.6C10.5 5.2 8.6 4.6 5 4.6v12.6c3.6 0 5.5.6 7 2 1.5-1.4 3.4-2 7-2V4.6c-3.6 0-5.5.6-7 2Z"/><path d="M12 6.6v13.6"/></svg> 372 páginas</a>
+          <a class="badge badge-link" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> Frete grátis</a>
+          <a class="badge badge-link" href="#versao-digital" onclick="document.getElementById('versao-digital').scrollIntoView({behavior:'smooth',block:'center'});return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.2 3 5.8 13h5.3l-.9 8 7.4-10h-5.3l.9-8Z"/></svg> Digital imediato</a>
+          <a class="badge badge-link" href="#bonus" onclick="document.getElementById('bonus').scrollIntoView({behavior:'smooth',block:'start'});return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Bônus inclusos</a>
         </div>
       </div>
       <div>
-        <div class="eyebrow">
-          <span class="eyebrow-line1">365 Dias Minimalistas ·</span>
-          <span class="eyebrow-line2">Livro de Alexandre Chahoud</span>
-        </div>
+        <div class="eyebrow"><span>365 Dias Minimalistas · Livro de Alexandre Chahoud</span></div>
         <h1 class="hero-h1">Você carrega mais do que precisa. <span style="color:var(--gold-text);font-style:italic;"><span class="rotate-word-wrap"><span id="rotate-word" class="rotate-word">Objetos.</span></span></span></h1>
         <p class="hero-sub">Uma frase, uma reflexão e uma tarefa para cada dia do ano. Poucos minutos por dia, no seu ritmo, sem esperar janeiro para começar.</p>
         <div class="hero-proof">⭐ 4,9 · mais de 20 mil leitores em 15 países</div>
         <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero começar meu Dia 1</a>
         <div class="hero-note">
-          <span class="hero-note-icon" aria-hidden="true">🔒</span>
+          <span class="hero-note-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="15" r="1.2"/></svg></span>
           <span class="hero-note-text">Compra segura pela Eduzz · Cartão, Pix ou boleto · Garantia de 7 dias</span>
         </div>
       </div>
@@ -2011,19 +2021,19 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <h2 class="agit-h2">Você reconhece algum desses <em>sentimentos</em>?</h2>
     <div class="agit-lista">
       <div class="agit-item">
-        <span class="agit-icon-badge">🌀</span>
+        <span class="agit-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v4.5h-4.5"/><path d="M12 8v4.2l2.8 1.6"/></svg></span>
         <div class="agit-text">Você chega ao fim do dia esgotado. Sem conseguir dizer o que fez de verdade. <strong>A vida passa no automático</strong> e a sensação é de que você está sempre correndo para lugar nenhum.</div>
       </div>
       <div class="agit-item">
-        <span class="agit-icon-badge">🛍️</span>
+        <span class="agit-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8h13l-1 12H6.5l-1-12Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span>
         <div class="agit-text">Você olha o extrato do cartão e <strong>não reconhece metade das compras</strong>. Comprou por impulso, guardou sem usar.</div>
       </div>
       <div class="agit-item">
-        <span class="agit-icon-badge">📋</span>
+        <span class="agit-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="4" width="13" height="16.5" rx="2"/><path d="M9 3h6v2.4H9z"/><path d="M9 10h6M9 13.5h6M9 17h3.5"/></svg></span>
         <div class="agit-text">Você já tentou organizar a vida: listas, aplicativos, desafios de 21 dias. <strong>Funcionou por uma semana</strong>. Depois voltou tudo ao normal.</div>
       </div>
       <div class="agit-item">
-        <span class="agit-icon-badge">💭</span>
+        <span class="agit-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 15.5A4.5 4.5 0 0 1 8.6 6.6a4 4 0 0 1 7.2-.4 4 4 0 0 1 .7 7.9"/><path d="M8 15.5h8.5"/><circle cx="7" cy="19" r="1.3"/><circle cx="11" cy="20" r="1"/></svg></span>
         <div class="agit-text">Sua cabeça nunca para. <strong>Pensamentos, tarefas, preocupações.</strong> A sensação de que tem sempre algo pendente, mesmo quando você está tentando descansar.</div>
       </div>
     </div>
@@ -2103,15 +2113,15 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <h2 class="sec-h2" style="text-align:center;max-width:560px;margin:10px auto 0;">Mais parece um ritual do que um livro.</h2>
     <div class="dif-grid">
       <div class="dif-card">
-        <div class="dif-title"><span class="dif-icon-badge">📖</span>Uma página por dia</div>
+        <div class="dif-title"><span class="dif-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.6C10.5 5.2 8.6 4.6 5 4.6v12.6c3.6 0 5.5.6 7 2 1.5-1.4 3.4-2 7-2V4.6c-3.6 0-5.5.6-7 2Z"/><path d="M12 6.6v13.6"/></svg></span>Uma página por dia</div>
         <div class="dif-desc">Não exige bloco de tempo nem capítulos longos. Poucos minutos pela manhã e o dia já começa diferente.</div>
       </div>
       <div class="dif-card">
-        <div class="dif-title"><span class="dif-icon-badge">🎯</span>Uma tarefa por dia</div>
+        <div class="dif-title"><span class="dif-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.6"/><circle cx="12" cy="12" r=".9" fill="currentColor" stroke="none"/></svg></span>Uma tarefa por dia</div>
         <div class="dif-desc">Cada dia tem uma ação concreta para fazer, não só para ler.</div>
       </div>
       <div class="dif-card">
-        <div class="dif-title"><span class="dif-icon-badge">🔄</span>Falhar faz parte</div>
+        <div class="dif-title"><span class="dif-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12a7.5 7.5 0 1 0 2.4-5.5"/><path d="M4 4.5V9h4.5"/></svg></span>Falhar faz parte</div>
         <div class="dif-desc">Ninguém faz 365 de 365. Quem faz 8 de cada 10 dias chega no mesmo lugar.</div>
       </div>
     </div>
@@ -2133,7 +2143,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
           </svg>
         </div>
         <div class="gift-box-panel">
-          <div class="pres-tag"><span class="pres-tag-emoji">🎁</span> O presente que dura o ano inteiro</div>
+          <div class="pres-tag"><span class="pres-tag-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg></span> O presente que dura o ano inteiro</div>
           <h3 class="pres-h3">Um presente que não acaba no dia em que você entrega.</h3>
           <p class="pres-p">São 365 páginas, uma por dia, sem lição de moral e sem cobrança. Quem recebe abre no ritmo que quiser.</p>
         </div>
@@ -2266,7 +2276,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <h2 class="sec-h2">Acesso à Área VIP + 4 bônus digitais exclusivos</h2>
         <div class="bonus-valor-box">
           <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 143 em bônus digitais, inclusos sem custo adicional</strong></div>
-          <div class="bonus-valor-right"><span class="was">R$ 143,00</span><span class="gratis">Grátis 🎁</span></div>
+          <div class="bonus-valor-right"><span class="was">R$ 143,00</span><span class="gratis">Grátis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg></span></div>
         </div>
         <div class="bonus-list">
           <div class="bonus-item"><div class="bonus-num">1</div><div><div class="bonus-title">Ebook: 50 dicas para implementar o minimalismo em sua vida</div><div class="bonus-val">Valor: R$ 47</div></div></div>
@@ -2283,7 +2293,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         </div>
         <p style="font-size:13px;color:var(--ink-soft);line-height:1.65;margin-top:14px;">A Área VIP contém conteúdos extras e é atualizada com frequência.</p>
         <div class="vip-extra">
-          <div class="vip-extra-badge">🎁 Conteúdo em expansão</div>
+          <div class="vip-extra-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Conteúdo em expansão</div>
           <h3>O livro tem 365 dias. Sua conta não tem prazo.</h3>
           <p>Na Área VIP entram planners, exercícios, videoaulas e desafios novos ao longo do tempo.</p>
           <p>Você continua tendo acesso depois de virar a última página.</p>
@@ -2326,7 +2336,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       <span class="urg-sep">:</span>
       <div class="urg-unit"><span class="urg-digit" id="urg-s">00</span><span class="urg-dlabel">seg</span></div>
     </div>
-    <div class="urg-cta-wrap"><div class="urg-bonus-tag">🎁 R$ 143 em bônus inclusos, por tempo limitado</div>
+    <div class="urg-cta-wrap"><div class="urg-bonus-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> R$ 143 em bônus inclusos, por tempo limitado</div>
 <div><a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Garantir meu exemplar com bônus</a></div>
 <div class="urg-note">Compra segura • Garantia de 7 dias</div>
 </div>
@@ -2340,7 +2350,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 0;">Escolha o formato. O conteúdo é o mesmo.</h2>
     <div class="precos">
       <div class="pc" id="versao-digital">
-        <div class="dest-badge muted"><span>💰 Mais acessível</span></div>
+        <div class="dest-badge muted"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M14.3 9.4c-.4-.7-1.3-1.1-2.3-1.1-1.4 0-2.3.7-2.3 1.7 0 2.4 4.8 1.2 4.8 3.7 0 1.1-1 1.9-2.5 1.9-1.2 0-2.1-.5-2.5-1.2"/><path d="M12 6.8v10.4"/></svg> Mais acessível</span></div>
         <div class="pc-img">
           <img src="https://static.wixstatic.com/media/940f31_f6a9c1e0aae3410690030764c997e29e~mv2.png/v1/crop/x_0,y_257,w_864,h_675/fill/w_720,h_563,al_c,q_90,enc_avif,quality_auto/digital.png" alt="Versão digital" width="720" height="563" loading="lazy" decoding="async">
         </div>
@@ -2358,11 +2368,11 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
             <li class="no">Livro físico</li>
           </ul>
           <a class="pc-btn dark" href="https://chk.eduzz.com/E05X4ZP7WX?pf=1" target="_blank" rel="noopener">Quero Livro Digital + Bônus</a>
-          <div class="pc-urgency-note">⚡ Acesso imediato após o pagamento</div>
+          <div class="pc-urgency-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.2 3 5.8 13h5.3l-.9 8 7.4-10h-5.3l.9-8Z"/></svg> Acesso imediato após o pagamento</div>
         </div>
       </div>
       <div class="pc" id="versao-fisica">
-        <div class="dest-badge muted"><span>🎁 Ideal para presentear</span></div>
+        <div class="dest-badge muted"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Ideal para presentear</span></div>
         <div class="pc-img">
           <img src="https://static.wixstatic.com/media/940f31_d9a83fdab8a640b5bccbca0ea47ae270~mv2.avif/v1/fill/w_630,h_513,al_c,q_90,enc_avif,quality_auto/capa-fisica.avif" alt="Versão física" width="630" height="513" loading="lazy" decoding="async">
         </div>
@@ -2380,11 +2390,11 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
             <li class="no">Livro digital</li>
           </ul>
           <a class="pc-btn dark" href="https://chk.eduzz.com/39ZQYBOB9E?pf=1" target="_blank" rel="noopener">Quero Livro Físico + Bônus</a>
-          <div class="pc-urgency-note">📦 Frete grátis para todo o Brasil</div>
+          <div class="pc-urgency-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> Frete grátis para todo o Brasil</div>
         </div>
       </div>
       <div class="pc dest" id="versao-combo">
-        <div class="dest-badge"><span>🔥 Melhor custo-benefício · 40% OFF</span></div>
+        <div class="dest-badge"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s4.5 3.8 4.5 8.2a4.5 4.5 0 0 1-9 0c0-1.5.7-2.8 1.5-3.7 0 1.3.8 2.2 1.6 2.2 1 0 1.6-.9 1.4-2.4C11.7 5.6 12 3 12 3Z"/><path d="M12 21a5.6 5.6 0 0 0 5.6-5.6"/></svg> Melhor custo-benefício · 40% OFF</span></div>
         <div class="pc-img" style="position:relative;">
           <img src="https://static.wixstatic.com/media/940f31_104feb48e90949d78620d3444814c8f5~mv2.png/v1/crop/x_126,y_307,w_612,h_568/fill/w_612,h_568,al_c,q_90,enc_avif,quality_auto/combo.png" alt="Combo" width="612" height="568" loading="lazy" decoding="async">
         </div>
@@ -2402,11 +2412,11 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
             <li>Frete grátis para todo o Brasil</li>
           </ul>
           <a class="pc-btn gold" href="https://chk.eduzz.com/E0D6XBPD91?pf=1" target="_blank" rel="noopener">Quero Combo + Bônus</a>
-          <div class="pc-urgency-note">⚡ Digital agora + físico em sua casa</div>
+          <div class="pc-urgency-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.2 3 5.8 13h5.3l-.9 8 7.4-10h-5.3l.9-8Z"/></svg> Digital agora + físico em sua casa</div>
         </div>
       </div>
     </div>
-    <p class="precos-pagamento">🔒 Pagamento processado pela Eduzz, plataforma usada por mais de 1 milhão de compradores no Brasil · Cartão, Pix ou boleto</p>
+    <p class="precos-pagamento"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="15" r="1.2"/></svg> Pagamento processado pela Eduzz, plataforma usada por mais de 1 milhão de compradores no Brasil · Cartão, Pix ou boleto</p>
   </div>
 </section>
 
@@ -3090,7 +3100,7 @@ function copiarCupom(e){
   <div class="cupom-box">
     <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
     <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
-    <div class="cupom-label">🎁 Cupom exclusivo</div>
+    <div class="cupom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Cupom exclusivo</div>
     <div class="cupom-code-box">
       <div class="cupom-code" id="cupom-code-text">GANHEI10</div>
       <div class="cupom-sub" id="cupom-sub-text">Toque para copiar · 10% OFF no carrinho</div>
