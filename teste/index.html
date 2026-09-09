@@ -411,12 +411,18 @@ html,body{
   display:inline-flex;align-items:center;gap:7px;
 }
 .badge svg{width:15px;height:15px;flex-shrink:0;color:#A9772F;}
+.pres-tag-emoji svg,.gratis svg,.hero-note-icon svg,.precos-pagamento svg,.dest-badge svg{
+  width:14px;height:14px;flex-shrink:0;display:inline-block;vertical-align:-2px;
+}
+.gratis svg{width:22px;height:22px;vertical-align:-4px;}
+.hero-note-icon svg{width:13px;height:13px;}
 .vip-extra-badge svg,.urg-bonus-tag svg,.pc-urgency-note svg,.dest-badge svg,.cupom-label svg{
   width:14px;height:14px;flex-shrink:0;vertical-align:-2px;display:inline-block;
 }
-.vip-extra-badge,.urg-bonus-tag,.pc-urgency-note,.dest-badge,.cupom-label{
+.vip-extra-badge,.urg-bonus-tag,.pc-urgency-note,.cupom-label{
   display:inline-flex;align-items:center;gap:6px;
 }
+.dest-badge{display:flex;align-items:center;justify-content:center;gap:7px;}
 .badge-link{
   text-decoration:none;cursor:pointer;
   transition:border-color .2s,background .2s,color .2s;
@@ -1037,14 +1043,14 @@ html,body{
   .precos{max-width:1200px;margin-left:auto;margin-right:auto;gap:26px;}
 }
 .pc{
-  background:#fff;
-  border:.5px solid #C0BAB0;
-  border-radius:12px;overflow:hidden;
-  box-shadow:0 4px 20px rgba(0,0,0,.10);
+  border:1px solid transparent;border-radius:18px;
+  background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#EBD3A2,#C79A5C 40%,rgba(199,154,92,.18)) border-box;
+  box-shadow:0 14px 34px rgba(120,95,50,.14);
+  overflow:hidden;
   transition:transform .25s,box-shadow .25s;
 }
 .pc:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.15);}
-.pc.dest{border:2px solid var(--gold);position:relative;box-shadow:0 6px 28px rgba(201,169,110,.25);}
+.pc.dest{border:2px solid transparent;position:relative;border-radius:18px;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#F2DCA8,#C79A5C 32%,#EBD3A2 62%,rgba(199,154,92,.35)) border-box;box-shadow:0 20px 48px rgba(199,154,92,.32),0 3px 10px rgba(120,95,50,.12);}
 .pc-highlight{animation:pc-flash 1.8s ease;}
 @keyframes pc-flash{
   0%{box-shadow:0 0 0 0 rgba(201,169,110,.6),0 4px 20px rgba(0,0,0,.10);}
@@ -1056,7 +1062,7 @@ html,body{
   background:linear-gradient(135deg,#B8935A 0%,var(--gold) 50%,#B8935A 100%);
   color:var(--ink);
   font-weight:700;font-size:13px;text-align:center;
-  padding:10px 16px;border-radius:10px 10px 0 0;letter-spacing:.02em;
+  padding:10px 16px;border-radius:16px 16px 0 0;letter-spacing:.02em;
 }
 .dest-badge::after{
   content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;
@@ -1939,7 +1945,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <div class="hero-proof">⭐ 4,9 · mais de 20 mil leitores em 15 países</div>
         <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero começar meu Dia 1</a>
         <div class="hero-note">
-          <span class="hero-note-icon" aria-hidden="true">🔒</span>
+          <span class="hero-note-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="15" r="1.2"/></svg></span>
           <span class="hero-note-text">Compra segura pela Eduzz · Cartão, Pix ou boleto · Garantia de 7 dias</span>
         </div>
       </div>
@@ -2137,7 +2143,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
           </svg>
         </div>
         <div class="gift-box-panel">
-          <div class="pres-tag"><span class="pres-tag-emoji">🎁</span> O presente que dura o ano inteiro</div>
+          <div class="pres-tag"><span class="pres-tag-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg></span> O presente que dura o ano inteiro</div>
           <h3 class="pres-h3">Um presente que não acaba no dia em que você entrega.</h3>
           <p class="pres-p">São 365 páginas, uma por dia, sem lição de moral e sem cobrança. Quem recebe abre no ritmo que quiser.</p>
         </div>
@@ -2270,7 +2276,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <h2 class="sec-h2">Acesso à Área VIP + 4 bônus digitais exclusivos</h2>
         <div class="bonus-valor-box">
           <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 143 em bônus digitais, inclusos sem custo adicional</strong></div>
-          <div class="bonus-valor-right"><span class="was">R$ 143,00</span><span class="gratis">Grátis 🎁</span></div>
+          <div class="bonus-valor-right"><span class="was">R$ 143,00</span><span class="gratis">Grátis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg></span></div>
         </div>
         <div class="bonus-list">
           <div class="bonus-item"><div class="bonus-num">1</div><div><div class="bonus-title">Ebook: 50 dicas para implementar o minimalismo em sua vida</div><div class="bonus-val">Valor: R$ 47</div></div></div>
@@ -2344,7 +2350,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 0;">Escolha o formato. O conteúdo é o mesmo.</h2>
     <div class="precos">
       <div class="pc" id="versao-digital">
-        <div class="dest-badge muted"><span>💰 Mais acessível</span></div>
+        <div class="dest-badge muted"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M14.3 9.4c-.4-.7-1.3-1.1-2.3-1.1-1.4 0-2.3.7-2.3 1.7 0 2.4 4.8 1.2 4.8 3.7 0 1.1-1 1.9-2.5 1.9-1.2 0-2.1-.5-2.5-1.2"/><path d="M12 6.8v10.4"/></svg> Mais acessível</span></div>
         <div class="pc-img">
           <img src="https://static.wixstatic.com/media/940f31_f6a9c1e0aae3410690030764c997e29e~mv2.png/v1/crop/x_0,y_257,w_864,h_675/fill/w_720,h_563,al_c,q_90,enc_avif,quality_auto/digital.png" alt="Versão digital" width="720" height="563" loading="lazy" decoding="async">
         </div>
@@ -2388,7 +2394,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         </div>
       </div>
       <div class="pc dest" id="versao-combo">
-        <div class="dest-badge"><span>🔥 Melhor custo-benefício · 40% OFF</span></div>
+        <div class="dest-badge"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s4.5 3.8 4.5 8.2a4.5 4.5 0 0 1-9 0c0-1.5.7-2.8 1.5-3.7 0 1.3.8 2.2 1.6 2.2 1 0 1.6-.9 1.4-2.4C11.7 5.6 12 3 12 3Z"/><path d="M12 21a5.6 5.6 0 0 0 5.6-5.6"/></svg> Melhor custo-benefício · 40% OFF</span></div>
         <div class="pc-img" style="position:relative;">
           <img src="https://static.wixstatic.com/media/940f31_104feb48e90949d78620d3444814c8f5~mv2.png/v1/crop/x_126,y_307,w_612,h_568/fill/w_612,h_568,al_c,q_90,enc_avif,quality_auto/combo.png" alt="Combo" width="612" height="568" loading="lazy" decoding="async">
         </div>
@@ -2410,7 +2416,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         </div>
       </div>
     </div>
-    <p class="precos-pagamento">🔒 Pagamento processado pela Eduzz, plataforma usada por mais de 1 milhão de compradores no Brasil · Cartão, Pix ou boleto</p>
+    <p class="precos-pagamento"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="15" r="1.2"/></svg> Pagamento processado pela Eduzz, plataforma usada por mais de 1 milhão de compradores no Brasil · Cartão, Pix ou boleto</p>
   </div>
 </section>
 
