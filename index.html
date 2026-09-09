@@ -231,7 +231,13 @@ object-fit:contain;
   margin-bottom:28px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;
 }
 .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;justify-content:center;}
-.badge{background:#fff;border:.5px solid var(--border);border-radius:5px;padding:7px 13px;font-size:13px;font-weight:500;color:var(--ink);}
+.badge svg{width:15px;height:15px;flex-shrink:0;color:#8A652A;}
+.vip-extra-badge svg,.urg-bonus-tag svg,.pc-urgency-note svg,.dest-badge svg,.cupom-label svg,.precos-pagamento svg{
+  width:14px;height:14px;flex-shrink:0;display:inline-block;vertical-align:-2px;
+}
+.vip-extra-badge,.urg-bonus-tag,.pc-urgency-note,.cupom-label{display:inline-flex;align-items:center;gap:6px;}
+.gratis svg{width:22px;height:22px;vertical-align:-4px;}
+.badge{background:#fff;border:.5px solid rgba(201,169,110,.35);border-radius:30px;padding:8px 15px;font-size:13px;font-weight:500;color:var(--ink);box-shadow:0 2px 8px rgba(120,95,50,.07);display:inline-flex;align-items:center;gap:7px;}
 .badge-link{text-decoration:none;cursor:pointer;transition:border-color .2s,background .2s;display:inline-flex;align-items:center;}
 .badge-link:hover{border-color:var(--gold);background:rgba(201,169,110,.07);}
 .hero-note{font-size:13px;color:#4F4B46;margin-top:14px;display:flex;align-items:flex-start;gap:6px;line-height:1.55;}
@@ -532,11 +538,23 @@ object-fit:contain;
 .t-cta-text{font-family:var(--font-display);font-size:24px;font-weight:400;color:#7a746d;display:block;margin-bottom:24px;}
 
 /* ══ BÔNUS ══ */
+
+.bvx{font-size:16px;line-height:1.75;color:rgba(255,255,255,.72);margin:0;}
+.bvx-old{position:relative;display:inline-block;color:rgba(255,255,255,.5);font-weight:600;}
+.bvx-old::after{
+  content:'';position:absolute;left:-3px;top:54%;height:2px;width:0;
+  background:var(--gold);border-radius:2px;
+  transition:width .55s cubic-bezier(.4,0,.2,1) .45s;
+}
+.bonus-valor-box.in-view .bvx-old::after{width:calc(100% + 6px);}
+.bvx-new{font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--gold);letter-spacing:.01em;}
+@media(prefers-reduced-motion:reduce){.bvx-old::after{transition:none;width:calc(100% + 6px);}}
+@media(max-width:720px){.bvx{font-size:15px;}.bvx-new{font-size:23px;}}
 .bonus-valor-box{
   background:linear-gradient(160deg,var(--ink),#0F0F0E);
   border:1px solid rgba(201,169,110,.28);
   border-radius:16px;padding:24px 28px;margin-bottom:24px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  display:block;
   box-shadow:0 16px 36px rgba(0,0,0,.2);
 }
 .bonus-valor-left{font-size:14px;color:var(--ink-muted);line-height:1.6;}
@@ -545,11 +563,7 @@ object-fit:contain;
 .bonus-valor-right .was{font-size:13px;text-decoration:line-through;display:block;}
 .bonus-valor-right .gratis{font-size:26px;font-weight:700;color:var(--gold-text);display:block;line-height:1;}
 .bonus-list{display:flex;flex-direction:column;gap:12px;}
-.bonus-item{
-  background:#fff;border:.5px solid var(--border);border-radius:14px;
-  padding:18px 20px;display:flex;gap:16px;align-items:flex-start;
-  transition:transform .25s ease,box-shadow .25s ease;
-}
+.bonus-item{border:1px solid transparent;border-radius:14px;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#E8D09A,#C9A96E 40%,rgba(201,169,110,.18)) border-box;box-shadow:0 12px 28px rgba(120,95,50,.12);padding:18px 20px;display:flex;gap:16px;align-items:flex-start;transition:transform .25s ease,box-shadow .25s ease;}
 .bonus-item:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.08);}
 .bonus-num{
   width:34px;height:34px;border-radius:50%;
@@ -565,7 +579,10 @@ object-fit:contain;
 .vip-extra-badge{display:inline-block;background:var(--gold);color:var(--ink);font-size:11px;font-weight:700;padding:4px 14px;border-radius:30px;margin-bottom:14px;}
 .vip-extra h3{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:12px;line-height:1.35;}
 .vip-extra p{font-size:14px;line-height:1.75;color:var(--ink-soft);margin-bottom:10px;}
-.vip-extra-highlight{margin-top:16px;padding-top:16px;border-top:1px solid #E3D5B8;font-size:14px;font-weight:600;line-height:1.9;color:var(--ink);}
+.vip-extra-highlight{margin-top:16px;padding-top:16px;border-top:1px solid #E3D5B8;display:flex;flex-direction:column;gap:11px;}
+.vip-hl-item{display:flex;align-items:center;gap:11px;font-size:14px;font-weight:600;color:var(--ink);line-height:1.4;}
+.vip-hl-ico{width:22px;height:22px;border-radius:7px;flex-shrink:0;background:linear-gradient(160deg,var(--gold),#B8925A);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(201,169,110,.35);}
+.vip-hl-ico svg{width:13px;height:13px;display:block;}
 
 /* ══ ANCHOR STRIP ══ */
 .anchor-strip{background:var(--gold);padding:16px var(--sec-h);text-align:center;font-size:14px;font-weight:600;color:var(--ink);}
@@ -595,22 +612,12 @@ object-fit:contain;
 
 /* ══ PREÇOS — contraste elevado ══ */
 .precos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:28px;}
-.pc{
-  background:#fff;
-  border:.5px solid #C0BAB0;
-  border-radius:12px;overflow:hidden;
-  box-shadow:0 4px 20px rgba(0,0,0,.10);
-  transition:transform .25s,box-shadow .25s;
-}
+.pc{border:1px solid transparent;border-radius:18px;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#E8D09A,#C9A96E 40%,rgba(201,169,110,.18)) border-box;box-shadow:0 14px 34px rgba(120,95,50,.14);overflow:hidden;transition:transform .25s,box-shadow .25s;}
 .pc:hover{
   transform:translateY(-4px);
   box-shadow:0 12px 36px rgba(0,0,0,.15);
 }
-.pc.dest{
-  border:2px solid var(--gold);
-  box-shadow:0 6px 28px rgba(201,169,110,.25);
-  position:relative;
-}
+.pc.dest{border:2px solid transparent;border-radius:18px;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#F2DCA8,#C9A96E 32%,#E8D09A 62%,rgba(201,169,110,.35)) border-box;box-shadow:0 20px 48px rgba(201,169,110,.32),0 3px 10px rgba(120,95,50,.12);position:relative;}
 .pc-highlight{animation:pc-flash 1.8s ease;}
 .coupon-applied-note{display:none;max-width:420px;margin:16px auto 0;text-align:center;font-size:13px;font-weight:600;color:#3D6B3D;background:#E3EFE3;border:1px solid #B8D4B8;border-radius:20px;padding:8px 18px;opacity:0;transform:translateY(-6px);transition:opacity .3s ease,transform .3s ease;pointer-events:none;}
 .coupon-applied-note.show{display:block;opacity:1;transform:translateY(0);}
@@ -619,7 +626,7 @@ object-fit:contain;
   30%{box-shadow:0 0 0 8px rgba(201,169,110,.35),0 4px 20px rgba(0,0,0,.10);}
   100%{box-shadow:0 0 0 0 rgba(201,169,110,0),0 4px 20px rgba(0,0,0,.10);}
 }
-.dest-badge{position:relative;overflow:hidden;background:linear-gradient(135deg,#B8935A 0%,var(--gold) 50%,#B8935A 100%);color:var(--ink);font-weight:700;font-size:13px;text-align:center;padding:10px 16px;border-radius:10px 10px 0 0;letter-spacing:.02em;}
+.dest-badge{position:relative;overflow:hidden;background:linear-gradient(135deg,#B8935A 0%,var(--gold) 50%,#B8935A 100%);color:var(--ink);font-weight:700;font-size:13px;text-align:center;padding:10px 16px;border-radius:16px 16px 0 0;display:flex;align-items:center;justify-content:center;gap:7px;letter-spacing:.02em;}
 .dest-badge::after{content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(120deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.55) 50%,rgba(255,255,255,0) 100%);transform:skewX(-20deg);animation:dest-shine 3.5s ease-in-out infinite;}
 @keyframes dest-shine{0%{left:-75%;}40%{left:130%;}100%{left:130%;}}
 .dest-badge.muted{background:#C7C4BC;color:#5C5A54;font-weight:600;}
@@ -1119,10 +1126,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
           fetchpriority="high" loading="eager" decoding="sync">
         </picture>
         <div class="badges">
-          <a class="badge badge-link" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;">📖 +150 páginas</a>
-          <a class="badge badge-link" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;">📦 Frete grátis</a>
-          <a class="badge badge-link" href="#versao-digital" onclick="document.getElementById('versao-digital').scrollIntoView({behavior:'smooth',block:'center'});return false;">⚡ Digital imediato</a>
-          <a class="badge badge-link" href="#bonus" onclick="document.getElementById('bonus').scrollIntoView({behavior:'smooth',block:'start'});return false;">🎁 Bônus inclusos</a>
+          <a class="badge badge-link" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.6C10.5 5.2 8.6 4.6 5 4.6v12.6c3.6 0 5.5.6 7 2 1.5-1.4 3.4-2 7-2V4.6c-3.6 0-5.5.6-7 2Z"/><path d="M12 6.6v13.6"/></svg> +150 páginas</a>
+          <a class="badge badge-link" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> Frete grátis</a>
+          <a class="badge badge-link" href="#versao-digital" onclick="document.getElementById('versao-digital').scrollIntoView({behavior:'smooth',block:'center'});return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.2 3 5.8 13h5.3l-.9 8 7.4-10h-5.3l.9-8Z"/></svg> Digital imediato</a>
+          <a class="badge badge-link" href="#bonus" onclick="document.getElementById('bonus').scrollIntoView({behavior:'smooth',block:'start'});return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Bônus inclusos</a>
         </div>
       </div>
       <div>
@@ -1484,11 +1491,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
   <div class="inner">
     <div class="grid2">
       <div>
-        <div class="sec-eyebrow">Comprando hoje você recebe de presente</div>
-        <h2 class="sec-h2">Acesso à Área VIP + bônus digitais exclusivos</h2>
+        <div class="sec-eyebrow">O que vem junto</div>
+        <h2 class="sec-h2">Acesso à Área VIP + 4 bônus digitais</h2>
         <div class="bonus-valor-box">
-          <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 143 em bônus digitais, inclusos sem custo adicional</strong></div>
-          <div class="bonus-valor-right"><span class="was">R$ 143,00</span><span class="gratis">Grátis 🎁</span></div>
+          <p class="bvx">Os 4 bônus juntos valem <span class="bvx-old">R$ 143</span>.<br>Hoje você paga <strong class="bvx-new">R$ 0,00</strong> por eles.</p>
         </div>
         <div class="bonus-list">
           <div class="bonus-item"><div class="bonus-num">1</div><div><div class="bonus-title">Ebook: 50 dicas para implementar o minimalismo em sua vida</div><div class="bonus-val">Valor: R$ 47</div></div></div>
@@ -1499,12 +1505,12 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       </div>
       <div>
         <div class="vip-imgs"><img src="https://static.wixstatic.com/media/940f31_05fb396bf8cd4739908671d71fba4773~mv2.png/v1/fill/w_1200,h_800,al_c,q_90,enc_avif,quality_auto/area-vip.png" alt="Área VIP Seja Minimalista" width="1200" height="800" loading="lazy" decoding="async"></div>
-        <p style="font-size:13px;color:var(--ink-soft);line-height:1.65;margin-top:14px;">A Área VIP contém conteúdos extras e é atualizada com frequência.</p>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.65;margin-top:14px;">Planners, ebooks e videoaulas já disponíveis na Área VIP.</p>
         <div class="vip-extra">
-          <div class="vip-extra-badge">🎁 Conteúdo em expansão</div>
+          <div class="vip-extra-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Conteúdo em expansão</div>
           <h3>Os bônus acima são apenas uma parte do que você recebe.</h3>
           <p>Na Área VIP você também acessa materiais extras exclusivos que não estão listados aqui: planners, exercícios, videoaulas e desafios complementares.</p>
-          <div class="vip-extra-highlight">✔ Acesso vitalício à Área VIP<br>✔ Atualizações sem custo adicional<br>✔ Novos bônus liberados ao longo do tempo</div>
+          <div class="vip-extra-highlight"><div class="vip-hl-item"><span class="vip-hl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span>Acesso vitalício à Área VIP</div><div class="vip-hl-item"><span class="vip-hl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span>Atualizações sem custo adicional</div></div>
         </div>
       </div>
     </div>
@@ -1539,7 +1545,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       <span class="urg-sep">:</span>
       <div class="urg-unit"><span class="urg-digit" id="urg-s">00</span><span class="urg-dlabel">seg</span></div>
     </div>
-    <div class="urg-bonus-tag">🎁 R$ 143 em bônus inclusos, por tempo limitado</div>
+    <div class="urg-bonus-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> R$ 143 em bônus inclusos, por tempo limitado</div>
     <div style="margin-top:16px;">
       <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Garantir meu exemplar com bônus</a>
     </div>
@@ -1554,7 +1560,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <div id="coupon-applied-note" class="coupon-applied-note" role="status" aria-live="polite">Cupom GANHEI10 copiado. Cole no carrinho para 10% de desconto.</div>
     <div class="precos">
       <div class="pc" id="versao-digital">
-        <div class="dest-badge muted"><span>💰 Mais acessível</span></div>
+        <div class="dest-badge muted"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M14.3 9.4c-.4-.7-1.3-1.1-2.3-1.1-1.4 0-2.3.7-2.3 1.7 0 2.4 4.8 1.2 4.8 3.7 0 1.1-1 1.9-2.5 1.9-1.2 0-2.1-.5-2.5-1.2"/><path d="M12 6.8v10.4"/></svg> Mais acessível</span></div>
         <div class="pc-img">
           <img src="https://static.wixstatic.com/media/940f31_1d7cb94e5cb44938818f79f4a7333c79~mv2.jpg/v1/crop/x_0,y_4,w_550,h_342/fill/w_550,h_342,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Design%20sem%20nome%20(6).jpg"
             alt="Seja Minimalista versão digital" width="550" height="342" loading="lazy" decoding="async">
@@ -1573,11 +1579,11 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
             <li class="no">Livro físico</li>
           </ul>
           <a class="pc-btn dark" href="https://chk.eduzz.com/909488?pf=1" target="_blank" rel="noopener">Quero Livro Digital + Bônus</a>
-          <div class="pc-urgency-note">⚡ Acesso imediato após o pagamento</div>
+          <div class="pc-urgency-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.2 3 5.8 13h5.3l-.9 8 7.4-10h-5.3l.9-8Z"/></svg> Acesso imediato após o pagamento</div>
         </div>
       </div>
       <div class="pc" id="versao-fisica">
-        <div class="dest-badge muted"><span>🎁 Ideal para presentear</span></div>
+        <div class="dest-badge muted"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Ideal para presentear</span></div>
         <div class="pc-img">
           <img src="https://static.wixstatic.com/media/940f31_48251b9f7e3d4e498e290a45765efed1~mv2.webp/v1/fill/w_756,h_616,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/design-sem-nome-4.webp"
             alt="Seja Minimalista versão física" width="756" height="616" loading="lazy" decoding="async">
@@ -1596,11 +1602,11 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
             <li class="no">Livro digital</li>
           </ul>
           <a class="pc-btn dark" href="https://chk.eduzz.com/1046549?pf=1" target="_blank" rel="noopener">Quero Livro Físico + Bônus</a>
-          <div class="pc-urgency-note">📦 Frete grátis para todo o Brasil</div>
+          <div class="pc-urgency-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> Frete grátis para todo o Brasil</div>
         </div>
       </div>
       <div class="pc dest" id="versao-combo">
-        <div class="dest-badge"><span>🔥 Melhor custo-benefício · 40% OFF</span></div>
+        <div class="dest-badge"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s4.5 3.8 4.5 8.2a4.5 4.5 0 0 1-9 0c0-1.5.7-2.8 1.5-3.7 0 1.3.8 2.2 1.6 2.2 1 0 1.6-.9 1.4-2.4C11.7 5.6 12 3 12 3Z"/><path d="M12 21a5.6 5.6 0 0 0 5.6-5.6"/></svg> Melhor custo-benefício · 40% OFF</span></div>
         <div class="pc-img" style="position:relative;">
           <img src="https://static.wixstatic.com/media/940f31_bfc64a777ef14b77be5f7bd80ffc2a9f~mv2.avif/v1/fill/w_800,h_744,al_c,q_90,enc_avif,quality_auto/combo.avif"
             alt="Seja Minimalista combo digital + físico" width="800" height="744" loading="lazy" decoding="async">
@@ -1618,11 +1624,11 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
             <li>Frete grátis para todo o Brasil</li>
           </ul>
           <a class="pc-btn gold" href="https://chk.eduzz.com/1804864?pf=1" target="_blank" rel="noopener">Quero Combo + Bônus</a>
-          <div class="pc-urgency-note">⚡ Digital agora + físico em sua casa</div>
+          <div class="pc-urgency-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.2 3 5.8 13h5.3l-.9 8 7.4-10h-5.3l.9-8Z"/></svg> Digital agora + físico em sua casa</div>
         </div>
       </div>
     </div>
-    <p class="precos-pagamento">🔒 Pagamento processado pela Eduzz, plataforma usada por mais de 1 milhão de compradores no Brasil · Cartão, Pix ou boleto</p>
+    <p class="precos-pagamento"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="15" r="1.2"/></svg> Pagamento processado pela Eduzz, plataforma usada por mais de 1 milhão de compradores no Brasil · Cartão, Pix ou boleto</p>
   </div>
 </section>
 
@@ -2030,7 +2036,8 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
     '.t-card',
     '.pc',
     '.sec-h2, .sec-eyebrow, .t-headline, .t-eyebrow-dep',
-    '.pullquote'
+    '.pullquote',
+    '.bonus-valor-box'
   ];
   var revealEls = [];
   revealGroups.forEach(function(sel){
@@ -2244,7 +2251,7 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
   <div class="cupom-box">
     <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
     <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
-    <div class="cupom-label">🎁 Cupom exclusivo</div>
+    <div class="cupom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Cupom exclusivo</div>
     <div class="cupom-code-box">
       <div class="cupom-code" id="cupom-code-text">GANHEI10</div>
       <div class="cupom-sub" id="cupom-sub-text">Toque para copiar · 10% OFF no carrinho</div>
