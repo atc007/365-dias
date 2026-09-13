@@ -204,7 +204,18 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .hero-sub{font-size:17px;color:var(--ink-mid);line-height:1.75;margin-bottom:28px;}
 /* ══ HERO BADGES EMBAIXO DA IMAGEM ══ */
 .hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;justify-content:center;}
-.hero-badge{background:rgba(196,136,111,.12);border:.5px solid rgba(196,136,111,.3);border-radius:5px;padding:6px 12px;font-size:12px;font-weight:500;color:var(--rose-dark);}
+.hero-badge svg{width:15px;height:15px;flex-shrink:0;color:var(--rose-text);}
+.agit-problem-icon-badge svg{width:20px;height:20px;}
+.for-icon svg{width:13px;height:13px;display:block;}
+.vip-hl-item{display:flex;align-items:center;gap:11px;font-size:14px;font-weight:600;color:var(--ink);line-height:1.4;}
+.vip-hl-ico{width:22px;height:22px;border-radius:7px;flex-shrink:0;background:linear-gradient(160deg,var(--rose),#A06B54);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(196,136,111,.35);}
+.vip-hl-ico svg{width:13px;height:13px;display:block;}
+.vip-extra-highlight{display:flex;flex-direction:column;gap:11px;}
+.dest-tag svg,.pc-urgency-note svg,.cupom-label svg,.vip-extra-badge svg,.bonus-gratis svg,.precos-pagamento svg{
+  width:14px;height:14px;flex-shrink:0;display:inline-block;vertical-align:-2px;}
+.bonus-gratis svg{width:22px;height:22px;vertical-align:-4px;}
+.pc-urgency-note,.cupom-label,.vip-extra-badge{display:inline-flex;align-items:center;gap:6px;}
+.hero-badge{background:#fff;border:.5px solid rgba(196,136,111,.35);border-radius:30px;padding:8px 15px;font-size:13px;font-weight:500;color:var(--ink);box-shadow:0 2px 8px rgba(120,80,60,.07);display:inline-flex;align-items:center;gap:7px;}
 .hero-note{font-size:12px;color:var(--ink-muted-light);margin-top:14px;display:flex;align-items:center;gap:6px;}
 .hero-note::before{content:"🔒";font-size:11px;}
 
@@ -257,9 +268,8 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .agit-problem:hover{transform:translateX(4px);box-shadow:0 10px 26px rgba(0,0,0,.08);}
 .agit-problem-icon-badge{
   width:38px;height:38px;border-radius:11px;flex-shrink:0;
-  background:linear-gradient(160deg,rgba(196,136,111,.15),rgba(196,136,111,.05));
-  border:.5px solid rgba(196,136,111,.28);
-  display:flex;align-items:center;justify-content:center;font-size:17px;
+  background:var(--ink);border:.5px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;color:var(--rose-light);
 }
 .agit-problem-icon{font-size:18px;flex-shrink:0;}
 .agit-problem-text{font-size:14px;color:var(--ink-mid);line-height:1.6;}
@@ -277,7 +287,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .for-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
 .for-card{background:#fff;border:.5px solid var(--border);border-radius:10px;padding:16px 18px;display:flex;gap:10px;align-items:flex-start;transition:border-color .2s,transform .2s;}
 .for-card:hover{border-color:var(--rose);transform:translateY(-2px);}
-.for-icon{font-size:18px;flex-shrink:0;margin-top:2px;}
+.for-icon{width:22px;height:22px;border-radius:7px;flex-shrink:0;margin-top:1px;background:linear-gradient(160deg,var(--rose),#A06B54);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(196,136,111,.35);}
 .for-text{font-size:14px;color:var(--ink-mid);line-height:1.55;}
 
 /* ══ CAPÍTULOS ══ */
@@ -416,10 +426,10 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 @media(min-width:1000px){
   .precos{max-width:1200px!important;gap:28px;}
 }
-.pc{background:#fff;border:.5px solid #C0B8B0;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(44,36,32,.08);transition:transform .25s,box-shadow .25s;}
+.pc{border:1px solid transparent;border-radius:18px;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#E8C4B4,#C4886F 40%,rgba(196,136,111,.18)) border-box;box-shadow:0 14px 34px rgba(120,80,60,.14);overflow:hidden;transition:transform .25s,box-shadow .25s;}
 .pc:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(44,36,32,.14);}
-.pc.dest{border:2px solid var(--rose);box-shadow:0 6px 28px rgba(196,136,111,.2);}
-.dest-tag{background:var(--rose);color:#fff;font-size:11px;font-weight:700;text-align:center;padding:6px;letter-spacing:.06em;text-transform:uppercase;}
+.pc.dest{border:2px solid transparent;border-radius:18px;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#F0D6C8,#C4886F 32%,#E8C4B4 62%,rgba(196,136,111,.35)) border-box;box-shadow:0 20px 48px rgba(196,136,111,.3),0 3px 10px rgba(120,80,60,.12);position:relative;}
+.dest-tag{background:var(--rose);color:#fff;font-size:11px;font-weight:700;padding:8px 6px;letter-spacing:.06em;text-transform:uppercase;border-radius:16px 16px 0 0;display:flex;align-items:center;justify-content:center;gap:7px;}
 .pc-img{overflow:hidden;background:var(--bg-alt);}
 .pc-img img{width:100%;height:auto;display:block;transition:transform .4s;}
 .pc:hover .pc-img img{transform:scale(1.04);}
@@ -479,11 +489,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .bonus-was{font-size:12px;color:rgba(255,255,255,.4);text-decoration:line-through;display:block;}
 .bonus-gratis{font-size:24px;font-weight:700;color:var(--rose-light);display:block;line-height:1;font-family:var(--font-display);}
 .bonus-list{display:flex;flex-direction:column;gap:8px;}
-.bonus-item{
-  background:#fff;border:.5px solid var(--border);border-radius:14px;
-  padding:18px 20px;display:flex;gap:16px;align-items:flex-start;
-  transition:transform .25s ease,box-shadow .25s ease;
-}
+.bonus-item{border:1px solid transparent;border-radius:14px;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#E8C4B4,#C4886F 40%,rgba(196,136,111,.18)) border-box;box-shadow:0 12px 28px rgba(120,80,60,.12);padding:18px 20px;display:flex;gap:16px;align-items:flex-start;transition:transform .25s ease,box-shadow .25s ease;}
 .bonus-item:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.08);}
 .bonus-num{
   width:34px;height:34px;border-radius:50%;
@@ -591,10 +597,10 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
           alt="Livro Armário Enxuto: guia prático de estilo e organização de Alexandre Chahoud"
           width="520" height="693" loading="eager" fetchpriority="high" decoding="sync" style="max-height:520px;object-fit:contain;">
         <div class="hero-badges">
-          <div class="hero-badge">📖 +140 páginas</div>
-          <div class="hero-badge">✅ 12 capítulos</div>
-          <div class="hero-badge">📦 Frete grátis</div>
-          <div class="hero-badge">🎁 Bônus inclusos</div>
+          <div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.6C10.5 5.2 8.6 4.6 5 4.6v12.6c3.6 0 5.5.6 7 2 1.5-1.4 3.4-2 7-2V4.6c-3.6 0-5.5.6-7 2Z"/><path d="M12 6.6v13.6"/></svg> +140 páginas</div>
+          <div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.2 12.2 11 15l5-6"/></svg> 12 capítulos</div>
+          <div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> Frete grátis</div>
+          <div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Bônus inclusos</div>
         </div>
       </div>
       <div>
@@ -628,19 +634,19 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
         <h2 class="sec-h2 anim-up d1">Você compra, compra, e ainda sente que não tem nada para vestir.</h2>
         <div class="agit-problems">
           <div class="agit-problem">
-            <div class="agit-problem-icon-badge">👗</div>
+            <div class="agit-problem-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5a1.7 1.7 0 1 1 1.7 1.7c-1 0-1.7.6-1.7 1.5v.8"/><path d="M12 11 4.5 16.6c-.9.7-.4 2.1.7 2.1h13.6c1.1 0 1.6-1.4.7-2.1L12 11Z"/></svg></div>
             <div class="agit-problem-text">As peças do seu armário não te representam mais. Nada parece certo.</div>
           </div>
           <div class="agit-problem">
-            <div class="agit-problem-icon-badge">🪞</div>
+            <div class="agit-problem-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="16" rx="6"/><path d="M12 18.5V21"/><path d="M8.5 21h7"/><path d="M9.5 7.5a3.6 3.6 0 0 1 2.5-1"/></svg></div>
             <div class="agit-problem-text">Você passa horas na frente do espelho sem se reconhecer, e acaba usando sempre as mesmas coisas.</div>
           </div>
           <div class="agit-problem">
-            <div class="agit-problem-icon-badge">😔</div>
+            <div class="agit-problem-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15.5a4 4 0 0 1 6 0"/><path d="M9 9.5h.01M15 9.5h.01"/></svg></div>
             <div class="agit-problem-text">Em ocasiões importantes, bate aquela insegurança sobre o que vestir.</div>
           </div>
           <div class="agit-problem">
-            <div class="agit-problem-icon-badge">💸</div>
+            <div class="agit-problem-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="9" width="14" height="9" rx="1.6"/><circle cx="14" cy="13.5" r="2"/><path d="M4 7.5l2.5 1M3 11h2.5M4 14.5l2.5-1"/></svg></div>
             <div class="agit-problem-text">Você continua comprando, mas a sensação de “não ter nada” não passa.</div>
           </div>
         </div>
@@ -699,10 +705,10 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
         <div class="sec-eyebrow anim-up d1">Este livro foi escrito para você</div>
         <h2 class="sec-h2 anim-up d1">Para quem quer se vestir com confiança, sem complicação.</h2>
         <div class="for-grid">
-          <div class="for-card anim-up d2"><div class="for-icon">✔️</div><div class="for-text">Está cansada de se sentir mal quando veste suas roupas</div></div>
-          <div class="for-card anim-up d3"><div class="for-icon">✔️</div><div class="for-text">Fica horas olhando pro armário “perdida” e acaba vestindo sempre as mesmas peças</div></div>
-          <div class="for-card anim-up d2"><div class="for-icon">✔️</div><div class="for-text">Tem dúvidas sobre o que usar em ocasiões importantes</div></div>
-          <div class="for-card anim-up d3"><div class="for-icon">✔️</div><div class="for-text">Quer ter seu próprio estilo mas não sabe como montar um armário que funciona</div></div>
+          <div class="for-card anim-up d2"><div class="for-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.2 12.2 11 15l5-6"/></svg></div><div class="for-text">Está cansada de se sentir mal quando veste suas roupas</div></div>
+          <div class="for-card anim-up d3"><div class="for-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.2 12.2 11 15l5-6"/></svg></div><div class="for-text">Fica horas olhando pro armário “perdida” e acaba vestindo sempre as mesmas peças</div></div>
+          <div class="for-card anim-up d2"><div class="for-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.2 12.2 11 15l5-6"/></svg></div><div class="for-text">Tem dúvidas sobre o que usar em ocasiões importantes</div></div>
+          <div class="for-card anim-up d3"><div class="for-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.2 12.2 11 15l5-6"/></svg></div><div class="for-text">Quer ter seu próprio estilo mas não sabe como montar um armário que funciona</div></div>
         </div>
         <div style="margin-top:28px;"><a class="btn-rose anim-up d4" href="#versoes" onclick="irParaVersoes(event)">Esse é o meu caso, quero começar</a></div>
       </div>
@@ -890,7 +896,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
         <!-- BOX VALOR TOTAL -->
         <div class="bonus-valor-box anim-up d2">
           <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 197 em bônus digitais, inclusos sem custo adicional</strong></div>
-          <div class="bonus-valor-right"><span class="bonus-was">R$ 197,00</span><span class="bonus-gratis">Grátis 🎁</span></div>
+          <div class="bonus-valor-right"><span class="bonus-was">R$ 197,00</span><span class="bonus-gratis">Grátis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg></span></div>
         </div>
 
         <!-- LISTA DE BÔNUS -->
@@ -911,10 +917,10 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
           style="width:100%;border-radius:10px;display:block;margin-bottom:18px;">
         <p style="font-size:13px;color:var(--ink-soft);line-height:1.65;margin-bottom:18px;">A Área VIP contém conteúdos extras e é atualizada com frequência.</p>
         <div class="vip-extra">
-          <div class="vip-extra-badge">🎁 Conteúdo em expansão</div>
+          <div class="vip-extra-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Conteúdo em expansão</div>
           <h4 style="font-family:var(--font-display);font-size:16px;font-weight:400;color:var(--ink);margin:10px 0 8px;">Os bônus acima são apenas uma parte do que você recebe.</h4>
           <p style="font-size:13px;color:var(--ink-soft);line-height:1.65;margin-bottom:14px;">Na Área VIP você também acessa materiais extras exclusivos: planners, exercícios, videoaulas e desafios complementares.</p>
-          <div class="vip-extra-highlight">✔ Acesso vitalício à Área VIP<br>✔ Atualizações sem custo adicional<br>✔ Novos bônus liberados ao longo do tempo</div>
+          <div class="vip-extra-highlight"><div class="vip-hl-item"><span class="vip-hl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span>Acesso vitalício à Área VIP</div><div class="vip-hl-item"><span class="vip-hl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span>Atualizações sem custo adicional</div></div>
         </div>
       </div>
     </div>
@@ -977,7 +983,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
             <li>Disponível para o mundo todo</li>
           </ul>
           <a class="pc-btn dark" href="https://chk.eduzz.com/2097830?pf=1" target="_blank" rel="noopener">Quero Livro Digital + Bônus</a>
-          <div class="pc-urgency-note" style="font-size:11px;color:var(--rose-text);text-align:center;margin-top:10px;font-weight:600;">⚡ Acesso imediato após o pagamento</div>
+          <div class="pc-urgency-note" style="font-size:11px;color:var(--rose-text);text-align:center;margin-top:10px;font-weight:600;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.2 3 5.8 13h5.3l-.9 8 7.4-10h-5.3l.9-8Z"/></svg> Acesso imediato após o pagamento</div>
         </div>
       </div>
 
@@ -1000,13 +1006,13 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
             <li>Frete grátis para todo o Brasil</li>
           </ul>
           <a class="pc-btn dark" href="https://chk.eduzz.com/2097528?pf=1" target="_blank" rel="noopener">Quero Livro Físico + Bônus</a>
-          <div class="pc-urgency-note" style="font-size:11px;color:var(--rose-text);text-align:center;margin-top:10px;font-weight:600;">📦 Frete grátis para todo o Brasil</div>
+          <div class="pc-urgency-note" style="font-size:11px;color:var(--rose-text);text-align:center;margin-top:10px;font-weight:600;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> Frete grátis para todo o Brasil</div>
         </div>
       </div>
 
       <!-- COMBO -->
       <div class="pc dest">
-        <div class="dest-tag">🔥 Melhor custo-benefício · 40% off</div>
+        <div class="dest-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s4.5 3.8 4.5 8.2a4.5 4.5 0 0 1-9 0c0-1.5.7-2.8 1.5-3.7 0 1.3.8 2.2 1.6 2.2 1 0 1.6-.9 1.4-2.4C11.7 5.6 12 3 12 3Z"/><path d="M12 21a5.6 5.6 0 0 0 5.6-5.6"/></svg> Melhor custo-benefício · 40% off</div>
         <div class="pc-img">
           <img src="https://static.wixstatic.com/media/940f31_85039e1634be4062a40ba479d8a6c0e0~mv2.jpg"
             alt="Armário Enxuto: Combo Digital + Físico" width="400" height="400" loading="lazy" decoding="async">
@@ -1024,7 +1030,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
             <li>Frete grátis para todo o Brasil</li>
           </ul>
           <a class="pc-btn rose" href="https://chk.eduzz.com/2097846?pf=1" target="_blank" rel="noopener">Quero Combo + Bônus</a>
-          <div class="pc-urgency-note" style="font-size:11px;color:var(--rose-text);text-align:center;margin-top:10px;font-weight:600;">⚡ Digital agora + físico em sua casa</div>
+          <div class="pc-urgency-note" style="font-size:11px;color:var(--rose-text);text-align:center;margin-top:10px;font-weight:600;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.2 3 5.8 13h5.3l-.9 8 7.4-10h-5.3l.9-8Z"/></svg> Digital agora + físico em sua casa</div>
         </div>
       </div>
 
@@ -1387,7 +1393,7 @@ document.addEventListener('DOMContentLoaded',function(){
   <div class="cupom-box">
     <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
     <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
-    <div class="cupom-label">🎁 Cupom exclusivo</div>
+    <div class="cupom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Cupom exclusivo</div>
     <div class="cupom-code-box">
       <div class="cupom-code">GANHEI10</div>
       <div class="cupom-sub">10% OFF no carrinho</div>
