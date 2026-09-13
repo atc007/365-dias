@@ -193,7 +193,21 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 @media(prefers-reduced-motion:reduce){.rotate-word{transition:opacity .2s ease;}.rotate-word.is-out{transform:none;}}
 .hero-sub{font-size:16px;color:var(--ink-mid);line-height:1.75;margin-bottom:28px;}
 .hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
-.hero-badge{background:rgba(107,75,200,.08);border:.5px solid rgba(107,75,200,.3);border-radius:5px;padding:5px 12px;font-size:12px;font-weight:500;color:var(--purple);}
+.frete-tag{display:inline-flex;align-items:center;gap:6px;}
+.frete-tag svg{width:13px;height:13px;flex-shrink:0;}
+.hero-badge svg{width:15px;height:15px;flex-shrink:0;color:var(--purple);}
+.hero-seal svg{width:12px;height:12px;flex-shrink:0;}
+.agit-problem-icon-badge svg{width:20px;height:20px;}
+.for-icon svg{width:13px;height:13px;display:block;}
+.vip-hl-item{display:flex;align-items:center;gap:11px;font-size:14px;font-weight:600;color:var(--ink);line-height:1.4;}
+.vip-hl-ico{width:22px;height:22px;border-radius:7px;flex-shrink:0;background:linear-gradient(160deg,var(--purple),#4A2F9C);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(107,75,200,.35);}
+.vip-hl-ico svg{width:13px;height:13px;display:block;}
+.vip-extra-highlight{display:flex;flex-direction:column;gap:11px;}
+.dest-tag svg,.pc-urgency-note svg,.tip-label svg,.vip-extra-badge svg,.bonus-gratis svg,.precos-pagamento svg{
+  width:14px;height:14px;flex-shrink:0;display:inline-block;vertical-align:-2px;}
+.bonus-gratis svg{width:22px;height:22px;vertical-align:-4px;}
+.pc-urgency-note,.tip-label,.vip-extra-badge{display:inline-flex;align-items:center;gap:6px;}
+.hero-badge{background:#fff;border:.5px solid rgba(107,75,200,.3);border-radius:30px;padding:8px 15px;font-size:13px;font-weight:500;color:var(--ink);box-shadow:0 2px 8px rgba(60,40,120,.08);display:inline-flex;align-items:center;gap:7px;}
 .hero-note{font-size:12px;color:var(--ink-muted);margin-top:14px;display:flex;align-items:center;gap:6px;}
 .hero-note::before{content:"🔒";font-size:11px;}
 
@@ -239,7 +253,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .agit-problem:hover{transform:translateX(4px);box-shadow:0 10px 26px rgba(0,0,0,.08);}
 .agit-problem-icon-badge{
   width:38px;height:38px;border-radius:11px;flex-shrink:0;
-  background:linear-gradient(160deg,rgba(107,75,200,.15),rgba(107,75,200,.05));
+  background:var(--ink);color:#B9A6EE;
   border:.5px solid rgba(107,75,200,.28);
   display:flex;align-items:center;justify-content:center;font-size:17px;
 }
@@ -260,7 +274,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .for-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
 .for-card{background:#fff;border:.5px solid var(--border);border-radius:10px;padding:16px 18px;display:flex;gap:10px;align-items:flex-start;transition:border-color .2s,transform .2s;}
 .for-card:hover{border-color:var(--purple);transform:translateY(-2px);}
-.for-icon{font-size:18px;flex-shrink:0;margin-top:2px;}
+.for-icon{width:22px;height:22px;border-radius:7px;flex-shrink:0;margin-top:1px;background:linear-gradient(160deg,var(--purple),#4A2F9C);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(107,75,200,.35);}
 .for-text{font-size:14px;color:var(--ink-mid);line-height:1.55;}
 
 /* PARA QUEM É — layout com vídeo */
@@ -333,11 +347,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .bonus-was{font-size:12px;color:rgba(255,255,255,.4);text-decoration:line-through;display:block;}
 .bonus-gratis{font-size:24px;font-weight:700;color:var(--purple-light);display:block;line-height:1;font-family:var(--font-display);}
 .bonus-list{display:flex;flex-direction:column;gap:8px;}
-.bonus-item{
-  background:#fff;border:.5px solid var(--border);border-radius:14px;
-  padding:18px 20px;display:flex;gap:16px;align-items:flex-start;
-  transition:transform .25s ease,box-shadow .25s ease;
-}
+.bonus-item{border:1px solid transparent;border-radius:14px;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#B9A6EE,#6B4BC8 40%,rgba(107,75,200,.18)) border-box;box-shadow:0 12px 28px rgba(60,40,120,.12);padding:18px 20px;display:flex;gap:16px;align-items:flex-start;transition:transform .25s ease,box-shadow .25s ease;}
 .bonus-item:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.08);}
 .bonus-num{
   width:34px;height:34px;border-radius:50%;
@@ -399,10 +409,10 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 @media(min-width:1000px){
   .precos{max-width:1200px;gap:28px;}
 }
-.pc{background:#fff;border:.5px solid #C0BAB0;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:transform .25s,box-shadow .25s;}
+.pc{border:1px solid transparent;border-radius:18px;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#B9A6EE,#6B4BC8 40%,rgba(107,75,200,.18)) border-box;box-shadow:0 14px 34px rgba(60,40,120,.14);overflow:hidden;transition:transform .25s,box-shadow .25s;}
 .pc:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.14);}
-.pc.dest{border:2px solid var(--purple);box-shadow:0 6px 28px rgba(107,75,200,.2);}
-.dest-tag{background:var(--purple);color:#fff;font-size:11px;font-weight:700;text-align:center;padding:6px;letter-spacing:.06em;text-transform:uppercase;}
+.pc.dest{border:2px solid transparent;border-radius:18px;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#CDBEF5,#6B4BC8 32%,#B9A6EE 62%,rgba(107,75,200,.35)) border-box;box-shadow:0 20px 48px rgba(107,75,200,.28),0 3px 10px rgba(60,40,120,.12);position:relative;}
+.dest-tag{background:var(--purple);color:#fff;font-size:11px;font-weight:700;padding:8px 6px;letter-spacing:.06em;text-transform:uppercase;border-radius:16px 16px 0 0;display:flex;align-items:center;justify-content:center;gap:7px;}
 .pc-img{overflow:hidden;background:var(--bg-alt);}
 .pc-img img{width:100%;height:auto;display:block;transition:transform .4s;}
 .pc:hover .pc-img img{transform:scale(1.04);}
@@ -629,14 +639,14 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
           alt="Livro Viajante Minimalista: guia prático de viagens de Alexandre Chahoud"
           width="684" height="449" loading="eager" fetchpriority="high" decoding="sync">
         <div class="hero-badges" style="margin-top:16px;justify-content:center;">
-          <div class="hero-badge">✈️ Nacional e Internacional</div>
-          <div class="hero-badge">💰 Organização financeira</div>
-          <div class="hero-badge">📦 Frete grátis</div>
-          <div class="hero-badge">🎁 Bônus inclusos</div>
+          <div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 12.5 3.5 10.2l1.2-1.7 3.2.5 2.4-2.4L4.7 4.3 6.4 2.6l8.1 1.9 2.6-2.6a2.2 2.2 0 0 1 3.1 3.1l-2.6 2.6 1.9 8.1-1.7 1.7-2.3-5.6-2.4 2.4.5 3.2-1.7 1.2-2.3-6.8Z"/></svg> Nacional e Internacional</div>
+          <div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M14.3 9.4c-.4-.7-1.3-1.1-2.3-1.1-1.4 0-2.3.7-2.3 1.7 0 2.4 4.8 1.2 4.8 3.7 0 1.1-1 1.9-2.5 1.9-1.2 0-2.1-.5-2.5-1.2"/><path d="M12 6.8v10.4"/></svg> Organização financeira</div>
+          <div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> Frete grátis</div>
+          <div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Bônus inclusos</div>
         </div>
       </div>
       <div>
-        <div class="hero-seal anim-up d1">✈️ Guia prático</div>
+        <div class="hero-seal anim-up d1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 12.5 3.5 10.2l1.2-1.7 3.2.5 2.4-2.4L4.7 4.3 6.4 2.6l8.1 1.9 2.6-2.6a2.2 2.2 0 0 1 3.1 3.1l-2.6 2.6 1.9 8.1-1.7 1.7-2.3-5.6-2.4 2.4.5 3.2-1.7 1.2-2.3-6.8Z"/></svg> Guia prático</div>
         <h1 class="hero-h1 anim-up d2">Viajante Minimalista: aprenda a planejar, economizar e <em>viajar com <span class="rotate-word-wrap"><span id="rotate-word" class="rotate-word">leveza.</span></span></em></h1>
         <p class="hero-sub anim-up d2">Aprenda a se organizar financeiramente, planejar cada detalhe e viajar com mais leveza, gastando menos e aproveitando muito mais.</p>
         <div class="anim-up d3">
@@ -667,10 +677,10 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
         <div class="sec-eyebrow anim-up d1">Você se identifica com isso?</div>
         <h2 class="sec-h2 anim-up d1">Você sonha em viajar, mas nunca parece ser a hora certa.</h2>
         <div class="agit-problems">
-          <div class="agit-problem anim-up d2"><div class="agit-problem-icon-badge">💸</div><div class="agit-problem-text">Você diz que não tem dinheiro para viajar. Mas será que é verdade?</div></div>
-          <div class="agit-problem anim-up d3"><div class="agit-problem-icon-badge">😟</div><div class="agit-problem-text">Você quer planejar a viagem, mas não sabe por onde começar.</div></div>
-          <div class="agit-problem anim-up d4"><div class="agit-problem-icon-badge">✈️</div><div class="agit-problem-text">Quando finalmente viaja, sente que desperdiça dinheiro em coisas que não valem a pena.</div></div>
-          <div class="agit-problem anim-up d5"><div class="agit-problem-icon-badge">😔</div><div class="agit-problem-text">Volta pra casa sem a sensação de que aproveitou de verdade.</div></div>
+          <div class="agit-problem anim-up d2"><div class="agit-problem-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="9" width="14" height="9" rx="1.6"/><circle cx="14" cy="13.5" r="2"/><path d="M4 7.5l2.5 1M3 11h2.5M4 14.5l2.5-1"/></svg></div><div class="agit-problem-text">Você diz que não tem dinheiro para viajar. Mas será que é verdade?</div></div>
+          <div class="agit-problem anim-up d3"><div class="agit-problem-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9.2 15.6c1.6-1 4-1 5.6 0"/><path d="M8 9.8l2.2-1M16 9.8l-2.2-1"/></svg></div><div class="agit-problem-text">Você quer planejar a viagem, mas não sabe por onde começar.</div></div>
+          <div class="agit-problem anim-up d4"><div class="agit-problem-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 12.5 3.5 10.2l1.2-1.7 3.2.5 2.4-2.4L4.7 4.3 6.4 2.6l8.1 1.9 2.6-2.6a2.2 2.2 0 0 1 3.1 3.1l-2.6 2.6 1.9 8.1-1.7 1.7-2.3-5.6-2.4 2.4.5 3.2-1.7 1.2-2.3-6.8Z"/></svg></div><div class="agit-problem-text">Quando finalmente viaja, sente que desperdiça dinheiro em coisas que não valem a pena.</div></div>
+          <div class="agit-problem anim-up d5"><div class="agit-problem-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15.5a4 4 0 0 1 6 0"/><path d="M9 9.5h.01M15 9.5h.01"/></svg></div><div class="agit-problem-text">Volta pra casa sem a sensação de que aproveitou de verdade.</div></div>
         </div>
       </div>
       <!-- COLUNA DIREITA -->
@@ -725,10 +735,10 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
       <!-- COLUNA ESQUERDA: cards + CTA -->
       <div class="para-col-left">
         <div class="for-grid">
-          <div class="for-card anim-up d2"><div class="for-icon">✔️</div><div class="for-text">Nunca mais quer adiar a viagem dos sonhos</div></div>
-          <div class="for-card anim-up d3"><div class="for-icon">✔️</div><div class="for-text">Quer viagens transformadoras, inesquecíveis e significativas</div></div>
-          <div class="for-card anim-up d2"><div class="for-icon">✔️</div><div class="for-text">Nunca mais quer gastar mais do que o necessário</div></div>
-          <div class="for-card anim-up d3"><div class="for-icon">✔️</div><div class="for-text">Quer voltar com uma mala cheia de memórias e experiências únicas</div></div>
+          <div class="for-card anim-up d2"><div class="for-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.2 12.2 11 15l5-6"/></svg></div><div class="for-text">Nunca mais quer adiar a viagem dos sonhos</div></div>
+          <div class="for-card anim-up d3"><div class="for-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.2 12.2 11 15l5-6"/></svg></div><div class="for-text">Quer viagens transformadoras, inesquecíveis e significativas</div></div>
+          <div class="for-card anim-up d2"><div class="for-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.2 12.2 11 15l5-6"/></svg></div><div class="for-text">Nunca mais quer gastar mais do que o necessário</div></div>
+          <div class="for-card anim-up d3"><div class="for-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.2 12.2 11 15l5-6"/></svg></div><div class="for-text">Quer voltar com uma mala cheia de memórias e experiências únicas</div></div>
         </div>
 
         <div class="pullquote anim-up d2" style="margin-top:20px;">“Viajar não é luxo. É a melhor decisão que você pode tomar por si mesmo, e qualquer pessoa pode fazer isso acontecer com o planejamento certo.”</div>
@@ -944,7 +954,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 
         <div class="bonus-valor-box anim-up d2">
           <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 197 em bônus digitais, inclusos sem custo adicional</strong></div>
-          <div class="bonus-valor-right"><span class="bonus-was">R$ 197,00</span><span class="bonus-gratis">Grátis 🎁</span></div>
+          <div class="bonus-valor-right"><span class="bonus-was">R$ 197,00</span><span class="bonus-gratis">Grátis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg></span></div>
         </div>
 
         <div class="bonus-list anim-up d3">
@@ -963,10 +973,10 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
           style="width:100%;border-radius:10px;display:block;margin-bottom:18px;">
         <p style="font-size:13px;color:var(--ink-soft);line-height:1.65;margin-bottom:18px;">A Área VIP contém conteúdos extras e é atualizada com frequência.</p>
         <div class="vip-extra">
-          <div class="vip-extra-badge">🎁 Conteúdo em expansão</div>
+          <div class="vip-extra-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Conteúdo em expansão</div>
           <h4 style="font-family:var(--font-display);font-size:16px;font-weight:400;color:var(--ink);margin:10px 0 8px;">Os bônus acima são apenas uma parte do que você recebe.</h4>
           <p style="font-size:13px;color:var(--ink-soft);line-height:1.65;margin-bottom:14px;">Na Área VIP você também acessa materiais extras exclusivos: planners, exercícios, videoaulas e desafios complementares.</p>
-          <div class="vip-extra-highlight">✔ Acesso vitalício à Área VIP<br>✔ Atualizações sem custo adicional<br>✔ Novos bônus liberados ao longo do tempo</div>
+          <div class="vip-extra-highlight"><div class="vip-hl-item"><span class="vip-hl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span>Acesso vitalício à Área VIP</div><div class="vip-hl-item"><span class="vip-hl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span>Atualizações sem custo adicional</div></div>
         </div>
         <div style="text-align:center;margin-top:24px;">
           <a class="btn-gold" href="#versoes" onclick="irParaVersoes(event)">Quero esses bônus também →</a>
@@ -1071,7 +1081,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
         </div>
         <div class="pc-body">
           <div class="pc-type">Livro Físico + Frete Grátis</div>
-          <div style="display:inline-block;background:#EAF3DE;color:#27500A;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;margin-bottom:8px;">📦 Frete grátis para todo o Brasil</div>
+          <div class="frete-tag" style="background:#EAF3DE;color:#27500A;font-size:11px;font-weight:600;padding:4px 11px;border-radius:20px;margin-bottom:8px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> Frete grátis para todo o Brasil</div>
           <div class="pc-was">De R$ 147,00</div>
           <div class="pc-parc-destaque">12x de R$ 11,07</div>
           <div class="pc-now">ou R$ 107 à vista</div>
@@ -1086,7 +1096,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
         </div>
       </div>
       <div class="pc dest">
-        <div class="dest-tag">🌟 Melhor escolha · Mais completo</div>
+        <div class="dest-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2l2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.4l5.9-.8L12 3.2Z"/></svg> Melhor escolha · Mais completo</div>
         <div class="pc-img">
           <img src="https://static.wixstatic.com/media/940f31_4f79cb9b99e84a74859bd236fa5cc881~mv2.jpg"
             alt="Viajante Minimalista: Combo" width="400" height="400" loading="lazy" decoding="async">
@@ -1192,7 +1202,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 <div id="tooltip-cupom" onclick="tooltipClick()" role="button" tabindex="0" aria-label="Cupom GANHEI10, 10% off no carrinho" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();tooltipClick();}">
   <div class="tip-bico"></div>
   <button class="tip-close" onclick="event.stopPropagation();document.getElementById('tooltip-cupom').style.display='none'" aria-label="Fechar cupom">×</button>
-  <div class="tip-label">🎁 Cupom exclusivo</div>
+  <div class="tip-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Cupom exclusivo</div>
   <div class="tip-code-wrap">
     <span class="tip-code">GANHEI10</span>
     <div class="tip-sub">10% OFF no carrinho</div>
