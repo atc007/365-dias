@@ -116,7 +116,15 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0;}
 .hero-h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:10px;}
 .hero-h1 em{font-style:italic;color:var(--gold-dark);}
-.hero-badge{display:inline-block;background:rgba(201,169,110,.12);border:.5px solid rgba(201,169,110,.4);border-radius:4px;padding:5px 12px;font-size:12px;font-weight:600;color:var(--gold-dark);margin-bottom:20px;letter-spacing:.04em;text-transform:uppercase;}
+.agit-item:hover{transform:translateX(4px);border-color:rgba(201,169,110,.3);}
+.agit-icon svg{width:22px;height:22px;display:block;}
+.hero-badge svg{width:14px;height:14px;flex-shrink:0;}
+.topbar-item svg,.price-note svg,.spec-item svg{width:14px;height:14px;flex-shrink:0;display:inline-block;vertical-align:-2px;}
+.price-note{display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;}
+#sound-btn svg{width:18px;height:18px;flex-shrink:0;}
+.frete-nota{display:flex;align-items:center;justify-content:center;gap:6px;}
+.frete-nota svg{width:13px;height:13px;flex-shrink:0;}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(201,169,110,.14);border:.5px solid rgba(201,169,110,.42);border-radius:30px;padding:7px 15px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);}
 .hero-sub{font-size:16px;color:var(--ink-mid);line-height:1.75;margin-bottom:28px;}
 .hero-note{font-size:12px;color:var(--ink-muted);margin-top:14px;display:flex;align-items:center;gap:6px;}
 .hero-note::before{content:"🔒";font-size:11px;}
@@ -147,8 +155,8 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .agit-h2{font-family:var(--font-display);font-size:clamp(22px,3vw,32px);font-weight:400;color:#fff;text-align:center;max-width:640px;margin:0 auto 40px;line-height:1.3;}
 .agit-h2 em{font-style:italic;color:var(--gold);}
 .agit-lista{display:flex;flex-direction:column;gap:14px;max-width:720px;margin:0 auto;}
-.agit-item{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px 20px;}
-.agit-icon{font-size:20px;flex-shrink:0;line-height:1.4;}
+.agit-item{display:flex;gap:16px;align-items:flex-start;background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:.5px solid rgba(255,255,255,.09);border-radius:16px;padding:20px 22px;transition:transform .25s ease,border-color .25s ease;}
+.agit-icon{width:42px;height:42px;border-radius:12px;flex-shrink:0;background:linear-gradient(160deg,rgba(201,169,110,.26),rgba(201,169,110,.10));border:.5px solid rgba(201,169,110,.42);color:var(--gold);display:flex;align-items:center;justify-content:center;}
 .agit-text{font-size:15px;color:rgba(255,255,255,.75);line-height:1.65;}
 .agit-text strong{color:#fff;font-weight:600;}
 .agit-virada{font-family:var(--font-display);font-size:19px;font-style:italic;color:var(--gold);text-align:center;max-width:600px;margin:32px auto 0;line-height:1.5;}
@@ -200,7 +208,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .price-eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:10px;}
 .price-eyebrow::before,.price-eyebrow::after{content:'';display:block;width:28px;height:1px;background:var(--gold);}
 .price-h2{font-family:Georgia,serif;font-size:clamp(22px,2.8vw,30px);font-weight:400;color:var(--cream);margin-bottom:28px;line-height:1.35;}
-.price-box{background:#242422;border:1.5px solid var(--gold);border-radius:14px;padding:36px;max-width:460px;margin:0 auto 28px;box-shadow:0 8px 32px rgba(201,169,110,.12);}
+.price-box{border:1.5px solid transparent;border-radius:20px;background:linear-gradient(#242422,#1E1E1C) padding-box,linear-gradient(140deg,#F2DCA8,#C9A96E 34%,#E8D09A 64%,rgba(201,169,110,.3)) border-box;padding:36px;max-width:460px;margin:0 auto 28px;box-shadow:0 22px 50px rgba(201,169,110,.22),0 3px 10px rgba(0,0,0,.25);}
 .price-name{font-family:Georgia,serif;font-size:18px;color:var(--cream);margin-bottom:16px;}
 .price-was{font-size:14px;color:#C0392B;text-decoration:line-through;margin-bottom:6px;}
 .price-parc-destaque{font-family:Georgia,serif;font-size:28px;font-weight:700;background:linear-gradient(90deg,#8B6010 0%,#8B6010 30%,#FFF0B0 50%,#8B6010 70%,#8B6010 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:price-shine 6s linear infinite;line-height:1;margin-bottom:8px;letter-spacing:-.02em;will-change:background-position;white-space:nowrap;font-stretch:condensed;}
@@ -270,11 +278,11 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 
 <!-- TOPBAR -->
 <div class="topbar">
-  <div class="topbar-item">📦 <strong>Frete grátis</strong> para todo o Brasil</div>
+  <div class="topbar-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> <strong>Frete grátis</strong> para todo o Brasil</div>
   <div class="topbar-dot"></div>
-  <div class="topbar-item">💳 Cartão · Boleto · Pix</div>
+  <div class="topbar-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19"/><path d="M6 14.5h3.5"/></svg> Cartão · Boleto · Pix</div>
   <div class="topbar-dot"></div>
-  <div class="topbar-item">🔒 Compra 100% segura</div>
+  <div class="topbar-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="15" r="1.2"/></svg> Compra 100% segura</div>
 </div>
 
 <!-- HERO -->
@@ -285,9 +293,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
         src="https://video.wixstatic.com/video/940f31_be55eed5b1174bd59bca7adbd682feaa/720p/mp4/file.mp4">
       </video>
       <button id="sound-btn" onclick="toggleSound()" title="Ativar som"
-        style="position:absolute;bottom:14px;right:14px;width:40px;height:40px;border-radius:50%;border:none;cursor:pointer;background:rgba(0,0,0,.55);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;z-index:10;backdrop-filter:blur(4px);transition:.2s;">
-        🔇
-      </button>
+        style="position:absolute;bottom:14px;right:14px;width:40px;height:40px;border-radius:50%;border:none;cursor:pointer;background:rgba(0,0,0,.55);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;z-index:10;backdrop-filter:blur(4px);transition:.2s;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5.5 6.5 9.5H3v5h3.5L11 18.5v-13Z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button>
     </div>
     <div>
       <div class="hero-badge anim-up d1">Versão permanente</div>
@@ -320,19 +326,19 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <h2 class="agit-h2 anim-up d1">Você reconhece algum desses <em>sentimentos</em>?</h2>
     <div class="agit-lista">
       <div class="agit-item anim-up d2">
-        <span class="agit-icon">📲</span>
+        <span class="agit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg></span>
         <div class="agit-text">Você já baixou vários apps de organização, mas <strong>nenhum realmente pegou</strong>. Sempre acaba esquecendo de abrir, e volta pra bagunça de antes.</div>
       </div>
       <div class="agit-item anim-up d2">
-        <span class="agit-icon">🗒️</span>
+        <span class="agit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3.5" width="13" height="17" rx="2"/><path d="M6 8H4M6 12H4M6 16H4"/><path d="M10 8h5M10 12h5M10 16h3"/></svg></span>
         <div class="agit-text">Suas metas do ano, contas a pagar e compromissos estão <strong>espalhados em lugares diferentes</strong>, sem nenhum lugar que junte tudo numa visão só.</div>
       </div>
       <div class="agit-item anim-up d3">
-        <span class="agit-icon">📉</span>
+        <span class="agit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6.5v11a2 2 0 0 0 2 2h15"/><path d="M7.5 9.5l3.5 3.5 3-2.5 4.5 4"/><path d="M18.5 10.5v4h-4"/></svg></span>
         <div class="agit-text">No fim do mês, você não sabe direito <strong>pra onde foi seu tempo</strong> nem seu dinheiro. Tudo parece ter passado rápido demais, sem controle.</div>
       </div>
       <div class="agit-item anim-up d3">
-        <span class="agit-icon">🔄</span>
+        <span class="agit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12a7.5 7.5 0 1 0 2.4-5.5"/><path d="M4 4.5V9h4.5"/></svg></span>
         <div class="agit-text">Você já comprou agenda ou planner antes e <strong>parou de usar em poucas semanas</strong>, porque não fazia sentido pro seu dia a dia real.</div>
       </div>
     </div>
@@ -392,7 +398,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <a class="btn-gold" href="https://chk.eduzz.com/2113425?pf=1" target="_blank" rel="noopener">
         Quero meu Planner
       </a>
-      <div style="font-size:12px;color:var(--ink-muted);margin-top:10px;">📦 Frete grátis para todo o Brasil</div>
+      <div class="frete-nota" style="font-size:12px;color:var(--ink-muted);margin-top:10px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> Frete grátis para todo o Brasil</div>
     </div>
 
   </div>
@@ -445,7 +451,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <a class="btn-gold" href="https://chk.eduzz.com/2113425?pf=1" target="_blank" rel="noopener" style="width:100%;text-align:center;display:block;">
         Quero meu Planner
       </a>
-      <div class="price-note">📦 Frete grátis · 🔒 Compra segura · 7 dias de garantia</div>
+      <div class="price-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> Frete grátis · <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="15" r="1.2"/></svg> Compra segura · 7 dias de garantia</div>
     </div>
   </div>
 </section>
@@ -558,7 +564,7 @@ function toggleSound(){
   var v=document.getElementById('hero-video');
   var btn=document.getElementById('sound-btn');
   v.muted=!v.muted;
-  btn.textContent=v.muted?'🔇':'🔊';
+  btn.innerHTML=v.muted?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5.5 6.5 9.5H3v5h3.5L11 18.5v-13Z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5.5 6.5 9.5H3v5h3.5L11 18.5v-13Z"/><path d="M15 9a4.2 4.2 0 0 1 0 6"/><path d="M17.8 6.4a8 8 0 0 1 0 11.2"/></svg>';btn.setAttribute('aria-label',v.muted?'Ativar som':'Desativar som');
 }
 
 /* Vídeo hero lazy load */
