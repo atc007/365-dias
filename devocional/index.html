@@ -121,7 +121,15 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0;}
 .hero-h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:10px;}
 .hero-h1 em{font-style:italic;color:var(--gold-dark);}
-.hero-badge{display:inline-block;background:rgba(201,169,110,.12);border:.5px solid rgba(201,169,110,.4);border-radius:4px;padding:5px 12px;font-size:12px;font-weight:600;color:var(--gold-dark);margin-bottom:20px;letter-spacing:.04em;text-transform:uppercase;}
+.agit-item:hover{transform:translateX(4px);border-color:rgba(201,169,110,.3);}
+.agit-icon svg{width:22px;height:22px;display:block;}
+.hero-badge svg{width:14px;height:14px;flex-shrink:0;}
+.topbar-item svg,.price-note svg,.spec-item svg{width:14px;height:14px;flex-shrink:0;display:inline-block;vertical-align:-2px;}
+.price-note{display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;}
+.frete-nota{display:flex;align-items:center;justify-content:center;gap:6px;}
+.frete-nota svg{width:13px;height:13px;flex-shrink:0;}
+#sound-btn svg{width:18px;height:18px;flex-shrink:0;}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(201,169,110,.14);border:.5px solid rgba(201,169,110,.42);border-radius:30px;padding:7px 15px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);}
 .hero-sub{font-size:16px;color:var(--ink-mid);line-height:1.75;margin-bottom:28px;}
 .hero-note{font-size:12px;color:var(--ink-muted);margin-top:14px;display:flex;align-items:center;gap:6px;}
 .hero-note::before{content:"🔒";font-size:11px;}
@@ -152,8 +160,8 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .agit-h2{font-family:var(--font-display);font-size:clamp(22px,3vw,32px);font-weight:400;color:#fff;text-align:center;max-width:640px;margin:0 auto 40px;line-height:1.3;}
 .agit-h2 em{font-style:italic;color:var(--gold);}
 .agit-lista{display:flex;flex-direction:column;gap:14px;max-width:720px;margin:0 auto;}
-.agit-item{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px 20px;}
-.agit-icon{font-size:20px;flex-shrink:0;line-height:1.4;}
+.agit-item{display:flex;gap:16px;align-items:flex-start;background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:.5px solid rgba(255,255,255,.09);border-radius:16px;padding:20px 22px;transition:transform .25s ease,border-color .25s ease;}
+.agit-icon{width:42px;height:42px;border-radius:12px;flex-shrink:0;background:linear-gradient(160deg,rgba(201,169,110,.26),rgba(201,169,110,.10));border:.5px solid rgba(201,169,110,.42);color:var(--gold);display:flex;align-items:center;justify-content:center;}
 .agit-text{font-size:15px;color:rgba(255,255,255,.75);line-height:1.65;}
 .agit-text strong{color:#fff;font-weight:600;}
 .agit-virada{font-family:var(--font-display);font-size:19px;font-style:italic;color:var(--gold);text-align:center;max-width:600px;margin:32px auto 0;line-height:1.5;}
@@ -183,7 +191,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 
 /* GALERIA */
 .sec-gallery{background:var(--bg-alt);padding:64px 40px;}
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:28px;}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:28px;}
 .gallery-grid img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:8px;display:block;transition:transform .3s,box-shadow .3s;}
 .gallery-grid img:hover{transform:scale(1.03);box-shadow:0 8px 24px rgba(0,0,0,.12);}
 .gallery-grid .wide{grid-column:span 2;aspect-ratio:16/11;}
@@ -205,7 +213,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 .price-eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:10px;}
 .price-eyebrow::before,.price-eyebrow::after{content:'';display:block;width:28px;height:1px;background:var(--gold);}
 .price-h2{font-family:Georgia,serif;font-size:clamp(22px,2.8vw,30px);font-weight:400;color:var(--cream);margin-bottom:28px;line-height:1.35;}
-.price-box{background:#242422;border:1.5px solid var(--gold);border-radius:14px;padding:36px;max-width:460px;margin:0 auto 28px;box-shadow:0 8px 32px rgba(201,169,110,.12);}
+.price-box{border:1.5px solid transparent;border-radius:20px;background:linear-gradient(#242422,#1E1E1C) padding-box,linear-gradient(140deg,#F2DCA8,#C9A96E 34%,#E8D09A 64%,rgba(201,169,110,.3)) border-box;padding:36px;max-width:460px;margin:0 auto 28px;box-shadow:0 22px 50px rgba(201,169,110,.22),0 3px 10px rgba(0,0,0,.25);}
 .price-name{font-family:Georgia,serif;font-size:18px;color:var(--cream);margin-bottom:16px;}
 .price-was{font-size:14px;color:#C0392B;text-decoration:line-through;margin-bottom:6px;}
 .price-parc-destaque{font-family:Georgia,serif;font-size:28px;font-weight:700;background:linear-gradient(90deg,#8B6010 0%,#8B6010 30%,#FFF0B0 50%,#8B6010 70%,#8B6010 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:price-shine 6s linear infinite;line-height:1;margin-bottom:8px;letter-spacing:-.02em;will-change:background-position;white-space:nowrap;font-stretch:condensed;}
@@ -275,11 +283,11 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
 
 <!-- TOPBAR -->
 <div class="topbar">
-  <div class="topbar-item">📦 <strong>Frete grátis</strong> para todo o Brasil</div>
+  <div class="topbar-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> <strong>Frete grátis</strong> para todo o Brasil</div>
   <div class="topbar-dot"></div>
-  <div class="topbar-item">💳 Cartão · Boleto · Pix</div>
+  <div class="topbar-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19"/><path d="M6 14.5h3.5"/></svg> Cartão · Boleto · Pix</div>
   <div class="topbar-dot"></div>
-  <div class="topbar-item">🔒 Compra 100% segura</div>
+  <div class="topbar-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="15" r="1.2"/></svg> Compra 100% segura</div>
 </div>
 
 <!-- HERO -->
@@ -322,19 +330,19 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
     <h2 class="agit-h2 anim-up d1">Você reconhece algum desses <em>sentimentos</em>?</h2>
     <div class="agit-lista">
       <div class="agit-item anim-up d2">
-        <span class="agit-icon">🙏</span>
+        <span class="agit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.3 21c-1.5 0-2.6-1.2-2.6-2.7v-4.6c0-.8-.3-1.5-.8-2.1l-1.2-1.3a1.3 1.3 0 0 1 1.8-1.9l1.5 1.3V4.4a1.3 1.3 0 0 1 2.6 0V21Z"/><path d="M14.7 21c1.5 0 2.6-1.2 2.6-2.7v-4.6c0-.8.3-1.5.8-2.1l1.2-1.3a1.3 1.3 0 0 0-1.8-1.9l-1.5 1.3V4.4a1.3 1.3 0 0 0-2.6 0V21Z"/></svg></span>
         <div class="agit-text">Você quer ter um tempo diário com Deus, mas <strong>os dias passam</strong> e esse momento nunca acontece de verdade.</div>
       </div>
       <div class="agit-item anim-up d2">
-        <span class="agit-icon">📖</span>
+        <span class="agit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.6C10.5 5.2 8.6 4.6 5 4.6v12.6c3.6 0 5.5.6 7 2 1.5-1.4 3.4-2 7-2V4.6c-3.6 0-5.5.6-7 2Z"/><path d="M12 6.6v13.6"/></svg></span>
         <div class="agit-text">Você abre a Bíblia com boa intenção, mas <strong>não sabe por onde começar</strong> nem como registrar o que sente enquanto lê.</div>
       </div>
       <div class="agit-item anim-up d3">
-        <span class="agit-icon">💭</span>
+        <span class="agit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 15.5A4.5 4.5 0 0 1 8.6 6.6a4 4 0 0 1 7.2-.4 4 4 0 0 1 .7 7.9"/><path d="M8 15.5h8.5"/><circle cx="7" cy="19" r="1.3"/><circle cx="11" cy="20" r="1"/></svg></span>
         <div class="agit-text">Suas orações e reflexões ficam <strong>só na cabeça</strong>, sem nenhum registro pra olhar pra trás e ver o quanto sua fé já cresceu.</div>
       </div>
       <div class="agit-item anim-up d3">
-        <span class="agit-icon">😔</span>
+        <span class="agit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15.5a4 4 0 0 1 6 0"/><path d="M9 9.5h.01M15 9.5h.01"/></svg></span>
         <div class="agit-text">Você sente que sua conexão espiritual <strong>vem e vai</strong>, sem uma prática constante que sustente isso todos os dias.</div>
       </div>
     </div>
@@ -394,7 +402,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <a class="btn-gold" href="https://chk.eduzz.com/G92VP3P79E?pf=1" target="_blank" rel="noopener">
         Quero meu Devocional
       </a>
-      <div style="font-size:12px;color:var(--ink-muted);margin-top:10px;">📦 Frete grátis para todo o Brasil</div>
+      <div class="frete-nota" style="font-size:12px;color:var(--ink-muted);margin-top:10px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> Frete grátis para todo o Brasil</div>
     </div>
   </div>
 </section>
@@ -446,7 +454,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <a class="btn-gold" href="https://chk.eduzz.com/G92VP3P79E?pf=1" target="_blank" rel="noopener" style="width:100%;text-align:center;display:block;">
         Quero meu Devocional
       </a>
-      <div class="price-note">📦 Frete grátis · 🔒 Compra segura · 7 dias de garantia</div>
+      <div class="price-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> Frete grátis · <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="15" r="1.2"/></svg> Compra segura · 7 dias de garantia</div>
     </div>
   </div>
 </section>
