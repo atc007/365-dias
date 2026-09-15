@@ -95,6 +95,45 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 .sec.cream{background:var(--cream);}
 .sec.dark{background:var(--ink);color:#fff;}
 
+.sec.dark .sec-h2,.sec.dark h3,.sec.dark .dif-title,.sec.dark .bonus-title{color:#FFF6F1;}
+.sec.dark .sec-p,.sec.dark .dif-desc,.sec.dark p,.sec.dark li{color:rgba(255,246,241,.74);}
+.sec.dark .eyebrow{color:var(--rose-light);}
+.sec.dark .eyebrow span,.sec.dark .eyebrow::before{background:var(--rose-light);}
+.sec.dark .bonus-val,.sec.dark .bonus-desc{color:rgba(255,246,241,.6);}
+.sec.dark .bonus-item{
+  background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border-color:rgba(232,196,180,.18);
+}
+
+.sec.dark .dif-card,.sec.dark .agit-card,.sec.dark .for-card,.sec.dark .module-item,.sec.dark .about-card{
+  background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.02)) padding-box,
+             linear-gradient(140deg,rgba(232,196,180,.5),rgba(196,136,111,.32) 40%,rgba(196,136,111,.12)) border-box;
+  border:1px solid transparent;
+  box-shadow:0 12px 28px rgba(0,0,0,.22);
+}
+
+.sec.dark .bonus-box{
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(232,196,180,.2);
+  box-shadow:0 16px 36px rgba(0,0,0,.24);
+}
+.sec.dark .bonus-item{background:transparent;border:none;border-bottom:.5px solid rgba(232,196,180,.16);box-shadow:none;}
+.sec.dark .bonus-item:last-child{border-bottom:none;}
+.sec.dark .bonus-num{background:linear-gradient(160deg,var(--rose),#A06B54);color:#fff;}
+.sec.dark .vip-extra-box,.sec.dark .vip-extra{
+  background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.02)) padding-box,
+             linear-gradient(140deg,rgba(232,196,180,.5),rgba(196,136,111,.3) 40%,rgba(196,136,111,.12)) border-box;
+  border:1px solid transparent;box-shadow:0 12px 28px rgba(0,0,0,.22);
+}
+.sec.dark .bonus-num{background:linear-gradient(160deg,var(--rose),#A06B54);color:#fff;}
+.sec.dark .dif-icon{background:rgba(232,196,180,.14);border:.5px solid rgba(232,196,180,.3);color:var(--rose-light);}
+
+.sec.dark .vip-hl-item{color:#FFF6F1;}
+.sec.dark .vip-extra-badge{background:rgba(232,196,180,.16);color:var(--rose-light);}
+.sec.dark .bonus-valor-box{background:rgba(0,0,0,.28);border-color:rgba(232,196,180,.22);}
+
+.sec.dark2{background:#3E332D;color:#fff;}
+
 /* ══ ANIMAÇÕES ══ */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 @keyframes shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
@@ -382,7 +421,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 @media(prefers-reduced-motion:reduce){.faq-a{transition:opacity .15s ease;}}
 
 /* ══ CTA FINAL ══ */
-.cta-final{text-align:center;background:var(--ink);padding:64px 0;color:#fff;}
+.cta-final{text-align:center;background:#3E332D;padding:64px 0;color:#fff;}
 .cta-final-title{font-family:var(--font-display);font-size:clamp(24px,3vw,34px);font-weight:400;margin-bottom:14px;}
 .cta-final-title em{font-style:italic;color:var(--rose-light);}
 .cta-final-sub{font-size:14px;color:rgba(255,255,255,.6);margin-bottom:26px;max-width:480px;margin-left:auto;margin-right:auto;}
@@ -410,6 +449,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
   .stats-inner{gap:16px 28px;}
   .footer-grid{gap:28px;}
 }
+
+/* ══ OVERRIDES — seções escuras ══ */
+/* Texto legível nas seções escuras */
 </style>
 </head>
 <body>
@@ -581,7 +623,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 </section>
 
 <!-- DIFERENCIAL -->
-<section class="sec cream">
+<section class="sec dark">
   <div class="inner">
     <div class="eyebrow" style="justify-content:center;">Por que em videoaula</div>
     <h2 class="sec-h2 anim-up" style="text-align:center;max-width:600px;margin-left:auto;margin-right:auto;">O mesmo método do livro, mas agora você não faz sozinha.</h2>
@@ -653,7 +695,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 </section>
 
 <!-- BÔNUS -->
-<section class="sec alt">
+<section class="sec dark">
   <div class="inner">
     <div class="eyebrow" style="justify-content:flex-start;">Comprando hoje você recebe</div>
     <h2 class="sec-h2 anim-up">Acesso ao curso + bônus exclusivos</h2>
