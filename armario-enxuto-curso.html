@@ -202,7 +202,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 .sec-p{font-size:16px;color:var(--ink-mid);line-height:1.75;max-width:620px;}
 
 /* ══ AGITAÇÃO — problema ══ */
-.agit-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.agit-grid{display:block;max-width:760px;}
 .agit-cards{display:flex;flex-direction:column;gap:12px;}
 .agit-card{border:1px solid transparent;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#E8C4B4,#C4886F 40%,rgba(196,136,111,.18)) border-box;box-shadow:0 12px 28px rgba(140,90,64,.12);
   border-left:3px solid var(--rose);border-radius:12px;
@@ -219,6 +219,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 }
 .agit-icon{font-size:18px;flex-shrink:0;}
 
+.carr-cap{text-align:center;font-size:13px;color:var(--ink-muted);margin-top:12px;font-style:italic;}
 .cur-carousel{position:relative;width:100%;height:100%;overflow:hidden;background:var(--rose-pale);}
 .cur-slide{
   position:absolute;inset:0;width:100%;height:100%;
@@ -237,7 +238,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
   .cur-slide{animation:none;opacity:0;}
   .cur-slide:first-child{opacity:1;}
 }
-.agit-img{border-radius:12px;overflow:hidden;aspect-ratio:4/5;background:var(--rose-pale);}
+.agit-img{border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:var(--rose-pale);margin-top:38px;box-shadow:0 20px 44px rgba(140,90,64,.18);}
 .agit-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .pullquote{border-left:3px solid var(--rose);padding:12px 20px;font-family:var(--font-display);font-size:19px;font-style:italic;color:var(--ink);line-height:1.5;margin-top:24px;}
 
@@ -473,21 +474,24 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
           <div class="agit-card anim-up d3"><span class="agit-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15.5a4 4 0 0 1 6 0"/><path d="M9 9.5h.01M15 9.5h.01"/></svg></span>Queria ter alguém do seu lado, aula por aula, te ensinando a montar seu estilo do zero.</div>
         </div>
       </div>
-      <div class="agit-img anim-up d2">
-  <div class="cur-carousel" role="group" aria-label="Imagens de dentro do curso">
-    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_328802c5b85f408caaa6a8803ff52e27~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 1 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:0s">
-    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_907ae457792c444ba79c4a6f2b8e6983~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 2 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:3s">
-    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_21d6e19f1fb542a584ed322d9ef07d17~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 3 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:6s">
-    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_9d6c87a6b22f455c9607ba9fa0f536f5~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 4 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:9s">
-    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_b4e45d24971f4f6482a80f437b13afcf~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 5 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:12s">
-    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_7335e07053d441809b58c3cb31e79f11~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 6 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:15s">
-    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_c5cb402dc0b649569a302b825da3f585~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 7 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:18s">
-    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_0dff5d6fa5c8437f908f2b8c4ff609cc~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 8 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:21s">
-    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_f86250ce07ea43b393d9ccbedf98a310~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 9 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:24s">
-    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_662e959013074781bc9b59be965e8128~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 10 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:27s">
-  </div>
-</div>
     </div>
+
+    <div class="agit-img anim-up d2">
+  <div class="cur-carousel" role="group" aria-label="Imagens de dentro do curso">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_328802c5b85f408caaa6a8803ff52e27~mv2.jpeg/v1/fill/w_1280,h_720,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 1 do curso Armário Enxuto" width="1280" height="720" loading="lazy" decoding="async" style="animation-delay:0s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_907ae457792c444ba79c4a6f2b8e6983~mv2.jpeg/v1/fill/w_1280,h_720,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 2 do curso Armário Enxuto" width="1280" height="720" loading="lazy" decoding="async" style="animation-delay:3s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_21d6e19f1fb542a584ed322d9ef07d17~mv2.jpeg/v1/fill/w_1280,h_720,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 3 do curso Armário Enxuto" width="1280" height="720" loading="lazy" decoding="async" style="animation-delay:6s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_9d6c87a6b22f455c9607ba9fa0f536f5~mv2.jpeg/v1/fill/w_1280,h_720,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 4 do curso Armário Enxuto" width="1280" height="720" loading="lazy" decoding="async" style="animation-delay:9s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_b4e45d24971f4f6482a80f437b13afcf~mv2.jpeg/v1/fill/w_1280,h_720,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 5 do curso Armário Enxuto" width="1280" height="720" loading="lazy" decoding="async" style="animation-delay:12s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_7335e07053d441809b58c3cb31e79f11~mv2.jpeg/v1/fill/w_1280,h_720,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 6 do curso Armário Enxuto" width="1280" height="720" loading="lazy" decoding="async" style="animation-delay:15s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_c5cb402dc0b649569a302b825da3f585~mv2.jpeg/v1/fill/w_1280,h_720,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 7 do curso Armário Enxuto" width="1280" height="720" loading="lazy" decoding="async" style="animation-delay:18s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_0dff5d6fa5c8437f908f2b8c4ff609cc~mv2.jpeg/v1/fill/w_1280,h_720,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 8 do curso Armário Enxuto" width="1280" height="720" loading="lazy" decoding="async" style="animation-delay:21s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_f86250ce07ea43b393d9ccbedf98a310~mv2.jpeg/v1/fill/w_1280,h_720,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 9 do curso Armário Enxuto" width="1280" height="720" loading="lazy" decoding="async" style="animation-delay:24s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_662e959013074781bc9b59be965e8128~mv2.jpeg/v1/fill/w_1280,h_720,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 10 do curso Armário Enxuto" width="1280" height="720" loading="lazy" decoding="async" style="animation-delay:27s">
+  </div>
+    </div>
+    <p class="carr-cap">Aulas reais do curso, como você vai ver na área de membros.</p>
+
     <div class="pullquote anim-up d3">“O problema não é falta de roupas. É falta de conexão com quem você é hoje. Por isso o curso é em aula, não em texto: eu quero te mostrar, passo a passo, como isso muda.”</div>
   </div>
 </section>
