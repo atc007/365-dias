@@ -144,7 +144,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 }
 @media(prefers-reduced-motion:reduce){.sound-btn{animation:none;}}
 .hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;justify-content:center;}
-.hero-badge{background:rgba(196,136,111,.12);border:.5px solid rgba(196,136,111,.3);border-radius:5px;padding:6px 12px;font-size:12px;font-weight:500;color:var(--rose-dark);}
+.hero-badge svg{width:14px;height:14px;flex-shrink:0;}
+.agit-icon-badge svg{width:20px;height:20px;}
+.dif-icon svg{width:24px;height:24px;}
+.for-icon svg{width:13px;height:13px;display:block;}
+.vip-hl-item{display:flex;align-items:center;gap:11px;font-size:14px;font-weight:600;color:var(--ink);line-height:1.4;}
+.vip-hl-ico{width:22px;height:22px;border-radius:7px;flex-shrink:0;background:linear-gradient(160deg,var(--rose),#A06B54);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(196,136,111,.35);}
+.vip-hl-ico svg{width:13px;height:13px;display:block;}
+.vip-extra-highlight{display:flex;flex-direction:column;gap:11px;}
+.module-meta svg,.price-lock svg,.topbar svg,.challenge-badge svg,.vip-extra-badge svg,.bonus-gratis svg,.stat-num svg{
+  width:14px;height:14px;flex-shrink:0;display:inline-block;vertical-align:-2px;}
+.stat-num svg{width:26px;height:26px;vertical-align:-4px;}
+.gar-badge svg{width:42px;height:42px;}
+.bonus-gratis svg{width:20px;height:20px;}
+.module-meta span,.price-lock,.challenge-badge{display:inline-flex;align-items:center;gap:6px;}
+.hero-badge{background:rgba(196,136,111,.14);border:.5px solid rgba(196,136,111,.4);border-radius:30px;padding:7px 14px;font-size:12px;font-weight:500;color:var(--rose-text);display:inline-flex;align-items:center;gap:7px;}
 
 /* ══ BOTÕES ══ */
 .btn-rose{
@@ -190,8 +204,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 /* ══ AGITAÇÃO — problema ══ */
 .agit-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
 .agit-cards{display:flex;flex-direction:column;gap:12px;}
-.agit-card{
-  background:#fff;border-left:3px solid var(--rose);border-radius:12px;
+.agit-card{border:1px solid transparent;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#E8C4B4,#C4886F 40%,rgba(196,136,111,.18)) border-box;box-shadow:0 12px 28px rgba(140,90,64,.12);
+  border-left:3px solid var(--rose);border-radius:12px;
   padding:18px 20px;display:flex;gap:16px;align-items:flex-start;
   font-size:14px;color:var(--ink-mid);box-shadow:0 2px 10px rgba(140,90,64,.06);
   transition:transform .25s ease,box-shadow .25s ease;
@@ -199,19 +213,38 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 .agit-card:hover{transform:translateX(4px);box-shadow:0 10px 26px rgba(140,90,64,.12);}
 .agit-icon-badge{
   width:38px;height:38px;border-radius:11px;flex-shrink:0;
-  background:linear-gradient(160deg,rgba(196,136,111,.15),rgba(196,136,111,.05));
+  background:var(--ink);color:var(--rose-light);
   border:.5px solid rgba(196,136,111,.28);
   display:flex;align-items:center;justify-content:center;font-size:17px;
 }
 .agit-icon{font-size:18px;flex-shrink:0;}
+
+.cur-carousel{position:relative;width:100%;height:100%;overflow:hidden;background:var(--rose-pale);}
+.cur-slide{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;display:block;opacity:0;
+  animation:cur-fade 30s infinite;
+}
+@keyframes cur-fade{
+  0%{opacity:0}
+  1.6%{opacity:1}
+  8.4%{opacity:1}
+  10.0%{opacity:0}
+  100%{opacity:0}
+}
+.cur-carousel:hover .cur-slide{animation-play-state:paused;}
+@media(prefers-reduced-motion:reduce){
+  .cur-slide{animation:none;opacity:0;}
+  .cur-slide:first-child{opacity:1;}
+}
 .agit-img{border-radius:12px;overflow:hidden;aspect-ratio:4/5;background:var(--rose-pale);}
 .agit-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .pullquote{border-left:3px solid var(--rose);padding:12px 20px;font-family:var(--font-display);font-size:19px;font-style:italic;color:var(--ink);line-height:1.5;margin-top:24px;}
 
 /* ══ GRADE DE MÓDULOS (currículo) ══ */
 .modules-list{display:flex;flex-direction:column;gap:10px;margin-top:32px;}
-.module-item{
-  background:#fff;border:.5px solid var(--border);border-radius:10px;
+.module-item{border:1px solid transparent;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#E8C4B4,#C4886F 40%,rgba(196,136,111,.18)) border-box;box-shadow:0 12px 28px rgba(140,90,64,.12);
+  border-radius:10px;
   padding:18px 22px;display:flex;gap:18px;align-items:flex-start;
   transition:border-color .2s,transform .2s,box-shadow .2s;
 }
@@ -235,14 +268,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 .dif-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px;}
 .dif-card{background:#fff;border:.5px solid var(--border);border-radius:10px;padding:22px;text-align:left;transition:transform .2s,box-shadow .2s;}
 .dif-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(140,90,64,.1);}
-.dif-icon{font-size:24px;margin-bottom:10px;}
+.dif-icon{width:46px;height:46px;border-radius:13px;margin:0 auto 12px;background:var(--ink);color:var(--rose-light);display:flex;align-items:center;justify-content:center;}
 .dif-title{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--ink);margin-bottom:6px;}
 .dif-desc{font-size:14px;color:var(--ink-mid);line-height:1.6;}
 
 /* ══ PARA QUEM ══ */
 .for-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px;}
-.for-card{background:#fff;border:.5px solid var(--border);border-radius:10px;padding:16px 18px;display:flex;gap:10px;align-items:flex-start;}
-.for-icon{color:var(--rose-text);font-size:16px;flex-shrink:0;margin-top:1px;}
+.for-card{border:1px solid transparent;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#E8C4B4,#C4886F 40%,rgba(196,136,111,.18)) border-box;box-shadow:0 12px 28px rgba(140,90,64,.12);border-radius:10px;padding:16px 18px;display:flex;gap:10px;align-items:flex-start;}
+.for-icon{width:22px;height:22px;border-radius:7px;flex-shrink:0;margin-top:1px;background:linear-gradient(160deg,var(--rose),#A06B54);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(196,136,111,.35);}
 .for-text{font-size:14px;color:var(--ink-mid);line-height:1.55;}
 
 /* ══ SOBRE AS CRIADORAS ══ */
@@ -302,7 +335,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 
 /* ══ PREÇO ══ */
 .price-wrap{max-width:460px;margin:32px auto 0;}
-.price-card{background:#fff;border:2px solid var(--rose);border-radius:16px;padding:32px 28px;text-align:center;box-shadow:0 16px 40px rgba(140,90,64,.14);}
+.price-card{border:2px solid transparent;border-radius:22px;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#F0D6C8,#C4886F 32%,#E8C4B4 62%,rgba(196,136,111,.35)) border-box;box-shadow:0 22px 50px rgba(196,136,111,.3),0 3px 10px rgba(140,90,64,.12);padding:32px 28px;text-align:center;}
 .price-img{border-radius:12px;overflow:hidden;margin-bottom:20px;aspect-ratio:1/1;max-width:280px;margin-left:auto;margin-right:auto;background:var(--rose-pale);}
 .price-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .price-badge{display:inline-block;background:var(--rose);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px;}
@@ -383,7 +416,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 
 <div class="topbar">
-  🎥 <strong>Turma com acesso vitalício</strong> · Comece hoje, sem esperar turma nova
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5h18v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9Z"/><path d="m3.6 9.5-.5-2.6a1.3 1.3 0 0 1 1-1.5l14-2.6a1.3 1.3 0 0 1 1.6 1l.5 2.6-16.6 3.1Z"/><path d="m8.2 4.4.9 4.4M13.4 3.4l.9 4.4"/></svg> <strong>Turma com acesso vitalício</strong> · Comece hoje, sem esperar turma nova
 </div>
 
 <main id="main-content">
@@ -408,9 +441,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
     <div class="hero-note anim-up d3 hero-note-wrap">Pagamento processado pela Eduzz, plataforma usada por mais de 1 milhão de compradores no Brasil · Cartão, Pix ou boleto</div>
 
     <div class="hero-badges anim-up d4">
-      <span class="hero-badge">🎬 Videoaulas em módulos</span>
-      <span class="hero-badge">📱 Assista quando quiser</span>
-      <span class="hero-badge">♾️ Acesso vitalício</span>
+      <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5h18v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9Z"/><path d="m3.6 9.5-.5-2.6a1.3 1.3 0 0 1 1-1.5l14-2.6a1.3 1.3 0 0 1 1.6 1l.5 2.6-16.6 3.1Z"/><path d="m8.2 4.4.9 4.4M13.4 3.4l.9 4.4"/></svg> Videoaulas em módulos</span>
+      <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg> Assista quando quiser</span>
+      <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.6 9.2a4 4 0 1 0 0 5.6c1.4-1.4 5.4-4.2 6.8-5.6a4 4 0 1 1 0 5.6C14 13.4 10 10.6 8.6 9.2Z"/></svg> Acesso vitalício</span>
     </div>
   </div>
 </section>
@@ -420,8 +453,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
   <div class="stats-inner">
     <div class="stat anim-up"><span class="stat-num">53</span><span class="stat-label">videoaulas</span></div>
     <div class="stat anim-up d1"><span class="stat-num">8 módulos</span><span class="stat-label">passo a passo</span></div>
-    <div class="stat anim-up d2"><span class="stat-num">♾️</span><span class="stat-label">acesso vitalício</span></div>
-    <div class="stat anim-up d3"><span class="stat-num">📖</span><span class="stat-label">livro digital incluso</span></div>
+    <div class="stat anim-up d2"><span class="stat-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.6 9.2a4 4 0 1 0 0 5.6c1.4-1.4 5.4-4.2 6.8-5.6a4 4 0 1 1 0 5.6C14 13.4 10 10.6 8.6 9.2Z"/></svg></span><span class="stat-label">acesso vitalício</span></div>
+    <div class="stat anim-up d3"><span class="stat-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.6C10.5 5.2 8.6 4.6 5 4.6v12.6c3.6 0 5.5.6 7 2 1.5-1.4 3.4-2 7-2V4.6c-3.6 0-5.5.6-7 2Z"/><path d="M12 6.6v13.6"/></svg></span><span class="stat-label">livro digital incluso</span></div>
   </div>
 </div>
 
@@ -435,14 +468,25 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
         </div>
         <h2 class="sec-h2 anim-up">Você compra, compra, e ainda sente que não tem nada para vestir.</h2>
         <div class="agit-cards" style="margin-top:20px;">
-          <div class="agit-card anim-up d1"><span class="agit-icon-badge">👗</span>As peças do seu armário não te representam mais. Nada parece certo.</div>
-          <div class="agit-card anim-up d2"><span class="agit-icon-badge">🪞</span>Você passa horas na frente do espelho sem se reconhecer, e acaba usando sempre as mesmas coisas.</div>
-          <div class="agit-card anim-up d3"><span class="agit-icon-badge">😔</span>Queria ter alguém do seu lado, aula por aula, te ensinando a montar seu estilo do zero.</div>
+          <div class="agit-card anim-up d1"><span class="agit-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5a1.7 1.7 0 1 1 1.7 1.7c-1 0-1.7.6-1.7 1.5v.8"/><path d="M12 11 4.5 16.6c-.9.7-.4 2.1.7 2.1h13.6c1.1 0 1.6-1.4.7-2.1L12 11Z"/></svg></span>As peças do seu armário não te representam mais. Nada parece certo.</div>
+          <div class="agit-card anim-up d2"><span class="agit-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="16" rx="6"/><path d="M12 18.5V21"/><path d="M8.5 21h7"/><path d="M9.5 7.5a3.6 3.6 0 0 1 2.5-1"/></svg></span>Você passa horas na frente do espelho sem se reconhecer, e acaba usando sempre as mesmas coisas.</div>
+          <div class="agit-card anim-up d3"><span class="agit-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15.5a4 4 0 0 1 6 0"/><path d="M9 9.5h.01M15 9.5h.01"/></svg></span>Queria ter alguém do seu lado, aula por aula, te ensinando a montar seu estilo do zero.</div>
         </div>
       </div>
       <div class="agit-img anim-up d2">
-        <img src="" alt="Aula do curso Armário Enxuto sendo assistida" loading="lazy">
-      </div>
+  <div class="cur-carousel" role="group" aria-label="Imagens de dentro do curso">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_328802c5b85f408caaa6a8803ff52e27~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 1 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:0s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_907ae457792c444ba79c4a6f2b8e6983~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 2 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:3s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_21d6e19f1fb542a584ed322d9ef07d17~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 3 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:6s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_9d6c87a6b22f455c9607ba9fa0f536f5~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 4 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:9s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_b4e45d24971f4f6482a80f437b13afcf~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 5 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:12s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_7335e07053d441809b58c3cb31e79f11~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 6 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:15s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_c5cb402dc0b649569a302b825da3f585~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 7 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:18s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_0dff5d6fa5c8437f908f2b8c4ff609cc~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 8 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:21s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_f86250ce07ea43b393d9ccbedf98a310~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 9 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:24s">
+    <img class="cur-slide" src="https://static.wixstatic.com/media/940f31_662e959013074781bc9b59be965e8128~mv2.jpeg/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/aula.webp" alt="Aula 10 do curso Armário Enxuto" width="600" height="750" loading="lazy" decoding="async" style="animation-delay:27s">
+  </div>
+</div>
     </div>
     <div class="pullquote anim-up d3">“O problema não é falta de roupas. É falta de conexão com quem você é hoje. Por isso o curso é em aula, não em texto: eu quero te mostrar, passo a passo, como isso muda.”</div>
   </div>
@@ -461,7 +505,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
         <div>
           <div class="module-title">Introdução ao armário enxuto</div>
           <div class="module-desc">O que é moda com propósito, o que é ter um armário enxuto na prática, e por que respeitar o processo muda tudo.</div>
-          <div class="module-meta"><span>🎬 8 aulas</span></div>
+          <div class="module-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5h18v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9Z"/><path d="m3.6 9.5-.5-2.6a1.3 1.3 0 0 1 1-1.5l14-2.6a1.3 1.3 0 0 1 1.6 1l.5 2.6-16.6 3.1Z"/><path d="m8.2 4.4.9 4.4M13.4 3.4l.9 4.4"/></svg> 8 aulas</span></div>
         </div>
       </div>
       <div class="module-item anim-up d1">
@@ -469,7 +513,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
         <div>
           <div class="module-title">Descobrindo o seu estilo</div>
           <div class="module-desc">Não existe fórmula pronta: você descobre o que a decoração da sua casa e suas experiências dizem sobre o seu estilo pessoal.</div>
-          <div class="module-meta"><span>🎬 10 aulas</span></div>
+          <div class="module-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5h18v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9Z"/><path d="m3.6 9.5-.5-2.6a1.3 1.3 0 0 1 1-1.5l14-2.6a1.3 1.3 0 0 1 1.6 1l.5 2.6-16.6 3.1Z"/><path d="m8.2 4.4.9 4.4M13.4 3.4l.9 4.4"/></svg> 10 aulas</span></div>
         </div>
       </div>
       <div class="module-item anim-up d2">
@@ -477,7 +521,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
         <div>
           <div class="module-title">Autoconhecimento</div>
           <div class="module-desc">Por que o autoconhecimento é essencial nesse processo, os tipos que existem, e a técnica do espelho na prática.</div>
-          <div class="module-meta"><span>🎬 4 aulas</span></div>
+          <div class="module-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5h18v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9Z"/><path d="m3.6 9.5-.5-2.6a1.3 1.3 0 0 1 1-1.5l14-2.6a1.3 1.3 0 0 1 1.6 1l.5 2.6-16.6 3.1Z"/><path d="m8.2 4.4.9 4.4M13.4 3.4l.9 4.4"/></svg> 4 aulas</span></div>
         </div>
       </div>
       <div class="module-item anim-up d2">
@@ -485,7 +529,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
         <div>
           <div class="module-title">Como usar e abusar das cores</div>
           <div class="module-desc">Autoanálise de cores, quais investir estrategicamente, e como descobrir quais te favorecem de verdade.</div>
-          <div class="module-meta"><span>🎬 3 aulas</span></div>
+          <div class="module-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5h18v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9Z"/><path d="m3.6 9.5-.5-2.6a1.3 1.3 0 0 1 1-1.5l14-2.6a1.3 1.3 0 0 1 1.6 1l.5 2.6-16.6 3.1Z"/><path d="m8.2 4.4.9 4.4M13.4 3.4l.9 4.4"/></svg> 3 aulas</span></div>
         </div>
       </div>
       <div class="module-item anim-up d3">
@@ -493,7 +537,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
         <div>
           <div class="module-title">Buscando referências</div>
           <div class="module-desc">Por que buscar referência importa, com exercício prático de moodboard e sondagem de estilo.</div>
-          <div class="module-meta"><span>🎬 3 aulas</span></div>
+          <div class="module-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5h18v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9Z"/><path d="m3.6 9.5-.5-2.6a1.3 1.3 0 0 1 1-1.5l14-2.6a1.3 1.3 0 0 1 1.6 1l.5 2.6-16.6 3.1Z"/><path d="m8.2 4.4.9 4.4M13.4 3.4l.9 4.4"/></svg> 3 aulas</span></div>
         </div>
       </div>
       <div class="module-item anim-up d3">
@@ -501,7 +545,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
         <div>
           <div class="module-title">Construindo o seu armário enxuto</div>
           <div class="module-desc">Ter menos para poder ser mais: revitalização, desrotular peças, e como desapegar do que já não serve.</div>
-          <div class="module-meta"><span>🎬 5 aulas</span></div>
+          <div class="module-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5h18v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9Z"/><path d="m3.6 9.5-.5-2.6a1.3 1.3 0 0 1 1-1.5l14-2.6a1.3 1.3 0 0 1 1.6 1l.5 2.6-16.6 3.1Z"/><path d="m8.2 4.4.9 4.4M13.4 3.4l.9 4.4"/></svg> 5 aulas</span></div>
         </div>
       </div>
       <div class="module-item anim-up d4">
@@ -509,7 +553,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
         <div>
           <div class="module-title">Organizando o seu Armário Enxuto</div>
           <div class="module-desc">Como organizar de verdade, guardar roupa corretamente, separar por estampa, e cuidar bem do que você tem.</div>
-          <div class="module-meta"><span>🎬 4 aulas</span></div>
+          <div class="module-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5h18v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9Z"/><path d="m3.6 9.5-.5-2.6a1.3 1.3 0 0 1 1-1.5l14-2.6a1.3 1.3 0 0 1 1.6 1l.5 2.6-16.6 3.1Z"/><path d="m8.2 4.4.9 4.4M13.4 3.4l.9 4.4"/></svg> 4 aulas</span></div>
         </div>
       </div>
       <div class="module-item anim-up d4">
@@ -517,13 +561,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
         <div>
           <div class="module-title">Montagem e multiplicação de looks</div>
           <div class="module-desc">Como multiplicar combinações, compra inteligente e experimentação consciente, fechando com a técnica do espelho revista.</div>
-          <div class="module-meta"><span>🎬 5 aulas</span></div>
+          <div class="module-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5h18v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9Z"/><path d="m3.6 9.5-.5-2.6a1.3 1.3 0 0 1 1-1.5l14-2.6a1.3 1.3 0 0 1 1.6 1l.5 2.6-16.6 3.1Z"/><path d="m8.2 4.4.9 4.4M13.4 3.4l.9 4.4"/></svg> 5 aulas</span></div>
         </div>
       </div>
     </div>
 
     <div class="challenge-box anim-up d5">
-      <div class="challenge-badge">🏆 Desafio prático incluso</div>
+      <div class="challenge-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5.5a4 4 0 0 1-8 0V4Z"/><path d="M8 5.5H5.5A1.5 1.5 0 0 0 4 7c0 1.8 1.5 3.2 4 3.4M16 5.5h2.5A1.5 1.5 0 0 1 20 7c0 1.8-1.5 3.2-4 3.4"/><path d="M12 13.5V17"/><path d="M8.5 20h7"/><path d="M10 17h4l.8 3H9.2l.8-3Z"/></svg> Desafio prático incluso</div>
       <div class="challenge-title">Desafio: Revitalização do Armário</div>
       <div class="challenge-desc">5 dias de missões práticas para você aplicar o método na prática, direto no seu próprio armário.</div>
     </div>
@@ -539,7 +583,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
     <h2 class="sec-h2 anim-up" style="text-align:center;max-width:600px;margin-left:auto;margin-right:auto;">O mesmo método do livro, mas agora você não faz sozinha.</h2>
     <div class="dif-grid">
       <div class="dif-card anim-up d1">
-        <div class="dif-icon">🎥</div>
+        <div class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5h18v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9Z"/><path d="m3.6 9.5-.5-2.6a1.3 1.3 0 0 1 1-1.5l14-2.6a1.3 1.3 0 0 1 1.6 1l.5 2.6-16.6 3.1Z"/><path d="m8.2 4.4.9 4.4M13.4 3.4l.9 4.4"/></svg></div>
         <div class="dif-title">Ver para entender</div>
         <div class="dif-desc">Fabianna mostra na prática, em armários reais, o que no livro é só texto e imagem.</div>
       </div>
@@ -549,7 +593,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
         <div class="dif-desc">Pause, volte, refaça a aula quantas vezes precisar. Acesso vitalício, sem prazo de validade.</div>
       </div>
       <div class="dif-card anim-up d3">
-        <div class="dif-icon">🧭</div>
+        <div class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M15.2 8.8 13.6 13.6 8.8 15.2l1.6-4.8 4.8-1.6Z"/></svg></div>
         <div class="dif-title">Passo a passo guiado</div>
         <div class="dif-desc">Você não decide sozinha por onde começar. O curso te leva pela mão, módulo por módulo.</div>
       </div>
@@ -563,10 +607,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
     <div class="eyebrow" style="justify-content:flex-start;">Para quem é este curso</div>
     <h2 class="sec-h2 anim-up">Para quem quer se vestir com confiança, sem complicação.</h2>
     <div class="for-grid">
-      <div class="for-card anim-up d1"><span class="for-icon">✔️</span><span class="for-text">Está cansada de se sentir mal quando veste suas roupas</span></div>
-      <div class="for-card anim-up d2"><span class="for-icon">✔️</span><span class="for-text">Prefere aprender assistindo e fazendo junto, não só lendo</span></div>
-      <div class="for-card anim-up d3"><span class="for-icon">✔️</span><span class="for-text">Já tentou organizar o armário sozinha e não conseguiu manter</span></div>
-      <div class="for-card anim-up d4"><span class="for-icon">✔️</span><span class="for-text">Quer ter seu próprio estilo, mas não sabe como montar um armário que funciona</span></div>
+      <div class="for-card anim-up d1"><span class="for-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.2 12.2 11 15l5-6"/></svg></span><span class="for-text">Está cansada de se sentir mal quando veste suas roupas</span></div>
+      <div class="for-card anim-up d2"><span class="for-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.2 12.2 11 15l5-6"/></svg></span><span class="for-text">Prefere aprender assistindo e fazendo junto, não só lendo</span></div>
+      <div class="for-card anim-up d3"><span class="for-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.2 12.2 11 15l5-6"/></svg></span><span class="for-text">Já tentou organizar o armário sozinha e não conseguiu manter</span></div>
+      <div class="for-card anim-up d4"><span class="for-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.2 12.2 11 15l5-6"/></svg></span><span class="for-text">Quer ter seu próprio estilo, mas não sabe como montar um armário que funciona</span></div>
     </div>
     <div style="text-align:center;margin-top:32px;">
       <a href="#versoes" class="btn-rose anim-up d5">Esse é o meu caso, quero começar</a>
@@ -620,17 +664,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
       </div>
       <div class="bonus-valor-box">
         <div class="bonus-valor-left">Tudo isso valeria:<br><strong>R$ 174 em bônus, inclusos sem custo adicional</strong></div>
-        <div style="text-align:right;"><span class="bonus-was">R$ 174,00</span><span class="bonus-gratis">Grátis 🎁</span></div>
+        <div style="text-align:right;"><span class="bonus-was">R$ 174,00</span><span class="bonus-gratis">Grátis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg></span></div>
       </div>
     </div>
 
     <div class="vip-extra anim-up d2">
       <div class="vip-extra-grid">
         <div>
-          <div class="vip-extra-badge">🎁 Conteúdo em expansão</div>
+          <div class="vip-extra-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Conteúdo em expansão</div>
           <h3>Acesso vitalício à Área VIP</h3>
           <p>Além dos bônus acima, você também acessa a Área VIP: checklists prontos pra imprimir, ferramentas de organização e produtividade, ebooks selecionados, vídeos curtos e planners complementares.</p>
-          <div class="vip-extra-highlight">✔ Acesso vitalício à Área VIP<br>✔ Atualizações sem custo adicional<br>✔ Novos bônus liberados ao longo do tempo</div>
+          <div class="vip-extra-highlight"><div class="vip-hl-item"><span class="vip-hl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span>Acesso vitalício à Área VIP</div><div class="vip-hl-item"><span class="vip-hl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span>Atualizações sem custo adicional</div></div>
         </div>
         <div class="vip-extra-img"><img src="https://static.wixstatic.com/media/940f31_05fb396bf8cd4739908671d71fba4773~mv2.png" alt="Área VIP Seja Minimalista" loading="lazy"></div>
       </div>
@@ -657,7 +701,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
           <li>Acesso vitalício, sem mensalidade</li>
         </ul>
         <a href="https://chk.eduzz.com/E05NZAR49X" target="_blank" rel="noopener" class="btn-rose" style="width:100%;">Quero me matricular agora</a>
-        <div class="price-lock">🔒 Pagamento seguro · Garantia de 7 dias</div>
+        <div class="price-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="15" r="1.2"/></svg> Pagamento seguro · Garantia de 7 dias</div>
       </div>
     </div>
   </div>
@@ -667,7 +711,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-text);outline-
 <section class="sec dark">
   <div class="inner">
     <div class="gar-grid">
-      <div class="gar-badge">🛡️</div>
+      <div class="gar-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2 5 6v6c0 4.2 2.9 7.4 7 8.8 4.1-1.4 7-4.6 7-8.8V6l-7-2.8Z"/><path d="m9 12 2.2 2.2L15.2 10"/></svg></div>
       <div>
         <h3 class="gar-h3">Se não for pra você, <strong>devolvo tudo.</strong></h3>
         <p class="gar-p">Garantia incondicional de 7 dias. Assista as primeiras aulas e, se sentir que não é pra você, é só me avisar. Você recebe 100% do valor de volta, sem perguntas.</p>
