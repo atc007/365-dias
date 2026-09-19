@@ -560,7 +560,16 @@ object-fit:contain;
 .bonus-valor-left{font-size:14px;color:var(--ink-muted);line-height:1.6;}
 .bonus-valor-left strong{color:var(--cream-dark);}
 .bonus-valor-right{font-family:var(--font-display);font-size:13px;color:var(--ink-muted);text-align:right;flex-shrink:0;}
-.bonus-valor-right .was{font-size:13px;text-decoration:line-through;display:block;}
+.bonus-valor-right .was{font-size:13px;text-decoration:none;display:inline-block;position:relative;}
+.bonus-valor-right .was::after{
+  content:'';
+  position:absolute;left:0;top:52%;
+  height:2px;width:0;background:currentColor;
+  animation:strike-loop 4s ease-in-out infinite;
+}
+@media(prefers-reduced-motion:reduce){
+  .bonus-valor-right .was::after{animation:none;width:100%;}
+}
 .bonus-valor-right .gratis{font-size:26px;font-weight:700;color:var(--gold-text);display:block;line-height:1;}
 .bonus-list{display:flex;flex-direction:column;gap:12px;}
 .bonus-item{border:1px solid transparent;border-radius:14px;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#E8D09A,#C9A96E 40%,rgba(201,169,110,.18)) border-box;box-shadow:0 12px 28px rgba(120,95,50,.12);padding:18px 20px;display:flex;gap:16px;align-items:flex-start;transition:transform .25s ease,box-shadow .25s ease;}
@@ -636,7 +645,25 @@ object-fit:contain;
 .pc:hover .pc-img img{transform:scale(1.04);}
 .pc-body{padding:24px;}
 .pc-type{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:10px;font-family:var(--font-display);line-height:1.2;}
-.pc-was{font-size:13px;color:#C0392B;text-decoration:line-through;margin-bottom:3px;}
+.pc-was{font-size:13px;color:#C0392B;text-decoration:none;margin-bottom:3px;position:relative;display:inline-block;}
+.pc-was::after{
+  content:'';
+  position:absolute;left:0;top:52%;
+  height:2px;width:0;background:#C0392B;
+  animation:strike-loop 4s ease-in-out infinite;
+}
+.pc:nth-child(2) .pc-was::after{animation-delay:.35s;}
+.pc:nth-child(3) .pc-was::after{animation-delay:.7s;}
+@keyframes strike-loop{
+  0%{width:0;}
+  14%{width:100%;}
+  78%{width:100%;}
+  90%{width:0;}
+  100%{width:0;}
+}
+@media(prefers-reduced-motion:reduce){
+  .pc-was::after{animation:none;width:100%;}
+}
 @keyframes price-shine{0%{background-position:200% center;}100%{background-position:-200% center;}}
 /* Parcelamento em destaque — tudo em uma linha grande */
 .pc-parc-destaque{
