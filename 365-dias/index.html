@@ -1009,7 +1009,16 @@ html,body{
   color:var(--ink-muted);text-align:right;flex-shrink:0;
 }
 .bonus-valor-right .incluso{font-size:12px;display:block;color:rgba(255,255,255,.6);margin-bottom:2px;}
-.bonus-valor-right .was{font-size:13px;text-decoration:line-through;display:block;}
+.bonus-valor-right .was{font-size:13px;text-decoration:none;display:inline-block;position:relative;}
+.bonus-valor-right .was::after{
+  content:'';
+  position:absolute;left:0;top:52%;
+  height:2px;width:0;background:currentColor;
+  animation:strike-loop 4s ease-in-out infinite;
+}
+@media(prefers-reduced-motion:reduce){
+  .bonus-valor-right .was::after{animation:none;width:100%;}
+}
 .bonus-valor-right .gratis{
   font-size:26px;font-weight:700;color:var(--gold-text);display:block;line-height:1;
 }
@@ -1129,7 +1138,25 @@ html,body{
   font-size:13px;color:var(--ink-soft);
   line-height:1.5;margin-bottom:10px;
 }
-.pc-was{font-size:13px;color:#C0392B;text-decoration:line-through;margin-bottom:3px;}
+.pc-was{font-size:13px;color:#C0392B;text-decoration:none;margin-bottom:3px;position:relative;display:inline-block;}
+.pc-was::after{
+  content:'';
+  position:absolute;left:0;top:52%;
+  height:2px;width:0;background:#C0392B;
+  animation:strike-loop 4s ease-in-out infinite;
+}
+.pc:nth-child(2) .pc-was::after{animation-delay:.35s;}
+.pc:nth-child(3) .pc-was::after{animation-delay:.7s;}
+@keyframes strike-loop{
+  0%{width:0;}
+  14%{width:100%;}
+  78%{width:100%;}
+  90%{width:0;}
+  100%{width:0;}
+}
+@media(prefers-reduced-motion:reduce){
+  .pc-was::after{animation:none;width:100%;}
+}
 @keyframes price-shine{
   0%{background-position:200% center;}
   100%{background-position:-200% center;}
@@ -1448,6 +1475,33 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   z-index:9999;transition:.25s ease;text-decoration:none;
 }
 .whatsapp-float:hover{transform:translateY(-3px) scale(1.05);}
+.whatsapp-float svg{width:28px;height:28px;}
+
+/* ══ BARRA FIXA DE COMPRA ══ */
+.sticky-buy-bar{position:fixed;left:0;bottom:0;width:100%;z-index:9500;background:var(--ink);box-shadow:0 -8px 26px rgba(0,0,0,.28);transform:translateY(100%);transition:transform .35s cubic-bezier(.25,.8,.25,1);}
+.sticky-buy-bar.show{transform:translateY(0);}
+.sbb-inner{max-width:1320px;margin:0 auto;padding:10px var(--sec-h);display:flex;align-items:center;gap:16px;}
+.sbb-img{width:46px;height:46px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block;}
+.sbb-info{flex:1;min-width:0;}
+.sbb-title{font-family:var(--font-display);font-size:19px;line-height:1.25;}
+.sbb-title-w{color:#F5F0E8;}
+.sbb-title-g{color:var(--gold);}
+.sbb-sub{font-size:12px;color:#A8A49B;margin-top:2px;}
+.sbb-btn{flex-shrink:0;position:relative;overflow:hidden;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:var(--ink);font-size:13px;font-weight:700;padding:12px 22px;border-radius:6px;text-decoration:none;white-space:nowrap;animation:shimmer 6s linear infinite;transition:transform .2s ease,filter .2s ease;}
+.sbb-btn:hover{filter:brightness(1.08);transform:translateY(-1px);}
+@media(prefers-reduced-motion:reduce){.sbb-btn{animation:none;}}
+@media(max-width:640px){
+  .sbb-img{display:none;}
+  .sbb-inner{padding:9px 14px;gap:10px;align-items:center;}
+  .sbb-title{font-size:13.5px;line-height:1.3;}
+  .sbb-sub{font-size:10.5px;line-height:1.5;margin-top:3px;display:flex;flex-direction:column;}
+  .sbb-sub-l1{display:block;font-weight:600;color:#C9A96E;}
+  .sbb-sub-sep{display:none;}
+  .sbb-sub-l2{display:block;color:#A8A49B;}
+  .sbb-sub-l2::before{content:"(";}
+  .sbb-sub-l2::after{content:")";}
+  .sbb-btn{padding:10px 16px;font-size:11.5px;border-radius:5px;white-space:normal;text-align:center;line-height:1.25;}
+}
 
 
 .livro-grande{max-width:900px;margin:0 auto;}
@@ -1667,7 +1721,8 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   }
   .bonus-valor-box{flex-direction:column;align-items:flex-start;}
   .bonus-valor-right{text-align:left;}
-  .whatsapp-float{width:56px;height:56px;right:16px;bottom:16px;}
+  .whatsapp-float{width:48px;height:48px;right:14px;bottom:14px;}
+  .whatsapp-float svg{width:22px;height:22px;}
   .dif-grid{grid-template-columns:1fr;gap:24px;}
   .dif-card{border-left:none!important;padding:0!important;border-top:1px solid var(--border);padding-top:20px!important;}
   .dif-card:first-child{border-top:none;padding-top:0!important;}
@@ -1910,6 +1965,19 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
 
 <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+<div class="sticky-buy-bar" id="sticky-buy-bar">
+  <div class="sbb-inner">
+    <img class="sbb-img"
+      src="https://static.wixstatic.com/media/940f31_d9a83fdab8a640b5bccbca0ea47ae270~mv2.avif/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
+      alt="" width="46" height="46" loading="lazy" decoding="async">
+    <div class="sbb-info">
+      <div class="sbb-title"><span class="sbb-title-w">Livro</span> <span class="sbb-title-g">365 Dias Minimalistas</span></div>
+      <div class="sbb-sub"><span class="sbb-sub-l1">3 versões disponíveis</span><span class="sbb-sub-sep"> · </span><span class="sbb-sub-l2">digital, físico e combo</span></div>
+    </div>
+    <a class="sbb-btn" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;">Quero meu exemplar</a>
+  </div>
+</div>
 
 <!-- URGÊNCIA BAR -->
 <div class="urgency-bar" id="urgency-bar">
@@ -2349,7 +2417,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <section class="sec" id="versoes" style="background:linear-gradient(160deg,#F7F1E6,#EDE2C8 55%,#E0CFA0);">
   <div class="inner">
     <div class="sec-eyebrow" style="justify-content:center;">Escolha sua versão</div>
-    <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 0;">Escolha o formato. O conteúdo é o mesmo.</h2>
+    <h2 class="sec-h2" style="text-align:center;max-width:520px;margin:10px auto 0;">Digital, físico ou os dois, você decide.</h2>
     <div class="precos">
       <div class="pc" id="versao-digital">
         <div class="dest-badge muted"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M14.3 9.4c-.4-.7-1.3-1.1-2.3-1.1-1.4 0-2.3.7-2.3 1.7 0 2.4 4.8 1.2 4.8 3.7 0 1.1-1 1.9-2.5 1.9-1.2 0-2.1-.5-2.5-1.2"/><path d="M12 6.8v10.4"/></svg> Mais acessível</span></div>
@@ -3101,13 +3169,44 @@ function copiarCupom(e){
 (function(){
   var shown=false;
   var tip=document.getElementById('cupom-tooltip');
-  function playDing(){try{var ctx=new(window.AudioContext||window.webkitAudioContext)();var osc=ctx.createOscillator();var gain=ctx.createGain();osc.connect(gain);gain.connect(ctx.destination);osc.type='sine';osc.frequency.setValueAtTime(660,ctx.currentTime);osc.frequency.exponentialRampToValueAtTime(840,ctx.currentTime+0.12);gain.gain.setValueAtTime(0.15,ctx.currentTime);gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.6);osc.start(ctx.currentTime);osc.stop(ctx.currentTime+0.6);}catch(e){}}
+  function playDing(){try{var ctx=new(window.AudioContext||window.webkitAudioContext)();function note(freq,startTime,duration,peakGain){var osc=ctx.createOscillator();var gain=ctx.createGain();osc.connect(gain);gain.connect(ctx.destination);osc.type='sine';osc.frequency.setValueAtTime(freq,startTime);gain.gain.setValueAtTime(0.0001,startTime);gain.gain.exponentialRampToValueAtTime(peakGain,startTime+0.015);gain.gain.exponentialRampToValueAtTime(0.0001,startTime+duration);osc.start(startTime);osc.stop(startTime+duration+0.05);}var now=ctx.currentTime;note(880,now,0.28,0.13);note(1318.51,now+0.09,0.34,0.11);}catch(e){}}
   window.addEventListener('scroll',function(){
     if(shown)return;
     var h=document.documentElement;
     var pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
     if(pct>=50){shown=true;tip.style.display='block';tip.style.animation='tooltip-in .45s cubic-bezier(.16,1,.3,1) both';playDing();}
   },{passive:true});
+})();
+(function(){
+  var bar=document.getElementById('sticky-buy-bar');
+  var waFloat=document.querySelector('.whatsapp-float');
+  var versoesSec=document.getElementById('versoes');
+  if(!bar) return;
+  var threshold=620;
+  var insideVersoes=false;
+  var ticking=false;
+  function updateWaPosition(visible){
+    if(!waFloat) return;
+    var offset = visible ? (bar.offsetHeight + 14) : 22;
+    waFloat.style.bottom = offset + 'px';
+  }
+  function refresh(){
+    var shouldShow = window.scrollY>threshold && !insideVersoes;
+    bar.classList.toggle('show', shouldShow);
+    updateWaPosition(shouldShow);
+  }
+  function onScroll(){ refresh(); ticking=false; }
+  function requestTick(){ if(!ticking){ requestAnimationFrame(onScroll); ticking=true; } }
+  window.addEventListener('scroll', requestTick, {passive:true});
+  if(versoesSec && 'IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        insideVersoes = entry.isIntersecting;
+        refresh();
+      });
+    }, {threshold:.15});
+    obs.observe(versoesSec);
+  }
 })();
 </script>
 </body>
