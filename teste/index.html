@@ -772,20 +772,16 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 .sbb-inner{max-width:1320px;margin:0 auto;padding:10px var(--sec-h);display:flex;align-items:center;gap:16px;}
 .sbb-img{width:46px;height:46px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block;}
 .sbb-info{flex:1;min-width:0;}
-.sbb-title{font-family:var(--font-display);font-size:14.5px;color:#F5F0E8;line-height:1.25;margin-bottom:2px;}
-.sbb-price{font-size:12.5px;display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;}
-.sbb-price .sbb-now{color:var(--gold);font-weight:700;}
-.sbb-price .sbb-was{color:#83807A;text-decoration:line-through;font-weight:500;font-size:11px;}
-.sbb-price .sbb-parc{color:#A8A49B;font-weight:500;font-size:11px;}
+.sbb-title{font-family:var(--font-display);font-size:19px;line-height:1.25;}
+.sbb-title-w{color:#F5F0E8;}
+.sbb-title-g{color:var(--gold);}
 .sbb-btn{flex-shrink:0;position:relative;overflow:hidden;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:var(--ink);font-size:13px;font-weight:700;padding:12px 22px;border-radius:6px;text-decoration:none;white-space:nowrap;animation:shimmer 6s linear infinite;transition:transform .2s ease,filter .2s ease;}
 .sbb-btn:hover{filter:brightness(1.08);transform:translateY(-1px);}
 @media(prefers-reduced-motion:reduce){.sbb-btn{animation:none;}}
 @media(max-width:640px){
   .sbb-img{display:none;}
-  .sbb-inner{padding:6px 14px;gap:8px;}
-  .sbb-title{font-size:10.5px;font-weight:600;margin-bottom:0;}
-  .sbb-price{font-size:10px;gap:5px;}
-  .sbb-price .sbb-was,.sbb-price .sbb-parc{display:none;}
+  .sbb-inner{padding:8px 14px;gap:8px;}
+  .sbb-title{font-size:14px;}
   .sbb-btn{padding:8px 14px;font-size:11px;border-radius:5px;}
 }
 
@@ -1103,8 +1099,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       src="https://static.wixstatic.com/media/940f31_48251b9f7e3d4e498e290a45765efed1~mv2.webp/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       alt="" width="46" height="46" loading="lazy" decoding="async">
     <div class="sbb-info">
-      <div class="sbb-title">Livro Seja Minimalista</div>
-      <div class="sbb-price"><span class="sbb-now">R$ 107</span><span class="sbb-was">R$ 147</span><span class="sbb-parc">ou 12x de R$ 11,07</span></div>
+      <div class="sbb-title"><span class="sbb-title-w">Livro</span> <span class="sbb-title-g">Seja Minimalista</span></div>
     </div>
     <a class="sbb-btn" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;">Quero meu exemplar</a>
   </div>
