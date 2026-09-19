@@ -779,16 +779,14 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 .sbb-price .sbb-parc{color:#A8A49B;font-weight:500;font-size:11px;}
 .sbb-btn{flex-shrink:0;position:relative;overflow:hidden;background:linear-gradient(90deg,#B8925A 0%,#C9A96E 30%,#E8D09A 50%,#C9A96E 70%,#B8925A 100%);background-size:200% auto;color:var(--ink);font-size:13px;font-weight:700;padding:12px 22px;border-radius:6px;text-decoration:none;white-space:nowrap;animation:shimmer 6s linear infinite;transition:transform .2s ease,filter .2s ease;}
 .sbb-btn:hover{filter:brightness(1.08);transform:translateY(-1px);}
-.sbb-close{flex-shrink:0;background:none;border:none;color:#83807A;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;}
-.sbb-close:hover{color:#F5F0E8;}
 @media(prefers-reduced-motion:reduce){.sbb-btn{animation:none;}}
 @media(max-width:640px){
   .sbb-img{display:none;}
-  .sbb-title{font-size:12.5px;}
-  .sbb-price{font-size:11px;}
-  .sbb-btn{padding:11px 16px;font-size:12px;}
-  .sbb-inner{padding:9px 16px;gap:10px;}
-  .sbb-close{width:24px;height:24px;}
+  .sbb-inner{padding:6px 14px;gap:8px;}
+  .sbb-title{font-size:10.5px;font-weight:600;margin-bottom:0;}
+  .sbb-price{font-size:10px;gap:5px;}
+  .sbb-price .sbb-was,.sbb-price .sbb-parc{display:none;}
+  .sbb-btn{padding:8px 14px;font-size:11px;border-radius:5px;}
 }
 
 /* ══ URGÊNCIA BAR — também header sticky com shrink/blur ══ */
@@ -1105,13 +1103,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       src="https://static.wixstatic.com/media/940f31_48251b9f7e3d4e498e290a45765efed1~mv2.webp/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       alt="" width="46" height="46" loading="lazy" decoding="async">
     <div class="sbb-info">
-      <div class="sbb-title">Seja Minimalista</div>
+      <div class="sbb-title">Livro Seja Minimalista</div>
       <div class="sbb-price"><span class="sbb-now">R$ 107</span><span class="sbb-was">R$ 147</span><span class="sbb-parc">ou 12x de R$ 11,07</span></div>
     </div>
     <a class="sbb-btn" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;">Quero meu exemplar</a>
-    <button class="sbb-close" id="sbb-close" aria-label="Fechar barra">
-      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>
   </div>
 </div>
 
@@ -1816,14 +1811,14 @@ function irParaVersoes(e, fromCoupon){
   }, 1600);
 })();
 
-/* ══ BARRA FIXA DE COMPRA — aparece ao rolar, some perto do topo ══ */
+/* ══ BARRA FIXA DE COMPRA — aparece ao rolar, some perto do topo e dentro de "Escolha sua versão" ══ */
 (function(){
   var bar=document.getElementById('sticky-buy-bar');
-  var closeBtn=document.getElementById('sbb-close');
   var waFloat=document.querySelector('.whatsapp-float');
+  var versoesSec=document.getElementById('versoes');
   if(!bar) return;
-  var dismissed=false;
   var threshold=620;
+  var insideVersoes=false;
   var ticking=false;
 
   function updateWaPosition(visible){
@@ -1832,25 +1827,28 @@ function irParaVersoes(e, fromCoupon){
     waFloat.style.bottom = offset + 'px';
   }
 
+  function refresh(){
+    var shouldShow = window.scrollY>threshold && !insideVersoes;
+    bar.classList.toggle('show', shouldShow);
+    updateWaPosition(shouldShow);
+  }
+
   function onScroll(){
-    if(dismissed) return;
-    if(window.scrollY>threshold){
-      bar.classList.add('show');
-      updateWaPosition(true);
-    } else {
-      bar.classList.remove('show');
-      updateWaPosition(false);
-    }
+    refresh();
     ticking=false;
   }
   function requestTick(){ if(!ticking){ requestAnimationFrame(onScroll); ticking=true; } }
   window.addEventListener('scroll', requestTick, {passive:true});
-  if(closeBtn){
-    closeBtn.addEventListener('click', function(){
-      dismissed=true;
-      bar.classList.remove('show');
-      updateWaPosition(false);
-    });
+
+  /* enquanto "Escolha sua versão" estiver na tela (já viu as opções de compra), some a barra */
+  if(versoesSec && 'IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        insideVersoes = entry.isIntersecting;
+        refresh();
+      });
+    }, {threshold:.15});
+    obs.observe(versoesSec);
   }
 })();
 
