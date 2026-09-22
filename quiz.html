@@ -413,6 +413,58 @@ fbq('track', 'PageView');
     color:var(--muted);
     margin:0 0 24px;
   }
+
+  /* "VOCÊ PODE GOSTAR TAMBÉM" */
+  .also-like{
+    margin-top:16px;
+    text-align:left;
+    padding:18px;
+    animation:fade .6s cubic-bezier(.2,.8,.2,1) .15s backwards;
+  }
+  .also-like-title{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:14px;
+  }
+  .also-like-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .also-like-row img{
+    width:56px;
+    height:56px;
+    object-fit:cover;
+    border-radius:10px;
+    border:1px solid var(--card-border);
+    box-shadow:0 6px 16px rgba(0,0,0,.4);
+    flex-shrink:0;
+    transition:transform .2s ease;
+  }
+  .also-like-row:hover img{ transform:scale(1.06); }
+  .also-like-info{ flex:1; min-width:0; }
+  .also-like-name{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:16px;
+    margin-bottom:2px;
+  }
+  .also-like-tag{
+    font-size:13px;
+    color:var(--muted);
+  }
+  .also-like-arrow{
+    color:var(--gold);
+    font-size:18px;
+    flex-shrink:0;
+    transition:transform .2s ease;
+  }
+  .also-like-row:hover .also-like-arrow{ transform:translateX(4px); }
+
   footer.bottom{
     text-align:center;
     padding:20px 0 32px;
@@ -465,6 +517,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="result-desc" id="resultDesc"></p>
         <a class="btn-primary" id="resultCta" href="#" target="_top">Quero conhecer</a>
       </div>
+
+      <!-- VOCÊ PODE GOSTAR TAMBÉM -->
+      <a class="glass-card also-like" id="alsoLikeCard" href="#" target="_top">
+        <div class="also-like-title">Você pode gostar também</div>
+        <div class="also-like-row">
+          <img id="alsoLikeCover" src="" alt="">
+          <div class="also-like-info">
+            <div class="also-like-name" id="alsoLikeName"></div>
+            <div class="also-like-tag" id="alsoLikeTag"></div>
+          </div>
+          <div class="also-like-arrow">→</div>
+        </div>
+      </a>
+
       <button class="btn-text" onclick="restartQuiz()">Refazer o quiz</button>
       <button class="btn-text" onclick="window.location.href='https://sejaminimalista.com.br/produtos'">Ver todos os produtos</button>
     </section>
@@ -689,30 +755,33 @@ function answer(qIndex, opt){
 }
 
 function pickWinner(){
-  // Regra prioritária: se a pessoa sinalizou tanto "viagem" quanto "guarda-roupa"
-  // como problemas (em perguntas diferentes), o caso dela é mais amplo do que um
-  // produto específico resolve — o ideal é começar pela base, o Seja Minimalista.
+  // A Pergunta 1 ("o que mais te incomoda hoje?") é a dor principal — ela é quem
+  // decide o produto. As perguntas seguintes servem pra confirmar/detalhar, não
+  // pra "diluir" esse sinal com pontos somados de respostas de outros domínios.
+  const dorDomain = answersLog[0] && answersLog[0].productKey;
+
+  // Exceção: se a pessoa sinalizou tanto "viagem" quanto "guarda-roupa" como
+  // problemas (em perguntas diferentes, mesmo que a dor principal seja só uma
+  // delas), o caso dela é mais amplo do que um produto específico resolve —
+  // o ideal é começar pela base, o Seja Minimalista.
   const touchedViagem = answersLog.some(a => a && a.productKey === 'viajante-minimalista');
   const touchedArmario = answersLog.some(a => a && a.productKey === 'armario-enxuto');
   if (touchedViagem && touchedArmario) return 'seja-minimalista';
 
-  let maxScore = Math.max(...Object.values(scores));
-  let tied = Object.keys(scores).filter(key => scores[key] === maxScore);
+  return dorDomain || Object.keys(PRODUCTS)[0];
+}
 
-  if (tied.length === 1) return tied[0];
+/* Produtos "de entrada", mais generalistas — usados como segunda sugestão
+   pra quem já recebeu uma recomendação específica (viagem ou guarda-roupa) */
+const GENERIC_PRODUCTS = ['seja-minimalista', '365-dias', 'destralhe'];
 
-  // Desempate: vence o produto escolhido na pergunta de maior peso entre os empatados.
-  // Ordem de prioridade das perguntas por peso, da maior pra menor.
-  const questionOrderByWeight = QUESTION_WEIGHTS
-    .map((w, i) => ({ w: w, i: i }))
-    .sort((a, b) => b.w - a.w)
-    .map(x => x.i);
-
-  for (const qi of questionOrderByWeight){
-    const chosen = answersLog[qi] && answersLog[qi].productKey;
-    if (chosen && tied.includes(chosen)) return chosen;
-  }
-  return tied[0];
+function pickSecondSuggestion(winnerKey){
+  // Nunca repete o produto principal. Prioriza, entre os genéricos, o que teve
+  // mais pontos nas respostas (sinal de que também ressoou com a pessoa);
+  // se nada além do vencedor foi tocado, cai na ordem padrão abaixo.
+  const candidates = GENERIC_PRODUCTS.filter(key => key !== winnerKey);
+  candidates.sort((a, b) => (scores[b] || 0) - (scores[a] || 0));
+  return candidates[0];
 }
 
 function showResult(){
@@ -750,6 +819,23 @@ function showResult(){
   url.searchParams.set('utm_content', winnerKey);
   cta.href = url.toString();
   cta.textContent = 'Quero conhecer o ' + product.name;
+
+  // "Você pode gostar também" — segunda sugestão, mais generalista
+  const secondKey = pickSecondSuggestion(winnerKey);
+  const secondProduct = PRODUCTS[secondKey];
+  document.getElementById('alsoLikeCover').src = secondProduct.cover;
+  document.getElementById('alsoLikeCover').alt = secondProduct.name;
+  document.getElementById('alsoLikeName').textContent = secondProduct.name;
+  document.getElementById('alsoLikeTag').textContent = secondProduct.tag;
+
+  const alsoLikeCard = document.getElementById('alsoLikeCard');
+  const secondUrl = new URL(secondProduct.url);
+  secondUrl.searchParams.set('utm_source', 'instagram');
+  secondUrl.searchParams.set('utm_medium', 'bio');
+  secondUrl.searchParams.set('utm_campaign', 'quiz_livro_ideal');
+  secondUrl.searchParams.set('utm_content', 'secundario-' + secondKey);
+  alsoLikeCard.href = secondUrl.toString();
+  alsoLikeCard.onclick = () => trackEvent('quiz_also_like_click', { result_product: winnerKey, second_product: secondKey });
 
   document.getElementById('screen-result').classList.add('active');
 
