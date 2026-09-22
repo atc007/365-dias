@@ -222,16 +222,16 @@ fbq('track', 'PageView');
   .covers-row{
     display:flex;
     justify-content:center;
-    gap:10px;
+    gap:8px;
     margin-bottom:24px;
   }
   .covers-row img{
-    width:clamp(58px, 17vw, 92px);
-    height:clamp(58px, 17vw, 92px);
+    width:clamp(64px, 20vw, 116px);
+    height:clamp(64px, 20vw, 116px);
     object-fit:cover;
-    border-radius:12px;
+    border-radius:14px;
     border:1px solid var(--card-border);
-    box-shadow:0 8px 20px rgba(0,0,0,.45);
+    box-shadow:0 10px 26px rgba(0,0,0,.5);
     transform:rotate(var(--tilt,0deg));
     transition:transform .25s ease;
     animation:coverFloat 4s ease-in-out infinite;
@@ -444,12 +444,12 @@ fbq('track', 'PageView');
     gap:14px;
   }
   .also-like-row img{
-    width:64px;
-    height:64px;
+    width:clamp(84px, 24vw, 104px);
+    height:clamp(84px, 24vw, 104px);
     object-fit:cover;
-    border-radius:10px;
+    border-radius:12px;
     border:1px solid var(--card-border);
-    box-shadow:0 6px 16px rgba(0,0,0,.4);
+    box-shadow:0 8px 20px rgba(0,0,0,.45);
     flex-shrink:0;
     display:block;
     transition:transform .2s ease;
