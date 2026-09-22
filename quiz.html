@@ -689,6 +689,13 @@ function answer(qIndex, opt){
 }
 
 function pickWinner(){
+  // Regra prioritária: se a pessoa sinalizou tanto "viagem" quanto "guarda-roupa"
+  // como problemas (em perguntas diferentes), o caso dela é mais amplo do que um
+  // produto específico resolve — o ideal é começar pela base, o Seja Minimalista.
+  const touchedViagem = answersLog.some(a => a && a.productKey === 'viajante-minimalista');
+  const touchedArmario = answersLog.some(a => a && a.productKey === 'armario-enxuto');
+  if (touchedViagem && touchedArmario) return 'seja-minimalista';
+
   let maxScore = Math.max(...Object.values(scores));
   let tied = Object.keys(scores).filter(key => scores[key] === maxScore);
 
