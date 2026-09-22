@@ -221,27 +221,28 @@ fbq('track', 'PageView');
   .covers-row{
     display:flex;
     justify-content:center;
-    gap:8px;
-    margin-bottom:24px;
+    align-items:flex-end;
+    margin:-78px 0 26px;
+    position:relative;
+    z-index:2;
   }
   .covers-row img{
-    width:clamp(64px, 20vw, 116px);
-    height:clamp(64px, 20vw, 116px);
+    width:clamp(92px, 28vw, 158px);
+    height:clamp(92px, 28vw, 158px);
     object-fit:cover;
-    border-radius:14px;
+    border-radius:16px;
     border:1px solid var(--card-border);
-    box-shadow:0 10px 26px rgba(0,0,0,.5);
+    box-shadow:0 14px 34px rgba(0,0,0,.55);
     transform:rotate(var(--tilt,0deg));
-    transition:transform .25s ease;
     animation:coverFloat 4s ease-in-out infinite;
     animation-delay:var(--delay,0s);
   }
-  .covers-row img:hover{ transform:rotate(0deg) translateY(-4px) scale(1.05); }
-  .covers-row img:nth-child(1){ --tilt:-8deg; --delay:0s; margin-top:8px; }
-  .covers-row img:nth-child(2){ --tilt:-4deg; --delay:.15s; margin-top:3px; }
-  .covers-row img:nth-child(3){ --tilt:0deg; --delay:.3s; }
-  .covers-row img:nth-child(4){ --tilt:4deg; --delay:.45s; margin-top:3px; }
-  .covers-row img:nth-child(5){ --tilt:8deg; --delay:.6s; margin-top:8px; }
+  .covers-row img:not(:first-child){ margin-left:clamp(-22px, -4.5vw, -12px); }
+  .covers-row img:nth-child(1){ --tilt:-9deg; --delay:0s; margin-bottom:10px; z-index:1; }
+  .covers-row img:nth-child(2){ --tilt:-5deg; --delay:.15s; margin-bottom:2px; z-index:2; }
+  .covers-row img:nth-child(3){ --tilt:0deg; --delay:.3s; z-index:3; }
+  .covers-row img:nth-child(4){ --tilt:5deg; --delay:.45s; margin-bottom:2px; z-index:2; }
+  .covers-row img:nth-child(5){ --tilt:9deg; --delay:.6s; margin-bottom:10px; z-index:1; }
   @keyframes coverFloat{
     0%,100%{ translate:0 0; }
     50%{ translate:0 -5px; }
@@ -356,15 +357,25 @@ fbq('track', 'PageView');
   .btn-text{
     display:block;
     text-align:center;
-    margin-top:16px;
+    margin-top:12px;
     color:var(--muted);
     font-size:14px;
-    text-decoration:underline;
+    font-weight:600;
+    text-decoration:none;
     cursor:pointer;
-    background:none;
-    border:none;
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--card-border);
+    border-radius:999px;
+    padding:13px 20px;
     width:100%;
+    transition:background .15s ease, border-color .15s ease, color .15s ease;
   }
+  .btn-text:hover{
+    background:rgba(255,255,255,.08);
+    border-color:rgba(245,241,232,.28);
+    color:var(--ink);
+  }
+  .btn-text:active{ transform:scale(.98); }
 
   /* RESULT */
   @keyframes fade{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
@@ -486,6 +497,51 @@ fbq('track', 'PageView');
   }
   .also-like:hover .also-like-arrow{ transform:translateX(4px); }
 
+  /* COMBOS — CTA de desconto, destacado em vermelho */
+  .combo-divider{
+    height:1px;
+    background:var(--card-border);
+    margin:28px 0 22px;
+  }
+  .combo-label{
+    text-align:center;
+    font-size:12px;
+    color:var(--muted);
+    margin-bottom:12px;
+  }
+  .btn-combo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    background:linear-gradient(135deg, #FF6B4A, #E8342A);
+    color:#FFF6F2;
+    text-decoration:none;
+    padding:17px 22px;
+    border-radius:999px;
+    font-size:15.5px;
+    font-weight:700;
+    text-align:center;
+    box-shadow:0 4px 22px rgba(232,52,42,.4);
+    animation:comboPulse 2.4s ease-in-out infinite;
+    transition:transform .15s ease, filter .15s ease, box-shadow .15s ease;
+  }
+  .btn-combo:hover{
+    filter:brightness(1.08);
+    transform:translateY(-2px);
+    box-shadow:0 8px 28px rgba(232,52,42,.55);
+    animation-play-state:paused;
+  }
+  .btn-combo:active{ transform:translateY(0) scale(.97); }
+  .btn-combo-icon{ font-size:17px; line-height:1; flex-shrink:0; }
+  @keyframes comboPulse{
+    0%,100%{ box-shadow:0 4px 22px rgba(232,52,42,.4), 0 0 0 0 rgba(232,52,42,.5); }
+    50%{ box-shadow:0 4px 22px rgba(232,52,42,.4), 0 0 0 9px rgba(232,52,42,0); }
+  }
+  @media(prefers-reduced-motion:reduce){
+    .btn-combo{ animation:none; }
+  }
+
   footer.bottom{
     text-align:center;
     padding:20px 0 32px;
@@ -555,6 +611,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <button class="btn-text" onclick="restartQuiz()">Refazer o quiz</button>
       <button class="btn-text" onclick="window.location.href='https://sejaminimalista.com.br/produtos'">Ver todos os produtos</button>
+
+      <!-- CTA COMBOS -->
+      <div class="combo-divider"></div>
+      <a class="btn-combo" id="comboCta" href="https://www.sejaminimalista.com.br/combos" target="_top">
+        <span class="btn-combo-icon">🔥</span>
+        Quer desconto? Conheça nossos combos com até 40%
+      </a>
     </section>
 
   </main>
@@ -859,6 +922,16 @@ function showResult(){
   secondUrl.searchParams.set('utm_content', 'secundario-' + secondKey);
   alsoLikeCard.href = secondUrl.toString();
   alsoLikeCard.onclick = () => trackEvent('quiz_also_like_click', { result_product: winnerKey, second_product: secondKey });
+
+  // CTA de combos — mesma passagem de UTM dos demais links do resultado
+  const comboCta = document.getElementById('comboCta');
+  const comboUrl = new URL(comboCta.href);
+  comboUrl.searchParams.set('utm_source', 'instagram');
+  comboUrl.searchParams.set('utm_medium', 'bio');
+  comboUrl.searchParams.set('utm_campaign', 'quiz_livro_ideal');
+  comboUrl.searchParams.set('utm_content', 'combos_' + winnerKey);
+  comboCta.href = comboUrl.toString();
+  comboCta.onclick = () => trackEvent('quiz_combo_click', { result_product: winnerKey });
 
   document.getElementById('screen-result').classList.add('active');
 
