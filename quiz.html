@@ -416,10 +416,19 @@ fbq('track', 'PageView');
 
   /* "VOCÊ PODE GOSTAR TAMBÉM" */
   .also-like{
+    display:block;
     margin-top:16px;
     text-align:left;
-    padding:18px;
+    padding:20px;
+    text-decoration:none;
+    color:var(--ink);
     animation:fade .6s cubic-bezier(.2,.8,.2,1) .15s backwards;
+    transition:border-color .2s ease, transform .15s ease, background .2s ease;
+  }
+  .also-like:hover{
+    border-color:var(--gold);
+    background:rgba(255,255,255,.09);
+    transform:translateY(-2px);
   }
   .also-like-title{
     font-size:11px;
@@ -431,39 +440,52 @@ fbq('track', 'PageView');
   }
   .also-like-row{
     display:flex;
-    align-items:center;
+    align-items:flex-start;
     gap:14px;
-    text-decoration:none;
-    color:var(--ink);
   }
   .also-like-row img{
-    width:56px;
-    height:56px;
+    width:64px;
+    height:64px;
     object-fit:cover;
     border-radius:10px;
     border:1px solid var(--card-border);
     box-shadow:0 6px 16px rgba(0,0,0,.4);
     flex-shrink:0;
+    display:block;
     transition:transform .2s ease;
   }
-  .also-like-row:hover img{ transform:scale(1.06); }
+  .also-like:hover .also-like-row img{ transform:scale(1.06); }
   .also-like-info{ flex:1; min-width:0; }
   .also-like-name{
     font-family:Georgia,"Times New Roman",serif;
-    font-size:16px;
-    margin-bottom:2px;
+    font-size:17px;
+    margin-bottom:4px;
   }
   .also-like-tag{
-    font-size:13px;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:6px;
+  }
+  .also-like-desc{
+    font-size:13.5px;
+    line-height:1.5;
     color:var(--muted);
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
   }
   .also-like-arrow{
     color:var(--gold);
     font-size:18px;
     flex-shrink:0;
+    align-self:center;
     transition:transform .2s ease;
   }
-  .also-like-row:hover .also-like-arrow{ transform:translateX(4px); }
+  .also-like:hover .also-like-arrow{ transform:translateX(4px); }
 
   footer.bottom{
     text-align:center;
@@ -526,6 +548,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="also-like-info">
             <div class="also-like-name" id="alsoLikeName"></div>
             <div class="also-like-tag" id="alsoLikeTag"></div>
+            <div class="also-like-desc" id="alsoLikeDesc"></div>
           </div>
           <div class="also-like-arrow">→</div>
         </div>
@@ -550,35 +573,35 @@ const PRODUCTS = {
   "seja-minimalista": {
     name: "Seja Minimalista",
     tag: "O ponto de partida",
-    desc: "Pra quem quer entender o minimalismo de verdade e recomeçar com mais clareza sobre o que importa.",
+    desc: "O guia para uma vida mais leve e mais feliz. Mais de 150 páginas com exercícios, checklists e orientações práticas pra desapegar do que não faz sentido e recomeçar com clareza sobre o que realmente importa.",
     url: "https://sejaminimalista.com.br/",
     cover: "https://static.wixstatic.com/media/940f31_d1a80e4473714d99aa11c1fe5d709f2c~mv2.jpeg/v1/crop/x_0,y_188,w_864,h_808/fill/w_306,h_286,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2011_04AM.jpeg"
   },
   "365-dias": {
     name: "365 Dias Minimalistas",
     tag: "Constância, um dia de cada vez",
-    desc: "Um convite pra um dia a dia mais leve, com pequenas ações diárias que criam um novo hábito de vida.",
+    desc: "Uma página por dia: uma reflexão, uma frase de autor e uma prática simples, tudo em uma única página. 365 pequenos passos que criam o hábito de viver mais leve, sem precisar de grandes mudanças de uma vez.",
     url: "https://sejaminimalista.com.br/365-dias",
     cover: "https://static.wixstatic.com/media/940f31_4a3bcea6d0604339995c5adf76ad8ba6~mv2.jpeg/v1/crop/x_0,y_188,w_864,h_808/fill/w_306,h_286,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Generated%20Image%20September%2001%2C%202025%20-%203_31PM.jpeg"
   },
   "viajante-minimalista": {
     name: "Viajante Minimalista",
     tag: "Levar menos, viver mais",
-    desc: "Pra quem quer aplicar o minimalismo nas viagens: malas mais leves e mais presença em cada experiência.",
+    desc: "O guia prático pra planejar viagens incríveis de forma simples e leve. Viaje mais com menos: menos coisas na mala, menos estresse na organização e mais presença em cada experiência.",
     url: "https://sejaminimalista.com.br/viajante-minimalista",
     cover: "https://static.wixstatic.com/media/940f31_41d333b25e6a41d0aeef62be6fcc8e38~mv2.jpeg/v1/crop/x_0,y_188,w_864,h_808/fill/w_306,h_286,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_58AM.jpeg"
   },
   "armario-enxuto": {
     name: "Armário Enxuto",
     tag: "Um guarda-roupa que faz sentido",
-    desc: "Pra montar um guarda-roupa enxuto, com peças que você realmente usa e ama vestir.",
+    desc: "Faça as pazes com o seu visual. O método de Fabianna Carraro e Alexandre Chahoud pra montar um armário com menos peças e se vestir, todo dia, com muito mais confiança.",
     url: "https://sejaminimalista.com.br/armario-enxuto",
     cover: "https://static.wixstatic.com/media/940f31_15755753bb5648a1b9c935287442ca3a~mv2.jpeg/v1/crop/x_0,y_188,w_864,h_808/fill/w_306,h_286,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2011_00AM.jpeg"
   },
   "destralhe": {
     name: "45 Dias de Destralhe",
     tag: "Resolver o excesso de uma vez",
-    desc: "Um desafio guiado de 45 dias pra destralhar a casa inteira, cômodo por cômodo.",
+    desc: "Uma missão por dia: 45 missões simples pra deixar sua casa mais leve, uma por dia, no seu ritmo. Ao final dos 45 dias, você mal vai reconhecer seus espaços.",
     url: "https://sejaminimalista.com.br/45-dias",
     cover: "https://static.wixstatic.com/media/940f31_7c3c504c1a15465cbbbe613882c29ca2~mv2.jpeg/v1/crop/x_470,y_0,w_753,h_704/fill/w_306,h_286,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_52AM%20(1).jpeg"
   }
@@ -827,6 +850,7 @@ function showResult(){
   document.getElementById('alsoLikeCover').alt = secondProduct.name;
   document.getElementById('alsoLikeName').textContent = secondProduct.name;
   document.getElementById('alsoLikeTag').textContent = secondProduct.tag;
+  document.getElementById('alsoLikeDesc').textContent = secondProduct.desc;
 
   const alsoLikeCard = document.getElementById('alsoLikeCard');
   const secondUrl = new URL(secondProduct.url);
