@@ -244,9 +244,9 @@ fbq('track', 'PageView');
   .covers-row img:nth-child(4){ --tilt:5deg; --delay:.45s; margin-bottom:2px; z-index:2; }
   .covers-row img:nth-child(5){ --tilt:9deg; --delay:.6s; margin-bottom:10px; z-index:1; }
   @media(max-width:480px){
-    .covers-row{ margin-top:-54px; }
-    .covers-row img{ width:clamp(78px, 21vw, 118px); height:clamp(78px, 21vw, 118px); }
-    .covers-row img:not(:first-child){ margin-left:clamp(-34px, -9vw, -22px); }
+    .covers-row{ margin-top:-60px; }
+    .covers-row img{ width:clamp(92px, 25vw, 136px); height:clamp(92px, 25vw, 136px); }
+    .covers-row img:not(:first-child){ margin-left:clamp(-42px, -10vw, -28px); }
   }
   @keyframes coverFloat{
     0%,100%{ translate:0 0; }
@@ -799,6 +799,81 @@ function buildCoversRow(){
 }
 buildCoversRow();
 
+/* ---------- SONS (sintetizados via Web Audio API — sem arquivos externos) ---------- */
+let audioCtx = null;
+function getAudioCtx(){
+  if (!audioCtx){
+    try{ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+    catch(e){ return null; }
+  }
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+
+/* pop curto e moderno ao selecionar uma resposta */
+function playPop(){
+  const ctx = getAudioCtx();
+  if (!ctx) return;
+  const now = ctx.currentTime;
+
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(720, now);
+  osc.frequency.exponentialRampToValueAtTime(980, now + 0.045);
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(0.22, now + 0.012);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.11);
+  osc.connect(gain).connect(ctx.destination);
+  osc.start(now);
+  osc.stop(now + 0.12);
+
+  // um leve "click" de alta frequência por cima, pra dar corpo moderno ao pop
+  const click = ctx.createOscillator();
+  const clickGain = ctx.createGain();
+  click.type = 'triangle';
+  click.frequency.setValueAtTime(1800, now);
+  clickGain.gain.setValueAtTime(0.05, now);
+  clickGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.03);
+  click.connect(clickGain).connect(ctx.destination);
+  click.start(now);
+  click.stop(now + 0.03);
+}
+
+/* pequeno arpejo ascendente ao concluir o quiz */
+function playComplete(){
+  const ctx = getAudioCtx();
+  if (!ctx) return;
+  const now = ctx.currentTime;
+  const notes = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6
+
+  notes.forEach((freq, i) => {
+    const t = now + i * 0.09;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq, t);
+    gain.gain.setValueAtTime(0.0001, t);
+    gain.gain.exponentialRampToValueAtTime(0.18, t + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.4);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start(t);
+    osc.stop(t + 0.42);
+
+    // camada uma oitava acima, mais suave, pra dar brilho
+    const shimmer = ctx.createOscillator();
+    const shimmerGain = ctx.createGain();
+    shimmer.type = 'triangle';
+    shimmer.frequency.setValueAtTime(freq * 2, t);
+    shimmerGain.gain.setValueAtTime(0.0001, t);
+    shimmerGain.gain.exponentialRampToValueAtTime(0.05, t + 0.02);
+    shimmerGain.gain.exponentialRampToValueAtTime(0.0001, t + 0.3);
+    shimmer.connect(shimmerGain).connect(ctx.destination);
+    shimmer.start(t);
+    shimmer.stop(t + 0.32);
+  });
+}
+
 function trackEvent(name, params){
   if (window.dataLayer) window.dataLayer.push(Object.assign({event:name}, params||{}));
   if (window.fbq) fbq('trackCustom', name, params||{});
@@ -823,6 +898,7 @@ function selectOption(qIndex, opt, btnEl, block){
   // feedback imediato: marca a opção escolhida, desabilita as outras e mostra o check
   block.querySelectorAll('.option').forEach(b => { b.disabled = true; });
   btnEl.classList.add('selected');
+  playPop();
 
   // pequena pausa pra pessoa ver a resposta marcada antes de avançar
   setTimeout(() => {
@@ -943,6 +1019,7 @@ function showResult(){
   comboCta.onclick = () => trackEvent('quiz_combo_click', { result_product: winnerKey });
 
   document.getElementById('screen-result').classList.add('active');
+  playComplete();
 
   trackEvent('quiz_complete', { result_product: winnerKey });
 }
