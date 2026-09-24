@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Compra Confirmada | Seja Minimalista</title>
-<meta name="description" content="Sua compra foi confirmada. Seu pedido está sendo embalado e enviado para o endereço informado. Obrigado por fazer parte da jornada minimalista.">
-<meta property="og:title" content="Compra Confirmada | Seja Minimalista Físico">
-<meta property="og:description" content="Sua compra foi confirmada. Seu pedido está sendo embalado e enviado para o endereço informado.">
+<meta name="description" content="Sua compra foi confirmada. O acesso já foi enviado para o seu e-mail. Obrigado por fazer parte da jornada minimalista.">
+<meta property="og:title" content="Compra Confirmada | Seja Minimalista Digital">
+<meta property="og:description" content="Sua compra foi confirmada. O acesso já foi enviado para o seu e-mail.">
 <meta property="og:image" content="https://static.wixstatic.com/media/940f31_9838f95851d04fae89e45d43a6fe0e09~mv2.jpg">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://sejaminimalista.com.br/obg-fisico-minima">
+<link rel="canonical" href="https://sejaminimalista.com.br/obg-digital">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
@@ -27,14 +27,14 @@
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-DNS-Prefetch-Control" content="on">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta property="og:url" content="https://sejaminimalista.com.br/obg-fisico-minima">
+<meta property="og:url" content="https://sejaminimalista.com.br/obg-digital">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Seja Minimalista">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Compra Confirmada | Seja Minimalista Físico">
-<meta name="twitter:description" content="Sua compra foi confirmada. Seu pedido está sendo embalado e enviado para o endereço informado.">
+<meta name="twitter:title" content="Compra Confirmada | Seja Minimalista Digital">
+<meta name="twitter:description" content="Sua compra foi confirmada. O acesso já foi enviado para o seu e-mail.">
 <meta name="twitter:image" content="https://static.wixstatic.com/media/940f31_9838f95851d04fae89e45d43a6fe0e09~mv2.jpg">
 
 <!-- Google tag (gtag.js) -->
@@ -230,7 +230,13 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
 @keyframes truck-bob{from{transform:translateY(0);}to{transform:translateY(-1px);}}
 .ship-text{padding:0 20px;text-align:center;color:#C9C4BA;font-size:13px;line-height:1.55;}
 .ship-text strong{display:block;font-family:var(--font-display);font-size:21px;font-weight:400;color:#E8D09A;margin-bottom:3px;line-height:1.25;}
-.sec-cta-final .ship-track{max-width:420px;margin:0 auto 14px;}
+.day-bar{background:#1C1C1A;padding:20px 0 20px;}
+.day-grid{display:grid;grid-template-columns:repeat(15,12px);gap:5px;justify-content:center;margin:0 auto 10px;}
+.day-grid i{display:block;width:12px;height:12px;border-radius:3px;background:#3D3D3B;transition:background .25s,box-shadow .25s;}
+.day-grid i.on{background:#C9A96E;}
+.day-grid i:first-child{background:#E8D09A;box-shadow:0 0 0 2px rgba(232,208,154,.35);}
+.day-count{text-align:center;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8F8A80;margin-bottom:12px;}
+.day-count span{color:#E8D09A;}
 
 /* ── CUPOM PARA QUEM JÁ TEM O 45 DIAS ── */
 .owner-box{
@@ -332,7 +338,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
     <div class="confirm-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
     <div>
       <h1 class="confirm-title">Compra confirmada. Obrigado!</h1>
-      <p class="confirm-sub">Seu pedido já está sendo preparado para o envio.</p>
+      <p class="confirm-sub">O acesso ao que você comprou já foi enviado para o seu e-mail.</p>
     </div>
   </div>
 </header>
@@ -343,7 +349,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
   <div class="sec-inner">
     <span class="seal anim-up d1">Só para quem acabou de comprar</span>
     <h2 class="offer-h2 anim-up d1">Leve o <em>45 Dias de Destralhe</em> junto com o seu pedido</h2>
-    <p class="offer-sub anim-up d2">A leitura mostra por que tirar o excesso. O guia diz o que fazer em cada um dos 45 dias, um cômodo de cada vez.</p>
+    <p class="offer-sub anim-up d2">Você já tem a inspiração. O guia te dá o plano: o que fazer em cada um dos 45 dias, um cômodo de cada vez.</p>
 
     <div class="offer-card anim-up d2">
       <div class="offer-media">
@@ -354,23 +360,10 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
           poster="https://static.wixstatic.com/media/940f31_08d7f9c5cc6b46c586bfc5d7c5e0a87a~mv2.jpg/v1/fit/w_976,h_502,q_90,enc_avif,quality_auto/940f31_08d7f9c5cc6b46c586bfc5d7c5e0a87a~mv2.jpg">
         </video>
         </div>
-      <div class="ship-bar">
-        <div class="ship-track" aria-hidden="true">
-          <span class="ship-road"></span>
-          <svg class="ship-truck" viewBox="0 0 92 34">
-            <g stroke="#C9A96E" stroke-width="2" stroke-linecap="round" opacity=".7">
-              <path d="M2 12h14"/><path d="M6 18h12"/><path d="M0 24h14"/>
-            </g>
-            <g class="truck-body">
-              <rect x="22" y="3" width="42" height="21" rx="2.5" fill="#C9A96E"/>
-              <path d="M64 10h13l9 8v6H64z" fill="#E8D09A"/>
-              <path d="M67 12.5h8.5l6 5.5H67z" fill="#1C1C1A"/>
-              <circle cx="34" cy="26" r="5" fill="#1C1C1A" stroke="#E8D09A" stroke-width="2"/>
-              <circle cx="76" cy="26" r="5" fill="#1C1C1A" stroke="#E8D09A" stroke-width="2"/>
-            </g>
-          </svg>
-        </div>
-        <p class="ship-text"><strong>Seu pedido ganha envio mais rápido</strong>Adicione o guia e tudo chega antes na sua casa, sem pagar nada a mais por isso.</p>
+      <div class="day-bar">
+        <div class="day-grid" id="day-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <p class="day-count" aria-hidden="true">Dia <span id="day-num">1</span> de 45</p>
+        <p class="ship-text"><strong>O seu Dia 1 pode ser hoje</strong>O guia chega no seu e-mail assim que o pagamento é aprovado. Dá para fazer a primeira missão ainda hoje.</p>
       </div>
       </div>
       <div class="offer-body">
@@ -380,12 +373,12 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
             <div class="perk-txt"><strong>R$ 20 de desconto</strong><span>Exclusivo para quem acabou de comprar</span></div>
           </li>
           <li class="perk">
-            <span class="perk-ico"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
-            <div class="perk-txt"><strong>Versão digital na hora</strong><span>Comece hoje, antes do pacote chegar</span></div>
+            <span class="perk-ico"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span>
+            <div class="perk-txt"><strong>Acesso na hora</strong><span>Chega no seu e-mail assim que o pagamento é aprovado</span></div>
           </li>
           <li class="perk">
-            <span class="perk-ico"><svg viewBox="0 0 24 24"><path d="M1 4h14v12H1z"/><path d="M15 9h4l3 3v4h-7z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></span>
-            <div class="perk-txt"><strong>Envio mais rápido</strong><span>O seu pedido inteiro chega antes, sem custo extra</span></div>
+            <span class="perk-ico"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+            <div class="perk-txt"><strong>Sempre à mão no celular</strong><span>Abra a missão do dia onde você estiver</span></div>
           </li>
         </ul>
 
@@ -394,16 +387,16 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
           <li class="what-item"><span class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></span>45 dias de missões curtas, cada dia uma área da casa</li>
           <li class="what-item"><span class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></span>Checklists prontos para cada cômodo</li>
           <li class="what-item"><span class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></span>Um jeito de desapegar sem culpa e sem arrependimento</li>
-          <li class="what-item"><span class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></span>Guia físico no seu pacote e versão digital liberada assim que o pagamento é aprovado</li>
+          <li class="what-item"><span class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></span>Versão digital para abrir no celular, no tablet ou no computador</li>
         </ul>
 
         <div class="price-row">
-          <span class="price-was">De R$ 97</span>
-          <span class="price-now"><sup>R$</sup>77</span>
+          <span class="price-was">De R$ 47</span>
+          <span class="price-now"><sup>R$</sup>27</span>
           <span class="price-save">Você economiza R$ 20</span>
         </div>
 
-        <a class="btn-upsell" href="https://chk.eduzz.com/E9OBQJZV0B?pf=1&cupom=upsell45&u=1" target="_blank" rel="noopener">Sim, adicionar ao meu pedido</a>
+        <a class="btn-upsell" href="https://chk.eduzz.com/2291018?pf=1&cupom=upsell45&u=1" target="_blank" rel="noopener">Sim, adicionar ao meu pedido</a>
         <p class="oneclick-note"><strong>Pagou com cartão?</strong> O guia entra na mesma compra, sem preencher nada de novo.</p>
       </div>
     </div>
@@ -449,24 +442,9 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
 <!-- 5. CTA FINAL -->
 <section class="sec-cta-final">
   <div class="sec-inner anim-up d2">
-    <div class="ship-track" aria-hidden="true">
-      <span class="ship-road"></span>
-      <svg class="ship-truck" viewBox="0 0 92 34">
-        <g stroke="#C9A96E" stroke-width="2" stroke-linecap="round" opacity=".7">
-          <path d="M2 12h14"/><path d="M6 18h12"/><path d="M0 24h14"/>
-        </g>
-        <g class="truck-body">
-          <rect x="22" y="3" width="42" height="21" rx="2.5" fill="#C9A96E"/>
-          <path d="M64 10h13l9 8v6H64z" fill="#E8D09A"/>
-          <path d="M67 12.5h8.5l6 5.5H67z" fill="#1C1C1A"/>
-          <circle cx="34" cy="26" r="5" fill="#1C1C1A" stroke="#E8D09A" stroke-width="2"/>
-          <circle cx="76" cy="26" r="5" fill="#1C1C1A" stroke="#E8D09A" stroke-width="2"/>
-        </g>
-      </svg>
-    </div>
-    <h2 class="cta-final-title">Quer que o guia vá no mesmo pacote?</h2>
-    <p class="cta-final-sub">De R$ 97 por R$ 77, e o seu pedido ganha envio mais rápido. Condição para quem acabou de comprar.</p>
-    <a class="btn-upsell" href="https://chk.eduzz.com/E9OBQJZV0B?pf=1&cupom=upsell45&u=1" target="_blank" rel="noopener">Sim, adicionar ao meu pedido</a>
+    <h2 class="cta-final-title">Quer começar o seu Dia 1 hoje?</h2>
+    <p class="cta-final-sub">De R$ 47 por R$ 27, com acesso na hora. Condição para quem acabou de comprar.</p>
+    <a class="btn-upsell" href="https://chk.eduzz.com/2291018?pf=1&cupom=upsell45&u=1" target="_blank" rel="noopener">Sim, adicionar ao meu pedido</a>
     <p class="oneclick-note"><strong>Pagou com cartão?</strong> É um clique, sem preencher nada.</p>
   </div>
 </section>
@@ -475,46 +453,46 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
 <!-- 6. PRÓXIMOS PASSOS -->
 <section class="sec-next" id="proximos-passos">
   <div class="sec-inner">
-    <h2 class="next-title">O que acontece agora com o seu pedido</h2>
+    <h2 class="next-title">O que acontece agora com o seu acesso</h2>
     <div class="confirm-steps">
       <div class="confirm-step">
-        <div class="step-emoji">📦</div>
+        <div class="step-emoji">📩</div>
         <div>
-          <div class="step-title">Pedido sendo preparado</div>
-          <div class="step-desc">O código de rastreio chega no seu e-mail assim que o pacote for despachado.</div>
+          <div class="step-title">Acesso no seu e-mail</div>
+          <div class="step-desc">O link chega no e-mail que você usou na compra, assim que o pagamento é aprovado.</div>
         </div>
       </div>
       <div class="confirm-step">
-        <div class="step-emoji">📬</div>
+        <div class="step-emoji">🔍</div>
         <div>
-          <div class="step-title">Entrega em casa</div>
-          <div class="step-desc">Pelos Correios, na sua caixa ou portaria, junto com as correspondências.</div>
+          <div class="step-title">Olhe o spam</div>
+          <div class="step-desc">O e-mail é enviado pela Eduzz e às vezes cai no spam ou em promoções.</div>
         </div>
       </div>
       <div class="confirm-step">
         <div class="step-emoji">🌟</div>
         <div>
           <div class="step-title">Área VIP</div>
-          <div class="step-desc">Acesso liberado em até 10 dias. O link fica nos destaques do Instagram.</div>
+          <div class="step-desc">Se o seu produto inclui a Área VIP, o acesso é liberado em até 10 dias.</div>
         </div>
       </div>
       <div class="confirm-step">
-        <div class="step-emoji">✉️</div>
+        <div class="step-emoji">💬</div>
         <div>
-          <div class="step-title">Olhe o spam</div>
-          <div class="step-desc">O e-mail de confirmação da Eduzz às vezes cai na caixa de spam ou promoções.</div>
+          <div class="step-title">Dúvidas</div>
+          <div class="step-desc">É só me escrever em sejaminimalista@hotmail.com.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 7. NEWSLETTER — companhia enquanto o pacote não chega -->
+<!-- 7. NEWSLETTER — para continuar depois da compra -->
 <section class="sec-news" aria-labelledby="news-title">
   <div class="sec-inner news-card">
-    <p class="news-eyebrow">Enquanto o seu pacote não chega</p>
+    <p class="news-eyebrow">Para continuar a jornada</p>
     <h2 class="news-title" id="news-title">Receba minha newsletter gratuita</h2>
-    <p class="news-desc">Toda semana, uma reflexão e uma prática minimalista direto no seu e-mail. Um jeito leve de começar antes de o livro chegar.</p>
+    <p class="news-desc">Toda semana, uma reflexão e uma prática minimalista direto no seu e-mail. Um lembrete leve para seguir no caminho que você acabou de começar.</p>
     <iframe class="news-embed"
       src="https://sejaminimalista.substack.com/embed?transparent=1&light=1"
       width="480" height="150" frameborder="0" scrolling="no" loading="lazy"
@@ -558,6 +536,18 @@ function toggleCarouselAutoplay(){
     btn.setAttribute('aria-label','Pausar troca automática de imagens');btn.setAttribute('aria-pressed','false');
   }
 }
+
+/* DIA 1 → 45 */
+(function(){
+  var grid=document.getElementById('day-grid'); if(!grid) return;
+  var cells=grid.children, num=document.getElementById('day-num'), i=0;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  function step(){
+    if(i<cells.length){cells[i].classList.add('on');num.textContent=i+1;i++;setTimeout(step,90);}
+    else{setTimeout(function(){for(var j=0;j<cells.length;j++)cells[j].classList.remove('on');num.textContent=1;i=0;setTimeout(step,500);},1800);}
+  }
+  setTimeout(step,800);
+})();
 
 /* COPIAR CUPOM */
 document.getElementById('owner-copy').addEventListener('click',function(){
@@ -606,16 +596,16 @@ document.addEventListener('DOMContentLoaded', function(){
     link.addEventListener('click', function(){
       if(window.fbq){
         fbq('track','InitiateCheckout', pixelData({
-          content_ids:  ['45-dias-destralhe-combo'],
+          content_ids:  ['45-dias-digital'],
           content_type: 'product',
-          content_name: 'Upsell — 45 Dias de Destralhe Combo',
+          content_name: 'Upsell — 45 Dias de Destralhe Digital',
           currency:     'BRL',
-          value:        77.00,
+          value:        27.00,
           num_items:    1
         }));
       }
       if(window.gtag){
-        gtag('event','begin_checkout',{currency:'BRL',value:77,item_name:'Upsell - 45 Dias Combo'});
+        gtag('event','begin_checkout',{currency:'BRL',value:27,item_name:'Upsell - 45 Dias Digital'});
       }
     });
   });
