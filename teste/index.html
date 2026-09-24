@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Compra Confirmada | Seja Minimalista</title>
-<meta name="description" content="Sua compra foi confirmada. Seu livro está sendo embalado e enviado para o endereço informado. Obrigado por fazer parte da jornada minimalista.">
+<meta name="description" content="Sua compra foi confirmada. Seu pedido está sendo embalado e enviado para o endereço informado. Obrigado por fazer parte da jornada minimalista.">
 <meta property="og:title" content="Compra Confirmada | Seja Minimalista Físico">
-<meta property="og:description" content="Sua compra foi confirmada. Seu livro está sendo embalado e enviado para o endereço informado.">
+<meta property="og:description" content="Sua compra foi confirmada. Seu pedido está sendo embalado e enviado para o endereço informado.">
 <meta property="og:image" content="https://static.wixstatic.com/media/940f31_9838f95851d04fae89e45d43a6fe0e09~mv2.jpg">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://sejaminimalista.com.br/obg-fisico-minima">
@@ -34,7 +34,7 @@
 <meta property="og:site_name" content="Seja Minimalista">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Compra Confirmada | Seja Minimalista Físico">
-<meta name="twitter:description" content="Sua compra foi confirmada. Seu livro está sendo embalado e enviado para o endereço informado.">
+<meta name="twitter:description" content="Sua compra foi confirmada. Seu pedido está sendo embalado e enviado para o endereço informado.">
 <meta name="twitter:image" content="https://static.wixstatic.com/media/940f31_9838f95851d04fae89e45d43a6fe0e09~mv2.jpg">
 
 <!-- Google tag (gtag.js) -->
@@ -82,6 +82,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
 /* ── ANIMAÇÕES ── */
 @keyframes shimmer-gold{0%{background-position:200% center;}100%{background-position:-200% center;}}
 @keyframes bounce-in{0%{opacity:0;transform:scale(.4);}70%{transform:scale(1.08);}100%{opacity:1;transform:scale(1);}}
+@keyframes pulse-check{0%{box-shadow:0 0 0 0 rgba(255,255,255,.55);}70%{box-shadow:0 0 0 14px rgba(255,255,255,0);}100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}}
 @keyframes draw-check{from{stroke-dashoffset:36;}to{stroke-dashoffset:0;}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 .anim-up{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);}
@@ -100,7 +101,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
 .confirm-icon{
   width:42px;height:42px;border-radius:50%;background:#16A34A;
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  animation:bounce-in .6s .1s ease both;
+  animation:bounce-in .6s .1s ease both,pulse-check 2.4s 1s ease-out infinite;
 }
 .confirm-icon svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:36;stroke-dashoffset:36;animation:draw-check .6s .5s ease forwards;}
 .confirm-title{font-family:var(--font-display);font-size:21px;font-weight:400;color:#fff;line-height:1.25;}
@@ -119,7 +120,8 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
 .offer-sub{font-size:15px;color:#5F5E5A;line-height:1.65;margin-bottom:22px;}
 
 .offer-card{background:#fff;border:.5px solid #D3D3D3;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.06);}
-.offer-img{display:block;width:100%;height:auto;aspect-ratio:976/502;object-fit:cover;background:#E8E8E6;}
+.offer-media{background:#1C1C1A;padding:20px 0 0;display:flex;flex-direction:column;}
+.offer-media .video-wrap{width:215px;max-width:60%;margin:0 auto;box-shadow:0 12px 30px rgba(0,0,0,.35);}
 .offer-body{padding:22px 22px 20px;}
 
 .perks{list-style:none;display:grid;gap:10px;margin-bottom:20px;}
@@ -130,8 +132,8 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
   display:flex;align-items:center;justify-content:center;
 }
 .perk-ico svg{width:17px;height:17px;fill:none;stroke:#8A652A;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.perk strong{display:block;font-size:14px;color:#1C1C1A;}
-.perk span{display:block;font-size:12px;color:#6B655D;line-height:1.45;}
+.perk-txt strong{display:block;font-size:14px;color:#1C1C1A;}
+.perk-txt span{display:block;font-size:12px;color:#6B655D;line-height:1.45;}
 
 .price-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding-top:16px;border-top:.5px solid #E3E3E1;margin-bottom:14px;}
 .price-was{font-size:15px;color:#6B655D;text-decoration:line-through;}
@@ -165,6 +167,9 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
 .sec-inside{width:100%;background:#E8E8E6;padding:40px 24px;}
 .sec-title{font-family:var(--font-display);font-size:22px;font-weight:400;line-height:1.3;margin-bottom:18px;}
 .what-list{list-style:none;display:grid;gap:10px;margin-bottom:26px;}
+.what-title{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B655D;padding-top:16px;border-top:.5px solid #E3E3E1;margin-bottom:12px;}
+.offer-body .what-list{margin-bottom:18px;gap:8px;}
+.offer-body .what-item{font-size:13px;}
 .what-item{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#3D3D3B;line-height:1.55;}
 .check-g{width:18px;height:18px;border-radius:50%;background:#C9A96E;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:2px;}
 .check-g svg{width:9px;height:9px;}
@@ -180,14 +185,8 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
 .carousel-pause{width:24px;height:24px;border-radius:50%;margin-left:4px;border:1px solid #C7C7C4;background:#fff;color:#5F5E5A;display:flex;align-items:center;justify-content:center;cursor:pointer;}
 
 /* ── 4. VÍDEO ── */
-.sec-video{width:100%;padding:40px 24px;}
-.video-wrap{position:relative;border-radius:12px;overflow:hidden;background:#1C1C1A;aspect-ratio:9/16;max-width:300px;margin:0 auto;}
+.video-wrap{position:relative;border-radius:12px;overflow:hidden;background:#2E2E2C;aspect-ratio:9/16;}
 .video-wrap video{width:100%;height:100%;object-fit:cover;display:block;}
-.sound-btn{
-  position:absolute;bottom:14px;right:14px;
-  background:rgba(28,28,26,.85);color:#F5F0E8;border:1.5px solid #C9A96E;border-radius:30px;
-  padding:7px 14px;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit;
-}
 
 /* ── 5. CTA FINAL ── */
 .sec-cta-final{width:100%;background:#1C1C1A;padding:40px 24px;text-align:center;}
@@ -208,11 +207,59 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
 .step-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;}
 .step-desc{font-size:12px;color:rgba(255,255,255,.75);line-height:1.5;}
 
+/* ── BARRA DO ENVIO MAIS RÁPIDO ── */
+.ship-bar{background:#1C1C1A;padding:8px 0 20px;}
+.ship-track{position:relative;height:50px;overflow:hidden;}
+.ship-road{
+  position:absolute;left:0;right:0;bottom:9px;height:2px;
+  background:repeating-linear-gradient(90deg,#C9A96E 0 14px,transparent 14px 26px);
+  opacity:.55;animation:road-move .5s linear infinite;
+}
+@keyframes road-move{to{background-position:-26px 0;}}
+.ship-truck{
+  position:absolute;bottom:10px;left:38%;width:92px;height:34px;
+  animation:truck-drive 4.2s linear infinite;
+}
+.ship-truck .truck-body{animation:truck-bob .35s ease-in-out infinite alternate;}
+@keyframes truck-drive{0%{left:-100px;}100%{left:100%;}}
+@keyframes truck-bob{from{transform:translateY(0);}to{transform:translateY(-1px);}}
+.ship-text{padding:0 20px;text-align:center;color:#C9C4BA;font-size:13px;line-height:1.55;}
+.ship-text strong{display:block;font-family:var(--font-display);font-size:21px;font-weight:400;color:#E8D09A;margin-bottom:3px;line-height:1.25;}
+.sec-cta-final .ship-track{max-width:420px;margin:0 auto 14px;}
+
+/* ── CUPOM PARA QUEM JÁ TEM O 45 DIAS ── */
+.owner-box{
+  margin-top:18px;padding:18px 20px;border-radius:12px;
+  border:1px dashed #C9A96E;background:#F5F0E8;
+}
+.owner-title{font-size:14px;font-weight:700;color:#1C1C1A;margin-bottom:4px;}
+.owner-desc{font-size:13px;color:#5F5E5A;line-height:1.55;margin-bottom:12px;}
+.owner-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.owner-code{
+  font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px;font-weight:700;letter-spacing:.08em;
+  background:#fff;border:.5px solid #C9A96E;border-radius:8px;padding:9px 14px;color:#1C1C1A;
+}
+.owner-copy{
+  font:inherit;font-size:13px;font-weight:600;cursor:pointer;
+  background:#1C1C1A;color:#F5F0E8;border:none;border-radius:8px;padding:10px 14px;
+}
+.owner-link{font-size:13px;color:#8A652A;text-underline-offset:3px;margin-left:4px;}
+
+/* ── DESKTOP: vídeo à esquerda, oferta à direita ── */
+@media(min-width:780px){
+  .sec-offer .sec-inner,.confirm-bar .sec-inner{max-width:900px;}
+  .offer-card{display:grid;grid-template-columns:330px 1fr;}
+  .offer-media{padding:24px 0 0;justify-content:space-between;}
+  .offer-media .video-wrap{width:250px;max-width:none;}
+  .offer-body{padding:32px 32px 28px;display:flex;flex-direction:column;justify-content:center;}
+  .owner-box{max-width:900px;}
+}
+
 @media(max-width:720px){
   .confirm-bar{padding:18px 20px;}
   .sec-offer{padding:24px 16px 32px;}
   .offer-body{padding:20px 18px 16px;}
-  .sec-inside,.sec-video,.sec-cta-final,.sec-next{padding:32px 20px;}
+  .sec-inside,.sec-cta-final,.sec-next{padding:32px 20px;}
   .confirm-steps{grid-template-columns:1fr;}
 }
 </style>
@@ -268,7 +315,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
     <div class="confirm-icon"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
     <div>
       <h1 class="confirm-title">Compra confirmada. Obrigado!</h1>
-      <p class="confirm-sub">Seu livro já está sendo preparado para o envio. <a href="#proximos-passos">Ver detalhes do pedido</a></p>
+      <p class="confirm-sub">Seu pedido já está sendo preparado para o envio.</p>
     </div>
   </div>
 </header>
@@ -278,25 +325,55 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
 <section class="sec-offer">
   <div class="sec-inner">
     <p class="offer-eyebrow anim-up d1">Antes de fecharmos o seu pacote</p>
-    <h2 class="offer-h2 anim-up d1">Leve o <em>45 Dias de Destralhe</em> junto com o seu livro</h2>
-    <p class="offer-sub anim-up d2">O livro mostra por que tirar o excesso. O guia diz o que fazer em cada um dos 45 dias, um cômodo de cada vez.</p>
+    <h2 class="offer-h2 anim-up d1">Leve o <em>45 Dias de Destralhe</em> junto com o seu pedido</h2>
+    <p class="offer-sub anim-up d2">A leitura mostra por que tirar o excesso. O guia diz o que fazer em cada um dos 45 dias, um cômodo de cada vez.</p>
 
     <div class="offer-card anim-up d2">
-      <img class="offer-img" src="https://static.wixstatic.com/media/940f31_08d7f9c5cc6b46c586bfc5d7c5e0a87a~mv2.jpg/v1/fit/w_976,h_502,q_90,enc_avif,quality_auto/940f31_08d7f9c5cc6b46c586bfc5d7c5e0a87a~mv2.jpg" alt="Páginas do guia 45 Dias de Destralhe" width="976" height="502" fetchpriority="high" decoding="sync">
+      <div class="offer-media">
+        <div class="video-wrap">
+        <video id="upsell-video"
+          src="https://video.wixstatic.com/video/940f31_ef887338507645a1b00804ec1a176b75/720p/mp4/file.mp4"
+          preload="metadata" loop muted playsinline
+          poster="https://static.wixstatic.com/media/940f31_08d7f9c5cc6b46c586bfc5d7c5e0a87a~mv2.jpg/v1/fit/w_976,h_502,q_90,enc_avif,quality_auto/940f31_08d7f9c5cc6b46c586bfc5d7c5e0a87a~mv2.jpg">
+        </video>
+        </div>
+      <div class="ship-bar">
+        <div class="ship-track" aria-hidden="true">
+          <span class="ship-road"></span>
+          <svg class="ship-truck" viewBox="0 0 92 34">
+            <g stroke="#C9A96E" stroke-width="2" stroke-linecap="round" opacity=".7">
+              <path d="M2 12h14"/><path d="M6 18h12"/><path d="M0 24h14"/>
+            </g>
+            <g class="truck-body">
+              <rect x="22" y="3" width="42" height="21" rx="2.5" fill="#C9A96E"/>
+              <path d="M64 10h13l9 8v6H64z" fill="#E8D09A"/>
+              <path d="M67 12.5h8.5l6 5.5H67z" fill="#1C1C1A"/>
+              <circle cx="34" cy="26" r="5" fill="#1C1C1A" stroke="#E8D09A" stroke-width="2"/>
+              <circle cx="76" cy="26" r="5" fill="#1C1C1A" stroke="#E8D09A" stroke-width="2"/>
+            </g>
+          </svg>
+        </div>
+        <p class="ship-text"><strong>Seu pedido ganha envio mais rápido</strong>Adicione o guia e tudo chega antes na sua casa, sem pagar nada a mais por isso.</p>
+      </div>
+      </div>
       <div class="offer-body">
         <ul class="perks">
           <li class="perk">
             <span class="perk-ico"><svg viewBox="0 0 24 24"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span>
-            <div><strong>R$ 20 de desconto</strong><span>Só para quem acabou de comprar o livro</span></div>
-          </li>
-          <li class="perk">
-            <span class="perk-ico"><svg viewBox="0 0 24 24"><path d="M1 4h14v12H1z"/><path d="M15 9h4l3 3v4h-7z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></span>
-            <div><strong>Envio mais rápido</strong><span>Sem pagar nada a mais por isso</span></div>
+            <div class="perk-txt"><strong>R$ 20 de desconto</strong><span>Exclusivo para quem acabou de comprar</span></div>
           </li>
           <li class="perk">
             <span class="perk-ico"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
-            <div><strong>Versão digital na hora</strong><span>Comece hoje, antes do livro chegar</span></div>
+            <div class="perk-txt"><strong>Versão digital na hora</strong><span>Comece hoje, antes do pacote chegar</span></div>
           </li>
+        </ul>
+
+        <p class="what-title">O que você recebe</p>
+    <ul class="what-list">
+          <li class="what-item"><span class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></span>45 dias de missões curtas, cada dia uma área da casa</li>
+          <li class="what-item"><span class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></span>Checklists prontos para cada cômodo</li>
+          <li class="what-item"><span class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></span>Um jeito de desapegar sem culpa e sem arrependimento</li>
+          <li class="what-item"><span class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></span>Guia físico no seu pacote e versão digital liberada assim que o pagamento é aprovado</li>
         </ul>
 
         <div class="price-row">
@@ -307,7 +384,16 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
 
         <a class="btn-upsell" href="https://chk.eduzz.com/E9OBQJZV0B?pf=1&cupom=upsell45&u=1" target="_blank" rel="noopener">Sim, adicionar ao meu pedido</a>
         <p class="oneclick-note"><strong>Pagou com cartão?</strong> O guia entra na mesma compra, sem preencher nada de novo.</p>
-        <a class="decline" href="#proximos-passos">Não, obrigado. Quero só o meu livro.</a>
+      </div>
+    </div>
+
+    <div class="owner-box anim-up d3">
+      <p class="owner-title">Já tem o 45 Dias de Destralhe?</p>
+      <p class="owner-desc">Então o desconto fica para outra escolha: use o cupom abaixo em qualquer outro produto da Seja Minimalista.</p>
+      <div class="owner-row">
+        <span class="owner-code" id="owner-code">JATENHO45</span>
+        <button type="button" class="owner-copy" id="owner-copy">Copiar cupom</button>
+        <a class="owner-link" href="https://sejaminimalista.com.br/produtos">Ver os produtos</a>
       </div>
     </div>
   </div>
@@ -316,13 +402,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
 <!-- 3. POR DENTRO -->
 <section class="sec-inside">
   <div class="sec-inner">
-    <h2 class="sec-title anim-up d1">O que você recebe</h2>
-    <ul class="what-list">
-      <li class="what-item anim-up d1"><span class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></span>45 dias de missões curtas, cada dia uma área da casa</li>
-      <li class="what-item anim-up d2"><span class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></span>Checklists prontos para cada cômodo</li>
-      <li class="what-item anim-up d3"><span class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></span>Um jeito de desapegar sem culpa e sem arrependimento</li>
-      <li class="what-item anim-up d4"><span class="check-g"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#1C1C1A" stroke-width="1.5" stroke-linecap="round"/></svg></span>Guia físico no seu pacote e versão digital liberada assim que o pagamento é aprovado</li>
-    </ul>
+    <h2 class="sec-title anim-up d1">Veja algumas páginas do guia</h2>
 
     <div class="carousel-wrap anim-up d2">
       <div class="carousel-slides" id="slides">
@@ -344,31 +424,29 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
   </div>
 </section>
 
-<!-- 4. VÍDEO -->
-<section class="sec-video">
-  <div class="sec-inner">
-    <h2 class="sec-title anim-up d1" style="text-align:center;">O guia por dentro, em vídeo</h2>
-    <div class="video-wrap anim-up d2">
-      <video id="upsell-video"
-        src="https://video.wixstatic.com/video/940f31_ef887338507645a1b00804ec1a176b75/720p/mp4/file.mp4"
-        preload="none" loop muted playsinline
-        poster="https://static.wixstatic.com/media/940f31_08d7f9c5cc6b46c586bfc5d7c5e0a87a~mv2.jpg/v1/fit/w_976,h_502,q_90,enc_avif,quality_auto/940f31_08d7f9c5cc6b46c586bfc5d7c5e0a87a~mv2.jpg">
-      </video>
-      <button class="sound-btn" onclick="toggleSound()" aria-label="Ativar som do vídeo">
-        <span id="sound-icon" aria-hidden="true">🔇</span><span id="sound-label">Ativar som</span>
-      </button>
-    </div>
-  </div>
-</section>
 
 <!-- 5. CTA FINAL -->
 <section class="sec-cta-final">
   <div class="sec-inner anim-up d2">
+    <div class="ship-track" aria-hidden="true">
+      <span class="ship-road"></span>
+      <svg class="ship-truck" viewBox="0 0 92 34">
+        <g stroke="#C9A96E" stroke-width="2" stroke-linecap="round" opacity=".7">
+          <path d="M2 12h14"/><path d="M6 18h12"/><path d="M0 24h14"/>
+        </g>
+        <g class="truck-body">
+          <rect x="22" y="3" width="42" height="21" rx="2.5" fill="#C9A96E"/>
+          <path d="M64 10h13l9 8v6H64z" fill="#E8D09A"/>
+          <path d="M67 12.5h8.5l6 5.5H67z" fill="#1C1C1A"/>
+          <circle cx="34" cy="26" r="5" fill="#1C1C1A" stroke="#E8D09A" stroke-width="2"/>
+          <circle cx="76" cy="26" r="5" fill="#1C1C1A" stroke="#E8D09A" stroke-width="2"/>
+        </g>
+      </svg>
+    </div>
     <h2 class="cta-final-title">Quer que o guia vá no mesmo pacote?</h2>
-    <p class="cta-final-sub">De R$ 97 por R$ 77, com envio mais rápido. Condição para quem acabou de comprar o livro.</p>
+    <p class="cta-final-sub">De R$ 97 por R$ 77, e o seu pedido ganha envio mais rápido. Condição para quem acabou de comprar.</p>
     <a class="btn-upsell" href="https://chk.eduzz.com/E9OBQJZV0B?pf=1&cupom=upsell45&u=1" target="_blank" rel="noopener">Sim, adicionar ao meu pedido</a>
     <p class="oneclick-note"><strong>Pagou com cartão?</strong> É um clique, sem preencher nada.</p>
-    <a class="decline" href="#proximos-passos">Não, obrigado. Quero só o meu livro.</a>
   </div>
 </section>
 </main>
@@ -381,7 +459,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #8A652A;outline-offset:2p
       <div class="confirm-step">
         <div class="step-emoji">📦</div>
         <div>
-          <div class="step-title">Livro sendo preparado</div>
+          <div class="step-title">Pedido sendo preparado</div>
           <div class="step-desc">O código de rastreio chega no seu e-mail assim que o pacote for despachado.</div>
         </div>
       </div>
@@ -418,14 +496,6 @@ var vObs=new IntersectionObserver(function(e){
 },{threshold:.1});
 vObs.observe(video);
 
-/* SOM */
-function toggleSound(){
-  var icon=document.getElementById('sound-icon');
-  var label=document.getElementById('sound-label');
-  var btn=label.closest('.sound-btn');
-  if(video.muted){video.muted=false;icon.textContent='🔊';label.textContent='Silenciar';btn.setAttribute('aria-label','Silenciar vídeo');}
-  else{video.muted=true;icon.textContent='🔇';label.textContent='Ativar som';btn.setAttribute('aria-label','Ativar som do vídeo');}
-}
 
 /* CARROSSEL lazy */
 var idx=0,total=5,loaded=[true,false,false,false,false];
@@ -454,6 +524,14 @@ function toggleCarouselAutoplay(){
     btn.setAttribute('aria-label','Pausar troca automática de imagens');btn.setAttribute('aria-pressed','false');
   }
 }
+
+/* COPIAR CUPOM */
+document.getElementById('owner-copy').addEventListener('click',function(){
+  var btn=this,code=document.getElementById('owner-code').textContent.trim();
+  function ok(){btn.textContent='Copiado!';setTimeout(function(){btn.textContent='Copiar cupom';},2000);}
+  if(navigator.clipboard){navigator.clipboard.writeText(code).then(ok,function(){fallback();});}else{fallback();}
+  function fallback(){var t=document.createElement('textarea');t.value=code;document.body.appendChild(t);t.select();try{document.execCommand('copy');ok();}catch(e){}document.body.removeChild(t);}
+});
 
 /* HEIGHT */
 function sendHeight(){window.parent.postMessage({height:document.documentElement.scrollHeight},'*');}
