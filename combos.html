@@ -92,8 +92,6 @@ body{background:
 #scroll-freight strong{font-weight:800;}
 #scroll-freight-close{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#fff;cursor:pointer;opacity:.75;padding:0;}
 #scroll-freight-close:hover{opacity:1;}
-.freight-timer{display:inline-flex;align-items:center;gap:5px;padding-left:14px;border-left:1px solid rgba(255,255,255,.35);}
-.freight-timer strong{font-variant-numeric:tabular-nums;letter-spacing:.02em;}
 
 /* TOPBAR */
 .topbar{width:100%;padding:11px 24px;display:flex;gap:26px;justify-content:center;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.08);}
@@ -252,8 +250,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   html,body{width:100%;overflow-x:hidden;}
   .inner{padding:0 16px;}
   #scroll-freight{font-size:11px;padding:10px 38px 10px 12px;gap:6px;flex-wrap:wrap;}
-  .freight-timer{padding-left:0;border-left:none;width:100%;justify-content:center;}
-  #scroll-freight-close{right:10px;}
+    #scroll-freight-close{right:10px;}
   .quick-nav-inner{padding:8px 12px;gap:2px;}
   .quick-nav a{font-size:12px;padding:7px 12px;}
   .quick-nav a.qn-cta{margin-left:4px;}
@@ -351,7 +348,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 
 <div id="scroll-freight">
   <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:5px;"><path d="M2 8h11v8H2z"/><path d="M13 11h4l3 3v2h-7z"/><circle cx="6" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></svg>Você ganhou <strong>frete grátis</strong> em todos os combos físicos!</span>
-  <span class="freight-timer"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-1px;margin-right:3px;"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>Termina em <strong id="freight-countdown">00:00:00</strong></span>
   <button id="scroll-freight-close" aria-label="Fechar"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
 </div>
 
@@ -739,22 +735,6 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
-  /* Contador regressivo — reinicia todo dia à meia-noite */
-  var countEl = document.getElementById('freight-countdown');
-  if(countEl){
-    function pad(n){ return String(n).padStart(2,'0'); }
-    function tick(){
-      var now = new Date();
-      var midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1, 0, 0, 0);
-      var diff = Math.max(0, midnight - now);
-      var h = Math.floor(diff/3600000);
-      var m = Math.floor((diff%3600000)/60000);
-      var s = Math.floor((diff%60000)/1000);
-      countEl.textContent = pad(h)+':'+pad(m)+':'+pad(s);
-    }
-    tick();
-    setInterval(tick, 1000);
-  }
 })();
 </script>
 
