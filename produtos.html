@@ -34,126 +34,138 @@
 <link rel="preload" as="image" fetchpriority="high" href="https://static.wixstatic.com/media/940f31_72a8a2628b3c4b55a6ac43905e3c9853~mv2.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@500;600;700;800&display=swap">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --ink:#1C1C1A;
-  --ink-soft:#4A4A48;
-  --ink-muted:#888780;
-  --ink-muted-light:#6B655D;
-  --gold:#C9A96E;
-  --gold-text:#8A652A;
-  --gold-dark:#9A7A30;
-  --bg:#EFEFEF;
-  --bg-alt:#E8E8E6;
-  --cream:#F5F0E8;
-  --white:#fff;
-  --border:rgba(0,0,0,.08);
-  --sec-h:clamp(20px,5vw,80px);
-  --gap:32px;
-  --radius:12px;
-  --font-display:'Newsreader',Georgia,serif;
+  --ink:#F5F1E8;--text:#E8E2D8;--muted:#A8A29A;
+  --gold:#C9A96E;--gold-soft:#E8D09A;
+  --card:rgba(255,255,255,.06);--card-hover:rgba(255,255,255,.09);--card-border:rgba(255,255,255,.12);
+  --sec-h:clamp(16px,5vw,80px);
+  --font-display:'Spectral',Georgia,serif;
 }
 html{scroll-behavior:smooth;}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+body{font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background:
+  radial-gradient(900px 650px at 0% 0%,rgba(201,169,110,.20),transparent 70%),
+  radial-gradient(900px 650px at 100% 100%,rgba(107,75,200,.16),transparent 70%),
+  #0E0D0B;background-attachment:scroll;}
 
 /* TOPBAR */
-.topbar{background:var(--ink);color:var(--cream);text-align:center;font-size:12px;padding:10px var(--sec-h);letter-spacing:.04em;}
-.topbar a{color:var(--gold);text-decoration:none;}
+.topbar{color:var(--muted);text-align:center;font-size:12px;padding:10px var(--sec-h);letter-spacing:.02em;border-bottom:1px solid rgba(255,255,255,.08);}
+.topbar a{color:var(--gold);text-decoration:none;font-weight:600;}
+.topbar a:hover{color:var(--gold-soft);}
 
 /* HEADER */
-.site-header{background:var(--white);border-bottom:.5px solid var(--border);padding:18px var(--sec-h);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.site-header{background:rgba(14,13,11,.92);border-bottom:1px solid rgba(255,255,255,.08);padding:14px var(--sec-h);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
 .logo{display:inline-flex;align-items:center;}
-.logo img{display:block;height:27px;width:auto;}
-.header-nav{display:flex;align-items:center;gap:24px;}
-.header-nav a{font-size:13px;color:var(--ink-soft);text-decoration:none;letter-spacing:.04em;}
-.header-nav a:hover{color:var(--gold);}
+.logo img{display:block;height:26px;width:auto;filter:brightness(0) invert(1);opacity:.92;}
+.header-nav{display:flex;align-items:center;gap:6px;}
+.header-nav a{font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;padding:8px 14px;border-radius:999px;border:1px solid transparent;transition:color .15s,border-color .15s,background .15s;}
+.header-nav a:hover{color:var(--ink);border-color:var(--card-border);background:rgba(255,255,255,.04);}
 
 /* HERO */
-.page-hero{background:var(--ink);padding:64px var(--sec-h) 56px;text-align:center;}
-.page-eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:10px;}
-.page-eyebrow::before,.page-eyebrow::after{content:'';display:block;width:28px;height:1px;background:var(--gold);}
-.page-h1{font-family:var(--font-display);font-size:clamp(32px,5vw,52px);font-weight:400;color:var(--cream);line-height:1.2;margin-bottom:16px;letter-spacing:-.01em;}
-.page-sub{font-size:16px;color:var(--ink-muted);max-width:520px;margin:0 auto;}
+.page-hero{padding:60px var(--sec-h) 36px;text-align:center;}
+.page-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);background:rgba(201,169,110,.14);border:1px solid var(--gold);padding:5px 12px 5px 10px;border-radius:20px;margin-bottom:18px;}
+.page-eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);}
+.page-h1{font-family:var(--font-display);font-size:clamp(32px,5vw,54px);font-weight:500;color:var(--ink);line-height:1.12;margin-bottom:14px;}
+.page-sub{font-size:16px;color:var(--muted);max-width:520px;margin:0 auto;}
 
 /* FILTROS */
-.filters{padding:28px var(--sec-h) 0;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
-.filter-btn{background:var(--white);border:.5px solid var(--border);border-radius:20px;padding:8px 18px;font-size:12px;font-weight:600;color:var(--ink-soft);cursor:pointer;transition:all .2s;letter-spacing:.04em;}
-.filter-btn:hover,.filter-btn.active{background:var(--ink);color:var(--cream);border-color:var(--ink);}
+.filters{padding:4px var(--sec-h) 0;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
+.filter-btn{font-family:inherit;background:rgba(255,255,255,.04);border:1px solid var(--card-border);border-radius:999px;padding:8px 18px;font-size:12.5px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .15s;min-height:40px;}
+.filter-btn:hover{color:var(--ink);border-color:rgba(245,241,232,.28);}
+.filter-btn.active{background:var(--gold);color:#1C1C1A;border-color:var(--gold);box-shadow:0 4px 16px rgba(201,169,110,.3);}
 
-/* GRID DE PRODUTOS */
-.products-section{padding:40px var(--sec-h) 80px;}
-.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto;}
+/* GRID */
+.products-section{padding:32px var(--sec-h) 72px;}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1100px;margin:0 auto;}
 
-/* CARD DE PRODUTO */
-.prod-card{background:var(--white);border-radius:var(--radius);overflow:hidden;border:.5px solid var(--border);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;}
-.prod-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.1);}
-.prod-card-img{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--bg-alt);}
+/* CARD (vidro) */
+.prod-card{background:var(--card);border:1px solid var(--card-border);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 28px rgba(0,0,0,.4);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background .2s ease;animation:fadeIn .35s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+@media(hover:hover) and (pointer:fine){
+  .prod-card:hover{transform:translateY(-4px);border-color:var(--gold);background:var(--card-hover);box-shadow:0 16px 38px rgba(0,0,0,.5);}
+  .prod-card:hover .prod-card-img img{transform:scale(1.03);}
+}
+.prod-card.featured{border:1.5px solid var(--gold);background:rgba(201,169,110,.12);box-shadow:0 10px 30px rgba(201,169,110,.25);}
+.prod-card-img{position:relative;overflow:hidden;aspect-ratio:4/3;background:rgba(255,255,255,.04);}
 .prod-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
-.prod-card:hover .prod-card-img img{transform:scale(1.04);}
-.prod-badge{position:absolute;top:12px;left:12px;background:var(--ink);color:var(--cream);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:20px;}
-.prod-badge.novo{background:var(--gold);color:var(--ink);}
-.prod-body{padding:20px;flex:1;display:flex;flex-direction:column;}
-.prod-cat{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-text);margin-bottom:6px;}
-.prod-name{font-family:var(--font-display);font-size:17px;font-weight:400;color:var(--ink);line-height:1.35;margin-bottom:8px;}
-.prod-desc{font-size:13px;color:var(--ink-soft);line-height:1.6;flex:1;margin-bottom:16px;}
-.prod-price{font-size:12px;color:var(--ink-muted-light);margin-bottom:16px;}
-.prod-price strong{font-size:15px;color:var(--ink);}
-.prod-cta{display:block;background:var(--ink);color:var(--cream);text-align:center;padding:12px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:.04em;transition:background .2s;}
-.prod-cta:hover{background:#3A3A38;}
-.prod-cta.gold{background:linear-gradient(90deg,#B8925A,#C9A96E,#E8D09A,#C9A96E,#B8925A);background-size:200% auto;color:var(--ink);animation:shimmer 5s linear infinite;}
-@keyframes shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
 
-/* COMBO BANNER */
-.combo-banner{max-width:1100px;margin:0 auto 40px;background:var(--ink);border-radius:var(--radius);padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
-.combo-text h2{font-family:var(--font-display);font-size:24px;color:var(--cream);font-weight:400;margin-bottom:8px;}
-.combo-text p{font-size:14px;color:var(--ink-muted);max-width:480px;}
-.combo-btn{flex-shrink:0;background:var(--gold);color:var(--ink);padding:14px 28px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;}
-.combo-btn:hover{filter:brightness(1.1);}
+/* SELOS */
+.prod-badge{position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.04em;padding:4px 11px 4px 8px;border-radius:20px;background:#1C1C1A;color:#F0D898;border:1px solid rgba(240,216,152,.28);}
+.prod-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor;}
+.prod-badge.novo{background:#173B27;color:#8CE8AE;border-color:rgba(140,232,174,.25);}
+.prod-badge.novo::before{box-shadow:0 0 0 3px rgba(140,232,174,.25);}
+
+.prod-body{padding:18px 18px 20px;flex:1;display:flex;flex-direction:column;}
+.prod-cat{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.prod-name{font-family:var(--font-display);font-size:18px;font-weight:500;color:var(--ink);line-height:1.3;margin-bottom:8px;}
+.prod-desc{font-size:13px;color:var(--muted);line-height:1.6;flex:1;margin-bottom:14px;}
+.prod-price{font-size:12px;color:var(--muted);margin-bottom:14px;}
+.prod-price strong{font-size:17px;font-weight:800;background:linear-gradient(100deg,#B8925A 0%,#C9A96E 40%,#E8D09A 55%,#C9A96E 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.prod-cta{display:block;background:rgba(255,255,255,.04);border:1px solid var(--card-border);color:var(--ink);text-align:center;padding:12px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;transition:border-color .15s,background .15s,filter .15s;}
+.prod-cta:hover{border-color:var(--gold);background:rgba(201,169,110,.14);}
+.prod-cta.gold{background:var(--gold);border-color:var(--gold);color:#1C1C1A;box-shadow:0 4px 16px rgba(201,169,110,.25);}
+.prod-cta.gold:hover{filter:brightness(1.08);background:var(--gold);}
+
+/* BANNER DE COMBOS */
+.combo-banner{max-width:1100px;margin:0 auto 40px;background:rgba(201,169,110,.10);border:1px solid rgba(201,169,110,.45);border-radius:18px;padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.combo-text h2{font-family:var(--font-display);font-size:26px;color:var(--ink);font-weight:500;line-height:1.2;margin-bottom:6px;}
+.combo-text p{font-size:14px;color:var(--muted);max-width:480px;}
+.combo-actions{display:flex;flex-direction:column;gap:10px;flex-shrink:0;}
+.combo-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:#1C1C1A;padding:14px 26px;border-radius:999px;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 4px 20px rgba(201,169,110,.35);transition:filter .15s,transform .15s;}
+.combo-btn:hover{filter:brightness(1.08);transform:translateY(-2px);}
+.combo-btn.red{background:linear-gradient(135deg,#FF6B4A,#E8342A);color:#FFF6F2;box-shadow:0 4px 22px rgba(232,52,42,.4);animation:comboPulse 2.4s ease-in-out infinite;}
+@keyframes comboPulse{
+  0%,100%{box-shadow:0 4px 22px rgba(232,52,42,.4),0 0 0 0 rgba(232,52,42,.5);}
+  50%{box-shadow:0 4px 22px rgba(232,52,42,.4),0 0 0 9px rgba(232,52,42,0);}
+}
 
 /* WHATSAPP */
-.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;background:#25D366;color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s;}
-.whatsapp-float:hover{transform:scale(1.1);}
+.whatsapp-float{position:fixed;bottom:22px;right:20px;z-index:999;background:#25D366;color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.4);text-decoration:none;transition:transform .2s;}
+.whatsapp-float:hover{transform:scale(1.08);}
 .whatsapp-float svg{width:26px;height:26px;fill:#fff;}
 
 /* FOOTER */
-.footer{background:var(--ink);padding:48px var(--sec-h);}
+.footer{background:rgba(0,0,0,.28);border-top:1px solid rgba(255,255,255,.08);padding:48px var(--sec-h);}
 .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;max-width:1100px;margin:0 auto;}
 .footer-logo{margin-bottom:10px;}
 .footer-logo img{display:block;height:40px;width:auto;filter:brightness(0) invert(1);opacity:.55;}
-.footer-copy{font-size:12px;color:#A8A8A4;line-height:1.7;}
-.footer-links h3,.footer-news h3{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A8A8A4;margin-bottom:14px;}
+.footer-copy{font-size:12px;color:var(--muted);line-height:1.7;}
+.footer-links h3,.footer-news h3{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
 .footer-links a{display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;}
 .footer-links a:hover{color:var(--gold);}
-.footer-divider{margin-top:36px;padding-top:22px;border-top:.5px solid #3A3A38;font-size:11px;color:#8A8A86;max-width:1100px;margin-left:auto;margin-right:auto;}
-.footer .btn-gold{background:var(--gold);color:var(--ink);border-radius:6px;font-weight:700;letter-spacing:.02em;transition:filter .2s ease,transform .2s ease;}
+.footer-divider{margin-top:36px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:#8A8A86;max-width:1100px;margin-left:auto;margin-right:auto;}
+.footer .btn-gold{background:var(--gold);color:#1C1C1A;border-radius:999px;font-weight:700;letter-spacing:.02em;transition:filter .2s ease,transform .2s ease;}
 .footer .btn-gold:hover{filter:brightness(1.08);transform:translateY(-1px);}
 
-/* RESPONSIVE */
+/* RESPONSIVO */
 @media(max-width:900px){
   .products-grid{grid-template-columns:repeat(2,1fr);}
   .combo-banner{flex-direction:column;text-align:center;}
   .combo-text p{margin:0 auto;}
+  .combo-actions{width:100%;max-width:360px;}
 }
 @media(max-width:600px){
-  .products-grid{grid-template-columns:1fr;}
+  .products-grid{grid-template-columns:1fr;gap:14px;}
   .header-nav{display:none;}
   .footer-grid{grid-template-columns:1fr;gap:28px;}
-  .footer-divider{flex-direction:column;gap:6px;}
-  .page-hero{padding:48px var(--sec-h) 40px;}
-  .filters{padding:20px var(--sec-h) 0;}
-  .combo-banner{padding:24px 20px;}
+  .page-hero{padding:40px var(--sec-h) 26px;}
+  .page-sub{font-size:14.5px;}
+  .combo-banner{padding:22px 18px;}
+  .combo-text h2{font-size:22px;}
+  .combo-btn{white-space:normal;}
 }
 
-/* ══ FOCO E TOQUE (acessibilidade) ══ */
+/* ACESSIBILIDADE */
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
-.skip-link{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--cream);padding:12px 20px;border-radius:0 0 8px 0;z-index:100000;text-decoration:none;font-size:14px;font-weight:600;}
+.skip-link{position:absolute;left:-9999px;top:0;background:#242422;color:#ECE6DC;padding:12px 20px;border-radius:0 0 8px 0;z-index:100000;text-decoration:none;font-size:14px;font-weight:600;}
 .skip-link:focus{left:0;}
-a,button{touch-action:manipulation;}
-a:focus-visible,button:focus-visible{outline:2px solid var(--gold-text);outline-offset:2px;border-radius:4px;}
-.filter-btn{min-height:40px;}
+a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px;}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 </style>
 </head>
 <body>
@@ -171,6 +183,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold-text);outline-
   <nav class="header-nav">
     <a href="https://sejaminimalista.com.br/">Início</a>
     <a href="https://sejaminimalista.com.br/combos">Combos</a>
+    <a href="https://sejaminimalista.com.br/monte-seu-combo">Monte seu combo</a>
     <a href="https://www.sejaminimalista.net/vip/entrar">Área VIP</a>
     <a href="mailto:sejaminimalista@hotmail.com">Contato</a>
   </nav>
@@ -199,10 +212,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold-text);outline-
   <div class="products-grid" id="products-grid">
 
     <!-- Minimalize.IA -->
-    <div class="prod-card" data-cat="digital">
+    <div class="prod-card featured" data-cat="digital">
       <div class="prod-card-img">
         <img src="https://static.wixstatic.com/media/940f31_72a8a2628b3c4b55a6ac43905e3c9853~mv2.png" alt="Minimalize.IA: Destralhe e organize sua casa com IA" loading="eager" fetchpriority="high" decoding="async">
-        <div class="prod-badge novo">Novo</div>
+        <div class="prod-badge novo">Lançamento</div>
       </div>
       <div class="prod-body">
         <div class="prod-cat">Digital · IA</div>
@@ -274,7 +287,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold-text);outline-
     <div class="prod-card" data-cat="digital">
       <div class="prod-card-img">
         <img src="https://static.wixstatic.com/media/940f31_83831011210d4337814151ea3f74120a~mv2.webp/v1/fill/w_306,h_286,al_c,q_90,enc_avif,quality_auto/thumb.jpg" alt="Armário Enxuto: O Curso, com Fabianna Carraro" loading="lazy" decoding="async">
-        <div class="prod-badge novo">Novo</div>
+        <div class="prod-badge novo">Lançamento</div>
       </div>
       <div class="prod-body">
         <div class="prod-cat">Digital · Curso em vídeo</div>
@@ -336,7 +349,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold-text);outline-
         <div class="prod-cat">Planner · Digital e Físico</div>
         <h3 class="prod-name">Planner Minhas Viagens dos Sonhos</h3>
         <div class="prod-desc">130 páginas com planejamento financeiro completo e roteiro detalhado para cada viagem. Disponível em digital editável ou físico.</div>
-        <div class="prod-price">a partir de <strong>R$ 47</strong> · Digital ou Físico</div>
+        <div class="prod-price">a partir de <strong>R$ 97</strong> · Digital ou Físico</div>
         <a class="prod-cta" href="https://sejaminimalista.com.br/planner-viagens">Conhecer →</a>
       </div>
     </div>
@@ -358,12 +371,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold-text);outline-
   </div>
 
   <!-- COMBO BANNER -->
-  <div class="combo-banner" style="margin-top:48px;">
+  <div class="combo-banner" style="margin-top:44px;">
     <div class="combo-text">
-      <h2>Quer economizar? Confira os combos com desconto.</h2>
-      <p>Leve mais de um produto com preço reduzido, combinações pensadas para potencializar sua jornada minimalista.</p>
+      <h2>Leve mais, pague menos.</h2>
+      <p>Escolha um combo pronto ou monte o seu com os produtos que você quiser. O desconto chega a 40%.</p>
     </div>
-    <a class="combo-btn" href="https://sejaminimalista.com.br/combos">Ver combos →</a>
+    <div class="combo-actions">
+      <a class="combo-btn red" href="https://sejaminimalista.com.br/monte-seu-combo">Monte seu combo personalizado</a>
+      <a class="combo-btn" href="https://sejaminimalista.com.br/combos">Ver combos prontos →</a>
+    </div>
   </div>
 
 </section>
@@ -391,7 +407,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold-text);outline-
     <div class="footer-news">
       <h3>Newsletter gratuita</h3>
       <p style="font-size:12px;color:#D8D8D4;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas gratuitas direto no seu e-mail, toda semana.</p>
-      <iframe src="https://sejaminimalista.substack.com/embed?transparent=1&light=1" width="100%" height="100" style="border:none;background:transparent;" loading="lazy" title="Newsletter Seja Minimalista"></iframe>
+      <iframe src="https://sejaminimalista.substack.com/embed?transparent=1&light=1" width="100%" height="150" style="border:none;background:transparent;" loading="lazy" title="Newsletter Seja Minimalista"></iframe>
     </div>
   </div>
   <div class="footer-divider">
