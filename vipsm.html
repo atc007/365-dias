@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://static.wixstatic.com">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;background:#EFEFEF;}
+
+/* LOADER */
+#page-loader{
+  position:fixed;
+  inset:0;
+  background:#1C1C1A;
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:14px;
+  transition:opacity .35s ease, visibility .35s ease;
+}
+
+#page-loader.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.loader-mark{
+  width:42px;
+  height:42px;
+  border:3px solid rgba(201,169,110,.25);
+  border-top-color:#C9A96E;
+  border-radius:50%;
+  animation:spin .8s linear infinite;
+}
+
+.loader-text{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#C9A96E;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg);}
+}
+
+.vip-header{background:#1C1C1A;padding:32px 40px 0;}
+.vip-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C9A96E;margin-bottom:8px;}
+.vip-h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(24px,2.8vw,32px);font-weight:400;color:#F5F0E8;margin-bottom:8px;line-height:1.25;}
+.vip-sub{font-size:13px;color:#888780;line-height:1.6;margin-bottom:24px;}
+
+.tab-nav{display:flex;border-bottom:2px solid #2E2E2C;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.tab-nav::-webkit-scrollbar{display:none;}
+.tab-btn{font-size:12px;font-weight:600;padding:10px 18px;color:#888780;cursor:pointer;white-space:nowrap;border:none;background:none;font-family:inherit;border-bottom:2px solid transparent;margin-bottom:-2px;}
+.tab-btn.active{color:#F5F0E8;border-bottom-color:#C9A96E;}
+.tab-badge{display:inline-block;background:#2E2E2C;color:#888780;font-size:9px;font-weight:600;padding:1px 5px;border-radius:20px;margin-left:4px;}
+.tab-btn.active .tab-badge{background:#C9A96E;color:#1C1C1A;}
+
+@media(max-width:720px){
+  .tab-nav{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    border-bottom:none;
+    padding:16px 16px 4px;
+    overflow:visible;
+  }
+  .tab-btn{
+    border:1.5px solid #3D3D3B;
+    border-radius:8px;
+    padding:10px 12px;
+    text-align:center;
+    font-size:11px;
+    margin-bottom:0;
+    white-space:normal;
+    line-height:1.3;
+    color:#A8A5A0;
+    background:#2E2E2C;
+  }
+  .tab-btn.active{
+    border-color:#C9A96E;
+    background:#C9A96E;
+    color:#1C1C1A;
+  }
+  .tab-btn.active .tab-badge{
+    background:#1C1C1A;
+    color:#C9A96E;
+  }
+  .tab-badge{
+    background:#3D3D3B;
+    color:#888780;
+    margin-left:4px;
+  }
+}
+
+.sec{width:100%;padding:28px 40px;}
+.sec.light{background:#EFEFEF;}
+.sec.alt{background:#E8E8E6;}
+.sec-eyebrow{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C9A96E;margin-bottom:8px;}
+.sec-h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(18px,2vw,22px);font-weight:400;color:#1C1C1A;margin-bottom:20px;line-height:1.35;}
+
+.grid-featured{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;}
+.feat-card{background:#2E2E2C;border-radius:10px;overflow:hidden;border:0.5px solid #3D3D3B;text-decoration:none;display:block;transition:opacity .2s;}
+.feat-card:hover{opacity:.88;}
+.feat-card.gold{border-color:#C9A96E;}
+.feat-thumb{width:100%;aspect-ratio:4/3;overflow:hidden;background:#3D3D3B;display:flex;align-items:center;justify-content:center;font-size:32px;position:relative;}
+.feat-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.feat-body{padding:14px 16px;}
+.feat-tag{display:inline-block;background:#C9A96E;color:#1C1C1A;font-size:8px;font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:7px;letter-spacing:0.06em;text-transform:uppercase;}
+.feat-tag.b{background:#2E2E2C;color:#C9A96E;border:0.5px solid #C9A96E;}
+.feat-title{font-size:12px;font-weight:600;color:#F5F0E8;line-height:1.4;margin-bottom:4px;}
+.feat-desc{font-size:11px;color:#888780;line-height:1.45;}
+
+.youtube-drawing{
+  width:100%;
+  height:100%;
+  background:linear-gradient(135deg,#241F1E,#3A332F);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+
+.youtube-logo-box{
+  width:82px;
+  height:56px;
+  background:#C9A96E;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 22px rgba(0,0,0,.22);
+}
+
+.youtube-logo-box::after{
+  content:'';
+  border-style:solid;
+  border-width:11px 0 11px 20px;
+  border-color:transparent transparent transparent #1C1C1A;
+  margin-left:4px;
+}
+
+.youtube-label{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#C9A96E;
+}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.ic{background:#fff;border:0.5px solid #D3D3D3;border-radius:9px;overflow:hidden;text-decoration:none;display:block;transition:border-color .2s;}
+.ic:hover{border-color:#C9A96E;}
+.ic-thumb{width:100%;aspect-ratio:4/3;background:#E8E8E6;display:flex;align-items:center;justify-content:center;font-size:28px;overflow:hidden;}
+.ic-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.ic-body{padding:11px 13px 13px;}
+.t-pdf{display:inline-block;background:#E8E8E6;color:#5F5E5A;border:0.5px solid #D3D3D3;font-size:8px;font-weight:700;padding:2px 7px;border-radius:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
+.t-bon{display:inline-block;background:#F5F0E8;color:#8B6B3D;border:0.5px solid #C9A96E;font-size:8px;font-weight:700;padding:2px 7px;border-radius:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
+.t-vid{display:inline-block;background:#1C1C1A;color:#C9A96E;font-size:8px;font-weight:700;padding:2px 7px;border-radius:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
+.t-exc{display:inline-block;background:#C9A96E;color:#1C1C1A;font-size:8px;font-weight:700;padding:2px 7px;border-radius:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
+.t-blog{display:inline-block;background:#1C1C1A;color:#F5F0E8;font-size:8px;font-weight:700;padding:2px 7px;border-radius:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
+.ic-title{font-size:11px;font-weight:600;color:#1C1C1A;line-height:1.4;margin-bottom:3px;}
+.ic-desc{font-size:10px;color:#888780;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.ic-meta{font-size:9px;color:#B0AFA9;margin-top:6px;}
+.ic-btn{display:block;margin-top:10px;background:#1C1C1A;color:#F5F0E8;text-align:center;font-size:10px;font-weight:600;padding:8px;border-radius:5px;}
+.ic-btn.g{background:#C9A96E;color:#1C1C1A;}
+
+.grid-v{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.yt-wrap{background:#1C1C1A;border-radius:9px;overflow:hidden;border:0.5px solid #2E2E2C;text-decoration:none;display:block;transition:opacity .2s;}
+.yt-wrap:hover{opacity:.88;}
+.yt-lite{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#000;}
+.yt-wrap:hover .youtube-drawing{filter:brightness(1.08);}
+.yt-body{padding:10px 13px 13px;}
+.vc-label{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#C9A96E;margin-bottom:4px;}
+.vc-title{font-size:11px;font-weight:500;color:#E8E2D8;line-height:1.4;}
+
+.notice{background:#F5F0E8;border:0.5px solid #C9A96E;border-radius:8px;padding:14px 16px;font-size:12px;color:#5F5E5A;line-height:1.6;margin-bottom:20px;}
+.notice strong{color:#1C1C1A;}
+
+.blog-more{display:block;text-align:center;margin-top:18px;background:#1C1C1A;color:#F5F0E8;font-size:11px;font-weight:600;padding:12px;border-radius:6px;text-decoration:none;letter-spacing:.03em;}
+.blog-more:hover{opacity:.88;}
+
+.blog-skel{background:#fff;border:0.5px solid #D3D3D3;border-radius:9px;overflow:hidden;}
+.blog-skel .sk-thumb{width:100%;aspect-ratio:4/3;background:linear-gradient(90deg,#E8E8E6 25%,#F2F2F0 37%,#E8E8E6 63%);background-size:400% 100%;animation:sk 1.4s ease infinite;}
+.blog-skel .sk-body{padding:11px 13px 13px;}
+.blog-skel .sk-line{height:9px;border-radius:4px;background:linear-gradient(90deg,#E8E8E6 25%,#F2F2F0 37%,#E8E8E6 63%);background-size:400% 100%;animation:sk 1.4s ease infinite;margin-bottom:7px;}
+.blog-skel .sk-line.w60{width:60%;}
+.blog-skel .sk-line.w90{width:90%;}
+.blog-skel .sk-line.w40{width:40%;}
+@keyframes sk{0%{background-position:100% 0;}100%{background-position:-100% 0;}}
+
+.blog-status{font-size:10px;color:#A8A5A0;text-align:center;margin-top:10px;}
+
+@media(max-width:720px){
+  html,body{width:320px;}
+  .vip-header{padding:24px 0 0;}
+  .vip-eyebrow,.vip-h1,.vip-sub{padding-left:16px;padding-right:16px;}
+  .sec{padding:20px 16px;}
+  .grid-featured,.grid-3,.grid-v{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="page-loader">
+  <div class="loader-mark"></div>
+  <div class="loader-text">Carregando área VIP</div>
+</div>
+
+<div class="vip-header">
+  <div class="vip-eyebrow">Área exclusiva para membros</div>
+  <h1 class="vip-h1">Bem-vindo à Área VIP 🌟</h1>
+  <p class="vip-sub">Aqui estão todos os bônus e conteúdos exclusivos inclusos na sua compra.</p>
+
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="show('destaques',this)">Destaques <span class="tab-badge">6</span></button>
+    <button class="tab-btn" onclick="show('checklists',this)">Checklists <span class="tab-badge">6</span></button>
+    <button class="tab-btn" onclick="show('ferramentas',this)">Ferramentas <span class="tab-badge">6</span></button>
+    <button class="tab-btn" onclick="show('recursos',this)">Recursos Extras <span class="tab-badge">10</span></button>
+    <button class="tab-btn" onclick="show('promocoes',this)">Promoções <span class="tab-badge">3</span></button>
+    <button class="tab-btn" onclick="show('videos',this)">Vídeos <span class="tab-badge">17</span></button>
+    <button class="tab-btn" onclick="show('blog',this)">Blog <span class="tab-badge">6</span></button>
+  </div>
+</div>
+
+<div id="s-destaques" class="sec light">
+  <div class="sec-eyebrow">Bônus exclusivos para membros</div>
+  <h2 class="sec-h2">Os melhores conteúdos da sua coleção</h2>
+
+  <div class="grid-featured">
+
+    <a class="feat-card gold" href="https://youtu.be/oGCqrui51tQ?si=1rFNb0BBU7aJC0cc" target="_blank" rel="noopener">
+      <div class="feat-thumb">
+        <div class="youtube-drawing">
+          <div class="youtube-logo-box"></div>
+          <div class="youtube-label">YouTube</div>
+        </div>
+      </div>
+      <div class="feat-body">
+        <div class="feat-tag">Vídeo aula</div>
+        <div class="feat-title">Método dos 10 envelopes — finanças minimalistas</div>
+        <div class="feat-desc">Clique para assistir no YouTube.</div>
+      </div>
+    </a>
+
+    <a class="feat-card" href="https://940f31a2-5a1a-45b1-9537-368ed2f7dc46.usrfiles.com/ugd/940f31_0a3b09f46e974d9fb38e34652aeb69da.pdf" target="_blank" rel="noopener">
+      <div class="feat-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_8623c93490dd4552a9abecfd9bfe65c9~mv2.png/v1/crop/x_0,y_0,w_520,h_631/fill/w_268,h_282,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/50dicas2.png" alt="50 dicas para implementar o minimalismo em sua vida" fetchpriority="high" decoding="async">
+      </div>
+      <div class="feat-body">
+        <div class="feat-tag b">Bônus</div>
+        <div class="feat-title">50 dicas para implementar o minimalismo em sua vida</div>
+        <div class="feat-desc">Ebook exclusivo de Alexandre Chahoud.</div>
+      </div>
+    </a>
+
+    <a class="feat-card" href="https://www.sejaminimalista.net/_files/ugd/940f31_324cffc47eb847a39f76ae7e90b465a3.pdf" target="_blank" rel="noopener">
+      <div class="feat-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_a337912f06b5432c8c4d4c32d611b5b3~mv2.png/v1/fill/w_268,h_282,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/Generated%20Image%20October%2006%2C%202025%20-%2010_16AM.png" alt="Planner 2026 básico" loading="lazy" decoding="async">
+      </div>
+      <div class="feat-body">
+        <div class="feat-tag b">Bônus</div>
+        <div class="feat-title">Planner 2026 básico</div>
+        <div class="feat-desc">Planner gratuito para organizar o ano com leveza.</div>
+      </div>
+    </a>
+
+    <a class="feat-card" href="https://www.sejaminimalista.net/_files/ugd/940f31_b4039ab135e6469dba8cac94e416955b.pdf" target="_blank" rel="noopener">
+      <div class="feat-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_7dc8e3408620466aa86f92b16b178a8f~mv2.png/v1/fill/w_268,h_282,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/planner2.png" alt="Meu Planner Pessoal" loading="lazy" decoding="async">
+      </div>
+      <div class="feat-body">
+        <div class="feat-tag b">Bônus</div>
+        <div class="feat-title">Meu Planner Pessoal — não datado, em PDF</div>
+        <div class="feat-desc">Imprimível permanente para organização diária.</div>
+      </div>
+    </a>
+
+    <a class="feat-card" href="https://www.sejaminimalista.net/_files/ugd/940f31_a388e1c7d1ba4f8cb2fa0330a8caf6bc.pdf" target="_blank" rel="noopener">
+      <div class="feat-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_a0ab18c140494b17a261633e5e66d3e4~mv2.jpg/v1/crop/x_45,y_107,w_866,h_1050/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/pvia.jpg" alt="Planejamento de viagens super completo em PDF" loading="lazy" decoding="async">
+      </div>
+      <div class="feat-body">
+        <div class="feat-tag b">Bônus</div>
+        <div class="feat-title">Planejamento de viagens super completo em PDF</div>
+        <div class="feat-desc">Tudo para planejar sua viagem dos sonhos.</div>
+      </div>
+    </a>
+
+    <a class="feat-card" href="https://www.sejaminimalista.net/_files/ugd/940f31_d7af5c86e5d74d44b3a144b2ff793875.pdf" target="_blank" rel="noopener">
+      <div class="feat-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_7d93c541a22d48a9b08ce9992a509b4e~mv2.jpg/v1/crop/x_104,y_135,w_757,h_918/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/7passos.jpg" alt="7 passos para emitir seu passaporte" loading="lazy" decoding="async">
+      </div>
+      <div class="feat-body">
+        <div class="feat-tag b">Bônus</div>
+        <div class="feat-title">7 passos para emitir seu passaporte</div>
+        <div class="feat-desc">Guia completo passo a passo.</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div id="s-checklists" class="sec alt" style="display:none;">
+  <div class="sec-eyebrow">Prontos para baixar e imprimir</div>
+  <h2 class="sec-h2">Checklists</h2>
+
+  <div class="grid-3">
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_b32f08d57bb847aca25829e5909937f3.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_185a72daea4142d4b0bb6e40cb51be2c~mv2.jpg/v1/crop/x_9,y_11,w_1316,h_1602/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/checlist%20limpeza.jpg" alt="Checklist para faxina geral de sua casa" loading="lazy" decoding="async">
+      </div>
+      <div class="ic-body">
+        <div class="t-pdf">PDF</div>
+        <div class="ic-title">Checklist para faxina geral de sua casa</div>
+        <div class="ic-desc">Lista completa por cômodo — casa em geral e quartos.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_64983a6fa9344f268810b6298448b542.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_0e546b3f165f46478f2c32f503cb7c6f~mv2.jpg/v1/crop/x_200,y_1,w_571,h_694/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/natal.jpg" alt="Checklist de Natal pronto para impressão em A4" loading="lazy" decoding="async">
+      </div>
+      <div class="ic-body">
+        <div class="t-pdf">PDF</div>
+        <div class="ic-title">Checklist de Natal: pronto para impressão em A4</div>
+        <div class="ic-desc">Planejamento completo para as festas de fim de ano.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_025d36279a5e45a0974a50a81074f8ca.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_d20b7ef267f540748d71cda923905fd7~mv2.jpg/v1/crop/x_200,y_1,w_571,h_694/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/enxoval.jpg" alt="Checklist montagem do enxoval de bebê minimalista" loading="lazy" decoding="async">
+      </div>
+      <div class="ic-body">
+        <div class="t-pdf">PDF</div>
+        <div class="ic-title">Checklist: montagem do enxoval de bebê minimalista</div>
+        <div class="ic-desc">O essencial para o enxoval sem excessos.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_b4806e4060524b549be60c25bb068719.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_532a83453bbc405ba5104c87a74df777~mv2.jpg/v1/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/gratidao.jpg" alt="Folha da gratidão pronta para impressão" loading="lazy" decoding="async">
+      </div>
+      <div class="ic-body">
+        <div class="t-pdf">PDF</div>
+        <div class="ic-title">Folha da gratidão — pronto para impressão</div>
+        <div class="ic-desc">Registre diariamente o que você tem a agradecer.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_91bf8d20a4ee46079f6fc60e4170c463.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_2d513ea3d39e46b286bcefc0b7ea7195~mv2.jpg/v1/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/mood.jpg" alt="Moodboard quadro dos sonhos pronto para impressão" loading="lazy" decoding="async">
+      </div>
+      <div class="ic-body">
+        <div class="t-pdf">PDF</div>
+        <div class="ic-title">Moodboard (quadro dos sonhos) — pronto para impressão</div>
+        <div class="ic-desc">Visualize e manifeste seus objetivos.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://drive.google.com/drive/folders/196IvJFIpidnEikgphhromXzBKKywMtgE?usp=sharing" target="_blank" rel="noopener">
+      <div class="ic-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_866b86a48b6544789d5c7ce3d345f7c4~mv2.jpg/v1/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/wall.jpg" alt="Pack com wallpapers minimalistas" loading="lazy" decoding="async">
+      </div>
+      <div class="ic-body">
+        <div class="t-bon">Bônus</div>
+        <div class="ic-title">Pack com wallpapers minimalistas</div>
+        <div class="ic-desc">Papéis de parede exclusivos no estilo Seja Minimalista.</div>
+        <div class="ic-btn g">Acessar no Drive</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div id="s-ferramentas" class="sec light" style="display:none;">
+  <div class="sec-eyebrow">Métodos e técnicas exclusivas</div>
+  <h2 class="sec-h2">Ferramentas de produtividade e foco</h2>
+
+  <div class="grid-3">
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_600ad5fec111411a847b58a3573da489.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_31a40ee11cbf4cd7ad9406916eaaef6f~mv2.jpg/v1/crop/x_120,y_18,w_714,h_1110/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/exer.jpg" alt="Ferramenta Travel+ para viagem dos seus sonhos" loading="lazy" decoding="async">
+      </div>
+      <div class="ic-body">
+        <div class="t-bon">Bônus</div>
+        <div class="ic-title">Ferramenta Travel+ para viagem dos seus sonhos</div>
+        <div class="ic-desc">Método para desengavetar a viagem dos seus sonhos em 5 passos.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_51037c301bbf4f3a9696e6ed86a1b56c.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_27df305e2d204f8f94bd3e3ba84be297~mv2.jpg/v1/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/viagem.jpg" alt="Checklist de viagem em PDF pronto para impressão" loading="lazy" decoding="async">
+      </div>
+      <div class="ic-body">
+        <div class="t-pdf">PDF</div>
+        <div class="ic-title">Checklist de viagem: em PDF pronto para impressão</div>
+        <div class="ic-desc">Preparativos, mala de mão, documentos e necessários.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_023dc3e2dd7b409f83cf7946f5b9c21e.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_2cf9b808d66d411487fbae7ad80c0c96~mv2.jpg/v1/crop/x_61,y_0,w_1099,h_1333/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Inserir%20um%20t%C3%ADtulo.jpg" alt="Técnica Pomodoro de foco e produtividade" loading="lazy" decoding="async">
+      </div>
+      <div class="ic-body">
+        <div class="t-pdf">PDF</div>
+        <div class="ic-title">Técnica Pomodoro de foco e produtividade</div>
+        <div class="ic-desc">Concentre-se 25 min, pause 5 min — multiplique seu foco.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_381525466eaa462a8c21253403625e34.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_0408e09433964653a1a451aceb1ff67d~mv2.jpg/v1/crop/x_61,y_0,w_530,h_545/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/matiz2.jpg" alt="Matriz de Eisenhower quadro de prioridades" loading="lazy" decoding="async">
+      </div>
+      <div class="ic-body">
+        <div class="t-pdf">PDF</div>
+        <div class="ic-title">Matriz de Eisenhower — quadro de prioridades</div>
+        <div class="ic-desc">Classifique tarefas por urgência e importância.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_a591c996e0004c07afcaafe99995b9d5.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_28a8c4c9758742bbb6b0d67379b1dd0e~mv2.jpg/v1/crop/x_56,y_0,w_436,h_459/fill/w_268,h_282,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/smart.jpg" alt="Definindo suas metas com o método SMART" loading="lazy" decoding="async">
+      </div>
+      <div class="ic-body">
+        <div class="t-pdf">PDF</div>
+        <div class="ic-title">Definindo suas metas com o método S.M.A.R.T</div>
+        <div class="ic-desc">Metas específicas, mensuráveis, alcançáveis, realistas e temporais.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_1263ac7fddb04aa5b9f94c5c0f0719cf.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_e05aa93bc6bd4e2b993f6feeea393f7b~mv2.png/v1/crop/x_293,y_0,w_854,h_1036/fill/w_268,h_282,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/tt5.png" alt="Exercício descubra seu propósito de vida" loading="lazy" decoding="async">
+      </div>
+      <div class="ic-body">
+        <div class="t-pdf">PDF</div>
+        <div class="ic-title">Exercício: descubra seu propósito de vida</div>
+        <div class="ic-desc">Reflexão guiada para encontrar o que realmente importa para você.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div id="s-recursos" class="sec alt" style="display:none;">
+  <div class="sec-eyebrow">Ebooks, links externos e materiais selecionados</div>
+  <h2 class="sec-h2">Recursos extras selecionados</h2>
+
+  <div class="notice">
+    <strong>Sobre estes recursos:</strong> ebooks selecionados por Alexandre por serem referências sobre minimalismo, produtividade e simplicidade. Alguns em inglês.
+  </div>
+
+  <div class="grid-3">
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_c4d168ea66ea4a7c9a02653dad32b387.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">📋</div>
+      <div class="ic-body">
+        <div class="t-pdf">PDF</div>
+        <div class="ic-title">Organizador diário para facilitar suas tarefas</div>
+        <div class="ic-desc">Pronto para impressão em PDF.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_051dfd736610484b8f0f2c532a4cfc10.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">💬</div>
+      <div class="ic-body">
+        <div class="t-pdf">Ebook</div>
+        <div class="ic-title">Comunicação Não-Violenta</div>
+        <div class="ic-desc">Ebook de Marcelo L. Pelizzoli sobre relacionamentos.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_d6ee0b8cc1b34d54b15296a108ff3356.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">🔥</div>
+      <div class="ic-body">
+        <div class="t-pdf">Ebook</div>
+        <div class="ic-title">Guia Prático sobre a Síndrome de Burnout</div>
+        <div class="ic-desc">Reconheça e supere o burnout.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_ef86ba9b3d564493a105debcb9df8cd7.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">✝️</div>
+      <div class="ic-body">
+        <div class="t-pdf">Ebook</div>
+        <div class="ic-title">Menos é Mais: consumismo, minimalismo e a vida cristã</div>
+        <div class="ic-desc">TCC de Guilherme Wurster.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_11a6a405b12e48649f292dfdb0d508fb.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">👗</div>
+      <div class="ic-body">
+        <div class="t-pdf">Ebook EN</div>
+        <div class="ic-title">Project 333 — The Minimalist Fashion Challenge</div>
+        <div class="ic-desc">Guia em inglês de Courtney Carver sobre moda minimalista.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_d82bfdb99b8245aba08f77bb36b1a8cf.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">🦠</div>
+      <div class="ic-body">
+        <div class="t-pdf">Ebook</div>
+        <div class="ic-title">Consumismo e minimalismo no contexto da Pandemia</div>
+        <div class="ic-desc">Babila Sperotto Martins — PUC-Goiás.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/_files/ugd/940f31_3ed343d38e8144d9b1403bb1cc4f9c2a.pdf" target="_blank" rel="noopener">
+      <div class="ic-thumb">🧠</div>
+      <div class="ic-body">
+        <div class="t-pdf">Ebook</div>
+        <div class="ic-title">A Cartilha da Saúde Mental</div>
+        <div class="ic-desc">Cartilha oficial do Inmetro.</div>
+        <div class="ic-btn">Baixar grátis</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://open.spotify.com/playlist/2hrnNbt5AtFOjn0kOutUgw?si=8f039dbed3af427a" target="_blank" rel="noopener">
+      <div class="ic-thumb">🎵</div>
+      <div class="ic-body">
+        <div class="t-exc">Playlist</div>
+        <div class="ic-title">Playlist Spotify minimalista</div>
+        <div class="ic-desc">Músicas selecionadas para foco, leveza e produtividade.</div>
+        <div class="ic-btn g">Abrir no Spotify</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.sejaminimalista.net/afiliados" target="_blank" rel="noopener">
+      <div class="ic-thumb">🤝</div>
+      <div class="ic-body">
+        <div class="t-exc">Oportunidade</div>
+        <div class="ic-title">Seja um afiliado</div>
+        <div class="ic-desc">Revenda meus livros e ganhe comissão como renda extra.</div>
+        <div class="ic-btn g">Saiba mais</div>
+      </div>
+    </a>
+
+    <a class="ic" href="https://www.youtube.com/watch?v=ChomHxBhCRY&t=1s&ab_channel=Querosaber" target="_blank" rel="noopener">
+      <div class="ic-thumb">📱</div>
+      <div class="ic-body">
+        <div class="t-vid">Tutorial</div>
+        <div class="ic-title">Como ler meus livros no Kindle</div>
+        <div class="ic-desc">Tutorial completo para transferir e ler no dispositivo Kindle.</div>
+        <div class="ic-btn g">Assistir</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div id="s-promocoes" class="sec light" style="display:none;">
+  <div class="sec-eyebrow">Ofertas e oportunidades especiais</div>
+  <h2 class="sec-h2">Promoções exclusivas para membros</h2>
+
+  <div class="grid-featured">
+
+    <a class="feat-card gold" href="https://www.sejaminimalista.net/minimalize" target="_blank" rel="noopener">
+      <div class="feat-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_9ceb0776e1784a919708c059e73b4e5d~mv2.jpg/v1/crop/x_201,y_0,w_558,h_540/fill/w_400,h_300,al_c,q_90,enc_avif,quality_auto/minimalize.jpg" alt="Minimalize" loading="lazy" decoding="async">
+      </div>
+      <div class="feat-body">
+        <div class="feat-tag">⭐ Exclusivo membros</div>
+        <div class="feat-title">Método Minimalize.IA</div>
+        <div class="feat-desc">R$ 150 de desconto exclusivo para membros VIP.</div>
+      </div>
+    </a>
+
+    <a class="feat-card" href="https://reserva.ink/sejaminimalista" target="_blank" rel="noopener">
+      <div class="feat-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_16c76c0bf5cf4a1ebee805af0d5cfab1~mv2.jpg/v1/crop/x_12,y_0,w_516,h_500/fill/w_400,h_308,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(2).jpg" alt="Camisetas Minimalistas USE SM" loading="lazy" decoding="async">
+      </div>
+      <div class="feat-body">
+        <div class="feat-tag b">Loja</div>
+        <div class="feat-title">Camisetas Minimalistas — USE SM</div>
+        <div class="feat-desc">Coleção em parceria com a Reserva.</div>
+      </div>
+    </a>
+
+    <a class="feat-card" href="https://chat.whatsapp.com/FnNU3DpCCXz3iGtkLH6qbR?s=cl&p=a&ilr=1" target="_blank" rel="noopener">
+      <div class="feat-thumb">
+        <img src="https://static.wixstatic.com/media/940f31_960e1ef4cfd54d1397224f3c1adb3662~mv2.avif" alt="Comunidade Minimalista no WhatsApp" loading="lazy" decoding="async">
+      </div>
+      <div class="feat-body">
+        <div class="feat-tag">💬 Grupo no WhatsApp</div>
+        <div class="feat-title">Comunidade Minimalista</div>
+        <div class="feat-desc">Entre no grupo e receba conteúdo de todas as nossas redes, promoções e muito mais.</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div id="s-videos" class="sec light" style="display:none;">
+  <div class="sec-eyebrow">Respondendo aos inscritos</div>
+  <h2 class="sec-h2">17 vídeos curtos sobre minimalismo</h2>
+
+  <div class="grid-v">
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=eXe62oZRBAU" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">O que eu achei do documentário Minimalismo já!</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=cPmABWoqLuI" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Como economizar se minha família não ajuda?</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=1aednAMKHt0" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Posso colecionar e ser minimalista?</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=KoAoSXyX3Ag" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Minimalismo e roupas: posso usar cores?</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=KJ8UbfqBjgM" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">O que fazer para meu parceiro ser minimalista?</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=oee9stLmWEY" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Técnica da caixa para desapego de itens</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=Up4rtLzt4xs" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Como desapegar sem sofrer: Técnica 2 por 1</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=n9byMcLwDdk" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Você deve se desapegar de lembranças?</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=WNQc8PjsCew" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Minimalismo com pets é possível?</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=cQ9DsRIuYms" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Como o marketing influencia suas compras</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=rzUTp6lCS5M" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Por que ser minimalista?</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=2e8t65hlr9Q" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Existe minimalismo na alimentação?</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=6Iam_39gHtA" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">E o minimalismo mental?</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=tIFnevgEGCw" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Como desapegar de roupas velhas</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=x9fa1Gpu3DQ" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">O destralhe é necessário?</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=Wktg3tZwV5o" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Gaveta de roupas velhas</div></div>
+    </a>
+
+    <a class="yt-wrap" href="https://www.youtube.com/watch?v=rcOatT7lcxg" target="_blank" rel="noopener">
+      <div class="yt-lite"><div class="youtube-drawing"><div class="youtube-logo-box"></div><div class="youtube-label">YouTube</div></div></div>
+      <div class="yt-body"><div class="vc-label">Respondendo aos inscritos</div><div class="vc-title">Onde doar e onde vender</div></div>
+    </a>
+
+  </div>
+</div>
+
+<div id="s-blog" class="sec alt" style="display:none;">
+  <div class="sec-eyebrow">Direto do blog</div>
+  <h2 class="sec-h2">Últimos textos publicados</h2>
+
+  <div class="grid-3" id="blog-grid">
+    <!-- preenchido via JS a partir do RSS do blog; skeletons abaixo aparecem enquanto carrega -->
+    <div class="blog-skel"><div class="sk-thumb"></div><div class="sk-body"><div class="sk-line w40"></div><div class="sk-line w90"></div><div class="sk-line w60"></div></div></div>
+    <div class="blog-skel"><div class="sk-thumb"></div><div class="sk-body"><div class="sk-line w40"></div><div class="sk-line w90"></div><div class="sk-line w60"></div></div></div>
+    <div class="blog-skel"><div class="sk-thumb"></div><div class="sk-body"><div class="sk-line w40"></div><div class="sk-line w90"></div><div class="sk-line w60"></div></div></div>
+    <div class="blog-skel"><div class="sk-thumb"></div><div class="sk-body"><div class="sk-line w40"></div><div class="sk-line w90"></div><div class="sk-line w60"></div></div></div>
+    <div class="blog-skel"><div class="sk-thumb"></div><div class="sk-body"><div class="sk-line w40"></div><div class="sk-line w90"></div><div class="sk-line w60"></div></div></div>
+    <div class="blog-skel"><div class="sk-thumb"></div><div class="sk-body"><div class="sk-line w40"></div><div class="sk-line w90"></div><div class="sk-line w60"></div></div></div>
+  </div>
+
+  <a class="blog-more" href="https://www.sejaminimalista.net/blog" target="_blank" rel="noopener">Ver todos os posts do blog →</a>
+  <div class="blog-status" id="blog-status"></div>
+</div>
+
+<script>
+var secs = ['destaques','checklists','ferramentas','recursos','promocoes','videos','blog'];
+
+function show(id, btn) {
+  secs.forEach(function(s) {
+    var el = document.getElementById('s-' + s);
+    if (el) el.style.display = 'none';
+  });
+
+  var t = document.getElementById('s-' + id);
+  if (t) t.style.display = 'block';
+
+  document.querySelectorAll('.tab-btn').forEach(function(b) {
+    b.classList.remove('active');
+  });
+
+  if (btn) btn.classList.add('active');
+
+  setTimeout(sendHeight, 80);
+}
+
+function sendHeight() {
+  window.parent.postMessage({height: document.documentElement.scrollHeight}, '*');
+}
+
+window.addEventListener('load', function() {
+  sendHeight();
+
+  var loader = document.getElementById('page-loader');
+  if (loader) {
+    setTimeout(function() {
+      loader.classList.add('hide');
+    }, 150);
+  }
+});
+
+window.addEventListener('resize', sendHeight);
+
+/* ===== Blog dinâmico via RSS ===== */
+var BLOG_RSS_URL = 'https://www.sejaminimalista.net/blog-feed.xml';
+var BLOG_PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(BLOG_RSS_URL);
+var BLOG_POST_COUNT = 6;
+var blogLoaded = false;
+
+/* fallback: usado só se a busca automática falhar */
+var BLOG_FALLBACK = [
+  {
+    title: 'Como desapegar de objetos sem sentir culpa',
+    link: 'https://www.sejaminimalista.net/post/como-desapegar-de-objetos-sem-sentir-culpa',
+    img: 'https://static.wixstatic.com/media/940f31_5e91cc119775406c977252efe4dc10f5~mv2.png/v1/fill/w_268,h_282,fp_0.50_0.50,q_90,enc_avif,quality_auto/940f31_5e91cc119775406c977252efe4dc10f5~mv2.webp',
+    desc: 'A culpa, o medo de se arrepender e o apego emocional criam barreiras para o destralhe. Estratégias práticas para transformar seu espaço.'
+  },
+  {
+    title: 'Minimalismo financeiro: como gastar menos e ter mais tranquilidade',
+    link: 'https://www.sejaminimalista.net/post/minimalismo-financeiro-como-gastar-menos-e-ter-mais-tranquilidade',
+    img: 'https://static.wixstatic.com/media/940f31_3ce427e127cd4ca2a3950863bb56b472~mv2.png/v1/fill/w_268,h_282,fp_0.50_0.50,q_90,enc_avif,quality_auto/940f31_3ce427e127cd4ca2a3950863bb56b472~mv2.webp',
+    desc: 'Como adotar uma vida simples, focada no essencial, para gastar menos e ter uma relação mais saudável com o dinheiro.'
+  },
+  {
+    title: 'Por que organizar a casa não resolve o problema do excesso',
+    link: 'https://www.sejaminimalista.net/post/por-que-organizar-a-casa-n%C3%A3o-resolve-o-problema-do-excesso',
+    img: 'https://static.wixstatic.com/media/940f31_ffaa45f9ec7a4ac9a3664c299448b478~mv2.png/v1/fill/w_268,h_282,fp_0.50_0.50,q_90,enc_avif,quality_auto/940f31_ffaa45f9ec7a4ac9a3664c299448b478~mv2.webp',
+    desc: 'Mesmo após horas de organização, a bagunça volta. Entenda por que arrumar não é o mesmo que desapegar.'
+  },
+  {
+    title: 'Como criar uma casa mais leve sem gastar dinheiro',
+    link: 'https://www.sejaminimalista.net/post/como-criar-uma-casa-mais-leve-sem-gastar-dinheiro',
+    img: 'https://static.wixstatic.com/media/940f31_757fd711608a41879a9df4c6fe1cb024~mv2.png/v1/fill/w_268,h_282,fp_0.50_0.50,q_90,enc_avif,quality_auto/940f31_757fd711608a41879a9df4c6fe1cb024~mv2.webp',
+    desc: 'Práticas simples de organização, destralhe e minimalismo no dia a dia para deixar sua casa mais leve.'
+  },
+  {
+    title: 'Como desacelerar em um mundo que exige pressa o tempo todo',
+    link: 'https://www.sejaminimalista.net/post/como-desacelerar-em-um-mundo-que-exige-pressa-o-tempo-todo',
+    img: 'https://static.wixstatic.com/media/940f31_cbb5e4dae19d426f955ba80250469190~mv2.png/v1/fill/w_268,h_282,fp_0.50_0.50,q_90,enc_avif,quality_auto/940f31_cbb5e4dae19d426f955ba80250469190~mv2.webp',
+    desc: 'Formas práticas para desacelerar, encontrar equilíbrio e melhorar sua qualidade de vida.'
+  }
+];
+
+function stripHtml(html) {
+  var d = document.createElement('div');
+  d.innerHTML = html || '';
+  return (d.textContent || d.innerText || '').replace(/\s+/g, ' ').trim();
+}
+
+function truncate(str, n) {
+  if (!str) return '';
+  return str.length > n ? str.slice(0, n).trim() + '…' : str;
+}
+
+function firstImgFromHtml(html) {
+  var m = /<img[^>]+src="([^">]+)"/i.exec(html || '');
+  return m ? m[1] : null;
+}
+
+function renderBlogCards(posts) {
+  var grid = document.getElementById('blog-grid');
+  if (!grid) return;
+  var html = '';
+  posts.slice(0, BLOG_POST_COUNT).forEach(function (p) {
+    html += '' +
+      '<a class="ic" href="' + p.link + '" target="_blank" rel="noopener">' +
+        '<div class="ic-thumb">' + (p.img ? '<img src="' + p.img + '" alt="" loading="lazy" decoding="async">' : '📝') + '</div>' +
+        '<div class="ic-body">' +
+          '<div class="t-blog">Blog</div>' +
+          '<div class="ic-title">' + p.title + '</div>' +
+          '<div class="ic-desc">' + p.desc + '</div>' +
+          '<div class="ic-meta">Alexandre Chahoud</div>' +
+          '<div class="ic-btn">Ler no blog</div>' +
+        '</div>' +
+      '</a>';
+  });
+  /* se vieram menos posts que o desejado, completa com um card de CTA */
+  if (posts.length < BLOG_POST_COUNT) {
+    html += '<a class="ic" href="https://www.sejaminimalista.net/blog" target="_blank" rel="noopener">' +
+      '<div class="ic-thumb">📚</div>' +
+      '<div class="ic-body">' +
+        '<div class="t-blog">Blog</div>' +
+        '<div class="ic-title">Ver mais textos no blog</div>' +
+        '<div class="ic-desc">Confira o arquivo completo de posts sobre minimalismo.</div>' +
+        '<div class="ic-btn g">Acessar blog</div>' +
+      '</div>' +
+    '</a>';
+  }
+  grid.innerHTML = html;
+  setTimeout(sendHeight, 80);
+}
+
+function setBlogStatus(msg) {
+  var s = document.getElementById('blog-status');
+  if (s) s.textContent = msg;
+}
+
+function loadBlogPosts() {
+  if (blogLoaded) return;
+  blogLoaded = true;
+
+  fetch(BLOG_PROXY)
+    .then(function (r) {
+      if (!r.ok) throw new Error('bad status');
+      return r.json();
+    })
+    .then(function (data) {
+      if (!data || data.status !== 'ok' || !data.items || !data.items.length) {
+        throw new Error('empty feed');
+      }
+      var posts = data.items.slice(0, BLOG_POST_COUNT).map(function (item) {
+        var img = item.thumbnail || (item.enclosure && item.enclosure.link) || firstImgFromHtml(item.content || item.description);
+        return {
+          title: item.title || '',
+          link: item.link || 'https://www.sejaminimalista.net/blog',
+          img: img,
+          desc: truncate(stripHtml(item.description || item.content), 140)
+        };
+      });
+      renderBlogCards(posts);
+    })
+    .catch(function () {
+      renderBlogCards(BLOG_FALLBACK);
+      setBlogStatus('Não foi possível atualizar automaticamente agora — exibindo os posts mais recentes salvos.');
+    });
+}
+
+/* dispara a busca assim que a aba Blog é aberta pela primeira vez */
+var originalShow = show;
+show = function (id, btn) {
+  originalShow(id, btn);
+  if (id === 'blog') loadBlogPosts();
+};
+</script>
+
+</body>
+</html>
