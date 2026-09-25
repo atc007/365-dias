@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Monte seu Combo | Seja Minimalista - Alexandre Chahoud</title>
-<meta name="description" content="Escolha seus livros e planners do Seja Minimalista e monte um combo com até 40% de desconto. Sua lista vai pronta para o WhatsApp.">
+<meta name="description" content="Escolha seus livros, planners e cursos do Seja Minimalista e monte um combo com até 40% de desconto. Sua lista vai pronta para o WhatsApp.">
 <link rel="canonical" href="https://sejaminimalista.com.br/monte-seu-combo">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#1C1C1A">
@@ -204,7 +204,7 @@ footer a{color:#D8D8D4;text-decoration:none;}
 <header class="hero"><div class="inner">
   <img class="hero-logo" src="https://static.wixstatic.com/media/940f31_64ea155fc0b8427e898318695ef5ad7e~mv2.png/v1/crop/x_44,y_0,w_906,h_187/fill/w_260,h_54,al_c,q_90,enc_avif,quality_auto/logo.png" alt="Seja Minimalista" width="260" height="54">
   <h1>Monte o seu combo.<br><em>O desconto vem junto.</em></h1>
-  <p>Escolha os livros e planners que fazem sentido pra você agora, na versão física ou digital. Quanto mais itens, maior o desconto. No final, sua lista chega pronta no meu WhatsApp.</p>
+  <p>Escolha os livros, planners e cursos que fazem sentido pra você agora, na versão física ou digital. Quanto mais itens, maior o desconto. No final, sua lista chega pronta no meu WhatsApp.</p>
   <div class="tiers-row">
     <span class="tier-chip">2 itens <b>15% off</b></span>
     <span class="tier-chip">3 ou mais <b>20% off</b></span>
@@ -255,6 +255,7 @@ footer a{color:#D8D8D4;text-decoration:none;}
   </div>
 </div></main>
 
+
 <div class="mbar" id="mbar">
   <div class="mbar-info">
     <b id="m-top">Nenhum item ainda</b>
@@ -284,7 +285,9 @@ footer a{color:#D8D8D4;text-decoration:none;}
     {id:'pv',     label:'Planner Minhas Viagens dos Sonhos', type:'Planner', name:'Planner Minhas Viagens dos Sonhos', fisico:137, digital:97, img:'https://static.wixstatic.com/media/940f31_e067c51ec583467ca372db1eed5128b0~mv2.jpeg/v1/crop/x_86,y_212,w_762,h_740/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/pv.jpeg'},
     {id:'plan',   label:'Planner Minimalista Permanente',  type:'Planner', name:'Planner Minimalista Permanente',   fisico:157, digital:null, img:'https://static.wixstatic.com/media/940f31_4c5644caab0841a79bc860a670edd306~mv2.jpeg/v1/crop/x_92,y_230,w_762,h_740/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/planner.jpeg'},
     {id:'agenda', label:'Agenda Minimalista 2026',         type:'Agenda',  name:'Agenda Minimalista 2026',          fisico:127, digital:null, img:'https://static.wixstatic.com/media/940f31_8ca1af23142444ee9315e4a2a2222a08~mv2.jpeg/v1/crop/x_112,y_236,w_728,h_706/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/agenda.jpeg'},
-    {id:'dev',    label:'Devocional Meu Tempo com Deus',   type:'Devocional', name:'Meu Tempo com Deus',            fisico:147, digital:null, img:'https://static.wixstatic.com/media/940f31_359e87a3e419459f83c51b210bfa3d36~mv2.jpeg/v1/crop/x_90,y_218,w_764,h_742/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/devocional.jpeg'}
+    {id:'dev',    label:'Devocional Meu Tempo com Deus',   type:'Devocional', name:'Meu Tempo com Deus',            fisico:147, digital:null, img:'https://static.wixstatic.com/media/940f31_359e87a3e419459f83c51b210bfa3d36~mv2.jpeg/v1/crop/x_90,y_218,w_764,h_742/fill/w_400,h_388,al_c,q_90,enc_avif,quality_auto/devocional.jpeg'},
+    {id:'minimalize', label:'Método Minimalize', type:'Método com IA', name:'Minimalize', fisico:null, digital:77, noMax:true, img:'https://static.wixstatic.com/media/940f31_9ceb0776e1784a919708c059e73b4e5d~mv2.jpg/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/thumb.jpg'},
+    {id:'curso',  label:'Curso Armário Enxuto',            type:'Curso em vídeo', name:'Armário Enxuto: O Curso',    fisico:null, digital:297, noMax:true, img:'https://static.wixstatic.com/media/940f31_83831011210d4337814151ea3f74120a~mv2.webp/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/thumb.jpg'}
   ];
   /* Desconto: 2 itens 15%, 3 ou mais 20%.
      40% só nos dois combos especiais abaixo (com eles completos, o combo inteiro ganha 40%). */
@@ -294,7 +297,7 @@ footer a{color:#D8D8D4;text-decoration:none;}
   ];
   var HYBRID_IDS = ['sm','365','45','viaj','arm'];
   var SPECIALS = [
-    {id:'fisicos', name:'Todos os físicos', keys: PRODUCTS.map(function(p){return p.id+'|fisico';})},
+    {id:'fisicos', name:'Todos os físicos', keys: PRODUCTS.filter(function(p){return p.fisico!=null;}).map(function(p){return p.id+'|fisico';})},
     {id:'hibrido', name:'Híbrido 5 físicos + 5 digitais', keys: HYBRID_IDS.map(function(i){return i+'|fisico';}).concat(HYBRID_IDS.map(function(i){return i+'|digital';}))}
   ];
 
@@ -308,7 +311,7 @@ footer a{color:#D8D8D4;text-decoration:none;}
   /* ── Monta os cards ── */
   $('grid').innerHTML = PRODUCTS.map(function(p){
     var btn = function(f){
-      if(p[f]==null) return '<div class="fmt-na">Só na versão física</div>';
+      if(p[f]==null) return f==='digital' ? '<div class="fmt-na">Só na versão física</div>' : '';
       return '<button type="button" class="fmt" data-k="'+k(p.id,f)+'" aria-pressed="false">'+
         '<span class="lbl"><span class="box">'+CHECK+'</span>'+FMT_NAME[f]+'</span>'+
         '<span class="price">'+brl(p[f])+'</span></button>';
@@ -317,7 +320,7 @@ footer a{color:#D8D8D4;text-decoration:none;}
       '<div class="card-img"><img src="'+p.img+'" alt="'+p.label+'" loading="lazy" width="400" height="388">'+
       '<span class="card-check"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div>'+
       '<div class="card-body"><div class="card-type">'+p.type+'</div><div class="card-name">'+p.name+'</div>'+
-      '<div class="fmts">'+btn('fisico')+btn('digital')+'</div></div></article>';
+      '<div class="fmts">'+btn('fisico')+btn('digital')+(p.fisico==null?'<div class="fmt-na">Acesso online</div>':'')+'</div></div></article>';
   }).join('');
 
   $('ladder').innerHTML = TIERS.map(function(t){
@@ -336,10 +339,12 @@ footer a{color:#D8D8D4;text-decoration:none;}
   }
   function missing(sp){return sp.keys.filter(function(x){return !sel[x];});}
   function activeSpecial(){for(var i=0;i<SPECIALS.length;i++){if(!missing(SPECIALS[i]).length)return SPECIALS[i];}return null;}
-  function pctFor(n){
-    if(activeSpecial()) return 40;
-    var pct=0;TIERS.forEach(function(t){if(n>=t.min)pct=t.pct;});return pct;
-  }
+  /* Desconto por quantidade (15% / 20%) */
+  function tierPct(n){var pct=0;TIERS.forEach(function(t){if(n>=t.min)pct=t.pct;});return pct;}
+  /* Desconto de cada item: 40% nos combos especiais, exceto Minimalize e curso (noMax),
+     que ficam sempre na faixa por quantidade */
+  function itemPct(i,n,sp){return (sp && !i.p.noMax) ? 40 : tierPct(n);}
+  function pctFor(n){return activeSpecial() ? 40 : tierPct(n);}
   function nearestSpecial(){
     var best=null;
     SPECIALS.forEach(function(sp){var m=missing(sp).length;if(!best||m<best.m)best={sp:sp,m:m};});
@@ -348,7 +353,7 @@ footer a{color:#D8D8D4;text-decoration:none;}
   function nameOf(key){var id=key.split('|')[0],f=key.split('|')[1];
     var p=PRODUCTS.filter(function(x){return x.id===id;})[0];return p.name+' '+(f==='fisico'?'físico':'digital');}
 
-  function buildMessage(list,pct,sub,fin){
+  function buildMessage(list,pct,sub,fin,extras){
     var fis=list.filter(function(i){return i.f==='fisico';});
     var dig=list.filter(function(i){return i.f==='digital';});
     var sp=activeSpecial();
@@ -358,10 +363,13 @@ footer a{color:#D8D8D4;text-decoration:none;}
       fis.forEach(function(i){L.push('• '+i.p.label);});
       L.push('','Versão digital:');
       dig.forEach(function(i){L.push('• '+i.p.label);});
-      L.push('','Tudo com '+pct+'% de desconto.');
+      L.push('', extras.length ? mixedLine() : 'Tudo com '+pct+'% de desconto.');
     } else {
       list.forEach(function(i){L.push('• '+i.p.label);});
-      L.push('','Todos em versão '+(fis.length?'física':'digital')+' e com '+pct+'% de desconto.');
+      L.push('', extras.length ? mixedLine() : 'Todos em versão '+(fis.length?'física':'digital')+' e com '+pct+'% de desconto.');
+    }
+    function mixedLine(){
+      return '40% de desconto nos itens do combo e '+tierPct(list.length)+'% em '+extras.map(function(i){return i.p.label;}).join(' e ')+'.';
     }
     L.push('De '+brl(sub,true)+' por '+brl(fin,true)+'.');
     return L.join('\n');
@@ -371,10 +379,12 @@ footer a{color:#D8D8D4;text-decoration:none;}
 
   function render(){
     var list=items(), n=list.length, pct=pctFor(n);
-    var sub=list.reduce(function(s,i){return s+i.price;},0);
-    var fin=Math.floor(sub*(1-pct/100));
-    var save=sub-fin;
     var sp=activeSpecial();
+    var sub=list.reduce(function(s,i){return s+i.price;},0);
+    var fin=Math.floor(list.reduce(function(s,i){return s+i.price*(1-itemPct(i,n,sp)/100);},0)+1e-9);
+    var save=sub-fin;
+    var extras=sp ? list.filter(function(i){return i.p.noMax;}) : [];
+    var pctLabel=extras.length ? '40% + '+tierPct(n)+'%' : pct+'%';
 
     /* botões e cards */
     document.querySelectorAll('.fmt').forEach(function(b){
@@ -398,7 +408,7 @@ footer a{color:#D8D8D4;text-decoration:none;}
     if(n===0) hint='Escolha pelo menos <strong>2 itens</strong> para liberar o desconto.';
     else if(n===1) hint='Mais 1 item e você ganha <strong>15% off</strong>. Se for levar só esse, use o cupom <strong>GANHEI10</strong> direto no site.';
     else if(n===2) hint='Você já tem <strong>15% off</strong>. Mais 1 item e o desconto sobe para <strong>20%</strong>.';
-    else if(sp) hint='Você fechou o combo <strong>'+sp.name.toLowerCase()+'</strong>: <strong>40% off</strong> no combo inteiro.';
+    else if(sp) hint='Você fechou o combo <strong>'+sp.name.toLowerCase()+'</strong>: <strong>40% off</strong>'+(extras.length ? ' nos itens do combo. '+extras.map(function(i){return i.p.name;}).join(' e ')+(extras.length>1?' ficam':' fica')+' com <strong>'+tierPct(n)+'%</strong>.' : ' no combo inteiro.');
     else {
       var ns=nearestSpecial();
       if(ns.m<=3){
@@ -409,12 +419,13 @@ footer a{color:#D8D8D4;text-decoration:none;}
     $('hint').innerHTML=hint;
 
     $('sum-list').innerHTML = n ? list.map(function(i){
-      return '<li><div>'+i.p.label+'<small>'+FMT_NAME[i.f]+' · '+brl(i.price)+'</small></div>'+
+      var ip=itemPct(i,n,sp);
+      return '<li><div>'+i.p.label+'<small>'+FMT_NAME[i.f]+' · '+brl(i.price)+(n>=2&&extras.length?' · '+ip+'% off':'')+'</small></div>'+
         '<button class="rm" data-rm="'+k(i.p.id,i.f)+'" aria-label="Remover '+i.p.label+'"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></li>';
     }).join('') : '<li class="empty" style="border:none">Nenhum item escolhido ainda.</li>';
 
     $('t-sub').textContent=brl(sub,true);
-    $('t-pct').textContent=pct+'%';
+    $('t-pct').textContent=pctLabel;
     $('t-final').textContent=brl(n>=2?fin:sub);
     $('t-save').textContent = (n>=2&&save>0) ? 'Você economiza '+brl(save,true) : '';
 
@@ -429,7 +440,7 @@ footer a{color:#D8D8D4;text-decoration:none;}
 
     /* CTA */
     var ok=n>=2;
-    lastLink = ok ? 'https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(buildMessage(list,pct,sub,fin)) : '#';
+    lastLink = ok ? 'https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(buildMessage(list,pct,sub,fin,extras)) : '#';
     lastFinal=fin; lastCount=n;
     ['cta','m-cta'].forEach(function(id){
       var a=$(id);
@@ -440,7 +451,7 @@ footer a{color:#D8D8D4;text-decoration:none;}
     $('cta-txt').textContent = ok ? 'Enviar meu combo no WhatsApp' : 'Escolha pelo menos 2 itens';
 
     /* barra mobile */
-    $('m-top').textContent = n ? (n+(n===1?' item':' itens')+(pct?' · '+pct+'% off':'')) : 'Nenhum item ainda';
+    $('m-top').textContent = n ? (n+(n===1?' item':' itens')+(pct?' · '+pctLabel+' off':'')) : 'Nenhum item ainda';
     $('m-sub').textContent = ok ? brl(fin)+' (de '+brl(sub)+')' : '2 itens liberam 15% off';
   }
 
@@ -471,6 +482,7 @@ footer a{color:#D8D8D4;text-decoration:none;}
       if(window.gtag) gtag('event','generate_lead',{currency:'BRL',value:lastFinal,items_count:lastCount});
     }
   });
+
 
   render();
 })();
