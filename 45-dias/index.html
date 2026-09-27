@@ -805,6 +805,8 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
    As seções somavam o padding delas com o do .inner (ficava 32–36px). */
 @media(max-width:720px){
   :root{--sec-h:18px;}
+  /* Imagem do topo inteira, sem recorte */
+  .hero-img-wrap img{max-height:none!important;height:auto!important;object-fit:contain!important;aspect-ratio:474/460;max-width:480px!important;margin:0 auto!important;}
   .sec-hero,.sec,.testimonials,.urgency-section,.agitacao,.diferencial,.footer{padding-left:0!important;padding-right:0!important;}
 }
 
