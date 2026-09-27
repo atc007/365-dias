@@ -684,6 +684,61 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   .hero-pills{width:fit-content;max-width:100%;margin-left:auto;margin-right:auto;text-align:left;}
   section a.btn-rose,section a.btn-gold,section a.btn-dark{display:block;width:100%;max-width:420px;margin-left:auto;margin-right:auto;text-align:center;}
 }
+
+/* ══ PADRONIZAÇÃO COM A HOME (fontes e cores do Viajante mantidas) ══ */
+.sec-eyebrow{font-size:12px;}
+.sec-h2{font-size:clamp(25px,3.2vw,38px);}
+.hero-sub{font-size:17px;}
+/* Dores: seção escura como na home, no azul-noite da própria página */
+.agit-dark{background:#1A1A2E!important;}
+.agit-dark .sec-eyebrow{color:var(--purple-light);}
+.agit-dark .sec-eyebrow::before{background:var(--purple-light);}
+.agit-dark .sec-h2{color:#FAFAF8;}
+.agit-dark .sec-h2 em{color:var(--purple-light);}
+.agit-dark .agit-problem{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:.5px solid rgba(255,255,255,.1);border-left:.5px solid rgba(255,255,255,.1);border-radius:16px!important;}
+.agit-dark .agit-problem:hover{box-shadow:none;}
+.agit-dark .agit-problem-icon-badge{background:rgba(107,75,200,.22);border:.5px solid rgba(155,123,232,.45);color:#C9B8F5;}
+.agit-dark .agit-problem-text{font-size:16px;color:rgba(255,255,255,.78);line-height:1.65;}
+.agit-dark .agit-virada{background:rgba(255,255,255,.05);color:#E6DEFA;border-left:3px solid var(--purple-light);border-radius:12px;}
+/* Depoimentos: texto maior, autor com selo da versão comprada, números de prova social */
+.t-text{font-size:16px;line-height:1.75;}
+.t-author{display:flex;align-items:center;gap:10px;}
+.t-author-info{flex:1;}
+.t-author-name{font-size:15px;line-height:1.3;}
+.t-badge-dep{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-dark);font-weight:600;background:rgba(107,75,200,.1);padding:3px 8px;border-radius:999px!important;white-space:nowrap;}
+.t-card.featured .t-badge-dep{background:rgba(255,255,255,.1);color:rgba(255,255,255,.65);}
+.t-sub-dep{font-size:16px;color:var(--ink-mid);line-height:1.65;text-align:center;max-width:520px;margin:0 auto 24px;}
+.t-counter{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;padding:22px 0;margin:0 auto 36px;max-width:760px;border-top:1px solid rgba(74,47,168,.2);border-bottom:1px solid rgba(74,47,168,.2);}
+.t-stat{text-align:center;}
+.t-stat-num{font-family:var(--font-display);font-size:34px;font-weight:400;color:var(--ink);line-height:1;display:block;}
+.t-stat-label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;display:block;}
+/* Autores: texto no tamanho de leitura da home */
+.author-text{font-size:16px;line-height:1.8;}
+/* Bônus: títulos e valores legíveis como na home */
+.bonus-title{font-size:14.5px;font-weight:700;line-height:1.5;}
+.bonus-val{font-size:13px;}
+/* Capítulos: texto dos cards um pouco maior */
+.cap-title{font-size:13.5px;line-height:1.45;}
+/* Cards de preço: nome do produto em negrito */
+.pc-type{font-weight:700;}
+/* Rodapé e barra fixa: pílula na cor da página */
+.footer-btn{background:#6B4BC8!important;color:#fff!important;border-radius:999px!important;animation:none!important;padding:11px 22px;font-size:13px;}
+@media(max-width:720px){
+  .t-counter{display:grid;grid-template-columns:1fr 1fr;gap:16px 0;padding:16px 0;margin-bottom:28px;}
+  .t-stat-num{font-size:28px;}
+  .agit-dark .agit-problem{padding:16px;}
+  .t-text{font-size:15.5px;}
+  .cap-title{font-size:12.5px;}
+  .sec-eyebrow{font-size:11.5px;letter-spacing:.11em;text-align:center;}
+  .grid2 > div > .sec-eyebrow{justify-content:center;flex-wrap:wrap;row-gap:8px;}
+  .grid2 > div > .sec-eyebrow::before{flex-basis:100%;max-width:28px;margin:0 auto;}
+}
+
+/* Selo de garantia centralizado no celular */
+@media(max-width:720px){
+  .gar-img{justify-content:center!important;text-align:center;margin-left:auto!important;margin-right:auto!important;justify-self:center;}
+  .gar-img img{margin-left:auto!important;margin-right:auto!important;}
+}
 </style>
 </head>
 <body>
@@ -755,7 +810,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 </div>
 
 <!-- AGITAÇÃO -->
-<section class="sec warm">
+<section class="sec warm agit-dark">
   <div class="inner">
     <div class="agit-grid">
       <!-- COLUNA ESQUERDA -->
@@ -1079,32 +1134,39 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 <section class="sec" style="background:#B8D8E8;">
   <div class="inner">
     <div class="sec-eyebrow anim-up d1" style="justify-content:center;">O que estão falando sobre o livro</div>
-    <h2 class="sec-h2 anim-up d1" style="text-align:center;max-width:520px;margin:10px auto 32px;">Viajantes que realizaram <em>a viagem dos sonhos.</em></h2>
+    <h2 class="sec-h2 anim-up d1" style="text-align:center;max-width:520px;margin:10px auto 12px;">Viajantes que realizaram <em>a viagem dos sonhos.</em></h2>
+    <p class="t-sub-dep">Leitores de todo o Brasil. Histórias reais de quem aprendeu a viajar mais gastando menos.</p>
+    <div class="t-counter">
+      <div class="t-stat"><span class="t-stat-num">⭐ 4,9</span><span class="t-stat-label">avaliação média</span></div>
+      <div class="t-stat"><span class="t-stat-num">200 mil+</span><span class="t-stat-label">seguidores</span></div>
+      <div class="t-stat"><span class="t-stat-num">50 mil+</span><span class="t-stat-label">livros vendidos</span></div>
+      <div class="t-stat"><span class="t-stat-num">15</span><span class="t-stat-label">países</span></div>
+    </div>
     <div class="t-grid">
       <div class="t-card featured anim-up d2">
         <span class="t-quote-mark">“</span><span class="t-stars">★★★★★</span>
         <p class="t-text">Este livro apresenta formas eficientes para realizarmos mudanças necessárias em nossas vidas. Viajar é uma delas. Mari nos mostra que o que nos realizará será viajarmos sendo viajante e não turista. Seu ser minimalista é tão bem explicado e defendido que nos fez rever conceitos até então enraizados e dogmáticos. Tive um aprendizado ao ler este livro. Profissional de gabarito, ela nos ensina passo a passo como fazer uma viagem dos sonhos no real sentido e a incorporarmos pequenas atitudes à nossa rotina para que, aos pouquinhos, torne-se possível atingirmos objetivos maiores. Amei o livro que fez acender em mim a vontade de viajar mais de forma assertiva, sem bagagens extras, e a entender minhas prioridades para realizá-las.</p>
-        <div class="t-author"><div class="t-avatar">L</div><div><span class="t-author-name">Leandro S.</span><span class="t-author-city">Combo Físico + Digital</span></div></div>
+        <div class="t-author"><div class="t-avatar">L</div><div class="t-author-info"><span class="t-author-name">Leandro S.</span></div><span class="t-badge-dep">Combo Físico + Digital</span></div>
       </div>
       <div class="t-card anim-up d3">
         <span class="t-quote-mark">“</span><span class="t-stars">★★★★★</span>
         <p class="t-text">Comprei o livro ontem, já terminei, passei a madrugada lendo e agora tô morrendo de sono hahahaha, mas eu simplesmente AMEI, e já estou planejando meu cofrinho viagem e cortando as coisas pra viajar mais e ter mais experiências e virar uma pessoa culta.</p>
-        <div class="t-author"><div class="t-avatar">A</div><div><span class="t-author-name">Ana P.</span><span class="t-author-city">Versão Digital</span></div></div>
+        <div class="t-author"><div class="t-avatar">A</div><div class="t-author-info"><span class="t-author-name">Ana P.</span></div><span class="t-badge-dep">Versão Digital</span></div>
       </div>
       <div class="t-card anim-up d2">
         <span class="t-quote-mark">“</span><span class="t-stars">★★★★★</span>
         <p class="t-text">O livro é simplesmente perfeito, devorei em apenas 3 horas de leitura. Linguagem de fácil entendimento, prendeu minha atenção e compreendi todas as dicas. Agora é só me preparar para começar a viajar. Não tenho dinheiro, mas sempre amei viajar. Agora criei coragem para explorar além. Obrigada Mari, estarei te seguindo para aprender mais.</p>
-        <div class="t-author"><div class="t-avatar">R</div><div><span class="t-author-name">Rogeria Rosseto</span><span class="t-author-city">Versão Físico</span></div></div>
+        <div class="t-author"><div class="t-avatar">R</div><div class="t-author-info"><span class="t-author-name">Rogeria Rosseto</span></div><span class="t-badge-dep">Versão Físico</span></div>
       </div>
       <div class="t-card anim-up d3">
         <span class="t-quote-mark">“</span><span class="t-stars">★★★★★</span>
         <p class="t-text">Acabei de ler o livro sobre viagens, simplesmente amei. Estou planejando uma viagem pela Europa e nem sabia como começar, o livro foi como uma luz no fim do túnel. Dicas maravilhosas que já comecei aplicar. Continuem com conteúdos assim, ajudam muito. Super recomendo.</p>
-        <div class="t-author"><div class="t-avatar">C</div><div><span class="t-author-name">Carla M.</span><span class="t-author-city">Versão Digital</span></div></div>
+        <div class="t-author"><div class="t-avatar">C</div><div class="t-author-info"><span class="t-author-name">Carla M.</span></div><span class="t-badge-dep">Versão Digital</span></div>
       </div>
       <div class="t-card anim-up d2">
         <span class="t-quote-mark">“</span><span class="t-stars">★★★★★</span>
         <p class="t-text">Eu esperava que esse livro fosse me guiar na jornada da minha viagem dos sonhos, mas ele fez mais que isso. Além de pegar na minha mão e me ajudar a pisar passo a passo, ele mudou minha mentalidade sobre viver uma vida minimalista, sobre realmente viver experiências ricas. É muito mais completo e inspirador do que eu imaginava, é mais que um guia prático, é um livro mentor.</p>
-        <div class="t-author"><div class="t-avatar">M</div><div><span class="t-author-name">Miqueline</span><span class="t-author-city">Combo Físico + Digital</span></div></div>
+        <div class="t-author"><div class="t-avatar">M</div><div class="t-author-info"><span class="t-author-name">Miqueline</span></div><span class="t-badge-dep">Combo Físico + Digital</span></div>
       </div>
     </div>
     <div style="text-align:center;margin-top:36px;">
