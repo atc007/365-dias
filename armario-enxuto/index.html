@@ -639,6 +639,51 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   .hero-pills{width:fit-content;max-width:100%;margin-left:auto;margin-right:auto;text-align:left;}
   section a.btn-rose,section a.btn-gold,section a.btn-dark{display:block;width:100%;max-width:420px;margin-left:auto;margin-right:auto;text-align:center;}
 }
+
+/* ══ PADRONIZAÇÃO COM A HOME (fontes e cores do Armário mantidas) ══ */
+:root{--h2:clamp(26px,3.2vw,38px);}
+.sec-eyebrow{font-size:12px;}
+.hero-sub{font-size:18px;}
+.hero-note{font-size:13px;}
+.stat-num{color:var(--rose);font-size:26px;}
+/* Depoimentos: mesmo tamanho e mesma estrutura de autor da home */
+.t-text{font-size:18px;line-height:1.8;}
+.t-author-info{flex:1;}
+.t-author-name{font-size:15px;line-height:1.3;}
+.t-author-city{font-size:13px;display:block;margin-top:2px;}
+.t-badge-dep{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--rose-text);font-weight:500;background:rgba(196,136,111,.14);padding:3px 8px;border-radius:999px!important;white-space:nowrap;}
+.t-card.featured .t-badge-dep{background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);}
+/* Autores: texto no tamanho de leitura da home */
+.author-text{font-size:16px;line-height:1.8;}
+/* Cards de preço: nome do produto em negrito */
+.pc-type{font-weight:700;}
+/* Rodapé e barra fixa: mesmo formato e cor dos botões da página */
+.footer-btn{background:#C4886F!important;color:#fff!important;border-radius:999px!important;animation:none!important;padding:11px 22px;}
+.sbb-btn{background:#C4886F!important;color:#fff!important;}
+
+/* ══ PADRONIZAÇÃO 2: seção de dores escura, faixas dos cards, selo de bônus, números dos depoimentos ══ */
+.agit-dark{background:var(--ink)!important;}
+.agit-dark .sec-eyebrow{color:var(--rose-light);}
+.agit-dark .sec-eyebrow::before{background:var(--rose-light);}
+.agit-dark .sec-h2{color:#FAF6F2;}
+.agit-dark .agit-problem{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:.5px solid rgba(255,255,255,.1);border-left:.5px solid rgba(255,255,255,.1);border-radius:16px!important;padding:20px 22px;}
+.agit-dark .agit-problem-icon-badge{background:rgba(196,136,111,.18);border:.5px solid rgba(232,196,180,.4);color:var(--rose-light);}
+.agit-dark .agit-problem-text{font-size:16px;color:rgba(255,255,255,.78);line-height:1.65;}
+.agit-dark .agit-virada{background:rgba(255,255,255,.04);color:#F2E4DC;border-left:3px solid var(--rose);border-radius:12px;}
+.dest-tag.muted{background:#C7C4BC;color:#5C5A54;font-weight:600;}
+.urg-bonus-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(196,136,111,.12);border:.5px solid rgba(232,196,180,.35);color:var(--rose-light);font-size:13px;font-weight:600;padding:8px 20px;border-radius:999px;margin:0 0 24px;}
+.urg-bonus-tag svg{width:14px;height:14px;flex-shrink:0;}
+.t-sub-dep{font-size:16px;color:var(--ink-mid);line-height:1.65;text-align:center;max-width:520px;margin:0 auto 24px;}
+.t-counter{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;padding:22px 0;margin:0 auto 36px;max-width:760px;border-top:1px solid rgba(196,136,111,.25);border-bottom:1px solid rgba(196,136,111,.25);}
+.t-stat{text-align:center;}
+.t-stat-num{font-family:var(--font-display);font-size:34px;font-weight:400;color:var(--ink);line-height:1;display:block;}
+.t-stat-label{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;display:block;}
+@media(max-width:720px){
+  .t-counter{display:grid;grid-template-columns:1fr 1fr;gap:16px 0;padding:16px 0;margin-bottom:28px;}
+  .t-stat-num{font-size:28px;}
+  .agit-dark .agit-problem{padding:16px;}
+}
+.dest-tag svg{width:14px;height:14px;flex-shrink:0;}
 </style>
 </head>
 <body>
@@ -711,7 +756,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 </div>
 
 <!-- AGITAÇÃO — O PROBLEMA -->
-<section class="sec agit-sec">
+<section class="sec agit-sec agit-dark">
   <div class="inner">
     <div class="grid2" style="align-items:start;">
       <div>
@@ -742,6 +787,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
             alt="Mulher segurando o livro Armário Enxuto de Alexandre Chahoud e Fabianna Carraro" width="651" height="678" loading="lazy" decoding="async">
         </div>
         <div class="agit-virada anim-up d3">“O problema não é falta de roupas. É falta de conexão com quem você é hoje. E isso tem solução.”</div>
+        <div style="margin-top:24px;text-align:center;"><a class="btn-rose" href="#versoes" onclick="irParaVersoes(event)">Quero me vestir com confiança</a></div>
       </div>
     </div>
   </div>
@@ -814,7 +860,8 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 <!-- AUTORES -->
 <section class="sec cream">
   <div class="inner">
-    <h2 class="sec-h2 anim-up d1" style="text-align:center;max-width:720px;margin:0 auto 40px;font-size:clamp(17px,2vw,24px);font-weight:400;">Esse Livro foi escrito por quem acredita que roupa é pra ser usada e não guardada. E que o caro é aquilo que você não usa.</h2>
+    <div class="sec-eyebrow anim-up d1" style="justify-content:center;">Sobre os autores</div>
+    <h2 class="sec-h2 anim-up d1" style="text-align:center;max-width:720px;margin:0 auto 40px;">Esse Livro foi escrito por quem acredita que roupa é pra ser usada e não guardada. E que o caro é aquilo que você não usa.</h2>
     <div class="grid2" style="align-items:start;gap:20px;">
 
       <!-- ALEXANDRE -->
@@ -846,6 +893,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
       </div>
 
     </div>
+    <div class="t-cta" style="text-align:center;margin-top:36px;"><a class="btn-dark" href="#versoes" onclick="irParaVersoes(event)">Quero meu exemplar</a></div>
   </div>
 </section>
 
@@ -916,7 +964,14 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 <section class="sec" style="background:#F5EEE8;">
   <div class="inner">
     <div class="sec-eyebrow anim-up d1" style="justify-content:center;">O que dizem as leitoras</div>
-    <h2 class="sec-h2 anim-up d1" style="text-align:center;max-width:520px;margin:10px auto 32px;">Mulheres que fizeram as pazes com o <em>próprio guarda-roupa.</em></h2>
+    <h2 class="sec-h2 anim-up d1" style="text-align:center;max-width:520px;margin:10px auto 12px;">Mulheres que fizeram as pazes com o <em>próprio guarda-roupa.</em></h2>
+    <p class="t-sub-dep">Leitoras de todo o Brasil. Histórias reais de quem aprendeu a se vestir com menos e com mais confiança.</p>
+    <div class="t-counter">
+      <div class="t-stat"><span class="t-stat-num">⭐ 4,9</span><span class="t-stat-label">avaliação média</span></div>
+      <div class="t-stat"><span class="t-stat-num">200 mil+</span><span class="t-stat-label">seguidores</span></div>
+      <div class="t-stat"><span class="t-stat-num">50 mil+</span><span class="t-stat-label">livros vendidos</span></div>
+      <div class="t-stat"><span class="t-stat-num">15</span><span class="t-stat-label">países</span></div>
+    </div>
 
     <!-- CARROSSEL DE STORIES: busca as fotos automaticamente da pasta do GitHub.
          Pra atualizar, é só subir/apagar imagens na pasta enxuto-dep do repositório —
@@ -941,27 +996,27 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
       <div class="t-card featured anim-up d2">
         <span class="t-quote-mark">“</span><span class="t-stars">★★★★★</span>
         <p class="t-text">Passei anos comprando roupas e me sentindo cada vez mais perdida. O Armário Enxuto me fez entender que o problema nunca foram as roupas, era a falta de autoconhecimento sobre o meu próprio estilo. Em menos de um mês já tinha doado metade do armário e me vestia com muito mais confiança.</p>
-        <div class="t-author"><div class="t-avatar">R</div><div><span class="t-author-name">Renata M. · São Paulo, SP</span><span class="t-author-city">Livro Físico</span></div></div>
+        <div class="t-author"><div class="t-avatar">R</div><div class="t-author-info"><span class="t-author-name">Renata M.</span><span class="t-author-city">São Paulo, SP</span></div><span class="t-badge-dep">Livro Físico</span></div>
       </div>
       <div class="t-card anim-up d3">
         <span class="t-quote-mark">“</span><span class="t-stars">★★★★★</span>
         <p class="t-text">Finalmente entendi meu biotipo e as cores que funcionam para mim. Simples assim e mudou tudo na hora de escolher o que comprar.</p>
-        <div class="t-author"><div class="t-avatar">C</div><div><span class="t-author-name">Carolina V. · Curitiba, PR</span><span class="t-author-city">Livro Digital</span></div></div>
+        <div class="t-author"><div class="t-avatar">C</div><div class="t-author-info"><span class="t-author-name">Carolina V.</span><span class="t-author-city">Curitiba, PR</span></div><span class="t-badge-dep">Livro Digital</span></div>
       </div>
       <div class="t-card anim-up d2">
         <span class="t-quote-mark">“</span><span class="t-stars">★★★★★</span>
         <p class="t-text">Os exercícios do livro me ajudaram a entender meu estilo de verdade. Nunca mais comprei por impulso.</p>
-        <div class="t-author"><div class="t-avatar">M</div><div><span class="t-author-name">Mariana F. · Porto Alegre, RS</span><span class="t-author-city">Livro Físico</span></div></div>
+        <div class="t-author"><div class="t-avatar">M</div><div class="t-author-info"><span class="t-author-name">Mariana F.</span><span class="t-author-city">Porto Alegre, RS</span></div><span class="t-badge-dep">Livro Físico</span></div>
       </div>
       <div class="t-card anim-up d3">
         <span class="t-quote-mark">“</span><span class="t-stars">★★★★★</span>
         <p class="t-text">O capítulo de multiplicação de looks sozinho já valeu o investimento. Eu tinha mais combinações do que imaginava!</p>
-        <div class="t-author"><div class="t-avatar">P</div><div><span class="t-author-name">Patrícia L. · Florianópolis, SC</span><span class="t-author-city">Livro Físico + Digital</span></div></div>
+        <div class="t-author"><div class="t-avatar">P</div><div class="t-author-info"><span class="t-author-name">Patrícia L.</span><span class="t-author-city">Florianópolis, SC</span></div><span class="t-badge-dep">Livro Físico + Digital</span></div>
       </div>
       <div class="t-card anim-up d2">
         <span class="t-quote-mark">“</span><span class="t-stars">★★★★★</span>
         <p class="t-text">Linguagem leve, sem julgamento, sem estereótipos. Parece que foi escrito especialmente para mim.</p>
-        <div class="t-author"><div class="t-avatar">A</div><div><span class="t-author-name">Amanda K. · Brasília, DF</span><span class="t-author-city">Livro Físico + Digital</span></div></div>
+        <div class="t-author"><div class="t-avatar">A</div><div class="t-author-info"><span class="t-author-name">Amanda K.</span><span class="t-author-city">Brasília, DF</span></div><span class="t-badge-dep">Livro Físico + Digital</span></div>
       </div>
     </div>
     <div style="text-align:center;margin-top:36px;">
@@ -975,7 +1030,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   <div class="inner">
     <div class="grid2" style="align-items:start;">
       <div>
-        <div class="sec-eyebrow anim-up d1">Comprando hoje você recebe de presente</div>
+        <div class="sec-eyebrow anim-up d1">O que vem junto</div>
         <h2 class="sec-h2 anim-up d1">Acesso à Área VIP + bônus digitais exclusivos</h2>
 
         <!-- BOX VALOR TOTAL -->
@@ -1028,7 +1083,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 <!-- URGÊNCIA PRICING -->
 <div class="urgency-section">
   <div class="inner">
-    <div class="sec-eyebrow" style="justify-content:center;color:var(--rose-light);">Condição especial · Com bônus inclusos</div>
+    <div class="sec-eyebrow" style="justify-content:center;color:var(--rose-light);">Oferta com bônus inclusos</div>
     <h3 class="urg-h3">Garanta o seu com frete grátis e todos os bônus.</h3>
     <p class="urg-p">Esta condição inclui bônus digitais exclusivos liberados para quem comprar enquanto esta página estiver ativa.</p>
     <div class="urg-timer">
@@ -1038,7 +1093,8 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
       <span class="urg-sep">:</span>
       <div class="urg-unit"><span class="urg-digit" id="urg-s">00</span><span class="urg-dlabel">seg</span></div>
     </div>
-    <a class="btn-rose" href="#versoes" onclick="irParaVersoes(event)">Ver versões disponíveis ↓</a>
+    <div class="urg-bonus-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> R$ 197 em bônus inclusos, por tempo limitado</div>
+    <div><a class="btn-rose" href="#versoes" onclick="irParaVersoes(event)">Ver versões disponíveis ↓</a></div>
   </div>
 </div>
 
@@ -1051,6 +1107,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 
       <!-- DIGITAL -->
       <div class="pc" id="versao-digital">
+        <div class="dest-tag muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M14.3 9.4c-.4-.7-1.3-1.1-2.3-1.1-1.4 0-2.3.7-2.3 1.7 0 2.4 4.8 1.2 4.8 3.7 0 1.1-1 1.9-2.5 1.9-1.2 0-2.1-.5-2.5-1.2"/><path d="M12 6.8v10.4"/></svg> Mais acessível</div>
         <div class="pc-img">
           <img src="https://static.wixstatic.com/media/940f31_415a7ea44dd1444a935913c22bf4eef5~mv2.jpg"
             alt="Armário Enxuto: Livro Digital" width="400" height="400" loading="lazy" decoding="async">
@@ -1074,6 +1131,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 
       <!-- FÍSICO -->
       <div class="pc" id="versao-fisica">
+        <div class="dest-tag muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Ideal para presentear</div>
         <div class="pc-img">
           <img src="https://static.wixstatic.com/media/940f31_c503051d75f242f8a18d6429143d054f~mv2.jpg/v1/fill/w_651,h_678,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/armario-lifestyle.jpg"
             alt="Armário Enxuto: Livro Físico" width="400" height="400" loading="lazy" decoding="async">
