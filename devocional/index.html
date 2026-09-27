@@ -56,6 +56,9 @@ fbq('track','ViewContent',{content_ids:['devocional-meu-tempo-com-deus'],content
 </script>
 
 <link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap">
 
 <!-- Schema markup -->
 <script type="application/ld+json">
@@ -277,6 +280,115 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
   .footer-divider{flex-direction:column;gap:6px;}
   .sec-hero{padding-top:32px;padding-bottom:40px;}
 }
+/* ══════════ ATUALIZAÇÃO VISUAL 2026 ══════════ */
+:root{--font-display:'Spectral',Georgia,serif;--gold-text:#8A652A;--gutter:40px;}
+html,body{font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+
+/* Tipografia de títulos (mesma família das outras páginas) */
+.hero-h1,.sec-h2,.agit-h2,.price-h2,.price-name,.content-title,.stat-num,.agit-virada{font-family:var(--font-display);}
+.hero-h1{font-weight:500;line-height:1.12;letter-spacing:-.01em;margin-bottom:14px;}
+.hero-h1 em,.sec-h2 em{color:var(--gold-text);}
+.sec-h2,.agit-h2,.price-h2{font-weight:500;line-height:1.22;}
+.content-title{font-size:21px;font-weight:500;}
+.stat-num{font-weight:500;font-size:28px;}
+.hero-sub{color:#4A4A48;}
+.hero-badge{margin-bottom:16px;border-radius:999px;font-size:11px;padding:6px 14px 6px 11px;color:var(--gold-text);background:rgba(201,169,110,.16);border:1px solid var(--gold);}
+.hero-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);}
+.sec-eyebrow,.hero-eyebrow{color:var(--gold-text);font-weight:700;}
+.price-eyebrow,.agit-eyebrow{font-weight:700;}
+
+/* Botões: pílula dourada com pulso (igual ao quiz e aos combos) */
+.btn-gold{background:var(--gold);color:#1C1C1A;border-radius:999px;padding:17px 38px;font-size:15.5px;font-weight:800;letter-spacing:.01em;box-shadow:0 4px 20px rgba(201,169,110,.35);animation:btnPulse 2.6s ease-in-out infinite;}
+.btn-gold:hover{filter:brightness(1.08);transform:translateY(-2px);animation-play-state:paused;}
+@keyframes btnPulse{
+  0%,100%{box-shadow:0 4px 20px rgba(201,169,110,.35),0 0 0 0 rgba(201,169,110,.45);}
+  50%{box-shadow:0 4px 20px rgba(201,169,110,.35),0 0 0 9px rgba(201,169,110,0);}
+}
+.footer-btn{background:var(--gold);border-radius:999px;animation:none;padding:11px 22px;}
+
+/* Cards e blocos com cantos e bordas consistentes */
+.spec-item{background:#fff;border:1px solid #E3DDD2;border-radius:12px;box-shadow:0 4px 14px rgba(28,26,20,.05);}
+.spec-label{color:var(--gold-text);}
+.hero-video-wrap{border-radius:18px;}
+.video-wrap{border-radius:16px;}
+.agit-item{border-radius:16px;}
+.price-box{border-radius:22px;}
+.price-now{border-radius:999px;padding:8px 18px;}
+.faq-q{font-size:15.5px;}
+.gallery-grid img{border-radius:10px;}
+
+/* Espaçamento lateral único: as seções não somam padding com o .inner */
+.sec-video,.sec-agit,.sec-content,.sec-gallery,.sec-price,.sec-faq,.footer,.stats-bar{padding-left:0;padding-right:0;}
+.inner,.stats-inner{padding-left:var(--gutter);padding-right:var(--gutter);}
+.sec-hero{padding-left:var(--gutter);padding-right:var(--gutter);}
+.topbar{padding-left:var(--gutter);padding-right:var(--gutter);}
+
+/* ══ MOBILE ══ */
+@media(max-width:720px){
+  :root{--gutter:18px;}
+  .sec-video,.sec-agit,.sec-content,.sec-gallery,.sec-price,.sec-faq{padding-top:48px;padding-bottom:48px;}
+  .footer{padding:40px 0!important;}
+  .footer .inner{padding-left:var(--gutter)!important;padding-right:var(--gutter)!important;}
+  .sec-content .inner,.sec-price .inner,.sec-faq .inner{padding-left:var(--gutter);padding-right:var(--gutter);}
+
+  /* Hero centralizado, botão largo */
+  .sec-hero{padding-top:28px;padding-bottom:40px;}
+  .hero-grid{gap:26px;text-align:center;}
+  .hero-video-wrap{max-width:300px;}
+  .hero-badge{margin-left:auto;margin-right:auto;}
+  .hero-h1{font-size:30px;}
+  .hero-sub{font-size:15px;line-height:1.65;margin-bottom:22px;}
+  .hero-grid .btn-gold,.sec-content .btn-gold,.sec-faq .btn-gold{display:block;width:100%;text-align:center;padding:17px 20px;}
+  .hero-note{justify-content:center;}
+
+  /* Títulos das seções alinhados à esquerda da mesma margem */
+  .sec-h2{font-size:25px;margin-bottom:22px;}
+  .agit-h2{font-size:25px;margin-bottom:28px;}
+  .agit-item{padding:16px;gap:14px;}
+  .agit-icon{width:38px;height:38px;}
+  .agit-virada{font-size:18px;margin-top:26px;}
+
+  /* Números: grade 2x2 alinhada */
+  .stats-bar{padding:18px 0;}
+  .stats-inner{grid-template-columns:1fr 1fr;gap:10px;justify-items:stretch;}
+  .stat{padding:12px 12px;border:1px solid #2E2E2C!important;border-radius:12px;justify-content:flex-start;gap:12px;}
+  .stat-num{font-size:24px;min-width:0;}
+  .stat-lbl{font-size:11.5px;}
+
+  /* Conteúdo */
+  .content-title{font-size:19px;}
+  .spec-grid{gap:8px;}
+  .spec-item{padding:11px 12px;}
+
+  /* Galeria alinhada à mesma margem */
+  .sec-gallery .inner{padding-left:var(--gutter)!important;padding-right:var(--gutter)!important;}
+  .sec-gallery .sec-eyebrow,.sec-gallery .sec-h2{padding-left:0!important;padding-right:0!important;}
+  .gallery-grid{gap:6px;}
+  .gallery-grid img{border-radius:8px;}
+
+  /* Preço */
+  .price-h2{font-size:24px;}
+  .price-box{padding:26px 20px;}
+  .price-parc-destaque{font-size:27px;}
+
+  /* FAQ */
+  .faq-q{font-size:15px;padding:16px 0;}
+  .faq-list{margin-top:8px;}
+
+  /* Rodapé */
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-logo img{max-width:150px;}
+}
+
+/* Preço parcelado mais legível no fundo escuro */
+.price-parc-destaque{background:linear-gradient(90deg,#C9A96E 0%,#E8D09A 30%,#FFF0B0 50%,#E8D09A 70%,#C9A96E 100%);background-size:300% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-family:var(--font-display);font-weight:600;}
+.price-was{color:#E07A6A;}
+.price-note{gap:6px 14px;font-size:12.5px;color:#A8A29A;}
+.price-note .pn{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
+@media(max-width:720px){
+  .hero-video-wrap{max-width:240px;}
+}
+@media(prefers-reduced-motion:reduce){.btn-gold{animation:none;}}
 </style>
 </head>
 <body>
@@ -454,7 +566,7 @@ html,body{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',san
       <a class="btn-gold" href="https://chk.eduzz.com/G92VP3P79E?pf=1" target="_blank" rel="noopener" style="width:100%;text-align:center;display:block;">
         Quero meu Devocional
       </a>
-      <div class="price-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> Frete grátis · <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="15" r="1.2"/></svg> Compra segura · 7 dias de garantia</div>
+      <div class="price-note"><span class="pn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> Frete grátis</span><span class="pn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="15" r="1.2"/></svg> Compra segura</span><span class="pn">7 dias de garantia</span></div>
     </div>
   </div>
 </section>
