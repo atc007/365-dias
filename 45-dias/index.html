@@ -800,6 +800,13 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   .btn-gold,.btn-dark{width:100%;text-align:center;}
   .precos{grid-template-columns:1fr;}
 }
+
+/* ══ ALINHAMENTO MOBILE: uma única margem lateral (18px) ══
+   As seções somavam o padding delas com o do .inner (ficava 32–36px). */
+@media(max-width:720px){
+  :root{--sec-h:18px;}
+  .sec-hero,.sec,.testimonials,.urgency-section,.agitacao,.diferencial,.footer{padding-left:0!important;padding-right:0!important;}
+}
 </style>
 <script type="application/ld+json">
 {
