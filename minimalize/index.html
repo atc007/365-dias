@@ -867,6 +867,39 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   :root{--sec-h:18px;}
   .sec-hero,.sec,.testimonials,.urgency-section,.agitacao,.diferencial,.footer{padding-left:0!important;padding-right:0!important;}
 }
+
+/* ══════════ ATUALIZAÇÃO VISUAL 2026 (mesmo padrão das outras páginas) ══════════ */
+
+/* Botões em pílula: dourado sólido com pulso, escuro sem animação */
+.btn-gold,.pc-btn.gold{background:#C9A96E!important;color:#1C1C1A;border-radius:999px!important;font-weight:800;letter-spacing:.01em;box-shadow:0 4px 20px rgba(201,169,110,.35);animation:btnPulse 2.6s ease-in-out infinite!important;}
+.btn-gold:hover,.pc-btn.gold:hover{filter:brightness(1.08);transform:translateY(-2px);animation-play-state:paused!important;}
+.btn-dark,.pc-btn.dark{border-radius:999px!important;font-weight:800;letter-spacing:.01em;box-shadow:0 4px 16px rgba(28,28,26,.18);}
+.btn-dark:hover,.pc-btn.dark:hover{transform:translateY(-2px);}
+.sbb-btn{background:#C9A96E!important;border-radius:999px!important;font-weight:800;}
+@keyframes btnPulse{
+  0%,100%{box-shadow:0 4px 20px rgba(201,169,110,.35),0 0 0 0 rgba(201,169,110,.45);}
+  50%{box-shadow:0 4px 20px rgba(201,169,110,.35),0 0 0 9px rgba(201,169,110,0);}
+}
+
+/* Cards com cantos e sombras consistentes */
+.fail-card,.for-card,.dif-card,.bonus-item,.step-item,.ben-card,.day-card,.qual-card,.agit-item,.not-for,.qual-nao,.t-card{border-radius:16px!important;}
+.pc{border-radius:22px!important;overflow:hidden;}
+.img-box,.video-box,.car-wrap,.step-img{border-radius:18px!important;}
+.hero-badge,.badge,.urgency-badge,.t-mchip,.urg-bonus-tag,.dest-badge,.t-badge-dep{border-radius:999px!important;}
+.cupom-box,.cupom-code-box,.bonus-valor-box{border-radius:14px!important;}
+.faq-item{border-radius:14px;}
+@media(prefers-reduced-motion:reduce){.btn-gold,.pc-btn.gold{animation:none!important;}}
+
+/* ══ ALINHAMENTO MOBILE: títulos e botões centralizados, textos longos à esquerda ══ */
+@media(max-width:720px){
+  .sec-hero .hero-grid > div:not(.hero-img-wrap):not(.hero-video-wrap){text-align:center;}
+  .eyebrow,.sec-eyebrow{justify-content:center;text-align:center;}
+  .hero-h1,.sec-h2{text-align:center;}
+  .hero-sub{text-align:center;}
+  .hero-proof,.hero-note{justify-content:center;text-align:center;}
+  .hero-pills{width:fit-content;max-width:100%;margin-left:auto;margin-right:auto;text-align:left;}
+  section a.btn-gold,section a.btn-dark{display:block;width:100%;max-width:420px;margin-left:auto;margin-right:auto;text-align:center;}
+}
 </style>
 
 <script type="application/ld+json">
