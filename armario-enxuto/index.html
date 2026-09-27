@@ -603,6 +603,42 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   .footer-grid{grid-template-columns:1fr;gap:28px;}
   .footer-divider{flex-direction:column;gap:6px;}
 }
+
+/* ══════════ ATUALIZAÇÃO VISUAL 2026 (fontes e cores originais mantidas) ══════════ */
+/* Botões em pílula com pulso suave, na cor da página */
+.btn-rose,.pc-btn.rose{background:#C4886F!important;color:#fff!important;border-radius:999px!important;font-weight:800;letter-spacing:.01em;box-shadow:0 4px 20px rgba(196,136,111,.35);animation:btnPulse 2.6s ease-in-out infinite!important;}
+.btn-rose:hover,.pc-btn.rose:hover{filter:brightness(1.07);transform:translateY(-2px);animation-play-state:paused!important;}
+.btn-dark,.pc-btn.dark{border-radius:999px!important;font-weight:800;box-shadow:0 4px 16px rgba(28,28,26,.18);}
+.btn-dark:hover,.pc-btn.dark:hover{transform:translateY(-2px);}
+.btn-outline{border-radius:999px!important;}
+.sbb-btn{background:#E8B4A8!important;border-radius:999px!important;font-weight:800;}
+@keyframes btnPulse{
+  0%,100%{box-shadow:0 4px 20px rgba(196,136,111,.35),0 0 0 0 rgba(196,136,111,.45);}
+  50%{box-shadow:0 4px 20px rgba(196,136,111,.35),0 0 0 9px rgba(196,136,111,0);}
+}
+/* Cards com cantos consistentes */
+.agit-card,.agit-problem,.about-card,.author-card,.bonus-item,.bonus-box,.challenge-box,.dif-card,.for-card,.module-item,.cap-card,.motivo-card,.story-card,.t-card,.vip-extra,.faq-item{border-radius:16px!important;}
+.pc,.price-card{border-radius:22px!important;overflow:hidden;}
+.img-box,.agit-img,.agit-img-wrap,.hero-video-wrap,.para-video-wrap,.car-track-wrap,.price-img,.vip-extra-img{border-radius:18px!important;}
+.hero-badge,.hero-seal,.price-badge,.dest-tag,.vip-extra-badge{border-radius:999px!important;}
+.cupom-box,.cupom-code-box,.bonus-valor-box,.tip-code-wrap{border-radius:14px!important;}
+.pc-btn{border-radius:999px!important;}
+@media(prefers-reduced-motion:reduce){.btn-rose,.pc-btn.rose{animation:none!important;}}
+
+/* ══ MOBILE: margem única de 18px + títulos e botões centralizados, textos longos à esquerda ══ */
+@media(max-width:720px){
+  :root{--sec-h:18px;}
+  .sec-hero,.sec,.stats-bar,.urgency-section,.footer,.testimonials{padding-left:0!important;padding-right:0!important;}
+  .inner{padding-left:18px!important;padding-right:18px!important;}
+  div[style*="padding:40px 40px"]{padding-left:0!important;padding-right:0!important;}
+  .sec-hero .hero-grid > div:not(.hero-img-wrap):not(.hero-video-wrap){text-align:center;padding-left:0!important;padding-right:0!important;}
+  .eyebrow,.sec-eyebrow{justify-content:center;text-align:center;}
+  .hero-h1,.sec-h2{text-align:center;}
+  .hero-sub,.sec-sub{text-align:center;}
+  .hero-proof,.hero-note{justify-content:center;text-align:center;}
+  .hero-pills{width:fit-content;max-width:100%;margin-left:auto;margin-right:auto;text-align:left;}
+  section a.btn-rose,section a.btn-gold,section a.btn-dark{display:block;width:100%;max-width:420px;margin-left:auto;margin-right:auto;text-align:center;}
+}
 </style>
 </head>
 <body>
