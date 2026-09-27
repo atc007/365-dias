@@ -831,6 +831,17 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 .cupom-box,.cupom-code-box,.bonus-valor-box{border-radius:14px!important;}
 .faq-item{border-radius:14px;}
 @media(prefers-reduced-motion:reduce){.btn-gold,.pc-btn.gold{animation:none!important;}}
+
+/* ══ ALINHAMENTO MOBILE: títulos e botões centralizados, textos longos à esquerda ══ */
+@media(max-width:720px){
+  .sec-hero .hero-grid > div:not(.hero-img-wrap):not(.hero-video-wrap){text-align:center;}
+  .eyebrow,.sec-eyebrow{justify-content:center;text-align:center;}
+  .hero-h1,.sec-h2{text-align:center;}
+  .hero-sub{text-align:center;}
+  .hero-proof,.hero-note{justify-content:center;text-align:center;}
+  .hero-pills{width:fit-content;max-width:100%;margin-left:auto;margin-right:auto;text-align:left;}
+  section a.btn-gold,section a.btn-dark{display:block;width:100%;max-width:420px;margin-left:auto;margin-right:auto;text-align:center;}
+}
 </style>
 <script type="application/ld+json">
 {
