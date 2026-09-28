@@ -396,6 +396,39 @@ html,body{font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans
   .sec-h2{text-align:center;}
   section a.btn-gold{display:block;width:100%;max-width:420px;margin-left:auto;margin-right:auto;text-align:center;}
 }
+
+/* ══ PADRONIZAÇÃO COM A HOME (fontes e cores do Devocional mantidas) ══ */
+.sec-eyebrow,.price-eyebrow{font-size:12px;}
+.sec-h2,.price-h2{font-size:clamp(25px,3.2vw,38px);}
+.hero-sub{font-size:18px;}
+.agit-text{font-size:16px;line-height:1.65;}
+/* Selos embaixo do vídeo, como na home */
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;justify-content:center;}
+.badge{background:#fff;border:.5px solid rgba(201,169,110,.35);border-radius:999px;padding:8px 15px;font-size:13px;font-weight:500;color:var(--ink);box-shadow:0 2px 8px rgba(120,95,50,.07);display:inline-flex;align-items:center;gap:7px;text-decoration:none;transition:border-color .2s,background .2s;}
+.badge:hover{border-color:var(--gold);background:rgba(201,169,110,.07);}
+.badge svg{width:15px;height:15px;flex-shrink:0;color:#8A652A;}
+/* Números: valor em cima, descrição embaixo, como na home */
+.stat{flex-direction:column;align-items:center;text-align:center;gap:6px;}
+.stat-lbl{text-align:center;}
+/* Especificações mais legíveis */
+.spec-label{font-size:11px;}
+.spec-val{font-size:14px;}
+/* Card de preço: faixa no topo e nome em negrito */
+.price-box .dest-tag{background:var(--gold);color:#1C1C1A;font-size:11px;font-weight:700;padding:8px 6px;letter-spacing:.06em;text-transform:uppercase;border-radius:20px 20px 0 0;display:flex;align-items:center;justify-content:center;gap:7px;margin:-36px -36px 22px;}
+.price-box .dest-tag svg{width:14px;height:14px;flex-shrink:0;}
+.price-name{font-weight:700;}
+@media(max-width:720px){
+  .hero-sub{font-size:17px;}
+  .sec-eyebrow,.price-eyebrow{font-size:11.5px;letter-spacing:.11em;}
+  .stats-inner{display:grid;grid-template-columns:1fr 1fr;gap:12px 0;}
+  .stat{border:none!important;border-radius:0;padding:10px 8px;position:relative;justify-content:center;gap:6px;width:100%;}
+  .stat:nth-child(odd)::after{content:'';position:absolute;right:0;top:12%;bottom:12%;width:1px;background:rgba(255,255,255,.1);}
+  .stat-num{font-size:24px;}
+  .stat-lbl{font-size:12px;}
+  .price-box .dest-tag{margin:-26px -20px 18px;}
+  .badge{font-size:12.5px;padding:7px 13px;}
+  .price-h2 br{display:none;}
+}
 </style>
 </head>
 <body>
@@ -412,11 +445,19 @@ html,body{font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans
 <!-- HERO -->
 <section class="sec-hero">
   <div class="hero-grid">
+    <div>
     <div class="hero-video-wrap anim-up d1" style="position:relative;">
       <video id="hero-video" muted loop playsinline preload="metadata"
         src="https://video.wixstatic.com/video/940f31_f295a6ed835e47f2a729028a8ff40508/1080p/mp4/file.mp4"
         style="width:100%;height:100%;object-fit:cover;display:block;">
       </video>
+    </div>
+      <div class="badges">
+        <a class="badge badge-link" href="#comprar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.6C10.5 5.2 8.6 4.6 5 4.6v12.6c3.6 0 5.5.6 7 2 1.5-1.4 3.4-2 7-2V4.6c-3.6 0-5.5.6-7 2Z"/><path d="M12 6.6v13.6"/></svg> 230 páginas</a>
+        <a class="badge badge-link" href="#comprar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.8 12 4l8.5 3.8v8.4L12 20l-8.5-3.8V7.8Z"/><path d="M3.5 7.8 12 11.6l8.5-3.8"/><path d="M12 11.6V20"/></svg> Frete grátis</a>
+        <a class="badge badge-link" href="#comprar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Capa dura</a>
+        <a class="badge badge-link" href="#comprar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 5 6.2v5.3c0 4.3 3 7.7 7 9 4-1.3 7-4.7 7-9V6.2Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg> Garantia de 7 dias</a>
+      </div>
     </div>
     <div>
       <div class="hero-badge anim-up d1">Diário espiritual · Capa Dura</div>
@@ -435,10 +476,10 @@ html,body{font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat"><div class="stat-num">230</div><div class="stat-lbl">páginas<br>completas</div></div>
-    <div class="stat"><div class="stat-num">2</div><div class="stat-lbl">páginas<br>por dia</div></div>
-    <div class="stat"><div class="stat-num">15×21</div><div class="stat-lbl">tamanho<br>ideal</div></div>
-    <div class="stat"><div class="stat-num">90g</div><div class="stat-lbl">gramatura<br>das folhas</div></div>
+    <div class="stat"><div class="stat-num">230</div><div class="stat-lbl">páginas completas</div></div>
+    <div class="stat"><div class="stat-num">2</div><div class="stat-lbl">páginas por dia</div></div>
+    <div class="stat"><div class="stat-num">15×21</div><div class="stat-lbl">tamanho ideal</div></div>
+    <div class="stat"><div class="stat-num">90g</div><div class="stat-lbl">gramatura das folhas</div></div>
   </div>
 </div>
 
@@ -547,11 +588,12 @@ html,body{font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans
 </section>
 
 <!-- PREÇO -->
-<section class="sec-price">
+<section class="sec-price" id="comprar">
   <div class="inner">
     <div class="price-eyebrow">Garanta agora o seu</div>
     <h2 class="price-h2">Um devocional completo para cultivar <br>sua fé, com frete grátis.</h2>
     <div class="price-box anim-up d2">
+      <div class="dest-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Ideal para presentear</div>
       <div class="pc-img" style="border-radius:8px;overflow:hidden;margin-bottom:20px;line-height:0;">
         <img src="https://static.wixstatic.com/media/940f31_12324fb304cf4c0b9bda4a883ab6c682~mv2.jpg/v1/crop/x_0,y_363,w_2304,h_1554/fill/w_457,h_397,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_20250324_132626.jpg"
           alt="Devocional Meu Tempo com Deus: capa" width="457" height="397" loading="lazy" decoding="async"
