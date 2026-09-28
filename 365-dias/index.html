@@ -3207,6 +3207,17 @@ function copiarCupom(e){
   }
 }
 
+
+/* ══ PADRONIZAÇÃO COM A HOME (fontes e cores do 365 mantidas) ══ */
+/* Depoimentos um pouco maiores, como nas outras páginas */
+.t-text{font-size:16px;line-height:1.75;}
+/* Textos longos alinhados à esquerda, como na home: autor e lista de bônus */
+.sec-autor-texto,.sec-autor-texto .sec-p{text-align:left!important;}
+.sec-autor-texto .press-label,.sec-autor-texto [class*=press]{text-align:left!important;justify-content:flex-start!important;}
+.bonus-item,.bonus-item *{text-align:left!important;}
+@media(max-width:720px){
+  .t-text{font-size:15.5px;}
+}
 </style>
 <div id="cupom-tooltip" role="button" tabindex="0" aria-label="Copiar cupom GANHEI10, 10% off no carrinho" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="copiarCupom(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copiarCupom(event);}">
   <div class="cupom-box">
