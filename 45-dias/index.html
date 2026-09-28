@@ -1268,6 +1268,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
     <div class="precos">
       <!-- DIGITAL -->
       <div class="pc" id="versao-digital">
+        <div class="dest-badge muted"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M14.3 9.4c-.4-.7-1.3-1.1-2.3-1.1-1.4 0-2.3.7-2.3 1.7 0 2.4 4.8 1.2 4.8 3.7 0 1.1-1 1.9-2.5 1.9-1.2 0-2.1-.5-2.5-1.2"/><path d="M12 6.8v10.4"/></svg> Mais acessível</span></div>
         <div class="pc-img">
           <img src="https://static.wixstatic.com/media/940f31_7c3c504c1a15465cbbbe613882c29ca2~mv2.jpeg/v1/crop/x_487,y_0,w_725,h_704/fill/w_474,h_460,al_c,q_90,enc_avif,quality_auto/capa45.jpeg"
             alt="Guia 45 Dias de Destralhe digital" width="474" height="460" loading="lazy" decoding="async">
@@ -1290,7 +1291,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
       </div>
       <!-- FÍSICO + DIGITAL -->
       <div class="pc dest" id="versao-fisica">
-        <div class="dest-badge"><span>⭐ Mais escolhido</span></div>
+        <div class="dest-badge"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s4.5 3.8 4.5 8.2a4.5 4.5 0 0 1-9 0c0-1.5.7-2.8 1.5-3.7 0 1.3.8 2.2 1.6 2.2 1 0 1.6-.9 1.4-2.4C11.7 5.6 12 3 12 3Z"/><path d="M12 21a5.6 5.6 0 0 0 5.6-5.6"/></svg> Mais escolhido · Digital incluso</span></div>
         <div class="pc-img">
           <img src="https://static.wixstatic.com/media/940f31_4f68392155934edfbb3161ee72b04509~mv2.png/v1/crop/x_491,y_0,w_890,h_704/fill/w_380,h_300,al_c,q_90,enc_avif,quality_auto/combo45.png"
             alt="Guia físico + digital 45 dias de destralhe" width="380" height="300" loading="lazy" decoding="async">
@@ -1657,6 +1658,21 @@ function copiarCupom(e){
   .cupom-sub{font-size:8.5px;margin-top:1px;}
 }
 @keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
+
+/* ══ PADRONIZAÇÃO COM A HOME (fontes e cores do 45 Dias mantidas) ══ */
+.sec-eyebrow{font-size:12px;}
+.sec-h2{font-size:clamp(25px,3.2vw,38px);}
+.agit-text{font-size:16px;line-height:1.65;}
+.t-text{font-size:16px;line-height:1.75;}
+.t-author-name{font-size:15px;line-height:1.3;}
+.t-author-city{font-size:13px;}
+.dest-badge.muted{background:#C7C4BC;color:#5C5A54;font-weight:600;}
+.dest-badge.muted::after{content:none;}
+.dest-badge{font-size:12px;letter-spacing:.06em;text-transform:uppercase;}
+@media(max-width:720px){
+  .sec-eyebrow{font-size:11.5px;letter-spacing:.11em;}
+  .t-text{font-size:15.5px;}
+}
 </style>
 <div id="cupom-tooltip" role="button" tabindex="0" aria-label="Copiar cupom GANHEI10, 10% off no carrinho" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="copiarCupom(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copiarCupom(event);}">
   <div class="cupom-box">
