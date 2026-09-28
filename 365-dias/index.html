@@ -3256,7 +3256,7 @@ function copiarCupom(e){
     waFloat.style.bottom = offset + 'px';
   }
   function refresh(){
-    var shouldShow = window.scrollY>threshold && !insideVersoes;
+    var ftr=document.querySelector('footer');var noRodape=ftr && ftr.getBoundingClientRect().top < window.innerHeight;var shouldShow = window.scrollY>threshold && !insideVersoes && !noRodape; /* some ao chegar no rodapé */
     bar.classList.toggle('show', shouldShow);
     updateWaPosition(shouldShow);
   }
