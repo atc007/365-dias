@@ -999,6 +999,12 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   .hero-proof,.hero-note{justify-content:center;text-align:center;}
   section a.btn-gold,section a.btn-dark{display:block;width:100%;max-width:420px;margin-left:auto;margin-right:auto;text-align:center;}
 }
+
+/* Linha de garantia do topo: cadeado junto do texto, tudo centralizado */
+@media(max-width:720px){
+  .hero-note{display:block!important;text-align:center!important;}
+  .hero-note::before{display:inline-block;margin-right:6px;vertical-align:-1px;line-height:1;}
+}
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -1914,7 +1920,7 @@ function irParaVersoes(e, fromCoupon){
   }
 
   function refresh(){
-    var shouldShow = window.scrollY>threshold && !insideVersoes;
+    var ftr=document.querySelector('footer');var noRodape=ftr && ftr.getBoundingClientRect().top < window.innerHeight;var shouldShow = window.scrollY>threshold && !insideVersoes && !noRodape; /* some ao chegar no rodapé */
     bar.classList.toggle('show', shouldShow);
     updateWaPosition(shouldShow);
   }
