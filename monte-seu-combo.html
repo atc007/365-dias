@@ -117,6 +117,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 .fmt .box{width:16px;height:16px;border-radius:5px;border:1.5px solid rgba(245,241,232,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .fmt .box svg{opacity:0;}
 .fmt .price{font-weight:700;color:var(--muted);}
+.fmt.blocked,.fmt:disabled{opacity:.35;cursor:not-allowed;}
 .fmt.on{background:rgba(201,169,110,.22);border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,.16);}
 .fmt.on .box{background:var(--gold);border-color:var(--gold);}
 .fmt.on .box svg{opacity:1;}
@@ -241,6 +242,7 @@ footer a{color:#D8D8D4;text-decoration:none;}
       <div class="totals">
         <div class="tot-row"><span>Valor sem desconto</span><span class="was" id="t-sub">R$ 0,00</span></div>
         <div class="tot-row"><span>Desconto</span><span id="t-pct">0%</span></div>
+        <div class="tot-row" id="t-extra-row" style="display:none"><span>Desconto extra · cupom <strong>DUPLAVERSAO</strong></span><span id="t-extra">+5%</span></div>
         <div class="tot-final"><span>Você paga</span><strong id="t-final">R$ 0</strong></div>
         <div class="tot-save" id="t-save"></div>
       </div>
@@ -275,12 +277,13 @@ footer a{color:#D8D8D4;text-decoration:none;}
 (function(){
   /* ══ CONFIGURAÇÃO ══
      Preços individuais tirados da página de combos.
-     digital:null = produto só existe na versão física. */
+     digital:null = produto só existe na versão física.
+     exclusive:true = só uma opção por vez; aqui o "físico" já inclui o digital (Físico + Digital). */
   var WHATSAPP = '5516991065984';
   var PRODUCTS = [
     {id:'sm',     label:'Livro Seja Minimalista',          type:'Livro',   name:'Seja Minimalista',                 fisico:107, digital:77, img:'https://static.wixstatic.com/media/940f31_d1a80e4473714d99aa11c1fe5d709f2c~mv2.jpeg/v1/crop/x_0,y_188,w_864,h_808/fill/w_306,h_286,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2011_04AM.jpeg'},
     {id:'365',    label:'Livro 365 Dias Minimalistas',     type:'Livro',   name:'365 Dias Minimalistas',            fisico:107, digital:77, img:'https://static.wixstatic.com/media/940f31_4a3bcea6d0604339995c5adf76ad8ba6~mv2.jpeg/v1/crop/x_0,y_188,w_864,h_808/fill/w_306,h_286,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Generated%20Image%20September%2001%2C%202025%20-%203_31PM.jpeg'},
-    {id:'45',     label:'Guia 45 Dias de Destralhe',       type:'Guia',    name:'45 Dias de Destralhe',             fisico:97,  digital:47, img:'https://static.wixstatic.com/media/940f31_7c3c504c1a15465cbbbe613882c29ca2~mv2.jpeg/v1/crop/x_470,y_0,w_753,h_704/fill/w_306,h_286,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_52AM%20(1).jpeg'},
+    {id:'45',     label:'Guia 45 Dias de Destralhe',       type:'Guia',    name:'45 Dias de Destralhe',             fisico:97,  digital:47, exclusive:true, img:'https://static.wixstatic.com/media/940f31_7c3c504c1a15465cbbbe613882c29ca2~mv2.jpeg/v1/crop/x_470,y_0,w_753,h_704/fill/w_306,h_286,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_52AM%20(1).jpeg'},
     {id:'viaj',   label:'Livro Viajante Minimalista',      type:'Livro',   name:'Viajante Minimalista',             fisico:107, digital:77, img:'https://static.wixstatic.com/media/940f31_41d333b25e6a41d0aeef62be6fcc8e38~mv2.jpeg/v1/crop/x_0,y_188,w_864,h_808/fill/w_306,h_286,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_58AM.jpeg'},
     {id:'arm',    label:'Livro Armário Enxuto',            type:'Livro',   name:'Armário Enxuto',                   fisico:107, digital:77, img:'https://static.wixstatic.com/media/940f31_15755753bb5648a1b9c935287442ca3a~mv2.jpeg/v1/crop/x_0,y_188,w_864,h_808/fill/w_306,h_286,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2011_00AM.jpeg'},
     {id:'pv',     label:'Planner Minhas Viagens dos Sonhos', type:'Planner', name:'Planner Minhas Viagens dos Sonhos', fisico:137, digital:97, img:'https://static.wixstatic.com/media/940f31_e067c51ec583467ca372db1eed5128b0~mv2.jpeg/v1/crop/x_0,y_188,w_864,h_808/fill/w_306,h_286,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Generated%20Image%20August%2029%2C%202025%20-%2010_27AM.jpeg'},
@@ -299,10 +302,12 @@ footer a{color:#D8D8D4;text-decoration:none;}
   var HYBRID_IDS = ['sm','365','45','viaj','arm'];
   var SPECIALS = [
     {id:'fisicos', name:'Todos os físicos', keys: PRODUCTS.filter(function(p){return p.fisico!=null;}).map(function(p){return p.id+'|fisico';})},
-    {id:'hibrido', name:'Híbrido 5 físicos + 5 digitais', keys: HYBRID_IDS.map(function(i){return i+'|fisico';}).concat(HYBRID_IDS.map(function(i){return i+'|digital';}))}
+    {id:'hibrido', name:'Híbrido 5 físicos + 5 digitais', keys: HYBRID_IDS.map(function(i){return i+'|fisico';}).concat(HYBRID_IDS.filter(function(i){return i!=='45';}).map(function(i){return i+'|digital';}))}
   ];
 
   var FMT_NAME = {fisico:'Físico', digital:'Digital'};
+  function fmtName(p,f){return (p.exclusive && f==='fisico') ? 'Físico + Digital' : FMT_NAME[f];}
+  function itemLabel(i){return i.p.label+((i.p.exclusive && i.f==='fisico') ? ' (físico + digital)' : '');}
   var sel = {};
   var $ = function(id){return document.getElementById(id);};
   function k(id,f){return id+'|'+f;}
@@ -314,7 +319,7 @@ footer a{color:#D8D8D4;text-decoration:none;}
     var btn = function(f){
       if(p[f]==null) return f==='digital' ? '<div class="fmt-na">Só na versão física</div>' : '';
       return '<button type="button" class="fmt" data-k="'+k(p.id,f)+'" aria-pressed="false">'+
-        '<span class="lbl"><span class="box">'+CHECK+'</span>'+FMT_NAME[f]+'</span>'+
+        '<span class="lbl"><span class="box">'+CHECK+'</span>'+fmtName(p,f)+'</span>'+
         '<span class="price">'+brl(p[f])+'</span></button>';
     };
     return '<article class="card" data-card="'+p.id+'">'+
@@ -336,23 +341,36 @@ footer a{color:#D8D8D4;text-decoration:none;}
         if(sel[k(p.id,f)]) out.push({p:p,f:f,price:p[f]});
       });
     });
+    /* No combo híbrido o Guia 45 entra com os dois valores (97 + 47 = 144),
+       igual à página de combos: 5 físicos + 5 digitais = R$ 880 por R$ 528 (40% off). */
+    var sp0=activeSpecial();
+    if(sp0 && sp0.id==='hibrido'){
+      out.forEach(function(i){ if(i.p.exclusive && i.f==='fisico') i.price=i.p.fisico+i.p.digital; });
+    }
     return out;
   }
   function missing(sp){return sp.keys.filter(function(x){return !sel[x];});}
   function activeSpecial(){for(var i=0;i<SPECIALS.length;i++){if(!missing(SPECIALS[i]).length)return SPECIALS[i];}return null;}
   /* Desconto por quantidade (15% / 20%) */
   function tierPct(n){var pct=0;TIERS.forEach(function(t){if(n>=t.min)pct=t.pct;});return pct;}
+  /* Cupom DUPLAVERSAO: físico + digital do MESMO produto (só esses 2 itens no combo)
+     ganha 5% extra, chegando a 20%. Ex.: livro 107 + 77 = 184 → R$ 147 (em vez de R$ 156). */
+  var PAIR_COUPON='DUPLAVERSAO', PAIR_EXTRA=5;
+  function isPair(list){
+    return list.length===2 && list[0].p.id===list[1].p.id && list[0].f!==list[1].f;
+  }
+  function pairExtra(list){return isPair(list)?PAIR_EXTRA:0;}
   /* Desconto de cada item: 40% nos combos especiais, exceto Minimalize e curso (noMax),
      que ficam sempre na faixa por quantidade */
-  function itemPct(i,n,sp){return (sp && !i.p.noMax) ? 40 : tierPct(n);}
-  function pctFor(n){return activeSpecial() ? 40 : tierPct(n);}
+  function itemPct(i,n,sp){return (sp && !i.p.noMax) ? 40 : tierPct(n)+pairExtra(items());}
+  function pctFor(n){return activeSpecial() ? 40 : tierPct(n)+pairExtra(items());}
   function nearestSpecial(){
     var best=null;
     SPECIALS.forEach(function(sp){var m=missing(sp).length;if(!best||m<best.m)best={sp:sp,m:m};});
     return best;
   }
   function nameOf(key){var id=key.split('|')[0],f=key.split('|')[1];
-    var p=PRODUCTS.filter(function(x){return x.id===id;})[0];return p.name+' '+(f==='fisico'?'físico':'digital');}
+    var p=PRODUCTS.filter(function(x){return x.id===id;})[0];return p.name+' '+(f==='fisico'?(p.exclusive?'físico + digital':'físico'):'digital');}
 
   function buildMessage(list,pct,sub,fin,extras){
     var fis=list.filter(function(i){return i.f==='fisico';});
@@ -361,17 +379,18 @@ footer a{color:#D8D8D4;text-decoration:none;}
     var L=['Oi! Quero meu combo personalizado'+(sp?' ('+sp.name.toLowerCase()+')':'')+':',''];
     if(fis.length && dig.length){
       L.push('Versão física:');
-      fis.forEach(function(i){L.push('• '+i.p.label);});
+      fis.forEach(function(i){L.push('• '+itemLabel(i));});
       L.push('','Versão digital:');
       dig.forEach(function(i){L.push('• '+i.p.label);});
       L.push('', extras.length ? mixedLine() : 'Tudo com '+pct+'% de desconto.');
     } else {
-      list.forEach(function(i){L.push('• '+i.p.label);});
+      list.forEach(function(i){L.push('• '+itemLabel(i));});
       L.push('', extras.length ? mixedLine() : 'Todos em versão '+(fis.length?'física':'digital')+' e com '+pct+'% de desconto.');
     }
     function mixedLine(){
       return '40% de desconto nos itens do combo e '+tierPct(list.length)+'% em '+extras.map(function(i){return i.p.label;}).join(' e ')+'.';
     }
+    if(isPair(list)) L.push('Cupom '+PAIR_COUPON+' aplicado (físico + digital do mesmo produto).');
     L.push('De '+brl(sub,true)+' por '+brl(fin,true)+'.');
     return L.join('\n');
   }
@@ -385,7 +404,9 @@ footer a{color:#D8D8D4;text-decoration:none;}
     var fin=Math.floor(list.reduce(function(s,i){return s+i.price*(1-itemPct(i,n,sp)/100);},0)+1e-9);
     var save=sub-fin;
     var extras=sp ? list.filter(function(i){return i.p.noMax;}) : [];
-    var pctLabel=extras.length ? '40% + '+tierPct(n)+'%' : pct+'%';
+    var px=pairExtra(list);
+    var pctLabel=extras.length ? '40% + '+tierPct(n)+'%' : (px ? tierPct(n)+'%' : pct+'%');
+    var mPct=px ? pct+'%' : pctLabel;
 
     /* botões e cards */
     document.querySelectorAll('.fmt').forEach(function(b){
@@ -394,6 +415,13 @@ footer a{color:#D8D8D4;text-decoration:none;}
       b.setAttribute('aria-pressed',on);
     });
     PRODUCTS.forEach(function(p){
+      if(p.exclusive){
+        ['fisico','digital'].forEach(function(f){
+          var other=f==='fisico'?'digital':'fisico';
+          var el=document.querySelector('.fmt[data-k="'+k(p.id,f)+'"]');
+          if(el){var blocked=!!sel[k(p.id,other)];el.disabled=blocked;el.classList.toggle('blocked',blocked);}
+        });
+      }
       var c=document.querySelector('[data-card="'+p.id+'"]');
       c.classList.toggle('sel', !!(sel[k(p.id,'fisico')]||sel[k(p.id,'digital')]));
     });
@@ -408,6 +436,7 @@ footer a{color:#D8D8D4;text-decoration:none;}
     var hint;
     if(n===0) hint='Escolha pelo menos <strong>2 itens</strong> para liberar o desconto.';
     else if(n===1) hint='Mais 1 item e você ganha <strong>15% off</strong>. Se for levar só esse, use o cupom <strong>GANHEI10</strong> direto no site.';
+    else if(n===2 && px) hint='Você já tem <strong>15% off</strong> e ainda ganhou <strong>+5%</strong> com o cupom <strong>'+PAIR_COUPON+'</strong> por levar o físico e o digital do mesmo produto. Somando mais itens, você mantém os <strong>20%</strong>.';
     else if(n===2) hint='Você já tem <strong>15% off</strong>. Mais 1 item e o desconto sobe para <strong>20%</strong>.';
     else if(sp) hint='Você fechou o combo <strong>'+sp.name.toLowerCase()+'</strong>: <strong>40% off</strong>'+(extras.length ? ' nos itens do combo. '+extras.map(function(i){return i.p.name;}).join(' e ')+(extras.length>1?' ficam':' fica')+' com <strong>'+tierPct(n)+'%</strong>.' : ' no combo inteiro.');
     else {
@@ -421,18 +450,20 @@ footer a{color:#D8D8D4;text-decoration:none;}
 
     $('sum-list').innerHTML = n ? list.map(function(i){
       var ip=itemPct(i,n,sp);
-      return '<li><div>'+i.p.label+'<small>'+FMT_NAME[i.f]+' · '+brl(i.price)+(n>=2&&extras.length?' · '+ip+'% off':'')+'</small></div>'+
+      return '<li><div>'+i.p.label+'<small>'+fmtName(i.p,i.f)+' · '+brl(i.price)+(n>=2&&extras.length?' · '+ip+'% off':'')+'</small></div>'+
         '<button class="rm" data-rm="'+k(i.p.id,i.f)+'" aria-label="Remover '+i.p.label+'"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></li>';
     }).join('') : '<li class="empty" style="border:none">Nenhum item escolhido ainda.</li>';
 
     $('t-sub').textContent=brl(sub,true);
     $('t-pct').textContent=pctLabel;
+    $('t-extra-row').style.display = (n>=2 && px) ? '' : 'none';
+    $('t-extra').textContent = '+'+PAIR_EXTRA+'%';
     $('t-final').textContent=brl(n>=2?fin:sub);
     $('t-save').textContent = (n>=2&&save>0) ? 'Você economiza '+brl(save,true) : '';
 
     /* notas */
     var hasFis=list.some(function(i){return i.f==='fisico';});
-    var hasDig=list.some(function(i){return i.f==='digital';});
+    var hasDig=list.some(function(i){return i.f==='digital' || (i.p.exclusive && i.f==='fisico');});
     var notes='';
     if(hasFis) notes+='<div class="note">Frete grátis para todo o Brasil nos itens físicos.</div>';
     if(hasDig) notes+='<div class="note">Os digitais são liberados logo depois do pagamento.</div>';
@@ -452,7 +483,7 @@ footer a{color:#D8D8D4;text-decoration:none;}
     $('cta-txt').textContent = ok ? 'Comprar combo' : 'Escolha pelo menos 2 itens';
 
     /* barra mobile */
-    $('m-top').textContent = n ? (n+(n===1?' item':' itens')+(pct?' · '+pctLabel+' off':'')) : 'Nenhum item ainda';
+    $('m-top').textContent = n ? (n+(n===1?' item':' itens')+(pct?' · '+mPct+' off':'')) : 'Nenhum item ainda';
     $('m-sub').textContent = ok ? brl(fin)+' (de '+brl(sub)+')' : '2 itens liberam 15% off';
   }
 
@@ -460,6 +491,7 @@ footer a{color:#D8D8D4;text-decoration:none;}
   document.addEventListener('click',function(e){
     var b=e.target.closest('.fmt');
     if(b){
+      if(b.disabled) return;
       var key=b.getAttribute('data-k');
       if(sel[key]) delete sel[key]; else {
         sel[key]=true;
