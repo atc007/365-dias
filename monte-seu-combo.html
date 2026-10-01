@@ -192,6 +192,16 @@ footer a{color:#D8D8D4;text-decoration:none;}
   .fmt{font-size:11.5px;padding:9px 8px;}
   .fmt .box{width:14px;height:14px;}
 }
+/* Web: cards maiores (mobile fica como está) */
+@media(min-width:721px){
+  .grid{grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px;}
+  .card-body{padding:16px 16px 18px;}
+  .card-type{font-size:11px;margin-bottom:4px;}
+  .card-name{font-size:19px;margin-bottom:16px;}
+  .fmts{gap:9px;}
+  .fmt{font-size:14px;padding:13px 14px;border-radius:14px;}
+  .fmt .box{width:18px;height:18px;}
+}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 </style>
 </head>
