@@ -372,6 +372,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   .grid-featured .feat-card.best .feat-now{font-size:32px;}
   .grid-featured .feat-card.best .feat-btn{font-size:12.5px;padding:12px 8px;}
 }
+/* Rodapé: fundo em largura total, conteúdo centralizado */
+footer .inner{max-width:1180px;margin-left:auto;margin-right:auto;}
+@media(min-width:721px){
+  footer #footer-grid{grid-template-columns:1.1fr .8fr 1.4fr!important;gap:56px!important;}
+}
 @media(max-width:380px){
   .feat-name strong,.reg-name strong{font-size:12.8px;}
   .feat-now,.reg-now{font-size:20px;}
