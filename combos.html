@@ -293,6 +293,76 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   .combo-float-text{display:none;}
   #combo-float{padding:10px;}
 }
+
+/* ===== AJUSTES: largura total, cards mais legíveis e 2 por fileira no mobile ===== */
+:root{--gutter:clamp(20px,3vw,48px);}
+.inner{max-width:none;padding-left:var(--gutter);padding-right:var(--gutter);}
+.quick-nav-inner{max-width:none;padding-left:var(--gutter);padding-right:var(--gutter);}
+.mv-wrap{max-width:none;}
+.hero p{max-width:560px;}
+
+/* Cards: superfície um pouco mais clara que o fundo, borda fina, sombra e brilho dourado sutil */
+.feat-card,.reg-card,.ind-card{
+  background:linear-gradient(180deg,rgba(255,255,255,.11) 0%,rgba(255,255,255,.055) 100%);
+  border:1px solid rgba(255,255,255,.09);
+  box-shadow:0 12px 28px -8px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.02),inset 0 1px 0 rgba(255,255,255,.10),0 0 26px rgba(201,169,110,.07);
+}
+.feat-card.best{
+  background:linear-gradient(180deg,rgba(201,169,110,.20) 0%,rgba(201,169,110,.08) 100%);
+  border:1px solid rgba(232,208,154,.55);
+  box-shadow:0 14px 34px -8px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.14),0 0 34px rgba(201,169,110,.28);
+}
+.feat-name,.reg-name{color:#D2CBBF;}
+.feat-was,.reg-was{color:#B4AEA3;}
+.ind-coupon{color:#BDB7AC;}
+.feat-body,.reg-body,.ind-body{border-top:1px solid rgba(255,255,255,.06);}
+
+@media(max-width:720px){
+  :root{--gutter:12px;}
+  .quick-nav-inner{padding-top:8px;padding-bottom:8px;}
+
+  /* 2 por fileira também nos combos completos */
+  .grid-featured{grid-template-columns:1fr 1fr;gap:10px;}
+  .grid-4,.grid-5{gap:10px;}
+
+  .feat-card,.reg-card,.ind-card{
+    border-radius:16px;border:1px solid rgba(255,255,255,.07);
+    background:linear-gradient(180deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,.06) 100%);
+    box-shadow:0 14px 26px -8px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.03),inset 0 1px 0 rgba(255,255,255,.12),0 0 22px rgba(201,169,110,.10);
+  }
+  .feat-card.best{
+    border:1px solid rgba(232,208,154,.5);
+    box-shadow:0 14px 30px -8px rgba(0,0,0,.75),inset 0 1px 0 rgba(255,255,255,.16),0 0 30px rgba(201,169,110,.30);
+  }
+
+  /* textos mais claros e hierarquia mais evidente */
+  .feat-body{padding:10px 11px 12px;}
+  .feat-name,.reg-name{font-size:11.5px;color:#DAD3C7;line-height:1.4;margin-bottom:8px;}
+  .feat-name strong,.reg-name strong{font-size:13.5px;color:#FFFFFF;line-height:1.28;}
+  .ind-name{color:#FFFFFF;}
+  .feat-now{font-size:24px;}
+  .reg-now{font-size:22px;}
+  .feat-was,.reg-was{font-size:11px;}
+  .feat-price-row,.reg-price-row{margin-bottom:10px;}
+  .feat-btn,.reg-btn{font-size:11.5px;padding:10px 6px;box-shadow:0 4px 14px rgba(201,169,110,.3);}
+  .feat-badge,.reg-badge{background:rgba(14,13,11,.92);border-color:rgba(240,216,152,.4);}
+
+  /* Combo de maior destaque (40% híbrido): ocupa a linha inteira, em formato horizontal */
+  .grid-featured .feat-card.best{grid-column:1/-1;display:flex;align-items:stretch;}
+  .grid-featured .feat-card.best .feat-img-wrap{width:44%;flex-shrink:0;}
+  .grid-featured .feat-card.best .feat-img-wrap img{height:100%;aspect-ratio:auto;}
+  .grid-featured .feat-card.best .feat-body{flex:1;display:flex;flex-direction:column;justify-content:center;border-top:0;padding:14px 14px 16px;}
+  .grid-featured .feat-card.best .feat-name strong{font-size:14.5px;}
+  .grid-featured .feat-card.best .feat-now{font-size:32px;}
+  .grid-featured .feat-card.best .feat-btn{font-size:12.5px;padding:12px 8px;}
+
+  /* Mais vendido continua em largura total */
+  .mv-feat .feat-body{border-top:1px solid rgba(255,255,255,.06);}
+}
+@media(max-width:380px){
+  .feat-name strong,.reg-name strong{font-size:12.8px;}
+  .feat-now,.reg-now{font-size:20px;}
+}
 </style>
 
 <!-- Advanced Attribution — UTM Passthrough -->
