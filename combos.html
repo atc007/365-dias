@@ -294,28 +294,56 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   #combo-float{padding:10px;}
 }
 
-/* ===== AJUSTES: largura total, cards mais legíveis e 2 por fileira no mobile ===== */
+/* ===== AJUSTES: largura total, cards claros e 2 por fileira no mobile ===== */
 :root{--gutter:clamp(20px,3vw,48px);}
 .inner{max-width:none;padding-left:var(--gutter);padding-right:var(--gutter);}
 .quick-nav-inner{max-width:none;padding-left:var(--gutter);padding-right:var(--gutter);}
 .mv-wrap{max-width:none;}
 .hero p{max-width:560px;}
 
-/* Cards: superfície um pouco mais clara que o fundo, borda fina, sombra e brilho dourado sutil */
+/* CARDS CLAROS: contrastam com o fundo escuro */
 .feat-card,.reg-card,.ind-card{
-  background:linear-gradient(180deg,rgba(255,255,255,.11) 0%,rgba(255,255,255,.055) 100%);
-  border:1px solid rgba(255,255,255,.09);
-  box-shadow:0 12px 28px -8px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.02),inset 0 1px 0 rgba(255,255,255,.10),0 0 26px rgba(201,169,110,.07);
+  background:linear-gradient(180deg,#FFFFFF 0%,#F4EFE4 100%);
+  border:1px solid rgba(255,255,255,.55);
+  box-shadow:0 14px 30px -10px rgba(0,0,0,.75),0 0 0 1px rgba(0,0,0,.04),0 0 28px rgba(201,169,110,.16);
+}
+@media(hover:hover) and (pointer:fine){
+  .feat-card:hover,.reg-card:hover,.ind-card:hover{
+    background:linear-gradient(180deg,#FFFFFF 0%,#FAF5EA 100%);
+    border-color:var(--gold);
+    box-shadow:0 18px 38px -10px rgba(0,0,0,.8),0 0 34px rgba(201,169,110,.30);
+  }
 }
 .feat-card.best{
-  background:linear-gradient(180deg,rgba(201,169,110,.20) 0%,rgba(201,169,110,.08) 100%);
-  border:1px solid rgba(232,208,154,.55);
-  box-shadow:0 14px 34px -8px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.14),0 0 34px rgba(201,169,110,.28);
+  background:linear-gradient(180deg,#FFF8E3 0%,#F6E6C0 100%);
+  border:1.5px solid var(--gold);
+  box-shadow:0 16px 36px -10px rgba(0,0,0,.75),0 0 38px rgba(201,169,110,.40);
 }
-.feat-name,.reg-name{color:#D2CBBF;}
-.feat-was,.reg-was{color:#B4AEA3;}
-.ind-coupon{color:#BDB7AC;}
-.feat-body,.reg-body,.ind-body{border-top:1px solid rgba(255,255,255,.06);}
+.feat-body,.reg-body,.ind-body{border-top:1px solid rgba(28,28,26,.08);}
+.feat-name,.reg-name{color:#6A645A;}
+.feat-name strong,.reg-name strong,.ind-name{color:#1C1C1A;}
+.feat-was,.reg-was{color:#8C867B;}
+.feat-now,.reg-now{background:linear-gradient(100deg,#8A6428 0%,#A9803F 45%,#C29A55 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.feat-btn,.reg-btn{background:#1C1C1A;color:#F0D898;box-shadow:0 4px 14px rgba(0,0,0,.28);}
+.ind-coupon{color:#6A645A;}
+.ind-coupon strong{color:#8A6428;}
+.ind-btn{background:rgba(28,28,26,.05);border:1px solid rgba(28,28,26,.2);color:#1C1C1A;}
+@media(hover:hover) and (pointer:fine){
+  .ind-card:hover .ind-btn{border-color:var(--gold);background:rgba(201,169,110,.22);}
+}
+
+/* Desktop: combos completos no mesmo tamanho dos demais cards */
+@media(min-width:721px){
+  .grid-featured{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;}
+  .grid-featured .feat-body{padding:13px 15px 15px;}
+  .grid-featured .feat-name{font-size:12px;line-height:1.4;margin-bottom:8px;}
+  .grid-featured .feat-name strong{font-size:15.5px;}
+  .grid-featured .feat-now{font-size:26px;}
+  .grid-featured .feat-was{font-size:12px;}
+  .grid-featured .feat-price-row{margin-bottom:12px;}
+  .grid-featured .feat-btn{font-size:12px;padding:11px;}
+  .grid-featured .feat-badge{font-size:10.5px;}
+}
 
 @media(max-width:720px){
   :root{--gutter:12px;}
@@ -324,30 +352,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   /* 2 por fileira também nos combos completos */
   .grid-featured{grid-template-columns:1fr 1fr;gap:10px;}
   .grid-4,.grid-5{gap:10px;}
+  .feat-card,.reg-card,.ind-card{border-radius:16px;}
 
-  .feat-card,.reg-card,.ind-card{
-    border-radius:16px;border:1px solid rgba(255,255,255,.07);
-    background:linear-gradient(180deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,.06) 100%);
-    box-shadow:0 14px 26px -8px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.03),inset 0 1px 0 rgba(255,255,255,.12),0 0 22px rgba(201,169,110,.10);
-  }
-  .feat-card.best{
-    border:1px solid rgba(232,208,154,.5);
-    box-shadow:0 14px 30px -8px rgba(0,0,0,.75),inset 0 1px 0 rgba(255,255,255,.16),0 0 30px rgba(201,169,110,.30);
-  }
-
-  /* textos mais claros e hierarquia mais evidente */
   .feat-body{padding:10px 11px 12px;}
-  .feat-name,.reg-name{font-size:11.5px;color:#DAD3C7;line-height:1.4;margin-bottom:8px;}
-  .feat-name strong,.reg-name strong{font-size:13.5px;color:#FFFFFF;line-height:1.28;}
-  .ind-name{color:#FFFFFF;}
+  .feat-name,.reg-name{font-size:11.5px;line-height:1.4;margin-bottom:8px;}
+  .feat-name strong,.reg-name strong{font-size:13.5px;line-height:1.28;}
   .feat-now{font-size:24px;}
   .reg-now{font-size:22px;}
   .feat-was,.reg-was{font-size:11px;}
   .feat-price-row,.reg-price-row{margin-bottom:10px;}
-  .feat-btn,.reg-btn{font-size:11.5px;padding:10px 6px;box-shadow:0 4px 14px rgba(201,169,110,.3);}
-  .feat-badge,.reg-badge{background:rgba(14,13,11,.92);border-color:rgba(240,216,152,.4);}
+  .feat-btn,.reg-btn{font-size:11.5px;padding:10px 6px;}
 
-  /* Combo de maior destaque (40% híbrido): ocupa a linha inteira, em formato horizontal */
+  /* Combo de maior destaque (40% híbrido): linha inteira, formato horizontal */
   .grid-featured .feat-card.best{grid-column:1/-1;display:flex;align-items:stretch;}
   .grid-featured .feat-card.best .feat-img-wrap{width:44%;flex-shrink:0;}
   .grid-featured .feat-card.best .feat-img-wrap img{height:100%;aspect-ratio:auto;}
@@ -355,9 +371,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   .grid-featured .feat-card.best .feat-name strong{font-size:14.5px;}
   .grid-featured .feat-card.best .feat-now{font-size:32px;}
   .grid-featured .feat-card.best .feat-btn{font-size:12.5px;padding:12px 8px;}
-
-  /* Mais vendido continua em largura total */
-  .mv-feat .feat-body{border-top:1px solid rgba(255,255,255,.06);}
 }
 @media(max-width:380px){
   .feat-name strong,.reg-name strong{font-size:12.8px;}
