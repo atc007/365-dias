@@ -2229,5 +2229,25 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
   });
 })();
 </script>
+<script>
+/* Hero background = fundo da foto do hero (amostra os cantos da imagem) */
+(function(){
+  try{
+    var sec=document.querySelector('.sec-hero'); if(!sec) return;
+    var im=new Image(); im.crossOrigin='anonymous';
+    im.onload=function(){
+      try{
+        var w=im.naturalWidth,h=im.naturalHeight,c=document.createElement('canvas');
+        c.width=w;c.height=h;var x=c.getContext('2d',{willReadFrequently:true});x.drawImage(im,0,0);
+        var pts=[[2,2],[w-3,2],[2,h-3],[w-3,h-3]],r=0,g=0,b=0,n=0;
+        pts.forEach(function(p){var d=x.getImageData(p[0],p[1],1,1).data;if(d[3]>200){r+=d[0];g+=d[1];b+=d[2];n++;}});
+        if(!n) return;
+        sec.style.background='rgb('+Math.round(r/n)+','+Math.round(g/n)+','+Math.round(b/n)+')';
+      }catch(e){}
+    };
+    im.src='https://static.wixstatic.com/media/940f31_92cdf2d8e83940d48741782772e4c756~mv2.avif';
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
