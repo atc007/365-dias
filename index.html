@@ -1005,6 +1005,24 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   .hero-note{display:block!important;text-align:center!important;}
   .hero-note::before{display:inline-block;margin-right:6px;vertical-align:-1px;line-height:1;}
 }
+
+/* ══════════ TEXTO CORRIDO NO CELULAR (31/10/2026) ══════════
+   Só leitura, só mobile. Desktop, títulos, botões e rótulos ficam como estavam.
+   Para desfazer um item, apague a linha dele. */
+@media(max-width:720px){
+  /* respostas e perguntas do FAQ: o maior bloco de leitura da página */
+  .faq-a-inner{font-size:16.5px;line-height:1.7;}
+  .faq-q{font-size:16px;}
+  /* descrições dos capítulos, benefícios e diferencial */
+  .cap-desc,.ben-desc,.dif-desc{font-size:15.5px;}
+  /* avisos, bônus e comparativos */
+  .urg-p,.qual-nao-item,.bvx{font-size:16px;}
+  .ancora-compare,.anchor-strip,.bonus-title,.vip-extra p{font-size:15.5px;}
+  .car-cap{font-size:14px;}
+  /* linhas de apoio perto da decisão de compra */
+  .pc-sub,.pc-feats li{font-size:15px;}
+  .precos-pagamento,.hero-note,.hero-note-text{font-size:14.5px;}
+}
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -1663,7 +1681,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
           <div class="pc-now">ou R$ 77 à vista</div>
           <ul class="pc-feats">
             <li>Área VIP e bônus inclusos</li>
-            <li>Receba imediatamente no e-mail</li>
+            <li>Receba imediatamente no e&#8209;mail</li>
             <li>Alta resolução, PDF</li>
             <li>Celular, Kindle ou tablet</li>
             <li>Disponível para o mundo todo</li>
