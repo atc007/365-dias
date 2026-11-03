@@ -141,7 +141,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&display=swap">
-<link rel="preload" as="image" fetchpriority="high"
+<link rel="preload" as="image" type="image/avif" fetchpriority="high" media="(max-width:720px)"
+  href="https://static.wixstatic.com/media/940f31_1838b3822c4641b198bb875a2aeb075e~mv2.avif">
+<link rel="preload" as="image" type="image/avif" fetchpriority="high" media="(min-width:721px)"
   href="https://static.wixstatic.com/media/940f31_eb8f910c5d954e29a62245b38afb8ead~mv2.avif">
 
 <style>
@@ -1055,8 +1057,6 @@ fbq('track', 'ViewContent', {
   value: 77.00
 });
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></noscript>
 <link rel="dns-prefetch" href="//chk.eduzz.com">
 <link rel="preconnect" href="https://chk.eduzz.com" crossorigin>
 <!-- Microsoft Clarity -->
@@ -1200,8 +1200,63 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 }
 </script>
 
+<style id="lote1-correcoes">
+/* ══ LOTE 1 (03/11/2026): correções da auditoria técnica ══ */
+
+/* Contraste: textos secundários sobre fundo escuro (antes #5E5B55 sobre #1C1C1A = 2,5:1) */
+:root{--ink-muted-dark:#A8A49B;}
+.countdown,.stat-lbl,.urg-p,.gar-p,.footer-copy,.footer-links h3,.footer-news h3,.car-cap{color:var(--ink-muted-dark);}
+.urg-sep{color:#8A867D;}
+/* Contraste: textos sobre fundo claro */
+.pc-feats li.no,.pc-feats li.no::before{color:#6F6C64;}
+.dest-badge.muted{color:#3D3D3B;}
+.faq-icon{color:var(--gold-text);border-color:var(--gold-text);}
+.sec.alt .sec-eyebrow{color:#775420;}
+.t-headline em{color:var(--gold-text);}
+.t-card:not(.featured) .t-avatar{color:var(--ink);}
+
+/* Tablet (721 a 960px): preços sem corte e página sem rolagem horizontal */
+@media(min-width:721px) and (max-width:960px){
+  #versoes{padding-left:20px;padding-right:20px;}
+  #versoes > .inner{padding-left:0;padding-right:0;}
+  .precos{gap:14px;}
+  .pc-parc-destaque{font-size:clamp(20px,3vw,28px);}
+  .t-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-flow:dense;}
+}
+
+/* Celular: overflow-x:hidden em html/body quebrava o position:sticky da barra do topo */
+@media(max-width:720px){html,body{overflow-x:clip;}}
+
+/* Barra fixa de compra: escondida também para teclado e leitor de tela */
+.sticky-buy-bar{visibility:hidden;transition:transform .35s cubic-bezier(.25,.8,.25,1),visibility 0s linear .35s;}
+.sticky-buy-bar.show{visibility:visible;transition:transform .35s cubic-bezier(.25,.8,.25,1),visibility 0s;}
+
+/* Stories: sem salto de 6px a cada volta (gap -> margin) e acessíveis com movimento reduzido */
+.stories-strip{gap:0;}
+.story-card{margin-right:12px;}
+@media(prefers-reduced-motion:reduce){
+  .stories-viewport{overflow-x:auto;-webkit-mask-image:none;mask-image:none;}
+  .story-card[aria-hidden="true"]{display:none;}
+}
+
+/* Vídeo do livro: toque para pausar/retomar */
+.oq-video{position:relative;}
+.oq-video-btn{position:absolute;inset:0;width:100%;height:100%;background:none;border:0;padding:0;margin:0;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent;}
+.oq-video-btn:focus-visible{outline:3px solid var(--gold);outline-offset:-3px;border-radius:22px;}
+.oq-video-ico{width:64px;height:64px;border-radius:50%;background:rgba(28,28,26,.62);border:1px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;color:#fff;transition:opacity .25s;}
+.oq-video-ico svg{width:24px;height:24px;display:block;}
+.oq-video-ico .i-pause{display:none;}
+.oq-video.is-playing .oq-video-ico{opacity:0;}
+.oq-video.is-playing .oq-video-ico .i-play{display:none;}
+.oq-video.is-playing .oq-video-ico .i-pause{display:block;}
+.oq-video-btn:focus-visible .oq-video-ico{opacity:1;}
+@media(hover:hover){.oq-video.is-playing:hover .oq-video-ico{opacity:1;}}
+@media(prefers-reduced-motion:reduce){.oq-video-ico{transition:none;}}
+</style>
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1" alt=""/></noscript>
 
 <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
@@ -1298,12 +1353,13 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       <div class="oq-video-wrap">
         <p class="oq-video-label">Toque para assistir</p>
         <div class="oq-video">
-          <video id="oq-video"
+          <video id="oq-video" aria-label="Vídeo de apresentação do livro Seja Minimalista"
             src="https://video.wixstatic.com/video/940f31_f4dfd1313d7a4db088f8d64c25046bda/720p/mp4/file.mp4"
             preload="none" loop muted playsinline
             poster="https://static.wixstatic.com/media/940f31_aa1a63c13d8b4026ae6cb6dcb53233ac~mv2.jpg/v1/fill/w_400,h_400,al_c,q_85,enc_auto,quality_auto/seja-min-poster.jpg"
             style="width:100%;height:100%;object-fit:cover;display:block;">
           </video>
+          <button type="button" class="oq-video-btn" id="oq-video-btn" aria-label="Reproduzir vídeo"><span class="oq-video-ico" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.2v13.6a1 1 0 0 0 1.5.86l11-6.8a1 1 0 0 0 0-1.72l-11-6.8A1 1 0 0 0 8 5.2Z"/></svg><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4.2" height="14" rx="1"/><rect x="13.8" y="5" width="4.2" height="14" rx="1"/></svg></span></button>
         </div>
       </div>
     </div>
@@ -1479,7 +1535,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <!-- CARROSSEL DE STORIES: busca as fotos automaticamente da pasta do GitHub.
          Pra atualizar, é só subir/apagar imagens na pasta STORIES_FOLDER do repositório —
          não precisa editar este arquivo nunca mais. -->
-    <div class="stories-block" id="stories-block" aria-hidden="true">
+    <div class="stories-block" id="stories-block">
       <div class="stories-label">Direto do Instagram dos leitores</div>
       <div class="stories-controls">
         <button class="stories-pause" id="stories-pause-btn" onclick="toggleStoriesPause()" aria-label="Pausar fotos em movimento" aria-pressed="false"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><rect x="1" y="0.5" width="3" height="9"/><rect x="6" y="0.5" width="3" height="9"/></svg><span>pausar</span></button>
@@ -1875,6 +1931,8 @@ function irParaVersoes(e, fromCoupon){
   }
 }
 
+</script>
+<script>
 /* ══ PALAVRA GIRANDO NO HERO ══ */
 (function(){
   var words = ['coisas.','roupas.','tela.','gastos.','decisão.','barulho.'];
@@ -1922,6 +1980,8 @@ function irParaVersoes(e, fromCoupon){
   }, 1600);
 })();
 
+</script>
+<script>
 /* ══ BARRA FIXA DE COMPRA — aparece ao rolar, some perto do topo e dentro de "Escolha sua versão" ══ */
 (function(){
   var bar=document.getElementById('sticky-buy-bar');
@@ -1961,9 +2021,14 @@ function irParaVersoes(e, fromCoupon){
     }, {threshold:.15});
     obs.observe(versoesSec);
   }
+  /* estado inicial: o navegador pode restaurar a rolagem ao recarregar */
+  refresh();
+  window.addEventListener('load', refresh);
 })();
 
 
+</script>
+<script>
 /* COUNTDOWN persistente 23h59 — reinicia ao zerar */
 (function(){
   var KEY='sm_deadline';
@@ -1991,24 +2056,69 @@ function irParaVersoes(e, fromCoupon){
   tick();
 })();
 
-/* VÍDEO DO LIVRO — lazy load */
-var qv=document.getElementById('oq-video');
-if(qv){
-  var qvObs=new IntersectionObserver(function(e){
-    if(e[0].isIntersecting){qv.load();qv.play().catch(function(){});qvObs.disconnect();}
+</script>
+<script>
+/* VÍDEO DO LIVRO — inicia sozinho (sem som) ao aparecer; toque pausa e retoma */
+(function(){
+  var qv=document.getElementById('oq-video');
+  var qbtn=document.getElementById('oq-video-btn');
+  var qlabel=document.querySelector('.oq-video-label');
+  if(!qv||!qbtn) return;
+  var qbox=qv.parentElement;
+  function sync(){
+    var playing=!qv.paused&&!qv.ended;
+    qbox.classList.toggle('is-playing',playing);
+    qbtn.setAttribute('aria-label',playing?'Pausar vídeo':'Reproduzir vídeo');
+    if(qlabel) qlabel.textContent=playing?'Toque para pausar':'Toque para assistir';
+  }
+  function tryPlay(){
+    var p; try{ p=qv.play(); }catch(e){}
+    if(p&&p.catch) p.catch(sync);
+  }
+  qv.addEventListener('play',sync);
+  qv.addEventListener('pause',sync);
+  qv.addEventListener('ended',sync);
+  qbtn.addEventListener('click',function(){ if(qv.paused){ tryPlay(); } else { qv.pause(); } });
+  sync();
+  /* movimento reduzido, economia de dados ou conexão lenta: só toca quando a pessoa pedir */
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var conn=navigator.connection||{};
+  var poucaBanda=conn.saveData||/^(slow-2g|2g|3g)$/.test(conn.effectiveType||'');
+  if(reduced||poucaBanda||!('IntersectionObserver' in window)) return;
+  var obs=new IntersectionObserver(function(e){
+    if(e[0].isIntersecting){ tryPlay(); obs.disconnect(); }
   },{threshold:.1});
-  qvObs.observe(qv);
-}
+  obs.observe(qv);
+})();
 
+</script>
+<script>
 /* CARROSSEL — 7 slides */
-var ci=0,TOTAL=7,loaded=[true,false,false,false,false,false,false];
+var ci=0,TOTAL=document.querySelectorAll('#slides .car-slide').length||7,loaded=[];
+for(var li=0;li<TOTAL;li++){loaded.push(li===0);}
+var carTimer=null;
+var carReduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* reinicia a contagem a cada troca, inclusive quando a pessoa clica num ponto */
+function carStart(){
+  if(carReduced) return;
+  clearInterval(carTimer);
+  carTimer=setInterval(function(){slideTo((ci+1)%TOTAL);},4000);
+}
 function loadSlide(i){if(loaded[i])return;var imgs=document.querySelectorAll('.car-slide img');if(imgs[i]&&imgs[i].dataset.src){imgs[i].src=imgs[i].dataset.src;loaded[i]=true;}}
-function slideTo(i){ci=i;loadSlide(i);loadSlide((i+1)%TOTAL);document.getElementById('slides').style.transform='translateX(-'+(i*100)+'%)';document.querySelectorAll('.cdot').forEach(function(d,j){d.classList.toggle('active',j===i);});}
-setInterval(function(){slideTo((ci+1)%TOTAL);},4000);
+function slideTo(i){ci=i;loadSlide(i);loadSlide((i+1)%TOTAL);document.getElementById('slides').style.transform='translateX(-'+(i*100)+'%)';document.querySelectorAll('.cdot').forEach(function(d,j){d.classList.toggle('active',j===i);});
+  /* só a imagem visível entra na ordem do Tab (as outras ficam fora da tela) */
+  document.querySelectorAll('#slides .car-slide img').forEach(function(im,j){im.setAttribute('tabindex',j===i?'0':'-1');});
+  carStart();}
+document.querySelectorAll('#slides .car-slide img').forEach(function(im,j){im.setAttribute('tabindex',j===0?'0':'-1');});
+carStart();
 
+</script>
+<script>
 /* FAQ */
 function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
 
+</script>
+<script>
 /* ══ CARROSSEL DE STORIES — busca automática na pasta do GitHub ══ */
 (function(){
   // ▼▼▼ PREENCHA AQUI ▼▼▼
@@ -2062,6 +2172,11 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
       img.alt = 'Leitor compartilhando o livro Seja Minimalista no Instagram';
       img.loading = i < 3 ? 'eager' : 'lazy';
       img.decoding = 'async';
+      // se o wsrv.nl falhar, tenta a foto original; se ela também falhar, esconde só aquele cartão
+      img.onerror = function(){
+        if(!img.getAttribute('data-fb')){ img.setAttribute('data-fb','1'); img.src = url; }
+        else { card.style.visibility = 'hidden'; }
+      };
       card.appendChild(img);
       strip.appendChild(card);
     });
@@ -2069,7 +2184,6 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
     var halfWidth = strip.scrollWidth / 2;
     var duration = Math.max(18, Math.round(halfWidth / 32));
     strip.style.animationDuration = duration + 's';
-    block.setAttribute('aria-hidden','true');
   }
 
   window.toggleStoriesPause = function(){
@@ -2131,6 +2245,8 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
     });
 })();
 
+</script>
+<script>
 /* ══ HEADER SHRINK/BLUR + BARRA DE PROGRESSO ══ */
 (function(){
   var uBar=document.getElementById('urgency-bar');
@@ -2155,6 +2271,8 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
   onScroll();
 })();
 
+</script>
+<script>
 /* ══ LIGHTBOX — clique nas páginas do carrossel para ampliar ══ */
 (function(){
   function upsizeWix(url){
@@ -2165,23 +2283,36 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
   var lbImg=document.getElementById('lightbox-img');
   var slidesWrap=document.getElementById('slides');
 
+  var lastFocus=null;
   window.openLightbox=function(imgEl){
     var real = imgEl.currentSrc || imgEl.src || imgEl.dataset.src;
     if(!real) return;
+    lastFocus = document.activeElement;
     lbImg.src = upsizeWix(real);
     lbImg.alt = imgEl.alt || '';
     lb.classList.add('active');
     document.body.style.overflow='hidden';
+    var cb = lb.querySelector('.lightbox-close');
+    setTimeout(function(){ if(cb) cb.focus(); }, 30);
   };
   window.closeLightbox=function(){
+    var estavaAberto = lb.classList.contains('active');
     lb.classList.remove('active');
     document.body.style.overflow='';
+    if(estavaAberto && lastFocus && lastFocus.focus){ lastFocus.focus(); }
   };
 
   if(slidesWrap){
+    slidesWrap.querySelectorAll('img').forEach(function(im){
+      im.setAttribute('role','button');
+      im.setAttribute('aria-label',(im.alt||'Página do livro')+', ampliar');
+    });
     slidesWrap.addEventListener('click', function(e){
       var img=e.target.closest('img');
       if(img) openLightbox(img);
+    });
+    slidesWrap.addEventListener('keydown', function(e){
+      if((e.key==='Enter'||e.key===' ') && e.target.tagName==='IMG'){ e.preventDefault(); openLightbox(e.target); }
     });
   }
   lb.addEventListener('click', function(e){
@@ -2192,6 +2323,8 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
   });
 })();
 
+</script>
+<script>
 /* ══ SCROLL REVEAL + CONTADORES ANIMADOS ══ */
 (function(){
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2279,6 +2412,8 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
   }
 })();
 
+</script>
+<script>
 /* META PIXEL — eventos avançados */
 (function(){
 
@@ -2329,14 +2464,16 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
   /* ══ UTM PASSTHROUGH — repassa UTMs da URL para todos os links de checkout ══ */
   (function(){
     try {
-      var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
+      var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid','gclid','gbraid','wbraid'];
       var hasTracking = utmKeys.some(function(k){ return params.has(k); });
-      if(!hasTracking) return;
 
-      /* Salva no sessionStorage para persistir entre páginas */
-      utmKeys.forEach(function(k){
-        if(params.has(k)) safeSet('sm_' + k, params.get(k));
-      });
+      /* Salva no sessionStorage só quando a URL traz parâmetros; sem parâmetros,
+         os valores guardados antes continuam sendo aplicados aos links de checkout */
+      if(hasTracking){
+        utmKeys.forEach(function(k){
+          if(params.has(k)) safeSet('sm_' + k, params.get(k));
+        });
+      }
 
       function applyUtms(){
         document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
@@ -2431,10 +2568,10 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
 /* RODAPÉ — largura adaptável ao navegador, como a HERO */
 @media (min-width:721px){.footer > .inner{width:min(calc(100vw - 80px),1320px);max-width:1320px;margin-left:auto;margin-right:auto;}}
 </style>
-<div id="cupom-tooltip" role="button" tabindex="0" aria-label="Copiar cupom GANHEI10, 10% off no carrinho" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="copiarCupom(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copiarCupom(event);}">
-  <div class="cupom-box">
+<div id="cupom-tooltip" style="display:none;position:fixed;z-index:10000;">
+  <button type="button" onclick="document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;z-index:2;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
+  <div class="cupom-box" role="button" tabindex="0" aria-label="Copiar cupom GANHEI10, 10% off no carrinho" style="cursor:pointer;" onclick="copiarCupom(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copiarCupom(event);}">
     <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
-    <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
     <div class="cupom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Cupom exclusivo</div>
     <div class="cupom-code-box">
       <div class="cupom-code" id="cupom-code-text">GANHEI10</div>
