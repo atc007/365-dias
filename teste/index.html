@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+<html lang="pt-BR" data-tema="black-friday" prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
 <head>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -189,9 +189,6 @@ html,body{
 .urgency-text{font-size:14px;color:var(--cream-dark);line-height:1.4;}
 .urgency-text strong{color:var(--gold);}
 .urgency-badge{background:var(--gold);color:var(--ink);font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.06em;white-space:nowrap;}
-.countdown{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--ink-muted);}
-.countdown-unit{background:#2E2E2C;color:var(--gold);font-family:var(--font-display);font-size:17px;font-weight:700;padding:3px 8px;border-radius:4px;min-width:48px;width:48px;text-align:center;line-height:1.2;font-variant-numeric:tabular-nums;}
-.countdown-sep{color:var(--gold);font-weight:700;}
 
 /* ══ HERO ══ */
 .sec-hero{
@@ -795,11 +792,9 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 /* ══ URGÊNCIA BAR — também header sticky com shrink/blur ══ */
 .urgency-bar{position:sticky;top:0;z-index:9000;transition:padding .3s ease,background .3s ease,box-shadow .3s ease;}
 .urgency-bar.scrolled{padding:6px var(--sec-h);background:rgba(28,28,26,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(0,0,0,.28);}
-.urgency-bar.scrolled .countdown-unit{font-size:14px;padding:2px 6px;min-width:26px;}
 .urgency-bar.scrolled .urgency-badge{padding:2px 9px;}
 .urgency-badge{transition:padding .3s ease;}
-.countdown-unit{transition:font-size .3s ease,padding .3s ease,min-width .3s ease;}
-@media(prefers-reduced-motion:reduce){.urgency-bar,.urgency-badge,.countdown-unit{transition:none!important;}}
+@media(prefers-reduced-motion:reduce){.urgency-bar,.urgency-badge{transition:none!important;}}
 
 /* ══ BARRA DE PROGRESSO DE LEITURA ══ */
 .progress-bar{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light));z-index:9998;transition:transform .12s linear;pointer-events:none;}
@@ -828,10 +823,7 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   :root{--h1:clamp(27px,7vw,37px);--h2:clamp(25px,6.5vw,33px);--h3:clamp(21px,5.5vw,27px);--body:16px;--sec-v:40px;--sec-h:18px;--gap:28px;}
   html,body{overflow-x:hidden;}
   .urgency-inner{flex-direction:column;gap:6px;}
-  .countdown{display:flex;}
-  .countdown-unit{font-size:20px;min-width:34px;padding:4px 8px;}
   .urgency-text{font-size:13px;text-align:center;}
-  .urgency-badge{display:none;}
   .sec-hero{padding:0 0 var(--sec-v);}
   .hero-grid{grid-template-columns:1fr;gap:0;}
   .hero-grid > div:not(.hero-img-wrap){text-align:center;}
@@ -1016,11 +1008,11 @@ s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
 fbq('init', '239605191106043', {});
 fbq('track', 'PageView');
 fbq('track', 'ViewContent', {
-  content_ids: ['909488'],
+  content_ids: ['1046549'],
   content_type: 'product',
   content_name: 'Seja Minimalista',
   currency: 'BRL',
-  value: 77.00
+  value: 107.00
 });
 </script>
 <link rel="dns-prefetch" href="//chk.eduzz.com">
@@ -1188,7 +1180,7 @@ fbq('track', 'ViewContent', {
 
 /* Contraste: textos secundários sobre fundo escuro (antes #5E5B55 sobre #1C1C1A = 2,5:1) */
 :root{--ink-muted-dark:#A8A49B;}
-.countdown,.stat-lbl,.urg-p,.gar-p,.footer-copy,.footer-links h3,.footer-news h3,.car-cap{color:var(--ink-muted-dark);}
+.stat-lbl,.urg-p,.gar-p,.footer-copy,.footer-links h3,.footer-news h3,.car-cap{color:var(--ink-muted-dark);}
 .urg-sep{color:#8A867D;}
 /* Contraste: textos sobre fundo claro */
 .pc-feats li.no,.pc-feats li.no::before{color:#6F6C64;}
@@ -1293,6 +1285,44 @@ fbq('track', 'ViewContent', {
   .dest-badge::after{animation:none!important;display:none;}
 }
 </style>
+<style id="tema-do-mes">
+/* ══ TEMA DO MÊS ══
+   Para trocar de mês: mude data-tema no <html>, o texto do selo (.tema-nome), o rótulo do cupom
+   e o rótulo da seção "Oferta ... com bônus inclusos", e acrescente o bloco html[data-tema="..."] abaixo.
+   Sem data-tema, a página usa o visual padrão. */
+:root{
+  --tema-fundo:var(--ink);--tema-fundo-vidro:rgba(28,28,26,.94);--tema-destaque:var(--gold);--tema-borda:transparent;
+  --tema-cupom-fundo:linear-gradient(160deg,#22201C 0%,#17150F 100%);--tema-cupom-bico:#1C1A15;--tema-cupom-sub:#B8925A;
+}
+html[data-tema="black-friday"]{
+  --tema-fundo:#0A0A09;--tema-fundo-vidro:rgba(10,10,9,.94);--tema-destaque:#E3C27A;--tema-borda:rgba(227,194,122,.6);
+  --tema-cupom-fundo:linear-gradient(160deg,#171715 0%,#0A0A09 100%);--tema-cupom-bico:#171715;--tema-cupom-sub:#D9BC84;
+}
+.urgency-bar{background:var(--tema-fundo);border-bottom:1px solid var(--tema-borda);}
+.urgency-bar.scrolled{background:var(--tema-fundo-vidro);}
+.urgency-badge{background:var(--tema-destaque);}
+.urgency-text strong{color:var(--tema-destaque);}
+.urgency-section{background:var(--tema-fundo);}
+.urg-label{color:var(--tema-destaque);}
+.urg-label::before,.urg-label::after{background:var(--tema-destaque);}
+.urg-digit{color:var(--tema-destaque);}
+.urg-bonus-tag{color:var(--tema-destaque);}
+.cupom-box{background:var(--tema-cupom-fundo);}
+.cupom-label,.cupom-box .cupom-label{color:var(--tema-destaque);}
+.cupom-code-box{border-color:var(--tema-destaque);}
+.cupom-sub{color:var(--tema-cupom-sub);}
+html[data-tema="black-friday"] .urgency-badge{text-transform:uppercase;letter-spacing:.12em;font-weight:800;}
+html[data-tema="black-friday"] .cupom-box{border-color:var(--tema-destaque);}
+html[data-tema="black-friday"] .urg-digit{border-color:rgba(227,194,122,.45);}
+html[data-tema="black-friday"] .urg-sep{color:var(--tema-destaque);}
+html[data-tema="black-friday"] .urgency-section{border-top:1px solid var(--tema-borda);}
+</style>
+<style id="lote3-correcoes">
+@media(prefers-reduced-motion:reduce){
+  .pc-parc-destaque{animation:none!important;background-position:0 0!important;will-change:auto;}
+  .car-slides{transition:none!important;}
+}
+</style>
 </head>
 <body>
 <noscript><img height="1" width="1" style="display:none"
@@ -1318,16 +1348,8 @@ src="https://www.facebook.com/tr?id=239605191106043&amp;ev=PageView&amp;noscript
 <!-- URGÊNCIA BAR -->
 <div class="urgency-bar" id="urgency-bar">
   <div class="urgency-inner">
-    <span class="urgency-badge">⏳ Oferta especial</span>
+    <span class="urgency-badge">⏳ Oferta especial <span class="tema-nome">Black Friday</span></span>
     <span class="urgency-text"><strong>Bônus digitais inclusos</strong>, frete grátis e garantia de 7 dias</span>
-    <div class="countdown">
-      <span>Encerra em</span>
-      <span class="countdown-unit" id="cd-h">00</span>
-      <span class="countdown-sep">:</span>
-      <span class="countdown-unit" id="cd-m">00</span>
-      <span class="countdown-sep">:</span>
-      <span class="countdown-unit" id="cd-s">00</span>
-    </div>
   </div>
 </div>
 
@@ -1470,7 +1492,7 @@ src="https://www.facebook.com/tr?id=239605191106043&amp;ev=PageView&amp;noscript
         <button class="cdot" onclick="slideTo(6)" aria-label="Ir para imagem 7 do carrossel"></button>
         <button type="button" class="car-pause" id="car-pause" aria-label="Pausar a troca automática das imagens" aria-pressed="false"><svg class="i-pause" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" rx=".6"/><rect x="7.4" y="1.5" width="2.6" height="9" rx=".6"/></svg><svg class="i-play" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 1.8v8.4a.6.6 0 0 0 .9.5l6.6-4.2a.6.6 0 0 0 0-1L3.9 1.3a.6.6 0 0 0-.9.5Z"/></svg></button>
       </div>
-      <div class="car-cap"><svg class="car-cap-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l4.5 4.5"/><path d="M8.5 10.5h4M10.5 8.5v4"/></svg>Fotos das páginas reais do livro · Clique para ampliar</div>
+      <div class="car-cap"><svg class="car-cap-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l4.5 4.5"/><path d="M8.5 10.5h4M10.5 8.5v4"/></svg>Fotos das páginas reais do livro</div>
     </div>    </div>
 
     <div class="cap-grid anim-up d1">
@@ -1741,7 +1763,7 @@ src="https://www.facebook.com/tr?id=239605191106043&amp;ev=PageView&amp;noscript
 <!-- URGÊNCIA PRICING -->
 <div class="urgency-section">
   <div class="inner">
-    <div class="urg-label">Oferta com bônus inclusos</div>
+    <div class="urg-label">Oferta Black Friday com bônus inclusos</div>
     <h3 class="urg-h3">Os bônus são liberados para quem comprar enquanto esta página estiver ativa.</h3>
     <p class="urg-p">Quando a oferta encerrar, o livro continua disponível, mas os bônus digitais (R$ 143 no total) podem não ser mais inclusos. Garanta o seu agora com tudo incluso.</p>
     <div class="urg-timer">
@@ -1932,7 +1954,10 @@ src="https://www.facebook.com/tr?id=239605191106043&amp;ev=PageView&amp;noscript
 function copiarCupom(e){
   if(e) e.stopPropagation();
   var codigo = 'GANHEI10';
-  if(!window.__cupomMedido){
+  /* toque no cupom: só etiqueta no Clarity. A cópia só conta quando o navegador confirma. */
+  try{ if(window.smClarityTag){ window.smClarityTag('cupom_toque','sim'); } }catch(x){}
+  function medirCopia(){
+    if(window.__cupomMedido) return;
     window.__cupomMedido = true;
     try{ if(window.fbq){ fbq('trackCustom','CouponCopy',{coupon:codigo}); } }catch(x){}
     try{ if(window.smClarityTag){ window.smClarityTag('cupom_copiado','sim'); } }catch(x){}
@@ -1945,7 +1970,7 @@ function copiarCupom(e){
     setTimeout(function(){ sub.textContent = original; }, 2600);
   }
   if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(codigo).then(function(){feedback(true);}).catch(function(){feedback(false);});
+    navigator.clipboard.writeText(codigo).then(function(){feedback(true);medirCopia();}).catch(function(){feedback(false);});
   } else {
     /* navegadores sem acesso à área de transferência: mostra o código para a pessoa anotar */
     feedback(false);
@@ -2129,16 +2154,20 @@ function irParaVersoes(e, fromCoupon){
   qv.addEventListener('play',sync);
   qv.addEventListener('pause',sync);
   qv.addEventListener('ended',sync);
-  qbtn.addEventListener('click',function(){ if(qv.paused){ tryPlay(); } else { qv.pause(); } });
+  var pausouManual=false;
+  qbtn.addEventListener('click',function(){ if(qv.paused){ pausouManual=false; tryPlay(); } else { pausouManual=true; qv.pause(); } });
   sync();
   /* movimento reduzido, economia de dados ou conexão lenta: só toca quando a pessoa pedir */
   var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var conn=navigator.connection||{};
   var poucaBanda=conn.saveData||/^(slow-2g|2g|3g)$/.test(conn.effectiveType||'');
   if(reduced||poucaBanda||!('IntersectionObserver' in window)) return;
+  /* toca ao aparecer, pausa ao sair da tela e volta a tocar ao reaparecer (se a pessoa não pausou) */
   var obs=new IntersectionObserver(function(e){
-    if(e[0].isIntersecting){ tryPlay(); obs.disconnect(); }
-  },{threshold:.1});
+    var visivel=e[0].isIntersecting && e[0].intersectionRatio>=.1;
+    if(visivel){ if(!pausouManual) tryPlay(); }
+    else if(!qv.paused){ qv.pause(); }
+  },{threshold:[0,.1]});
   obs.observe(qv);
 })();
 
@@ -2601,8 +2630,8 @@ document.querySelectorAll('.faq-item').forEach(function(item,i){
 <div id="cupom-tooltip" style="display:none;position:fixed;z-index:10000;">
   <button type="button" onclick="document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;z-index:2;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
   <div class="cupom-box" role="button" tabindex="0" aria-label="Copiar cupom GANHEI10, 10% off no carrinho" style="cursor:pointer;" onclick="copiarCupom(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copiarCupom(event);}">
-    <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
-    <div class="cupom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Cupom exclusivo</div>
+    <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid var(--tema-cupom-bico,#1C1A15);filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
+    <div class="cupom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Cupom Black Friday</div>
     <div class="cupom-code-box">
       <div class="cupom-code" id="cupom-code-text">GANHEI10</div>
       <div class="cupom-sub" id="cupom-sub-text">Toque para copiar · 10% OFF no carrinho</div>
