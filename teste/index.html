@@ -126,6 +126,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://sejaminimalista.com.br/#author",
   "name": "Alexandre Chahoud",
   "url": "https://sejaminimalista.com.br/",
   "sameAs": [
@@ -137,10 +138,10 @@
 </script>
 
 <link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
-<link rel="preconnect" href="https://video.wixstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://video.wixstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
 <link rel="preload" as="image" type="image/avif" fetchpriority="high" media="(max-width:720px)"
   href="https://static.wixstatic.com/media/940f31_1838b3822c4641b198bb875a2aeb075e~mv2.avif">
 <link rel="preload" as="image" type="image/avif" fetchpriority="high" media="(min-width:721px)"
@@ -238,7 +239,7 @@ object-fit:contain;
   width:14px;height:14px;flex-shrink:0;display:inline-block;vertical-align:-2px;
 }
 .vip-extra-badge,.urg-bonus-tag,.pc-urgency-note,.cupom-label{display:inline-flex;align-items:center;gap:6px;}
-.gratis svg{width:22px;height:22px;vertical-align:-4px;}
+
 .badge{background:#fff;border:.5px solid rgba(201,169,110,.35);border-radius:30px;padding:8px 15px;font-size:13px;font-weight:500;color:var(--ink);box-shadow:0 2px 8px rgba(120,95,50,.07);display:inline-flex;align-items:center;gap:7px;}
 .badge-link{text-decoration:none;cursor:pointer;transition:border-color .2s,background .2s;display:inline-flex;align-items:center;}
 .badge-link:hover{border-color:var(--gold);background:rgba(201,169,110,.07);}
@@ -248,8 +249,6 @@ object-fit:contain;
   max-width:640px;margin:28px auto 0;line-height:1.6;
 }
 .hero-note::before{content:"🔒";font-size:11px;line-height:1.85;flex-shrink:0;}
-.hero-note-wrap{align-items:flex-start;}
-.hero-note-wrap::before{margin-top:1px;}
 
 /* ══ BOTÕES ══ */
 /* Motion com propósito: um único brilho lento no CTA principal — nada pulsa
@@ -288,7 +287,7 @@ object-fit:contain;
 /* ══ SEÇÕES ══ */
 .sec{width:100%;padding:var(--sec-v) var(--sec-h);}
 .sec.alt{background:var(--bg-alt);}
-.sec.warm{background:var(--cream);}
+
 .sec.dark{background:var(--ink);}
 .sec-eyebrow{font-size:var(--eyebrow);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-text);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .sec-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0;}
@@ -337,7 +336,7 @@ object-fit:contain;
   color:var(--gold);
 }
 .cap-icon-badge svg{width:24px;height:24px;display:block;}
-.cap-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+
 .cap-title{font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:5px;}
 .cap-desc{font-size:14px;color:var(--ink-soft);line-height:1.55;}
 
@@ -404,10 +403,6 @@ object-fit:contain;
 
 /* ══ CARROSSEL ══ */
 /* PREVIEW GRID — texto + pullquote abaixo do carrossel (desktop) */
-.preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start;margin-top:8px;}
-.preview-mobile-text{display:none;}
-.preview-desktop-text{display:block;}
-.preview-text,.preview-car{display:flex;flex-direction:column;}
 
 .car-wrap{background:var(--ink);border-radius:20px;overflow:hidden;min-height:430px;contain:layout;border:1px solid rgba(201,169,110,.2);box-shadow:0 20px 46px rgba(0,0,0,.22);}
 .car-slides{display:flex;transition:transform .4s ease;}
@@ -426,12 +421,6 @@ object-fit:contain;
 .pullquote{border-left:3px solid var(--gold);padding:14px 22px;font-family:var(--font-display);font-size:18px;line-height:1.7;font-style:italic;color:var(--ink);margin-bottom:32px;background:rgba(201,169,110,.06);border-radius:0 6px 6px 0;}
 
 /* ══ AMOSTRA ══ */
-.amostra{background:#fff;border:1px solid var(--gold-light);border-radius:12px;padding:28px 32px;margin:32px 0;position:relative;}
-.amostra::before{content:'Trecho real do livro';position:absolute;top:-12px;left:24px;background:var(--gold);color:var(--ink);font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px;letter-spacing:.06em;text-transform:uppercase;}
-.amostra-cap{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-text);margin-bottom:8px;}
-.amostra-quote{font-family:var(--font-display);font-size:16px;font-style:italic;color:var(--ink);line-height:1.7;margin-bottom:16px;border-left:3px solid var(--gold);padding-left:16px;}
-.amostra-pratica{background:var(--bg-alt);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--ink-mid);line-height:1.7;}
-.amostra-pratica strong{color:var(--ink);font-weight:500;}
 
 /* ══ AGITAÇÃO DA DOR ══ */
 .agitacao{background:var(--ink);padding:var(--sec-v) var(--sec-h);}
@@ -461,7 +450,7 @@ object-fit:contain;
   color:var(--gold);
 }
 .agit-icon-badge svg{width:22px;height:22px;display:block;}
-.agit-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+
 .agit-text{font-size:16px;color:rgba(255,255,255,.75);line-height:1.65;}
 .agit-text strong{color:var(--cream);font-weight:500;}
 .agit-virada{font-family:var(--font-display);font-size:18px;font-style:italic;color:var(--gold);border-top:.5px solid rgba(201,169,110,.25);padding-top:24px;line-height:1.6;}
@@ -477,12 +466,6 @@ object-fit:contain;
 .dif-desc{font-size:14px;color:rgba(255,255,255,.68);line-height:1.65;}
 
 /* ══ PRESENTE ══ */
-.pres-grid{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;}
-.pres-img{border-radius:8px;overflow:hidden;background:#E0E0DE;flex-shrink:0;}
-.pres-img img{width:220px;display:block;}
-.pres-tag{display:inline-block;background:var(--gold);color:var(--ink);font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:14px;}
-.pres-h3{font-family:var(--font-display);font-size:var(--h3);font-weight:400;color:var(--ink);margin-bottom:14px;line-height:1.3;}
-.pres-p{font-size:var(--body);color:var(--ink-soft);line-height:1.75;}
 
 /* ══ IMAGEM BOX ══ */
 .img-box{border-radius:8px;overflow:hidden;background:#E0E0DE;}
@@ -559,8 +542,7 @@ object-fit:contain;
   display:block;
   box-shadow:0 16px 36px rgba(0,0,0,.2);
 }
-.bonus-valor-left{font-size:14px;color:var(--ink-muted);line-height:1.6;}
-.bonus-valor-left strong{color:var(--cream-dark);}
+
 .bonus-valor-right{font-family:var(--font-display);font-size:13px;color:var(--ink-muted);text-align:right;flex-shrink:0;}
 .bonus-valor-right .was{font-size:13px;text-decoration:none;display:inline-block;position:relative;}
 .bonus-valor-right .was::after{
@@ -572,7 +554,7 @@ object-fit:contain;
 @media(prefers-reduced-motion:reduce){
   .bonus-valor-right .was::after{animation:none;width:100%;}
 }
-.bonus-valor-right .gratis{font-size:26px;font-weight:700;color:var(--gold-text);display:block;line-height:1;}
+
 .bonus-list{display:flex;flex-direction:column;gap:12px;}
 .bonus-item{border:1px solid transparent;border-radius:14px;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#E8D09A,#C9A96E 40%,rgba(201,169,110,.18)) border-box;box-shadow:0 12px 28px rgba(120,95,50,.12);padding:18px 20px;display:flex;gap:16px;align-items:flex-start;transition:transform .25s ease,box-shadow .25s ease;}
 .bonus-item:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.08);}
@@ -604,7 +586,7 @@ object-fit:contain;
 .ancora-price-line{display:flex;align-items:center;gap:32px;flex-shrink:0;}
 .ancora-calc{font-family:var(--font-display);font-size:clamp(22px,3vw,36px);font-weight:400;color:var(--ink);line-height:1.1;}
 .ancora-calc span{display:block;font-size:13px;font-family:var(--font-body);color:var(--ink-muted);font-weight:400;margin-top:4px;}
-.ancora-sep{font-size:28px;color:var(--border);}
+
 .ancora-compare{font-size:14px;color:var(--ink-soft);line-height:1.7;text-align:left;max-width:320px;}
 .ancora-compare strong{color:var(--ink);font-weight:500;}
 
@@ -629,7 +611,7 @@ object-fit:contain;
   box-shadow:0 12px 36px rgba(0,0,0,.15);
 }
 .pc.dest{border:2px solid transparent;border-radius:18px;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(140deg,#F2DCA8,#C9A96E 32%,#E8D09A 62%,rgba(201,169,110,.35)) border-box;box-shadow:0 20px 48px rgba(201,169,110,.32),0 3px 10px rgba(120,95,50,.12);position:relative;}
-.pc-highlight{animation:pc-flash 1.8s ease;}
+
 .coupon-applied-note{display:none;max-width:420px;margin:16px auto 0;text-align:center;font-size:13px;font-weight:600;color:#3D6B3D;background:#E3EFE3;border:1px solid #B8D4B8;border-radius:20px;padding:8px 18px;opacity:0;transform:translateY(-6px);transition:opacity .3s ease,transform .3s ease;pointer-events:none;}
 .coupon-applied-note.show{display:block;opacity:1;transform:translateY(0);}
 @keyframes pc-flash{
@@ -756,7 +738,7 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 /* ══ LIGHTBOX (carrossel "veja o livro por dentro") ══ */
 .car-slide img{cursor:zoom-in;transition:transform .3s ease;}
 .car-slide:hover img{transform:scale(1.015);}
-.car-zoom-hint{text-align:center;font-size:11px;color:var(--ink-muted);letter-spacing:.04em;margin-top:2px;display:flex;align-items:center;justify-content:center;gap:5px;}
+
 .lightbox-overlay{position:fixed;inset:0;background:rgba(18,17,15,.93);display:flex;align-items:center;justify-content:center;padding:32px;z-index:10001;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility 0s linear .25s;}
 .lightbox-overlay.active{opacity:1;visibility:visible;transition:opacity .25s ease,visibility 0s linear 0s;}
 .lightbox-overlay img{max-width:min(92vw,880px);max-height:86vh;border-radius:8px;display:block;box-shadow:0 24px 64px rgba(0,0,0,.5);transform:scale(.96);transition:transform .3s cubic-bezier(.22,1,.36,1);}
@@ -792,7 +774,7 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 .story-card img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;}
 .story-card.skeleton{background:linear-gradient(100deg,#e4dfd8 30%,#ede8e0 50%,#e4dfd8 70%);background-size:220% 100%;animation:story-shimmer 1.4s ease-in-out infinite;}
 @keyframes story-shimmer{0%{background-position:200% 0;}100%{background-position:-20% 0;}}
-.stories-empty{display:none;}
+
 @media(prefers-reduced-motion:reduce){.story-card.skeleton{animation:none;}.stories-strip{animation:none;}}
 @media(max-width:720px){.story-card{width:118px;}}
 
@@ -849,7 +831,7 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 .oq-video{border-radius:22px;overflow:hidden;background:var(--ink);aspect-ratio:9/16;max-width:100%;border:1px solid rgba(201,169,110,.22);box-shadow:0 20px 46px rgba(28,28,26,.22);}
 .qual-content{max-width:860px;margin:0 auto;}
 .content-preview{margin:30px 0 38px;}
-.content-preview-label{font-size:12px;color:var(--ink-muted);text-align:center;margin-bottom:12px;font-style:italic;}
+
 .content-preview .car-wrap{max-width:900px;margin:0 auto;}
 .content-preview .car-slide{min-height:380px;}
 
@@ -900,7 +882,7 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   }
   .content-preview .car-dots{padding:9px 16px 7px;}
   .content-preview .car-cap{padding:4px 14px 6px;font-size:12px;}
-  .content-preview .car-zoom-hint{margin-top:0;padding:0 10px 10px;font-size:10px;}
+  
   .content-preview .car-slide{
     min-height:0!important;
     height:0!important;
@@ -920,13 +902,10 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   .content-preview .car-slide{min-height:0;}
   .grid2{grid-template-columns:1fr;gap:28px;}
   .autor-grid{grid-template-columns:1fr;grid-template-areas:"head" "img" "body";gap:20px;}
-  .preview-grid{grid-template-columns:1fr;gap:20px;}
-  .preview-mobile-text{display:block;}
-  .preview-desktop-text{display:none;}
+
   .cap-grid{grid-template-columns:1fr;}
   .dif-grid{grid-template-columns:1fr;}
-  .pres-grid{grid-template-columns:1fr;gap:18px;}
-  .pres-img img{width:100%;max-width:200px;margin:0 auto;}
+
   .precos{grid-template-columns:1fr;gap:16px;}
   .gar-grid{grid-template-columns:1fr;gap:24px;text-align:center;}
   .gar-img{display:flex;justify-content:center;}
@@ -950,7 +929,7 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   .urg-digit{font-size:26px;min-width:50px;padding:8px 12px;}
   .ancora-inner{flex-direction:column;gap:16px;text-align:center;}
   .ancora-compare{text-align:center;}
-  .ancora-sep{display:none;}
+  
   .ancora-preco{padding:24px var(--sec-h);}
   .urgency-section{padding-top:24px;}
   .bonus-valor-box{flex-direction:column;align-items:flex-start;}
@@ -960,7 +939,7 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   .whatsapp-float{width:48px;height:48px;right:14px;bottom:14px;}
   .whatsapp-float svg{width:22px;height:22px;}
   .agit-lista{text-align:left;}
-  .amostra{padding:22px 18px;}
+  
   .sec .inner > div[style*="grid-template-columns:3fr"]{display:grid!important;grid-template-columns:1fr!important;gap:28px!important;}
 }
 @media(max-width:340px){.inner{padding:0 14px;}.btn-gold,.btn-dark{width:100%;text-align:center;}.precos{grid-template-columns:1fr;}}
@@ -973,7 +952,6 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 .rotate-word{display:inline-block;transition:opacity .35s ease,transform .35s ease;}
 .rotate-word.is-out{opacity:0;transform:translateY(12px);}
 @media(prefers-reduced-motion:reduce){.rotate-word{transition:opacity .2s ease;}.rotate-word.is-out{transform:none;}}
-
 
 /* ══════════ ATUALIZAÇÃO VISUAL 2026 (fontes e cores originais mantidas) ══════════ */
 .btn-gold,.pc-btn.gold{background:#C9A96E!important;color:#1C1C1A!important;border-radius:999px!important;font-weight:800;letter-spacing:.01em;box-shadow:0 4px 20px rgba(201,169,110,.35);animation:btnPulse 2.6s ease-in-out infinite!important;}
@@ -1061,11 +1039,21 @@ fbq('track', 'ViewContent', {
 <link rel="preconnect" href="https://chk.eduzz.com" crossorigin>
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
+    function __iniciarClarity(){
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "x9zztciwhm");
+    }
+    /* começa depois que a página carregou, quando o navegador estiver livre (máx. 4 s) */
+    (function(){
+        var go = function(){
+            if(window.requestIdleCallback){ requestIdleCallback(__iniciarClarity, {timeout:4000}); }
+            else { setTimeout(__iniciarClarity, 2000); }
+        };
+        if(document.readyState === 'complete'){ go(); } else { window.addEventListener('load', go); }
+    })();
 </script>
 <meta name="keywords" content="livro de minimalismo, minimalismo, vida simples, desapego, organização da casa, organização, consumo consciente, hábitos, Alexandre Chahoud, Seja Minimalista">
 
@@ -1083,7 +1071,7 @@ fbq('track', 'ViewContent', {
   "name":"Seja Minimalista: O guia para uma vida mais leve e mais feliz",
   "alternateName":"Seja Minimalista",
   "url":"https://sejaminimalista.com.br/",
-  "image":"https://m.media-amazon.com/images/I/71tcVz+0Q1L._SL1500_.jpg",
+  "image":"https://static.wixstatic.com/media/940f31_e80f898ceb5a45358df3628e5fe65dca~mv2.jpg",
   "description":"Um guia prático para transformar sua casa, sua mente e sua relação com o dinheiro. Com exercícios, checklists e orientações simples para você aplicar desde a primeira página, sem radicalismos e no seu ritmo.",
   "inLanguage":"pt-BR",
   "bookFormat":"https://schema.org/Paperback",
@@ -1130,7 +1118,7 @@ fbq('track', 'ViewContent', {
   "@id":"https://sejaminimalista.com.br/#product",
   "name":"Seja Minimalista: O guia para uma vida mais leve e mais feliz",
   "description":"Livro de Alexandre Chahoud sobre minimalismo, organização, consumo consciente e vida simples.",
-  "image":"https://m.media-amazon.com/images/I/71tcVz+0Q1L._SL1500_.jpg",
+  "image":"https://static.wixstatic.com/media/940f31_e80f898ceb5a45358df3628e5fe65dca~mv2.jpg",
   "url":"https://sejaminimalista.com.br/",
   "sku":"SM-LIVRO",
   "brand":{
@@ -1253,10 +1241,61 @@ fbq('track', 'ViewContent', {
 @media(hover:hover){.oq-video.is-playing:hover .oq-video-ico{opacity:1;}}
 @media(prefers-reduced-motion:reduce){.oq-video-ico{transition:none;}}
 </style>
+<style id="lote2a-correcoes">
+/* ══ LOTE 2A (03/11/2026) ══ */
+
+/* Animações que mexiam em layout (width e left) passam a usar só transform */
+@keyframes strike-loop-x{0%{transform:scaleX(0);}14%{transform:scaleX(1);}78%{transform:scaleX(1);}90%{transform:scaleX(0);}100%{transform:scaleX(0);}}
+.pc-was::after,.bonus-valor-right .was::after{width:100%;transform:scaleX(0);transform-origin:left center;animation-name:strike-loop-x;}
+@media(prefers-reduced-motion:reduce){.pc-was::after,.bonus-valor-right .was::after{transform:scaleX(1);}}
+@keyframes dest-shine-x{0%{transform:translateX(-150%) skewX(-20deg);}40%,100%{transform:translateX(260%) skewX(-20deg);}}
+.dest-badge::after{left:0;transform:translateX(-150%) skewX(-20deg);animation-name:dest-shine-x;}
+
+/* FAQ: resposta fechada não é lida por leitor de tela nem recebe foco */
+.faq-a{visibility:hidden;transition:grid-template-rows .35s cubic-bezier(.16,1,.3,1),opacity .3s ease,visibility 0s linear .35s;}
+.faq-item.open .faq-a{visibility:visible;transition:grid-template-rows .35s cubic-bezier(.16,1,.3,1),opacity .3s ease,visibility 0s;}
+@media(prefers-reduced-motion:reduce){
+  .faq-a{transition:opacity .15s ease,visibility 0s linear .15s;}
+  .faq-item.open .faq-a{transition:opacity .15s ease,visibility 0s;}
+}
+
+/* Carrossel: botão de pausa e gesto de deslizar */
+.car-wrap{touch-action:pan-y pinch-zoom;}
+.car-pause{width:24px;height:24px;padding:0;margin-left:6px;background:none;border:none;cursor:pointer;color:#8A867D;display:flex;align-items:center;justify-content:center;}
+.car-pause svg{width:12px;height:12px;display:block;}
+.car-pause:hover{color:var(--gold);}
+.car-pause:focus-visible{outline:2px solid var(--gold-text);outline-offset:2px;border-radius:4px;}
+.car-pause .i-play{display:none;}
+.car-pause[aria-pressed="true"] .i-pause{display:none;}
+.car-pause[aria-pressed="true"] .i-play{display:block;}
+.car-pause[hidden]{display:none;}
+</style>
+<style id="cupom-rodape">
+#cupom-tooltip{top:20px;right:20px;bottom:auto;max-width:220px;}
+.cupom-box{background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(201,169,110,.45);}
+.cupom-label{font-size:10px;font-weight:700;color:#C9A96E;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;}
+.cupom-code-box{background:rgba(255,255,255,.05);border:1.5px dashed #C9A96E;border-radius:8px;padding:9px 12px 8px;text-align:center;}
+.cupom-code{font-family:var(--font-display);font-size:21px;font-weight:700;color:#F5F0E8;letter-spacing:.07em;}
+.cupom-sub{font-size:10.5px;color:#B8925A;margin-top:2px;letter-spacing:.02em;}
+@media(max-width:720px){
+  .eyebrow,.sec-eyebrow{justify-content:center;}
+  .sec-h2{text-align:center;}
+  #cupom-tooltip{top:14px;right:10px;max-width:148px;}
+  .cupom-box{padding:10px 11px 9px;border-radius:11px;}
+  .cupom-label{font-size:8px;letter-spacing:.1em;margin-bottom:6px;white-space:nowrap;padding-right:20px;}
+  .cupom-code-box{padding:6px 8px 5px;border-radius:6px;}
+  .cupom-code{font-size:15px;letter-spacing:.04em;}
+  .cupom-sub{font-size:8.5px;margin-top:1px;}
+}
+@keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
+
+/* RODAPÉ — largura adaptável ao navegador, como a HERO */
+@media (min-width:721px){.footer > .inner{width:min(calc(100vw - 80px),1320px);max-width:1320px;margin-left:auto;margin-right:auto;}}
+</style>
 </head>
 <body>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1" alt=""/></noscript>
+src="https://www.facebook.com/tr?id=239605191106043&amp;ev=PageView&amp;noscript=1" alt=""/></noscript>
 
 <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
@@ -1393,7 +1432,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1" alt=
       <div class="car-slides" id="slides">
         <div class="car-slide" style="min-height:380px;">
           <img src="https://static.wixstatic.com/media/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_auto,quality_auto/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg"
-            alt="Interior do livro Seja Minimalista, técnicas de desapego" width="596" height="387" loading="eager" decoding="async">
+            alt="Interior do livro Seja Minimalista, técnicas de desapego" width="596" height="387" loading="lazy" decoding="async">
         </div>
         <div class="car-slide" style="min-height:380px;">
           <img data-src="https://static.wixstatic.com/media/940f31_dd00c5f5589f48989c93c7e9cd2da473~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_auto,quality_auto/940f31_dd00c5f5589f48989c93c7e9cd2da473~mv2.jpg"
@@ -1428,6 +1467,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1" alt=
         <button class="cdot" onclick="slideTo(4)" aria-label="Ir para imagem 5 do carrossel"></button>
         <button class="cdot" onclick="slideTo(5)" aria-label="Ir para imagem 6 do carrossel"></button>
         <button class="cdot" onclick="slideTo(6)" aria-label="Ir para imagem 7 do carrossel"></button>
+        <button type="button" class="car-pause" id="car-pause" aria-label="Pausar a troca automática das imagens" aria-pressed="false"><svg class="i-pause" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" rx=".6"/><rect x="7.4" y="1.5" width="2.6" height="9" rx=".6"/></svg><svg class="i-play" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 1.8v8.4a.6.6 0 0 0 .9.5l6.6-4.2a.6.6 0 0 0 0-1L3.9 1.3a.6.6 0 0 0-.9.5Z"/></svg></button>
       </div>
       <div class="car-cap"><svg class="car-cap-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l4.5 4.5"/><path d="M8.5 10.5h4M10.5 8.5v4"/></svg>Fotos das páginas reais do livro · Clique para ampliar</div>
     </div>    </div>
@@ -1499,10 +1539,10 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1" alt=
       <div class="img-box autor-img">
         <img src="https://static.wixstatic.com/media/940f31_49f56ef051ba45f3b106dce993ef899d~mv2.webp/v1/fill/w_440,h_636,al_c,q_90,enc_auto,quality_auto/alexandre.webp"
           alt="Alexandre Chahoud, autor minimalista e criador do Seja Minimalista" width="440" height="636" loading="lazy" decoding="async">
-        <figcaption class="autor-legenda">
+        <div class="autor-legenda">
           <span class="autor-legenda-nome">Alexandre Chahoud</span>
           <span class="autor-legenda-papel">Autor de Seja Minimalista</span>
-        </figcaption>
+        </div>
       </div>
       <div class="autor-body">
         <p class="sec-p">Em 2014, eu olhei para o meu apartamento e percebi que tinha me tornado refém das coisas que eu acumulava. Roupas que nunca usava, objetos que "poderiam ser úteis um dia", uma vida cheia de barulho. Foi quando decidi mudar. Não de uma vez, mas aos poucos. Uma escolha de cada vez.</p>
@@ -1819,16 +1859,16 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1" alt=
     <div class="sec-eyebrow">Tire suas dúvidas</div>
     <h2 class="sec-h2">Perguntas sobre o livro Seja Minimalista</h2>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Seja Minimalista é para quem está começando do zero?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim, foi escrito exatamente para isso. Não assume nenhum conhecimento prévio sobre minimalismo. A linguagem é simples, direta e sem jargões. Se você nunca leu nada sobre o tema, este é o melhor ponto de partida.</div></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Como o livro é diferente de conteúdo gratuito sobre minimalismo?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">O livro tem uma estrutura pensada do início ao fim, com exercícios práticos e checklists que você preenche. Não é um artigo que você lê e esquece, é um guia que você aplica e consulta quantas vezes quiser. A profundidade e a organização fazem toda a diferença.</div></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Preciso ser radical ou me desfazer de tudo?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Absolutamente não. O livro ensina minimalismo como estilo de vida adaptado à sua realidade. Sem extremismos, sem abrir mão do que você ama. A ideia é manter só o que tem valor real para você.</div></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">O livro digital funciona no Kindle?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim, funciona perfeitamente no Kindle via cabo USB. Na Área VIP há um tutorial em vídeo com o passo a passo completo.</div></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Quando recebo meu livro digital?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Comprando por cartão ou Pix, você recebe imediatamente no seu e-mail. Por boleto, em até 3 dias úteis após a compensação.</div></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Funciona para quem tem casa grande, filhos, rotina agitada?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Funciona para qualquer realidade. O guia cobre diferentes áreas da vida e você aplica no seu ritmo, começando por onde faz mais sentido pra você: casa, roupas, digital, finanças.</div></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso parcelar a compra?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim. O pagamento por cartão de crédito pode ser parcelado em até 12x. O digital chega imediatamente após a confirmação e o físico é despachado após o processamento do pagamento.</div></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Como rastreio o livro físico?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Assim que despachado, você recebe o código de rastreio dos Correios no seu e-mail. Frete grátis para todo o Brasil.</div></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">E se eu comprar e não conseguir aplicar?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">O livro foi desenhado pra evitar exatamente isso: cada capítulo já vem com exercício e checklist prontos, você não precisa criar um plano do zero. E com a garantia de 7 dias, se sentir que não é pra você, é só avisar.</div></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">É seguro comprar pelo link de pagamento?<div class="faq-icon" aria-hidden="true">+</div></button><div class="faq-a"><div class="faq-a-inner">Sim. O pagamento é processado pela Eduzz, uma das maiores plataformas de pagamento digital do Brasil, com criptografia de dados e nota fiscal emitida automaticamente.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Seja Minimalista é para quem está começando do zero?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a"><div class="faq-a-inner">Sim, foi escrito exatamente para isso. Não assume nenhum conhecimento prévio sobre minimalismo. A linguagem é simples, direta e sem jargões. Se você nunca leu nada sobre o tema, este é o melhor ponto de partida.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Como o livro é diferente de conteúdo gratuito sobre minimalismo?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a"><div class="faq-a-inner">O livro tem uma estrutura pensada do início ao fim, com exercícios práticos e checklists que você preenche. Não é um artigo que você lê e esquece, é um guia que você aplica e consulta quantas vezes quiser. A profundidade e a organização fazem toda a diferença.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Preciso ser radical ou me desfazer de tudo?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a"><div class="faq-a-inner">Absolutamente não. O livro ensina minimalismo como estilo de vida adaptado à sua realidade. Sem extremismos, sem abrir mão do que você ama. A ideia é manter só o que tem valor real para você.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">O livro digital funciona no Kindle?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a"><div class="faq-a-inner">Sim, funciona perfeitamente no Kindle via cabo USB. Na Área VIP há um tutorial em vídeo com o passo a passo completo.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Quando recebo meu livro digital?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a"><div class="faq-a-inner">Comprando por cartão ou Pix, você recebe imediatamente no seu e-mail. Por boleto, em até 3 dias úteis após a compensação.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Funciona para quem tem casa grande, filhos, rotina agitada?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a"><div class="faq-a-inner">Funciona para qualquer realidade. O guia cobre diferentes áreas da vida e você aplica no seu ritmo, começando por onde faz mais sentido pra você: casa, roupas, digital, finanças.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso parcelar a compra?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a"><div class="faq-a-inner">Sim. O pagamento por cartão de crédito pode ser parcelado em até 12x. O digital chega imediatamente após a confirmação e o físico é despachado após o processamento do pagamento.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">Como rastreio o livro físico?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a"><div class="faq-a-inner">Assim que despachado, você recebe o código de rastreio dos Correios no seu e-mail. Frete grátis para todo o Brasil.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">E se eu comprar e não conseguir aplicar?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a"><div class="faq-a-inner">O livro foi desenhado pra evitar exatamente isso: cada capítulo já vem com exercício e checklist prontos, você não precisa criar um plano do zero. E com a garantia de 7 dias, se sentir que não é pra você, é só avisar.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)" aria-expanded="false">É seguro comprar pelo link de pagamento?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a"><div class="faq-a-inner">Sim. O pagamento é processado pela Eduzz, uma das maiores plataformas de pagamento digital do Brasil, com criptografia de dados e nota fiscal emitida automaticamente.</div></div></div>
     </div>
     <div style="margin-top:40px;text-align:center;">
       <p style="font-family:var(--font-display);font-size:18px;color:var(--ink-soft);margin-bottom:20px;font-style:italic;">Mais um dia no automático, ou o começo de uma vida mais leve?</p>
@@ -1857,14 +1897,14 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1" alt=
         <a href="https://sejaminimalista.com.br/365-dias" target="_blank">365 Dias Minimalistas</a>
         <a href="https://sejaminimalista.com.br/combos" target="_blank">Combos com desconto</a>
         <a href="https://www.sejaminimalista.net/vip/entrar" target="_blank">Área VIP</a>
-        <a href="https://chat.whatsapp.com/FnNU3DpCCXz3iGtkLH6qbR?s=cl&p=a&ilr=1" target="_blank">Comunidade no Whatsapp</a>
+        <a href="https://chat.whatsapp.com/FnNU3DpCCXz3iGtkLH6qbR?s=cl&amp;p=a&amp;ilr=1" target="_blank">Comunidade no Whatsapp</a>
         <a href="mailto:sejaminimalista@hotmail.com">Fale comigo</a>
       </div>
       <div class="footer-news">
         <h3>Newsletter gratuita</h3>
         <p style="font-size:12px;color:#D0CEC8;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas gratuitas direto no seu e-mail, toda semana.</p>
         <iframe
-          src="https://sejaminimalista.substack.com/embed?transparent=1&light=1"
+          src="https://sejaminimalista.substack.com/embed?transparent=1&amp;light=1"
           width="480" height="150"
           style="border:0;background:transparent;max-width:100%;display:block;"
           frameborder="0" scrolling="no"
@@ -1946,8 +1986,13 @@ function irParaVersoes(e, fromCoupon){
   function lockWidth(){
     var measurer = document.createElement('span');
     var style = getComputedStyle(el);
-    measurer.style.font = style.font;
+    /* propriedade por propriedade: no Firefox o atalho "font" volta vazio */
+    measurer.style.fontFamily = style.fontFamily;
+    measurer.style.fontSize = style.fontSize;
+    measurer.style.fontWeight = style.fontWeight;
     measurer.style.fontStyle = style.fontStyle;
+    measurer.style.fontStretch = style.fontStretch;
+    measurer.style.fontVariationSettings = style.fontVariationSettings;
     measurer.style.letterSpacing = style.letterSpacing;
     measurer.style.position = 'absolute';
     measurer.style.visibility = 'hidden';
@@ -1962,6 +2007,11 @@ function irParaVersoes(e, fromCoupon){
     wrap.style.width = Math.ceil(max) + 'px';
   }
   lockWidth();
+  /* a Fraunces costuma chegar depois do primeiro cálculo: mede de novo quando ela carregar */
+  if(document.fonts){
+    if(document.fonts.ready){ document.fonts.ready.then(lockWidth); }
+    if(document.fonts.addEventListener){ document.fonts.addEventListener('loadingdone', lockWidth); }
+  }
   var resizeTimer;
   window.addEventListener('resize', function(){
     clearTimeout(resizeTimer);
@@ -2096,11 +2146,11 @@ function irParaVersoes(e, fromCoupon){
 /* CARROSSEL — 7 slides */
 var ci=0,TOTAL=document.querySelectorAll('#slides .car-slide').length||7,loaded=[];
 for(var li=0;li<TOTAL;li++){loaded.push(li===0);}
-var carTimer=null;
+var carTimer=null,carPaused=false,carHover=false,carFocus=false;
 var carReduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* reinicia a contagem a cada troca, inclusive quando a pessoa clica num ponto */
 function carStart(){
-  if(carReduced) return;
+  if(carReduced||carPaused||carHover||carFocus) return;
   clearInterval(carTimer);
   carTimer=setInterval(function(){slideTo((ci+1)%TOTAL);},4000);
 }
@@ -2112,10 +2162,57 @@ function slideTo(i){ci=i;loadSlide(i);loadSlide((i+1)%TOTAL);document.getElement
 document.querySelectorAll('#slides .car-slide img').forEach(function(im,j){im.setAttribute('tabindex',j===0?'0':'-1');});
 carStart();
 
+/* CARROSSEL — pausa, passar com o dedo e setas do teclado */
+(function(){
+  var wrap=document.getElementById('slides');
+  var box=wrap&&wrap.closest('.car-wrap');
+  if(!box) return;
+  var btn=document.getElementById('car-pause');
+  function stop(){ clearInterval(carTimer); }
+  function setPaused(p){
+    carPaused=p;
+    if(btn){
+      btn.setAttribute('aria-pressed',p?'true':'false');
+      btn.setAttribute('aria-label',p?'Retomar a troca automática das imagens':'Pausar a troca automática das imagens');
+    }
+    if(p){ stop(); } else { carStart(); }
+  }
+  if(btn){
+    if(carReduced){ btn.hidden=true; }
+    btn.addEventListener('click',function(){ setPaused(!carPaused); });
+  }
+  /* pausa enquanto o mouse está em cima ou o foco de teclado está dentro do carrossel */
+  if(window.matchMedia&&window.matchMedia('(hover: hover)').matches){
+    box.addEventListener('mouseenter',function(){ carHover=true; stop(); });
+    box.addEventListener('mouseleave',function(){ carHover=false; carStart(); });
+  }
+  box.addEventListener('focusin',function(e){
+    if(e.target.matches&&e.target.matches(':focus-visible')){ carFocus=true; stop(); }
+  });
+  box.addEventListener('focusout',function(){ carFocus=false; carStart(); });
+  /* deslizar para o lado no celular */
+  var x0=null,y0=null;
+  box.addEventListener('touchstart',function(e){ var t=e.touches[0]; x0=t.clientX; y0=t.clientY; },{passive:true});
+  box.addEventListener('touchend',function(e){
+    if(x0===null) return;
+    var t=e.changedTouches[0], dx=t.clientX-x0, dy=t.clientY-y0; x0=null;
+    if(Math.abs(dx)>40 && Math.abs(dx)>Math.abs(dy)*1.5){ slideTo(dx<0?(ci+1)%TOTAL:(ci-1+TOTAL)%TOTAL); }
+  },{passive:true});
+  /* setas do teclado */
+  box.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'){ slideTo((ci+1)%TOTAL); }
+    else if(e.key==='ArrowLeft'){ slideTo((ci-1+TOTAL)%TOTAL); }
+  });
+})();
+
 </script>
 <script>
 /* FAQ */
 function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
+document.querySelectorAll('.faq-item').forEach(function(item,i){
+  var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');
+  if(q&&a){ a.id='faq-resposta-'+(i+1); q.setAttribute('aria-controls',a.id); }
+});
 
 </script>
 <script>
@@ -2170,7 +2267,7 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
       var img = document.createElement('img');
       img.src = compressed(url);
       img.alt = 'Leitor compartilhando o livro Seja Minimalista no Instagram';
-      img.loading = i < 3 ? 'eager' : 'lazy';
+      img.loading = 'lazy';
       img.decoding = 'async';
       // se o wsrv.nl falhar, tenta a foto original; se ela também falhar, esconde só aquele cartão
       img.onerror = function(){
@@ -2229,6 +2326,7 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
       });
   }
 
+  function iniciar(){
   fetch(listUrl)
     .then(function(r){ if(!r.ok) throw new Error('lista-' + r.status); return r.json(); })
     .then(function(names){
@@ -2243,6 +2341,16 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
       // se a busca falhar (pasta vazia, limite da API, offline etc.), some com o bloco em vez de mostrar quebrado
       block.style.display = 'none';
     });
+  }
+  /* só busca a lista quando o bloco chega perto da tela (ele fica no meio da página) */
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(en){
+      if(en[0].isIntersecting){ io.disconnect(); iniciar(); }
+    }, {rootMargin:'800px 0px'});
+    io.observe(block);
+  } else {
+    iniciar();
+  }
 })();
 
 </script>
@@ -2352,6 +2460,21 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
     });
   });
 
+  /* quando a animação de entrada termina, tira a classe .reveal: o card volta a ter o hover
+     e a transição próprios e deixa de reservar will-change */
+  function liberar(el){
+    var feito = false;
+    function limpar(){
+      if(feito) return; feito = true;
+      el.removeEventListener('transitionend', onEnd);
+      el.classList.remove('reveal'); /* mantém .in-view: outras regras (ex.: o risco do "R$ 143") dependem dela */
+      el.style.transitionDelay = '';
+    }
+    function onEnd(e){ if(e.target === el && e.propertyName === 'opacity') limpar(); }
+    el.addEventListener('transitionend', onEnd);
+    setTimeout(limpar, 1700);
+  }
+
   if(reduced || !('IntersectionObserver' in window)){
     revealEls.forEach(function(el){el.classList.add('in-view');});
   } else {
@@ -2359,6 +2482,7 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
       entries.forEach(function(entry){
         if(entry.isIntersecting){
           entry.target.classList.add('in-view');
+          liberar(entry.target);
           rObs.unobserve(entry.target);
         }
       });
@@ -2546,28 +2670,6 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
 })();
 </script>
 <!-- TOOLTIP CUPOM -->
-<style>
-#cupom-tooltip{top:20px;right:20px;bottom:auto;max-width:220px;}
-.cupom-box{background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(201,169,110,.45);}
-.cupom-label{font-size:10px;font-weight:700;color:#C9A96E;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;}
-.cupom-code-box{background:rgba(255,255,255,.05);border:1.5px dashed #C9A96E;border-radius:8px;padding:9px 12px 8px;text-align:center;}
-.cupom-code{font-family:var(--font-display);font-size:21px;font-weight:700;color:#F5F0E8;letter-spacing:.07em;}
-.cupom-sub{font-size:10.5px;color:#B8925A;margin-top:2px;letter-spacing:.02em;}
-@media(max-width:720px){
-  .eyebrow,.sec-eyebrow{justify-content:center;}
-  .sec-h2{text-align:center;}
-  #cupom-tooltip{top:14px;right:10px;max-width:148px;}
-  .cupom-box{padding:10px 11px 9px;border-radius:11px;}
-  .cupom-label{font-size:8px;letter-spacing:.1em;margin-bottom:6px;white-space:nowrap;padding-right:20px;}
-  .cupom-code-box{padding:6px 8px 5px;border-radius:6px;}
-  .cupom-code{font-size:15px;letter-spacing:.04em;}
-  .cupom-sub{font-size:8.5px;margin-top:1px;}
-}
-@keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
-
-/* RODAPÉ — largura adaptável ao navegador, como a HERO */
-@media (min-width:721px){.footer > .inner{width:min(calc(100vw - 80px),1320px);max-width:1320px;margin-left:auto;margin-right:auto;}}
-</style>
 <div id="cupom-tooltip" style="display:none;position:fixed;z-index:10000;">
   <button type="button" onclick="document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;z-index:2;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
   <div class="cupom-box" role="button" tabindex="0" aria-label="Copiar cupom GANHEI10, 10% off no carrinho" style="cursor:pointer;" onclick="copiarCupom(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copiarCupom(event);}">
