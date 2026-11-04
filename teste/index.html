@@ -721,7 +721,6 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   outline:2px solid var(--gold-text);outline-offset:3px;border-radius:4px;
 }
 .cdot:focus-visible{outline:2px solid var(--gold-text);outline-offset:2px;}
-.lightbox-overlay{overscroll-behavior:contain;}
 #versoes,#versao-digital,#versao-fisica,#bonus{scroll-margin-top:64px;}
 .hero-h1,.sec-h2,.agit-h2,.t-headline{text-wrap:balance;}
 
@@ -735,17 +734,6 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 .reveal.in-view{opacity:1;transform:translateY(0);}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important;}}
 
-/* ══ LIGHTBOX (carrossel "veja o livro por dentro") ══ */
-.car-slide img{cursor:zoom-in;transition:transform .3s ease;}
-.car-slide:hover img{transform:scale(1.015);}
-
-.lightbox-overlay{position:fixed;inset:0;background:rgba(18,17,15,.93);display:flex;align-items:center;justify-content:center;padding:32px;z-index:10001;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility 0s linear .25s;}
-.lightbox-overlay.active{opacity:1;visibility:visible;transition:opacity .25s ease,visibility 0s linear 0s;}
-.lightbox-overlay img{max-width:min(92vw,880px);max-height:86vh;border-radius:8px;display:block;box-shadow:0 24px 64px rgba(0,0,0,.5);transform:scale(.96);transition:transform .3s cubic-bezier(.22,1,.36,1);}
-.lightbox-overlay.active img{transform:scale(1);}
-.lightbox-close{position:absolute;top:18px;right:20px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:18px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
-.lightbox-close:hover{background:rgba(255,255,255,.18);}
-@media(prefers-reduced-motion:reduce){.lightbox-overlay,.lightbox-overlay img,.car-slide img{transition:none!important;}}
 
 /* ══ CARROSSEL DE STORIES (fotos reais de leitores) — rolagem automática infinita ══ */
 .stories-block{margin-bottom:44px;}
@@ -1028,7 +1016,7 @@ s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
 fbq('init', '239605191106043', {});
 fbq('track', 'PageView');
 fbq('track', 'ViewContent', {
-  content_ids: ['seja-minimalista'],
+  content_ids: ['909488'],
   content_type: 'product',
   content_name: 'Seja Minimalista',
   currency: 'BRL',
@@ -1039,12 +1027,19 @@ fbq('track', 'ViewContent', {
 <link rel="preconnect" href="https://chk.eduzz.com" crossorigin>
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
+    window.__clTags = [];
+    window.smClarityTag = function(k, v){
+        try{ if(window.clarity && window.__clOn){ clarity('set', k, v); } else { window.__clTags.push([k, v]); } }catch(e){}
+    };
     function __iniciarClarity(){
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "x9zztciwhm");
+    window.__clOn = true;
+    (window.__clTags || []).forEach(function(t){ try{ clarity('set', t[0], t[1]); }catch(e){} });
+    window.__clTags = [];
     }
     /* começa depois que a página carregou, quando o navegador estiver livre (máx. 4 s) */
     (function(){
@@ -1164,7 +1159,7 @@ fbq('track', 'ViewContent', {
       "priceCurrency":"BRL",
       "availability":"https://schema.org/InStock",
       "itemCondition":"https://schema.org/NewCondition",
-      "url":"https://chk.eduzz.com/E05X4ZP7WX?pf=1"
+      "url":"https://chk.eduzz.com/909488?pf=1"
     },
     {
       "@type":"Offer",
@@ -1173,7 +1168,7 @@ fbq('track', 'ViewContent', {
       "priceCurrency":"BRL",
       "availability":"https://schema.org/InStock",
       "itemCondition":"https://schema.org/NewCondition",
-      "url":"https://chk.eduzz.com/39ZQYBOB9E?pf=1"
+      "url":"https://chk.eduzz.com/1046549?pf=1"
     },
     {
       "@type":"Offer",
@@ -1182,7 +1177,7 @@ fbq('track', 'ViewContent', {
       "priceCurrency":"BRL",
       "availability":"https://schema.org/InStock",
       "itemCondition":"https://schema.org/NewCondition",
-      "url":"https://chk.eduzz.com/E0D6XBPD91?pf=1"
+      "url":"https://chk.eduzz.com/1804864?pf=1"
     }
   ]
 }
@@ -1291,6 +1286,12 @@ fbq('track', 'ViewContent', {
 
 /* RODAPÉ — largura adaptável ao navegador, como a HERO */
 @media (min-width:721px){.footer > .inner{width:min(calc(100vw - 80px),1320px);max-width:1320px;margin-left:auto;margin-right:auto;}}
+</style>
+<style id="lote2b-correcoes">
+@media(prefers-reduced-motion:reduce){
+  .pc-was::after,.bonus-valor-right .was::after{animation:none!important;transform:scaleX(1);}
+  .dest-badge::after{animation:none!important;display:none;}
+}
 </style>
 </head>
 <body>
@@ -1927,16 +1928,15 @@ src="https://www.facebook.com/tr?id=239605191106043&amp;ev=PageView&amp;noscript
   </svg>
 </a>
 
-<!-- LIGHTBOX -->
-<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fechar imagem ampliada">✕</button>
-  <img id="lightbox-img" src="" alt="">
-</div>
-
 <script>
 function copiarCupom(e){
   if(e) e.stopPropagation();
   var codigo = 'GANHEI10';
+  if(!window.__cupomMedido){
+    window.__cupomMedido = true;
+    try{ if(window.fbq){ fbq('trackCustom','CouponCopy',{coupon:codigo}); } }catch(x){}
+    try{ if(window.smClarityTag){ window.smClarityTag('cupom_copiado','sim'); } }catch(x){}
+  }
   var sub = document.getElementById('cupom-sub-text');
   function feedback(ok){
     if(!sub) return;
@@ -2044,8 +2044,8 @@ function irParaVersoes(e, fromCoupon){
 
   function updateWaPosition(visible){
     if(!waFloat) return;
-    var offset = visible ? (bar.offsetHeight + 14) : 22;
-    waFloat.style.bottom = offset + 'px';
+    /* barra escondida: apaga o valor inline e deixa o CSS decidir (22px no desktop, 14px no celular) */
+    waFloat.style.bottom = visible ? (bar.offsetHeight + 14) + 'px' : '';
   }
 
   function refresh(){
@@ -2066,6 +2066,7 @@ function irParaVersoes(e, fromCoupon){
     var obs=new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         insideVersoes = entry.isIntersecting;
+        if(entry.isIntersecting && !window.__viuPrecos){ window.__viuPrecos = true; if(window.smClarityTag){ window.smClarityTag('viu_precos','sim'); } }
         refresh();
       });
     }, {threshold:.15});
@@ -2156,10 +2157,7 @@ function carStart(){
 }
 function loadSlide(i){if(loaded[i])return;var imgs=document.querySelectorAll('.car-slide img');if(imgs[i]&&imgs[i].dataset.src){imgs[i].src=imgs[i].dataset.src;loaded[i]=true;}}
 function slideTo(i){ci=i;loadSlide(i);loadSlide((i+1)%TOTAL);document.getElementById('slides').style.transform='translateX(-'+(i*100)+'%)';document.querySelectorAll('.cdot').forEach(function(d,j){d.classList.toggle('active',j===i);});
-  /* só a imagem visível entra na ordem do Tab (as outras ficam fora da tela) */
-  document.querySelectorAll('#slides .car-slide img').forEach(function(im,j){im.setAttribute('tabindex',j===i?'0':'-1');});
   carStart();}
-document.querySelectorAll('#slides .car-slide img').forEach(function(im,j){im.setAttribute('tabindex',j===0?'0':'-1');});
 carStart();
 
 /* CARROSSEL — pausa, passar com o dedo e setas do teclado */
@@ -2381,58 +2379,6 @@ document.querySelectorAll('.faq-item').forEach(function(item,i){
 
 </script>
 <script>
-/* ══ LIGHTBOX — clique nas páginas do carrossel para ampliar ══ */
-(function(){
-  function upsizeWix(url){
-    if(!url) return url;
-    return url.replace(/w_\d+,h_\d+/, 'w_1200,h_780');
-  }
-  var lb=document.getElementById('lightbox');
-  var lbImg=document.getElementById('lightbox-img');
-  var slidesWrap=document.getElementById('slides');
-
-  var lastFocus=null;
-  window.openLightbox=function(imgEl){
-    var real = imgEl.currentSrc || imgEl.src || imgEl.dataset.src;
-    if(!real) return;
-    lastFocus = document.activeElement;
-    lbImg.src = upsizeWix(real);
-    lbImg.alt = imgEl.alt || '';
-    lb.classList.add('active');
-    document.body.style.overflow='hidden';
-    var cb = lb.querySelector('.lightbox-close');
-    setTimeout(function(){ if(cb) cb.focus(); }, 30);
-  };
-  window.closeLightbox=function(){
-    var estavaAberto = lb.classList.contains('active');
-    lb.classList.remove('active');
-    document.body.style.overflow='';
-    if(estavaAberto && lastFocus && lastFocus.focus){ lastFocus.focus(); }
-  };
-
-  if(slidesWrap){
-    slidesWrap.querySelectorAll('img').forEach(function(im){
-      im.setAttribute('role','button');
-      im.setAttribute('aria-label',(im.alt||'Página do livro')+', ampliar');
-    });
-    slidesWrap.addEventListener('click', function(e){
-      var img=e.target.closest('img');
-      if(img) openLightbox(img);
-    });
-    slidesWrap.addEventListener('keydown', function(e){
-      if((e.key==='Enter'||e.key===' ') && e.target.tagName==='IMG'){ e.preventDefault(); openLightbox(e.target); }
-    });
-  }
-  lb.addEventListener('click', function(e){
-    if(e.target===lb) closeLightbox();
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key==='Escape') closeLightbox();
-  });
-})();
-
-</script>
-<script>
 /* ══ SCROLL REVEAL + CONTADORES ANIMADOS ══ */
 (function(){
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2557,32 +2503,10 @@ document.querySelectorAll('.faq-item').forEach(function(item,i){
     try{ sessionStorage.setItem(k, v); }catch(e){}
   }
 
-  /* fbc: Click ID do Facebook (maior ganho de correspondência) */
-  function getFbc(){
-    try{
-      var fbclid = params.get('fbclid') || safeGet('sm_fbclid');
-      if(!fbclid) return undefined;
-      return 'fb.1.' + Date.now() + '.' + fbclid;
-    }catch(e){return undefined;}
-  }
-
-  /* fbp: cookie _fbp setado automaticamente pelo Pixel */
-  function getFbp(){
-    try{
-      var m = document.cookie.match(/_fbp=([^;]+)/);
-      return m ? m[1] : undefined;
-    }catch(e){return undefined;}
-  }
-
-  /* URL da página de origem */
-  var sourceUrl = window.location.href;
-
-  /* Monta objeto base de user_data para qualquer evento */
+  /* O Pixel já envia fbc, fbp e a URL da página por conta própria (cookies _fbc e _fbp).
+     Aqui só sai o que é dado do evento. O InitiateCheckout vem da Eduzz (Conversions API). */
   function pixelData(extra){
-    var base = { event_source_url: sourceUrl };
-    var fbc = getFbc(); if(fbc) base.fbc = fbc;
-    var fbp = getFbp(); if(fbp) base.fbp = fbp;
-    return Object.assign({}, base, extra || {});
+    return Object.assign({}, extra || {});
   }
 
   /* ══ UTM PASSTHROUGH — repassa UTMs da URL para todos os links de checkout ══ */
@@ -2620,23 +2544,21 @@ document.querySelectorAll('.faq-item').forEach(function(item,i){
 
   document.addEventListener('DOMContentLoaded',function(){
 
-    /* InitiateCheckout em todos os botões de checkout */
+    /* Etiquetas no Clarity: origem do tráfego e versão em que a pessoa clicou */
+    try{
+      var src = params.get('utm_source') || safeGet('sm_utm_source') || 'direto';
+      var cmp = params.get('utm_campaign') || safeGet('sm_utm_campaign');
+      if(window.smClarityTag){
+        window.smClarityTag('origem', String(src).slice(0,60));
+        if(cmp) window.smClarityTag('campanha', String(cmp).slice(0,60));
+      }
+    }catch(e){}
     document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
       link.addEventListener('click',function(){
-        var href = link.href;
-        var val  = 77.00;
-        var name = 'Seja Minimalista — Digital';
-        var ids  = ['seja-minimalista-digital'];
-        if(href.indexOf('1046549') > -1){ val=107.00; name='Seja Minimalista — Físico'; ids=['seja-minimalista-fisico']; }
-        if(href.indexOf('1804864') > -1){ val=147.00; name='Seja Minimalista — Combo';  ids=['seja-minimalista-combo'];  }
-        if(window.fbq){ fbq('track','InitiateCheckout', pixelData({
-          content_ids:  ids,
-          content_type: 'product',
-          content_name: name,
-          currency:     'BRL',
-          value:        val,
-          num_items:    1
-        })); }
+        var v = 'digital';
+        if(link.href.indexOf('1046549') > -1) v = 'fisico';
+        if(link.href.indexOf('1804864') > -1) v = 'combo';
+        if(window.smClarityTag) window.smClarityTag('versao_clicada', v);
       });
     });
 
@@ -2648,8 +2570,14 @@ document.querySelectorAll('.faq-item').forEach(function(item,i){
     });
 
     /* Tempo de engajamento */
-    setTimeout(function(){ if(window.fbq){ fbq('trackCustom','Engaged30s', pixelData()); } },30000);
-    setTimeout(function(){ if(window.fbq){ fbq('trackCustom','Engaged60s', pixelData()); } },60000);
+    /* conta só os segundos com a aba visível (aba em segundo plano não vale como engajamento) */
+    var segVisivel = 0;
+    var engTimer = setInterval(function(){
+      if(document.visibilityState !== 'visible') return;
+      segVisivel++;
+      if(segVisivel === 30 && window.fbq){ fbq('trackCustom','Engaged30s', pixelData()); }
+      if(segVisivel === 60){ if(window.fbq){ fbq('trackCustom','Engaged60s', pixelData()); } clearInterval(engTimer); }
+    }, 1000);
 
     /* Profundidade de scroll */
     var fired50=false,fired75=false,fired90=false;
