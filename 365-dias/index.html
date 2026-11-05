@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+<html lang="pt-BR" data-tema="black-friday" prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
 <head>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -64,7 +64,7 @@
   "keywords":["minimalismo","destralhe","organização","vida simples","hábitos","365 dias","livro de minimalismo"],
   "author":{
     "@type":"Person",
-    "@id":"https://sejaminimalista.com.br/#alexandre-chahoud",
+    "@id":"https://sejaminimalista.com.br/#author",
     "name":"Alexandre Chahoud"
   },
   "publisher":{
@@ -219,13 +219,15 @@
 </script>
 
 <link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
-<link rel="preconnect" href="https://video.wixstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://video.wixstatic.com">
 <link rel="dns-prefetch" href="https://static.wixstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap">
-<link rel="preload" as="image" fetchpriority="high"
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<link rel="preload" as="image" type="image/avif" fetchpriority="high" media="(max-width:720px)"
   href="https://static.wixstatic.com/media/940f31_ff7a1e6a44d44dfaae4289f3f2bfa2cc~mv2.avif">
+<link rel="preload" as="image" type="image/png" fetchpriority="high" media="(min-width:721px)"
+  href="https://static.wixstatic.com/media/940f31_78b1b096592f4a91b467f98b3ade5b92~mv2.png">
 
 <style>
 /* ══════════════════════════════════════════
@@ -291,9 +293,6 @@ html,body{
   -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
   box-shadow:0 6px 24px rgba(0,0,0,.28);
 }
-.urgency-bar.scrolled .countdown-unit{
-  font-size:14px;padding:2px 6px;min-width:26px;
-}
 .urgency-bar.scrolled .urgency-badge{
   padding:2px 9px;
 }
@@ -311,16 +310,8 @@ html,body{
   letter-spacing:.06em;white-space:nowrap;
   transition:padding .3s ease;
 }
-.countdown{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--ink-muted);}
-.countdown-unit{
-  background:#2E2E2C;color:var(--gold);
-  font-family:var(--font-display);font-size:17px;font-weight:700;
-  padding:3px 8px;border-radius:4px;min-width:32px;text-align:center;line-height:1.2;
-  transition:font-size .3s ease,padding .3s ease,min-width .3s ease;
-}
-.countdown-sep{color:var(--gold);font-weight:700;}
 @media(prefers-reduced-motion:reduce){
-  .urgency-bar,.urgency-inner,.urgency-badge,.countdown-unit{transition:none!important;}
+  .urgency-bar,.urgency-inner,.urgency-badge{transition:none!important;}
 }
 
 /* ══ BARRA DE PROGRESSO DE LEITURA ══ */
@@ -698,37 +689,6 @@ html,body{
   display:flex;align-items:center;justify-content:center;gap:5px;
 }
 
-/* ══ LIGHTBOX ══ */
-.lightbox-overlay{
-  position:fixed;inset:0;background:rgba(18,17,15,.93);
-  display:flex;align-items:center;justify-content:center;
-  padding:32px;z-index:10001;
-  opacity:0;visibility:hidden;
-  transition:opacity .25s ease,visibility 0s linear .25s;
-}
-.lightbox-overlay.active{
-  opacity:1;visibility:visible;
-  transition:opacity .25s ease,visibility 0s linear 0s;
-}
-.lightbox-overlay img{
-  max-width:min(92vw,880px);max-height:86vh;
-  border-radius:8px;display:block;
-  box-shadow:0 24px 64px rgba(0,0,0,.5);
-  transform:scale(.96);transition:transform .3s cubic-bezier(.22,1,.36,1);
-}
-.lightbox-overlay.active img{transform:scale(1);}
-.lightbox-close{
-  position:absolute;top:18px;right:20px;width:38px;height:38px;
-  border-radius:50%;background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.22);color:#fff;
-  font-size:18px;line-height:1;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:background .2s;
-}
-.lightbox-close:hover{background:rgba(255,255,255,.18);}
-@media(prefers-reduced-motion:reduce){
-  .lightbox-overlay,.lightbox-overlay img,.car-slide img{transition:none!important;}
-}
 
 /* ══ CARROSSEL DE STORIES (fotos reais de leitores) — rolagem automática infinita ══ */
 .stories-block{margin-bottom:44px;}
@@ -1301,7 +1261,6 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   outline:2px solid var(--gold-text);outline-offset:3px;border-radius:4px;
 }
 .cdot:focus-visible{outline:2px solid var(--gold-text);outline-offset:2px;}
-.lightbox-overlay{overscroll-behavior:contain;}
 #versoes,#versao-digital,#versao-fisica,#bonus{scroll-margin-top:64px;}
 .hero-h1,.sec-h2,.agit-h2,.t-headline{text-wrap:balance;}
 
@@ -1575,12 +1534,8 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
   }
   html,body{overflow-x:hidden;}
   .topbar-nav{display:none;}
-  .urgency-badge{display:none;}
-
-  /* countdown visível no mobile — empilhado abaixo do texto */
+  /* barra no celular: selo do tema em cima, texto embaixo */
   .urgency-inner{flex-direction:column;gap:6px;}
-  .countdown{display:flex;}
-  .countdown-unit{font-size:20px;min-width:34px;padding:4px 8px;}
   .urgency-text{font-size:13px;text-align:center;}
 
   /* hero: imagem full-bleed, maior e sem sobra de fundo nas bordas.
@@ -1850,8 +1805,6 @@ fbq('track', 'ViewContent', {
   value:        77.00
 });
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></noscript>
 <link rel="dns-prefetch" href="//chk.eduzz.com">
 <link rel="preconnect" href="https://chk.eduzz.com" crossorigin>
 
@@ -1860,6 +1813,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://sejaminimalista.com.br/#author",
   "name": "Alexandre Chahoud",
   "url": "https://sejaminimalista.com.br/",
   "sameAs": ["https://www.instagram.com/seja.minimalista/"],
@@ -1870,11 +1824,28 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
+    window.__clTags = [];
+    window.smClarityTag = function(k, v){
+        try{ if(window.clarity && window.__clOn){ clarity('set', k, v); } else { window.__clTags.push([k, v]); } }catch(e){}
+    };
+    function __iniciarClarity(){
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "x9zztciwhm");
+    window.__clOn = true;
+    (window.__clTags || []).forEach(function(t){ try{ clarity('set', t[0], t[1]); }catch(e){} });
+    window.__clTags = [];
+    }
+    /* começa depois que a página carregou, quando o navegador estiver livre (máx. 4 s) */
+    (function(){
+        var go = function(){
+            if(window.requestIdleCallback){ requestIdleCallback(__iniciarClarity, {timeout:4000}); }
+            else { setTimeout(__iniciarClarity, 2000); }
+        };
+        if(document.readyState === 'complete'){ go(); } else { window.addEventListener('load', go); }
+    })();
 </script>
 
 <script type="application/ld+json">
@@ -2032,8 +2003,174 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 }
 </style>
 
+<style id="cupom-rodape">
+#cupom-tooltip{top:20px;right:20px;bottom:auto;max-width:220px;}
+.cupom-box{background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(199,154,92,.45);}
+.cupom-label{font-size:10px;font-weight:700;color:#C79A5C;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;}
+.cupom-code-box{background:rgba(255,255,255,.05);border:1.5px dashed #C79A5C;border-radius:8px;padding:9px 12px 8px;text-align:center;}
+.cupom-code{font-family:var(--font-display);font-size:21px;font-weight:700;color:#F7F1E6;letter-spacing:.07em;}
+.cupom-sub{font-size:10.5px;color:#D9B589;margin-top:2px;letter-spacing:.02em;}
+@media(max-width:720px){
+  #cupom-tooltip{top:14px;right:10px;max-width:148px;}
+  .cupom-box{padding:10px 11px 9px;border-radius:11px;}
+  .cupom-label{font-size:8px;letter-spacing:.1em;margin-bottom:6px;white-space:nowrap;padding-right:20px;}
+  .cupom-code-box{padding:6px 8px 5px;border-radius:6px;}
+  .cupom-code{font-size:15px;letter-spacing:.04em;}
+  .cupom-sub{font-size:8.5px;margin-top:1px;}
+}
+@keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
+
+/* RODAPÉ — largura adaptável ao navegador */
+@media (min-width:721px){
+  .footer > .inner{
+    width:min(calc(100vw - 80px),1320px);
+    max-width:1320px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+
+
+/* ══ PADRONIZAÇÃO COM A HOME (fontes e cores do 365 mantidas) ══ */
+/* Depoimentos um pouco maiores, como nas outras páginas */
+.t-text{font-size:16px;line-height:1.75;}
+/* Textos longos alinhados à esquerda, como na home: autor e lista de bônus */
+.sec-autor-texto,.sec-autor-texto .sec-p{text-align:left!important;}
+.sec-autor-texto .press-label,.sec-autor-texto [class*=press]{text-align:left!important;justify-content:flex-start!important;}
+.bonus-item,.bonus-item *{text-align:left!important;}
+@media(max-width:720px){
+  .t-text{font-size:15.5px;}
+}
+</style>
+<style id="ajustes-365">
+/* ══ AJUSTES DO 365 DIAS (novembro/2026): auditoria técnica, tema do mês e movimento reduzido ══ */
+
+/* Contraste: textos secundários sobre fundo escuro (antes cerca de 2,4:1) */
+:root{--ink-muted-dark:#A8A49B;}
+.stat-lbl,.urg-p,.gar-p,.footer-copy,.footer-links h3,.footer-news h3,.car-cap{color:var(--ink-muted-dark);}
+.urg-dlabel{color:#D0CEC8;}
+.urg-sep{color:#8A867D;}
+/* Contraste: textos sobre fundo claro e detalhes dourados */
+.t-sub-dep,.t-stat-label{color:#6B655E;}
+.t-card.featured .t-stars{color:var(--gold);}
+.t-card:not(.featured) .t-avatar{color:var(--ink);}
+.t-quote-mark{color:#A67A3A;}
+.sec-eyebrow{color:#775420;}
+.dest-badge.muted{color:#3D3D3B;}
+
+/* Tablet (721 a 960px): preços sem corte e página sem rolagem horizontal */
+@media(min-width:721px) and (max-width:960px){
+  #versoes{padding-left:20px;padding-right:20px;}
+  .precos{gap:14px;}
+  .pc-parc-destaque{font-size:clamp(20px,3vw,28px);}
+  .t-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+
+/* Celular: overflow-x:hidden em html/body quebrava o position:sticky da barra do topo */
+@media(max-width:720px){html,body{overflow-x:clip;}}
+
+/* Barra fixa de compra: escondida também para teclado e leitor de tela */
+.sticky-buy-bar{visibility:hidden;transition:transform .35s cubic-bezier(.25,.8,.25,1),visibility 0s linear .35s;}
+.sticky-buy-bar.show{visibility:visible;transition:transform .35s cubic-bezier(.25,.8,.25,1),visibility 0s;}
+
+/* Stories: sem salto de 6px a cada volta (gap vira margem) e acessíveis com movimento reduzido */
+.stories-strip{gap:0;}
+.story-card{margin-right:12px;}
+@media(prefers-reduced-motion:reduce){
+  .stories-viewport{overflow-x:auto;-webkit-mask-image:none;mask-image:none;}
+  .story-card[aria-hidden="true"]{display:none;}
+}
+
+/* Vídeo do livro: toque para pausar/retomar */
+.video-box{position:relative;}
+.vid-btn{position:absolute;inset:0;width:100%;height:100%;background:none;border:0;padding:0;margin:0;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent;}
+.vid-btn:focus-visible{outline:3px solid var(--gold);outline-offset:-3px;border-radius:22px;}
+.vid-ico{width:64px;height:64px;border-radius:50%;background:rgba(28,28,26,.62);border:1px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;color:#fff;transition:opacity .25s;}
+.vid-ico svg{width:24px;height:24px;display:block;}
+.vid-ico .i-pause{display:none;}
+.video-box.is-playing .vid-ico{opacity:0;}
+.video-box.is-playing .vid-ico .i-play{display:none;}
+.video-box.is-playing .vid-ico .i-pause{display:block;}
+.vid-btn:focus-visible .vid-ico{opacity:1;}
+@media(hover:hover){.video-box.is-playing:hover .vid-ico{opacity:1;}}
+@media(prefers-reduced-motion:reduce){.vid-ico{transition:none;}}
+
+/* Animações que mexiam em layout (width e left) passam a usar só transform */
+@keyframes strike-loop-x{0%{transform:scaleX(0);}14%{transform:scaleX(1);}78%{transform:scaleX(1);}90%{transform:scaleX(0);}100%{transform:scaleX(0);}}
+.pc-was::after,.bonus-valor-right .was::after{width:100%;transform:scaleX(0);transform-origin:left center;animation-name:strike-loop-x;}
+@keyframes dest-shine-x{0%{transform:translateX(-150%) skewX(-20deg);}40%,100%{transform:translateX(260%) skewX(-20deg);}}
+.dest-badge::after{left:0;transform:translateX(-150%) skewX(-20deg);animation-name:dest-shine-x;}
+
+/* FAQ: resposta fechada não é lida por leitor de tela nem recebe foco */
+.faq-a{visibility:hidden;transition:grid-template-rows .35s cubic-bezier(.16,1,.3,1),opacity .3s ease,visibility 0s linear .35s;}
+.faq-item.open .faq-a{visibility:visible;transition:grid-template-rows .35s cubic-bezier(.16,1,.3,1),opacity .3s ease,visibility 0s;}
+@media(prefers-reduced-motion:reduce){
+  .faq-a{transition:opacity .15s ease,visibility 0s linear .15s;}
+  .faq-item.open .faq-a{transition:opacity .15s ease,visibility 0s;}
+}
+
+/* Carrossel: botão de pausa e gesto de deslizar */
+.car-wrap{touch-action:pan-y pinch-zoom;}
+.car-pause{width:24px;height:24px;padding:0;margin-left:6px;background:none;border:none;cursor:pointer;color:#8A867D;display:flex;align-items:center;justify-content:center;}
+.car-pause svg{width:12px;height:12px;display:block;}
+.car-pause:hover{color:var(--gold);}
+.car-pause:focus-visible{outline:2px solid var(--gold-text);outline-offset:2px;border-radius:4px;}
+.car-pause .i-play{display:none;}
+.car-pause[aria-pressed="true"] .i-pause{display:none;}
+.car-pause[aria-pressed="true"] .i-play{display:block;}
+.car-pause[hidden]{display:none;}
+.car-wrap{position:relative;}
+.car-seta{position:absolute;top:calc(50% - 22px);z-index:3;width:32px;height:32px;padding:0;border:none;border-radius:50%;background:rgba(20,20,18,.38);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:.72;transition:opacity .2s,background .2s;-webkit-tap-highlight-color:transparent;}
+.car-seta svg{width:14px;height:14px;display:block;}
+.car-seta.ant{left:8px;}
+.car-seta.prox{right:8px;}
+.car-seta:hover{opacity:1;background:rgba(20,20,18,.6);}
+.car-seta:focus-visible{opacity:1;outline:2px solid #fff;outline-offset:2px;}
+@media(max-width:720px){.car-seta{width:28px;height:28px;opacity:.62;}.car-seta.ant{left:6px;}.car-seta.prox{right:6px;}}
+
+/* ══ TEMA DO MÊS ══
+   Para trocar de mês: mude data-tema no <html>, o texto do selo (.tema-nome), o rótulo do cupom
+   e o rótulo da seção "Oferta ... com bônus inclusos", e acrescente o bloco html[data-tema="..."] abaixo.
+   Sem data-tema, a página usa o visual padrão. */
+:root{
+  --tema-fundo:var(--ink);--tema-fundo-vidro:rgba(28,28,26,.94);--tema-destaque:var(--gold);--tema-borda:transparent;
+  --tema-cupom-fundo:linear-gradient(160deg,#22201C 0%,#17150F 100%);--tema-cupom-bico:#1C1A15;--tema-cupom-sub:#D9B589;
+}
+html[data-tema="black-friday"]{
+  --tema-fundo:#0A0A09;--tema-fundo-vidro:rgba(10,10,9,.94);--tema-destaque:#E3C27A;--tema-borda:rgba(227,194,122,.6);
+  --tema-cupom-fundo:linear-gradient(160deg,#171715 0%,#0A0A09 100%);--tema-cupom-bico:#171715;--tema-cupom-sub:#D9BC84;
+}
+.urgency-bar{background:var(--tema-fundo);border-bottom:1px solid var(--tema-borda);}
+.urgency-bar.scrolled{background:var(--tema-fundo-vidro);}
+.urgency-badge{background:var(--tema-destaque);}
+.urgency-text strong{color:var(--tema-destaque);}
+.urgency-section{background:var(--tema-fundo);}
+.urg-label{color:var(--tema-destaque);}
+.urg-label::before,.urg-label::after{background:var(--tema-destaque);}
+.urg-digit{color:var(--tema-destaque);}
+.urg-bonus-tag{color:var(--tema-destaque);}
+.cupom-box{background:var(--tema-cupom-fundo);}
+.cupom-label,.cupom-box .cupom-label{color:var(--tema-destaque);}
+.cupom-code-box{border-color:var(--tema-destaque);}
+.cupom-sub{color:var(--tema-cupom-sub);}
+html[data-tema="black-friday"] .urgency-badge{text-transform:uppercase;letter-spacing:.12em;font-weight:800;}
+html[data-tema="black-friday"] .cupom-box{border-color:var(--tema-destaque);}
+html[data-tema="black-friday"] .urg-digit{border-color:rgba(227,194,122,.45);}
+html[data-tema="black-friday"] .urg-sep{color:var(--tema-destaque);}
+html[data-tema="black-friday"] .urgency-section{border-top:1px solid var(--tema-borda);}
+
+/* Movimento reduzido: risco dos preços, brilho do selo e do parcelamento, deslize dos slides */
+@media(prefers-reduced-motion:reduce){
+  .pc-was::after,.bonus-valor-right .was::after{animation:none!important;transform:scaleX(1);}
+  .dest-badge::after{animation:none!important;display:none;}
+  .pc-parc-destaque{animation:none!important;background-position:0 0!important;will-change:auto;}
+  .car-slides{transition:none!important;}
+}
+</style>
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=239605191106043&amp;ev=PageView&amp;noscript=1" alt=""/></noscript>
 
 <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
 
@@ -2055,16 +2192,8 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <!-- URGÊNCIA BAR -->
 <div class="urgency-bar" id="urgency-bar">
   <div class="urgency-inner">
-    <span class="urgency-badge">⏳ Oferta especial</span>
+    <span class="urgency-badge">⏳ Oferta especial <span class="tema-nome">Black Friday</span></span>
     <span class="urgency-text"><strong>Bônus digitais inclusos</strong>, frete grátis e garantia de 7 dias</span>
-    <div class="countdown">
-      <span>Encerra em</span>
-      <span class="countdown-unit" id="cd-h">00</span>
-      <span class="countdown-sep">:</span>
-      <span class="countdown-unit" id="cd-m">00</span>
-      <span class="countdown-sep">:</span>
-      <span class="countdown-unit" id="cd-s">00</span>
-    </div>
   </div>
 </div>
 
@@ -2132,11 +2261,12 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       <div class="preview-media-78">
         <p class="video-intro">Veja como é o livro por dentro</p>
         <div class="video-box">
-          <video id="book-video"
+          <video id="book-video" aria-label="Vídeo de apresentação do livro 365 Dias Minimalistas"
             src="https://video.wixstatic.com/video/940f31_a6db62a1711f4ea09f802f00a481febe/720p/mp4/file.mp4"
             preload="none" loop muted playsinline
             poster="https://static.wixstatic.com/media/940f31_78b1b096592f4a91b467f98b3ade5b92~mv2.png/v1/fill/w_400,h_400,al_c,q_85,enc_auto,quality_auto/capa.png">
           </video>
+          <button type="button" class="vid-btn" id="vid-btn" aria-label="Reproduzir vídeo"><span class="vid-ico" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.2v13.6a1 1 0 0 0 1.5.86l11-6.8a1 1 0 0 0 0-1.72l-11-6.8A1 1 0 0 0 8 5.2Z"/></svg><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4.2" height="14" rx="1"/><rect x="13.8" y="5" width="4.2" height="14" rx="1"/></svg></span></button>
         </div>
       </div>
 
@@ -2197,18 +2327,21 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 
     <div class="car-wrap livro-grande">
       <div class="car-slides" id="slides">
-        <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_c68fb652fd874144a700ca2b6d115223~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_auto,quality_auto/940f31_c68fb652fd874144a700ca2b6d115223~mv2.jpg" alt="365 Dias Minimalistas, página interna 1" width="596" height="387" loading="eager" decoding="async"></div>
+        <div class="car-slide"><img src="https://static.wixstatic.com/media/940f31_c68fb652fd874144a700ca2b6d115223~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_auto,quality_auto/940f31_c68fb652fd874144a700ca2b6d115223~mv2.jpg" alt="365 Dias Minimalistas, página interna 1" width="596" height="387" loading="lazy" decoding="async"></div>
         <div class="car-slide"><img data-src="https://static.wixstatic.com/media/940f31_aebfc59a179c4698b9de3f5daaa57e2c~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_auto,quality_auto/940f31_aebfc59a179c4698b9de3f5daaa57e2c~mv2.jpg" alt="365 Dias Minimalistas, página interna 2" width="596" height="387" loading="lazy" decoding="async"></div>
         <div class="car-slide"><img data-src="https://static.wixstatic.com/media/940f31_39964870b7a94efd901d76d8aaba2431~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_auto,quality_auto/940f31_39964870b7a94efd901d76d8aaba2431~mv2.jpg" alt="365 Dias Minimalistas, página interna 3" width="596" height="387" loading="lazy" decoding="async"></div>
         <div class="car-slide"><img data-src="https://static.wixstatic.com/media/940f31_2163abd906ec477ab9dc8017a4f93b9a~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_auto,quality_auto/940f31_2163abd906ec477ab9dc8017a4f93b9a~mv2.jpg" alt="365 Dias Minimalistas, página interna 4" width="596" height="387" loading="lazy" decoding="async"></div>
         <div class="car-slide"><img data-src="https://static.wixstatic.com/media/940f31_53a10c2413dc4a019af1367fd6daaa22~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_auto,quality_auto/940f31_53a10c2413dc4a019af1367fd6daaa22~mv2.jpg" alt="365 Dias Minimalistas, página interna 5" width="596" height="387" loading="lazy" decoding="async"></div>
       </div>
+      <button type="button" class="car-seta ant" onclick="slideTo((ci+TOTAL-1)%TOTAL)" aria-label="Imagem anterior"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5 4.5 7 9 11.5"/></svg></button>
+      <button type="button" class="car-seta prox" onclick="slideTo((ci+1)%TOTAL)" aria-label="Próxima imagem"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 2.5 9.5 7 5 11.5"/></svg></button>
       <div class="car-dots">
         <button class="cdot active" onclick="slideTo(0)" aria-label="Ir para imagem 1 do carrossel"></button>
         <button class="cdot" onclick="slideTo(1)" aria-label="Ir para imagem 2 do carrossel"></button>
         <button class="cdot" onclick="slideTo(2)" aria-label="Ir para imagem 3 do carrossel"></button>
         <button class="cdot" onclick="slideTo(3)" aria-label="Ir para imagem 4 do carrossel"></button>
         <button class="cdot" onclick="slideTo(4)" aria-label="Ir para imagem 5 do carrossel"></button>
+        <button type="button" class="car-pause" id="car-pause" aria-label="Pausar a troca automática das imagens" aria-pressed="false"><svg class="i-pause" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" rx=".6"/><rect x="7.4" y="1.5" width="2.6" height="9" rx=".6"/></svg><svg class="i-play" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 1.8v8.4a.6.6 0 0 0 .9.5l6.6-4.2a.6.6 0 0 0 0-1L3.9 1.3a.6.6 0 0 0-.9.5Z"/></svg></button>
       </div>
       <div class="car-cap">O livro possui <strong>duas versões</strong> (digital e física), <strong>372 páginas</strong>, 1 reflexão e 1 prática por dia.</div>
 </div>
@@ -2305,7 +2438,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
       <div class="img-box sec-autor-img-desktop">
         <img src="https://static.wixstatic.com/media/940f31_49f56ef051ba45f3b106dce993ef899d~mv2.webp/v1/fill/w_440,h_636,al_c,q_90,enc_auto,quality_auto/alexandre.webp"
           alt="Alexandre Chahoud, autor minimalista e criador do Seja Minimalista" width="440" height="636" loading="lazy" decoding="async">
-        <figcaption class="autor-legenda"><span class="autor-legenda-nome">Alexandre Chahoud</span><span class="autor-legenda-papel">Autor de 365 Dias Minimalistas</span></figcaption>
+        <div class="autor-legenda"><span class="autor-legenda-nome">Alexandre Chahoud</span><span class="autor-legenda-papel">Autor de 365 Dias Minimalistas</span></div>
       </div>
       <div class="sec-autor-texto">
         <div class="sec-eyebrow">Sobre o autor</div>
@@ -2314,7 +2447,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <div class="img-box sec-autor-img-mobile">
           <img src="https://static.wixstatic.com/media/940f31_49f56ef051ba45f3b106dce993ef899d~mv2.webp/v1/fill/w_440,h_636,al_c,q_90,enc_auto,quality_auto/alexandre.webp"
             alt="Alexandre Chahoud, autor minimalista e criador do Seja Minimalista" width="440" height="636" loading="lazy" decoding="async">
-          <figcaption class="autor-legenda"><span class="autor-legenda-nome">Alexandre Chahoud</span><span class="autor-legenda-papel">Autor de 365 Dias Minimalistas</span></figcaption>
+          <div class="autor-legenda"><span class="autor-legenda-nome">Alexandre Chahoud</span><span class="autor-legenda-papel">Autor de 365 Dias Minimalistas</span></div>
         </div>
         <p class="sec-p">Em 2014, eu olhei para o meu apartamento e percebi que tinha me tornado refém das coisas que eu acumulava. Roupas que nunca usava, objetos que "poderiam ser úteis um dia", uma vida cheia de barulho. Foi quando decidi mudar. Não de uma vez, mas aos poucos. Uma escolha por dia.</p>
         <p class="sec-p">Desde então, compartilho com mais de <strong>200 mil pessoas no Instagram</strong> o que funcionou comigo. Escrevi 4 livros, incluindo o best-seller Seja Minimalista, que juntos já venderam <strong>mais de 50 mil cópias em 15 países</strong>. O 365 Dias Minimalistas nasceu de tudo isso, compilado em uma página por dia.</p>
@@ -2346,7 +2479,7 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <!-- CARROSSEL DE STORIES: busca as fotos automaticamente da pasta do GitHub.
          Pra atualizar, é só subir/apagar imagens na pasta GH_FOLDER do repositório —
          não precisa editar este arquivo nunca mais. -->
-    <div class="stories-block" id="stories-block" aria-hidden="true">
+    <div class="stories-block" id="stories-block">
       <div class="stories-label">Direto do Instagram dos leitores</div>
       <div class="stories-controls">
         <button class="stories-pause" id="stories-pause-btn" onclick="toggleStoriesPause()" aria-label="Pausar fotos em movimento" aria-pressed="false"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><rect x="1" y="0.5" width="3" height="9"/><rect x="6" y="0.5" width="3" height="9"/></svg><span>pausar</span></button>
@@ -2470,8 +2603,8 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
 <!-- URGÊNCIA ANTES DO PRICING -->
 <div class="urgency-section">
   <div class="inner">
-    <div class="urg-label">Oferta com bônus inclusos</div>
-    <h3 class="urg-h3">Os bônus estão ativos por tempo limitado. Confira o contador acima.</h3>
+    <div class="urg-label">Oferta Black Friday com bônus inclusos</div>
+    <h3 class="urg-h3">Os bônus estão ativos por tempo limitado. Confira o contador abaixo.</h3>
     <p class="urg-p">Quando a oferta encerrar, o livro continua disponível, mas os bônus digitais (R$ 143 no total) podem não ser mais inclusos. Garanta o seu agora com tudo incluso.</p>
     <div class="urg-timer">
       <div class="urg-unit"><span class="urg-digit" id="urg-h">00</span><span class="urg-dlabel">horas</span></div>
@@ -2586,43 +2719,43 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
     <h2 class="sec-h2">Perguntas sobre o livro 365 Dias Minimalistas</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q" onclick="faq(this)" aria-expanded="false">E se eu não tiver disciplina para seguir todos os dias?<div class="faq-icon" aria-hidden="true">+</div></button>
+        <button class="faq-q" onclick="faq(this)" aria-expanded="false">E se eu não tiver disciplina para seguir todos os dias?<span class="faq-icon" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">Este livro foi feito exatamente para quem já tentou antes e não conseguiu manter. Uma página leva poucos minutos, então não depende de disciplina rígida. E ninguém faz 365 de 365: quem faz 8 de cada 10 dias chega no mesmo lugar. Se você perder um dia, dois ou uma semana, retoma de onde parou. O livro não reinicia.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="faq(this)" aria-expanded="false">Já li sobre minimalismo e não mudou nada. Por quê?<div class="faq-icon" aria-hidden="true">+</div></button>
+        <button class="faq-q" onclick="faq(this)" aria-expanded="false">Já li sobre minimalismo e não mudou nada. Por quê?<span class="faq-icon" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">Porque ler e fazer são coisas diferentes. Cada uma das 365 páginas tem uma frase de um autor, uma reflexão curta e uma tarefa concreta para aquele dia. Você fecha o livro tendo feito alguma coisa, não só entendido.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="faq(this)" aria-expanded="false">Preciso me desfazer de tudo para praticar o minimalismo?<div class="faq-icon" aria-hidden="true">+</div></button>
+        <button class="faq-q" onclick="faq(this)" aria-expanded="false">Preciso me desfazer de tudo para praticar o minimalismo?<span class="faq-icon" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">Não. O minimalismo aqui não é sobre viver com o mínimo possível, e sim manter o que tem valor pra você. Funciona em qualquer casa, qualquer rotina, qualquer realidade.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso começar em qualquer época do ano?<div class="faq-icon" aria-hidden="true">+</div></button>
+        <button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso começar em qualquer época do ano?<span class="faq-icon" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">Sim, completamente. O livro é organizado em 365 reflexões independentes. Você pode começar hoje, seja janeiro ou julho, e seguir no seu próprio ritmo. O importante é dar o primeiro passo.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="faq(this)" aria-expanded="false">Funciona para quem tem casa grande, muitas coisas, filhos?<div class="faq-icon" aria-hidden="true">+</div></button>
+        <button class="faq-q" onclick="faq(this)" aria-expanded="false">Funciona para quem tem casa grande, muitas coisas, filhos?<span class="faq-icon" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">Funciona para qualquer realidade. O livro cobre minimalismo em áreas diferentes: espaço, finanças, relacionamentos, rotina digital, alimentação. Você adapta cada prática à sua vida, sem julgamento, sem comparação.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="faq(this)" aria-expanded="false">O livro digital funciona no Kindle?<div class="faq-icon" aria-hidden="true">+</div></button>
+        <button class="faq-q" onclick="faq(this)" aria-expanded="false">O livro digital funciona no Kindle?<span class="faq-icon" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">Sim, funciona perfeitamente no Kindle via cabo USB. Na Área VIP há um tutorial em vídeo com o passo a passo completo.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="faq(this)" aria-expanded="false">Quando recebo meu livro digital?<div class="faq-icon" aria-hidden="true">+</div></button>
+        <button class="faq-q" onclick="faq(this)" aria-expanded="false">Quando recebo meu livro digital?<span class="faq-icon" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">Comprando por cartão ou Pix, você recebe imediatamente no seu e-mail. Por boleto, em até 3 dias úteis após a compensação.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso parcelar a compra?<div class="faq-icon" aria-hidden="true">+</div></button>
+        <button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso parcelar a compra?<span class="faq-icon" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">Sim. O pagamento por cartão de crédito pode ser parcelado em até 12x. O digital chega imediatamente após a confirmação e o físico é despachado após o processamento.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="faq(this)" aria-expanded="false">Como rastreio o livro físico?<div class="faq-icon" aria-hidden="true">+</div></button>
+        <button class="faq-q" onclick="faq(this)" aria-expanded="false">Como rastreio o livro físico?<span class="faq-icon" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">Assim que seu livro for despachado, você recebe o código de rastreio dos Correios no seu e-mail. Frete grátis para todo o Brasil.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="faq(this)" aria-expanded="false">É seguro comprar pelo link de pagamento?<div class="faq-icon" aria-hidden="true">+</div></button>
+        <button class="faq-q" onclick="faq(this)" aria-expanded="false">É seguro comprar pelo link de pagamento?<span class="faq-icon" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">Sim. O pagamento é processado pela Eduzz, uma das maiores plataformas de pagamento digital do Brasil, com criptografia de dados e nota fiscal emitida automaticamente.</div></div>
       </div>
     </div>
@@ -2652,14 +2785,14 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
         <a href="https://sejaminimalista.com.br/produtos" target="_blank">Todos os meus produtos</a>
         <a href="https://sejaminimalista.com.br/combos" target="_blank">Combos com desconto</a>
         <a href="https://www.sejaminimalista.net/vip/entrar" target="_blank">Área VIP</a>
-        <a href="https://chat.whatsapp.com/FnNU3DpCCXz3iGtkLH6qbR?s=cl&p=a&ilr=1" target="_blank">Comunidade no Whatsapp</a>
+        <a href="https://chat.whatsapp.com/FnNU3DpCCXz3iGtkLH6qbR?s=cl&amp;p=a&amp;ilr=1" target="_blank">Comunidade no Whatsapp</a>
         <a href="mailto:sejaminimalista@hotmail.com">Fale comigo</a>
       </div>
       <div class="footer-news">
         <h3>Newsletter gratuita</h3>
         <p style="font-size:12px;color:#D8D8D4;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas gratuitas direto no seu e-mail, toda semana.</p>
         <iframe
-          src="https://sejaminimalista.substack.com/embed?transparent=1&light=1"
+          src="https://sejaminimalista.substack.com/embed?transparent=1&amp;light=1"
           width="480" height="150"
           style="border:0;background:transparent;max-width:100%;display:block;"
           frameborder="0" scrolling="no"
@@ -2682,12 +2815,6 @@ src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></n
   </svg>
 </a>
 
-<!-- LIGHTBOX -->
-<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fechar imagem ampliada">✕</button>
-  <img id="lightbox-img" src="" alt="">
-</div>
-
 <script>
 /* SCROLL */
 function irParaVersoes(e){
@@ -2701,6 +2828,8 @@ function irParaVersoes(e){
   }
 }
 
+</script>
+<script>
 /* ══ PALAVRA GIRANDO NO HERO ══ */
 (function(){
   var words = ['mais leve.','mais simples.','mais organizado.','mais tranquilo.','com mais foco.'];
@@ -2714,8 +2843,13 @@ function irParaVersoes(e){
   function lockWidth(){
     var measurer = document.createElement('span');
     var style = getComputedStyle(el);
-    measurer.style.font = style.font;
+    /* propriedade por propriedade: no Firefox o atalho "font" volta vazio */
+    measurer.style.fontFamily = style.fontFamily;
+    measurer.style.fontSize = style.fontSize;
+    measurer.style.fontWeight = style.fontWeight;
     measurer.style.fontStyle = style.fontStyle;
+    measurer.style.fontStretch = style.fontStretch;
+    measurer.style.fontVariationSettings = style.fontVariationSettings;
     measurer.style.letterSpacing = style.letterSpacing;
     measurer.style.position = 'absolute';
     measurer.style.visibility = 'hidden';
@@ -2730,6 +2864,11 @@ function irParaVersoes(e){
     wrap.style.width = Math.ceil(max) + 'px';
   }
   lockWidth();
+  /* a fonte costuma chegar depois do primeiro cálculo: mede de novo quando ela carregar */
+  if(document.fonts){
+    if(document.fonts.ready){ document.fonts.ready.then(lockWidth); }
+    if(document.fonts.addEventListener){ document.fonts.addEventListener('loadingdone', lockWidth); }
+  }
   var resizeTimer;
   window.addEventListener('resize', function(){
     clearTimeout(resizeTimer);
@@ -2748,6 +2887,8 @@ function irParaVersoes(e){
   }, 1600);
 })();
 
+</script>
+<script>
 /* COUNTDOWN — 23h59 persistente por localStorage */
 (function(){
   var KEY='sm365_deadline';
@@ -2784,32 +2925,123 @@ function irParaVersoes(e){
   tick();
 })();
 
-/* VÍDEO — lazy por IntersectionObserver */
-var bv=document.getElementById('book-video');
-if(bv){
-  var vObs=new IntersectionObserver(function(e){
-    if(e[0].isIntersecting){bv.load();bv.play().catch(function(){});vObs.disconnect();}
-  },{threshold:.1});
-  vObs.observe(bv);
-}
+</script>
+<script>
+/* VÍDEO — inicia sozinho (sem som) ao aparecer, pausa ao sair da tela; toque pausa e retoma */
+(function(){
+  var qv=document.getElementById('book-video');
+  var qbtn=document.getElementById('vid-btn');
+  if(!qv||!qbtn) return;
+  var qbox=qv.parentElement;
+  function sync(){
+    var playing=!qv.paused&&!qv.ended;
+    qbox.classList.toggle('is-playing',playing);
+    qbtn.setAttribute('aria-label',playing?'Pausar vídeo':'Reproduzir vídeo');
+  }
+  function tryPlay(){
+    var p; try{ p=qv.play(); }catch(e){}
+    if(p&&p.catch) p.catch(sync);
+  }
+  var pausouManual=false;
+  qv.addEventListener('play',sync);
+  qv.addEventListener('pause',sync);
+  qv.addEventListener('ended',sync);
+  qbtn.addEventListener('click',function(){ if(qv.paused){ pausouManual=false; tryPlay(); } else { pausouManual=true; qv.pause(); } });
+  sync();
+  /* movimento reduzido, economia de dados ou conexão lenta: só toca quando a pessoa pedir */
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var conn=navigator.connection||{};
+  var poucaBanda=conn.saveData||/^(slow-2g|2g|3g)$/.test(conn.effectiveType||'');
+  if(reduced||poucaBanda||!('IntersectionObserver' in window)) return;
+  /* toca ao aparecer, pausa ao sair da tela e volta a tocar ao reaparecer (se a pessoa não pausou) */
+  var obs=new IntersectionObserver(function(e){
+    var visivel=e[0].isIntersecting && e[0].intersectionRatio>=.1;
+    if(visivel){ if(!pausouManual) tryPlay(); }
+    else if(!qv.paused){ qv.pause(); }
+  },{threshold:[0,.1]});
+  obs.observe(qv);
+})();
 
+</script>
+<script>
 /* CARROSSEL */
-var ci=0,loaded=[true,false,false,false,false];
+var ci=0,TOTAL=document.querySelectorAll('#slides .car-slide').length||5,loaded=[];
+for(var li=0;li<TOTAL;li++){loaded.push(li===0);}
+var carTimer=null,carPaused=false,carHover=false,carFocus=false;
+var carReduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* reinicia a contagem a cada troca, inclusive quando a pessoa clica num ponto */
+function carStart(){
+  if(carReduced||carPaused||carHover||carFocus) return;
+  clearInterval(carTimer);
+  carTimer=setInterval(function(){slideTo((ci+1)%TOTAL);},4000);
+}
 function loadSlide(i){
   if(loaded[i]) return;
   var imgs=document.querySelectorAll('.car-slide img');
   if(imgs[i]&&imgs[i].dataset.src){imgs[i].src=imgs[i].dataset.src;loaded[i]=true;}
 }
 function slideTo(i){
-  ci=i;loadSlide(i);loadSlide((i+1)%5);
+  ci=i;loadSlide(i);loadSlide((i+1)%TOTAL);
   document.getElementById('slides').style.transform='translateX(-'+(i*100)+'%)';
   document.querySelectorAll('.cdot').forEach(function(d,j){d.classList.toggle('active',j===i);});
+  carStart();
 }
-setInterval(function(){slideTo((ci+1)%5);},4000);
+carStart();
 
+/* CARROSSEL — pausa, passar com o dedo e setas do teclado */
+(function(){
+  var wrap=document.getElementById('slides');
+  var box=wrap&&wrap.closest('.car-wrap');
+  if(!box) return;
+  var btn=document.getElementById('car-pause');
+  function stop(){ clearInterval(carTimer); }
+  function setPaused(p){
+    carPaused=p;
+    if(btn){
+      btn.setAttribute('aria-pressed',p?'true':'false');
+      btn.setAttribute('aria-label',p?'Retomar a troca automática das imagens':'Pausar a troca automática das imagens');
+    }
+    if(p){ stop(); } else { carStart(); }
+  }
+  if(btn){
+    if(carReduced){ btn.hidden=true; }
+    btn.addEventListener('click',function(){ setPaused(!carPaused); });
+  }
+  /* pausa enquanto o mouse está em cima ou o foco de teclado está dentro do carrossel */
+  if(window.matchMedia&&window.matchMedia('(hover: hover)').matches){
+    box.addEventListener('mouseenter',function(){ carHover=true; stop(); });
+    box.addEventListener('mouseleave',function(){ carHover=false; carStart(); });
+  }
+  box.addEventListener('focusin',function(e){
+    if(e.target.matches&&e.target.matches(':focus-visible')){ carFocus=true; stop(); }
+  });
+  box.addEventListener('focusout',function(){ carFocus=false; carStart(); });
+  /* deslizar para o lado no celular */
+  var x0=null,y0=null;
+  box.addEventListener('touchstart',function(e){ var t=e.touches[0]; x0=t.clientX; y0=t.clientY; },{passive:true});
+  box.addEventListener('touchend',function(e){
+    if(x0===null) return;
+    var t=e.changedTouches[0], dx=t.clientX-x0, dy=t.clientY-y0; x0=null;
+    if(Math.abs(dx)>40 && Math.abs(dx)>Math.abs(dy)*1.5){ slideTo(dx<0?(ci+1)%TOTAL:(ci-1+TOTAL)%TOTAL); }
+  },{passive:true});
+  /* setas do teclado */
+  box.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'){ slideTo((ci+1)%TOTAL); }
+    else if(e.key==='ArrowLeft'){ slideTo((ci-1+TOTAL)%TOTAL); }
+  });
+})();
+
+</script>
+<script>
 /* FAQ */
 function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
+document.querySelectorAll('.faq-item').forEach(function(item,i){
+  var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');
+  if(q&&a){ a.id='faq-resposta-'+(i+1); q.setAttribute('aria-controls',a.id); }
+});
 
+</script>
+<script>
 /* ══ CARROSSEL DE STORIES — busca automática na pasta do GitHub ══ */
 (function(){
   // ▼▼▼ PREENCHA AQUI (confira se o repositório é o mesmo do livro 1) ▼▼▼
@@ -2856,15 +3088,19 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
       var img = document.createElement('img');
       img.src = compressed(url);
       img.alt = 'Leitor compartilhando o livro 365 Dias Minimalistas no Instagram';
-      img.loading = i < 3 ? 'eager' : 'lazy';
+      img.loading = 'lazy';
       img.decoding = 'async';
+      // se o wsrv.nl falhar, tenta a foto original; se ela também falhar, esconde só aquele cartão
+      img.onerror = function(){
+        if(!img.getAttribute('data-fb')){ img.setAttribute('data-fb','1'); img.src = url; }
+        else { card.style.visibility = 'hidden'; }
+      };
       card.appendChild(img);
       strip.appendChild(card);
     });
     var halfWidth = strip.scrollWidth / 2;
     var duration = Math.max(18, Math.round(halfWidth / 32));
     strip.style.animationDuration = duration + 's';
-    block.setAttribute('aria-hidden','true');
   }
 
   window.toggleStoriesPause = function(){
@@ -2907,6 +3143,7 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
       });
   }
 
+  function iniciar(){
   fetch(listUrl)
     .then(function(r){ if(!r.ok) throw new Error('lista-' + r.status); return r.json(); })
     .then(function(names){
@@ -2920,8 +3157,20 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
     .catch(function(){
       block.style.display = 'none';
     });
+  }
+  /* só busca a lista quando o bloco chega perto da tela (ele fica no meio da página) */
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(en){
+      if(en[0].isIntersecting){ io.disconnect(); iniciar(); }
+    }, {rootMargin:'800px 0px'});
+    io.observe(block);
+  } else {
+    iniciar();
+  }
 })();
 
+</script>
+<script>
 /* ══ HEADER SHRINK/BLUR + BARRA DE PROGRESSO + PARALLAX DA CAPA ══ */
 (function(){
   var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2963,43 +3212,8 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
   onScroll();
 })();
 
-/* ══ LIGHTBOX — clique nas páginas do carrossel para ampliar ══ */
-(function(){
-  function upsizeWix(url){
-    if(!url) return url;
-    return url.replace(/w_\d+,h_\d+/, 'w_1200,h_780');
-  }
-  var lb=document.getElementById('lightbox');
-  var lbImg=document.getElementById('lightbox-img');
-  var slidesWrap=document.getElementById('slides');
-
-  window.openLightbox=function(imgEl){
-    var real = imgEl.currentSrc || imgEl.src || imgEl.dataset.src;
-    if(!real) return;
-    lbImg.src = upsizeWix(real);
-    lbImg.alt = imgEl.alt || '';
-    lb.classList.add('active');
-    document.body.style.overflow='hidden';
-  };
-  window.closeLightbox=function(){
-    lb.classList.remove('active');
-    document.body.style.overflow='';
-  };
-
-  if(slidesWrap){
-    slidesWrap.addEventListener('click', function(e){
-      var img=e.target.closest('img');
-      if(img) openLightbox(img);
-    });
-  }
-  lb.addEventListener('click', function(e){
-    if(e.target===lb) closeLightbox();
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key==='Escape') closeLightbox();
-  });
-})();
-
+</script>
+<script>
 /* ══ SCROLL REVEAL + CONTADORES ANIMADOS ══ */
 (function(){
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -3026,6 +3240,21 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
     });
   });
 
+  /* quando a animação de entrada termina, tira a classe .reveal: o card volta a ter o hover
+     e a transição próprios e deixa de reservar will-change */
+  function liberar(el){
+    var feito = false;
+    function limpar(){
+      if(feito) return; feito = true;
+      el.removeEventListener('transitionend', onEnd);
+      el.classList.remove('reveal'); /* mantém .in-view: outras regras dependem dela */
+      el.style.transitionDelay = '';
+    }
+    function onEnd(e){ if(e.target === el && e.propertyName === 'opacity') limpar(); }
+    el.addEventListener('transitionend', onEnd);
+    setTimeout(limpar, 1700);
+  }
+
   if(reduced || !('IntersectionObserver' in window)){
     revealEls.forEach(function(el){el.classList.add('in-view');});
   } else {
@@ -3033,6 +3262,7 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
       entries.forEach(function(entry){
         if(entry.isIntersecting){
           entry.target.classList.add('in-view');
+          liberar(entry.target);
           rObs.unobserve(entry.target);
         }
       });
@@ -3090,7 +3320,7 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
 <!-- Advanced Attribution -->
 <script>
 (function(){
-  const KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid'];
+  const KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid','gclid','gbraid','wbraid','ttclid'];
   const url=new URL(window.location.href);
 
   /* Armazenamento protegido: se o navegador bloquear o localStorage (Safari privado,
@@ -3098,12 +3328,12 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
      script (links de checkout e eventos do pixel) continua funcionando. */
   var memStore={};
   function safeGet(k){
-    try{ var v=localStorage.getItem(k); if(v!==null) return v; }catch(e){}
+    try{ var v=sessionStorage.getItem(k); if(v!==null) return v; }catch(e){}
     return memStore[k]||null;
   }
   function safeSet(k,v){
     memStore[k]=v;
-    try{ localStorage.setItem(k,v); }catch(e){}
+    try{ sessionStorage.setItem(k,v); }catch(e){}
   }
 
   KEYS.forEach(function(k){
@@ -3120,29 +3350,23 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
     return p.toString();
   }
 
-  /* ══ HELPERS — fbc, fbp, source_url ══ */
-  function getFbc(){
-    try{
-      var fbclid=url.searchParams.get('fbclid')||safeGet('trk_fbclid');
-      if(!fbclid) return undefined;
-      return 'fb.1.'+Date.now()+'.'+fbclid;
-    }catch(e){return undefined;}
-  }
-  function getFbp(){
-    try{
-      var m=document.cookie.match(/_fbp=([^;]+)/);
-      return m?m[1]:undefined;
-    }catch(e){return undefined;}
-  }
-  var sourceUrl=window.location.href;
+  /* O Pixel já envia fbc, fbp e a URL da página por conta própria (cookies _fbc e _fbp).
+     Aqui só sai o que é dado do evento. O InitiateCheckout vem da Eduzz (Conversions API). */
   function pixelData(extra){
-    var base={event_source_url:sourceUrl};
-    var fbc=getFbc(); if(fbc) base.fbc=fbc;
-    var fbp=getFbp(); if(fbp) base.fbp=fbp;
-    return Object.assign({},base,extra||{});
+    return Object.assign({},extra||{});
   }
 
   document.addEventListener('DOMContentLoaded',function(){
+
+    /* Etiquetas no Clarity: origem do tráfego e versão em que a pessoa clicou */
+    try{
+      var src=url.searchParams.get('utm_source')||safeGet('trk_utm_source')||'direto';
+      var cmp=url.searchParams.get('utm_campaign')||safeGet('trk_utm_campaign');
+      if(window.smClarityTag){
+        window.smClarityTag('origem',String(src).slice(0,60));
+        if(cmp) window.smClarityTag('campanha',String(cmp).slice(0,60));
+      }
+    }catch(e){}
 
     document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
       try{
@@ -3156,20 +3380,10 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
         }
 
         link.addEventListener('click',function(){
-          var href = link.href;
-          var val  = 77.00;
-          var name = '365 Dias Minimalistas — Digital';
-          var ids  = ['365-dias-digital'];
-          if(href.indexOf('39ZQYBOB9E') > -1){ val=107.00; name='365 Dias Minimalistas — Físico'; ids=['365-dias-fisico']; }
-          if(href.indexOf('E0D6XBPD91') > -1){ val=147.00; name='365 Dias Minimalistas — Combo';  ids=['365-dias-combo'];  }
-          if(window.fbq){ fbq('track','InitiateCheckout', pixelData({
-            content_ids:  ids,
-            content_type: 'product',
-            content_name: name,
-            currency:     'BRL',
-            value:        val,
-            num_items:    1
-          })); }
+          var v='digital';
+          if(link.href.indexOf('39ZQYBOB9E') > -1) v='fisico';
+          if(link.href.indexOf('E0D6XBPD91') > -1) v='combo';
+          if(window.smClarityTag) window.smClarityTag('versao_clicada',v);
         });
       }catch(e){}
     });
@@ -3180,13 +3394,14 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
       });
     });
 
-    setTimeout(function(){
-      if(window.fbq){ fbq('trackCustom','Engaged30s', pixelData()); }
-    },30000);
-
-    setTimeout(function(){
-      if(window.fbq){ fbq('trackCustom','Engaged60s', pixelData()); }
-    },60000);
+    /* conta só os segundos com a aba visível (aba em segundo plano não vale como engajamento) */
+    var segVisivel=0;
+    var engTimer=setInterval(function(){
+      if(document.visibilityState!=='visible') return;
+      segVisivel++;
+      if(segVisivel===30 && window.fbq){ fbq('trackCustom','Engaged30s', pixelData()); }
+      if(segVisivel===60){ if(window.fbq){ fbq('trackCustom','Engaged60s', pixelData()); } clearInterval(engTimer); }
+    },1000);
 
     let fired50=false,fired75=false,fired90=false;
     let scrollTicking=false;
@@ -3221,6 +3436,15 @@ function faq(btn){var open=btn.parentElement.classList.toggle('open');btn.setAtt
 <script>
 function copiarCupom(e){
   if(e) e.stopPropagation();
+  var codigo = 'GANHEI10';
+  /* toque no cupom: só etiqueta no Clarity. A cópia só conta quando o navegador confirma. */
+  try{ if(window.smClarityTag){ window.smClarityTag('cupom_toque','sim'); } }catch(x){}
+  function medirCopia(){
+    if(window.__cupomMedido) return;
+    window.__cupomMedido = true;
+    try{ if(window.fbq){ fbq('trackCustom','CouponCopy',{coupon:codigo}); } }catch(x){}
+    try{ if(window.smClarityTag){ window.smClarityTag('cupom_copiado','sim'); } }catch(x){}
+  }
   var sub = document.getElementById('cupom-sub-text');
   var original = 'Toque para copiar · 10% OFF no carrinho';
   function feedback(ok){
@@ -3229,55 +3453,16 @@ function copiarCupom(e){
     setTimeout(function(){ sub.textContent = original; }, 2600);
   }
   if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText('GANHEI10').then(function(){feedback(true);}).catch(function(){feedback(false);});
+    navigator.clipboard.writeText(codigo).then(function(){feedback(true);medirCopia();}).catch(function(){feedback(false);});
   } else { feedback(false); }
 }
 </script>
 <!-- TOOLTIP CUPOM -->
-<style>
-#cupom-tooltip{top:20px;right:20px;bottom:auto;max-width:220px;}
-.cupom-box{background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(199,154,92,.45);}
-.cupom-label{font-size:10px;font-weight:700;color:#C79A5C;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;}
-.cupom-code-box{background:rgba(255,255,255,.05);border:1.5px dashed #C79A5C;border-radius:8px;padding:9px 12px 8px;text-align:center;}
-.cupom-code{font-family:var(--font-display);font-size:21px;font-weight:700;color:#F7F1E6;letter-spacing:.07em;}
-.cupom-sub{font-size:10.5px;color:#D9B589;margin-top:2px;letter-spacing:.02em;}
-@media(max-width:720px){
-  #cupom-tooltip{top:14px;right:10px;max-width:148px;}
-  .cupom-box{padding:10px 11px 9px;border-radius:11px;}
-  .cupom-label{font-size:8px;letter-spacing:.1em;margin-bottom:6px;white-space:nowrap;padding-right:20px;}
-  .cupom-code-box{padding:6px 8px 5px;border-radius:6px;}
-  .cupom-code{font-size:15px;letter-spacing:.04em;}
-  .cupom-sub{font-size:8.5px;margin-top:1px;}
-}
-@keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
-
-/* RODAPÉ — largura adaptável ao navegador */
-@media (min-width:721px){
-  .footer > .inner{
-    width:min(calc(100vw - 80px),1320px);
-    max-width:1320px;
-    margin-left:auto;
-    margin-right:auto;
-  }
-}
-
-
-/* ══ PADRONIZAÇÃO COM A HOME (fontes e cores do 365 mantidas) ══ */
-/* Depoimentos um pouco maiores, como nas outras páginas */
-.t-text{font-size:16px;line-height:1.75;}
-/* Textos longos alinhados à esquerda, como na home: autor e lista de bônus */
-.sec-autor-texto,.sec-autor-texto .sec-p{text-align:left!important;}
-.sec-autor-texto .press-label,.sec-autor-texto [class*=press]{text-align:left!important;justify-content:flex-start!important;}
-.bonus-item,.bonus-item *{text-align:left!important;}
-@media(max-width:720px){
-  .t-text{font-size:15.5px;}
-}
-</style>
-<div id="cupom-tooltip" role="button" tabindex="0" aria-label="Copiar cupom GANHEI10, 10% off no carrinho" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="copiarCupom(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copiarCupom(event);}">
-  <div class="cupom-box">
-    <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
-    <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
-    <div class="cupom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Cupom exclusivo</div>
+<div id="cupom-tooltip" style="display:none;position:fixed;z-index:10000;">
+  <button type="button" onclick="document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;z-index:2;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
+  <div class="cupom-box" role="button" tabindex="0" aria-label="Copiar cupom GANHEI10, 10% off no carrinho" style="cursor:pointer;" onclick="copiarCupom(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copiarCupom(event);}">
+    <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid var(--tema-cupom-bico,#1C1A15);filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
+    <div class="cupom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Cupom Black Friday</div>
     <div class="cupom-code-box">
       <div class="cupom-code" id="cupom-code-text">GANHEI10</div>
       <div class="cupom-sub" id="cupom-sub-text">Toque para copiar · 10% OFF no carrinho</div>
@@ -3305,8 +3490,8 @@ function copiarCupom(e){
   var ticking=false;
   function updateWaPosition(visible){
     if(!waFloat) return;
-    var offset = visible ? (bar.offsetHeight + 14) : 22;
-    waFloat.style.bottom = offset + 'px';
+    /* barra escondida: apaga o valor inline e deixa o CSS decidir (22px no desktop, 14px no celular) */
+    waFloat.style.bottom = visible ? (bar.offsetHeight + 14) + 'px' : '';
   }
   function refresh(){
     var ftr=document.querySelector('footer');var noRodape=ftr && ftr.getBoundingClientRect().top < window.innerHeight;var shouldShow = window.scrollY>threshold && !insideVersoes && !noRodape; /* some ao chegar no rodapé */
@@ -3320,11 +3505,15 @@ function copiarCupom(e){
     var obs=new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         insideVersoes = entry.isIntersecting;
+        if(entry.isIntersecting && !window.__viuPrecos){ window.__viuPrecos = true; if(window.smClarityTag){ window.smClarityTag('viu_precos','sim'); } }
         refresh();
       });
     }, {threshold:.15});
     obs.observe(versoesSec);
   }
+  /* estado inicial: o navegador pode restaurar a rolagem ao recarregar */
+  refresh();
+  window.addEventListener('load', refresh);
 })();
 </script>
 </body>
