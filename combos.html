@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-tema="black-friday">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -391,6 +391,24 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   .feat-now,.reg-now{font-size:20px;}
 }
 </style>
+<style id="tema-mes">
+/* TEMA DO MÊS: padrão = visual original (sem data-tema). Novembro = Black Friday. */
+.tb-badge{white-space:nowrap;display:inline-flex;align-items:center;gap:5px;padding:3px 11px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;background:var(--tema-selo-fundo,rgba(201,169,110,.15));color:var(--tema-selo-texto,#C9A96E)!important;border:1px solid var(--tema-selo-borda,transparent);}
+.tb-item .tb-badge,.tb-item .tb-badge .tema-nome{color:var(--tema-selo-texto,#C9A96E)!important;}
+.hero-eyebrow{display:none;}
+@media(max-width:720px){.topbar{flex-wrap:wrap;gap:8px 16px;}.topbar .tb-item:first-child{flex:0 0 100%;justify-content:center;}.topbar .tb-item:nth-child(2),.topbar .tb-item:nth-child(4){display:flex;}.topbar .tb-item:nth-child(3),.topbar .tb-item:nth-child(5){display:none;}}
+html[data-tema="black-friday"]{--gold:#E3C27A;--gold-soft:#F0D9A0;--tema-selo-fundo:#E3C27A;--tema-selo-texto:#1C1C1A;--tema-selo-borda:#E3C27A;}
+html[data-tema="black-friday"] body{background:
+  radial-gradient(900px 650px at 0% 0%,rgba(227,194,122,.22),transparent 70%),
+  radial-gradient(900px 650px at 100% 100%,rgba(227,194,122,.10),transparent 70%),
+  #0A0A09;}
+html[data-tema="black-friday"] #loader{background:#0A0A09;}
+html[data-tema="black-friday"] .topbar{background:#0A0A09;border-bottom-color:rgba(227,194,122,.35);}
+html[data-tema="black-friday"] .quick-nav{background:rgba(10,10,9,.92);border-bottom-color:rgba(227,194,122,.22);}
+html[data-tema="black-friday"] .hero-eyebrow{display:inline-block;margin:0 auto 16px;padding:6px 16px;border-radius:999px;border:1px solid rgba(227,194,122,.55);color:var(--gold);font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;}
+html[data-tema="black-friday"] #scroll-freight{background:#0A0A09;color:#F5F1E8;border-top:1px solid rgba(227,194,122,.6);}
+html[data-tema="black-friday"] #scroll-freight strong{color:var(--gold);}
+</style>
 
 <!-- Advanced Attribution — UTM Passthrough -->
 <script>
@@ -449,6 +467,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 </div>
 
 <div class="topbar">
+  <div class="tb-item"><span class="tb-badge">⏳ Oferta especial <span class="tema-nome">Black Friday</span></span></div>
   <div class="tb-item"><div class="tb-dot"></div>Frete grátis para todo o Brasil</div>
   <div class="tb-item"><div class="tb-dot"></div>Cartão · Boleto · Pix</div>
   <div class="tb-item"><div class="tb-dot"></div>Descontos progressivos até 40%</div>
@@ -458,8 +477,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <header class="hero" id="main-content"><div class="inner">
   <img class="hero-logo" src="https://static.wixstatic.com/media/940f31_64ea155fc0b8427e898318695ef5ad7e~mv2.png/v1/crop/x_44,y_0,w_906,h_187/fill/w_260,h_54,al_c,q_90,enc_avif,quality_auto/logo.png"
     alt="Seja Minimalista" width="260" height="54" loading="eager" decoding="async">
+  <div class="hero-eyebrow"><span class="tema-nome">Black Friday</span> Seja Minimalista</div>
   <h1>Leve mais, <em>pague menos.</em></h1>
-  <p>Combos com até 40% de desconto, montados para cada momento da sua jornada minimalista. Ou escolha você mesmo os livros e planners do seu combo.</p>
+  <p>Combos com até 40% de desconto na Black Friday, montados para cada momento da sua jornada minimalista. Ou escolha você mesmo os livros e planners do seu combo.</p>
   <div class="hero-actions">
     <a class="btn-gold" href="#combos-completos" onclick="document.getElementById('combos-completos').scrollIntoView({behavior:'smooth'});return false;">Ver combos com desconto ↓</a>
     <a class="btn-ghost" href="https://sejaminimalista.com.br/monte-seu-combo">Monte seu combo personalizado →</a>
