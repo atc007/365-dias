@@ -46,20 +46,30 @@
 <link rel="dns-prefetch" href="https://static.wixstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;family=Manrope:wght@500;600;700;800&amp;display=swap"></noscript>
 
 <!-- Google tag — defer -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JM7NSX9TDT"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JM7NSX9TDT');</script>
 
-<!-- Meta Pixel — após load para não bloquear render -->
+<!-- Meta Pixel: a fila nasce na hora, o fbevents.js baixa depois do load -->
 <script>
-window.addEventListener('load',function(){
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init','239605191106043');fbq('track','PageView');fbq('track','ViewContent',{content_name:'Links Bio Instagram',content_type:'page'});
-});
+(function(w,d){
+  if(w.fbq) return;
+  var n=w.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments);};
+  if(!w._fbq) w._fbq=n;
+  n.push=n; n.loaded=true; n.version='2.0'; n.queue=[];
+  function carregar(){
+    var t=d.createElement('script'); t.async=true; t.src='https://connect.facebook.net/en_US/fbevents.js';
+    var f=d.getElementsByTagName('script')[0]; f.parentNode.insertBefore(t,f);
+  }
+  if(d.readyState==='complete') carregar(); else w.addEventListener('load',carregar);
+  n('init','239605191106043');
+  n('track','PageView');
+  n('track','ViewContent',{content_name:'Links Bio Instagram',content_type:'page'});
+})(window,document);
 </script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></noscript>
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -70,8 +80,10 @@ html,body{
   background:#0E0D0B;
   color:#E8E2D8;
   position:relative;
-  overflow-x:hidden;
 }
+html{min-height:100vh;}
+body{overflow-x:hidden;overflow-x:clip;}
+@supports(min-height:100dvh){html,body{min-height:100dvh;}}
 
 :root{
   --gold:#C9A96E;
@@ -90,7 +102,7 @@ body{background:
   #0E0D0B;background-attachment:scroll;}
 
 /* ══ WRAPPER ══ */
-.page{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:8px 18px 56px;}
+.page{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:8px 18px 88px;}
 
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 
@@ -112,7 +124,7 @@ iframe{border-radius:8px;}
 
 /* ══ SECTION LABEL ══ */
 .section-label{
-  font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
   color:#8A8880;margin:20px 0 12px;
   display:flex;align-items:center;gap:10px;
 }
@@ -168,7 +180,6 @@ iframe{border-radius:8px;}
     border-color:var(--gold);
     background:rgba(255,255,255,.09);
   }
-  .link-card:hover .card-img{transform:scale(1.03);}
   .link-card:hover{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .22s ease;}
 }
 .link-card.featured{
@@ -243,6 +254,7 @@ iframe{border-radius:8px;}
 .quiz-float{
   position:fixed;
   bottom:22px;
+  bottom:calc(22px + env(safe-area-inset-bottom,0px));
   right:18px;
   z-index:999;
   display:flex;
@@ -255,14 +267,12 @@ iframe{border-radius:8px;}
   border-radius:999px;
   box-shadow:0 8px 24px rgba(201,169,110,.45);
   -webkit-tap-highlight-color:transparent;
-  animation:quizFloatPulse 2.8s ease-in-out infinite;
   transition:transform .2s ease, box-shadow .2s ease;
   max-width:calc(100vw - 36px);
 }
 .quiz-float:hover{
   transform:translateY(-3px) scale(1.02);
   box-shadow:0 12px 32px rgba(201,169,110,.6);
-  animation-play-state:paused;
 }
 .quiz-float:active{ transform:scale(.97); }
 .quiz-float-icon{
@@ -284,68 +294,70 @@ iframe{border-radius:8px;}
   line-height:1.25;
   white-space:nowrap;
 }
-@keyframes quizFloatPulse{
-  0%,100%{ box-shadow:0 8px 24px rgba(201,169,110,.45), 0 0 0 0 rgba(201,169,110,.5); }
-  50%{ box-shadow:0 8px 24px rgba(201,169,110,.45), 0 0 0 9px rgba(201,169,110,0); }
+/* anel pulsante so com transform e opacity (nao forca repintura de sombra a cada quadro) */
+.quiz-float::after{content:'';position:absolute;inset:0;border-radius:inherit;border:2px solid rgba(201,169,110,.6);pointer-events:none;animation:quizFloatRing 2.8s ease-out infinite;will-change:transform,opacity;}
+.quiz-float:hover::after{animation-play-state:paused;}
+@keyframes quizFloatRing{
+  0%{ transform:scale(1); opacity:.7; }
+  70%,100%{ transform:scale(1.2); opacity:0; }
 }
 @media(max-width:380px){
   .quiz-float-text{ display:none; }
   .quiz-float{ padding:10px; }
 }
 @media(prefers-reduced-motion:reduce){
-  .quiz-float{ animation:none; }
+  .quiz-float::after{ animation:none; opacity:0; }
 }
 </style>
 
 
-<!-- UTM Passthrough — repassa UTMs para as landing pages -->
+<!-- UTM Passthrough: repassa UTMs e cliques de anuncio para as paginas do site -->
 <script>
 (function(){
-  const KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid'];
-  const url=new URL(window.location.href);
+  var KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid','gclid','gbraid','wbraid','ttclid'];
+  var DOMINIO=/^(www\.)?sejaminimalista\.com\.br$/i;
+  var url; try{ url=new URL(window.location.href); }catch(e){ return; }
+  var memoria={};
+  function guardar(k,v){ try{ sessionStorage.setItem('trk_'+k,v); }catch(e){} }
+  function ler(k){ try{ return sessionStorage.getItem('trk_'+k); }catch(e){ return null; } }
+  KEYS.forEach(function(k){ var v=url.searchParams.get(k); if(v){ memoria[k]=v; guardar(k,v); } });
+  var noInstagram=/Instagram/i.test(navigator.userAgent||'');
 
-  /* Salva no localStorage */
-  KEYS.forEach(function(k){
-    const v=url.searchParams.get(k);
-    if(v){ localStorage.setItem('trk_'+k,v); }
-  });
-
-  function buildParams(){
-    const p=new URLSearchParams();
-    KEYS.forEach(function(k){
-      const v=url.searchParams.get(k) || localStorage.getItem('trk_'+k);
-      if(v) p.set(k,v);
-    });
-    return p.toString();
+  function parametros(){
+    var p={};
+    KEYS.forEach(function(k){ var v=memoria[k]||ler(k); if(v) p[k]=v; });
+    /* sem UTM vinda do link da bio, o navegador do Instagram vira a origem */
+    if(noInstagram && !p.utm_source){ p.utm_source='instagram'; p.utm_medium='bio_link'; if(!p.utm_campaign) p.utm_campaign='links_bio'; }
+    return p;
   }
-
-  function applyUtms(){
-    var extra=buildParams();
-    if(!extra) return;
-    /* Repassa UTMs para todos os links de produto e o botão flutuante do quiz (não imagens, não iframe) */
-    document.querySelectorAll('a.link-card[href], a.quiz-float[href]').forEach(function(link){
+  function aplicar(){
+    var p=parametros(), chaves=Object.keys(p);
+    if(!chaves.length) return;
+    var links=document.querySelectorAll('a.link-card[href], a.quiz-float[href]');
+    for(var i=0;i<links.length;i++){
       try{
-        var u=new URL(link.href);
-        new URLSearchParams(extra).forEach(function(v,k){ u.searchParams.set(k,v); });
-        link.href=u.toString();
+        var u=new URL(links[i].href);
+        if(!DOMINIO.test(u.hostname)) continue;
+        chaves.forEach(function(k){ if(!u.searchParams.has(k)) u.searchParams.set(k,p[k]); });
+        links[i].href=u.toString();
       }catch(e){}
-    });
+    }
   }
-
-  applyUtms();
-  document.addEventListener('DOMContentLoaded', applyUtms);
+  aplicar();
+  document.addEventListener('DOMContentLoaded',aplicar);
 })();
 </script>
 
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=239605191106043&amp;ev=PageView&amp;noscript=1"></noscript>
 
 
 <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 
 <!-- BOTÃO FLUTUANTE — QUIZ "QUAL LIVRO É PRA MIM?" -->
 <a class="quiz-float" id="quizFloat"
-   href="https://sejaminimalista.com.br/quiz?utm_source=instagram&utm_medium=bio_float&utm_campaign=quiz_livro_ideal"
+   href="https://sejaminimalista.com.br/quiz?utm_source=instagram&amp;utm_medium=bio_float&amp;utm_campaign=quiz_livro_ideal"
    aria-label="Fazer o quiz: qual livro é ideal pra você">
   <span class="quiz-float-icon" aria-hidden="true">🧭</span>
   <span class="quiz-float-text">Qual livro é<br>pra mim?</span>
@@ -365,10 +377,10 @@ iframe{border-radius:8px;}
   <!-- LIVROS -->
   <h2 class="section-label">Livros</h2>
 
-  <a class="link-card" href="https://www.sejaminimalista.com.br/" >
+  <a class="link-card" href="https://sejaminimalista.com.br/" >
     <img class="card-img"
       src="https://static.wixstatic.com/media/940f31_41451adb64ed46afa88a6c4be84c11c9~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
-      width="520" height="690" alt="Seja Minimalista" loading="eager">
+      width="520" height="690" alt="Seja Minimalista" loading="eager" fetchpriority="high" decoding="async">
     <div class="card-body">
       <div class="card-seals">
         <div class="card-seal best">Best-seller</div>
@@ -379,7 +391,7 @@ iframe{border-radius:8px;}
     </div>
   </a>
 
-  <a class="link-card" href="https://www.sejaminimalista.com.br/365-dias" >
+  <a class="link-card" href="https://sejaminimalista.com.br/365-dias" >
     <img class="card-img"
       src="https://static.wixstatic.com/media/940f31_5eb2ddac6de34f93bcac689297349d54~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       width="520" height="690" alt="365 Dias Minimalistas" loading="lazy" decoding="async">
@@ -391,7 +403,7 @@ iframe{border-radius:8px;}
     </div>
   </a>
 
-  <a class="link-card" href="https://www.sejaminimalista.com.br/45-dias" >
+  <a class="link-card" href="https://sejaminimalista.com.br/45-dias" >
     <img class="card-img"
       src="https://static.wixstatic.com/media/940f31_51799278136645c0ac6f639b1bc79191~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       width="520" height="690" alt="45 Dias de Destralhe" loading="lazy" decoding="async">
@@ -402,7 +414,7 @@ iframe{border-radius:8px;}
     </div>
   </a>
 
-  <a class="link-card" href="https://www.sejaminimalista.com.br/viajante-minimalista" >
+  <a class="link-card" href="https://sejaminimalista.com.br/viajante-minimalista" >
     <img class="card-img"
       src="https://static.wixstatic.com/media/940f31_0d81c7e2b51643f0a68b395898e004e1~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       width="520" height="690" alt="Viajante Minimalista" loading="lazy" decoding="async">
@@ -413,7 +425,7 @@ iframe{border-radius:8px;}
     </div>
   </a>
 
-  <a class="link-card" href="https://www.sejaminimalista.com.br/armario-enxuto" >
+  <a class="link-card" href="https://sejaminimalista.com.br/armario-enxuto" >
     <img class="card-img"
       src="https://static.wixstatic.com/media/940f31_4f013f6ec4b04da9aa0832b40b15e34a~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       width="520" height="690" alt="Armário Enxuto" loading="lazy" decoding="async">
@@ -427,7 +439,7 @@ iframe{border-radius:8px;}
   <!-- PLANNERS -->
   <h2 class="section-label">Planners</h2>
 
-  <a class="link-card" href="https://www.sejaminimalista.com.br/agenda2026" >
+  <a class="link-card" href="https://sejaminimalista.com.br/agenda2026" >
     <img class="card-img"
       src="https://static.wixstatic.com/media/940f31_27020325e45e467ca849f0c4bada0757~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       width="520" height="690" alt="Minha Agenda Minimalista 2026" loading="lazy" decoding="async">
@@ -438,7 +450,7 @@ iframe{border-radius:8px;}
     </div>
   </a>
 
-  <a class="link-card" href="https://www.sejaminimalista.com.br/planner" >
+  <a class="link-card" href="https://sejaminimalista.com.br/planner" >
     <img class="card-img"
       src="https://static.wixstatic.com/media/940f31_ac62788380af4d88bb0dcc76aab3b119~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       width="520" height="690" alt="Meu Planner Minimalista" loading="lazy" decoding="async">
@@ -449,7 +461,7 @@ iframe{border-radius:8px;}
     </div>
   </a>
 
-  <a class="link-card" href="https://www.sejaminimalista.com.br/devocional" >
+  <a class="link-card" href="https://sejaminimalista.com.br/devocional" >
     <img class="card-img"
       src="https://static.wixstatic.com/media/940f31_70e5b32ff9924d2db04f34a229477c6c~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       width="520" height="690" alt="Meu Tempo com Deus" loading="lazy" decoding="async">
@@ -460,7 +472,7 @@ iframe{border-radius:8px;}
     </div>
   </a>
 
-  <a class="link-card" href="https://www.sejaminimalista.com.br/planner-viagens" >
+  <a class="link-card" href="https://sejaminimalista.com.br/planner-viagens" >
     <img class="card-img"
       src="https://static.wixstatic.com/media/940f31_b072ecf0afc44e79b7af4c62ea748e9c~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       width="520" height="690" alt="Minhas Viagens dos Sonhos" loading="lazy" decoding="async">
@@ -474,7 +486,7 @@ iframe{border-radius:8px;}
   <!-- MÉTODOS E CURSOS -->
   <h2 class="section-label">Métodos e cursos</h2>
 
-  <a class="link-card featured" href="https://www.sejaminimalista.com.br/minimalize" >
+  <a class="link-card featured" href="https://sejaminimalista.com.br/minimalize" >
     <img class="card-img"
       src="https://static.wixstatic.com/media/940f31_9ceb0776e1784a919708c059e73b4e5d~mv2.jpg/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       width="520" height="690" alt="Minimalize.IA" loading="lazy" decoding="async">
@@ -486,7 +498,7 @@ iframe{border-radius:8px;}
     </div>
   </a>
 
-  <a class="link-card" href="https://www.sejaminimalista.com.br/armario-enxuto-curso" >
+  <a class="link-card" href="https://sejaminimalista.com.br/armario-enxuto-curso" >
     <img class="card-img"
       src="https://static.wixstatic.com/media/940f31_83831011210d4337814151ea3f74120a~mv2.webp/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/thumb.jpg"
       width="520" height="690" alt="Armário Enxuto: O Curso" loading="lazy" decoding="async">
@@ -501,7 +513,7 @@ iframe{border-radius:8px;}
   <!-- LOJA DE COMBOS -->
   <h2 class="section-label">Loja</h2>
 
-  <a class="link-card" href="https://www.sejaminimalista.com.br/combos" >
+  <a class="link-card" href="https://sejaminimalista.com.br/combos" >
     <img class="card-img"
       src="https://static.wixstatic.com/media/940f31_e99e2d94769043978c7de30d2dc48513~mv2.avif/v1/fill/w_520,h_690,al_c,q_85,enc_avif,quality_auto/combos.avif" width="520" height="690"
       alt="Combos com Desconto" loading="lazy" decoding="async">
@@ -526,9 +538,9 @@ iframe{border-radius:8px;}
   <!-- COMUNIDADE WHATSAPP -->
   <h2 class="section-label">Comunidade</h2>
 
-  <a class="link-card" href="https://chat.whatsapp.com/FnNU3DpCCXz3iGtkLH6qbR?s=cl&p=a&ilr=1" >
+  <a class="link-card" href="https://chat.whatsapp.com/FnNU3DpCCXz3iGtkLH6qbR?s=cl&amp;p=a&amp;ilr=1" >
     <img class="card-img short"
-      src="https://static.wixstatic.com/media/940f31_960e1ef4cfd54d1397224f3c1adb3662~mv2.avif" width="520" height="690"
+      src="https://static.wixstatic.com/media/940f31_960e1ef4cfd54d1397224f3c1adb3662~mv2.avif" width="520" height="420"
       alt="Comunidade Minimalista no WhatsApp" loading="lazy" decoding="async">
     <div class="card-body">
       <div class="card-tag">💬 Grupo no WhatsApp</div>
@@ -545,10 +557,10 @@ iframe{border-radius:8px;}
     <div class="newsletter-title">Newsletter Seja Minimalista</div>
     <p class="newsletter-sub">Reflexões e práticas minimalistas direto no seu e-mail, toda semana.</p>
     <iframe
-      src="https://sejaminimalista.substack.com/embed?transparent=1&light=1"
+      src="https://sejaminimalista.substack.com/embed?transparent=1&amp;light=1"
       width="480" height="150"
       style="border:0;background:transparent;max-width:100%;display:block;margin:0 auto;"
-      frameborder="0" scrolling="no" loading="lazy"
+      loading="lazy"
       title="Newsletter Seja Minimalista">
     </iframe>
   </div>
@@ -564,122 +576,74 @@ iframe{border-radius:8px;}
 
 
 <script>
-/* ── EVENTOS — Página de Links da Bio ── */
-window.addEventListener('load', function(){
-
-  /* ══ HELPERS — fbc, fbp, source_url ══ */
-  var _url=new URL(window.location.href);
-  function getFbc(){
-    try{
-      var fbclid=_url.searchParams.get('fbclid')||localStorage.getItem('trk_fbclid');
-      if(!fbclid) return undefined;
-      return 'fb.1.'+Date.now()+'.'+fbclid;
-    }catch(e){return undefined;}
-  }
-  function getFbp(){
-    try{var m=document.cookie.match(/_fbp=([^;]+)/);return m?m[1]:undefined;}catch(e){return undefined;}
-  }
-  var sourceUrl=window.location.href;
-  function pixelData(extra){
-    var base={event_source_url:sourceUrl};
-    var fbc=getFbc(); if(fbc) base.fbc=fbc;
-    var fbp=getFbp(); if(fbp) base.fbp=fbp;
-    return Object.assign({},base,extra||{});
-  }
-
-  /* CardClick — rastreia qual produto o usuário clicou */
-  document.querySelectorAll('.link-card').forEach(function(card){
-    card.addEventListener('click', function(){
-      var title = (card.querySelector('.card-title') || {}).innerText || 'produto';
-      var tag   = (card.querySelector('.card-tag')   || {}).innerText || '';
-      if(window.fbq){
-        fbq('trackCustom','CardClick', pixelData({
-          content_name: title.trim(),
-          content_category: tag.trim(),
-          source: 'links_bio'
-        }));
-      }
-      if(window.gtag){
-        gtag('event','select_content',{
-          content_type: 'product_card',
-          content_id: title.trim()
-        });
-      }
-    });
-  });
-
-  /* QuizFloatClick — rastreia clique no botão flutuante do quiz */
-  var quizFloat = document.getElementById('quizFloat');
-  if(quizFloat){
-    quizFloat.addEventListener('click', function(){
-      if(window.fbq){
-        fbq('trackCustom','QuizFloatClick', pixelData({ source: 'links_bio_float' }));
-      }
-      if(window.gtag){
-        gtag('event','select_content',{
-          content_type: 'quiz_float',
-          content_id: 'qual_livro_ideal'
-        });
-      }
-    });
-  }
-
-  /* Engajamento por tempo */
-  setTimeout(function(){ if(window.fbq) fbq('trackCustom','Engaged30s', pixelData()); }, 30000);
-
-  /* Scroll — throttled com rAF para não forçar reflow a cada evento */
-  var s50=false, s75=false;
-  var docEl=document.documentElement;
-  var scrollTicking=false;
-
-  function checkScrollDepth(){
-    var pct = docEl.scrollTop / (docEl.scrollHeight - docEl.clientHeight) * 100;
-    if(pct >= 50 && !s50){ s50=true; if(window.fbq) fbq('trackCustom','Scroll50', pixelData()); }
-    if(pct >= 75 && !s75){
-      s75=true;
-      if(window.fbq) fbq('trackCustom','Scroll75', pixelData());
-      window.removeEventListener('scroll', onScrollDepth);
-    }
-    scrollTicking=false;
-  }
-  function onScrollDepth(){
-    if(!scrollTicking){ requestAnimationFrame(checkScrollDepth); scrollTicking=true; }
-  }
-  window.addEventListener('scroll', onScrollDepth, {passive:true});
-
-});
-
-/* ══ SCROLL REVEAL — cards, newsletter e rodapé aparecendo ao rolar ══ */
+/* EVENTOS da pagina de links. Delegacao de clique: funciona antes do load e nao depende de variavel global. */
 (function(){
-  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function fb(){ try{ if(window.fbq) window.fbq.apply(null,arguments); }catch(e){} }
+  function gt(){ try{ if(window.gtag) window.gtag.apply(null,arguments); }catch(e){} }
+  function texto(el,sel){ var n=el.querySelector(sel); return n?(n.textContent||'').replace(/\s+/g,' ').trim():''; }
 
-  var fadeEls = Array.prototype.slice.call(document.querySelectorAll('.link-card'));
-  var slideEls = Array.prototype.slice.call(document.querySelectorAll('.section-label, .newsletter-box, .footer'));
+  document.addEventListener('click',function(e){
+    var alvo=e.target; if(!alvo||!alvo.closest) return;
+    var card=alvo.closest('a.link-card');
+    if(card){
+      var titulo=texto(card,'.card-title')||'produto', tag=texto(card,'.card-tag');
+      fb('trackCustom','CardClick',{content_name:titulo,content_category:tag,source:'links_bio'});
+      gt('event','select_content',{content_type:'product_card',content_id:titulo,transport_type:'beacon'});
+      return;
+    }
+    if(alvo.closest('a.quiz-float')){
+      fb('trackCustom','QuizFloatClick',{source:'links_bio_float'});
+      gt('event','select_content',{content_type:'quiz_float',content_id:'qual_livro_ideal',transport_type:'beacon'});
+    }
+  },true);
 
-  fadeEls.forEach(function(el,i){
-    el.classList.add('reveal-fade');
-    el.style.transitionDelay=(Math.min(i,6)*60)+'ms';
-  });
-  slideEls.forEach(function(el,i){
-    el.classList.add('reveal');
-    el.style.transitionDelay=(Math.min(i,6)*60)+'ms';
-  });
+  /* Engaged30s: conta so os segundos com a aba visivel */
+  var segundos=0, relogio=setInterval(function(){
+    if(document.visibilityState==='hidden') return;
+    segundos++;
+    if(segundos>=30){ clearInterval(relogio); fb('trackCustom','Engaged30s'); }
+  },1000);
 
-  var allEls = fadeEls.concat(slideEls);
-
-  if(reduced || !('IntersectionObserver' in window)){
-    allEls.forEach(function(el){el.classList.add('in-view');});
-    return;
+  /* Rolagem 50% e 75% */
+  var s50=false,s75=false,ocupado=false,raiz=document.documentElement;
+  function medir(){
+    ocupado=false;
+    var topo=window.pageYOffset||raiz.scrollTop||(document.body&&document.body.scrollTop)||0;
+    var total=raiz.scrollHeight-raiz.clientHeight;
+    if(total<=0) return;
+    var pct=topo/total*100;
+    if(pct>=50&&!s50){ s50=true; fb('trackCustom','Scroll50'); }
+    if(pct>=75&&!s75){ s75=true; fb('trackCustom','Scroll75'); window.removeEventListener('scroll',aoRolar); }
   }
-  var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        entry.target.classList.add('in-view');
-        obs.unobserve(entry.target);
-      }
-    });
-  },{threshold:.15,rootMargin:'0px 0px -30px 0px'});
-  allEls.forEach(function(el){obs.observe(el);});
+  function aoRolar(){ if(!ocupado){ ocupado=true; requestAnimationFrame(medir); } }
+  window.addEventListener('scroll',aoRolar,{passive:true});
+})();
+</script>
+<script>
+/* Entrada suave ao rolar. Se algo falhar, tudo continua visivel. */
+(function(){
+  var ativos=[];
+  try{
+    var reduzido=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduzido||!('IntersectionObserver' in window)) return;
+    var fade=Array.prototype.slice.call(document.querySelectorAll('.link-card'));
+    var slide=Array.prototype.slice.call(document.querySelectorAll('.section-label, .newsletter-box, .footer'));
+    var atraso=function(el,i){ var ms=Math.min(i,6)*60; el.style.transitionDelay=ms+'ms'; el._ms=ms; };
+    fade.forEach(function(el,i){ el.classList.add('reveal-fade'); atraso(el,i); });
+    slide.forEach(function(el,i){ el.classList.add('reveal'); atraso(el,i); });
+    ativos=fade.concat(slide);
+    var obs=new IntersectionObserver(function(entradas){
+      entradas.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var el=en.target; el.classList.add('in-view'); obs.unobserve(el);
+        /* o atraso inline nao pode ficar: atrasaria o toque e o hover dos cards */
+        setTimeout(function(){ el.style.transitionDelay=''; },(el._ms||0)+800);
+      });
+    },{threshold:.15,rootMargin:'0px 0px -30px 0px'});
+    ativos.forEach(function(el){ obs.observe(el); });
+  }catch(e){
+    ativos.forEach(function(el){ el.classList.add('in-view'); el.style.transitionDelay=''; });
+  }
 })();
 </script>
 
