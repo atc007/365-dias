@@ -218,7 +218,7 @@
 }
 </script>
 
-<link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
+<link rel="preconnect" href="https://static.wixstatic.com">
 <link rel="dns-prefetch" href="https://video.wixstatic.com">
 <link rel="dns-prefetch" href="https://static.wixstatic.com">
 <link rel="preload" href="/fonts/eb-garamond.woff2" as="font" type="font/woff2" crossorigin>
@@ -229,7 +229,7 @@
 @font-face{font-family:'Manrope';font-style:normal;font-weight:200 800;font-display:swap;src:url(/fonts/manrope.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 </style>
 <link rel="preload" as="image" type="image/avif" fetchpriority="high" media="(max-width:720px)"
-  href="https://static.wixstatic.com/media/940f31_ff7a1e6a44d44dfaae4289f3f2bfa2cc~mv2.avif">
+  href="https://static.wixstatic.com/media/940f31_ff7a1e6a44d44dfaae4289f3f2bfa2cc~mv2.avif/v1/fill/w_960,h_839,al_c,q_90,enc_auto,quality_auto/capa-livro.avif" imagesrcset="https://static.wixstatic.com/media/940f31_ff7a1e6a44d44dfaae4289f3f2bfa2cc~mv2.avif/v1/fill/w_640,h_559,al_c,q_90,enc_auto,quality_auto/capa-livro.avif 640w, https://static.wixstatic.com/media/940f31_ff7a1e6a44d44dfaae4289f3f2bfa2cc~mv2.avif/v1/fill/w_960,h_839,al_c,q_90,enc_auto,quality_auto/capa-livro.avif 960w, https://static.wixstatic.com/media/940f31_ff7a1e6a44d44dfaae4289f3f2bfa2cc~mv2.avif 1172w" imagesizes="100vw">
 <link rel="preload" as="image" type="image/png" fetchpriority="high" media="(min-width:721px)"
   href="https://static.wixstatic.com/media/940f31_78b1b096592f4a91b467f98b3ade5b92~mv2.png">
 
@@ -1779,7 +1779,6 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 </style>
 
  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-336846858"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -1795,9 +1794,7 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src='https://connect.facebook.net/en_US/fbevents.js';
-s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+n.queue=[]}
 (window, document,'script');
 fbq('init', '239605191106043', {});
 fbq('track', 'PageView');
@@ -1809,8 +1806,17 @@ fbq('track', 'ViewContent', {
   value:        77.00
 });
 </script>
+<script>
+/* Google tag e Meta Pixel: as filas ja existem, os arquivos baixam so depois que a pagina carregou */
+(function(){
+  function carregar(){
+    var a=document.createElement('script'); a.async=true; a.src='https://www.googletagmanager.com/gtag/js?id=AW-336846858'; document.head.appendChild(a);
+    var b=document.createElement('script'); b.async=true; b.src='https://connect.facebook.net/en_US/fbevents.js'; document.head.appendChild(b);
+  }
+  if(document.readyState==='complete') carregar(); else window.addEventListener('load',carregar);
+})();
+</script>
 <link rel="dns-prefetch" href="//chk.eduzz.com">
-<link rel="preconnect" href="https://chk.eduzz.com" crossorigin>
 
 
 <script type="application/ld+json">
@@ -2171,6 +2177,7 @@ html[data-tema="black-friday"] .urgency-section{border-top:1px solid var(--tema-
   .car-slides{transition:none!important;}
 }
 </style>
+<style id="anim-pausa">.anim-pausa.anim-pausa.anim-pausa{animation-play-state:paused!important;}</style>
 </head>
 <body>
 <noscript><img height="1" width="1" style="display:none"
@@ -2209,10 +2216,10 @@ src="https://www.facebook.com/tr?id=239605191106043&amp;ev=PageView&amp;noscript
     <div class="hero-grid">
       <div class="hero-img-wrap">
         <picture>
-          <source media="(max-width:720px)" srcset="https://static.wixstatic.com/media/940f31_ff7a1e6a44d44dfaae4289f3f2bfa2cc~mv2.avif" type="image/avif">
+          <source media="(max-width:720px)" srcset="https://static.wixstatic.com/media/940f31_ff7a1e6a44d44dfaae4289f3f2bfa2cc~mv2.avif/v1/fill/w_640,h_559,al_c,q_90,enc_auto,quality_auto/capa-livro.avif 640w, https://static.wixstatic.com/media/940f31_ff7a1e6a44d44dfaae4289f3f2bfa2cc~mv2.avif/v1/fill/w_960,h_839,al_c,q_90,enc_auto,quality_auto/capa-livro.avif 960w, https://static.wixstatic.com/media/940f31_ff7a1e6a44d44dfaae4289f3f2bfa2cc~mv2.avif 1172w" sizes="100vw" type="image/avif">
           <source media="(min-width:721px)" srcset="https://static.wixstatic.com/media/940f31_78b1b096592f4a91b467f98b3ade5b92~mv2.png">
           <img
-            src="https://static.wixstatic.com/media/940f31_ff7a1e6a44d44dfaae4289f3f2bfa2cc~mv2.avif"
+            src="https://static.wixstatic.com/media/940f31_ff7a1e6a44d44dfaae4289f3f2bfa2cc~mv2.avif/v1/fill/w_960,h_839,al_c,q_90,enc_auto,quality_auto/capa-livro.avif"
             alt="Capa do livro 365 Dias Minimalistas de Alexandre Chahoud"
             width="474" height="457"
             fetchpriority="high" loading="eager" decoding="sync"
@@ -2845,26 +2852,29 @@ function irParaVersoes(e){
   /* trava a largura do espaço reservado na palavra mais longa da lista,
      pra trocar de palavra nunca empurrar o resto da frase de lugar */
   function lockWidth(){
-    var measurer = document.createElement('span');
     var style = getComputedStyle(el);
+    var caixa = document.createElement('div');
     /* propriedade por propriedade: no Firefox o atalho "font" volta vazio */
-    measurer.style.fontFamily = style.fontFamily;
-    measurer.style.fontSize = style.fontSize;
-    measurer.style.fontWeight = style.fontWeight;
-    measurer.style.fontStyle = style.fontStyle;
-    measurer.style.fontStretch = style.fontStretch;
-    measurer.style.fontVariationSettings = style.fontVariationSettings;
-    measurer.style.letterSpacing = style.letterSpacing;
-    measurer.style.position = 'absolute';
-    measurer.style.visibility = 'hidden';
-    measurer.style.whiteSpace = 'nowrap';
-    document.body.appendChild(measurer);
-    var max = 0;
-    words.forEach(function(w){
-      measurer.textContent = w;
-      max = Math.max(max, measurer.getBoundingClientRect().width);
+    caixa.style.fontFamily = style.fontFamily;
+    caixa.style.fontSize = style.fontSize;
+    caixa.style.fontWeight = style.fontWeight;
+    caixa.style.fontStyle = style.fontStyle;
+    caixa.style.fontStretch = style.fontStretch;
+    caixa.style.fontVariationSettings = style.fontVariationSettings;
+    caixa.style.letterSpacing = style.letterSpacing;
+    caixa.style.position = 'absolute';
+    caixa.style.visibility = 'hidden';
+    caixa.style.whiteSpace = 'nowrap';
+    /* todas as palavras entram juntas: o navegador calcula o layout uma vez so, nao cinco */
+    var medidas = words.map(function(w){
+      var s = document.createElement('span');
+      s.style.display = 'block'; s.style.width = 'max-content';
+      s.textContent = w; caixa.appendChild(s); return s;
     });
-    document.body.removeChild(measurer);
+    document.body.appendChild(caixa);
+    var max = 0;
+    medidas.forEach(function(s){ max = Math.max(max, s.getBoundingClientRect().width); });
+    document.body.removeChild(caixa);
     wrap.style.width = Math.ceil(max) + 'px';
   }
   lockWidth();
@@ -3518,6 +3528,17 @@ function copiarCupom(e){
   /* estado inicial: o navegador pode restaurar a rolagem ao recarregar */
   refresh();
   window.addEventListener('load', refresh);
+})();
+</script>
+<script>
+/* animacoes que repetem para sempre so rodam enquanto aparecem na tela (menos repintura no celular) */
+(function(){
+  try{
+    if(!('IntersectionObserver' in window)) return;
+    var alvos=document.querySelectorAll('.btn-gold,.pc-btn.gold,.sbb-btn,.pres-tag,.pc-parc-destaque,.story-card.skeleton');
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ e.target.classList.toggle('anim-pausa',!e.isIntersecting); }); },{rootMargin:'80px'});
+    for(var i=0;i<alvos.length;i++) io.observe(alvos[i]);
+  }catch(e){}
 })();
 </script>
 </body>
