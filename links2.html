@@ -626,8 +626,10 @@ iframe{border-radius:8px;}
   try{
     var reduzido=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(reduzido||!('IntersectionObserver' in window)) return;
-    var fade=Array.prototype.slice.call(document.querySelectorAll('.link-card'));
-    var slide=Array.prototype.slice.call(document.querySelectorAll('.section-label, .newsletter-box, .footer'));
+    /* o que ja aparece na primeira tela nao faz fade: o primeiro card e o LCP e nao pode esperar a animacao */
+    var abaixo=function(el){ return el.getBoundingClientRect().top>=window.innerHeight; };
+    var fade=Array.prototype.slice.call(document.querySelectorAll('.link-card')).filter(abaixo);
+    var slide=Array.prototype.slice.call(document.querySelectorAll('.section-label, .newsletter-box, .footer')).filter(abaixo);
     var atraso=function(el,i){ var ms=Math.min(i,6)*60; el.style.transitionDelay=ms+'ms'; el._ms=ms; };
     fade.forEach(function(el,i){ el.classList.add('reveal-fade'); atraso(el,i); });
     slide.forEach(function(el,i){ el.classList.add('reveal'); atraso(el,i); });
