@@ -137,7 +137,7 @@
 }
 </script>
 
-<link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
+<link rel="preconnect" href="https://static.wixstatic.com">
 <link rel="dns-prefetch" href="https://video.wixstatic.com">
 <link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
@@ -990,7 +990,6 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 </style>
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-336846858"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -1005,9 +1004,7 @@ a:focus-visible,button:focus-visible,.badge-link:focus-visible,.faq-q:focus-visi
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src='https://connect.facebook.net/en_US/fbevents.js';
-s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+n.queue=[]}
 (window, document,'script');
 fbq('init', '239605191106043', {});
 fbq('track', 'PageView');
@@ -1019,8 +1016,17 @@ fbq('track', 'ViewContent', {
   value: 107.00
 });
 </script>
+<script>
+/* Google tag e Meta Pixel: as filas ja existem, os arquivos baixam so depois que a pagina carregou */
+(function(){
+  function carregar(){
+    var a=document.createElement('script'); a.async=true; a.src='https://www.googletagmanager.com/gtag/js?id=AW-336846858'; document.head.appendChild(a);
+    var b=document.createElement('script'); b.async=true; b.src='https://connect.facebook.net/en_US/fbevents.js'; document.head.appendChild(b);
+  }
+  if(document.readyState==='complete') carregar(); else window.addEventListener('load',carregar);
+})();
+</script>
 <link rel="dns-prefetch" href="//chk.eduzz.com">
-<link rel="preconnect" href="https://chk.eduzz.com" crossorigin>
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
     window.__clTags = [];
@@ -1335,6 +1341,7 @@ html[data-tema="black-friday"] .urgency-section{border-top:1px solid var(--tema-
   .car-slides{transition:none!important;}
 }
 </style>
+<style id="anim-pausa">.anim-pausa.anim-pausa.anim-pausa{animation-play-state:paused!important;}</style>
 </head>
 <body>
 <noscript><img height="1" width="1" style="display:none"
@@ -2023,26 +2030,29 @@ function irParaVersoes(e, fromCoupon){
   /* trava a largura do espaço reservado na palavra mais longa da lista,
      pra trocar de palavra nunca empurrar o resto da frase de lugar */
   function lockWidth(){
-    var measurer = document.createElement('span');
     var style = getComputedStyle(el);
+    var caixa = document.createElement('div');
     /* propriedade por propriedade: no Firefox o atalho "font" volta vazio */
-    measurer.style.fontFamily = style.fontFamily;
-    measurer.style.fontSize = style.fontSize;
-    measurer.style.fontWeight = style.fontWeight;
-    measurer.style.fontStyle = style.fontStyle;
-    measurer.style.fontStretch = style.fontStretch;
-    measurer.style.fontVariationSettings = style.fontVariationSettings;
-    measurer.style.letterSpacing = style.letterSpacing;
-    measurer.style.position = 'absolute';
-    measurer.style.visibility = 'hidden';
-    measurer.style.whiteSpace = 'nowrap';
-    document.body.appendChild(measurer);
-    var max = 0;
-    words.forEach(function(w){
-      measurer.textContent = w;
-      max = Math.max(max, measurer.getBoundingClientRect().width);
+    caixa.style.fontFamily = style.fontFamily;
+    caixa.style.fontSize = style.fontSize;
+    caixa.style.fontWeight = style.fontWeight;
+    caixa.style.fontStyle = style.fontStyle;
+    caixa.style.fontStretch = style.fontStretch;
+    caixa.style.fontVariationSettings = style.fontVariationSettings;
+    caixa.style.letterSpacing = style.letterSpacing;
+    caixa.style.position = 'absolute';
+    caixa.style.visibility = 'hidden';
+    caixa.style.whiteSpace = 'nowrap';
+    /* todas as palavras entram juntas: o navegador calcula o layout uma vez so, nao cinco */
+    var medidas = words.map(function(w){
+      var s = document.createElement('span');
+      s.style.display = 'block'; s.style.width = 'max-content';
+      s.textContent = w; caixa.appendChild(s); return s;
     });
-    document.body.removeChild(measurer);
+    document.body.appendChild(caixa);
+    var max = 0;
+    medidas.forEach(function(s){ max = Math.max(max, s.getBoundingClientRect().width); });
+    document.body.removeChild(caixa);
     wrap.style.width = Math.ceil(max) + 'px';
   }
   lockWidth();
@@ -2667,6 +2677,17 @@ document.querySelectorAll('.faq-item').forEach(function(item,i){
       tip.style.animation = 'tooltip-in .45s cubic-bezier(.16,1,.3,1) both';
     }
   }, {passive:true});
+})();
+</script>
+<script>
+/* animacoes que repetem para sempre so rodam enquanto aparecem na tela (menos repintura no celular) */
+(function(){
+  try{
+    if(!('IntersectionObserver' in window)) return;
+    var alvos=document.querySelectorAll('.btn-gold,.pc-btn.gold,.sbb-btn,.pc-parc-destaque,.story-card.skeleton');
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ e.target.classList.toggle('anim-pausa',!e.isIntersecting); }); },{rootMargin:'80px'});
+    for(var i=0;i<alvos.length;i++) io.observe(alvos[i]);
+  }catch(e){}
 })();
 </script>
 </body>
