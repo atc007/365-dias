@@ -107,12 +107,14 @@ body{background:
 .tb-item span{color:var(--gold)!important;}
 
 /* NAVEGAÇÃO RÁPIDA */
-.quick-nav{position:sticky;top:0;z-index:80;width:100%;background:rgba(14,13,11,.92);border-bottom:1px solid rgba(255,255,255,.08);}
+.quick-nav{position:sticky;top:0;z-index:80;width:100%;background:#0E0D0B;border-bottom:1px solid rgba(255,255,255,.08);}
 .quick-nav-inner{max-width:1180px;margin:0 auto;padding:9px 32px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;}
 .quick-nav-inner::-webkit-scrollbar{display:none;}
 .quick-nav a{flex-shrink:0;white-space:nowrap;font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;padding:8px 15px;border-radius:999px;border:1px solid transparent;transition:color .15s ease,border-color .15s ease,background .15s ease;}
 .quick-nav a:hover{color:var(--ink);border-color:var(--card-border);background:rgba(255,255,255,.04);}
-.quick-nav a.qn-cta{color:#1C1C1A;background:var(--gold);margin-left:auto;}
+.quick-nav a.qn-cta{color:#1C1C1A;background:var(--gold);margin-left:10px;}
+/* centralizado; as margens auto nas pontas mantêm o primeiro item alcançável quando o menu rola no celular */
+.quick-nav-inner>:first-child{margin-left:auto;}.quick-nav-inner>:last-child{margin-right:auto;}
 .quick-nav a.qn-cta:hover{filter:brightness(1.08);color:#1C1C1A;}
 .sec{scroll-margin-top:60px;}
 #mv-fisico{scroll-margin-top:76px;}
@@ -168,8 +170,8 @@ body{background:
 .feat-body{padding:14px 16px 16px;}
 .feat-name{font-size:12.5px;color:var(--muted);line-height:1.45;margin-bottom:10px;}
 .feat-name strong{display:block;font-family:'Spectral',Georgia,serif;font-size:16.5px;font-weight:500;color:var(--ink);line-height:1.3;margin-top:2px;}
-.feat-price-row,.reg-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:12px;}
-.feat-was,.reg-was{font-size:12px;color:var(--muted);text-decoration:line-through;}
+.feat-price-row,.reg-price-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;margin-bottom:12px;}
+.feat-was,.reg-was{font-size:12px;color:var(--muted);text-decoration:line-through;white-space:nowrap;}
 .feat-now,.reg-now{font-weight:800;background:linear-gradient(100deg,#B8925A 0%,#C9A96E 40%,#E8D09A 55%,#C9A96E 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
 .feat-now{font-size:28px;}
 .feat-now sup,.reg-now sup{font-size:12px;font-weight:600;vertical-align:super;margin-right:1px;}
@@ -254,13 +256,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 }
 
 @media(max-width:720px){
-  html,body{width:100%;overflow-x:hidden;}
+  /* só o body corta o excesso: com html e body juntos, o body vira uma área de rolagem própria e o menu deixa de ficar fixo no topo */
+  html{width:100%;}body{width:100%;overflow-x:hidden;}
   .inner{padding:0 16px;}
   #scroll-freight{font-size:11px;padding:10px 38px 10px 12px;gap:6px;flex-wrap:wrap;}
     #scroll-freight-close{right:10px;}
   .quick-nav-inner{padding:8px 12px;gap:2px;}
   .quick-nav a{font-size:12px;padding:7px 12px;}
-  .quick-nav a.qn-cta{margin-left:4px;}
+  .quick-nav a.qn-cta{margin-left:6px;}
   .topbar{padding:9px 16px;flex-wrap:nowrap;justify-content:center;gap:16px;}
   .tb-item:nth-child(2),.tb-item:nth-child(4){display:none;}
   .tb-item{font-size:11px;}
@@ -411,7 +414,7 @@ html[data-tema="black-friday"] body{background:
   #0A0A09;}
 html[data-tema="black-friday"] #loader{background:#0A0A09;}
 html[data-tema="black-friday"] .topbar{background:#0A0A09;border-bottom-color:rgba(227,194,122,.35);}
-html[data-tema="black-friday"] .quick-nav{background:rgba(10,10,9,.92);border-bottom-color:rgba(227,194,122,.22);}
+html[data-tema="black-friday"] .quick-nav{background:#0A0A09;border-bottom-color:rgba(227,194,122,.22);}
 html[data-tema="black-friday"] .hero-eyebrow{display:inline-block;margin:0 auto 16px;padding:6px 16px;border-radius:999px;border:1px solid rgba(227,194,122,.55);color:var(--gold);font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;}
 html[data-tema="black-friday"] #scroll-freight{background:#0A0A09;color:#F5F1E8;border-top:1px solid rgba(227,194,122,.6);}
 html[data-tema="black-friday"] #scroll-freight strong{color:var(--gold);}
@@ -525,8 +528,8 @@ html[data-tema="black-friday"] #scroll-freight strong{color:var(--gold);}
       <div class="feat-body"><div class="feat-name">Quinteto físico: <strong>Seja Minimalista, Viajante, Armário Enxuto, 365 Dias e 45 Dias</strong></div><div class="feat-price-row"><span class="feat-now"><sup>R$</sup>420</span><span class="feat-was">R$ 525,00</span></div><div class="feat-btn">Eu quero com 20% off</div></div>
     </a>
     <a class="feat-card" href="https://chk.eduzz.com/69KAY2G70O?pf=1&cupom=CLSM40OFF" target="_blank" rel="noopener">
-      <div class="feat-img-wrap"><span class="feat-badge"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-1px;margin-right:3px;"><path d="M12 2H2v10l9.29 9.29a2 2 0 0 0 2.83 0l7.17-7.17a2 2 0 0 0 0-2.83L12 2Z"/><circle cx="7" cy="7" r="1.4" fill="currentColor" stroke="none"/></svg>40% off</span><img src="https://static.wixstatic.com/media/940f31_1290e8e809ae42afafeb299d23c77204~mv2.jpg/v1/crop/x_7,y_0,w_525,h_500/fill/w_525,h_500,al_c,q_90,enc_avif,quality_auto/9%20PRODUTOS%20(6).jpg" alt="Combo Seja Minimalista: 9 físicos: Seja Minimalista, Viajante, Armário, 365 Dias, Planner, Planner Viagens, Agenda, 45 Dias e Devocional" loading="lazy"></div>
-      <div class="feat-body"><div class="feat-name">9 físicos: <strong>Seja Minimalista, Viajante, Armário, 365 Dias, Planner, Planner Viagens, Agenda, 45 Dias e Devocional</strong></div><div class="feat-price-row"><span class="feat-now"><sup>R$</sup>661</span><span class="feat-was">R$ 1.103,00</span></div><div class="feat-btn">Eu quero com 40% off</div></div>
+      <div class="feat-img-wrap"><span class="feat-badge"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-1px;margin-right:3px;"><path d="M12 2H2v10l9.29 9.29a2 2 0 0 0 2.83 0l7.17-7.17a2 2 0 0 0 0-2.83L12 2Z"/><circle cx="7" cy="7" r="1.4" fill="currentColor" stroke="none"/></svg>40% off</span><img src="https://static.wixstatic.com/media/940f31_4e7d93d9f40d402b98846102a8958211~mv2.avif" alt="Combo Seja Minimalista: 8 físicos: Seja Minimalista, Viajante, Armário, 365 Dias, Planner, Planner Viagens, 45 Dias e Devocional" loading="lazy"></div>
+      <div class="feat-body"><div class="feat-name">8 físicos: <strong>Seja Minimalista, Viajante, Armário, 365 Dias, Planner, Planner Viagens, 45 Dias e Devocional</strong></div><div class="feat-price-row"><span class="feat-now"><sup>R$</sup>585,60</span><span class="feat-was">R$ 976,00</span></div><div class="feat-btn">Eu quero com 40% off</div></div>
     </a>
   </div></div>
 </section>
