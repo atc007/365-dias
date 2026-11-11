@@ -419,6 +419,18 @@ html[data-tema="black-friday"] .quick-nav a{color:#FFF;font-weight:700;}
 html[data-tema="black-friday"] .quick-nav a:hover{color:#FFF;border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.14);}
 html[data-tema="black-friday"] .quick-nav a.qn-cta{background:#0A0A09;color:var(--gold);border-color:#0A0A09;}
 html[data-tema="black-friday"] .quick-nav a.qn-cta:hover{background:#1C1C1A;color:var(--gold-soft);}
+/* menu do celular: setas + degradê deixam claro que há mais opções ao arrastar */
+.qn-seta{display:none;}
+@media(max-width:720px){
+  .quick-nav{overflow:hidden;}
+  .qn-seta{position:absolute;top:0;bottom:0;width:44px;padding:0;border:0;cursor:pointer;display:flex;align-items:center;z-index:2;opacity:0;pointer-events:none;transition:opacity .2s ease;-webkit-tap-highlight-color:transparent;}
+  .qn-seta span{width:26px;height:26px;border-radius:50%;background:#FFF;color:#D42B21;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.35);}
+  .qn-seta svg{width:14px;height:14px;}
+  .qn-dir{right:0;justify-content:flex-end;padding-right:6px;background:linear-gradient(90deg,rgba(212,43,33,0),#D42B21 55%);}
+  .qn-esq{left:0;justify-content:flex-start;padding-left:6px;background:linear-gradient(270deg,rgba(212,43,33,0),#D42B21 55%);}
+  .quick-nav.qn-mais-dir .qn-dir,.quick-nav.qn-mais-esq .qn-esq{opacity:1;pointer-events:auto;}
+}
+@media(prefers-reduced-motion:reduce){.qn-seta{transition:none;}}
 html[data-tema="black-friday"] .hero-eyebrow{display:inline-block;margin:0 auto 16px;padding:6px 16px;border-radius:999px;border:1px solid rgba(227,194,122,.55);color:var(--gold);font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;}
 html[data-tema="black-friday"] #scroll-freight{background:#0A0A09;color:#F5F1E8;border-top:1px solid rgba(227,194,122,.6);}
 html[data-tema="black-friday"] #scroll-freight strong{color:var(--gold);}
@@ -501,6 +513,8 @@ html[data-tema="black-friday"] #scroll-freight strong{color:var(--gold);}
 </div></header>
 
 <nav class="quick-nav">
+  <button type="button" class="qn-seta qn-esq" aria-label="Ver opções anteriores"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></span></button>
+  <button type="button" class="qn-seta qn-dir" aria-label="Ver mais opções"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></span></button>
   <div class="quick-nav-inner">
     <a href="#combos-completos">Maiores descontos</a>
     <a href="#combos-fisicos">Combos físicos</a>
@@ -869,5 +883,29 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
+<script>
+/* menu de âncoras no celular: mostra setas quando há mais opções para os lados e dá uma espiadinha na primeira vez */
+(function(){
+  var nav=document.querySelector('.quick-nav'); if(!nav) return;
+  var inn=nav.querySelector('.quick-nav-inner'), e=nav.querySelector('.qn-esq'), d=nav.querySelector('.qn-dir');
+  function atualizar(){
+    var max=inn.scrollWidth-inn.clientWidth;
+    nav.classList.toggle('qn-mais-esq',inn.scrollLeft>4);
+    nav.classList.toggle('qn-mais-dir',max>4 && inn.scrollLeft<max-4);
+  }
+  function mover(s){ inn.scrollBy({left:s*Math.max(120,inn.clientWidth*.6),behavior:'smooth'}); }
+  e.addEventListener('click',function(){mover(-1);}); d.addEventListener('click',function(){mover(1);});
+  inn.addEventListener('scroll',atualizar,{passive:true}); window.addEventListener('resize',atualizar);
+  atualizar();
+  try{
+    if(window.matchMedia('(max-width:720px)').matches && !window.matchMedia('(prefers-reduced-motion:reduce)').matches && !sessionStorage.getItem('qnEspiou') && 'IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(l){
+        if(l[0].isIntersecting){ io.disconnect(); sessionStorage.setItem('qnEspiou','1');
+          setTimeout(function(){ if(inn.scrollLeft<4){ inn.scrollTo({left:60,behavior:'smooth'}); setTimeout(function(){inn.scrollTo({left:0,behavior:'smooth'});},700); } },500); }
+      },{threshold:1}); io.observe(nav);
+    }
+  }catch(x){}
+})();
+</script>
 </body>
 </html>
