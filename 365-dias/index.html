@@ -2178,6 +2178,17 @@ html[data-tema="black-friday"] .urgency-section{border-top:1px solid var(--tema-
 }
 </style>
 <style id="anim-pausa">.anim-pausa.anim-pausa.anim-pausa{animation-play-state:paused!important;}</style>
+<style>
+/* barra do topo no celular: 2 linhas curtas (desktop não muda) */
+.u-m{display:none;}
+@media(max-width:720px){
+  .u-d{display:none;}.u-m{display:inline;}
+  .urgency-bar:not(.scrolled){padding-top:8px;padding-bottom:8px;}
+  .urgency-inner{gap:4px;}
+  .urgency-badge{font-size:10px;letter-spacing:.07em;padding:3px 10px;}
+  html[data-tema="black-friday"] .urgency-badge{letter-spacing:.07em;}
+}
+</style>
 </head>
 <body>
 <noscript><img height="1" width="1" style="display:none"
@@ -2203,8 +2214,8 @@ src="https://www.facebook.com/tr?id=239605191106043&amp;ev=PageView&amp;noscript
 <!-- URGÊNCIA BAR -->
 <div class="urgency-bar" id="urgency-bar">
   <div class="urgency-inner">
-    <span class="urgency-badge">⏳ Oferta especial <span class="tema-nome">Black Friday</span></span>
-    <span class="urgency-text"><strong>Bônus digitais inclusos</strong>, frete grátis e garantia de 7 dias</span>
+    <span class="urgency-badge"><span class="u-d">⏳ Oferta especial </span><span class="u-m">Especial </span><span class="tema-nome">Black Friday</span><span class="u-m"> - cupom: GANHEI10</span></span>
+    <span class="urgency-text"><span class="u-d"><strong>Bônus digitais inclusos</strong>, frete grátis e garantia de 7 dias</span><span class="u-m"><strong>Bônus digitais</strong> e frete grátis</span></span>
   </div>
 </div>
 
