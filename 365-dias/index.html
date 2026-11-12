@@ -2183,7 +2183,10 @@ html[data-tema="black-friday"] .urgency-section{border-top:1px solid var(--tema-
 .u-m{display:none;}
 @media(max-width:720px){
   .u-d{display:none;}.u-m{display:inline;}
-  .urgency-bar:not(.scrolled){padding-top:8px;padding-bottom:8px;}
+  /* só no topo da página: no celular a barra rola junto com o conteúdo, sem ficar fixa */
+  .urgency-bar,.urgency-bar.scrolled{position:static;padding-top:8px;padding-bottom:8px;background:var(--tema-fundo);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;}
+  .urgency-bar.scrolled .urgency-badge{padding:3px 10px;}
+  #versoes,#versao-digital,#versao-fisica,#bonus{scroll-margin-top:12px;}
   .urgency-inner{gap:4px;}
   .urgency-badge{font-size:10px;letter-spacing:.07em;padding:3px 10px;}
   html[data-tema="black-friday"] .urgency-badge{letter-spacing:.07em;}
