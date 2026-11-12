@@ -2192,6 +2192,17 @@ html[data-tema="black-friday"] .urgency-section{border-top:1px solid var(--tema-
   html[data-tema="black-friday"] .urgency-badge{letter-spacing:.07em;}
 }
 </style>
+<style>
+/* barra fixa de baixo no celular: título + 1 linha ("3 versões: digital, físico e combo") */
+@media(max-width:640px){
+  .sbb-sub{display:block;margin-top:2px;}
+  .sbb-sub-l1,.sbb-sub-l2{display:inline;}
+  .sbb-disp{display:none;}
+  .sbb-sub-sep{display:inline;font-size:0;}
+  .sbb-sub-sep::after{content:": ";font-size:10.5px;color:#C9A96E;font-weight:600;}
+  .sbb-sub-l2::before,.sbb-sub-l2::after{content:none;}
+}
+</style>
 </head>
 <body>
 <noscript><img height="1" width="1" style="display:none"
@@ -2208,7 +2219,7 @@ src="https://www.facebook.com/tr?id=239605191106043&amp;ev=PageView&amp;noscript
       alt="" width="46" height="46" loading="lazy" decoding="async">
     <div class="sbb-info">
       <div class="sbb-title"><span class="sbb-title-w">Livro</span> <span class="sbb-title-g">365 Dias Minimalistas</span></div>
-      <div class="sbb-sub"><span class="sbb-sub-l1">3 versões disponíveis</span><span class="sbb-sub-sep"> · </span><span class="sbb-sub-l2">digital, físico e combo</span></div>
+      <div class="sbb-sub"><span class="sbb-sub-l1">3 versões<span class="sbb-disp"> disponíveis</span></span><span class="sbb-sub-sep"> · </span><span class="sbb-sub-l2">digital, físico e combo</span></div>
     </div>
     <a class="sbb-btn" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;">Quero meu exemplar</a>
   </div>
