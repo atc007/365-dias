@@ -414,6 +414,20 @@ html[data-tema="black-friday"] body{background:
   #0A0A09;}
 html[data-tema="black-friday"] #loader{background:#0A0A09;}
 html[data-tema="black-friday"] .topbar{background:#0A0A09;border-bottom-color:rgba(227,194,122,.35);}
+/* topo no celular: 2 linhas (selo com desconto + frete) */
+.tb-mob{display:none;}
+.tb-item .tb-t{color:inherit!important;}
+.tb-item .tb-badge .tb-hg,.tb-item .tb-badge .tb-desk,.tb-item .tb-badge .tb-mob{color:var(--tema-selo-texto,#C9A96E)!important;}
+@media(max-width:720px){
+  .topbar{gap:7px 16px;padding:9px 12px;}
+  .tb-desk,.tb-hg{display:none;}.tb-mob{display:inline;}
+  .topbar .tb-item:nth-child(4){display:none;}
+  .topbar .tb-item:nth-child(2){flex:0 0 100%;justify-content:center;}
+  .topbar .tb-item:nth-child(2) .tb-dot{display:none;}
+  .topbar .tb-item:nth-child(2) .tb-t{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+  .tb-badge{font-size:10.5px;letter-spacing:.04em;padding:4px 10px;gap:0;}
+  .tb-badge .tb-mob{margin-left:.1em;}
+}
 html[data-tema="black-friday"] .quick-nav{background:#D42B21;border-bottom-color:rgba(10,10,9,.28);box-shadow:0 4px 18px rgba(212,43,33,.35);}
 html[data-tema="black-friday"] .quick-nav a{color:#FFF;font-weight:700;}
 html[data-tema="black-friday"] .quick-nav a:hover{color:#FFF;border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.14);}
@@ -493,8 +507,8 @@ html[data-tema="black-friday"] #scroll-freight strong{color:var(--gold);}
 </div>
 
 <div class="topbar">
-  <div class="tb-item"><span class="tb-badge">⏳ Oferta especial <span class="tema-nome">Black Friday</span></span></div>
-  <div class="tb-item"><div class="tb-dot"></div>Frete grátis para todo o Brasil</div>
+  <div class="tb-item"><span class="tb-badge"><span class="tb-hg">⏳ </span><span class="tb-desk">Oferta especial </span><span class="tema-nome">Black Friday</span><span class="tb-mob"> - Descontos de até 40%</span></span></div>
+  <div class="tb-item"><div class="tb-dot"></div><span class="tb-t tb-desk">Frete grátis para todo o Brasil</span><span class="tb-t tb-mob">Frete grátis para todo Brasil</span></div>
   <div class="tb-item"><div class="tb-dot"></div>Cartão · Boleto · Pix</div>
   <div class="tb-item"><div class="tb-dot"></div>Descontos progressivos até 40%</div>
   <div class="tb-item" style="background:rgba(201,169,110,.15);padding:2px 10px;border-radius:20px;"><span style="color:#C9A96E;font-weight:700;">+20</span>&nbsp;combos disponíveis</div>
