@@ -2178,6 +2178,17 @@ html[data-tema="black-friday"] .urgency-section{border-top:1px solid var(--tema-
 }
 </style>
 <style id="anim-pausa">.anim-pausa.anim-pausa.anim-pausa{animation-play-state:paused!important;}</style>
+<style id="barra-cupom">
+/* cupom na barra do topo: chip no desktop (clicável), barra inteira clicável no celular */
+.urg-cupom{display:none;align-items:center;gap:8px;border:1px dashed var(--tema-destaque);border-radius:999px;padding:3px 6px 3px 12px;font-size:12px;color:var(--cream-dark);cursor:pointer;line-height:1.3;transition:background .2s;}
+.urg-cupom:hover{background:rgba(227,194,122,.12);}
+.urg-cupom-rot{letter-spacing:.08em;text-transform:uppercase;font-size:10px;font-weight:700;opacity:.8;}
+.urg-cupom-cod{font-family:var(--font-display);font-size:16px;letter-spacing:.07em;color:var(--tema-destaque);}
+.urg-cupom-sub{font-size:10px;font-weight:700;background:var(--tema-destaque);color:var(--ink);border-radius:999px;padding:2px 9px;}
+@media(min-width:721px){.urg-cupom{display:inline-flex;}}
+@media(max-width:720px){.urgency-bar{cursor:pointer;-webkit-tap-highlight-color:transparent;}}
+.urgency-bar:focus-visible{outline:2px solid var(--tema-destaque);outline-offset:-3px;}
+</style>
 <style>
 /* barra do topo no celular: 2 linhas curtas (desktop não muda) */
 .u-m{display:none;}
@@ -2226,10 +2237,11 @@ src="https://www.facebook.com/tr?id=239605191106043&amp;ev=PageView&amp;noscript
 </div>
 
 <!-- URGÊNCIA BAR -->
-<div class="urgency-bar" id="urgency-bar">
+<div class="urgency-bar" id="urgency-bar" role="button" tabindex="0" aria-label="Cupom GANHEI10. Toque para copiar">
   <div class="urgency-inner">
-    <span class="urgency-badge"><span class="u-d">⏳ Oferta especial </span><span class="u-m">Especial </span><span class="tema-nome">Black Friday</span><span class="u-m"> - cupom: GANHEI10</span></span>
+    <span class="urgency-badge"><span class="u-d">⏳ Oferta especial </span><span class="u-m">Especial </span><span class="tema-nome">Black Friday</span><span class="u-m" id="urg-cupom-m"> - cupom: GANHEI10</span></span>
     <span class="urgency-text"><span class="u-d"><strong>Bônus digitais inclusos</strong>, frete grátis e garantia de 7 dias</span><span class="u-m"><strong>Bônus digitais</strong> e frete grátis</span></span>
+    <span class="urg-cupom" id="urg-cupom-d" title="Clique para copiar o cupom"><span class="urg-cupom-rot">Cupom</span><strong class="urg-cupom-cod">GANHEI10</strong><span class="urg-cupom-sub" id="urg-cupom-d-sub">copiar</span></span>
   </div>
 </div>
 
@@ -3495,6 +3507,69 @@ function copiarCupom(e){
     navigator.clipboard.writeText(codigo).then(function(){feedback(true);medirCopia();}).catch(function(){feedback(false);});
   } else { feedback(false); }
 }
+</script>
+<script>
+/* CUPOM NA BARRA DO TOPO: celular = a barra inteira copia; desktop = o chip do cupom copia */
+(function(){
+  var bar=document.getElementById('urgency-bar');
+  if(!bar) return;
+  var codigo='GANHEI10';
+  var mq=window.matchMedia('(max-width:720px)');
+  var elM=document.getElementById('urg-cupom-m');
+  var elD=document.getElementById('urg-cupom-d-sub');
+  var txtM=elM?elM.textContent:'';
+  var txtD=elD?elD.textContent:'';
+  var timer=null;
+
+  function medir(){
+    try{ if(window.smClarityTag){ window.smClarityTag('cupom_toque','sim'); window.smClarityTag('cupom_origem','barra'); } }catch(x){}
+  }
+  function medirCopia(){
+    if(window.__cupomMedido) return;
+    window.__cupomMedido=true;
+    try{ if(window.fbq){ fbq('trackCustom','CouponCopy',{coupon:codigo}); } }catch(x){}
+    try{ if(window.smClarityTag){ window.smClarityTag('cupom_copiado','sim'); } }catch(x){}
+  }
+  function feedback(ok){
+    clearTimeout(timer);
+    if(elM) elM.textContent=ok?' - cupom copiado ✓':' - anote: '+codigo;
+    if(elD) elD.textContent=ok?'copiado ✓':'anote';
+    timer=setTimeout(function(){
+      if(elM) elM.textContent=txtM;
+      if(elD) elD.textContent=txtD;
+    },2600);
+  }
+  /* plano B para navegadores sem clipboard API (ex.: navegador interno do Instagram) */
+  function copiaAntiga(){
+    try{
+      var t=document.createElement('textarea');
+      t.value=codigo; t.setAttribute('readonly','');
+      t.style.cssText='position:fixed;top:0;left:0;opacity:0;';
+      document.body.appendChild(t); t.select(); t.setSelectionRange(0,99);
+      var ok=document.execCommand('copy');
+      document.body.removeChild(t);
+      return ok;
+    }catch(e){ return false; }
+  }
+  function copiar(){
+    medir();
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(codigo)
+        .then(function(){ feedback(true); medirCopia(); })
+        .catch(function(){ var ok=copiaAntiga(); feedback(ok); if(ok) medirCopia(); });
+    } else {
+      var ok=copiaAntiga(); feedback(ok); if(ok) medirCopia();
+    }
+  }
+  function deveCopiar(alvo){
+    if(mq.matches) return true;
+    return !!(alvo && alvo.closest && alvo.closest('.urg-cupom'));
+  }
+  bar.addEventListener('click',function(e){ if(deveCopiar(e.target)) copiar(); });
+  bar.addEventListener('keydown',function(e){
+    if((e.key==='Enter'||e.key===' ') && deveCopiar(e.target)){ e.preventDefault(); copiar(); }
+  });
+})();
 </script>
 <!-- TOOLTIP CUPOM -->
 <div id="cupom-tooltip" style="display:none;position:fixed;z-index:10000;">
