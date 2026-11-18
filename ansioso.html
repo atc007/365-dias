@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-rascunho>
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>O Manual do Ansioso | Alexandre Chahoud</title>
 <meta name="description" content="Livro ilustrado e bem-humorado com explicações acessíveis e ferramentas práticas para entender a ansiedade e lidar melhor com os pensamentos do dia a dia. De Alexandre Chahoud.">
-<!-- RASCUNHO: enquanto estiver "noindex", a página não aparece em buscadores. Trocar por "index, follow, max-image-preview:large" ao publicar. -->
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#2649BF">
 <meta name="author" content="Alexandre Chahoud">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<link rel="canonical" href="https://sejaminimalista.com.br/manual-do-ansioso">
+<link rel="canonical" href="https://sejaminimalista.com.br/ansioso">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -20,16 +19,11 @@
 <meta property="og:site_name" content="Seja Minimalista">
 <meta property="og:title" content="O Manual do Ansioso | Alexandre Chahoud">
 <meta property="og:description" content="Livro ilustrado e bem-humorado com explicações acessíveis e ferramentas práticas para entender a ansiedade e lidar melhor com os pensamentos do dia a dia. De Alexandre Chahoud.">
-<meta property="og:url" content="https://sejaminimalista.com.br/manual-do-ansioso">
-<meta property="og:image" content="https://sejaminimalista.com.br/manual-do-ansioso/assets/hero/og-manual-do-ansioso.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Capa do livro O Manual do Ansioso ao lado da personagem do livro">
+<meta property="og:url" content="https://sejaminimalista.com.br/ansioso">
 <meta property="book:author" content="Alexandre Chahoud">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="O Manual do Ansioso | Alexandre Chahoud">
 <meta name="twitter:description" content="Livro ilustrado e bem-humorado com explicações acessíveis e ferramentas práticas para entender a ansiedade e lidar melhor com os pensamentos do dia a dia. De Alexandre Chahoud.">
-<meta name="twitter:image" content="https://sejaminimalista.com.br/manual-do-ansioso/assets/hero/og-manual-do-ansioso.jpg">
 <link rel="preload" href="fonts/bricolage-grotesque-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/dm-sans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="https://static.wixstatic.com/media/940f31_224907d95b8f462ea7ca3e096ff925c1~mv2.webp" fetchpriority="high">
@@ -38,7 +32,6 @@
 @font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url(fonts/dm-sans-latin-wght.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212}
 @font-face{font-family:'Caveat';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/caveat-latin-wght.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212}
 </style>
-<script>if(/[?&]publicar/.test(location.search))document.documentElement.removeAttribute('data-rascunho');</script>
 <style>
 :root{
   /* Paleta oficial do briefing */
@@ -127,18 +120,11 @@ a{color:inherit}
 .slot img{width:100%;height:100%;object-fit:cover;border-radius:inherit}
 .slot-etiqueta{display:none}
 .slot.vazio{aspect-ratio:var(--ar,4/3);display:none}
-html[data-rascunho] .slot.vazio{display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;border:2px dashed rgba(27,33,80,.45);background:repeating-linear-gradient(135deg,rgba(184,160,230,.22) 0 12px,rgba(184,160,230,.1) 12px 24px)}
-html[data-rascunho] .slot.vazio img{display:none}
-html[data-rascunho] .slot.vazio .slot-etiqueta{display:block;font-size:.78rem;line-height:1.35;color:var(--tinta);word-break:break-word}
 .slot-etiqueta b{display:block;font:700 1.25rem/1.1 var(--f-mao);margin-bottom:4px}
 .slot-etiqueta code{font:inherit;font-weight:700;opacity:.8}
 
 /* marcadores de pendência (só no rascunho) */
 .pend{display:none}
-html[data-rascunho] .pend{display:block;border:2px dashed #C9802B;background:rgba(246,222,105,.35);color:var(--tinta);border-radius:14px;padding:12px 16px;font-size:.9rem;line-height:1.45}
-html[data-rascunho] .pend::before{content:"PENDENTE · ";font-weight:800;letter-spacing:.06em}
-html[data-rascunho] .fundo-azul .pend{background:var(--amarelo)}
-html:not([data-rascunho]) [data-pendente]{display:none!important}
 
 /* identificação */
 .fundo-amarelo{background:var(--amarelo)}
@@ -234,8 +220,6 @@ html:not([data-rascunho]) [data-pendente]{display:none!important}
 .dep blockquote{margin:0;font-size:1.05rem}
 .dep .quem{display:flex;gap:12px;align-items:center;font-weight:700}
 .dep .quem .slot{width:52px;height:52px;flex:none;border-radius:50%;overflow:hidden}
-html[data-rascunho] .dep .quem .slot.vazio{padding:0}
-html[data-rascunho] .dep .quem .slot.vazio .slot-etiqueta{display:none}
 
 /* oferta */
 .of-grid{display:grid;gap:26px}
@@ -308,8 +292,8 @@ html[data-rascunho] .dep .quem .slot.vazio .slot-etiqueta{display:none}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"WebPage","@id":"https://sejaminimalista.com.br/manual-do-ansioso#pagina","url":"https://sejaminimalista.com.br/manual-do-ansioso","name":"O Manual do Ansioso | Alexandre Chahoud","description":"Livro ilustrado e bem-humorado com explicações acessíveis e ferramentas práticas para entender a ansiedade e lidar melhor com os pensamentos do dia a dia. De Alexandre Chahoud.","inLanguage":"pt-BR","primaryImageOfPage":{"@type":"ImageObject","url":"https://sejaminimalista.com.br/manual-do-ansioso/assets/hero/og-manual-do-ansioso.jpg"}},
-{"@type":"Book","@id":"https://sejaminimalista.com.br/manual-do-ansioso#livro","name":"O Manual do Ansioso","alternativeName":"Pequenas ferramentas para quando a cabeça não desliga","author":{"@type":"Person","name":"Alexandre Chahoud"},"inLanguage":"pt-BR","image":"https://sejaminimalista.com.br/manual-do-ansioso/assets/mockups/capa-livro-1024.jpg","description":"Livro ilustrado e bem-humorado com explicações acessíveis e ferramentas práticas para entender a ansiedade e lidar melhor com os pensamentos do dia a dia. De Alexandre Chahoud."}
+{"@type":"WebPage","@id":"https://sejaminimalista.com.br/ansioso#pagina","url":"https://sejaminimalista.com.br/ansioso","name":"O Manual do Ansioso | Alexandre Chahoud","description":"Livro ilustrado e bem-humorado com explicações acessíveis e ferramentas práticas para entender a ansiedade e lidar melhor com os pensamentos do dia a dia. De Alexandre Chahoud.","inLanguage":"pt-BR"},
+{"@type":"Book","@id":"https://sejaminimalista.com.br/ansioso#livro","name":"O Manual do Ansioso","alternativeName":"Pequenas ferramentas para quando a cabeça não desliga","author":{"@type":"Person","name":"Alexandre Chahoud"},"inLanguage":"pt-BR","description":"Livro ilustrado e bem-humorado com explicações acessíveis e ferramentas práticas para entender a ansiedade e lidar melhor com os pensamentos do dia a dia. De Alexandre Chahoud."}
 ]}
 </script>
 <!-- RASTREAMENTO (preparado, ainda desligado)
@@ -420,7 +404,7 @@ html[data-rascunho] .dep .quem .slot.vazio .slot-etiqueta{display:none}
         <div class="no" role="listitem"><span class="n">4</span><h3>Comportamento</h3><p>Evitar, adiar, checar de novo, repassar tudo mais uma vez.</p></div>
         <p class="ciclo-nota mao" aria-hidden="true">e o ciclo recomeça no passo 1</p>
       </div>
-      <div style="margin-top:22px"><figure class="slot" style="--ar:16/9"><img src="assets/ilustracoes/ansiedade-explicacao-ciclo.webp" alt="Ilustração explicando como pensamentos, emoções, corpo e comportamentos se alimentam" width="800" height="450" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Ilustração explicativa do ciclo da ansiedade (opcional, pode substituir ou acompanhar os quatro cartões)<br><code>assets/ilustracoes/ansiedade-explicacao-ciclo.webp</code></figcaption></figure></div>
+      <div style="margin-top:22px"><figure class="slot" style="--ar:16/9"><img data-wix-src="" alt="Ilustração explicando como pensamentos, emoções, corpo e comportamentos se alimentam" width="800" height="450" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Ilustração explicativa do ciclo da ansiedade (opcional, pode substituir ou acompanhar os quatro cartões)<br><code>assets/ilustracoes/ansiedade-explicacao-ciclo.webp</code></figcaption></figure></div>
     </div>
   </div>
 </section>
@@ -430,7 +414,7 @@ html[data-rascunho] .dep .quem .slot.vazio .slot-etiqueta{display:none}
   <div class="wrap prop-grid">
     <div class="rv">
       <h2 id="t-prop">Não é sobre desligar a cabeça. É sobre aprender a <span class="rab amar">não acreditar em tudo</span> o que ela diz.</h2>
-      <div style="margin-top:30px"><figure class="slot" style="--ar:4/3"><img src="assets/mockups/livro-aberto-proposta.webp" alt="Mockup do livro aberto mostrando páginas ilustradas" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Mockup do livro aberto<br><code>assets/mockups/livro-aberto-proposta.webp</code></figcaption></figure></div>
+      <div style="margin-top:30px"><figure class="slot" style="--ar:4/3"><img data-wix-src="" alt="Mockup do livro aberto mostrando páginas ilustradas" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Mockup do livro aberto<br><code>assets/mockups/livro-aberto-proposta.webp</code></figcaption></figure></div>
     </div>
     <div class="rv">
       <ul class="check">
@@ -456,12 +440,12 @@ html[data-rascunho] .dep .quem .slot.vazio .slot-etiqueta{display:none}
       <p class="pend" style="margin-top:14px">Títulos e descrições devem seguir o sumário definitivo do manuscrito. Os cartões abaixo são o modelo: duplicar ou remover conforme o número de capítulos. Nenhum capítulo foi inventado.</p>
     </div>
     <div class="cap-grid">
-      <article class="cap rv"><figure class="slot" style="--ar:4/3"><img src="assets/capitulos/capitulo-01.webp" alt="Ilustração do capítulo 1" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Ilustração do capítulo 1<br><code>assets/capitulos/capitulo-01.webp</code></figcaption></figure><span class="num">Capítulo 01</span><h3 class="pend" style="display:block">Título do capítulo 1 (conforme o sumário definitivo)</h3><p class="pend">Breve descrição do capítulo 1, fiel ao manuscrito.</p></article>
-      <article class="cap rv"><figure class="slot" style="--ar:4/3"><img src="assets/capitulos/capitulo-02.webp" alt="Ilustração do capítulo 2" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Ilustração do capítulo 2<br><code>assets/capitulos/capitulo-02.webp</code></figcaption></figure><span class="num">Capítulo 02</span><h3 class="pend" style="display:block">Título do capítulo 2 (conforme o sumário definitivo)</h3><p class="pend">Breve descrição do capítulo 2, fiel ao manuscrito.</p></article>
-      <article class="cap rv"><figure class="slot" style="--ar:4/3"><img src="assets/capitulos/capitulo-03.webp" alt="Ilustração do capítulo 3" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Ilustração do capítulo 3<br><code>assets/capitulos/capitulo-03.webp</code></figcaption></figure><span class="num">Capítulo 03</span><h3 class="pend" style="display:block">Título do capítulo 3 (conforme o sumário definitivo)</h3><p class="pend">Breve descrição do capítulo 3, fiel ao manuscrito.</p></article>
-      <article class="cap rv"><figure class="slot" style="--ar:4/3"><img src="assets/capitulos/capitulo-04.webp" alt="Ilustração do capítulo 4" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Ilustração do capítulo 4<br><code>assets/capitulos/capitulo-04.webp</code></figcaption></figure><span class="num">Capítulo 04</span><h3 class="pend" style="display:block">Título do capítulo 4 (conforme o sumário definitivo)</h3><p class="pend">Breve descrição do capítulo 4, fiel ao manuscrito.</p></article>
-      <article class="cap rv"><figure class="slot" style="--ar:4/3"><img src="assets/capitulos/capitulo-05.webp" alt="Ilustração do capítulo 5" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Ilustração do capítulo 5<br><code>assets/capitulos/capitulo-05.webp</code></figcaption></figure><span class="num">Capítulo 05</span><h3 class="pend" style="display:block">Título do capítulo 5 (conforme o sumário definitivo)</h3><p class="pend">Breve descrição do capítulo 5, fiel ao manuscrito.</p></article>
-      <article class="cap rv"><figure class="slot" style="--ar:4/3"><img src="assets/capitulos/capitulo-06.webp" alt="Ilustração do capítulo 6" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Ilustração do capítulo 6<br><code>assets/capitulos/capitulo-06.webp</code></figcaption></figure><span class="num">Capítulo 06</span><h3 class="pend" style="display:block">Título do capítulo 6 (conforme o sumário definitivo)</h3><p class="pend">Breve descrição do capítulo 6, fiel ao manuscrito.</p></article>
+      <article class="cap rv"><figure class="slot" style="--ar:4/3"><img data-wix-src="" alt="Ilustração do capítulo 1" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Ilustração do capítulo 1<br><code>assets/capitulos/capitulo-01.webp</code></figcaption></figure><span class="num">Capítulo 01</span><h3 class="pend" style="display:block">Título do capítulo 1 (conforme o sumário definitivo)</h3><p class="pend">Breve descrição do capítulo 1, fiel ao manuscrito.</p></article>
+      <article class="cap rv"><figure class="slot" style="--ar:4/3"><img data-wix-src="" alt="Ilustração do capítulo 2" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Ilustração do capítulo 2<br><code>assets/capitulos/capitulo-02.webp</code></figcaption></figure><span class="num">Capítulo 02</span><h3 class="pend" style="display:block">Título do capítulo 2 (conforme o sumário definitivo)</h3><p class="pend">Breve descrição do capítulo 2, fiel ao manuscrito.</p></article>
+      <article class="cap rv"><figure class="slot" style="--ar:4/3"><img data-wix-src="" alt="Ilustração do capítulo 3" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Ilustração do capítulo 3<br><code>assets/capitulos/capitulo-03.webp</code></figcaption></figure><span class="num">Capítulo 03</span><h3 class="pend" style="display:block">Título do capítulo 3 (conforme o sumário definitivo)</h3><p class="pend">Breve descrição do capítulo 3, fiel ao manuscrito.</p></article>
+      <article class="cap rv"><figure class="slot" style="--ar:4/3"><img data-wix-src="" alt="Ilustração do capítulo 4" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Ilustração do capítulo 4<br><code>assets/capitulos/capitulo-04.webp</code></figcaption></figure><span class="num">Capítulo 04</span><h3 class="pend" style="display:block">Título do capítulo 4 (conforme o sumário definitivo)</h3><p class="pend">Breve descrição do capítulo 4, fiel ao manuscrito.</p></article>
+      <article class="cap rv"><figure class="slot" style="--ar:4/3"><img data-wix-src="" alt="Ilustração do capítulo 5" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Ilustração do capítulo 5<br><code>assets/capitulos/capitulo-05.webp</code></figcaption></figure><span class="num">Capítulo 05</span><h3 class="pend" style="display:block">Título do capítulo 5 (conforme o sumário definitivo)</h3><p class="pend">Breve descrição do capítulo 5, fiel ao manuscrito.</p></article>
+      <article class="cap rv"><figure class="slot" style="--ar:4/3"><img data-wix-src="" alt="Ilustração do capítulo 6" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Ilustração do capítulo 6<br><code>assets/capitulos/capitulo-06.webp</code></figcaption></figure><span class="num">Capítulo 06</span><h3 class="pend" style="display:block">Título do capítulo 6 (conforme o sumário definitivo)</h3><p class="pend">Breve descrição do capítulo 6, fiel ao manuscrito.</p></article>
     </div>
   </div>
 </section>
@@ -475,12 +459,12 @@ html[data-rascunho] .dep .quem .slot.vazio .slot-etiqueta{display:none}
     </div>
     <div class="car rv" data-carrossel role="region" aria-roledescription="carrossel" aria-label="Páginas do livro">
       <ul class="car-trilho" tabindex="0" aria-label="Páginas do livro. Use as setas do teclado ou deslize para ver mais.">
-        <li class="car-item"><figure class="slot" style="--ar:3/4"><img src="assets/paginas-internas/pagina-01.webp" alt="Página 1 do livro: página educativa" width="800" height="1067" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Página real do livro (página educativa)<br><code>assets/paginas-internas/pagina-01.webp</code></figcaption></figure></li>
-        <li class="car-item"><figure class="slot" style="--ar:3/4"><img src="assets/paginas-internas/pagina-02.webp" alt="Página 2 do livro: ilustração" width="800" height="1067" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Página real do livro (ilustração)<br><code>assets/paginas-internas/pagina-02.webp</code></figcaption></figure></li>
-        <li class="car-item"><figure class="slot" style="--ar:3/4"><img src="assets/paginas-internas/pagina-03.webp" alt="Página 3 do livro: exercício" width="800" height="1067" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Página real do livro (exercício)<br><code>assets/paginas-internas/pagina-03.webp</code></figcaption></figure></li>
-        <li class="car-item"><figure class="slot" style="--ar:3/4"><img src="assets/paginas-internas/pagina-04.webp" alt="Página 4 do livro: situação do cotidiano" width="800" height="1067" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Página real do livro (situação do cotidiano)<br><code>assets/paginas-internas/pagina-04.webp</code></figcaption></figure></li>
-        <li class="car-item"><figure class="slot" style="--ar:3/4"><img src="assets/paginas-internas/pagina-05.webp" alt="Página 5 do livro: elementos gráficos" width="800" height="1067" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Página real do livro (elementos gráficos)<br><code>assets/paginas-internas/pagina-05.webp</code></figcaption></figure></li>
-        <li class="car-item"><figure class="slot" style="--ar:3/4"><img src="assets/paginas-internas/pagina-06.webp" alt="Página 6 do livro: página educativa" width="800" height="1067" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Página real do livro (página educativa)<br><code>assets/paginas-internas/pagina-06.webp</code></figcaption></figure></li>
+        <li class="car-item"><figure class="slot" style="--ar:3/4"><img data-wix-src="" alt="Página 1 do livro: página educativa" width="800" height="1067" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Página real do livro (página educativa)<br><code>assets/paginas-internas/pagina-01.webp</code></figcaption></figure></li>
+        <li class="car-item"><figure class="slot" style="--ar:3/4"><img data-wix-src="" alt="Página 2 do livro: ilustração" width="800" height="1067" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Página real do livro (ilustração)<br><code>assets/paginas-internas/pagina-02.webp</code></figcaption></figure></li>
+        <li class="car-item"><figure class="slot" style="--ar:3/4"><img data-wix-src="" alt="Página 3 do livro: exercício" width="800" height="1067" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Página real do livro (exercício)<br><code>assets/paginas-internas/pagina-03.webp</code></figcaption></figure></li>
+        <li class="car-item"><figure class="slot" style="--ar:3/4"><img data-wix-src="" alt="Página 4 do livro: situação do cotidiano" width="800" height="1067" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Página real do livro (situação do cotidiano)<br><code>assets/paginas-internas/pagina-04.webp</code></figcaption></figure></li>
+        <li class="car-item"><figure class="slot" style="--ar:3/4"><img data-wix-src="" alt="Página 5 do livro: elementos gráficos" width="800" height="1067" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Página real do livro (elementos gráficos)<br><code>assets/paginas-internas/pagina-05.webp</code></figcaption></figure></li>
+        <li class="car-item"><figure class="slot" style="--ar:3/4"><img data-wix-src="" alt="Página 6 do livro: página educativa" width="800" height="1067" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Página real do livro (página educativa)<br><code>assets/paginas-internas/pagina-06.webp</code></figcaption></figure></li>
       </ul>
       <div class="car-ctrl">
         <button class="car-seta" type="button" data-prev aria-label="Página anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
@@ -513,7 +497,7 @@ html[data-rascunho] .dep .quem .slot.vazio .slot-etiqueta{display:none}
 <section class="sec fundo-amarelo autor" id="autor" aria-labelledby="t-autor">
   <div class="wrap autor-grid">
     <div class="rv">
-      <figure class="slot" style="--ar:4/5"><img src="assets/autor/alexandre-chahoud.webp" alt="Retrato de Alexandre Chahoud, autor do livro" width="800" height="1000" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Fotografia editorial do autor<br><code>assets/autor/alexandre-chahoud.webp</code></figcaption></figure>
+      <figure class="slot" style="--ar:4/5"><img data-wix-src="" alt="Retrato de Alexandre Chahoud, autor do livro" width="800" height="1000" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Fotografia editorial do autor<br><code>assets/autor/alexandre-chahoud.webp</code></figcaption></figure>
     </div>
     <div class="rv">
       <h2 id="t-autor">Sobre o autor</h2>
@@ -535,9 +519,9 @@ html[data-rascunho] .dep .quem .slot.vazio .slot-etiqueta{display:none}
       <p class="pend" style="margin-top:14px;text-align:left">Estrutura pronta para depoimentos reais (texto, nome e foto autorizados). Nada foi inventado e a seção fica oculta na versão publicada até haver depoimentos. Evitar relatos de resultado clínico ou cura.</p>
     </div>
     <div class="dep-grid">
-      <article class="dep"><blockquote class="pend" style="display:block">Depoimento real, com autorização do leitor.</blockquote><div class="quem"><figure class="slot" style="--ar:1/1"><img src="assets/autor/depoimento-01-foto.webp" alt="Foto do leitor" width="800" height="800" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Foto do leitor<br><code>assets/autor/depoimento-01-foto.webp</code></figcaption></figure><span class="pend" style="display:block">Nome do leitor</span></div></article>
-      <article class="dep"><blockquote class="pend" style="display:block">Depoimento real, com autorização do leitor.</blockquote><div class="quem"><figure class="slot" style="--ar:1/1"><img src="assets/autor/depoimento-02-foto.webp" alt="Foto do leitor" width="800" height="800" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Foto do leitor<br><code>assets/autor/depoimento-02-foto.webp</code></figcaption></figure><span class="pend" style="display:block">Nome do leitor</span></div></article>
-      <article class="dep"><blockquote class="pend" style="display:block">Depoimento real, com autorização do leitor.</blockquote><div class="quem"><figure class="slot" style="--ar:1/1"><img src="assets/autor/depoimento-03-foto.webp" alt="Foto do leitor" width="800" height="800" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Foto do leitor<br><code>assets/autor/depoimento-03-foto.webp</code></figcaption></figure><span class="pend" style="display:block">Nome do leitor</span></div></article>
+      <article class="dep"><blockquote class="pend" style="display:block">Depoimento real, com autorização do leitor.</blockquote><div class="quem"><figure class="slot" style="--ar:1/1"><img data-wix-src="" alt="Foto do leitor" width="800" height="800" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Foto do leitor<br><code>assets/autor/depoimento-01-foto.webp</code></figcaption></figure><span class="pend" style="display:block">Nome do leitor</span></div></article>
+      <article class="dep"><blockquote class="pend" style="display:block">Depoimento real, com autorização do leitor.</blockquote><div class="quem"><figure class="slot" style="--ar:1/1"><img data-wix-src="" alt="Foto do leitor" width="800" height="800" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Foto do leitor<br><code>assets/autor/depoimento-02-foto.webp</code></figcaption></figure><span class="pend" style="display:block">Nome do leitor</span></div></article>
+      <article class="dep"><blockquote class="pend" style="display:block">Depoimento real, com autorização do leitor.</blockquote><div class="quem"><figure class="slot" style="--ar:1/1"><img data-wix-src="" alt="Foto do leitor" width="800" height="800" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Foto do leitor<br><code>assets/autor/depoimento-03-foto.webp</code></figcaption></figure><span class="pend" style="display:block">Nome do leitor</span></div></article>
     </div>
   </div>
 </section>
@@ -550,9 +534,9 @@ html[data-rascunho] .dep .quem .slot.vazio .slot-etiqueta{display:none}
       <p class="pend" style="margin-top:14px;text-align:left">Formatos, preços, condições de pagamento, conteúdo incluso, forma de entrega e links de checkout ainda não foram fornecidos. Cada cartão é um modelo (duplicar ou remover conforme os formatos). Para ligar um botão, preencher o atributo <code>data-checkout</code> com a URL.</p>
     </div>
     <div class="of-grid">
-      <article class="of"><figure class="slot" style="--ar:4/3"><img src="assets/mockups/oferta-formato-01.webp" alt="Imagem do formato 1 do livro" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Imagem do formato 1<br><code>assets/mockups/oferta-formato-01.webp</code></figcaption></figure><h3 class="pend" style="display:block">Nome do formato 1</h3><div class="preco pend" style="display:block">R$ 00,00</div><p class="cond pend">Condições de pagamento</p><div class="campo pend">Conteúdo incluso (lista) e forma de acesso ou entrega</div><a class="btn" href="#oferta" role="button" aria-disabled="true" data-cta="oferta-formato-1" data-secao="oferta" data-checkout="">Comprar</a></article>
-      <article class="of"><figure class="slot" style="--ar:4/3"><img src="assets/mockups/oferta-formato-02.webp" alt="Imagem do formato 2 do livro" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Imagem do formato 2<br><code>assets/mockups/oferta-formato-02.webp</code></figcaption></figure><h3 class="pend" style="display:block">Nome do formato 2</h3><div class="preco pend" style="display:block">R$ 00,00</div><p class="cond pend">Condições de pagamento</p><div class="campo pend">Conteúdo incluso (lista) e forma de acesso ou entrega</div><a class="btn" href="#oferta" role="button" aria-disabled="true" data-cta="oferta-formato-2" data-secao="oferta" data-checkout="">Comprar</a></article>
-      <article class="of"><figure class="slot" style="--ar:4/3"><img src="assets/mockups/oferta-formato-03.webp" alt="Imagem do formato 3 do livro" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Imagem do formato 3<br><code>assets/mockups/oferta-formato-03.webp</code></figcaption></figure><h3 class="pend" style="display:block">Nome do formato 3</h3><div class="preco pend" style="display:block">R$ 00,00</div><p class="cond pend">Condições de pagamento</p><div class="campo pend">Conteúdo incluso (lista) e forma de acesso ou entrega</div><a class="btn" href="#oferta" role="button" aria-disabled="true" data-cta="oferta-formato-3" data-secao="oferta" data-checkout="">Comprar</a></article>
+      <article class="of"><figure class="slot" style="--ar:4/3"><img data-wix-src="" alt="Imagem do formato 1 do livro" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Imagem do formato 1<br><code>assets/mockups/oferta-formato-01.webp</code></figcaption></figure><h3 class="pend" style="display:block">Nome do formato 1</h3><div class="preco pend" style="display:block">R$ 00,00</div><p class="cond pend">Condições de pagamento</p><div class="campo pend">Conteúdo incluso (lista) e forma de acesso ou entrega</div><a class="btn" href="#oferta" role="button" aria-disabled="true" data-cta="oferta-formato-1" data-secao="oferta" data-checkout="">Comprar</a></article>
+      <article class="of"><figure class="slot" style="--ar:4/3"><img data-wix-src="" alt="Imagem do formato 2 do livro" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Imagem do formato 2<br><code>assets/mockups/oferta-formato-02.webp</code></figcaption></figure><h3 class="pend" style="display:block">Nome do formato 2</h3><div class="preco pend" style="display:block">R$ 00,00</div><p class="cond pend">Condições de pagamento</p><div class="campo pend">Conteúdo incluso (lista) e forma de acesso ou entrega</div><a class="btn" href="#oferta" role="button" aria-disabled="true" data-cta="oferta-formato-2" data-secao="oferta" data-checkout="">Comprar</a></article>
+      <article class="of"><figure class="slot" style="--ar:4/3"><img data-wix-src="" alt="Imagem do formato 3 do livro" width="800" height="600" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Imagem do formato 3<br><code>assets/mockups/oferta-formato-03.webp</code></figcaption></figure><h3 class="pend" style="display:block">Nome do formato 3</h3><div class="preco pend" style="display:block">R$ 00,00</div><p class="cond pend">Condições de pagamento</p><div class="campo pend">Conteúdo incluso (lista) e forma de acesso ou entrega</div><a class="btn" href="#oferta" role="button" aria-disabled="true" data-cta="oferta-formato-3" data-secao="oferta" data-checkout="">Comprar</a></article>
     </div>
   </div>
 </section>
@@ -561,7 +545,7 @@ html[data-rascunho] .dep .quem .slot.vazio .slot-etiqueta{display:none}
 <section class="sec fundo-amarelo" id="garantia" aria-labelledby="t-gar" data-pendente>
   <div class="wrap">
     <div class="gar rv">
-      <figure class="slot" style="--ar:1/1"><img src="assets/elementos/selo-garantia.webp" alt="Selo de garantia desenhado à mão" width="800" height="800" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Selo de garantia<br><code>assets/elementos/selo-garantia.webp</code></figcaption></figure>
+      <figure class="slot" style="--ar:1/1"><img data-wix-src="" alt="Selo de garantia desenhado à mão" width="800" height="800" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Selo de garantia<br><code>assets/elementos/selo-garantia.webp</code></figcaption></figure>
       <div class="gar-caixa">
         <h2 id="t-gar">Garantia</h2>
         <p class="pend" style="margin-top:16px">Texto, prazo e condições reais da garantia comercial, a serem fornecidos pelo autor. Nada foi inventado.</p>
@@ -598,11 +582,11 @@ html[data-rascunho] .dep .quem .slot.vazio .slot-etiqueta{display:none}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="fecha-vis rv">
-      <figure class="slot" style="--ar:3/4"><img src="assets/personagem/personagem-fechamento.webp" alt="Personagem do livro sorrindo, de suéter azul, com o livro nas mãos" width="800" height="1067" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Personagem em destaque (fechamento)<br><code>assets/personagem/personagem-fechamento.webp</code></figcaption></figure>
+      <figure class="slot" style="--ar:3/4"><img data-wix-src="" alt="Personagem do livro sorrindo, de suéter azul, com o livro nas mãos" width="800" height="1067" loading="lazy" decoding="async"><figcaption class="slot-etiqueta"><b>imagem pendente</b>Personagem em destaque (fechamento)<br><code>assets/personagem/personagem-fechamento.webp</code></figcaption></figure>
       <figure class="capa">
         <picture>
-          <source type="image/webp" srcset="assets/mockups/capa-livro-480.webp 480w, assets/mockups/capa-livro-800.webp 800w" sizes="(min-width:900px) 250px, 40vw">
-          <img src="assets/mockups/capa-livro-480.jpg" width="480" height="720" loading="lazy" decoding="async" alt="Capa do livro O Manual do Ansioso, de Alexandre Chahoud">
+          <source type="image/webp" data-wix-srcset="" sizes="(min-width:900px) 250px, 40vw">
+          <img data-wix-src="" width="480" height="720" loading="lazy" decoding="async" alt="Capa do livro O Manual do Ansioso, de Alexandre Chahoud">
         </picture>
       </figure>
     </div>
@@ -670,10 +654,9 @@ html[data-rascunho] .dep .quem .slot.vazio .slot-etiqueta{display:none}
   });
 
   /* ---------- Imagens pendentes ---------- */
-  d.querySelectorAll('[data-auto-vazio] .slot img').forEach(function(i){ i.loading='eager'; });
-  if(de.hasAttribute('data-rascunho')){ d.querySelectorAll('.slot img').forEach(function(i){ i.loading='eager'; }); }
+  d.querySelectorAll('[data-auto-vazio] .slot img[src]').forEach(function(i){ i.loading='eager'; });
   function marcaVazios(){
-    var f = d.querySelectorAll('.slot img');
+    var f = d.querySelectorAll('.slot img[src]');
     for(var i=0;i<f.length;i++){
       var im=f[i];
       if(im.complete && im.naturalWidth===0){ im.parentNode.classList.add('vazio'); }
@@ -682,7 +665,7 @@ html[data-rascunho] .dep .quem .slot.vazio .slot-etiqueta{display:none}
   function secoesVazias(){
     d.querySelectorAll('[data-auto-vazio]').forEach(function(s){
       var todos = s.querySelectorAll('.slot').length, vazios = s.querySelectorAll('.slot.vazio').length;
-      s.hidden = (todos>0 && todos===vazios && !de.hasAttribute('data-rascunho'));
+      s.hidden = (todos>0 && todos===vazios);
     });
   }
   function checa(){ marcaVazios(); secoesVazias(); }
