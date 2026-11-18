@@ -174,15 +174,20 @@ a{color:inherit}
 .cap h3{padding:0 6px}
 .cap p{margin:0;padding:0 6px;font-size:.975rem;line-height:1.55}
 
-/* carrossel */
-.car{position:relative}
-.car-trilho{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:8px 4px 22px;margin:0;list-style:none;scrollbar-width:none}
+/* carrossel ajustado: páginas em proporção horizontal, sem ocupar altura excessiva */
+.car{position:relative;width:calc(100vw - 24px);max-width:none;margin-left:calc(50% - 50vw + 12px)}
+.car-trilho{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:12px 6vw 24px;margin:0;list-style:none;scrollbar-width:none}
 .car-trilho::-webkit-scrollbar{display:none}
 .car-trilho:focus-visible{outline-offset:4px}
-.car-item{flex:0 0 min(78vw,320px);scroll-snap-align:center}
-@media(min-width:900px){.car-item{flex-basis:300px;scroll-snap-align:start}}
-.car-item .slot{background:var(--papel);border:2px solid var(--tinta);border-radius:14px;box-shadow:5px 6px 0 var(--tinta);overflow:hidden}
-.car-item .slot img{border-radius:12px}
+.car-item{flex:0 0 88vw;max-width:680px;scroll-snap-align:center}
+@media(min-width:900px){
+  .car{width:calc(100vw - 48px);margin-left:calc(50% - 50vw + 24px)}
+  .car-trilho{gap:24px;padding:14px max(5vw,32px) 28px}
+  .car-item{flex-basis:min(58vw,760px);max-width:760px;scroll-snap-align:center}
+}
+.car-item .slot{width:100%;aspect-ratio:3/2;background:var(--papel);border:2px solid var(--tinta);border-radius:16px;box-shadow:4px 5px 0 var(--tinta);overflow:hidden}
+.car-item .slot img{display:block;width:100%;height:100%;object-fit:contain;border-radius:14px}
+.car-item .slot-etiqueta{display:none}
 .car-item .legenda{margin:14px 4px 0;font:600 1.3rem/1.1 var(--f-mao)}
 .car-ctrl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:6px}
 .car-seta{display:none;width:50px;height:50px;border-radius:50%;border:2px solid var(--tinta);background:var(--papel);color:var(--tinta);cursor:pointer;align-items:center;justify-content:center;box-shadow:2px 3px 0 var(--tinta)}
@@ -277,6 +282,19 @@ a{color:inherit}
 .faixa-cta .btn{width:100%}
 @media(min-width:900px){.faixa-cta{display:none}}
 
+/* efeito de elevação dos boxes — somente em computadores com mouse */
+@media (min-width:900px) and (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .quadro,.no,.cap,.perfis li,.dep,.of,.gar-caixa,.faq details,.aviso{
+    transition:transform .22s ease,box-shadow .22s ease;
+  }
+  .quadro:hover{transform:rotate(0) translateY(-6px);box-shadow:6px 9px 0 var(--tinta)}
+  .no:hover,.cap:hover,.perfis li:hover,.dep:hover,.of:hover,.gar-caixa:hover,.faq details:hover,.aviso:hover{
+    transform:translateY(-6px);
+    box-shadow:6px 9px 0 var(--tinta);
+  }
+  .of:hover{box-shadow:7px 9px 0 #0C1445}
+}
+
 /* animações discretas */
 @keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 @media(prefers-reduced-motion:no-preference){
@@ -286,6 +304,15 @@ a{color:inherit}
   html.js .quadro.rv.in:nth-child(even){transform:rotate(.8deg)}
   html.js .rab{background-size:0 .32em;transition:background-size .9s .25s ease}
   html.js .in .rab,html.js .rab.in{background-size:100% .32em}
+}
+/* Garante que a animação de entrada não bloqueie o hover dos cards */
+@media (min-width:900px) and (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  html.js .quadro.rv.in:nth-child(odd):hover,
+  html.js .quadro.rv.in:nth-child(even):hover,
+  html.js .cap.rv.in:hover{
+    transform:translateY(-6px);
+    box-shadow:6px 9px 0 var(--tinta);
+  }
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 
@@ -701,24 +728,22 @@ a{color:inherit}
     function ir(i){
       i = Math.max(0, Math.min(itens.length-1, i));
       var alvo = itens[i];
-      var base = alvo.offsetLeft - trilho.offsetLeft;
-      var left = window.innerWidth>=900 ? base-4 : base-(trilho.clientWidth-alvo.clientWidth)/2;
-      trilho.scrollTo({left:left, behavior: reduz()?'auto':'smooth'});
+      /* Centraliza o cartão usando a posição visual real, em qualquer largura de tela. */
+      var trilhoRect = trilho.getBoundingClientRect();
+      var alvoRect = alvo.getBoundingClientRect();
+      var deslocamento = alvoRect.left - trilhoRect.left;
+      var left = trilho.scrollLeft + deslocamento - (trilho.clientWidth-alvo.clientWidth)/2;
+      trilho.scrollTo({left:Math.max(0,left), behavior: reduz()?'auto':'smooth'});
     }
     function atual(){
-      if(window.innerWidth>=900){
-        var sl=trilho.scrollLeft, k=0;
-        for(var j=0;j<itens.length;j++){ if(itens[j].offsetLeft-trilho.offsetLeft >= sl-20){ k=j; break; } k=j; }
-        if(sl+trilho.clientWidth>=trilho.scrollWidth-2) k=itens.length-1;
-        return k;
-      }
-      var centro = trilho.scrollLeft + trilho.clientWidth/2, melhor=0, dist=1e9;
+      var centro = trilho.getBoundingClientRect().left + trilho.clientWidth/2;
+      var melhor=0, dist=Infinity;
       itens.forEach(function(it,i){
-        var c = it.offsetLeft - trilho.offsetLeft + it.clientWidth/2, dd = Math.abs(c-centro);
+        var r=it.getBoundingClientRect();
+        var c=r.left+r.width/2;
+        var dd=Math.abs(c-centro);
         if(dd<dist){dist=dd;melhor=i;}
       });
-      if(trilho.scrollLeft<=2) melhor=0;
-      if(trilho.scrollLeft+trilho.clientWidth>=trilho.scrollWidth-2) melhor=itens.length-1;
       return melhor;
     }
     var raf=0;
