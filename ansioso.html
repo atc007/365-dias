@@ -116,7 +116,7 @@ a{color:inherit}
   .hero h1{font-size:clamp(2.5rem,4.2vw,4.2rem)}
   .hero .sub{font-size:clamp(1.15rem,1.7vw,1.45rem)}
   /* a imagem avança até perto da borda da tela e fica bem maior */
-  .hero-img{grid-row:1 / span 2;align-self:center;position:relative;margin-right:min(0px,calc((1200px - 100vw)/2 + 24px))}
+  .hero-img{grid-row:1 / span 2;align-self:center;position:relative;margin-right:calc(-1 * min(200px, max(0px, (100vw - 1200px)/2 - 24px)));max-width:960px;justify-self:end}
   .hero-img::before{content:"";position:absolute;inset:7% -2% -6% 7%;background:var(--amarelo);border-radius:58% 42% 52% 48% / 46% 56% 44% 54%;z-index:0;opacity:.55}
   .hero-img figure{position:relative;z-index:1}
   .hero-img img{transform:rotate(-1deg);border-radius:44px 60px 40px 64px;box-shadow:8px 10px 0 var(--tinta)}
