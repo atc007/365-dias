@@ -247,6 +247,11 @@ a{color:inherit}
 .of .btn{margin-top:auto;width:100%}
 .of .campo{font-size:.9rem}
 
+/* aproxima a garantia da oferta, sem alterar o espaçamento das demais seções */
+#oferta{padding-bottom:28px}
+#garantia{padding-top:28px}
+@media(min-width:900px){#oferta{padding-bottom:32px}#garantia{padding-top:32px}}
+
 /* garantia */
 .gar{display:grid;gap:24px;align-items:center;max-width:980px;margin:0 auto}
 @media(min-width:820px){.gar{grid-template-columns:190px minmax(0,1fr);gap:42px}}
@@ -541,9 +546,10 @@ a{color:inherit}
     <div class="rv">
       <h2 id="t-autor">Sobre o autor</h2>
       <blockquote>
-        <p>Sou Alexandre Chahoud, autor de livros que exploram maneiras mais simples de olhar para a vida cotidiana.</p>
-        <p>Ao longo do meu trabalho como escritor, sempre me interessei por transformar ideias complexas em conteúdos acessíveis, visuais e próximos da realidade das pessoas.</p>
-        <p>O Manual do Ansioso nasce dessa mesma vontade: reunir informações, reflexões e ferramentas em um material que ajude o leitor a compreender melhor a ansiedade, sem fórmulas mágicas e sem julgamentos.</p>
+        <p>Sou Alexandre Chahoud, escritor e autor de cinco livros. Entre eles estão <strong>Seja Minimalista</strong>, best-seller que ajudou milhares de pessoas a repensar sua relação com os excessos, e <strong>365 Dias Minimalistas</strong>, um convite diário para uma vida com mais significado e menos coisas.</p>
+        <p>Desde 2018, compartilho minhas ideias sobre minimalismo e escolhas cotidianas por meio do projeto Seja Minimalista. Meus livros já ultrapassaram a marca de <strong>50 mil exemplares vendidos, alcançando leitores em 15 países</strong>.</p>
+        <p>Como escritor, sempre me interessei por transformar ideias complexas em conteúdos acessíveis, visuais e próximos da realidade das pessoas.</p>
+        <p><strong>O Manual do Ansioso nasce dessa mesma vontade.</strong> Depois de escrever sobre uma vida com menos excessos, volto meu olhar para aquilo que acontece dentro da nossa cabeça. Reuni informações, reflexões e ferramentas práticas para ajudar o leitor a compreender melhor a ansiedade, reconhecer seus mecanismos e lidar com os pensamentos do cotidiano, sem fórmulas mágicas e sem julgamentos.</p>
       </blockquote>
       <div class="assin" aria-hidden="true">Alexandre Chahoud</div>
     </div>
@@ -553,6 +559,9 @@ a{color:inherit}
 <!-- SEÇÃO 10 · OFERTA -->
 <section class="sec fundo-azul" id="oferta" aria-label="Oferta do Manual do Ansioso">
   <div class="wrap">
+    <div class="sec-cab rv centro">
+      <h2>Seu próximo passo começa aqui.</h2>
+    </div>
     <div class="of-grid">
       <article class="of of-digital">
         <span class="selo">versão digital</span>
