@@ -9,28 +9,39 @@
 <meta name="theme-color" content="#2649BF">
 <meta name="author" content="Alexandre Chahoud">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="canonical" href="https://sejaminimalista.com.br/ansioso">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
 <meta property="og:type" content="book">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Seja Minimalista">
 <meta property="og:title" content="O Manual do Ansioso | Alexandre Chahoud">
 <meta property="og:description" content="Livro ilustrado e bem-humorado com explicações acessíveis e ferramentas práticas para entender a ansiedade e lidar melhor com os pensamentos do dia a dia. De Alexandre Chahoud.">
 <meta property="og:url" content="https://sejaminimalista.com.br/ansioso">
+<meta property="og:image" content="https://sejaminimalista.com.br/og-manual-do-ansioso.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Capa do livro O Manual do Ansioso ao lado da personagem do livro">
 <meta property="book:author" content="Alexandre Chahoud">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@seja.minimalista">
+<meta name="twitter:creator" content="@seja.minimalista">
+<meta name="twitter:image" content="https://sejaminimalista.com.br/og-manual-do-ansioso.jpg">
 <meta name="twitter:title" content="O Manual do Ansioso | Alexandre Chahoud">
 <meta name="twitter:description" content="Livro ilustrado e bem-humorado com explicações acessíveis e ferramentas práticas para entender a ansiedade e lidar melhor com os pensamentos do dia a dia. De Alexandre Chahoud.">
-<link rel="preload" href="fonts/bricolage-grotesque-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/dm-sans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/bricolage-grotesque-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="https://static.wixstatic.com/media/940f31_224907d95b8f462ea7ca3e096ff925c1~mv2.webp" fetchpriority="high">
 <style id="fontes-locais">
-@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:200 800;font-display:swap;src:url(fonts/bricolage-grotesque-latin-wght.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212}
-@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url(fonts/dm-sans-latin-wght.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212}
-@font-face{font-family:'Caveat';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/caveat-latin-wght.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212}
+@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:200 800;font-display:swap;src:url(/fonts/bricolage-grotesque-latin-wght.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url(/fonts/dm-sans-latin-wght.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212}
+@font-face{font-family:'Caveat';font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/caveat-latin-wght.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212}
 </style>
 <style>
 :root{
@@ -359,6 +370,12 @@ a{color:inherit}
 .zoom-cont{pointer-events:none;position:absolute;left:0;right:0;bottom:16px;text-align:center;color:var(--creme);font:600 1.3rem/1 var(--f-mao)}
 @media(max-width:640px){.zoom-nav{top:auto;bottom:10px;translate:0 0}.zoom-nav.ant{left:calc(50% - 130px)}.zoom-nav.prox{right:calc(50% - 130px)}.zoom-quadro{padding:60px 10px 70px}.zoom-img{max-height:calc(100dvh - 150px)}}
 @media(prefers-reduced-motion:reduce){.car-trilho.dica .car-item{animation:none}}
+/* palavra que troca no título */
+.rot{display:inline-grid;white-space:nowrap;vertical-align:baseline}
+.rot-w{grid-area:1/1;justify-self:start;opacity:0;transform:translateY(.35em);transition:opacity .45s ease,transform .45s ease;pointer-events:none}
+.rot-w.on{opacity:1;transform:none}
+.rot-w.sai{opacity:0;transform:translateY(-.35em)}
+@media(prefers-reduced-motion:reduce){.rot-w{transition:none}}
 /* animações discretas */
 @keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 @media(prefers-reduced-motion:no-preference){
@@ -384,7 +401,7 @@ a{color:inherit}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"WebPage","@id":"https://sejaminimalista.com.br/ansioso#pagina","url":"https://sejaminimalista.com.br/ansioso","name":"O Manual do Ansioso | Alexandre Chahoud","description":"Livro ilustrado e bem-humorado com explicações acessíveis e ferramentas práticas para entender a ansiedade e lidar melhor com os pensamentos do dia a dia. De Alexandre Chahoud.","inLanguage":"pt-BR"},
-{"@type":"Book","@id":"https://sejaminimalista.com.br/ansioso#livro","name":"O Manual do Ansioso","alternativeName":"Pequenas ferramentas para quando a cabeça não desliga","author":{"@type":"Person","name":"Alexandre Chahoud"},"inLanguage":"pt-BR","description":"Livro ilustrado e bem-humorado com explicações acessíveis e ferramentas práticas para entender a ansiedade e lidar melhor com os pensamentos do dia a dia. De Alexandre Chahoud."}
+{"@type":"Book","@id":"https://sejaminimalista.com.br/ansioso#livro","name":"O Manual do Ansioso","alternativeName":"Pequenas ferramentas para quando a cabeça não desliga","author":{"@type":"Person","name":"Alexandre Chahoud"},"inLanguage":"pt-BR","image":"https://sejaminimalista.com.br/og-manual-do-ansioso.jpg","description":"Livro ilustrado e bem-humorado com explicações acessíveis e ferramentas práticas para entender a ansiedade e lidar melhor com os pensamentos do dia a dia. De Alexandre Chahoud."}
 ]}
 </script>
 <!-- RASTREAMENTO (preparado, ainda desligado)
@@ -414,8 +431,8 @@ a{color:inherit}
 <section class="hero" id="inicio" aria-labelledby="t-hero">
   <div class="wrap hero-grid">
     <div class="hero-topo">
-      <span class="selo">livro ilustrado</span>
-      <h1 id="t-hero">Sua cabeça não precisa de mais uma <span class="rab">reunião.</span></h1>
+      <span class="selo">livro digital ilustrado</span>
+      <h1 id="t-hero">Sua cabeça não precisa de mais uma <span class="rot" id="rot"><span class="rot-w rab on">reunião.</span><span class="rot-w rab" aria-hidden="true">preocupação.</span><span class="rot-w rab" aria-hidden="true">notificação.</span><span class="rot-w rab" aria-hidden="true">pendência.</span><span class="rot-w rab" aria-hidden="true">simulação.</span><span class="rot-w rab" aria-hidden="true">urgência.</span></span></h1>
       <p class="sub">Pequenas ferramentas para quando a cabeça não desliga.</p>
     </div>
     <div class="hero-cta" id="hero-cta">
@@ -772,6 +789,24 @@ a{color:inherit}
     evento('cta_click', dados);
   });
 
+
+  /* ---------- Palavra que troca no título (uma volta e para em "reunião") ---------- */
+  (function(){
+    var rot=d.getElementById('rot'); if(!rot) return;
+    var ws=[].slice.call(rot.querySelectorAll('.rot-w')); if(ws.length<2) return;
+    ws.forEach(function(w){ w.classList.add('in'); });
+    if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var i=0, parado=false, tempo=null;
+    function troca(){
+      if(d.hidden){ tempo=setTimeout(troca,1000); return; }
+      var atual=ws[i]; i=(i+1)%ws.length; var prox=ws[i];
+      atual.classList.remove('on'); atual.classList.add('sai');
+      setTimeout(function(){ atual.classList.remove('sai'); },480);
+      prox.classList.add('on');
+      if(i!==0) tempo=setTimeout(troca, 2200);
+    }
+    window.addEventListener('load', function(){ tempo=setTimeout(troca, 3200); });
+  })();
   /* ---------- Imagens pendentes ---------- */
   d.querySelectorAll('[data-auto-vazio] .slot img[src]').forEach(function(i){ i.loading='eager'; });
   function marcaVazios(){
