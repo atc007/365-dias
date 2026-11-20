@@ -376,6 +376,10 @@ a{color:inherit}
 .rot-w.on{opacity:1;transform:none}
 .rot-w.sai{opacity:0;transform:translateY(-.35em)}
 @media(prefers-reduced-motion:reduce){.rot-w{transition:none}}
+.car-trilho.auto{scroll-snap-type:none;scroll-behavior:auto}
+.car-pausa{width:44px;height:44px;border-radius:50%;border:2px solid var(--tinta);background:var(--papel);color:var(--tinta);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:2px 3px 0 var(--tinta);margin-left:4px}
+.car-pausa:hover{background:var(--amarelo)}
+.car-pausa svg{width:18px;height:18px}
 /* animações discretas */
 @keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 @media(prefers-reduced-motion:no-preference){
@@ -404,9 +408,70 @@ a{color:inherit}
 {"@type":"Book","@id":"https://sejaminimalista.com.br/ansioso#livro","name":"O Manual do Ansioso","alternativeName":"Pequenas ferramentas para quando a cabeça não desliga","author":{"@type":"Person","name":"Alexandre Chahoud"},"inLanguage":"pt-BR","image":"https://sejaminimalista.com.br/og-manual-do-ansioso.jpg","description":"Livro ilustrado e bem-humorado com explicações acessíveis e ferramentas práticas para entender a ansiedade e lidar melhor com os pensamentos do dia a dia. De Alexandre Chahoud."}
 ]}
 </script>
-<!-- RASTREAMENTO (preparado, ainda desligado)
-     Ao publicar: colar aqui os mesmos blocos de gtag/Meta Pixel/Clarity usados nas outras páginas (já com carregamento após o "load").
-     Os cliques em CTA já alimentam window.dataLayer com os eventos "cta_click" e "checkout_click" (ver script no fim da página). -->
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JM7NSX9TDT');
+  gtag('config', 'AW-336846858');
+</script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[]}
+(window, document,'script');
+fbq('init', '239605191106043', {});
+fbq('track', 'PageView');
+/* ViewContent: trocar 'manual-do-ansioso' pelo NÚMERO do checkout da Eduzz (como content_ids = 1046549 no Seja Minimalista), para casar com a compra enviada pela Eduzz */
+fbq('track', 'ViewContent', {
+  content_ids: ['manual-do-ansioso'],
+  content_type: 'product',
+  content_name: 'O Manual do Ansioso',
+  currency: 'BRL',
+  value: 47.00
+});
+</script>
+<script>
+/* Google tag e Meta Pixel: as filas ja existem, os arquivos baixam so depois que a pagina carregou */
+(function(){
+  function carregar(){
+    var a=document.createElement('script'); a.async=true; a.src='https://www.googletagmanager.com/gtag/js?id=AW-336846858'; document.head.appendChild(a);
+    var b=document.createElement('script'); b.async=true; b.src='https://connect.facebook.net/en_US/fbevents.js'; document.head.appendChild(b);
+  }
+  if(document.readyState==='complete') carregar(); else window.addEventListener('load',carregar);
+})();
+</script>
+<link rel="dns-prefetch" href="//chk.eduzz.com">
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    window.__clTags = [];
+    window.smClarityTag = function(k, v){
+        try{ if(window.clarity && window.__clOn){ clarity('set', k, v); } else { window.__clTags.push([k, v]); } }catch(e){}
+    };
+    function __iniciarClarity(){
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x9zztciwhm");
+    window.__clOn = true;
+    (window.__clTags || []).forEach(function(t){ try{ clarity('set', t[0], t[1]); }catch(e){} });
+    window.__clTags = [];
+    }
+    /* começa depois que a página carregou, quando o navegador estiver livre (máx. 4 s) */
+    (function(){
+        var go = function(){
+            if(window.requestIdleCallback){ requestIdleCallback(__iniciarClarity, {timeout:4000}); }
+            else { setTimeout(__iniciarClarity, 2000); }
+        };
+        if(document.readyState === 'complete'){ go(); } else { window.addEventListener('load', go); }
+    })();
+</script>
 </head>
 <body>
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
@@ -771,15 +836,15 @@ a{color:inherit}
   function evento(nome, dados){
     var o = {event:nome}; for(var k in dados){ o[k]=dados[k]; }
     window.dataLayer.push(o);
-    try{ if(typeof window.fbq==='function'){ window.fbq('trackCustom', nome==='checkout_click'?'ManualCheckoutClick':'ManualCtaClick', dados); } }catch(e){}
+    try{ if(window.smClarityTag && dados && dados.cta_id){ window.smClarityTag('cta_clicado', String(dados.cta_id).slice(0,60)); } }catch(e){}
   }
   d.addEventListener('click', function(e){
     var w = e.target.closest && e.target.closest('a[href*="wa.me"]');
-    if(w){ window.dataLayer.push({event:'whatsapp_click'}); try{ if(typeof window.fbq==='function') window.fbq('trackCustom','WhatsAppClick'); }catch(x){} }
+    if(w){ window.dataLayer.push({event:'whatsapp_click'}); }
     var a = e.target.closest && e.target.closest('[data-cta]');
     if(!a) return;
     var dados = {cta_id:a.getAttribute('data-cta'), cta_secao:a.getAttribute('data-secao')||'', cta_texto:(a.textContent||'').trim().replace(/\s+/g,' ').slice(0,60)};
-    var checkout = a.getAttribute('data-checkout');
+    var checkout = a.getAttribute('data-checkout') || (/chk\.eduzz\.com/.test(a.href) ? a.href : '');
     if(a.hasAttribute('data-checkout')){
       if(!checkout){ e.preventDefault(); evento('cta_click_sem_checkout', dados); return; }
       dados.cta_destino = checkout;
@@ -905,7 +970,7 @@ a{color:inherit}
       trilho.addEventListener('scroll', function(){ if(trilho.scrollLeft>8) some(); },{passive:true});
       trilho.addEventListener('pointerdown', some);
       if(prev) prev.addEventListener('click', some); if(next) next.addEventListener('click', some);
-      if('IntersectionObserver' in window && !reduz()){
+      if(false && 'IntersectionObserver' in window && !reduz()){
         var ion = new IntersectionObserver(function(es){
           if(!es[0].isIntersecting) return; ion.disconnect();
           if(trilho.scrollLeft>8) return;
@@ -926,7 +991,7 @@ a{color:inherit}
       }
       function abre(i,btn){
         origem=btn; mostra(i); dlg.showModal(); de.style.overflow='hidden';
-        window.dataLayer.push({event:'previa_zoom', pagina:i+1});
+        window.dataLayer.push({event:'previa_zoom', pagina:i+1}); try{ if(window.smClarityTag) window.smClarityTag('previa_zoom','sim'); }catch(x){}
       }
       function fecha(){ dlg.close(); }
       dlg.addEventListener('close', function(){ de.style.overflow=''; if(origem) origem.focus({preventScroll:true}); ir(idx); });
@@ -947,6 +1012,63 @@ a{color:inherit}
         function checa(){ if(it.querySelector('.slot.vazio')) b.hidden=true; else b.hidden=false; }
         im.addEventListener('error', checa); checa();
       });
+    })();
+    /* ---------- Movimento lento automático (vai e volta), com botão de pausa ---------- */
+    (function(){
+      if(reduz()) return;
+      var VEL=26;                       /* pixels por segundo: bem devagar */
+      var pos=0, dir=1, ultimo=0, raf=0;
+      var visivel=false, pausaUsuario=false, interagindo=false, sobre=false, espera=null, fimEspera=0;
+      var dlg=d.getElementById('zoom');
+      var ctrl=car.querySelector('.car-ctrl');
+      var bt=d.createElement('button'); bt.type='button'; bt.className='car-pausa';
+      function rotulo(){
+        bt.setAttribute('aria-pressed', pausaUsuario?'true':'false');
+        bt.setAttribute('aria-label', pausaUsuario?'Retomar o movimento automático do carrossel':'Pausar o movimento automático do carrossel');
+        bt.innerHTML = pausaUsuario
+          ? '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>'
+          : '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>';
+      }
+      rotulo(); ctrl.appendChild(bt);
+      function max(){ return trilho.scrollWidth-trilho.clientWidth; }
+      function rodando(){ return visivel && !pausaUsuario && !interagindo && !sobre && !d.hidden && !(dlg && dlg.open) && max()>8; }
+      function liga(){ trilho.classList.add('auto'); }
+      function desliga(){ trilho.classList.remove('auto'); }
+      function passo(t){
+        raf=0;
+        if(!rodando()){ ultimo=0; return; }
+        if(!ultimo){ ultimo=t; pos=trilho.scrollLeft; liga(); }
+        var dt=Math.min(64,t-ultimo); ultimo=t;
+        if(fimEspera && t<fimEspera){ raf=requestAnimationFrame(passo); return; }
+        fimEspera=0;
+        pos+=dir*VEL*dt/1000;
+        var m=max();
+        if(pos>=m){ pos=m; dir=-1; fimEspera=t+1800; }
+        else if(pos<=0){ pos=0; dir=1; fimEspera=t+1800; }
+        trilho.scrollLeft=pos;
+        raf=requestAnimationFrame(passo);
+      }
+      function tenta(){ if(!raf && rodando()){ ultimo=0; raf=requestAnimationFrame(passo); } }
+      function interrompe(){ interagindo=true; desliga(); clearTimeout(espera); }
+      function retoma(ms){ clearTimeout(espera); espera=setTimeout(function(){ interagindo=false; ultimo=0; tenta(); }, ms); }
+      /* pausa enquanto a pessoa usa o carrossel; volta sozinho depois de alguns segundos parado */
+      ['pointerdown','touchstart','wheel','keydown'].forEach(function(ev){ trilho.addEventListener(ev, function(){ interrompe(); retoma(7000); },{passive:true}); });
+      car.addEventListener('mouseenter', function(){ sobre=true; });
+      car.addEventListener('mouseleave', function(){ sobre=false; ultimo=0; tenta(); });
+      car.addEventListener('focusin', function(){ sobre=true; });
+      car.addEventListener('focusout', function(){ sobre=false; ultimo=0; tenta(); });
+      if(prev) prev.addEventListener('click', function(){ interrompe(); retoma(7000); });
+      if(next) next.addEventListener('click', function(){ interrompe(); retoma(7000); });
+      pontos.addEventListener('click', function(){ interrompe(); retoma(7000); });
+      bt.addEventListener('click', function(){
+        pausaUsuario=!pausaUsuario; rotulo();
+        if(!pausaUsuario){ interagindo=false; sobre=false; ultimo=0; tenta(); }
+      });
+      d.addEventListener('visibilitychange', tenta);
+      if(dlg) dlg.addEventListener('close', function(){ ultimo=0; setTimeout(tenta,400); });
+      if('IntersectionObserver' in window){
+        new IntersectionObserver(function(es){ visivel=es[0].isIntersecting; if(visivel){ setTimeout(tenta,900); } },{threshold:.4}).observe(trilho);
+      }
     })();
   });
 
@@ -971,6 +1093,118 @@ a{color:inherit}
   }
 })();
 
+</script>
+<script>
+/* META PIXEL — eventos avançados */
+(function(){
+
+  /* ══ HELPERS — fbc, fbp, source_url ══ */
+  var params = new URLSearchParams(window.location.search);
+
+  /* Armazenamento protegido: se o navegador bloquear o sessionStorage (Safari privado,
+     navegador interno do Instagram), os parâmetros ficam só em memória e o resto do
+     script (links de checkout e eventos do pixel) continua funcionando. */
+  var memStore = {};
+  function safeGet(k){
+    try{ var v = sessionStorage.getItem(k); if(v !== null) return v; }catch(e){}
+    return memStore[k] || null;
+  }
+  function safeSet(k, v){
+    memStore[k] = v;
+    try{ sessionStorage.setItem(k, v); }catch(e){}
+  }
+
+  /* O Pixel já envia fbc, fbp e a URL da página por conta própria (cookies _fbc e _fbp).
+     Aqui só sai o que é dado do evento. O InitiateCheckout vem da Eduzz (Conversions API). */
+  function pixelData(extra){
+    return Object.assign({}, extra || {});
+  }
+
+  /* ══ UTM PASSTHROUGH — repassa UTMs da URL para todos os links de checkout ══ */
+  (function(){
+    try {
+      var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid','gclid','gbraid','wbraid'];
+      var hasTracking = utmKeys.some(function(k){ return params.has(k); });
+
+      /* Salva no sessionStorage só quando a URL traz parâmetros; sem parâmetros,
+         os valores guardados antes continuam sendo aplicados aos links de checkout */
+      if(hasTracking){
+        utmKeys.forEach(function(k){
+          if(params.has(k)) safeSet('sm_' + k, params.get(k));
+        });
+      }
+
+      function applyUtms(){
+        document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
+          try {
+            var url = new URL(link.href);
+            utmKeys.forEach(function(k){
+              var val = params.get(k) || safeGet('sm_' + k);
+              if(val) url.searchParams.set(k, val);
+            });
+            link.href = url.toString();
+          } catch(e){}
+        });
+      }
+
+      /* Aplica imediatamente e novamente após o DOM carregar */
+      applyUtms();
+      document.addEventListener('DOMContentLoaded', applyUtms);
+    } catch(e){}
+  })();
+
+  document.addEventListener('DOMContentLoaded',function(){
+
+    /* Etiquetas no Clarity: origem do tráfego e versão em que a pessoa clicou */
+    try{
+      var src = params.get('utm_source') || safeGet('sm_utm_source') || 'direto';
+      var cmp = params.get('utm_campaign') || safeGet('sm_utm_campaign');
+      if(window.smClarityTag){
+        window.smClarityTag('origem', String(src).slice(0,60));
+        if(cmp) window.smClarityTag('campanha', String(cmp).slice(0,60));
+      }
+    }catch(e){}
+    document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach(function(link){
+      link.addEventListener('click',function(){
+        var v = 'digital';
+        if(window.smClarityTag) window.smClarityTag('versao_clicada', v);
+      });
+    });
+
+    /* WhatsApp click */
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
+      link.addEventListener('click',function(){
+        if(window.fbq){ fbq('trackCustom','WhatsAppClick', pixelData()); }
+      });
+    });
+
+    /* Tempo de engajamento */
+    /* conta só os segundos com a aba visível (aba em segundo plano não vale como engajamento) */
+    var segVisivel = 0;
+    var engTimer = setInterval(function(){
+      if(document.visibilityState !== 'visible') return;
+      segVisivel++;
+      if(segVisivel === 30 && window.fbq){ fbq('trackCustom','Engaged30s', pixelData()); }
+      if(segVisivel === 60){ if(window.fbq){ fbq('trackCustom','Engaged60s', pixelData()); } clearInterval(engTimer); }
+    }, 1000);
+
+    /* Profundidade de scroll */
+    var fired50=false,fired75=false,fired90=false;
+    var scrollTicking=false;
+    function onScrollTrack(){
+      var h=document.documentElement;
+      var pct=((h.scrollTop)/(h.scrollHeight-h.clientHeight))*100;
+      if(pct>=50&&!fired50){fired50=true;if(window.fbq)fbq('trackCustom','Scroll50', pixelData());}
+      if(pct>=75&&!fired75){fired75=true;if(window.fbq)fbq('trackCustom','Scroll75', pixelData());}
+      if(pct>=90&&!fired90){fired90=true;if(window.fbq)fbq('trackCustom','Scroll90', pixelData());}
+      scrollTicking=false;
+    }
+    window.addEventListener('scroll',function(){
+      if(!scrollTicking){ requestAnimationFrame(onScrollTrack); scrollTicking=true; }
+    },{passive:true});
+
+  });
+})();
 </script>
 </body>
 </html>
