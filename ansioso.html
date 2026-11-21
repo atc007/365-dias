@@ -401,6 +401,38 @@ a{color:inherit}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 
+
+/* bônus */
+.bonus-grid{display:grid;gap:36px;align-items:start}
+@media(min-width:900px){.bonus-grid{grid-template-columns:1.05fr .95fr;gap:56px}}
+.bonus-cab .selo{margin-bottom:18px}
+.bonus-valor{margin:26px 0 22px;padding:18px 22px;background:var(--amarelo);border:2px solid var(--tinta);border-radius:26px 32px 24px 34px;box-shadow:4px 5px 0 var(--tinta);font:700 clamp(1.1rem,3.6vw,1.3rem)/1.4 var(--f-tit);color:var(--tinta)}
+.bonus-valor p{margin:0}
+.bonus-valor .velho{position:relative;display:inline-block;color:var(--tinta)}
+.bonus-valor .velho::after{content:"";position:absolute;left:-3px;right:-3px;top:52%;height:3px;background:var(--coral);border-radius:3px;transform:rotate(-4deg)}
+.bonus-valor .novo{font-size:1.25em;color:var(--azul);background:var(--papel);border:2px solid var(--tinta);border-radius:14px 18px 12px 16px;padding:0 10px;display:inline-block;transform:rotate(-1.5deg)}
+.bonus-lista{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.bonus-item{display:flex;gap:16px;align-items:center;background:var(--papel);border:2px solid var(--tinta);border-radius:22px 26px 20px 28px;padding:16px 18px;box-shadow:3px 4px 0 var(--tinta);transition:transform .2s,box-shadow .2s}
+.bonus-item:nth-child(even){border-radius:26px 20px 28px 22px}
+@media(hover:hover){.bonus-item:hover{transform:translate(-1px,-2px);box-shadow:5px 7px 0 var(--tinta)}}
+.bonus-num{flex:none;width:46px;height:46px;border-radius:50% 46% 52% 48%;border:2px solid var(--tinta);display:grid;place-items:center;font:700 1.7rem/1 var(--f-mao);background:var(--coral);color:var(--tinta);padding-bottom:3px}
+.bonus-item:nth-child(2) .bonus-num{background:var(--lilas)}
+.bonus-item:nth-child(3) .bonus-num{background:var(--verde)}
+.bonus-item:nth-child(4) .bonus-num{background:var(--amarelo)}
+.bonus-tit{display:block;font:700 1.05rem/1.3 var(--f-tit);color:var(--tinta)}
+.bonus-val{display:block;margin-top:4px;font:600 1.25rem/1 var(--f-mao);color:var(--azul)}
+.vip-img{margin:0;background:var(--azul);border:2px solid var(--tinta);border-radius:34px 44px 32px 46px;box-shadow:6px 8px 0 var(--tinta);overflow:hidden}
+@media(min-width:900px){.vip-img{transform:rotate(1deg)}}
+.vip-img img{width:100%;height:auto;display:block}
+.vip-nota{margin:16px 4px 0;font:600 1.45rem/1.1 var(--f-mao);color:var(--tinta)}
+.vip-extra{margin-top:26px;padding:24px;background:var(--lilas);border:2px solid var(--tinta);border-radius:26px 32px 24px 34px;box-shadow:4px 5px 0 var(--tinta);color:var(--tinta)}
+.vip-extra .selo{margin-bottom:12px;font-size:1.3rem}
+.vip-extra h3{color:var(--tinta);margin-bottom:10px}
+.vip-extra p{margin:0 0 14px}
+.vip-extra ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-weight:700}
+.vip-extra li{position:relative;padding-left:30px}
+.vip-extra li::before{content:"✓";position:absolute;left:0;top:0;color:var(--tinta);font-weight:800}
+#bonus{scroll-margin-top:12px}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -429,7 +461,7 @@ fbq('init', '239605191106043', {});
 fbq('track', 'PageView');
 /* ViewContent: trocar 'manual-do-ansioso' pelo NÚMERO do checkout da Eduzz (como content_ids = 1046549 no Seja Minimalista), para casar com a compra enviada pela Eduzz */
 fbq('track', 'ViewContent', {
-  content_ids: ['manual-do-ansioso'],
+  content_ids: ['39YN3AQDWO'],
   content_type: 'product',
   content_name: 'O Manual do Ansioso',
   currency: 'BRL',
@@ -691,6 +723,38 @@ fbq('track', 'ViewContent', {
   </div>
 </section>
 
+<!-- SEÇÃO 9 · BÔNUS -->
+<section class="sec" id="bonus" aria-labelledby="t-bonus">
+  <div class="wrap bonus-grid">
+    <div>
+      <div class="bonus-cab rv">
+        <span class="selo">o que vem junto</span>
+        <h2 id="t-bonus">Acesso à Área VIP + <span class="rab">4 bônus</span> digitais</h2>
+        <div class="bonus-valor">
+          <p>Os 4 bônus juntos valem <span class="velho">R$ 143</span>.<br>Hoje você paga <strong class="novo">R$ 0,00</strong> por eles.</p>
+        </div>
+      </div>
+      <ol class="bonus-lista">
+        <li class="bonus-item rv"><span class="bonus-num" aria-hidden="true">1</span><div><span class="bonus-tit">Ebook: 50 dicas para implementar o minimalismo em sua vida</span><span class="bonus-val">Valor: R$ 47</span></div></li>
+        <li class="bonus-item rv"><span class="bonus-num" aria-hidden="true">2</span><div><span class="bonus-tit">Planner digital permanente pronto para impressão</span><span class="bonus-val">Valor: R$ 27</span></div></li>
+        <li class="bonus-item rv"><span class="bonus-num" aria-hidden="true">3</span><div><span class="bonus-tit">Videoaula: Método dos Envelopes</span><span class="bonus-val">Valor: R$ 47</span></div></li>
+        <li class="bonus-item rv"><span class="bonus-num" aria-hidden="true">4</span><div><span class="bonus-tit">Exercícios extras e técnicas especiais</span><span class="bonus-val">Valor: R$ 22</span></div></li>
+      </ol>
+    </div>
+    <div class="rv">
+      <figure class="vip-img"><img src="https://static.wixstatic.com/media/940f31_05fb396bf8cd4739908671d71fba4773~mv2.png/v1/fill/w_900,h_600,al_c,q_85,enc_auto,quality_auto/area-vip.png" srcset="https://static.wixstatic.com/media/940f31_05fb396bf8cd4739908671d71fba4773~mv2.png/v1/fill/w_600,h_400,al_c,q_85,enc_auto,quality_auto/area-vip.png 600w, https://static.wixstatic.com/media/940f31_05fb396bf8cd4739908671d71fba4773~mv2.png/v1/fill/w_900,h_600,al_c,q_85,enc_auto,quality_auto/area-vip.png 900w, https://static.wixstatic.com/media/940f31_05fb396bf8cd4739908671d71fba4773~mv2.png/v1/fill/w_1200,h_800,al_c,q_85,enc_auto,quality_auto/area-vip.png 1200w" sizes="(min-width:900px) 46vw, 92vw" alt="Área VIP Seja Minimalista com planners, ebooks e videoaulas" width="1200" height="800" loading="lazy" decoding="async"></figure>
+      <p class="vip-nota">Planners, ebooks e videoaulas já disponíveis na Área VIP.</p>
+      <div class="vip-extra">
+        <span class="selo">conteúdo em expansão</span>
+        <h3>Os bônus acima são só uma parte do que você recebe.</h3>
+        <p>Na Área VIP você também acessa materiais extras exclusivos que não estão listados aqui: planners, exercícios, videoaulas e desafios complementares.</p>
+        <ul><li>Acesso vitalício à Área VIP</li><li>Atualizações sem custo adicional</li></ul>
+      </div>
+    </div>
+  </div>
+  <div class="wrap"><div class="sec-cta rv"><a class="btn" href="#oferta" data-cta="bonus" data-secao="bonus">Quero o manual com os bônus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+</section>
+
 <!-- SEÇÃO 10 · OFERTA -->
 <section class="sec fundo-azul" id="oferta" aria-label="Oferta do Manual do Ansioso">
   <div class="wrap">
@@ -706,13 +770,13 @@ fbq('track', 'ViewContent', {
         <div class="preco">R$ 47,00</div>
         <p class="cond">ou 12x de R$ 4,96</p>
         <ul class="of-beneficios">
-          <li>Área VIP e bônus inclusos</li>
+          <li>Área VIP e 4 bônus digitais inclusos</li>
           <li>Receba imediatamente no e-mail</li>
           <li>Arquivo em PDF de alta resolução</li>
           <li>Leia no celular, Kindle ou tablet</li>
           <li>Disponível para o mundo todo</li>
         </ul>
-        <a class="btn" href="#oferta" role="button" aria-disabled="true" data-cta="oferta-digital" data-secao="oferta" data-checkout="">Quero meu manual</a>
+        <a class="btn" href="https://chk.eduzz.com/39YN3AQDWO?pf=1" data-cta="oferta-digital" data-secao="oferta" data-checkout="https://chk.eduzz.com/39YN3AQDWO?pf=1">Quero meu manual</a>
       </article>
     </div>
   </div>
