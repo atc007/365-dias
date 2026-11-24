@@ -441,18 +441,26 @@ window.addEventListener('load',function(){
       aviso('Não conseguimos enviar agora. <a href="'+href+'">Clique aqui para enviar pelo seu e-mail</a> ou escreva para '+EMAIL+'.','err');
       btn.disabled=false; btn.textContent=txt;
     }
-    fetch('https://formsubmit.co/ajax/'+EMAIL,{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({Nome:d.nome,'E-mail':d.email,Assunto:d.assunto,Mensagem:d.msg,_replyto:d.email,_subject:'Contato do site: '+d.assunto,_template:'table',_captcha:'false'})
-    }).then(function(r){ return r.json(); }).then(function(j){
-      if(j && (j.success===true||j.success==='true')){
-        aviso('Mensagem enviada! Respondemos em até 2 dias úteis, no e-mail que você informou.');
-        f.reset(); btn.disabled=false; btn.textContent=txt;
-        try{ if(window.fbq) fbq('trackCustom','ContatoEnviado',{assunto:d.assunto}); }catch(x){}
-        try{ window.dataLayer.push({event:'contato_enviado',assunto:d.assunto}); }catch(x){}
-      } else { fallback(); }
-    }).catch(fallback);
+    var W3KEY='';
+    var url=W3KEY?'https://api.web3forms.com/submit':'https://formsubmit.co/ajax/'+EMAIL;
+    var payload=W3KEY?{access_key:W3KEY,name:d.nome,email:d.email,subject:'Contato do site: '+d.assunto,message:'Assunto: '+d.assunto+'\n\n'+d.msg}
+      :{Nome:d.nome,'E-mail':d.email,Assunto:d.assunto,Mensagem:d.msg,_replyto:d.email,_subject:'Contato do site: '+d.assunto,_template:'table',_captcha:'false'};
+    var fim=false, ctl=('AbortController' in window)?new AbortController():null;
+    var t=setTimeout(function(){ if(fim) return; fim=true; if(ctl) ctl.abort(); fallback(); },10000);
+    function sucesso(){
+      aviso('Mensagem enviada! Respondemos em até 2 dias úteis, no e-mail que você informou.');
+      f.reset(); btn.disabled=false; btn.textContent=txt;
+      try{ if(window.fbq) fbq('trackCustom','ContatoEnviado',{assunto:d.assunto}); }catch(x){}
+      try{ window.dataLayer.push({event:'contato_enviado',assunto:d.assunto}); }catch(x){}
+    }
+    try{
+      fetch(url,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload),signal:ctl?ctl.signal:undefined})
+      .then(function(r){ return r.text(); }).then(function(tx){
+        if(fim) return; clearTimeout(t); fim=true;
+        var j=null; try{ j=JSON.parse(tx); }catch(x){}
+        if(j && (j.success===true||j.success==='true') && !/activat/i.test(j.message||'')) sucesso(); else fallback();
+      }).catch(function(){ if(fim) return; clearTimeout(t); fim=true; fallback(); });
+    }catch(x){ clearTimeout(t); fim=true; fallback(); }
   });
   f.addEventListener('input',function(ev){ var c=ev.target.closest('.campo'); if(c) c.classList.remove('erro'); });
 })();
