@@ -288,6 +288,16 @@ details.q:hover{border-color:rgba(201,169,110,.4)}
 .sec.fim{text-align:center;margin-bottom:0}
 @media(max-width:900px){.autor-bloco{grid-template-columns:1fr;gap:24px}.autor-foto{max-width:300px;margin:0 auto}.nums{grid-template-columns:repeat(2,1fr)}.aqui{grid-template-columns:1fr}.marca{padding:24px 18px}}
 .sobre-h1 em{font-style:italic;color:var(--gold)}
+/* veja também */
+.vt{margin-top:44px}
+.vt h2{font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--ink);text-align:center;margin-bottom:16px}
+.vt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.vt a{display:flex;flex-direction:column;gap:4px;padding:18px 20px;background:var(--card);border:1px solid var(--card-border);border-radius:16px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s,background .15s}
+.vt a:hover{border-color:var(--gold);background:var(--card-hover);transform:translateY(-2px)}
+.vt b{font-family:var(--font-display);font-size:17px;font-weight:500;color:var(--ink)}
+.vt span{font-size:13px;color:var(--muted);line-height:1.45}
+.vt i{font-style:normal;font-size:12px;font-weight:700;color:var(--gold);margin-top:6px}
+@media(max-width:700px){.vt-grid{grid-template-columns:1fr}}
 /* rodapé: linha legal */
 .footer-legal{display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:12px}
 .footer-legal a{font-size:11.5px;color:#B8B6AF;text-decoration:none}
@@ -404,8 +414,8 @@ window.addEventListener('load',function(){
     <h2 id="antes-t">Antes de escrever</h2>
     <p class="sub">Sua dúvida pode já estar respondida:</p>
     <div class="antes-grid">
-      <div class="card"><span class="ico" aria-hidden="true">📦</span><h3>Rastreamento de pedido</h3><p>Livros físicos são enviados via Correios. O código de rastreio é enviado por e-mail após o despacho (em até 3 dias úteis após a confirmação do pagamento).</p></div>
-      <div class="card"><span class="ico" aria-hidden="true">📥</span><h3>Acesso ao livro digital</h3><p>Após a compra, o acesso é liberado imediatamente pela plataforma (Eduzz). Verifique sua caixa de spam e a seção "Minha área".</p></div>
+      <div class="card"><span class="ico" aria-hidden="true">📦</span><h3>Rastreamento de pedido</h3><p>Livros físicos são enviados via Correios. O código de rastreio é enviado por e-mail após o despacho (em até 3 dias úteis após a confirmação do pagamento). <a href="https://sejaminimalista.com.br/faq#livros-fisicos">Ver prazos no FAQ</a>.</p></div>
+      <div class="card"><span class="ico" aria-hidden="true">📥</span><h3>Acesso ao livro digital</h3><p>Após a compra, o acesso é liberado imediatamente pela plataforma (Eduzz). Verifique sua caixa de spam e a seção "Minha área". <a href="https://sejaminimalista.com.br/faq#livros-digitais">Ver no FAQ</a>.</p></div>
       <div class="card"><span class="ico" aria-hidden="true">🔄</span><h3>Trocas e devoluções</h3><p>Consulte nossa <a href="https://sejaminimalista.com.br/politica-de-troca">Política de Troca e Devolução</a>.</p></div>
     </div>
   </section>
@@ -414,6 +424,8 @@ window.addEventListener('load',function(){
     <div><strong>E-mail</strong><a href="mailto:sejaminimalista@hotmail.com">sejaminimalista@hotmail.com</a></div>
     <div><strong>Instagram</strong><a href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener noreferrer">@seja.minimalista</a></div>
   </div>
+
+  <nav class="vt" aria-labelledby="vt-t"><h2 id="vt-t">Veja também</h2><div class="vt-grid"><a href="https://sejaminimalista.com.br/faq"><b>Perguntas frequentes</b><span>Respostas rápidas sobre entrega, acesso e pagamento.</span><i>Abrir →</i></a><a href="https://sejaminimalista.com.br/politica-de-troca"><b>Troca e devolução</b><span>Prazos para defeito e direito de arrependimento.</span><i>Abrir →</i></a><a href="https://sejaminimalista.com.br/sobre"><b>Sobre a Seja Minimalista</b><span>A história da marca e do autor.</span><i>Abrir →</i></a></div></nav>
 </main>
 
 <script>
@@ -483,8 +495,7 @@ window.addEventListener('load',function(){
       <a href="https://sejaminimalista.com.br/combos">Combos com desconto</a>
       <a href="https://www.sejaminimalista.net/vip/entrar">Área VIP</a>
       <a href="https://chat.whatsapp.com/FnNU3DpCCXz3iGtkLH6qbR?s=cl&p=a&ilr=1" target="_blank" rel="noopener">Comunidade no Whatsapp</a>
-      <a href="https://sejaminimalista.com.br/contato">Fale comigo</a>
-    </div>
+      </div>
     <div class="footer-news">
       <h3>Newsletter gratuita</h3>
       <p style="font-size:12px;color:#D8D8D4;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas gratuitas direto no seu e-mail, toda semana.</p>
@@ -495,7 +506,6 @@ window.addEventListener('load',function(){
     <nav class="footer-legal" aria-label="Institucional">
       <a href="https://sejaminimalista.com.br/sobre">Sobre</a>
       <a href="https://sejaminimalista.com.br/faq">Perguntas frequentes</a>
-      <a href="https://sejaminimalista.com.br/contato">Contato</a>
       <a href="https://sejaminimalista.com.br/politica-de-troca">Troca e devolução</a>
       <a href="https://sejaminimalista.com.br/termos-de-uso">Termos de uso</a>
       <a href="https://sejaminimalista.com.br/politica-de-privacidade">Política de privacidade</a>

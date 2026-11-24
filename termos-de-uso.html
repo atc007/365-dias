@@ -288,6 +288,16 @@ details.q:hover{border-color:rgba(201,169,110,.4)}
 .sec.fim{text-align:center;margin-bottom:0}
 @media(max-width:900px){.autor-bloco{grid-template-columns:1fr;gap:24px}.autor-foto{max-width:300px;margin:0 auto}.nums{grid-template-columns:repeat(2,1fr)}.aqui{grid-template-columns:1fr}.marca{padding:24px 18px}}
 .sobre-h1 em{font-style:italic;color:var(--gold)}
+/* veja também */
+.vt{margin-top:44px}
+.vt h2{font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--ink);text-align:center;margin-bottom:16px}
+.vt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.vt a{display:flex;flex-direction:column;gap:4px;padding:18px 20px;background:var(--card);border:1px solid var(--card-border);border-radius:16px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s,background .15s}
+.vt a:hover{border-color:var(--gold);background:var(--card-hover);transform:translateY(-2px)}
+.vt b{font-family:var(--font-display);font-size:17px;font-weight:500;color:var(--ink)}
+.vt span{font-size:13px;color:var(--muted);line-height:1.45}
+.vt i{font-style:normal;font-size:12px;font-weight:700;color:var(--gold);margin-top:6px}
+@media(max-width:700px){.vt-grid{grid-template-columns:1fr}}
 /* rodapé: linha legal */
 .footer-legal{display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:12px}
 .footer-legal a{font-size:11.5px;color:#B8B6AF;text-decoration:none}
@@ -400,8 +410,10 @@ window.addEventListener('load',function(){
 <h2 id="s9">9. Lei aplicável e foro</h2>
 <p>Estes termos são regidos pelas leis da República Federativa do Brasil.</p><p>Fica eleito o foro da comarca de São Paulo/SP para dirimir qualquer controvérsia decorrente destes termos, com renúncia a qualquer outro, por mais privilegiado que seja.</p>
 <h2 id="s10">10. Contato</h2>
-<p><strong><a href="mailto:sejaminimalista@hotmail.com">sejaminimalista@hotmail.com</a></strong><br>sejaminimalista.com.br</p>
+<p><strong><a href="mailto:sejaminimalista@hotmail.com">sejaminimalista@hotmail.com</a></strong><br>sejaminimalista.com.br</p><p>Ou use a nossa <a href="https://sejaminimalista.com.br/contato">página de contato</a>.</p>
   </article>
+
+  <nav class="vt" aria-labelledby="vt-t"><h2 id="vt-t">Veja também</h2><div class="vt-grid"><a href="https://sejaminimalista.com.br/politica-de-privacidade"><b>Política de privacidade</b><span>Como cuidamos dos seus dados.</span><i>Abrir →</i></a><a href="https://sejaminimalista.com.br/politica-de-troca"><b>Troca e devolução</b><span>Prazos para defeito e direito de arrependimento.</span><i>Abrir →</i></a><a href="https://sejaminimalista.com.br/contato"><b>Fale com a gente</b><span>Tire dúvidas ou fale sobre um pedido.</span><i>Abrir →</i></a></div></nav>
 </main>
 
 <footer class="footer">
@@ -434,7 +446,6 @@ window.addEventListener('load',function(){
       <a href="https://sejaminimalista.com.br/faq">Perguntas frequentes</a>
       <a href="https://sejaminimalista.com.br/contato">Contato</a>
       <a href="https://sejaminimalista.com.br/politica-de-troca">Troca e devolução</a>
-      <a href="https://sejaminimalista.com.br/termos-de-uso">Termos de uso</a>
       <a href="https://sejaminimalista.com.br/politica-de-privacidade">Política de privacidade</a>
     </nav>
     <span>© 2026 Seja Minimalista. Todos os direitos reservados. · sejaminimalista.com.br</span>
