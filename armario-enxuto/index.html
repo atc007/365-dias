@@ -35,17 +35,129 @@
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"Book",
-  "name":"Armário Enxuto",
-  "author":{"@type":"Person","name":"Alexandre Chahoud"},
-  "description":"Guia prático com mais de 140 páginas de exercícios, checklists e orientações para construir um armário funcional, alinhado ao seu estilo e à sua vida.",
-  "inLanguage":"pt-BR",
-  "numberOfPages":140,
-  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"5000","bestRating":"5"},
-  "offers":[
-    {"@type":"Offer","name":"Livro Digital","price":"77.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://chk.eduzz.com/2097830?pf=1"},
-    {"@type":"Offer","name":"Livro Físico","price":"107.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://chk.eduzz.com/2097528?pf=1"},{"@type":"Offer","name":"Combo Digital + Físico","price":"147.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://chk.eduzz.com/2097846?pf=1"}
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "Armário Enxuto",
+  "author": {
+    "@type": "Person",
+    "name": "Alexandre Chahoud"
+  },
+  "description": "Guia prático com mais de 140 páginas de exercícios, checklists e orientações para construir um armário funcional, alinhado ao seu estilo e à sua vida.",
+  "inLanguage": "pt-BR",
+  "numberOfPages": 140,
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "5000",
+    "bestRating": "5"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Livro Digital",
+      "price": "77.00",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "url": "https://chk.eduzz.com/2097830?pf=1",
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "BR",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "refundType": "https://schema.org/FullRefund",
+        "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Livro Físico",
+      "price": "107.00",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "url": "https://chk.eduzz.com/2097528?pf=1",
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "BR",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "refundType": "https://schema.org/FullRefund",
+        "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/ReturnShippingFees"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "BRL"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "BR"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 3,
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 5,
+            "maxValue": 15,
+            "unitCode": "DAY"
+          }
+        }
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Combo Digital + Físico",
+      "price": "147.00",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "url": "https://chk.eduzz.com/2097846?pf=1",
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "BR",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "refundType": "https://schema.org/FullRefund",
+        "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/ReturnShippingFees"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "BRL"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "BR"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 3,
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 5,
+            "maxValue": 15,
+            "unitCode": "DAY"
+          }
+        }
+      }
+    }
   ]
 }
 </script>
