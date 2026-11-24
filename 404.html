@@ -108,6 +108,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 .pop-list a.hl{border:1.5px solid var(--gold);background:rgba(201,169,110,.12);}
 .pop-list a.hl span{color:var(--gold-soft);}
 
+.info{width:100%;max-width:620px;margin-top:34px}
+.info-list{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;list-style:none}
+.info-list a{display:inline-block;padding:9px 16px;border-radius:999px;border:1px solid var(--card-border);background:rgba(255,255,255,.04);color:var(--text);font-size:13px;font-weight:600;text-decoration:none;transition:border-color .15s,background .15s,color .15s}
+.info-list a:hover{border-color:var(--gold);color:var(--ink);background:rgba(201,169,110,.14)}
 .help{margin-top:40px;font-size:13px;color:var(--muted);}
 .help a{color:var(--gold);font-weight:700;text-decoration:none;}
 .help a:hover{color:var(--gold-soft);text-decoration:underline;text-underline-offset:3px;}
@@ -147,6 +151,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       <li><a class="hl" href="https://sejaminimalista.com.br/monte-seu-combo">Monte seu combo<span>Escolha os seus e ganhe desconto</span></a></li>
     </ul>
   </div>
+
+  <nav class="info" aria-labelledby="info-t">
+    <div class="pop-label" id="info-t">Informações e ajuda</div>
+    <ul class="info-list">
+      <li><a href="https://sejaminimalista.com.br/sobre">Sobre</a></li>
+      <li><a href="https://sejaminimalista.com.br/faq">Perguntas frequentes</a></li>
+      <li><a href="https://sejaminimalista.com.br/contato">Fale com a gente</a></li>
+      <li><a href="https://sejaminimalista.com.br/politica-de-troca">Troca e devolução</a></li>
+      <li><a href="https://sejaminimalista.com.br/termos-de-uso">Termos de uso</a></li>
+      <li><a href="https://sejaminimalista.com.br/politica-de-privacidade">Política de privacidade</a></li>
+    </ul>
+  </nav>
 
   <p class="help">Achou um link quebrado ou precisa de ajuda? <a href="https://wa.me/5516991065984" target="_blank" rel="noopener">Fale comigo no WhatsApp</a></p>
 
