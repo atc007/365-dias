@@ -441,7 +441,7 @@ window.addEventListener('load',function(){
       aviso('Não conseguimos enviar agora. <a href="'+href+'">Clique aqui para enviar pelo seu e-mail</a> ou escreva para '+EMAIL+'.','err');
       btn.disabled=false; btn.textContent=txt;
     }
-    var W3KEY='';
+    var W3KEY='afe11d27-7eff-4079-8902-a5ccf36faf9f';
     var url=W3KEY?'https://api.web3forms.com/submit':'https://formsubmit.co/ajax/'+EMAIL;
     var payload=W3KEY?{access_key:W3KEY,name:d.nome,email:d.email,subject:'Contato do site: '+d.assunto,message:'Assunto: '+d.assunto+'\n\n'+d.msg}
       :{Nome:d.nome,'E-mail':d.email,Assunto:d.assunto,Mensagem:d.msg,_replyto:d.email,_subject:'Contato do site: '+d.assunto,_template:'table',_captcha:'false'};
