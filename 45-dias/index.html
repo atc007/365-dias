@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-tema="black-friday">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <title>45 Dias de Destralhe | O desafio completo para deixar sua casa organizada e livre de tralhas.</title>
 <meta name="description" content="45 missões práticas pra destralhar sua casa, um dia de cada vez, sem pressão. O guia de Alexandre Chahoud. Mais de 25 mil leitores. Frete grátis.">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#1C1C1A">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-DNS-Prefetch-Control" content="on">
@@ -35,12 +35,12 @@
 <link rel="canonical" href="https://sejaminimalista.com.br/45-dias/">
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JM7NSX9TDT"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-JM7NSX9TDT');
+  gtag('config', 'AW-336846858');
 </script>
 
 <!-- Meta Pixel -->
@@ -49,9 +49,7 @@
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src='https://connect.facebook.net/en_US/fbevents.js';
-s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+n.queue=[]}
 (window,document,'script');
 fbq('init','239605191106043');
 fbq('track','PageView');
@@ -63,14 +61,50 @@ fbq('track','ViewContent',{
   value:        47.00
 });
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=239605191106043&ev=PageView&noscript=1"/></noscript>
 
 <link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
+<script>
+/* Google tag e Meta Pixel: as filas ja existem, os arquivos baixam so depois que a pagina carregou */
+(function(){
+  function carregar(){
+    var a=document.createElement('script'); a.async=true; a.src='https://www.googletagmanager.com/gtag/js?id=AW-336846858'; document.head.appendChild(a);
+    var b=document.createElement('script'); b.async=true; b.src='https://connect.facebook.net/en_US/fbevents.js'; document.head.appendChild(b);
+  }
+  if(document.readyState==='complete') carregar(); else window.addEventListener('load',carregar);
+})();
+</script>
+<link rel="dns-prefetch" href="//chk.eduzz.com">
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    window.__clTags = [];
+    window.smClarityTag = function(k, v){
+        try{ if(window.clarity && window.__clOn){ clarity('set', k, v); } else { window.__clTags.push([k, v]); } }catch(e){}
+    };
+    function __iniciarClarity(){
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x9zztciwhm");
+    window.__clOn = true;
+    (window.__clTags || []).forEach(function(t){ try{ clarity('set', t[0], t[1]); }catch(e){} });
+    window.__clTags = [];
+    }
+    /* começa depois que a página carregou, quando o navegador estiver livre (máx. 4 s) */
+    (function(){
+        var go = function(){
+            if(window.requestIdleCallback){ requestIdleCallback(__iniciarClarity, {timeout:4000}); }
+            else { setTimeout(__iniciarClarity, 2000); }
+        };
+        if(document.readyState === 'complete'){ go(); } else { window.addEventListener('load', go); }
+    })();
+</script>
 <link rel="dns-prefetch" href="https://static.wixstatic.com">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<link rel="preload" href="/fonts/crimson-pro.woff2" as="font" type="font/woff2" crossorigin>
+<style id="fontes-locais">
+@font-face{font-family:'Crimson Pro';font-style:normal;font-weight:200 900;font-display:swap;src:url(/fonts/crimson-pro.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Crimson Pro';font-style:italic;font-weight:200 900;font-display:swap;src:url(/fonts/crimson-pro-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+</style>
 <link rel="preload" as="image" fetchpriority="high"
   href="https://static.wixstatic.com/media/940f31_7c3c504c1a15465cbbbe613882c29ca2~mv2.jpeg/v1/crop/x_487,y_0,w_725,h_704/fill/w_474,h_460,al_c,q_90,enc_avif,quality_auto/capa45.jpeg">
 
@@ -102,14 +136,14 @@ html,body{
   --border:#D3D1C7;
   --hero-bg:#EDE6DC;
   /* tipografia escalada */
-  --h1:clamp(26px,3.6vw,42px);
-  --h2:clamp(24px,3vw,36px);
-  --h3:clamp(20px,2.4vw,27px);
-  --eyebrow:11px;
+  --h1:clamp(28px,4vw,46px);
+  --h2:clamp(26px,3.2vw,38px);
+  --h3:clamp(21px,2.5vw,28px);
+  --eyebrow:12px;
   --body:16px;
-  --sec-v:68px;
-  --sec-h:36px;
-  --gap:56px;
+  --sec-v:72px;
+  --sec-h:40px;
+  --gap:60px;
 }
 
 .inner{max-width:1120px;margin:0 auto;width:100%;padding:0 var(--sec-h);}
@@ -842,6 +876,203 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
   section a.btn-gold,section a.btn-dark{display:block;width:100%;max-width:420px;margin-left:auto;margin-right:auto;text-align:center;}
 }
 </style>
+<style id="cupom-rodape">
+#cupom-tooltip{top:20px;right:20px;bottom:auto;max-width:220px;}
+.cupom-box{background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(199,154,92,.45);}
+.cupom-label{font-size:10px;font-weight:700;color:#C79A5C;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;}
+.cupom-code-box{background:rgba(255,255,255,.05);border:1.5px dashed #C79A5C;border-radius:8px;padding:9px 12px 8px;text-align:center;}
+.cupom-code{font-family:var(--font-display);font-size:21px;font-weight:700;color:#F7F1E6;letter-spacing:.07em;}
+.cupom-sub{font-size:10.5px;color:#D9B589;margin-top:2px;letter-spacing:.02em;}
+@media(max-width:720px){
+  #cupom-tooltip{top:14px;right:10px;max-width:148px;}
+  .cupom-box{padding:10px 11px 9px;border-radius:11px;}
+  .cupom-label{font-size:8px;letter-spacing:.1em;margin-bottom:6px;white-space:nowrap;padding-right:20px;}
+  .cupom-code-box{padding:6px 8px 5px;border-radius:6px;}
+  .cupom-code{font-size:15px;letter-spacing:.04em;}
+  .cupom-sub{font-size:8.5px;margin-top:1px;}
+}
+@keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
+
+/* ══ PADRONIZAÇÃO COM A HOME (fontes e cores do 45 Dias mantidas) ══ */
+.sec-eyebrow{font-size:12px;}
+.sec-h2{font-size:clamp(25px,3.2vw,38px);}
+.agit-text{font-size:16px;line-height:1.65;}
+.t-text{font-size:16px;line-height:1.75;}
+.t-author-name{font-size:15px;line-height:1.3;}
+.t-author-city{font-size:13px;}
+.dest-badge.muted{background:#C7C4BC;color:#5C5A54;font-weight:600;}
+.dest-badge.muted::after{content:none;}
+.dest-badge{font-size:12px;letter-spacing:.06em;text-transform:uppercase;}
+@media(max-width:720px){
+  .sec-eyebrow{font-size:11.5px;letter-spacing:.11em;}
+  .t-text{font-size:15.5px;}
+}
+</style>
+<style id="padrao-paginas">
+/* ══ PADRONIZAÇÃO COM A HOME E O 365 DIAS (nov/2026) ══
+   Só tamanhos, espaçamentos e comportamentos. Fontes, cores e conteúdo do Armário ficam como estavam.
+   Para desfazer um item, apague a linha dele. */
+
+/* Textos, desktop */
+.eyebrow,.sec-eyebrow{font-size:var(--eyebrow);}
+.sec-p,.t-sub-dep,.gar-p{font-size:var(--body);}
+.gar-p{line-height:1.8;}
+.anchor-strip{font-size:14px;line-height:1.6;padding:16px var(--sec-h);}
+.bonus-title{font-size:14.5px;line-height:1.6;}
+.bonus-val{font-size:13px;line-height:1.6;}
+.dest-tag{font-size:13px;line-height:1.6;padding:10px 16px;letter-spacing:.02em;}
+.cap-card{padding:22px 20px;}
+.cap-title{font-size:15.5px;line-height:1.6;}
+.gar-h3{font-size:26px;line-height:1.6;}
+.pc-type{font-size:16px;line-height:1.2;}
+.pc-btn{padding:16px;}
+.pc-body{padding:24px;}
+.pc-urgency-note{font-size:12px!important;line-height:1.6;}
+.faq-q{padding:20px 16px 20px 4px;}
+.t-card,.t-card.featured{padding:26px 24px;}
+.t-author{padding-top:18px;}
+.t-avatar{font-size:16px;line-height:1.6;}
+.t-quote-mark{font-size:64px;line-height:.65;}
+.t-stars{font-size:14px;line-height:1.6;}
+.t-stat-num{font-size:38px;line-height:1;}
+.urgency-text{font-size:14px;line-height:1.4;}
+.urg-h3{font-size:clamp(22px,2.8vw,32px);max-width:580px;margin-left:auto;margin-right:auto;}
+.urg-p{max-width:520px;}
+.urg-digit{font-size:34px;padding:10px 16px;border-radius:8px;min-width:64px;width:64px;font-variant-numeric:tabular-nums;}
+.urg-dlabel{color:#D8CCC4;}
+.urg-sep{color:#8C7A72;}
+.vip-extra{padding:24px;}
+.vip-extra-badge{padding:4px 14px;}
+.vip-extra-highlight{padding-top:16px;font-size:16px;line-height:1.6;}
+.hero-note{line-height:1.55;}
+.footer-btn{font-size:12px;padding:10px 20px;}
+
+/* Hero e faixas: mesmo respiro da home e do 365 Dias (desktop) */
+@media(min-width:721px){.sec-hero{padding:112px var(--sec-h);}.t-counter{padding:24px 0;}.stat{padding:8px 32px;}}
+
+/* Celular: tokens de título iguais aos da home */
+@media(max-width:720px){
+  :root{--h1:clamp(27px,7vw,37px);--h2:clamp(25px,6.5vw,33px);--h3:clamp(21px,5.5vw,27px);--body:16px;}
+  .sec-hero{padding-bottom:40px;}
+  .footer{padding-top:28px;padding-bottom:28px;}
+  .urgency-section{padding-top:24px;padding-bottom:32px;}
+  .stat-num{font-size:23px;line-height:1;}
+  .urg-digit{font-size:26px;padding:8px 12px;min-width:56px;width:auto;}
+  .anchor-strip{font-size:15.5px;}
+  .t-stat-num{font-size:28px;}
+  .urgency-text{font-size:13px;line-height:1.4;}
+}
+
+/* ══ Correções de acessibilidade e movimento, iguais às da home ══ */
+/* Tablet (721 a 960px): preços sem corte e página sem rolagem horizontal */
+@media(min-width:721px) and (max-width:960px){
+  #versoes{padding-left:20px;padding-right:20px;}
+  #versoes > .inner{padding-left:0;padding-right:0;}
+  .precos{gap:14px;}
+  .pc-parc-destaque{font-size:clamp(20px,3vw,28px);}
+  .t-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+/* Celular: overflow-x:hidden em html/body quebrava o position:sticky do topo */
+@media(max-width:720px){html,body{overflow-x:clip;}}
+/* Barra fixa de compra: escondida também para teclado e leitor de tela */
+.sticky-buy-bar{visibility:hidden;transition:transform .35s cubic-bezier(.25,.8,.25,1),visibility 0s linear .35s;}
+.sticky-buy-bar.show{visibility:visible;transition:transform .35s cubic-bezier(.25,.8,.25,1),visibility 0s;}
+/* FAQ: resposta fechada não é lida por leitor de tela nem recebe foco */
+.faq-a{visibility:hidden;transition:grid-template-rows .35s cubic-bezier(.16,1,.3,1),opacity .3s ease,visibility 0s linear .35s;}
+.faq-item.open .faq-a{visibility:visible;transition:grid-template-rows .35s cubic-bezier(.16,1,.3,1),opacity .3s ease,visibility 0s;}
+@media(prefers-reduced-motion:reduce){
+  .faq-a{transition:opacity .15s ease,visibility 0s linear .15s;}
+  .faq-item.open .faq-a{transition:opacity .15s ease,visibility 0s;}
+  .pc-parc-destaque{animation:none!important;background-position:0 0!important;will-change:auto;}
+  .btn-gold,.pc-btn.gold,.sbb-btn,.footer-btn{animation:none!important;}
+}
+</style>
+<style id="tema-do-mes">
+/* ══ TEMA DO MÊS ══
+   Para trocar de mês: mude data-tema no <html>, o texto do selo (.tema-nome), o rótulo do cupom
+   e o rótulo da seção "Oferta ... com bônus inclusos", e acrescente o bloco html[data-tema="..."] abaixo.
+   Sem data-tema, a página usa o visual padrão. */
+:root{
+  --tema-fundo:var(--ink);--tema-fundo-vidro:rgba(28,28,26,.94);--tema-destaque:var(--gold);--tema-borda:transparent;
+  --tema-cupom-fundo:linear-gradient(160deg,#22201C 0%,#17150F 100%);--tema-cupom-bico:#1C1A15;--tema-cupom-sub:#B8925A;
+}
+html[data-tema="black-friday"]{
+  --tema-fundo:#0A0A09;--tema-fundo-vidro:rgba(10,10,9,.94);--tema-destaque:#E3C27A;--tema-borda:rgba(227,194,122,.6);
+  --tema-cupom-fundo:linear-gradient(160deg,#171715 0%,#0A0A09 100%);--tema-cupom-bico:#171715;--tema-cupom-sub:#D9BC84;
+}
+.urgency-bar{background:var(--tema-fundo);border-bottom:1px solid var(--tema-borda);}
+.urgency-bar.scrolled{background:var(--tema-fundo-vidro);}
+.urgency-badge{background:var(--tema-destaque);}
+.urgency-text strong{color:var(--tema-destaque);}
+.urgency-section{background:var(--tema-fundo);}
+.urg-label{color:var(--tema-destaque);}
+.urg-label::before,.urg-label::after{background:var(--tema-destaque);}
+.urg-digit{color:var(--tema-destaque);}
+.urg-bonus-tag{color:var(--tema-destaque);}
+.cupom-box{background:var(--tema-cupom-fundo);}
+.cupom-label,.cupom-box .cupom-label{color:var(--tema-destaque);}
+.cupom-code-box{border-color:var(--tema-destaque);}
+.cupom-sub{color:var(--tema-cupom-sub);}
+html[data-tema="black-friday"] .urgency-badge{text-transform:uppercase;letter-spacing:.12em;font-weight:800;}
+html[data-tema="black-friday"] .cupom-box{border-color:var(--tema-destaque);}
+html[data-tema="black-friday"] .urg-digit{border-color:rgba(227,194,122,.45);}
+html[data-tema="black-friday"] .urg-sep{color:var(--tema-destaque);}
+html[data-tema="black-friday"] .urgency-section{border-top:1px solid var(--tema-borda);}
+</style>
+<style id="anim-pausa">.anim-pausa.anim-pausa.anim-pausa{animation-play-state:paused!important;}</style>
+<style id="barra-cupom">
+/* cupom na barra do topo: chip no desktop (clicável), barra inteira clicável no celular */
+.urg-cupom{display:none;align-items:center;gap:8px;border:1px dashed var(--tema-destaque);border-radius:999px;padding:3px 6px 3px 12px;font-size:12px;color:var(--cream-dark);cursor:pointer;line-height:1.3;transition:background .2s;}
+.urg-cupom:hover{background:rgba(227,194,122,.12);}
+.urg-cupom-rot{letter-spacing:.08em;text-transform:uppercase;font-size:10px;font-weight:700;opacity:.8;}
+.urg-cupom-cod{font-family:var(--font-display);font-size:16px;letter-spacing:.07em;color:var(--tema-destaque);}
+.urg-cupom-sub{font-size:10px;font-weight:700;background:var(--tema-destaque);color:var(--ink);border-radius:999px;padding:2px 9px;}
+@media(min-width:721px){.urg-cupom{display:inline-flex;}}
+@media(max-width:720px){.urgency-bar{cursor:pointer;-webkit-tap-highlight-color:transparent;}}
+.urgency-bar:focus-visible{outline:2px solid var(--tema-destaque);outline-offset:-3px;}
+</style>
+<style id="cabecalho-progresso">
+.urg-label{font-size:var(--eyebrow);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--tema-destaque,var(--gold));margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:10px;}
+.urg-label::before,.urg-label::after{content:'';display:block;width:28px;height:1px;background:var(--tema-destaque,var(--gold));}
+</style>
+<style>
+/* barra do topo no celular: 2 linhas curtas (desktop não muda) */
+.u-m{display:none;}
+@media(max-width:720px){
+  .u-d{display:none;}.u-m{display:inline;}
+  /* só no topo da página: no celular a barra rola junto com o conteúdo, sem ficar fixa */
+  .urgency-bar,.urgency-bar.scrolled{position:static;padding-top:8px;padding-bottom:8px;background:var(--tema-fundo);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;}
+  .urgency-bar.scrolled .urgency-badge{padding:3px 10px;}
+  #versoes,#versao-digital,#versao-fisica,#bonus{scroll-margin-top:12px;}
+  .urgency-inner{gap:4px;}
+  .urgency-badge{font-size:10px;letter-spacing:.07em;padding:3px 10px;}
+  html[data-tema="black-friday"] .urgency-badge{letter-spacing:.07em;}
+}
+</style>
+<style>
+/* barra fixa de baixo no celular: título + 1 linha ("3 versões: digital, físico e combo") */
+@media(max-width:640px){
+  .sbb-sub{display:block;margin-top:2px;}
+  .sbb-sub-l1,.sbb-sub-l2{display:inline;}
+  .sbb-disp{display:none;}
+  .sbb-sub-sep{display:inline;font-size:0;}
+  .sbb-sub-sep::after{content:": ";font-size:10.5px;color:#C9A96E;font-weight:600;}
+  .sbb-sub-l2::before,.sbb-sub-l2::after{content:none;}
+}
+</style>
+<style id="leitura-celular">
+/* ══ TEXTO CORRIDO NO CELULAR: mesmos tamanhos da home. Só leitura, só mobile. ══ */
+@media(max-width:720px){
+  .faq-a-inner{font-size:16.5px;line-height:1.7;}
+  .faq-q{font-size:16px;}
+  .cap-desc,.ben-desc,.dif-desc{font-size:15.5px;}
+  .urg-p,.qual-nao-item,.bvx{font-size:16px;}
+  .ancora-compare,.anchor-strip,.bonus-title,.vip-extra p{font-size:15.5px;}
+  .car-cap{font-size:14px;}
+  .pc-sub,.pc-feats li{font-size:15px;}
+  .precos-pagamento,.hero-note,.hero-note-text{font-size:14.5px;}
+}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -988,6 +1219,9 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 </head>
 <body>
 
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=239605191106043&amp;ev=PageView&amp;noscript=1" alt=""/></noscript>
+
 <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 
 <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
@@ -999,25 +1233,18 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
       alt="" width="46" height="46" loading="lazy" decoding="async">
     <div class="sbb-info">
       <div class="sbb-title"><span class="sbb-title-w">Guia</span> <span class="sbb-title-g">45 Dias de Destralhe</span></div>
-      <div class="sbb-sub"><span class="sbb-sub-l1">2 versões disponíveis</span><span class="sbb-sub-sep"> · </span><span class="sbb-sub-l2">digital ou físico + digital</span></div>
+      <div class="sbb-sub"><span class="sbb-sub-l1">2 versões<span class="sbb-disp"> disponíveis</span></span><span class="sbb-sub-sep"> · </span><span class="sbb-sub-l2">digital ou físico + digital</span></div>
     </div>
     <a class="sbb-btn" href="#versao-fisica" onclick="document.getElementById('versao-fisica').scrollIntoView({behavior:'smooth',block:'center'});return false;">Quero meu exemplar</a>
   </div>
 </div>
 
 <!-- URGÊNCIA BAR -->
-<div class="urgency-bar" id="urgency-bar">
+<div class="urgency-bar" id="urgency-bar" role="button" tabindex="0" aria-label="Cupom GANHEI10. Toque para copiar">
   <div class="urgency-inner">
-    <span class="urgency-badge">⏳ Oferta especial</span>
-    <span class="urgency-text"><strong>Preço promocional</strong>, frete grátis e garantia de 7 dias</span>
-    <div class="countdown">
-      <span>Encerra em</span>
-      <span class="countdown-unit" id="cd-h">00</span>
-      <span class="countdown-sep">:</span>
-      <span class="countdown-unit" id="cd-m">00</span>
-      <span class="countdown-sep">:</span>
-      <span class="countdown-unit" id="cd-s">00</span>
-    </div>
+    <span class="urgency-badge"><span class="u-d">⏳ Oferta especial </span><span class="u-m">Especial </span><span class="tema-nome">Black Friday</span><span class="u-m" id="urg-cupom-m"> - cupom: GANHEI10</span></span>
+    <span class="urgency-text"><span class="u-d"><strong>Preço promocional</strong>, frete grátis e garantia de 7 dias</span><span class="u-m"><strong>Preço promocional</strong> e frete grátis</span></span>
+    <span class="urg-cupom" id="urg-cupom-d" title="Clique para copiar o cupom"><span class="urg-cupom-rot">Cupom</span><strong class="urg-cupom-cod">GANHEI10</strong><span class="urg-cupom-sub" id="urg-cupom-d-sub">copiar</span></span>
   </div>
 </div>
 
@@ -1309,7 +1536,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
 
 <!-- URGÊNCIA ANTES DO PRICING -->
 <div class="urgency-section">
-  <div class="urg-label">Oferta por tempo limitado</div>
+  <div class="urg-label">Oferta Black Friday por tempo limitado</div>
   <h3 class="urg-h3">Seu destralhe pode começar hoje, no preço promocional.</h3>
   <p class="urg-p">Frete grátis, acesso digital imediato e garantia de 7 dias, nas duas versões.</p>
   <div class="urg-timer">
@@ -1437,8 +1664,8 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
       </div>
       <div class="footer-links">
         <h3>Links úteis</h3>
-        <a href="https://sejaminimalista.com.br/" target="_blank">Seja Minimalista (Best Seller)</a>
-        <a href="https://sejaminimalista.com.br/365-dias/" target="_blank">365 Dias Minimalistas</a>
+        <a href="https://sejaminimalista.com.br/" target="_blank">Seja Minimalista: Best Seller</a>
+        <a href="https://sejaminimalista.com.br/produtos" target="_blank">Todos os meus produtos</a>
         <a href="https://sejaminimalista.com.br/combos" target="_blank">Combos com desconto</a>
         <a href="https://www.sejaminimalista.net/vip/entrar" target="_blank">Área VIP</a>
         <a href="https://chat.whatsapp.com/FnNU3DpCCXz3iGtkLH6qbR?s=cl&p=a&ilr=1" target="_blank">Comunidade no Whatsapp</a>
@@ -1446,7 +1673,7 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
       </div>
       <div class="footer-news">
         <h3>Newsletter gratuita</h3>
-        <p style="font-size:12px;color:#D8D8D4;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas direto no seu e-mail, toda semana.</p>
+        <p style="font-size:12px;color:#D0CEC8;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas gratuitas direto no seu e-mail, toda semana.</p>
         <iframe
           src="https://sejaminimalista.substack.com/embed?transparent=1&light=1"
           width="480" height="150"
@@ -1462,6 +1689,14 @@ a:focus-visible,button:focus-visible,.faq-q:focus-visible{outline:2px solid var(
     </div>
   </div>
 </footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/5516991065984?text=Oi%2C%20tenho%20algumas%20d%C3%BAvidas%20sobre%20o%20guia%2045%20Dias%20de%20Destralhe."
+  class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="28" height="28" fill="currentColor">
+    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+  </svg>
+</a>
 
 <script>
 /* COUNTDOWN persistente 23h59 — reinicia ao zerar */
@@ -1688,59 +1923,12 @@ document.addEventListener('DOMContentLoaded',function(){
   },{passive:true});
 });
 </script>
-<script>
-function copiarCupom(e){
-  if(e) e.stopPropagation();
-  var sub = document.getElementById('cupom-sub-text');
-  var original = 'Toque para copiar · 10% OFF no carrinho';
-  function feedback(ok){
-    if(!sub) return;
-    sub.textContent = ok ? '✓ Copiado. Cole no carrinho.' : 'Anote: GANHEI10';
-    setTimeout(function(){ sub.textContent = original; }, 2600);
-  }
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText('GANHEI10').then(function(){feedback(true);}).catch(function(){feedback(false);});
-  } else { feedback(false); }
-}
-</script>
 <!-- TOOLTIP CUPOM -->
-<style>
-#cupom-tooltip{top:20px;right:20px;bottom:auto;max-width:220px;}
-.cupom-box{background:linear-gradient(160deg,#22201C 0%,#17150F 100%);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);padding:16px 18px 15px;position:relative;border:1px solid rgba(199,154,92,.45);}
-.cupom-label{font-size:10px;font-weight:700;color:#C79A5C;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;}
-.cupom-code-box{background:rgba(255,255,255,.05);border:1.5px dashed #C79A5C;border-radius:8px;padding:9px 12px 8px;text-align:center;}
-.cupom-code{font-family:var(--font-display);font-size:21px;font-weight:700;color:#F7F1E6;letter-spacing:.07em;}
-.cupom-sub{font-size:10.5px;color:#D9B589;margin-top:2px;letter-spacing:.02em;}
-@media(max-width:720px){
-  #cupom-tooltip{top:14px;right:10px;max-width:148px;}
-  .cupom-box{padding:10px 11px 9px;border-radius:11px;}
-  .cupom-label{font-size:8px;letter-spacing:.1em;margin-bottom:6px;white-space:nowrap;padding-right:20px;}
-  .cupom-code-box{padding:6px 8px 5px;border-radius:6px;}
-  .cupom-code{font-size:15px;letter-spacing:.04em;}
-  .cupom-sub{font-size:8.5px;margin-top:1px;}
-}
-@keyframes tooltip-in{from{opacity:0;transform:translateY(-12px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
-
-/* ══ PADRONIZAÇÃO COM A HOME (fontes e cores do 45 Dias mantidas) ══ */
-.sec-eyebrow{font-size:12px;}
-.sec-h2{font-size:clamp(25px,3.2vw,38px);}
-.agit-text{font-size:16px;line-height:1.65;}
-.t-text{font-size:16px;line-height:1.75;}
-.t-author-name{font-size:15px;line-height:1.3;}
-.t-author-city{font-size:13px;}
-.dest-badge.muted{background:#C7C4BC;color:#5C5A54;font-weight:600;}
-.dest-badge.muted::after{content:none;}
-.dest-badge{font-size:12px;letter-spacing:.06em;text-transform:uppercase;}
-@media(max-width:720px){
-  .sec-eyebrow{font-size:11.5px;letter-spacing:.11em;}
-  .t-text{font-size:15.5px;}
-}
-</style>
-<div id="cupom-tooltip" role="button" tabindex="0" aria-label="Copiar cupom GANHEI10, 10% off no carrinho" style="display:none;position:fixed;z-index:10000;cursor:pointer;" onclick="copiarCupom(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copiarCupom(event);}">
-  <div class="cupom-box">
-    <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #1C1A15;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
-    <button onclick="event.stopPropagation();document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
-    <div class="cupom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Cupom exclusivo</div>
+<div id="cupom-tooltip" style="display:none;position:fixed;z-index:10000;">
+  <button type="button" onclick="document.getElementById('cupom-tooltip').style.display='none'" aria-label="Fechar cupom" style="position:absolute;top:2px;right:2px;z-index:2;width:24px;height:24px;background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.45);line-height:1;display:flex;align-items:center;justify-content:center;">×</button>
+  <div class="cupom-box" role="button" tabindex="0" aria-label="Copiar cupom GANHEI10, 10% off no carrinho" style="cursor:pointer;" onclick="copiarCupom(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copiarCupom(event);}">
+    <div style="position:absolute;top:-10px;right:24px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid var(--tema-cupom-bico,#1C1A15);filter:drop-shadow(0 -2px 2px rgba(0,0,0,.12));"></div>
+    <div class="cupom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3 9h18v3.5H3z"/><path d="M12 9v11"/><path d="M12 9S9.6 9 8.4 8.2a2 2 0 1 1 2.3-3.3C11.6 5.6 12 9 12 9Z"/><path d="M12 9s2.4 0 3.6-.8a2 2 0 1 0-2.3-3.3C12.4 5.6 12 9 12 9Z"/></svg> Cupom Black Friday</div>
     <div class="cupom-code-box">
       <div class="cupom-code" id="cupom-code-text">GANHEI10</div>
       <div class="cupom-sub" id="cupom-sub-text">Toque para copiar · 10% OFF no carrinho</div>
@@ -1748,17 +1936,44 @@ function copiarCupom(e){
   </div>
 </div>
 <script>
+/* cupom flutuante: aparece com 80% da rolagem */
 (function(){
   var shown=false;
   var tip=document.getElementById('cupom-tooltip');
-  function playDing(){try{var ctx=new(window.AudioContext||window.webkitAudioContext)();function note(freq,startTime,duration,peakGain){var osc=ctx.createOscillator();var gain=ctx.createGain();osc.connect(gain);gain.connect(ctx.destination);osc.type='sine';osc.frequency.setValueAtTime(freq,startTime);gain.gain.setValueAtTime(0.0001,startTime);gain.gain.exponentialRampToValueAtTime(peakGain,startTime+0.015);gain.gain.exponentialRampToValueAtTime(0.0001,startTime+duration);osc.start(startTime);osc.stop(startTime+duration+0.05);}var now=ctx.currentTime;note(880,now,0.28,0.13);note(1318.51,now+0.09,0.34,0.11);}catch(e){}}
   window.addEventListener('scroll',function(){
     if(shown)return;
     var h=document.documentElement;
     var pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
-    if(pct>=50){shown=true;tip.style.display='block';tip.style.animation='tooltip-in .45s cubic-bezier(.16,1,.3,1) both';playDing();}
+    if(pct>=80){shown=true;tip.style.display='block';tip.style.animation='tooltip-in .45s cubic-bezier(.16,1,.3,1) both';}
   },{passive:true});
 })();
+function copiarCupom(e){
+  if(e) e.stopPropagation();
+  var codigo = 'GANHEI10';
+  /* toque no cupom: só etiqueta no Clarity. A cópia só conta quando o navegador confirma. */
+  try{ if(window.smClarityTag){ window.smClarityTag('cupom_toque','sim'); } }catch(x){}
+  function medirCopia(){
+    if(window.__cupomMedido) return;
+    window.__cupomMedido = true;
+    try{ if(window.fbq){ fbq('trackCustom','CouponCopy',{coupon:codigo}); } }catch(x){}
+    try{ if(window.smClarityTag){ window.smClarityTag('cupom_copiado','sim'); } }catch(x){}
+  }
+  var sub = document.getElementById('cupom-sub-text');
+  function feedback(ok){
+    if(!sub) return;
+    var original = 'Toque para copiar · 10% OFF no carrinho';
+    sub.textContent = ok ? '✓ Copiado. Cole no carrinho.' : 'Anote: GANHEI10';
+    setTimeout(function(){ sub.textContent = original; }, 2600);
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(codigo).then(function(){feedback(true);medirCopia();}).catch(function(){feedback(false);});
+  } else {
+    /* navegadores sem acesso à área de transferência: mostra o código para a pessoa anotar */
+    feedback(false);
+  }
+}
+
+
 (function(){
   var bar=document.getElementById('sticky-buy-bar');
   var waFloat=document.querySelector('.whatsapp-float');
@@ -1792,5 +2007,79 @@ function copiarCupom(e){
 })();
 </script>
 
+<script>
+/* CUPOM NA BARRA DO TOPO: celular = a barra inteira copia; desktop = o chip do cupom copia */
+(function(){
+  var bar=document.getElementById('urgency-bar');
+  if(!bar) return;
+  var codigo='GANHEI10';
+  var mq=window.matchMedia('(max-width:720px)');
+  var elM=document.getElementById('urg-cupom-m');
+  var elD=document.getElementById('urg-cupom-d-sub');
+  var txtM=elM?elM.textContent:'';
+  var txtD=elD?elD.textContent:'';
+  var timer=null;
+
+  function medir(){
+    try{ if(window.smClarityTag){ window.smClarityTag('cupom_toque','sim'); window.smClarityTag('cupom_origem','barra'); } }catch(x){}
+  }
+  function medirCopia(){
+    if(window.__cupomMedido) return;
+    window.__cupomMedido=true;
+    try{ if(window.fbq){ fbq('trackCustom','CouponCopy',{coupon:codigo}); } }catch(x){}
+    try{ if(window.smClarityTag){ window.smClarityTag('cupom_copiado','sim'); } }catch(x){}
+  }
+  function feedback(ok){
+    clearTimeout(timer);
+    if(elM) elM.textContent=ok?' - cupom copiado ✓':' - anote: '+codigo;
+    if(elD) elD.textContent=ok?'copiado ✓':'anote';
+    timer=setTimeout(function(){
+      if(elM) elM.textContent=txtM;
+      if(elD) elD.textContent=txtD;
+    },2600);
+  }
+  /* plano B para navegadores sem clipboard API (ex.: navegador interno do Instagram) */
+  function copiaAntiga(){
+    try{
+      var t=document.createElement('textarea');
+      t.value=codigo; t.setAttribute('readonly','');
+      t.style.cssText='position:fixed;top:0;left:0;opacity:0;';
+      document.body.appendChild(t); t.select(); t.setSelectionRange(0,99);
+      var ok=document.execCommand('copy');
+      document.body.removeChild(t);
+      return ok;
+    }catch(e){ return false; }
+  }
+  function copiar(){
+    medir();
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(codigo)
+        .then(function(){ feedback(true); medirCopia(); })
+        .catch(function(){ var ok=copiaAntiga(); feedback(ok); if(ok) medirCopia(); });
+    } else {
+      var ok=copiaAntiga(); feedback(ok); if(ok) medirCopia();
+    }
+  }
+  function deveCopiar(alvo){
+    if(mq.matches) return true;
+    return !!(alvo && alvo.closest && alvo.closest('.urg-cupom'));
+  }
+  bar.addEventListener('click',function(e){ if(deveCopiar(e.target)) copiar(); });
+  bar.addEventListener('keydown',function(e){
+    if((e.key==='Enter'||e.key===' ') && deveCopiar(e.target)){ e.preventDefault(); copiar(); }
+  });
+})();
+</script>
+<script>
+/* animacoes que repetem para sempre so rodam enquanto aparecem na tela (menos repintura no celular) */
+(function(){
+  try{
+    if(!('IntersectionObserver' in window)) return;
+    var alvos=document.querySelectorAll('.btn-gold,.pc-btn.gold,.sbb-btn,.pc-parc-destaque,.footer-btn');
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ e.target.classList.toggle('anim-pausa',!e.isIntersecting); }); },{rootMargin:'80px'});
+    for(var i=0;i<alvos.length;i++) io.observe(alvos[i]);
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
