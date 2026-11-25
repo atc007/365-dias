@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.className='js'</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Seja Minimalista | Teste de layout (cópia, não indexada)</title>
+<meta name="description" content="Cópia de teste do novo layout da página do livro Seja Minimalista, de Alexandre Chahoud.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" type="image/avif" fetchpriority="high" media="(max-width:720px)" href="https://static.wixstatic.com/media/940f31_1838b3822c4641b198bb875a2aeb075e~mv2.avif">
+<link rel="preload" as="image" type="image/avif" fetchpriority="high" media="(min-width:721px)" href="https://static.wixstatic.com/media/940f31_eb8f910c5d954e29a62245b38afb8ead~mv2.avif">
+<style>
+@font-face{font-family:'Geist';src:url(/fonts/geist.woff2) format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:'Geist';src:url(/fonts/geist-italic.woff2) format('woff2');font-weight:100 900;font-style:italic;font-display:swap}
+:root{
+  --bg:#0E100F; --bg2:#151816; --bg3:#1D211E; --line:rgba(236,238,234,.13);
+  --fg:#ECEEEA; --mut:#A4ABA4; --acc:#FF5B2E; --acc-ink:#140A06;
+  --r-card:20px; --r-btn:999px; --pad:clamp(20px,4vw,48px); --sec:clamp(72px,9vw,132px);
+  --max:1240px;
+  --font:'Geist',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,p,figure,blockquote,ul{margin:0}
+ul{padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--pad)}
+section{padding-block:var(--sec)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--acc);color:var(--acc-ink);padding:10px 16px;border-radius:var(--r-btn);z-index:100}
+.skip:focus{left:8px}
+
+/* tipografia */
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);font-weight:600}
+h1{font-size:clamp(34px,4.3vw,60px);line-height:1.05;letter-spacing:-.035em;font-weight:620}
+h2{font-size:clamp(30px,4.2vw,56px);line-height:1.06;letter-spacing:-.03em;font-weight:620;max-width:18ch}
+h3{font-size:clamp(19px,1.8vw,24px);line-height:1.2;letter-spacing:-.015em;font-weight:600}
+.lead{font-size:clamp(18px,1.6vw,21px);color:var(--mut);max-width:46ch}
+em.it{font-style:italic;color:var(--acc);font-weight:560}
+
+/* botoes: pilula; cartoes: 20px */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:var(--r-btn);font:600 16px/1 var(--font);text-decoration:none;white-space:nowrap;transition:transform .25s cubic-bezier(.16,1,.3,1),background .25s,border-color .25s;border:1.5px solid transparent;cursor:pointer}
+.btn:active{transform:scale(.98) translateY(1px)}
+.btn-acc{background:var(--acc);color:var(--acc-ink)}
+.btn-acc:hover{transform:translateY(-2px);background:#ff6e45}
+.btn-line{border-color:var(--line);color:var(--fg);background:transparent}
+.btn-line:hover{border-color:var(--fg);transform:translateY(-2px)}
+.btn svg{transition:transform .25s}
+.btn:hover svg{transform:translateX(3px)}
+
+/* barra do cupom */
+.top{background:var(--bg3);border-bottom:1px solid var(--line);font-size:14px}
+.top .wrap{display:flex;align-items:center;justify-content:center;gap:14px;min-height:44px;padding-block:6px;flex-wrap:wrap;text-align:center}
+.top b{color:var(--acc);font-weight:600}
+.cupom{display:inline-flex;align-items:center;gap:10px;border:1px dashed var(--acc);border-radius:var(--r-btn);padding:4px 6px 4px 14px;background:transparent;color:var(--fg);font:600 13px var(--font);cursor:pointer;letter-spacing:.06em}
+.cupom span{background:var(--acc);color:var(--acc-ink);border-radius:var(--r-btn);padding:3px 10px;letter-spacing:0;font-weight:600}
+@supports (animation-timeline:scroll()){
+  .prog{position:fixed;inset:0 0 auto 0;height:3px;background:var(--acc);transform-origin:0 50%;transform:scaleX(0);z-index:60;animation:prog linear both;animation-timeline:scroll(root)}
+  @keyframes prog{to{transform:scaleX(1)}}
+}
+
+/* hero */
+.hero{padding-block:clamp(40px,6vw,88px) clamp(56px,7vw,96px);overflow-x:clip}
+.hero .eyebrow{margin-bottom:22px}
+.hero h1{max-width:none}
+.rot-wrap{display:inline-block;white-space:nowrap;vertical-align:bottom}
+.rot{display:inline-block;color:var(--acc);transition:opacity .3s,transform .3s}
+.rot.is-out{opacity:0;transform:translateY(.25em)}
+.hero-row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,96px);align-items:center;margin-top:clamp(32px,4vw,56px)}
+.hero-copy .lead{margin-bottom:32px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero-cover{position:relative;justify-self:end;width:100%;max-width:560px}
+.hero-cover::before{content:"";position:absolute;inset:8% -6% -6% 10%;background:var(--acc);border-radius:var(--r-card);opacity:.9;transform:rotate(3deg)}
+.hero-cover img{position:relative;width:100%;height:auto;border-radius:var(--r-card);box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+
+/* numeros */
+.nums{padding-block:0;border-block:1px solid var(--line);background:var(--bg2)}
+.nums .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.num{padding:clamp(24px,3vw,40px) 0 clamp(24px,3vw,40px) clamp(16px,2.4vw,32px);border-left:1px solid var(--line)}
+.num:first-child{border-left:0;padding-left:0}
+.num b{display:block;font-size:clamp(30px,4vw,52px);line-height:1;letter-spacing:-.035em;font-weight:620;font-variant-numeric:tabular-nums}
+.num span{display:block;margin-top:8px;color:var(--mut);font-size:15px}
+.num b i{font-style:normal;color:var(--acc)}
+
+/* dentro */
+.dentro-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,6vw,96px);align-items:center}
+.dentro-grid h2{margin-bottom:24px;max-width:16ch}
+.dentro-grid .lead{margin-bottom:28px}
+.quote{font-size:clamp(22px,2.4vw,32px);line-height:1.22;letter-spacing:-.02em;font-weight:560;border-left:3px solid var(--acc);padding-left:20px;margin-bottom:32px;max-width:22ch}
+.vid{position:relative;border-radius:var(--r-card);overflow:hidden;aspect-ratio:4/5;background:var(--bg3);justify-self:end;width:100%;max-width:440px;border:1px solid var(--line)}
+.vid video{width:100%;height:100%;object-fit:cover}
+.vid button{position:absolute;inset:0;width:100%;height:100%;background:linear-gradient(to top,rgba(14,16,15,.7),transparent 45%);border:0;color:var(--fg);font:600 15px var(--font);display:flex;align-items:flex-end;justify-content:flex-start;padding:20px;cursor:pointer;transition:opacity .3s}
+.vid.playing button{opacity:0}
+.vid.playing:hover button{opacity:1}
+
+/* dor */
+.dor{background:var(--bg2)}
+.dor-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:start}
+.dor-grid h2{position:sticky;top:32px;max-width:12ch}
+.dor-list{display:grid}
+.dor-list li{padding:clamp(22px,2.6vw,34px) 0;border-top:1px solid var(--line)}
+.dor-list li:first-child{padding-top:0;border-top:0}
+.dor-list p{font-size:clamp(20px,2.1vw,28px);line-height:1.3;letter-spacing:-.015em;color:var(--mut)}
+.dor-list strong{color:var(--fg);font-weight:600}
+.virada{margin-top:clamp(40px,5vw,72px);font-size:clamp(28px,4.4vw,60px);line-height:1.04;letter-spacing:-.035em;font-weight:620;max-width:20ch}
+.virada em{color:var(--acc);font-style:italic;font-weight:560}
+
+/* bento de capitulos */
+.cap-head{display:flex;flex-direction:column;gap:20px;margin-bottom:clamp(36px,4vw,56px)}
+.bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(196px,auto);gap:14px}
+.bt{border-radius:var(--r-card);overflow:hidden;margin:0}
+.bt-img{background:var(--bg3);border:1px solid var(--line)}
+.bt-img img{width:100%;height:100%;object-fit:cover}
+.bt-tx{background:var(--bg2);border:1px solid var(--line);padding:clamp(20px,2.2vw,30px);display:flex;flex-direction:column;justify-content:flex-end;gap:10px;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s}
+.bt-tx:hover{transform:translateY(-4px);border-color:rgba(236,238,234,.35)}
+.bt-tx p{color:var(--mut);font-size:15.5px;line-height:1.5;max-width:38ch}
+.bt-acc{background:var(--acc);border-color:var(--acc);color:var(--acc-ink)}
+.bt-acc p{color:rgba(20,10,6,.82)}
+.bt-lift{background:var(--bg3)}
+.cap-cta{margin-top:clamp(32px,4vw,48px)}
+@media (min-width:901px){
+  .c1{grid-column-start:1}.c2{grid-column-start:2}.c3{grid-column-start:3}.c4{grid-column-start:4}
+  .r1{grid-row-start:1}.r2{grid-row-start:2}.r3{grid-row-start:3}.r4{grid-row-start:4}.r5{grid-row-start:5}.r6{grid-row-start:6}
+  .w1{grid-column-end:span 1}.w2{grid-column-end:span 2}
+  .h1{grid-row-end:span 1}.h2{grid-row-end:span 2}
+}
+@media (max-width:900px){
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto}
+  .bt-img{grid-column:1/-1;aspect-ratio:16/10}
+  .bt-tx{min-height:170px}
+}
+@media (max-width:560px){
+  .bento{grid-template-columns:1fr}
+}
+
+/* para quem */
+.qual{background:var(--bg2)}
+.qual-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,6vw,96px);align-items:start}
+.qual-grid h2{margin-bottom:36px;max-width:14ch}
+.sim li{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-top:1px solid var(--line);font-size:clamp(17px,1.5vw,20px)}
+.sim li:first-child{border-top:0}
+.ck{flex:none;margin-top:4px;color:var(--acc)}
+.ck.x{color:var(--mut)}
+.nao{border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(24px,3vw,40px);background:var(--bg)}
+.nao h3{margin-bottom:12px}
+.nao li{display:flex;gap:12px;padding:12px 0;color:var(--mut)}
+.qual .btn{margin-top:36px}
+
+/* diferencial */
+.dif h2{margin-bottom:clamp(32px,4vw,56px);max-width:16ch}
+.dif-row{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr);gap:clamp(16px,5vw,80px);padding:clamp(24px,3vw,40px) 0;border-top:1px solid var(--line)}
+.dif-row h3{font-size:clamp(24px,3vw,40px);letter-spacing:-.03em;line-height:1.08}
+.dif-row p{color:var(--mut);font-size:clamp(17px,1.5vw,20px);max-width:44ch}
+.dif .btn{margin-top:clamp(28px,3vw,44px)}
+
+/* autor */
+.autor{background:var(--bg2)}
+.autor-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:center}
+.autor figure{position:relative;border-radius:var(--r-card);overflow:hidden;aspect-ratio:3/4;background:var(--bg3)}
+.autor figure img{width:100%;height:100%;object-fit:cover}
+.autor figcaption{position:absolute;left:0;right:0;bottom:0;padding:48px 20px 18px;background:linear-gradient(to top,rgba(14,16,15,.85),transparent);font-size:14px;color:var(--mut)}
+.autor figcaption b{display:block;color:var(--fg);font-size:17px;font-weight:600}
+.autor h2{margin:14px 0 24px;max-width:15ch}
+.autor p{color:var(--mut);margin-bottom:18px;max-width:58ch}
+.autor p strong{color:var(--fg);font-weight:600}
+.press{display:flex;flex-wrap:wrap;gap:10px 28px;margin:28px 0 32px;padding-top:24px;border-top:1px solid var(--line)}
+.press small{flex-basis:100%;color:var(--mut);font-size:14px}
+.press span{font-size:20px;font-weight:620;letter-spacing:-.02em;color:rgba(236,238,234,.7)}
+
+/* depoimentos */
+.dep{padding-bottom:calc(var(--sec) * .7)}
+.dep-head{display:flex;flex-direction:column;gap:18px;margin-bottom:clamp(32px,4vw,48px)}
+.dep-head p{color:var(--mut)}
+.marq{overflow:hidden;margin-bottom:clamp(40px,5vw,64px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marq-track{display:flex;gap:14px;width:max-content;animation:marq 90s linear infinite}
+.marq:hover .marq-track{animation-play-state:paused}
+.marq img{height:340px;width:auto;border-radius:16px;border:1px solid var(--line);background:var(--bg3);aspect-ratio:9/16;object-fit:cover}
+@keyframes marq{to{transform:translateX(-50%)}}
+.tsc{display:grid;grid-auto-flow:column;grid-auto-columns:min(86vw,400px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--pad) 18px;margin-inline:calc(var(--pad) * -1);scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.tc{scroll-snap-align:start;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(22px,2.4vw,32px);display:flex;flex-direction:column;gap:16px}
+.tc-big{background:var(--acc);border-color:var(--acc);color:var(--acc-ink);grid-column:span 1}
+.tc-big .stars{color:var(--acc-ink)}
+.tc-big figcaption span,.tc-big figcaption em{color:rgba(20,10,6,.8)}
+.stars{color:var(--acc);letter-spacing:.12em;font-size:15px}
+.tc blockquote{font-size:17px;line-height:1.5;flex:1}
+.tc-big blockquote{font-size:19px}
+.tc figcaption{display:flex;flex-direction:column;gap:2px;font-size:14px;border-top:1px solid rgba(236,238,234,.13);padding-top:14px}
+.tc-big figcaption{border-color:rgba(20,10,6,.25)}
+.tc figcaption strong{font-weight:600;font-size:15px}
+.tc figcaption span,.tc figcaption em{color:var(--mut);font-style:normal}
+.dep-cta{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:clamp(28px,3vw,44px)}
+.dep-cta p{font-size:clamp(20px,2vw,28px);letter-spacing:-.02em;font-weight:560}
+
+/* bonus */
+.bonus-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,6vw,96px);align-items:start}
+.bonus h2{margin:14px 0 28px;max-width:15ch}
+.zero{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:32px}
+.zero .old{font-size:clamp(22px,2.4vw,32px);color:var(--mut);text-decoration:line-through;text-decoration-thickness:2px}
+.zero .new{font-size:clamp(52px,8vw,112px);line-height:.95;letter-spacing:-.05em;font-weight:640;color:var(--acc);font-variant-numeric:tabular-nums}
+.zero p{flex-basis:100%;color:var(--mut)}
+.bn li{display:flex;justify-content:space-between;gap:20px;align-items:baseline;padding:18px 0;border-top:1px solid var(--line)}
+.bn li:first-child{border-top:0}
+.bn-t{font-size:clamp(17px,1.5vw,20px)}
+.bn-v{color:var(--mut);white-space:nowrap;font-size:15px;font-variant-numeric:tabular-nums}
+.vip{border-radius:var(--r-card);overflow:hidden;border:1px solid var(--line);background:var(--bg2)}
+.vip img{width:100%;height:auto}
+.vip div{padding:clamp(20px,2.4vw,30px)}
+.vip h3{margin-bottom:10px}
+.vip p{color:var(--mut);font-size:15.5px}
+.preco-dia{margin-top:clamp(40px,5vw,72px);display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;padding-top:28px;border-top:1px solid var(--line)}
+.preco-dia b{font-size:clamp(34px,4.4vw,60px);letter-spacing:-.04em;font-weight:620}
+.preco-dia span{color:var(--mut)}
+.preco-dia p{flex-basis:100%;color:var(--mut)}
+.preco-dia p strong{color:var(--fg);font-weight:600}
+
+/* precos */
+.precos{background:var(--bg2)}
+.precos-head{display:flex;flex-direction:column;gap:18px;margin-bottom:clamp(28px,3vw,44px)}
+.timer{display:flex;align-items:center;gap:clamp(16px,4vw,48px);flex-wrap:wrap;border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(20px,2.6vw,32px);margin-bottom:clamp(32px,4vw,56px);background:var(--bg)}
+.timer-t{flex:1 1 320px}
+.timer-t h3{margin-bottom:8px}
+.timer-t p{color:var(--mut);font-size:15.5px;max-width:60ch}
+.cd{display:flex;gap:10px;align-items:center;font-variant-numeric:tabular-nums}
+.cd div{display:flex;flex-direction:column;align-items:center;min-width:64px}
+.cd b{font-size:clamp(34px,4vw,52px);line-height:1;letter-spacing:-.03em;font-weight:620;color:var(--acc)}
+.cd small{font-size:12px;color:var(--mut);letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+.cd i{font-style:normal;color:var(--mut);font-size:30px;align-self:flex-start;line-height:1.1}
+.cupom-note{display:none;margin-bottom:20px;color:var(--acc);font-size:15px}
+.cupom-note.on{display:block}
+.plans{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.22fr);gap:16px;align-items:stretch}
+.plan{display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;scroll-margin-top:90px}
+.plan-media{background:var(--bg3);aspect-ratio:4/3}
+.plan-media img{width:100%;height:100%;object-fit:cover}
+.plan-body{padding:clamp(22px,2.4vw,32px);display:flex;flex-direction:column;flex:1}
+.plan-badge{font-size:13px;color:var(--acc);font-weight:600;letter-spacing:.04em;margin-bottom:10px}
+.plan-name{margin-bottom:18px}
+.plan-was{color:var(--mut);text-decoration:line-through;font-size:15px}
+.plan-parc{white-space:nowrap;font-size:clamp(28px,2.7vw,38px);letter-spacing:-.04em;font-weight:620;line-height:1.1;font-variant-numeric:tabular-nums}
+.plan-now{color:var(--mut);margin-bottom:22px}
+.plan-feats{display:grid;gap:10px;margin-bottom:26px;flex:1}
+.plan-feats li{display:flex;gap:10px;font-size:15.5px;align-items:flex-start}
+.plan-feats li.no{color:var(--mut)}
+.plan-feats .ck{margin-top:3px}
+.plan .btn{width:100%;white-space:normal;text-align:center;padding-block:14px;line-height:1.2}
+.plan-note{font-size:13.5px;color:var(--mut);text-align:center;margin-top:12px}
+.plan-top{background:var(--acc);border-color:var(--acc);color:var(--acc-ink);transform:translateY(-12px)}
+.plan-top .plan-badge,.plan-top .plan-was,.plan-top .plan-now,.plan-top .plan-note{color:rgba(20,10,6,.82)}
+.plan-top .plan-badge{font-weight:700}
+.plan-top .ck{color:var(--acc-ink)}
+.plan-top .btn-acc{background:var(--acc-ink);color:var(--fg)}
+.plan-top .btn-acc:hover{background:#000}
+.plan-top .plan-media{background:rgba(20,10,6,.12)}
+.pagto{margin-top:28px;color:var(--mut);font-size:14.5px;text-align:center}
+
+/* garantia */
+.gar .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(24px,5vw,72px);align-items:center}
+.gar h2{max-width:18ch;margin-bottom:22px}
+.gar h2 em{color:var(--acc);font-style:italic;font-weight:560}
+.gar p{color:var(--mut);max-width:56ch;font-size:clamp(17px,1.5vw,20px)}
+.gar img{width:clamp(120px,14vw,180px);height:auto}
+
+/* faq */
+.faq-sec{background:var(--bg2)}
+.faq-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:start}
+.faq-grid h2{position:sticky;top:32px;max-width:12ch}
+.faq{border-top:1px solid var(--line)}
+.faq:last-of-type{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:22px 0;font-size:clamp(17px,1.5vw,20px);font-weight:560;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.pm{flex:none;position:relative;width:20px;height:20px}
+.pm::before,.pm::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;background:var(--acc);transform:translate(-50%,-50%);transition:transform .3s}
+.pm::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq[open] .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.faq-a{padding:0 40px 24px 0;color:var(--mut);max-width:60ch}
+
+/* final */
+.final{text-align:left}
+.final h2{font-size:clamp(34px,6vw,84px);max-width:16ch;letter-spacing:-.04em;margin-bottom:36px}
+.final .btn{min-height:60px;padding-inline:36px;font-size:17px}
+
+/* rodape */
+.foot{border-top:1px solid var(--line);padding-block:clamp(48px,6vw,80px) 40px;background:var(--bg)}
+.foot-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr) minmax(0,4fr);gap:clamp(28px,5vw,64px)}
+.foot img.logo{height:46px;width:auto;margin-bottom:16px;background:#ECEEEA;padding:8px 12px;border-radius:12px}
+.foot p,.foot a{color:var(--mut);font-size:15px}
+.foot h3{font-size:15px;margin-bottom:14px;letter-spacing:0}
+.foot nav{display:grid;gap:10px}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--fg)}
+.foot .btn{margin-top:20px;min-height:44px;font-size:14px;padding:0 20px;color:var(--fg)}
+.foot iframe{border:0;width:100%;max-width:100%;border-radius:12px;background:#fff;min-height:140px}
+.foot-end{margin-top:clamp(32px,4vw,56px);padding-top:24px;border-top:1px solid var(--line);color:var(--mut);font-size:13.5px}
+
+/* barra de compra e whatsapp */
+.buy{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(21,24,22,.94);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .4s cubic-bezier(.16,1,.3,1);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.buy.on{transform:none}
+.buy .wrap{display:flex;align-items:center;gap:14px;padding-block:10px}
+.buy img{width:44px;height:44px;border-radius:10px;object-fit:cover;flex:none}
+.buy-t{flex:1;min-width:0;line-height:1.25}
+.buy-t b{display:block;font-weight:600;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.buy-t span{display:block;font-size:13px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.buy .btn{min-height:44px;padding:0 20px;font-size:15px}
+.wa{position:fixed;right:18px;bottom:18px;z-index:49;width:56px;height:56px;border-radius:50%;background:#25D366;color:#0b2a16;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(0,0,0,.6);transition:bottom .4s cubic-bezier(.16,1,.3,1),transform .25s}
+.wa:hover{transform:scale(1.06)}
+body.has-buy .wa{bottom:86px}
+
+/* revelar ao rolar: so quando ha JS e sem preferencia por menos movimento */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .plan-top.rv.in{transform:translateY(-12px)}
+
+/* tablet */
+@media (max-width:1000px){
+  .hero-row,.dentro-grid,.dor-grid,.qual-grid,.autor-grid,.bonus-grid,.faq-grid{grid-template-columns:minmax(0,1fr)}
+  .hero-cover,.vid{justify-self:start}
+  .hero-cover{max-width:480px;margin-top:8px}
+  .dor-grid h2,.faq-grid h2{position:static}
+  .plans{grid-template-columns:minmax(0,1fr)}
+  .plan{flex-direction:row}
+  .plan-media{aspect-ratio:auto;flex:0 0 38%}
+  .plan-top{transform:none;order:-1}
+  .js .plan-top.rv.in{transform:none}
+  .foot-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .foot-grid>div:first-child{grid-column:1/-1}
+  .autor figure{max-width:380px}
+}
+/* celular */
+@media (max-width:640px){
+  body{font-size:16.5px}
+  .nums .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .num{padding-left:16px}
+  .num:nth-child(odd){border-left:0;padding-left:0}
+  .num:nth-child(n+3){border-top:1px solid var(--line)}
+  .plan{flex-direction:column}
+  .plan-media{flex:none;aspect-ratio:4/3}
+  .dif-row{grid-template-columns:minmax(0,1fr)}
+  .gar .wrap{grid-template-columns:minmax(0,1fr)}
+  .gar img{order:-1}
+  .foot-grid{grid-template-columns:minmax(0,1fr)}
+  .hero-cta .btn{width:100%}
+  .timer{flex-direction:column;align-items:flex-start}
+  .marq img{height:280px}
+  .top .wrap{gap:8px}
+  .btn{white-space:normal;text-align:center;line-height:1.2;padding-block:12px}
+  .buy .btn{padding:0 14px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .marq-track{animation:none}
+  .marq{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+  .rot{transition:none}
+  .prog{display:none}
+  .btn,.bt-tx,.wa{transition:none}
+}
+</style>
+</head>
+<body>
+<!-- Copia de teste: sem Google Tag, Meta Pixel e Clarity, para nao sujar as metricas da pagina no ar -->
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<div class="prog" aria-hidden="true"></div>
+
+<div class="top">
+  <div class="wrap">
+    <span><b>Black Friday</b> · bônus digitais inclusos, frete grátis e garantia de 7 dias</span>
+    <button class="cupom" id="cupom-btn" type="button" aria-label="Copiar cupom GANHEI10">Cupom <span>GANHEI10</span><span id="cupom-lbl" style="background:transparent;color:var(--mut);padding:3px 8px 3px 0;font-weight:500">copiar</span></button>
+  </div>
+</div>
+
+<main id="conteudo">
+
+<section class="hero" id="topo">
+  <div class="wrap">
+    <p class="eyebrow">Seja Minimalista, o livro de Alexandre Chahoud</p>
+    <h1>O problema não é falta de organização. É&nbsp;excesso de <span class="rot-wrap"><span class="rot" id="rot">coisas.</span></span></h1>
+    <div class="hero-row">
+      <div class="hero-copy">
+        <p class="lead">Exercícios e checklists prontos, para você aplicar desde o primeiro capítulo. Sem radicalismo, sem jogar nada fora por impulso.</p>
+        <div class="hero-cta">
+          <a class="btn btn-acc" href="#versoes">Quero meu exemplar <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6l-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="hero-cover">
+        <picture>
+          <source media="(max-width:720px)" srcset="https://static.wixstatic.com/media/940f31_1838b3822c4641b198bb875a2aeb075e~mv2.avif" type="image/avif">
+          <source media="(min-width:721px)" srcset="https://static.wixstatic.com/media/940f31_eb8f910c5d954e29a62245b38afb8ead~mv2.avif" type="image/avif">
+          <img src="https://static.wixstatic.com/media/940f31_eb8f910c5d954e29a62245b38afb8ead~mv2.avif" alt="Livro Seja Minimalista, guia prático de minimalismo de Alexandre Chahoud" width="474" height="457" fetchpriority="high" loading="eager" decoding="sync">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="nums" aria-label="Números do livro">
+  <div class="wrap">
+    <div class="num"><b>25 mil<i>+</i></b><span>leitores</span></div>
+    <div class="num"><b>150<i>+</i></b><span>páginas de conteúdo prático</span></div>
+    <div class="num"><b>4,9<i>★</i></b><span>avaliação média</span></div>
+    <div class="num"><b>15</b><span>países alcançados</span></div>
+  </div>
+</section>
+
+<section class="dentro">
+  <div class="wrap dentro-grid">
+    <div>
+      <h2 class="rv">O livro Seja Minimalista: checklists, exercícios e nada de teoria chata.</h2>
+      <p class="lead rv">São mais de 150 páginas separadas por área da vida: mente, casa, armário, celular, alimentação e dinheiro. Cada uma com exercício e checklist.</p>
+      <p class="quote rv">“Destralhar aos poucos, sem culpa, no seu ritmo.”</p>
+      <a class="btn btn-line rv" href="#versoes">Quero meu exemplar <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6l-6 6"/></svg></a>
+    </div>
+    <div class="vid rv" id="vid">
+      <video aria-label="Vídeo de apresentação do livro Seja Minimalista" src="https://video.wixstatic.com/video/940f31_f4dfd1313d7a4db088f8d64c25046bda/720p/mp4/file.mp4" preload="none" loop muted playsinline poster="https://static.wixstatic.com/media/940f31_aa1a63c13d8b4026ae6cb6dcb53233ac~mv2.jpg/v1/fill/w_400,h_400,al_c,q_85,enc_auto,quality_auto/seja-min-poster.jpg"></video>
+      <button type="button" aria-label="Reproduzir vídeo"><span id="vid-lb">Toque para assistir</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="dor">
+  <div class="wrap">
+    <div class="dor-grid">
+      <h2 class="rv">Você reconhece algum desses <em class="it">sentimentos</em>?</h2>
+      <ul class="dor-list"><li class="rv"><p>Você chega em casa e, em vez de descansar, sente um incômodo. <strong>A bagunça pesa, mas você não sabe por onde começar.</strong></p></li>
+<li class="rv"><p>Você olha o extrato e <strong>não reconhece metade das compras</strong>. Comprou por impulso, guardou sem usar.</p></li>
+<li class="rv"><p>Você passa horas no celular sem perceber. <strong>Sua atenção parece pertencer a todo mundo, menos a você.</strong></p></li>
+<li class="rv"><p>Sua cabeça não para. <strong>Mesmo descansando, algo parece sempre pendente.</strong></p></li></ul>
+    </div>
+    <p class="virada rv">Você já tentou arrumar. O que falta é <em>tirar.</em></p>
+  </div>
+</section>
+
+<section class="caps">
+  <div class="wrap">
+    <div class="cap-head">
+      <p class="eyebrow">Conteúdo do livro</p>
+      <h2 class="rv">10 capítulos, uma área da sua vida por vez.</h2>
+    </div>
+    <div class="bento">
+<figure class="bt bt-img c1 r1 w2 h2 rv"><img src="https://static.wixstatic.com/media/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_auto,quality_auto/940f31_a6843d48dcaa4476a26f9fab63c3a9b8~mv2.jpg" alt="Interior do livro Seja Minimalista, técnicas de desapego" loading="lazy" decoding="async" width="596" height="387"></figure>
+<div class="bt bt-tx c3 r1 w2 h1 rv"><h3>Menos ruído na cabeça</h3><p>Autoconhecimento e propósito, com menos coisas para carregar mentalmente.</p></div>
+<div class="bt bt-tx c3 r2 w1 h1 rv"><h3>Uma casa que respira</h3><p>Tire a tralha primeiro. A organização vem depois, e sozinha.</p></div>
+<div class="bt bt-tx c4 r2 w1 h1 rv"><h3>Um armário que você usa inteiro</h3><p>Descubra seu estilo e fique com as peças que entram no rodízio.</p></div>
+<figure class="bt bt-img c3 r3 w1 h2 rv"><img src="https://static.wixstatic.com/media/940f31_e70a3c2a95ef46cf89b162c572653a7c~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_auto,quality_auto/940f31_e70a3c2a95ef46cf89b162c572653a7c~mv2.jpg" alt="Interior do livro Seja Minimalista, minimalismo digital" loading="lazy" decoding="async" width="596" height="387"></figure>
+<div class="bt bt-tx c1 r3 w2 h1 bt-acc rv"><h3>Deixar ir sem culpa</h3><p>Técnicas para desapegar do que não faz mais sentido pra você.</p></div>
+<div class="bt bt-tx c4 r3 w1 h1 rv"><h3>Recupere sua atenção</h3><p>Destralhe o celular: apps, notificações e o tempo que some nas redes.</p></div>
+<div class="bt bt-tx c1 r4 w2 h1 rv"><h3>Menos decisão na hora da comida</h3><p>Rotina alimentar mais simples, do supermercado à geladeira.</p></div>
+<figure class="bt bt-img c1 r5 w2 h1 rv"><img src="https://static.wixstatic.com/media/940f31_72043983ba6642888bcb0d31173234a1~mv2.jpg/v1/fill/w_596,h_387,al_c,q_90,enc_auto,quality_auto/940f31_72043983ba6642888bcb0d31173234a1~mv2.jpg" alt="Interior do livro Seja Minimalista, minimalismo mental" loading="lazy" decoding="async" width="596" height="387"></figure>
+<div class="bt bt-tx c4 r4 w1 h1 rv"><h3>Pare de comprar no automático</h3><p>Organize as finanças e veja o impulso aparecer na conta do mês.</p></div>
+<div class="bt bt-tx c3 r5 w2 h1 bt-lift rv"><h3>Viajar com uma mala só</h3><p>O que levar e o que deixar em casa sem passar aperto.</p></div>
+<div class="bt bt-tx c1 r6 w2 h1 rv"><h3>Quando a casa tem mais gente</h3><p>Como aplicar minimalismo com família e filhos, sem virar guerra.</p></div>
+<div class="bt bt-tx c3 r6 w2 h1 rv"><h3>Uma mesa que não pesa</h3><p>Menos coisa no ambiente e menos ruído nas relações de trabalho.</p></div>
+    </div>
+    <div class="cap-cta"><a class="btn btn-acc" href="#versoes">Quero meu exemplar <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6l-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<section class="qual">
+  <div class="wrap qual-grid">
+    <div>
+      <h2 class="rv">Este livro é para você?</h2>
+      <ul class="sim"><li class="rv"><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Você já tentou organizar, e algumas semanas depois a bagunça voltou.</span></li>
+<li class="rv"><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Você quer começar aos poucos, sem esvaziar a casa num fim de semana.</span></li>
+<li class="rv"><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Você prefere um passo a passo a um livro de reflexão.</span></li>
+<li class="rv"><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Você quer fazer sozinho, no seu tempo, sem curso nem grupo.</span></li></ul>
+      <a class="btn btn-acc" href="#versoes">Esse sou eu, quero meu exemplar <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6l-6 6"/></svg></a>
+    </div>
+    <div class="nao rv">
+      <h3>Não é para você se:</h3>
+      <ul><li><svg class="ck x" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg><span>Você procura minimalismo radical, de morar com 30 objetos.</span></li>
+<li><svg class="ck x" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg><span>Você quer resultado sem fazer os exercícios.</span></li>
+<li><svg class="ck x" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg><span>Você já vive com pouco e busca teoria sobre o assunto.</span></li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="dif">
+  <div class="wrap">
+    <h2 class="rv">Feito para você não parar na segunda semana.</h2>
+    <div class="dif-row rv"><h3>O que fazer primeiro</h3><p>Cada capítulo abre onde o anterior parou. Você não perde tempo decidindo por onde começar.</p></div>
+<div class="dif-row rv"><h3>Sem maratona de fim de semana</h3><p>Um capítulo por vez. Dá pra parar por semanas e retomar sem perder o fio.</p></div>
+<div class="dif-row rv"><h3>Fica com você</h3><p>Comprou, é seu. Não expira, não precisa de plataforma.</p></div>
+    <a class="btn btn-line" href="#versoes">Quero meu exemplar <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6l-6 6"/></svg></a>
+  </div>
+</section>
+
+<section class="autor">
+  <div class="wrap autor-grid">
+    <figure class="rv">
+      <img src="https://static.wixstatic.com/media/940f31_49f56ef051ba45f3b106dce993ef899d~mv2.webp/v1/fill/w_440,h_636,al_c,q_90,enc_auto,quality_auto/alexandre.webp" alt="Alexandre Chahoud, autor minimalista e criador do Seja Minimalista" loading="lazy" decoding="async" width="440" height="636">
+      <figcaption><b>Alexandre Chahoud</b>Autor de Seja Minimalista</figcaption>
+    </figure>
+    <div>
+      <p class="eyebrow">Sobre o autor</p>
+      <h2 class="rv">Quem está por trás do Seja Minimalista</h2>
+      <p class="rv">Em 2014, eu olhei para o meu apartamento e percebi que tinha me tornado refém das coisas que eu acumulava. Roupas que nunca usava, objetos que "poderiam ser úteis um dia", uma vida cheia de barulho. Foi quando decidi mudar. Não de uma vez, mas aos poucos. Uma escolha de cada vez.</p>
+      <p class="rv">Desde então, compartilho com mais de <strong>200 mil pessoas no Instagram</strong> o que funcionou comigo. Seja Minimalista foi meu primeiro livro e continua sendo o que eu indico para quem está começando.</p>
+      <div class="press"><small>Já falaram sobre o meu trabalho:</small><span>SBT</span><span>UOL</span><span>Vida Simples</span><span>Revista Claudia</span><span>Gama</span><span>Hype</span><span>O Povo</span></div>
+      <a class="btn btn-line" href="#versoes">Quero meu exemplar <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6l-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="dep">
+  <div class="wrap">
+    <div class="dep-head">
+      <h2 class="rv">Mais de 25 mil pessoas já <em class="it">escolheram viver diferente.</em></h2>
+      <p>Leitores de 15 países. Histórias reais. Vidas um pouco mais leves.</p>
+    </div>
+  </div>
+  <div class="marq" aria-label="Fotos de leitores compartilhando o livro nos Stories"><div class="marq-track" id="marq-track"></div></div>
+  <div class="wrap">
+    <div class="tsc" tabindex="0" aria-label="Depoimentos de leitores">
+<figure class="tc tc-big rv">
+  <p class="stars" aria-label="5 estrelas">★★★★★</p>
+  <blockquote>Eu comprava por impulso e guardava tudo achando que ia usar um dia. Depois do livro, antes de comprar ou guardar qualquer coisa, eu me pergunto se aquilo realmente importa, e minha casa (e meu cartão de crédito) sentiram a diferença.</blockquote>
+  <figcaption><strong>Camila R.</strong><span>São Paulo, SP</span><em>Combo Físico + Digital</em></figcaption>
+</figure>
+<figure class="tc rv">
+  <p class="stars" aria-label="5 estrelas">★★★★★</p>
+  <blockquote>Comecei pela casa, mas o minimalismo foi chegando em tudo. Hoje tenho menos coisa, mas mais espaço para o que importa de verdade.</blockquote>
+  <figcaption><strong>Marcelo F.</strong><span>Curitiba, PR</span><em>Livro Físico</em></figcaption>
+</figure>
+<figure class="tc rv">
+  <p class="stars" aria-label="5 estrelas">★★★★★</p>
+  <blockquote>Eu já tinha lido outros livros de organização e desistia no meio, cheios de regra difícil de seguir. Esse eu terminei em uma semana e apliquei os checklists no mesmo fim de semana, sem frescura, sem culpa.</blockquote>
+  <figcaption><strong>Ana Paula T.</strong><span>Porto Alegre, RS</span><em>Livro Digital</em></figcaption>
+</figure>
+<figure class="tc rv">
+  <p class="stars" aria-label="5 estrelas">★★★★★</p>
+  <blockquote>Eu tomava decisão de compra no impulso e me arrependia depois. O livro me deu um jeito simples de parar e perguntar "isso é uma escolha ou um impulso?" antes de comprar, e isso cortou minhas compras por impulso quase pela metade.</blockquote>
+  <figcaption><strong>Renata M.</strong><span>Belo Horizonte, MG</span><em>Livro Digital</em></figcaption>
+</figure>
+<figure class="tc rv">
+  <p class="stars" aria-label="5 estrelas">★★★★★</p>
+  <blockquote>Minha mãe sempre disse que não conseguia se desfazer de nada, nem do que não usava há anos. Dei o livro de presente e ela está na segunda releitura, já doou duas caixas de roupa que estavam só ocupando espaço no armário.</blockquote>
+  <figcaption><strong>Larissa K.</strong><span>Florianópolis, SC</span><em>Combo Físico + Digital</em></figcaption>
+</figure>
+<figure class="tc rv">
+  <p class="stars" aria-label="5 estrelas">★★★★★</p>
+  <blockquote>Morando fora, com mala de 23kg de limite, eu aprendi na marra o que era essencial. O livro me ajudou a levar esse mesmo raciocínio pra casa, pro guarda-roupa e pras finanças, não só pra viagem.</blockquote>
+  <figcaption><strong>Gustavo N.</strong><span>Lisboa, Portugal</span><em>Livro Digital</em></figcaption>
+</figure>
+<figure class="tc rv">
+  <p class="stars" aria-label="5 estrelas">★★★★★</p>
+  <blockquote>Minha rotina agitada sempre foi desculpa pra não organizar nada. Nas primeiras semanas apliquei os checklists de casa e de finanças, e virou hábito. Hoje releio o livro a cada trimestre pra revisar o que mudou.</blockquote>
+  <figcaption><strong>Felipe A.</strong><span>Recife, PE</span><em>Livro Físico</em></figcaption>
+</figure>
+<figure class="tc rv">
+  <p class="stars" aria-label="5 estrelas">★★★★★</p>
+  <blockquote>Tinha resistência ao minimalismo, achava que era coisa de quem não gosta de viver bem. Hoje entendi que é o contrário: sobrou dinheiro no fim do mês e tempo que eu gastava cuidando de coisa que eu nem usava.</blockquote>
+  <figcaption><strong>Juliana C.</strong><span>Salvador, BA</span><em>Livro Físico</em></figcaption>
+</figure>
+    </div>
+    <div class="dep-cta"><p>A sua história pode ser a próxima.</p><a class="btn btn-acc" href="#versoes">Sim, quero começar agora <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6l-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<section class="bonus" id="bonus">
+  <div class="wrap bonus-grid">
+    <div>
+      <p class="eyebrow">O que vem junto</p>
+      <h2 class="rv">Acesso à Área VIP + 4 bônus digitais</h2>
+      <div class="zero rv"><span class="old">R$ 143</span><span class="new">R$ 0,00</span><p>Os 4 bônus juntos valem R$ 143. Hoje você paga R$ 0,00 por eles.</p></div>
+      <ul class="bn"><li class="rv"><span class="bn-t">Ebook: 50 dicas para implementar o minimalismo em sua vida</span><span class="bn-v">Valor: R$ 47</span></li>
+<li class="rv"><span class="bn-t">Planner digital permanente pronto para impressão</span><span class="bn-v">Valor: R$ 27</span></li>
+<li class="rv"><span class="bn-t">Videoaula: Método dos Envelopes</span><span class="bn-v">Valor: R$ 47</span></li>
+<li class="rv"><span class="bn-t">Exercícios extras e técnicas especiais</span><span class="bn-v">Valor: R$ 22</span></li></ul>
+    </div>
+    <div class="vip rv">
+      <img src="https://static.wixstatic.com/media/940f31_05fb396bf8cd4739908671d71fba4773~mv2.png/v1/fill/w_1200,h_800,al_c,q_90,enc_auto,quality_auto/area-vip.png" alt="Área VIP Seja Minimalista" loading="lazy" decoding="async" width="1200" height="800">
+      <div><h3>Os bônus acima são apenas uma parte do que você recebe.</h3><p>Na Área VIP você também acessa materiais extras exclusivos que não estão listados aqui: planners, exercícios, videoaulas e desafios complementares.</p></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="preco-dia rv"><b>R$ 0,21</b><span>por dia no primeiro ano de leitura</span><p><strong>Um pagamento único, sem mensalidade.</strong> Você lê, aplica, guarda e volta quando precisar recomeçar.</p></div>
+  </div>
+</section>
+
+<section class="precos" id="versoes">
+  <div class="wrap">
+    <div class="precos-head">
+      <p class="eyebrow">Escolha sua versão</p>
+      <h2 class="rv">Livro Seja Minimalista em PDF (digital), físico ou os dois.</h2>
+    </div>
+    <div class="timer rv">
+      <div class="timer-t"><h3>Os bônus são liberados para quem comprar enquanto esta página estiver ativa.</h3><p>Quando a oferta encerrar, o livro continua disponível, mas os bônus digitais (R$ 143 no total) podem não ser mais inclusos. Garanta o seu agora com tudo incluso.</p></div>
+      <div class="cd" role="timer" aria-label="Tempo restante da oferta"><div><b id="cd-h">00</b><small>horas</small></div><i>:</i><div><b id="cd-m">00</b><small>min</small></div><i>:</i><div><b id="cd-s">00</b><small>seg</small></div></div>
+    </div>
+    <p class="cupom-note" id="cupom-note" role="status" aria-live="polite">Cupom GANHEI10 copiado. Cole no carrinho para 10% de desconto.</p>
+    <div class="plans">
+
+<article class="plan rv" id="versao-digital">
+  <div class="plan-media"><img src="https://static.wixstatic.com/media/940f31_1d7cb94e5cb44938818f79f4a7333c79~mv2.jpg/v1/crop/x_0,y_4,w_550,h_342/fill/w_550,h_342,al_c,q_90,usm_0.66_1.00_0.01,enc_auto,quality_auto/Design%20sem%20nome%20(6).jpg" alt="Seja Minimalista versão digital" loading="lazy" decoding="async" width="560" height="420"></div>
+  <div class="plan-body">
+    <p class="plan-badge">Mais acessível</p>
+    <h3 class="plan-name">Livro Digital</h3>
+    <p class="plan-was">De R$ 97,00</p>
+    <p class="plan-parc">12x de R$ 7,96</p>
+    <p class="plan-now">ou R$ 77 à vista</p>
+    <ul class="plan-feats"><li class=""><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Área VIP e bônus inclusos</span></li>
+<li class=""><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Receba imediatamente no e&#8209;mail</span></li>
+<li class=""><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Alta resolução, PDF</span></li>
+<li class=""><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Celular, Kindle ou tablet</span></li>
+<li class=""><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Disponível para o mundo todo</span></li>
+<li class="no"><svg class="ck x" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg><span>Livro físico</span></li></ul>
+    <a class="btn btn-line" href="https://chk.eduzz.com/909488?pf=1" target="_blank" rel="noopener">Quero Livro Digital + Bônus</a>
+    <p class="plan-note">Acesso imediato após o pagamento</p>
+  </div>
+</article>
+<article class="plan rv" id="versao-fisica">
+  <div class="plan-media"><img src="https://static.wixstatic.com/media/940f31_48251b9f7e3d4e498e290a45765efed1~mv2.webp/v1/fill/w_756,h_616,al_c,q_90,usm_0.66_1.00_0.01,enc_auto,quality_auto/design-sem-nome-4.webp" alt="Seja Minimalista versão física" loading="lazy" decoding="async" width="560" height="420"></div>
+  <div class="plan-body">
+    <p class="plan-badge">Ideal para presentear</p>
+    <h3 class="plan-name">Livro Físico + Frete Grátis</h3>
+    <p class="plan-was">De R$ 147,00</p>
+    <p class="plan-parc">12x de R$ 11,07</p>
+    <p class="plan-now">ou R$ 107 à vista</p>
+    <ul class="plan-feats"><li class=""><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Área VIP e bônus inclusos</span></li>
+<li class=""><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Mais de 150 páginas</span></li>
+<li class=""><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Embalado com carinho</span></li>
+<li class=""><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Enviado pelos Correios</span></li>
+<li class=""><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Frete grátis para todo o Brasil</span></li>
+<li class="no"><svg class="ck x" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg><span>Livro digital</span></li></ul>
+    <a class="btn btn-line" href="https://chk.eduzz.com/1046549?pf=1" target="_blank" rel="noopener">Quero Livro Físico + Bônus</a>
+    <p class="plan-note">Frete grátis para todo o Brasil</p>
+  </div>
+</article>
+<article class="plan plan-top rv" id="versao-combo">
+  <div class="plan-media"><img src="https://static.wixstatic.com/media/940f31_bfc64a777ef14b77be5f7bd80ffc2a9f~mv2.avif/v1/fill/w_800,h_744,al_c,q_90,enc_auto,quality_auto/combo.avif" alt="Seja Minimalista combo digital + físico" loading="lazy" decoding="async" width="560" height="420"></div>
+  <div class="plan-body">
+    <p class="plan-badge">Melhor custo-benefício · 40% OFF</p>
+    <h3 class="plan-name">Combo: Digital + Físico + Frete Grátis</h3>
+    <p class="plan-was">De R$ 244,00</p>
+    <p class="plan-parc">12x de R$ 15,20</p>
+    <p class="plan-now">ou R$ 147 à vista</p>
+    <ul class="plan-feats"><li class=""><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Área VIP e bônus inclusos</span></li>
+<li class=""><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Digital imediato ao comprar</span></li>
+<li class=""><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Livro físico, mais de 150 páginas</span></li>
+<li class=""><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Embalado com carinho</span></li>
+<li class=""><svg class="ck" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span>Frete grátis para todo o Brasil</span></li></ul>
+    <a class="btn btn-acc" href="https://chk.eduzz.com/1804864?pf=1" target="_blank" rel="noopener">Quero Combo + Bônus</a>
+    <p class="plan-note">Digital agora + físico em sua casa</p>
+  </div>
+</article>
+    </div>
+    <p class="pagto">Pagamento processado pela Eduzz, plataforma usada por mais de 1 milhão de compradores no Brasil · Cartão, Pix ou boleto</p>
+  </div>
+</section>
+
+<section class="gar">
+  <div class="wrap">
+    <div>
+      <h2 class="rv">Se por qualquer motivo você não gostar, <em>devolvo tudo.</em></h2>
+      <p class="rv">Garantia incondicional de 7 dias. É só me avisar, sem formulário complicado, sem pergunta, sem demora. Você recebe 100% do valor de volta. Simples assim, porque eu confio no que escrevi.</p>
+    </div>
+    <img src="https://static.wixstatic.com/media/940f31_2238519206f84174b27a8634cc582ab0~mv2.png/v1/fill/w_180,h_180,al_c,q_90,enc_auto,quality_auto/garantia.png" alt="Garantia de 7 dias Seja Minimalista" loading="lazy" decoding="async" width="180" height="180">
+  </div>
+</section>
+
+<section class="faq-sec">
+  <div class="wrap faq-grid">
+    <h2 class="rv">Perguntas sobre o livro Seja Minimalista</h2>
+    <div><details class="faq"><summary>Seja Minimalista é para quem está começando do zero?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a">Sim, foi escrito exatamente para isso. Não assume nenhum conhecimento prévio sobre minimalismo. A linguagem é simples, direta e sem jargões. Se você nunca leu nada sobre o tema, este é o melhor ponto de partida.</div></details>
+<details class="faq"><summary>Como o livro é diferente de conteúdo gratuito sobre minimalismo?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a">O livro tem uma estrutura pensada do início ao fim, com exercícios práticos e checklists que você preenche. Não é um artigo que você lê e esquece, é um guia que você aplica e consulta quantas vezes quiser. A profundidade e a organização fazem toda a diferença.</div></details>
+<details class="faq"><summary>Preciso ser radical ou me desfazer de tudo?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a">Absolutamente não. O livro ensina minimalismo como estilo de vida adaptado à sua realidade. Sem extremismos, sem abrir mão do que você ama. A ideia é manter só o que tem valor real para você.</div></details>
+<details class="faq"><summary>O livro digital funciona no Kindle?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a">Sim, funciona perfeitamente no Kindle via cabo USB. Na Área VIP há um tutorial em vídeo com o passo a passo completo.</div></details>
+<details class="faq"><summary>Quando recebo meu livro digital?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a">Comprando por cartão ou Pix, você recebe imediatamente no seu e-mail. Por boleto, em até 3 dias úteis após a compensação.</div></details>
+<details class="faq"><summary>Funciona para quem tem casa grande, filhos, rotina agitada?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a">Funciona para qualquer realidade. O guia cobre diferentes áreas da vida e você aplica no seu ritmo, começando por onde faz mais sentido pra você: casa, roupas, digital, finanças.</div></details>
+<details class="faq"><summary>Posso parcelar a compra?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a">Sim. O pagamento por cartão de crédito pode ser parcelado em até 12x. O digital chega imediatamente após a confirmação e o físico é despachado após o processamento do pagamento.</div></details>
+<details class="faq"><summary>Como rastreio o livro físico?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a">Assim que despachado, você recebe o código de rastreio dos Correios no seu e-mail. Frete grátis para todo o Brasil.</div></details>
+<details class="faq"><summary>E se eu comprar e não conseguir aplicar?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a">O livro foi desenhado pra evitar exatamente isso: cada capítulo já vem com exercício e checklist prontos, você não precisa criar um plano do zero. E com a garantia de 7 dias, se sentir que não é pra você, é só avisar.</div></details>
+<details class="faq"><summary>É seguro comprar pelo link de pagamento?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a">Sim. O pagamento é processado pela Eduzz, uma das maiores plataformas de pagamento digital do Brasil, com criptografia de dados e nota fiscal emitida automaticamente.</div></details></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2 class="rv">Mais um dia no automático, ou o começo de uma vida mais leve?</h2>
+    <a class="btn btn-acc" href="#versoes">Sim, quero começar agora <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6l-6 6"/></svg></a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img class="logo" src="https://static.wixstatic.com/media/940f31_64ea155fc0b8427e898318695ef5ad7e~mv2.png/v1/crop/x_44,y_0,w_906,h_187/fill/w_260,h_54,al_c,q_90,enc_auto,quality_auto/logo.png" alt="Seja Minimalista" loading="lazy" width="260" height="54">
+        <p>Para uma vida mais leve e mais feliz.<br>© 2026. Todos os direitos reservados.</p>
+        <a class="btn btn-line" href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener noreferrer">Seguir no Instagram</a>
+      </div>
+      <div>
+        <h3>Links úteis</h3>
+        <nav>
+          <a href="https://sejaminimalista.com.br/produtos" target="_blank" rel="noopener">Todos os meus produtos</a>
+          <a href="https://sejaminimalista.com.br/365-dias/" target="_blank" rel="noopener">365 Dias Minimalistas</a>
+          <a href="https://sejaminimalista.com.br/combos" target="_blank" rel="noopener">Combos com desconto</a>
+          <a href="https://www.sejaminimalista.net/vip/entrar" target="_blank" rel="noopener">Área VIP</a>
+          <a href="https://chat.whatsapp.com/FnNU3DpCCXz3iGtkLH6qbR?s=cl&amp;p=a&amp;ilr=1" target="_blank" rel="noopener">Comunidade no Whatsapp</a>
+          <a href="mailto:sejaminimalista@hotmail.com">Fale comigo</a>
+        </nav>
+      </div>
+      <div>
+        <h3>Newsletter gratuita</h3>
+        <p style="margin-bottom:12px">Reflexões e práticas minimalistas gratuitas direto no seu e-mail, toda semana.</p>
+        <iframe src="https://sejaminimalista.substack.com/embed?transparent=1&amp;light=1" loading="lazy" scrolling="no" title="Newsletter Seja Minimalista"></iframe>
+      </div>
+    </div>
+    <p class="foot-end">Seja Minimalista: O guia para uma vida mais leve e mais feliz. ISBN 9786500978148. Alexandre Chahoud</p>
+  </div>
+</footer>
+
+<div class="buy" id="buy" aria-hidden="false">
+  <div class="wrap">
+    <img src="https://static.wixstatic.com/media/940f31_48251b9f7e3d4e498e290a45765efed1~mv2.webp/v1/fill/w_120,h_120,al_c,q_85,enc_auto,quality_auto/thumb.jpg" alt="" width="44" height="44" loading="lazy" decoding="async">
+    <div class="buy-t"><b>Livro Seja Minimalista</b><span>3 versões: digital, físico e combo</span></div>
+    <a class="btn btn-acc" href="#versao-fisica">Quero meu exemplar</a>
+  </div>
+</div>
+
+<a href="https://wa.me/5516991065984?text=Oi%2C%20tenho%20algumas%20d%C3%BAvidas%20sobre%20o%20livro%20Seja%20Minimalista." class="wa" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="28" height="28" fill="currentColor"> <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/> </svg></a>
+
+<script>
+(function(){
+  var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* revelar ao rolar (mostra a hierarquia: o que entra primeiro e o que vem depois) */
+  var rv = document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window && !reduced){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    rv.forEach(function(el,i){ el.style.transitionDelay=((i%4)*60)+'ms'; io.observe(el); });
+  } else { rv.forEach(function(el){ el.classList.add('in'); }); }
+
+  /* palavra girando */
+  (function(){
+    var words=['coisas.','roupas.','tela.','gastos.','decisão.','barulho.'];
+    var el=document.getElementById('rot'); var wrap=el&&el.closest('.rot-wrap'); if(!el||!wrap) return; var i=0;
+    function lock(){
+      var cs=getComputedStyle(el), box=document.createElement('div');
+      box.style.cssText='position:absolute;visibility:hidden;white-space:nowrap;font-family:'+cs.fontFamily+';font-size:'+cs.fontSize+';font-weight:'+cs.fontWeight+';letter-spacing:'+cs.letterSpacing;
+      var spans=words.map(function(w){var s=document.createElement('span');s.style.cssText='display:block;width:max-content';s.textContent=w;box.appendChild(s);return s;});
+      document.body.appendChild(box); var max=0; spans.forEach(function(s){max=Math.max(max,s.getBoundingClientRect().width)}); document.body.removeChild(box);
+      wrap.style.width=Math.ceil(max)+'px';
+    }
+    lock(); if(document.fonts&&document.fonts.ready){document.fonts.ready.then(lock);}
+    var t; addEventListener('resize',function(){clearTimeout(t);t=setTimeout(lock,150)});
+    if(reduced) return;
+    setInterval(function(){ el.classList.add('is-out'); setTimeout(function(){ i=(i+1)%words.length; el.textContent=words[i]; el.classList.remove('is-out'); },350); },1600);
+  })();
+
+  /* cupom */
+  var codigo='GANHEI10', btnC=document.getElementById('cupom-btn'), lbl=document.getElementById('cupom-lbl'), note=document.getElementById('cupom-note');
+  function feedback(ok){ if(lbl){ lbl.textContent=ok?'copiado':'anote'; setTimeout(function(){lbl.textContent='copiar'},2400);} if(note&&ok){note.classList.add('on');} }
+  function velha(){ try{var t=document.createElement('textarea');t.value=codigo;t.setAttribute('readonly','');t.style.cssText='position:fixed;opacity:0';document.body.appendChild(t);t.select();var ok=document.execCommand('copy');document.body.removeChild(t);return ok;}catch(e){return false;} }
+  if(btnC){ btnC.addEventListener('click',function(){
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(codigo).then(function(){feedback(true)}).catch(function(){feedback(velha())}); }
+    else { feedback(velha()); }
+  }); }
+
+  /* cronometro (mesma chave da pagina no ar) */
+  (function(){
+    var KEY='sm_deadline', st=null; try{st=localStorage.getItem(KEY);}catch(e){}
+    var dl=(st&&!isNaN(parseInt(st,10)))?parseInt(st,10):Date.now()+(23*3600+59*60+59)*1000;
+    try{localStorage.setItem(KEY,dl);}catch(e){}
+    function pad(n){return String(n).padStart(2,'0')}
+    function tick(){
+      var d=dl-Date.now(); if(d<=0){dl=Date.now()+(23*3600+59*60+59)*1000;try{localStorage.setItem(KEY,dl);}catch(e){} d=dl-Date.now();}
+      var h=document.getElementById('cd-h'),m=document.getElementById('cd-m'),s=document.getElementById('cd-s');
+      if(h){h.textContent=pad(Math.floor(d/3600000));m.textContent=pad(Math.floor(d%3600000/60000));s.textContent=pad(Math.floor(d%60000/1000));}
+      setTimeout(tick,1000);
+    } tick();
+  })();
+
+  /* video: toca sem som quando aparece, toque pausa e retoma */
+  (function(){
+    var box=document.getElementById('vid'); if(!box) return; var v=box.querySelector('video'), b=box.querySelector('button'), lb=document.getElementById('vid-lb');
+    function sync(){ var p=!v.paused; box.classList.toggle('playing',p); b.setAttribute('aria-label',p?'Pausar vídeo':'Reproduzir vídeo'); lb.textContent=p?'Toque para pausar':'Toque para assistir'; }
+    b.addEventListener('click',function(){ if(v.paused){v.play().then(sync).catch(sync);} else {v.pause();sync();} });
+    v.addEventListener('play',sync); v.addEventListener('pause',sync);
+    if('IntersectionObserver' in window && !reduced){
+      new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting&&e.intersectionRatio>.55){ v.play().catch(function(){}); } else if(!e.isIntersecting){ v.pause(); } }); },{threshold:[0,.55]}).observe(box);
+    }
+  })();
+
+  /* fotos de leitores: lista vem do stories.json da pasta */
+  (function(){
+    var tr=document.getElementById('marq-track'); if(!tr) return;
+    fetch('/depoimentos-fotos/stories.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(list){
+      if(!Array.isArray(list)||!list.length) return;
+      function add(){ list.forEach(function(f,i){ var im=new Image(); im.src='/depoimentos-fotos/'+encodeURIComponent(f); im.alt='Foto de uma leitora compartilhando o livro nos Stories'; im.loading='lazy'; im.decoding='async'; im.width=191; im.height=340; tr.appendChild(im); }); }
+      add(); if(!reduced){ add(); }
+    }).catch(function(){ var m=document.querySelector('.marq'); if(m) m.hidden=true; });
+  })();
+
+  /* barra de compra: aparece depois do topo e some na area de precos */
+  (function(){
+    var bar=document.getElementById('buy'), hero=document.getElementById('topo'), pr=document.getElementById('versoes'); if(!bar||!('IntersectionObserver' in window)) return;
+    var heroOut=false, prIn=false;
+    function upd(){ var on=heroOut&&!prIn; bar.classList.toggle('on',on); document.body.classList.toggle('has-buy',on); }
+    new IntersectionObserver(function(es){heroOut=!es[0].isIntersecting;upd()}).observe(hero);
+    new IntersectionObserver(function(es){prIn=es[0].isIntersecting;upd()},{threshold:.05}).observe(pr);
+  })();
+})();
+</script>
+</body>
+</html>
