@@ -2475,6 +2475,13 @@ html[data-tema="black-friday"] .urgency-section{border-top:1px solid var(--tema-
 }
 @media(max-width:999px){.precos::before,.precos::after{width:340px;height:228px;}.precos::before{left:-170px;}.precos::after{right:-170px;}}
 </style>
+<style id="cards-sem-arredondado">
+/* desktop e tablet: cards de preco com cantos retos (imagem sem borda arredondada) */
+@media(min-width:721px){
+  .pc,.pc.dest{border-radius:0;}
+  .pc-img,.pc>.dest-badge{border-radius:0;}
+}
+</style>
 </head>
 <body>
 
