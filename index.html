@@ -1627,6 +1627,15 @@ p,.sec-p,.t-text,.faq-a-inner,.cap-desc,.dif-desc,.qual-text{text-wrap:pretty;}
 .cap-icon-badge svg{width:30px;height:30px;stroke-width:1.2;}
 @media(max-width:720px){.agit-item{gap:16px;}.agit-icon-badge{padding-right:16px;}.agit-icon-badge svg{width:26px;height:26px;}.cap-icon-badge svg{width:28px;height:28px;}}
 </style>
+<style id="legenda-carrossel">
+/* legenda do carrossel igual a do 365 Dias: sem lupa, mesmo tamanho de fonte */
+.car-cap,.content-preview .car-cap{display:block;font-size:14px;line-height:1.6;padding:8px 20px 18px;}
+@media(max-width:720px){.car-cap,.content-preview .car-cap{font-size:15px;padding:12px 14px 18px;}}
+/* as imagens novas do carrossel sao mais altas (cerca de 1,48:1): o quadro acompanha a proporcao e os pontos ficam abaixo da foto */
+.car-slide{aspect-ratio:1038/700;}
+.car-slide img{height:100%;object-fit:cover;}
+@media(max-width:720px){.content-preview .car-slide{padding-top:67.44%!important;}}
+</style>
 </head>
 <body>
 <noscript><img height="1" width="1" style="display:none"
@@ -1807,7 +1816,7 @@ src="https://www.facebook.com/tr?id=239605191106043&amp;ev=PageView&amp;noscript
         <button class="cdot" onclick="slideTo(6)" aria-label="Ir para imagem 7 do carrossel"></button>
         <button type="button" class="car-pause" id="car-pause" aria-label="Pausar a troca automática das imagens" aria-pressed="false"><svg class="i-pause" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" rx=".6"/><rect x="7.4" y="1.5" width="2.6" height="9" rx=".6"/></svg><svg class="i-play" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 1.8v8.4a.6.6 0 0 0 .9.5l6.6-4.2a.6.6 0 0 0 0-1L3.9 1.3a.6.6 0 0 0-.9.5Z"/></svg></button>
       </div>
-      <div class="car-cap"><svg class="car-cap-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l4.5 4.5"/><path d="M8.5 10.5h4M10.5 8.5v4"/></svg>Fotos das páginas reais do livro</div>
+      <div class="car-cap">O livro possui <strong>duas versões</strong> (digital e física), <strong>150 páginas</strong>, conteúdo fácil e prático.</div>
     </div>    </div>
 
     <div class="cap-grid anim-up d1">
