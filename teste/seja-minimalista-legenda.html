@@ -1577,6 +1577,10 @@ p,.sec-p,.t-text,.faq-a-inner,.cap-desc,.dif-desc,.qual-text{text-wrap:pretty;}
 /* legenda do carrossel igual a do 365 Dias: sem lupa, mesmo tamanho de fonte */
 .car-cap,.content-preview .car-cap{display:block;font-size:14px;line-height:1.6;padding:8px 20px 18px;}
 @media(max-width:720px){.car-cap,.content-preview .car-cap{font-size:15px;padding:12px 14px 18px;}}
+/* as imagens novas do carrossel sao mais altas (cerca de 1,48:1): o quadro acompanha a proporcao e os pontos ficam abaixo da foto */
+.car-slide{aspect-ratio:1038/700;}
+.car-slide img{height:100%;object-fit:cover;}
+@media(max-width:720px){.content-preview .car-slide{padding-top:67.44%!important;}}
 </style>
 </head>
 <body>
