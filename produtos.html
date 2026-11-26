@@ -28,6 +28,7 @@
 <meta name="twitter:title" content="Todos os Produtos | Seja Minimalista">
 <meta name="twitter:description" content="Explore toda a linha Seja Minimalista: guias práticos, planners, devocionais e agendas para uma vida mais leve, organizada e com propósito.">
 <meta name="twitter:image" content="https://static.wixstatic.com/media/940f31_9838f95851d04fae89e45d43a6fe0e09~mv2.jpg">
+
 <link rel="canonical" href="https://sejaminimalista.com.br/produtos">
 <link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://static.wixstatic.com">
@@ -137,6 +138,11 @@ body{font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-seri
 .footer-links h3,.footer-news h3{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
 .footer-links a{display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;}
 .footer-links a:hover{color:var(--gold);}
+.footer-sobre{display:block;margin-top:14px;font-size:13px;color:#D8D8D4;text-decoration:underline;text-decoration-color:rgba(201,169,110,.5);text-underline-offset:4px;}
+.footer-sobre:hover{color:var(--gold);}
+.footer-legal{display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:12px}
+.footer-legal a{font-size:11.5px;color:#B8B6AF;text-decoration:none}
+.footer-legal a:hover{color:var(--gold)}
 .footer-divider{margin-top:36px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:#8A8A86;max-width:1100px;margin-left:auto;margin-right:auto;}
 .footer .btn-gold{background:var(--gold);color:#1C1C1A;border-radius:999px;font-weight:700;letter-spacing:.02em;transition:filter .2s ease,transform .2s ease;}
 .footer .btn-gold:hover{filter:brightness(1.08);transform:translateY(-1px);}
@@ -181,11 +187,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <header class="site-header">
   <a class="logo" href="https://sejaminimalista.com.br/"><img src="https://static.wixstatic.com/media/940f31_64ea155fc0b8427e898318695ef5ad7e~mv2.png/v1/crop/x_44,y_0,w_906,h_187/fill/w_260,h_54,al_c,q_90,enc_avif,quality_auto/logo.png" alt="Seja Minimalista" width="130" height="27" loading="eager" decoding="async"></a>
   <nav class="header-nav">
-    <a href="https://sejaminimalista.com.br/">Início</a>
     <a href="https://sejaminimalista.com.br/combos">Combos</a>
     <a href="https://sejaminimalista.com.br/monte-seu-combo">Monte seu combo</a>
     <a href="https://www.sejaminimalista.net/vip/entrar">Área VIP</a>
-    <a href="mailto:sejaminimalista@hotmail.com">Contato</a>
+    <a href="https://sejaminimalista.com.br/sobre">Sobre</a>
+    <a href="https://sejaminimalista.com.br/contato">Contato</a>
   </nav>
 </header>
 
@@ -203,7 +209,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <button class="filter-btn" onclick="filterProducts('planner',this)" aria-pressed="false">Planners</button>
   <button class="filter-btn" onclick="filterProducts('agenda',this)" aria-pressed="false">Agendas</button>
   <button class="filter-btn" onclick="filterProducts('devocional',this)" aria-pressed="false">Devocional</button>
-  <button class="filter-btn" onclick="filterProducts('digital',this)" aria-pressed="false">Digital</button>
+  <button class="filter-btn" onclick="filterProducts('digital',this)" aria-pressed="false">Cursos</button>
 </div>
 
 <!-- PRODUTOS -->
@@ -211,18 +217,32 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <h2 class="visually-hidden">Lista de produtos</h2>
   <div class="products-grid" id="products-grid">
 
-    <!-- Minimalize.IA -->
-    <div class="prod-card featured" data-cat="digital">
+    <!-- O Manual do Ansioso (lançamento) -->
+    <div class="prod-card featured" data-cat="livro">
       <div class="prod-card-img">
-        <img src="https://static.wixstatic.com/media/940f31_72a8a2628b3c4b55a6ac43905e3c9853~mv2.png" alt="Minimalize.IA: Destralhe e organize sua casa com IA" loading="eager" fetchpriority="high" decoding="async">
+        <img src="https://static.wixstatic.com/media/940f31_c9588452fec1492e9788f7c28fb957d6~mv2.webp" alt="Capa do livro O Manual do Ansioso, de Alexandre Chahoud" width="640" height="480" loading="eager" fetchpriority="high" decoding="async">
         <div class="prod-badge novo">Lançamento</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Livro · Digital</div>
+        <h3 class="prod-name">O Manual do Ansioso: pequenas ferramentas para quando a cabeça não desliga</h3>
+        <div class="prod-desc">Livro ilustrado e bem-humorado com explicações acessíveis e ferramentas práticas para entender a ansiedade e lidar melhor com os pensamentos do dia a dia.</div>
+        <div class="prod-price">a partir de <strong>R$ 47</strong> · Digital (PDF)</div>
+        <a class="prod-cta gold" href="https://sejaminimalista.com.br/ansioso">Conhecer →</a>
+      </div>
+    </div>
+
+    <!-- Minimalize.IA -->
+    <div class="prod-card" data-cat="digital">
+      <div class="prod-card-img">
+        <img src="https://static.wixstatic.com/media/940f31_72a8a2628b3c4b55a6ac43905e3c9853~mv2.png" alt="Minimalize.IA: Destralhe e organize sua casa com IA" loading="lazy" decoding="async">
       </div>
       <div class="prod-body">
         <div class="prod-cat">Digital · IA</div>
         <h3 class="prod-name">Minimalize.IA: Organize sua casa com Inteligência Artificial</h3>
         <div class="prod-desc">Envie uma foto do cômodo. O agente analisa, identifica os excessos e guia o destralhe, no seu ritmo, sem pressão.</div>
         <div class="prod-price">a partir de <strong>R$ 77</strong> · Acesso vitalício</div>
-        <a class="prod-cta gold" href="https://sejaminimalista.com.br/minimalize/">Conhecer →</a>
+        <a class="prod-cta" href="https://sejaminimalista.com.br/minimalize/">Conhecer →</a>
       </div>
     </div>
 
@@ -394,6 +414,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       </div>
       <p class="footer-copy">Para uma vida mais leve e mais feliz.<br>© 2026. Todos os direitos reservados.</p>
       <a class="btn-gold" href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener noreferrer" style="font-size:12px;padding:10px 20px;margin-top:16px;display:inline-block;text-decoration:none;">Seguir no Instagram</a>
+      <a class="footer-sobre" href="https://chat.whatsapp.com/FnNU3DpCCXz3iGtkLH6qbR?s=cl&p=a&ilr=1" target="_blank" rel="noopener noreferrer">Comunidade no Whatsapp</a>
     </div>
     <div class="footer-links">
       <h3>Links úteis</h3>
@@ -401,8 +422,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       <a href="https://sejaminimalista.com.br/365-dias/" target="_blank">365 Dias Minimalistas</a>
       <a href="https://sejaminimalista.com.br/combos" target="_blank">Combos com desconto</a>
       <a href="https://www.sejaminimalista.net/vip/entrar" target="_blank">Área VIP</a>
-      <a href="https://chat.whatsapp.com/FnNU3DpCCXz3iGtkLH6qbR?s=cl&p=a&ilr=1" target="_blank">Comunidade no Whatsapp</a>
-      <a href="mailto:sejaminimalista@hotmail.com">Fale comigo</a>
+      <a href="https://sejaminimalista.com.br/sobre">Sobre</a>
     </div>
     <div class="footer-news">
       <h3>Newsletter gratuita</h3>
@@ -411,6 +431,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     </div>
   </div>
   <div class="footer-divider">
+    <nav class="footer-legal" aria-label="Institucional">
+      <a href="https://sejaminimalista.com.br/faq">Perguntas frequentes</a>
+      <a href="https://sejaminimalista.com.br/contato">Contato</a>
+      <a href="https://sejaminimalista.com.br/politica-de-troca">Troca e devolução</a>
+      <a href="https://sejaminimalista.com.br/termos-de-uso">Termos de uso</a>
+      <a href="https://sejaminimalista.com.br/politica-de-privacidade">Política de privacidade</a>
+    </nav>
     <span>© 2026 Seja Minimalista. Todos os direitos reservados. · sejaminimalista.com.br</span>
   </div>
 </footer>
