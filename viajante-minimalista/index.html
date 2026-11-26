@@ -33,8 +33,7 @@
 <meta name="twitter:description" content="Chega de adiar a viagem dos sonhos. O guia que te ensina a planejar, economizar e viajar com leveza e propósito.">
 <meta name="twitter:image" content="https://static.wixstatic.com/media/940f31_d7b8db9b3e924ef7bd675dc94e0c32f8~mv2.jpg">
 
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Book",
   "name": "Viajante Minimalista",
@@ -64,7 +63,35 @@
         "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
         "merchantReturnDays": 7,
         "refundType": "https://schema.org/FullRefund",
-        "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca"
+        "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "BRL"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "BR"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "DAY"
+          }
+        }
       }
     },
     {
@@ -82,7 +109,7 @@
         "refundType": "https://schema.org/FullRefund",
         "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
         "returnMethod": "https://schema.org/ReturnByMail",
-        "returnFees": "https://schema.org/ReturnShippingFees"
+        "returnFees": "https://schema.org/FreeReturn"
       },
       "shippingDetails": {
         "@type": "OfferShippingDetails",
@@ -127,7 +154,7 @@
         "refundType": "https://schema.org/FullRefund",
         "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
         "returnMethod": "https://schema.org/ReturnByMail",
-        "returnFees": "https://schema.org/ReturnShippingFees"
+        "returnFees": "https://schema.org/FreeReturn"
       },
       "shippingDetails": {
         "@type": "OfferShippingDetails",
@@ -157,9 +184,9 @@
         }
       }
     }
-  ]
-}
-</script>
+  ],
+  "image": "https://static.wixstatic.com/media/940f31_d7b8db9b3e924ef7bd675dc94e0c32f8~mv2.jpg"
+}</script>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",

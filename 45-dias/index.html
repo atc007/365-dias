@@ -1073,8 +1073,7 @@ html[data-tema="black-friday"] .urgency-section{border-top:1px solid var(--tema-
   .precos-pagamento,.hero-note,.hero-note-text{font-size:14.5px;}
 }
 </style>
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Book",
   "name": "45 Dias de Destralhe",
@@ -1099,7 +1098,35 @@ html[data-tema="black-friday"] .urgency-section{border-top:1px solid var(--tema-
         "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
         "merchantReturnDays": 7,
         "refundType": "https://schema.org/FullRefund",
-        "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca"
+        "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "BRL"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "BR"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "DAY"
+          }
+        }
       }
     },
     {
@@ -1117,7 +1144,7 @@ html[data-tema="black-friday"] .urgency-section{border-top:1px solid var(--tema-
         "refundType": "https://schema.org/FullRefund",
         "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
         "returnMethod": "https://schema.org/ReturnByMail",
-        "returnFees": "https://schema.org/ReturnShippingFees"
+        "returnFees": "https://schema.org/FreeReturn"
       },
       "shippingDetails": {
         "@type": "OfferShippingDetails",
@@ -1147,9 +1174,9 @@ html[data-tema="black-friday"] .urgency-section{border-top:1px solid var(--tema-
         }
       }
     }
-  ]
-}
-</script>
+  ],
+  "image": "https://static.wixstatic.com/media/940f31_7c3c504c1a15465cbbbe613882c29ca2~mv2.jpeg"
+}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

@@ -39,8 +39,7 @@
 <meta property="book:author" content="https://sejaminimalista.com.br/">
 <meta property="book:isbn" content="9786501649337">
 <meta property="book:release_date" content="2025-09-01">
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Book",
   "@id": "https://sejaminimalista.com.br/365-dias/#book",
@@ -102,7 +101,35 @@
         "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
         "merchantReturnDays": 7,
         "refundType": "https://schema.org/FullRefund",
-        "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca"
+        "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "BRL"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "BR"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "DAY"
+          }
+        }
       }
     },
     {
@@ -120,7 +147,7 @@
         "refundType": "https://schema.org/FullRefund",
         "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
         "returnMethod": "https://schema.org/ReturnByMail",
-        "returnFees": "https://schema.org/ReturnShippingFees"
+        "returnFees": "https://schema.org/FreeReturn"
       },
       "shippingDetails": {
         "@type": "OfferShippingDetails",
@@ -165,7 +192,7 @@
         "refundType": "https://schema.org/FullRefund",
         "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
         "returnMethod": "https://schema.org/ReturnByMail",
-        "returnFees": "https://schema.org/ReturnShippingFees"
+        "returnFees": "https://schema.org/FreeReturn"
       },
       "shippingDetails": {
         "@type": "OfferShippingDetails",
@@ -200,183 +227,208 @@
     "@type": "ReadAction",
     "target": "https://sejaminimalista.com.br/365-dias/"
   }
-}
-</script>
+}</script>
 
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "Product",
- "@id": "https://sejaminimalista.com.br/365-dias/#product",
- "name": "365 Dias Minimalistas",
- "description": "Livro físico, digital e combo do livro 365 Dias Minimalistas.",
- "brand": {
-  "@type": "Brand",
-  "name": "Seja Minimalista"
- },
- "image": "https://static.wixstatic.com/media/940f31_ff7a1e6a44d44dfaae4289f3f2bfa2cc~mv2.avif",
- "url": "https://sejaminimalista.com.br/365-dias/",
- "isRelatedTo": {
-  "@id": "https://sejaminimalista.com.br/365-dias/#book"
- },
- "aggregateRating": {
-  "@type": "AggregateRating",
-  "ratingValue": "4.9",
-  "reviewCount": "20000",
-  "bestRating": "5",
-  "worstRating": "1"
- },
- "review": [
-  {
-   "@type": "Review",
-   "reviewRating": {
-    "@type": "Rating",
-    "ratingValue": "5",
-    "bestRating": "5"
-   },
-   "author": {
-    "@type": "Person",
-    "name": "Beatriz S."
-   },
-   "reviewBody": "Comecei em janeiro sem muita expectativa. Em março já havia reorganizado meu quarto, parado de comprar por impulso e dormindo melhor. Não é mágica, é uma página por dia. Simples assim."
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": "https://sejaminimalista.com.br/365-dias/#product",
+  "name": "365 Dias Minimalistas",
+  "description": "Livro físico, digital e combo do livro 365 Dias Minimalistas.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Seja Minimalista"
   },
-  {
-   "@type": "Review",
-   "reviewRating": {
-    "@type": "Rating",
-    "ratingValue": "5",
-    "bestRating": "5"
-   },
-   "author": {
-    "@type": "Person",
-    "name": "Patrícia L."
-   },
-   "reviewBody": "Já tinha desistido de três desafios de organização antes desse. O formato de uma tarefa por dia foi o que me fez chegar até o fim: nada de sobrecarga, nada de pressão."
+  "image": "https://static.wixstatic.com/media/940f31_ff7a1e6a44d44dfaae4289f3f2bfa2cc~mv2.avif",
+  "url": "https://sejaminimalista.com.br/365-dias/",
+  "isRelatedTo": {
+    "@id": "https://sejaminimalista.com.br/365-dias/#book"
   },
-  {
-   "@type": "Review",
-   "reviewRating": {
-    "@type": "Rating",
-    "ratingValue": "5",
-    "bestRating": "5"
-   },
-   "author": {
-    "@type": "Person",
-    "name": "Rodrigo C."
-   },
-   "reviewBody": "Depois do primeiro livro do Alexandre eu tinha voltado ao mesmo acúmulo de sempre em poucos meses. O 365 Dias resolveu isso: como é uma página por vez, virou hábito de verdade, não um esforço que passa."
-  }
- ],
- "offers": [
-  {
-   "@type": "Offer",
-   "name": "Livro Digital",
-   "price": "77.00",
-   "priceCurrency": "BRL",
-   "availability": "https://schema.org/InStock",
-   "url": "https://chk.eduzz.com/E05X4ZP7WX?pf=1",
-   "hasMerchantReturnPolicy": {
-    "@type": "MerchantReturnPolicy",
-    "applicableCountry": "BR",
-    "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-    "merchantReturnDays": 7,
-    "refundType": "https://schema.org/FullRefund",
-    "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca"
-   }
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "20000",
+    "bestRating": "5",
+    "worstRating": "1"
   },
-  {
-   "@type": "Offer",
-   "name": "Livro Físico",
-   "price": "107.00",
-   "priceCurrency": "BRL",
-   "availability": "https://schema.org/InStock",
-   "url": "https://chk.eduzz.com/39ZQYBOB9E?pf=1",
-   "hasMerchantReturnPolicy": {
-    "@type": "MerchantReturnPolicy",
-    "applicableCountry": "BR",
-    "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-    "merchantReturnDays": 7,
-    "refundType": "https://schema.org/FullRefund",
-    "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
-    "returnMethod": "https://schema.org/ReturnByMail",
-    "returnFees": "https://schema.org/ReturnShippingFees"
-   },
-   "shippingDetails": {
-    "@type": "OfferShippingDetails",
-    "shippingRate": {
-     "@type": "MonetaryAmount",
-     "value": 0,
-     "currency": "BRL"
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Beatriz S."
+      },
+      "reviewBody": "Comecei em janeiro sem muita expectativa. Em março já havia reorganizado meu quarto, parado de comprar por impulso e dormindo melhor. Não é mágica, é uma página por dia. Simples assim."
     },
-    "shippingDestination": {
-     "@type": "DefinedRegion",
-     "addressCountry": "BR"
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Patrícia L."
+      },
+      "reviewBody": "Já tinha desistido de três desafios de organização antes desse. O formato de uma tarefa por dia foi o que me fez chegar até o fim: nada de sobrecarga, nada de pressão."
     },
-    "deliveryTime": {
-     "@type": "ShippingDeliveryTime",
-     "handlingTime": {
-      "@type": "QuantitativeValue",
-      "minValue": 0,
-      "maxValue": 3,
-      "unitCode": "DAY"
-     },
-     "transitTime": {
-      "@type": "QuantitativeValue",
-      "minValue": 5,
-      "maxValue": 15,
-      "unitCode": "DAY"
-     }
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Rodrigo C."
+      },
+      "reviewBody": "Depois do primeiro livro do Alexandre eu tinha voltado ao mesmo acúmulo de sempre em poucos meses. O 365 Dias resolveu isso: como é uma página por vez, virou hábito de verdade, não um esforço que passa."
     }
-   }
-  },
-  {
-   "@type": "Offer",
-   "name": "Combo Digital + Físico",
-   "price": "147.00",
-   "priceCurrency": "BRL",
-   "availability": "https://schema.org/InStock",
-   "url": "https://chk.eduzz.com/E0D6XBPD91?pf=1",
-   "hasMerchantReturnPolicy": {
-    "@type": "MerchantReturnPolicy",
-    "applicableCountry": "BR",
-    "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-    "merchantReturnDays": 7,
-    "refundType": "https://schema.org/FullRefund",
-    "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
-    "returnMethod": "https://schema.org/ReturnByMail",
-    "returnFees": "https://schema.org/ReturnShippingFees"
-   },
-   "shippingDetails": {
-    "@type": "OfferShippingDetails",
-    "shippingRate": {
-     "@type": "MonetaryAmount",
-     "value": 0,
-     "currency": "BRL"
+  ],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Livro Digital",
+      "price": "77.00",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "url": "https://chk.eduzz.com/E05X4ZP7WX?pf=1",
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "BR",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "refundType": "https://schema.org/FullRefund",
+        "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "BRL"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "BR"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "DAY"
+          }
+        }
+      }
     },
-    "shippingDestination": {
-     "@type": "DefinedRegion",
-     "addressCountry": "BR"
+    {
+      "@type": "Offer",
+      "name": "Livro Físico",
+      "price": "107.00",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "url": "https://chk.eduzz.com/39ZQYBOB9E?pf=1",
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "BR",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "refundType": "https://schema.org/FullRefund",
+        "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "BRL"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "BR"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 3,
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 5,
+            "maxValue": 15,
+            "unitCode": "DAY"
+          }
+        }
+      }
     },
-    "deliveryTime": {
-     "@type": "ShippingDeliveryTime",
-     "handlingTime": {
-      "@type": "QuantitativeValue",
-      "minValue": 0,
-      "maxValue": 3,
-      "unitCode": "DAY"
-     },
-     "transitTime": {
-      "@type": "QuantitativeValue",
-      "minValue": 5,
-      "maxValue": 15,
-      "unitCode": "DAY"
-     }
+    {
+      "@type": "Offer",
+      "name": "Combo Digital + Físico",
+      "price": "147.00",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "url": "https://chk.eduzz.com/E0D6XBPD91?pf=1",
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "BR",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "refundType": "https://schema.org/FullRefund",
+        "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "BRL"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "BR"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 3,
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 5,
+            "maxValue": 15,
+            "unitCode": "DAY"
+          }
+        }
+      }
     }
-   }
-  }
- ]
-}
-</script>
+  ]
+}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

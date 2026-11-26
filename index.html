@@ -1060,8 +1060,7 @@ fbq('track', 'ViewContent', {
 <meta property="book:release_date" content="2021-01-01">
 <meta name="author" content="Alexandre Chahoud">
 
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Book",
   "@id": "https://sejaminimalista.com.br/#book",
@@ -1109,7 +1108,7 @@ fbq('track', 'ViewContent', {
       "refundType": "https://schema.org/FullRefund",
       "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
       "returnMethod": "https://schema.org/ReturnByMail",
-      "returnFees": "https://schema.org/ReturnShippingFees"
+      "returnFees": "https://schema.org/FreeReturn"
     },
     "shippingDetails": {
       "@type": "OfferShippingDetails",
@@ -1142,11 +1141,9 @@ fbq('track', 'ViewContent', {
   "sameAs": [
     "https://www.amazon.com.br/dp/6500978145"
   ]
-}
-</script>
+}</script>
 
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Product",
   "@id": "https://sejaminimalista.com.br/#product",
@@ -1226,7 +1223,35 @@ fbq('track', 'ViewContent', {
         "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
         "merchantReturnDays": 7,
         "refundType": "https://schema.org/FullRefund",
-        "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca"
+        "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "BRL"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "BR"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "DAY"
+          }
+        }
       }
     },
     {
@@ -1245,7 +1270,7 @@ fbq('track', 'ViewContent', {
         "refundType": "https://schema.org/FullRefund",
         "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
         "returnMethod": "https://schema.org/ReturnByMail",
-        "returnFees": "https://schema.org/ReturnShippingFees"
+        "returnFees": "https://schema.org/FreeReturn"
       },
       "shippingDetails": {
         "@type": "OfferShippingDetails",
@@ -1291,7 +1316,7 @@ fbq('track', 'ViewContent', {
         "refundType": "https://schema.org/FullRefund",
         "merchantReturnLink": "https://sejaminimalista.com.br/politica-de-troca",
         "returnMethod": "https://schema.org/ReturnByMail",
-        "returnFees": "https://schema.org/ReturnShippingFees"
+        "returnFees": "https://schema.org/FreeReturn"
       },
       "shippingDetails": {
         "@type": "OfferShippingDetails",
@@ -1322,8 +1347,7 @@ fbq('track', 'ViewContent', {
       }
     }
   ]
-}
-</script>
+}</script>
 
 <style id="lote1-correcoes">
 /* ══ LOTE 1 (03/11/2026): correções da auditoria técnica ══ */
