@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; connect-src 'self'">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<title>TESTE | Newsletter Seja Minimalista | Receba por e-mail, grátis</title>
+<meta name="description" content="Uma newsletter curtinha, mas com propósito. Toda semana, uma reflexão sobre minimalismo na sua caixa de entrada. Grátis, por Alexandre Chahoud.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="author" content="Alexandre Chahoud">
+<meta name="theme-color" content="#1C1C1A">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Newsletter Seja Minimalista | Receba por e-mail, grátis">
+<meta property="og:description" content="Uma newsletter curtinha, mas com propósito. Toda semana, uma reflexão sobre minimalismo na sua caixa de entrada. Grátis, por Alexandre Chahoud.">
+<meta property="og:image" content="https://static.wixstatic.com/media/940f31_f22f74e4beaf48a0931cbea0471bcb56~mv2.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sejaminimalista.com.br/newsletter">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Seja Minimalista">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Newsletter Seja Minimalista | Receba por e-mail, grátis">
+<meta name="twitter:description" content="Uma newsletter curtinha, mas com propósito. Toda semana, uma reflexão sobre minimalismo na sua caixa de entrada. Grátis, por Alexandre Chahoud.">
+<meta name="twitter:image" content="https://static.wixstatic.com/media/940f31_f22f74e4beaf48a0931cbea0471bcb56~mv2.png">
+<meta name="twitter:site" content="@seja.minimalista">
+<link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://static.wixstatic.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@500;600;700;800&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#F5F1E8;--text:#E8E2D8;--muted:#A8A29A;
+  --gold:#C9A96E;--gold-soft:#E8D09A;
+  --card:rgba(255,255,255,.06);--card-hover:rgba(255,255,255,.09);--card-border:rgba(255,255,255,.12);
+  --sec-h:clamp(16px,5vw,80px);
+  --font-display:'Spectral',Georgia,serif;
+}
+html{scroll-behavior:smooth;}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+body{font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background:
+  radial-gradient(900px 650px at 0% 0%,rgba(201,169,110,.20),transparent 70%),
+  radial-gradient(900px 650px at 100% 100%,rgba(107,75,200,.16),transparent 70%),
+  #0E0D0B;background-attachment:scroll;}
+
+/* TOPBAR */
+.topbar{color:var(--muted);text-align:center;font-size:12px;padding:10px var(--sec-h);letter-spacing:.02em;border-bottom:1px solid rgba(255,255,255,.08);}
+.topbar a{color:var(--gold);text-decoration:none;font-weight:600;}
+.topbar a:hover{color:var(--gold-soft);}
+
+/* HEADER */
+.site-header{background:rgba(14,13,11,.92);border-bottom:1px solid rgba(255,255,255,.08);padding:14px var(--sec-h);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{display:inline-flex;align-items:center;}
+.logo img{display:block;height:26px;width:auto;filter:brightness(0) invert(1);opacity:.92;}
+.header-nav{display:flex;align-items:center;gap:6px;}
+.header-nav a{font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;padding:8px 14px;border-radius:999px;border:1px solid transparent;transition:color .15s,border-color .15s,background .15s;}
+.header-nav a:hover{color:var(--ink);border-color:var(--card-border);background:rgba(255,255,255,.04);}
+
+/* HERO */
+.page-hero{padding:60px var(--sec-h) 36px;text-align:center;}
+.page-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);background:rgba(201,169,110,.14);border:1px solid var(--gold);padding:5px 12px 5px 10px;border-radius:20px;margin-bottom:18px;}
+.page-eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);}
+.page-h1{font-family:var(--font-display);font-size:clamp(32px,5vw,54px);font-weight:500;color:var(--ink);line-height:1.12;margin-bottom:14px;}
+.page-sub{font-size:16px;color:var(--muted);max-width:520px;margin:0 auto;}
+
+/* FILTROS */
+.filters{padding:4px var(--sec-h) 0;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
+.filter-btn{font-family:inherit;background:rgba(255,255,255,.04);border:1px solid var(--card-border);border-radius:999px;padding:8px 18px;font-size:12.5px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .15s;min-height:40px;}
+.filter-btn:hover{color:var(--ink);border-color:rgba(245,241,232,.28);}
+.filter-btn.active{background:var(--gold);color:#1C1C1A;border-color:var(--gold);box-shadow:0 4px 16px rgba(201,169,110,.3);}
+
+/* GRID */
+.products-section{padding:32px var(--sec-h) 72px;}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1100px;margin:0 auto;}
+
+/* CARD (vidro) */
+.prod-card{background:var(--card);border:1px solid var(--card-border);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 28px rgba(0,0,0,.4);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background .2s ease;animation:fadeIn .35s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+@media(hover:hover) and (pointer:fine){
+  .prod-card:hover{transform:translateY(-4px);border-color:var(--gold);background:var(--card-hover);box-shadow:0 16px 38px rgba(0,0,0,.5);}
+  .prod-card:hover .prod-card-img img{transform:scale(1.03);}
+}
+.prod-card.featured{border:1.5px solid var(--gold);background:rgba(201,169,110,.12);box-shadow:0 10px 30px rgba(201,169,110,.25);}
+.prod-card-img{position:relative;overflow:hidden;aspect-ratio:4/3;background:rgba(255,255,255,.04);}
+.prod-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+
+/* SELOS */
+.prod-badge{position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.04em;padding:4px 11px 4px 8px;border-radius:20px;background:#1C1C1A;color:#F0D898;border:1px solid rgba(240,216,152,.28);}
+.prod-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor;}
+.prod-badge.novo{background:#173B27;color:#8CE8AE;border-color:rgba(140,232,174,.25);}
+.prod-badge.novo::before{box-shadow:0 0 0 3px rgba(140,232,174,.25);}
+
+.prod-body{padding:18px 18px 20px;flex:1;display:flex;flex-direction:column;}
+.prod-cat{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.prod-name{font-family:var(--font-display);font-size:18px;font-weight:500;color:var(--ink);line-height:1.3;margin-bottom:8px;}
+.prod-desc{font-size:13px;color:var(--muted);line-height:1.6;flex:1;margin-bottom:14px;}
+.prod-price{font-size:12px;color:var(--muted);margin-bottom:14px;}
+.prod-price strong{font-size:17px;font-weight:800;background:linear-gradient(100deg,#B8925A 0%,#C9A96E 40%,#E8D09A 55%,#C9A96E 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.prod-cta{display:block;background:rgba(255,255,255,.04);border:1px solid var(--card-border);color:var(--ink);text-align:center;padding:12px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;transition:border-color .15s,background .15s,filter .15s;}
+.prod-cta:hover{border-color:var(--gold);background:rgba(201,169,110,.14);}
+.prod-cta.gold{background:var(--gold);border-color:var(--gold);color:#1C1C1A;box-shadow:0 4px 16px rgba(201,169,110,.25);}
+.prod-cta.gold:hover{filter:brightness(1.08);background:var(--gold);}
+
+/* BANNER DE COMBOS */
+.combo-banner{max-width:1100px;margin:0 auto 40px;background:rgba(201,169,110,.10);border:1px solid rgba(201,169,110,.45);border-radius:18px;padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.combo-text h2{font-family:var(--font-display);font-size:26px;color:var(--ink);font-weight:500;line-height:1.2;margin-bottom:6px;}
+.combo-text p{font-size:14px;color:var(--muted);max-width:480px;}
+.combo-actions{display:flex;flex-direction:column;gap:10px;flex-shrink:0;}
+.combo-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:#1C1C1A;padding:14px 26px;border-radius:999px;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 4px 20px rgba(201,169,110,.35);transition:filter .15s,transform .15s;}
+.combo-btn:hover{filter:brightness(1.08);transform:translateY(-2px);}
+.combo-btn.red{background:linear-gradient(135deg,#FF6B4A,#E8342A);color:#FFF6F2;box-shadow:0 4px 22px rgba(232,52,42,.4);animation:comboPulse 2.4s ease-in-out infinite;}
+@keyframes comboPulse{
+  0%,100%{box-shadow:0 4px 22px rgba(232,52,42,.4),0 0 0 0 rgba(232,52,42,.5);}
+  50%{box-shadow:0 4px 22px rgba(232,52,42,.4),0 0 0 9px rgba(232,52,42,0);}
+}
+
+/* WHATSAPP */
+.whatsapp-float{position:fixed;bottom:22px;right:20px;z-index:999;background:#25D366;color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.4);text-decoration:none;transition:transform .2s;}
+.whatsapp-float:hover{transform:scale(1.08);}
+.whatsapp-float svg{width:26px;height:26px;fill:#fff;}
+
+/* FOOTER */
+.footer{background:rgba(0,0,0,.28);border-top:1px solid rgba(255,255,255,.08);padding:48px var(--sec-h);}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;max-width:1100px;margin:0 auto;}
+.footer-logo{margin-bottom:10px;}
+.footer-logo img{display:block;height:40px;width:auto;filter:brightness(0) invert(1);opacity:.55;}
+.footer-copy{font-size:12px;color:var(--muted);line-height:1.7;}
+.footer-links h3,.footer-news h3{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+.footer-links a{display:block;font-size:13px;color:#D8D8D4;text-decoration:none;margin-bottom:8px;}
+.footer-links a:hover{color:var(--gold);}
+.footer-divider{margin-top:36px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:#8A8A86;max-width:1100px;margin-left:auto;margin-right:auto;}
+.footer .btn-gold{background:var(--gold);color:#1C1C1A;border-radius:999px;font-weight:700;letter-spacing:.02em;transition:filter .2s ease,transform .2s ease;}
+.footer .btn-gold:hover{filter:brightness(1.08);transform:translateY(-1px);}
+
+/* RESPONSIVO */
+@media(max-width:900px){
+  .products-grid{grid-template-columns:repeat(2,1fr);}
+  .combo-banner{flex-direction:column;text-align:center;}
+  .combo-text p{margin:0 auto;}
+  .combo-actions{width:100%;max-width:360px;}
+}
+@media(max-width:600px){
+  .products-grid{grid-template-columns:1fr;gap:14px;}
+  .header-nav{display:none;}
+  .footer-grid{grid-template-columns:1fr;gap:28px;}
+  .page-hero{padding:40px var(--sec-h) 26px;}
+  .page-sub{font-size:14.5px;}
+  .combo-banner{padding:22px 18px;}
+  .combo-text h2{font-size:22px;}
+  .combo-btn{white-space:normal;}
+}
+
+/* ACESSIBILIDADE */
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip-link{position:absolute;left:-9999px;top:0;background:#242422;color:#ECE6DC;padding:12px 20px;border-radius:0 0 8px 0;z-index:100000;text-decoration:none;font-size:14px;font-weight:600;}
+.skip-link:focus{left:0;}
+a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px;}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+
+/* ===== PÁGINAS INSTITUCIONAIS ===== */
+.page-hero{padding:56px var(--sec-h) 30px}
+.wrap{max-width:860px;margin:0 auto;padding:0 var(--sec-h) 72px}
+.wrap.wide{max-width:1100px}
+.upd{display:inline-block;margin-top:14px;font-size:12px;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:18px;box-shadow:0 8px 28px rgba(0,0,0,.4)}
+.doc{padding:34px 36px}
+.doc h2{font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--ink);line-height:1.25;margin:34px 0 10px;padding-top:30px;border-top:1px solid rgba(255,255,255,.08)}
+.doc h2:first-child,.doc .doc-top+h2{margin-top:0;padding-top:0;border-top:0}
+.doc h3{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin:22px 0 8px}
+.doc p{font-size:15px;color:var(--text);margin-bottom:12px}
+.doc ul{margin:0 0 14px 0;padding:0;list-style:none}
+.doc li{position:relative;font-size:15px;color:var(--text);padding-left:20px;margin-bottom:7px}
+.doc li::before{content:"";position:absolute;left:2px;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.doc a,.link{color:var(--gold-soft);text-decoration:underline;text-decoration-color:rgba(201,169,110,.5);text-underline-offset:3px}
+.doc a:hover,.link:hover{color:#fff}
+.doc strong{color:var(--ink);font-weight:700}
+.toc{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 auto 26px;max-width:860px;padding:0 var(--sec-h)}
+.toc a{font-size:12px;font-weight:600;color:var(--muted);text-decoration:none;padding:7px 14px;border-radius:999px;border:1px solid var(--card-border);background:rgba(255,255,255,.04);transition:all .15s}
+.toc a:hover{color:var(--ink);border-color:var(--gold)}
+.doc h2[id]{scroll-margin-top:84px}
+.tbl{width:100%;border-collapse:separate;border-spacing:0;margin:6px 0 10px;border:1px solid var(--card-border);border-radius:14px;overflow:hidden;font-size:14px}
+.tbl th{background:rgba(201,169,110,.14);color:var(--gold-soft);font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:12px 14px}
+.tbl td{padding:13px 14px;border-top:1px solid rgba(255,255,255,.08);color:var(--text);vertical-align:top}
+.tbl td:first-child{color:var(--ink);font-weight:700}
+.tbl .prazo{color:var(--gold-soft);font-weight:800;white-space:nowrap}
+@media(max-width:600px){.doc{padding:24px 18px}.tbl,.tbl tbody,.tbl tr,.tbl td{display:block}.tbl thead{display:none}.tbl tr{padding:12px 14px;border-top:1px solid rgba(255,255,255,.08)}.tbl tr:first-child{border-top:0}.tbl td{border:0;padding:3px 0}}
+/* FAQ */
+.faq-grupo{margin-bottom:34px}
+.faq-grupo h2{font-family:var(--font-display);font-size:24px;font-weight:500;color:var(--ink);margin:0 0 6px}
+.faq-grupo .faq-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.faq-grupo{scroll-margin-top:84px}
+details.q{background:var(--card);border:1px solid var(--card-border);border-radius:14px;margin-top:10px;transition:border-color .15s,background .15s}
+details.q[open]{border-color:rgba(201,169,110,.55);background:var(--card-hover)}
+details.q summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;font-weight:700;font-size:15px;color:var(--ink);min-height:52px}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary::after{content:"+";flex:none;width:26px;height:26px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);display:grid;place-items:center;font-size:17px;line-height:1;transition:transform .2s,background .2s,color .2s}
+details.q[open] summary::after{content:"\2212";background:var(--gold);color:#1C1C1A}
+details.q:hover{border-color:rgba(201,169,110,.4)}
+.q-a{padding:0 18px 18px;font-size:14.5px;color:var(--text)}
+.q-a p{margin-bottom:10px}
+.q-a ul{list-style:none;margin:0 0 10px;padding:0}
+.q-a li{position:relative;padding-left:20px;margin-bottom:6px}
+.q-a li::before{content:"";position:absolute;left:2px;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.q-a a{color:var(--gold-soft);text-decoration:underline;text-underline-offset:3px}
+.cta-final{margin-top:40px;text-align:center;padding:30px 24px}
+.cta-final p{font-family:var(--font-display);font-size:22px;color:var(--ink);margin-bottom:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:#1C1C1A;padding:14px 28px;border-radius:999px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 4px 20px rgba(201,169,110,.35);transition:filter .15s,transform .15s;border:0;cursor:pointer;font-family:inherit;min-height:48px}
+.btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn.ghost{background:rgba(255,255,255,.04);color:var(--ink);border:1px solid var(--card-border);box-shadow:none}
+.btn.ghost:hover{border-color:var(--gold);background:rgba(201,169,110,.14)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+/* CONTATO */
+.contato-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}
+.form{padding:28px}
+.form h2{font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:16px}
+.campo{margin-bottom:16px}
+.campo label{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.campo input,.campo select,.campo textarea{width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:rgba(255,255,255,.05);border:1px solid var(--card-border);border-radius:12px;padding:13px 14px;min-height:48px;transition:border-color .15s,background .15s}
+.campo textarea{min-height:140px;resize:vertical;line-height:1.5}
+.campo select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'><path d='M1 1l6 6 6-6' fill='none' stroke='%23C9A96E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.campo select option{background:#1C1C1A;color:#F5F1E8}
+.campo input:focus,.campo select:focus,.campo textarea:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.08);box-shadow:0 0 0 3px rgba(201,169,110,.18)}
+.campo.erro input,.campo.erro select,.campo.erro textarea{border-color:#E8705F}
+.erro-msg{display:none;color:#F2A296;font-size:12.5px;margin-top:5px}
+.campo.erro .erro-msg{display:block}
+.form .btn{width:100%}
+.form-nota{font-size:12.5px;color:var(--muted);margin-top:12px;text-align:center}
+.form-ok{display:none;margin-top:14px;padding:14px 16px;border-radius:12px;background:rgba(140,232,174,.1);border:1px solid rgba(140,232,174,.35);color:#B6F0CB;font-size:14px}
+.form-ok.on{display:block}
+.form-ok.err{background:rgba(232,112,95,.1);border-color:rgba(232,112,95,.4);color:#F2B3A9}
+.form-nota a,.form-ok a,.direto a.m{color:var(--gold-soft);text-decoration:underline;text-underline-offset:3px}
+.lado{display:grid;gap:14px}
+.lado .card{padding:20px 22px}
+.lado h3{font-family:var(--font-display);font-size:17px;font-weight:500;color:var(--ink);margin-bottom:6px}
+.lado p{font-size:13.5px;color:var(--muted);margin:0}
+.lado a{color:var(--gold-soft)}
+.antes h2{font-family:var(--font-display);font-size:26px;font-weight:500;color:var(--ink);text-align:center;margin:46px 0 6px}
+.antes .sub{text-align:center;color:var(--muted);font-size:14.5px;margin-bottom:20px}
+.antes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.antes-grid .card{padding:22px}
+.antes-grid .ico{font-size:26px;display:block;margin-bottom:10px}
+.antes-grid h3{font-family:var(--font-display);font-size:18px;font-weight:500;color:var(--ink);margin-bottom:8px}
+.antes-grid p{font-size:13.5px;color:var(--muted);margin:0}
+.antes-grid a{color:var(--gold-soft)}
+.direto{margin-top:22px;padding:22px 26px;display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:center;align-items:center;background:rgba(201,169,110,.10);border-color:rgba(201,169,110,.45)}
+.direto div{font-size:14px;color:var(--muted)}
+.direto strong{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.direto a{color:var(--ink);font-weight:700;text-decoration:none;font-size:15px}
+.direto a:hover{color:var(--gold-soft)}
+@media(max-width:900px){.contato-grid{grid-template-columns:1fr}.antes-grid{grid-template-columns:1fr}}
+/* SOBRE */
+.sec{margin-bottom:58px}
+.sec .eyebrow{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:block}
+.sec h2{font-family:var(--font-display);font-size:clamp(26px,3.4vw,34px);font-weight:500;color:var(--ink);line-height:1.2;margin-bottom:16px}
+.sec p{font-size:16px;color:var(--text);margin-bottom:14px;max-width:680px}
+.sec p.big{font-family:var(--font-display);font-size:clamp(19px,2.4vw,23px);color:var(--ink);line-height:1.5}
+.marca{padding:34px 36px}
+.marca p:last-child{margin-bottom:0}
+.autor-bloco{display:grid;grid-template-columns:300px 1fr;gap:38px;align-items:center}
+.autor-foto{border-radius:20px;overflow:hidden;border:1px solid rgba(201,169,110,.45);box-shadow:0 16px 40px rgba(0,0,0,.5);aspect-ratio:440/636;background:rgba(255,255,255,.04)}
+.autor-foto img{width:100%;height:100%;object-fit:cover;display:block}
+.autor-nome{font-family:var(--font-display);font-size:30px;font-weight:500;color:var(--ink);line-height:1.1}
+.autor-papel{font-size:13px;font-weight:700;color:var(--gold);margin:6px 0 18px;letter-spacing:.02em}
+.midia{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)}
+.midia small{display:block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.midia ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.midia li{font-size:12.5px;font-weight:700;color:var(--gold-soft);background:rgba(201,169,110,.12);border:1px solid rgba(201,169,110,.4);border-radius:999px;padding:6px 14px}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.num{padding:22px 12px;text-align:center}
+.num b{display:block;font-family:var(--font-display);font-size:clamp(26px,3vw,36px);font-weight:500;color:var(--gold-soft);line-height:1.1}
+.num span{display:block;font-size:12px;color:var(--muted);margin-top:6px;line-height:1.35}
+.aqui{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.aqui .card{padding:24px}
+.aqui .ico{font-size:28px;display:block;margin-bottom:12px}
+.aqui h3{font-family:var(--font-display);font-size:19px;font-weight:500;color:var(--ink);margin-bottom:8px}
+.aqui p{font-size:14px;color:var(--muted);margin:0}
+.sec.fim{text-align:center;margin-bottom:0}
+@media(max-width:900px){.autor-bloco{grid-template-columns:1fr;gap:24px}.autor-foto{max-width:300px;margin:0 auto}.nums{grid-template-columns:repeat(2,1fr)}.aqui{grid-template-columns:1fr}.marca{padding:24px 18px}}
+.sobre-h1 em{font-style:italic;color:var(--gold)}
+/* veja também */
+.vt{margin-top:44px}
+.vt h2{font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--ink);text-align:center;margin-bottom:16px}
+.vt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.vt a{display:flex;flex-direction:column;gap:4px;padding:18px 20px;background:var(--card);border:1px solid var(--card-border);border-radius:16px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s,background .15s}
+.vt a:hover{border-color:var(--gold);background:var(--card-hover);transform:translateY(-2px)}
+.vt b{font-family:var(--font-display);font-size:17px;font-weight:500;color:var(--ink)}
+.vt span{font-size:13px;color:var(--muted);line-height:1.45}
+.vt i{font-style:normal;font-size:12px;font-weight:700;color:var(--gold);margin-top:6px}
+@media(max-width:700px){.vt-grid{grid-template-columns:1fr}}
+/* rodapé: linha legal */
+.footer-legal{display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:12px}
+.footer-legal a{font-size:11.5px;color:#B8B6AF;text-decoration:none}
+.footer-legal a:hover{color:var(--gold)}
+
+.nl-cta{margin-top:26px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.nl-cta .nota{font-size:12.5px;color:var(--muted)}
+.nl-sec{margin-top:54px}
+.nl-sec h2{font-family:var(--font-display);font-size:28px;font-weight:500;color:var(--ink);text-align:center;margin-bottom:8px}
+.nl-sec .sub{text-align:center;color:var(--muted);font-size:14.5px;margin:0 auto 22px;max-width:560px}
+.nl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.nl-grid .card{padding:24px}
+.nl-grid h3{font-family:var(--font-display);font-size:19px;font-weight:500;color:var(--ink);margin-bottom:8px}
+.nl-grid p{font-size:14px;color:var(--muted);margin:0}
+.nl-grid .n{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.nl-autor{display:grid;grid-template-columns:150px 1fr;gap:26px;align-items:center;padding:26px 28px}
+.nl-autor img{width:150px;height:150px;border-radius:50%;object-fit:cover;display:block}
+.nl-autor h2{text-align:left;font-size:24px;margin-bottom:10px}
+.nl-autor p{font-size:14.5px;color:var(--text);margin-bottom:10px}
+.nl-autor a{color:var(--gold-soft)}
+.nl-faq{max-width:760px;margin:0 auto;display:grid;gap:10px}
+.nl-faq details{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:16px 20px}
+.nl-faq summary{cursor:pointer;font-weight:700;color:var(--ink);font-size:15px}
+.nl-faq p{margin:10px 0 0;font-size:14px;color:var(--muted)}
+.nl-final{margin-top:54px;text-align:center;padding:36px 24px;background:rgba(201,169,110,.10);border-color:rgba(201,169,110,.45)}
+.nl-final h2{font-family:var(--font-display);font-size:28px;font-weight:500;color:var(--ink);margin-bottom:8px}
+.nl-final p{color:var(--muted);font-size:14.5px;margin:0 auto 20px;max-width:480px}
+.nl-arq{display:block;margin-top:14px;text-align:center;font-size:13px;color:var(--gold-soft)}
+@media(max-width:760px){.nl-grid{grid-template-columns:1fr}.nl-autor{grid-template-columns:1fr;text-align:center;justify-items:center}.nl-autor h2{text-align:center}}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Newsletter Seja Minimalista | Receba por e-mail, grátis",
+ "url": "https://sejaminimalista.com.br/newsletter",
+ "description": "Uma newsletter curtinha, mas com propósito. Toda semana, uma reflexão sobre minimalismo na sua caixa de entrada. Grátis, por Alexandre Chahoud.",
+ "inLanguage": "pt-BR",
+ "isPartOf": {"@type": "WebSite", "name": "Seja Minimalista", "url": "https://sejaminimalista.com.br/"},
+ "author": {"@type": "Person", "name": "Alexandre Chahoud"}
+}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JM7NSX9TDT');
+  gtag('config', 'AW-336846858');
+</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[]}
+(window, document,'script');
+fbq('init', '239605191106043', {});
+fbq('track', 'PageView');
+</script>
+<script>
+/* Google tag e Meta Pixel: as filas já existem, os arquivos baixam só depois que a página carregou */
+(function(){
+  function carregar(){
+    var a=document.createElement('script'); a.async=true; a.src='https://www.googletagmanager.com/gtag/js?id=AW-336846858'; document.head.appendChild(a);
+    var b=document.createElement('script'); b.async=true; b.src='https://connect.facebook.net/en_US/fbevents.js'; document.head.appendChild(b);
+  }
+  if(document.readyState==='complete') carregar(); else window.addEventListener('load',carregar);
+})();
+</script>
+<!-- Microsoft Clarity -->
+<script>
+function __iniciarClarity(){
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "x9zztciwhm");
+}
+window.addEventListener('load',function(){
+  if(window.requestIdleCallback){ requestIdleCallback(__iniciarClarity,{timeout:4000}); } else { setTimeout(__iniciarClarity,2000); }
+});
+</script>
+<style id="rodape-padrao">
+.footer-legal{display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:12px}
+.footer-legal a{font-size:11.5px;color:#B8B6AF;text-decoration:none}
+.footer-legal a:hover{color:var(--gold,#C9A96E)}
+.footer-sobre{display:block;margin-top:14px;font-size:13px;color:#D8D8D4;text-decoration:underline;text-decoration-color:rgba(201,169,110,.5);text-underline-offset:4px;}
+.footer-sobre:hover{color:var(--gold,#C9A96E);}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+<div class="topbar">
+  📦 Frete grátis nos pedidos físicos · <a href="https://sejaminimalista.com.br/combos">Ver combos com desconto</a>
+</div>
+
+<header class="site-header">
+  <a class="logo" href="https://sejaminimalista.com.br/"><img src="https://static.wixstatic.com/media/940f31_64ea155fc0b8427e898318695ef5ad7e~mv2.png/v1/crop/x_44,y_0,w_906,h_187/fill/w_260,h_54,al_c,q_90,enc_avif,quality_auto/logo.png" alt="Seja Minimalista" width="130" height="27" loading="eager" decoding="async"></a>
+  <nav class="header-nav" aria-label="Principal">
+    <a href="https://sejaminimalista.com.br/">Início</a>
+    <a href="https://sejaminimalista.com.br/produtos">Produtos</a>
+    <a href="https://sejaminimalista.com.br/combos">Combos</a>
+    <a href="https://www.sejaminimalista.net/vip/entrar">Área VIP</a>
+    <a href="https://sejaminimalista.com.br/contato">Contato</a>
+  </nav>
+</header>
+
+<section class="page-hero" id="main-content">
+  <div class="page-eyebrow">Newsletter</div>
+  <h1 class="page-h1">Uma newsletter curtinha, mas com propósito.</h1>
+  <p class="page-sub">Toda semana, um e-mail meu sobre viver com menos excessos e mais sentido. Grátis, direto na sua caixa de entrada.</p>
+  <div class="nl-cta">
+    <a class="btn" href="https://sejaminimalista.substack.com/subscribe" target="_blank" rel="noopener" onclick="try{if(window.fbq){fbq('trackCustom','NewsletterClique',{posicao:'topo'});}if(window.gtag){gtag('event','newsletter_click',{posicao:'topo'});}}catch(e){}">Quero receber</a>
+    <span class="nota">Você se inscreve no Substack, que é quem envia os e-mails. Cancele quando quiser.</span>
+  </div>
+</section>
+
+<main class="wrap wide">
+  <section class="nl-sec" aria-labelledby="recebe-t">
+    <h2 id="recebe-t">O que chega no seu e-mail</h2>
+    <p class="sub">Um texto curto, no formato de uma conversa. Cada edição tem:</p>
+    <div class="nl-grid">
+      <div class="card"><span class="n">Reflexão</span><h3>Uma ideia para o seu dia</h3><p>Um texto curto sobre casa, rotina, consumo ou mente, escrito para você ler com calma e sem pressa.</p></div>
+      <div class="card"><span class="n">Pra pensar</span><h3>Uma pergunta para levar com você</h3><p>Algo para você observar na sua própria vida, sem regra e sem cobrança.</p></div>
+      <div class="card"><span class="n">Um convite</span><h3>Um espaço para você responder</h3><p>Toda edição termina com um convite. Você pode responder o e-mail e me contar o que pensou.</p></div>
+    </div>
+    <a class="nl-arq" href="https://sejaminimalista.substack.com/archive" target="_blank" rel="noopener">Ler edições anteriores no Substack →</a>
+  </section>
+
+  <section class="nl-sec" aria-labelledby="quem-t">
+    <div class="card nl-autor">
+      <img src="https://static.wixstatic.com/media/940f31_37885be559ea4a2fade053bf5eebeca0~mv2.jpg" alt="Alexandre Chahoud, autor do Seja Minimalista" width="150" height="150" loading="lazy" decoding="async">
+      <div>
+        <h2 id="quem-t">Quem escreve</h2>
+        <p>Eu sou o Alexandre Chahoud, autor do Seja Minimalista. Divulgo minimalismo no Instagram desde 2018, com a ideia de que ter menos pode abrir espaço para o que importa.</p>
+        <p>Meus livros já passaram de 50 mil exemplares vendidos, em 15 países. A newsletter é o meu jeito de continuar a conversa com quem lê. Também estou no Instagram, em <a href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener noreferrer">@seja.minimalista</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="nl-sec" aria-labelledby="faq-t">
+    <h2 id="faq-t">Perguntas rápidas</h2>
+    <div class="nl-faq">
+      <details><summary>Quanto custa?</summary><p>Nada. A newsletter é gratuita.</p></details>
+      <details><summary>Com que frequência eu recebo?</summary><p>Uma edição por semana, na caixa de entrada.</p></details>
+      <details><summary>Posso sair quando quiser?</summary><p>Pode. Todo e-mail traz o link para cancelar a inscrição, e leva só um clique.</p></details>
+      <details><summary>Onde fica o meu e-mail?</summary><p>A inscrição acontece no Substack, que guarda o seu e-mail e faz o envio. Se quiser saber mais, leia nossa <a href="https://sejaminimalista.com.br/politica-de-privacidade" style="color:var(--gold-soft)">política de privacidade</a>.</p></details>
+    </div>
+  </section>
+
+  <section class="card nl-final" aria-labelledby="final-t">
+    <h2 id="final-t">Quer receber a próxima edição?</h2>
+    <p>Leva menos de um minuto para se inscrever. A gente se encontra na sua caixa de entrada.</p>
+    <a class="btn" href="https://sejaminimalista.substack.com/subscribe" target="_blank" rel="noopener" onclick="try{if(window.fbq){fbq('trackCustom','NewsletterClique',{posicao:'final'});}if(window.gtag){gtag('event','newsletter_click',{posicao:'final'});}}catch(e){}">Quero receber</a>
+  </section>
+
+  <nav class="vt" aria-labelledby="vt-t"><h2 id="vt-t">Veja também</h2><div class="vt-grid"><a href="https://sejaminimalista.com.br/quiz"><b>Qual é o seu livro ideal?</b><span>Responda algumas perguntas e descubra por onde começar.</span><i>Fazer o quiz →</i></a><a href="https://sejaminimalista.com.br/produtos"><b>Todos os produtos</b><span>Livros, planners e cursos do Seja Minimalista.</span><i>Ver produtos →</i></a><a href="https://sejaminimalista.com.br/sobre"><b>Sobre o Alexandre</b><span>Conheça a história por trás do Seja Minimalista.</span><i>Ler mais →</i></a></div></nav>
+</main>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">
+        <img src="https://static.wixstatic.com/media/940f31_64ea155fc0b8427e898318695ef5ad7e~mv2.png/v1/crop/x_44,y_0,w_906,h_187/fill/w_260,h_54,al_c,q_90,enc_avif,quality_auto/logo.png" alt="Seja Minimalista" width="260" height="54" loading="lazy" decoding="async">
+      </div>
+      <p class="footer-copy">Para uma vida mais leve e mais feliz.<br>© 2026. Todos os direitos reservados.</p>
+      <a class="btn-gold" href="https://www.instagram.com/seja.minimalista/" target="_blank" rel="noopener noreferrer" style="font-size:12px;padding:10px 20px;margin-top:16px;display:inline-block;text-decoration:none;">Seguir no Instagram</a>
+        <a class="footer-sobre" href="https://chat.whatsapp.com/FnNU3DpCCXz3iGtkLH6qbR?s=cl&amp;p=a&amp;ilr=1" target="_blank" rel="noopener noreferrer">Comunidade no Whatsapp</a>
+    </div>
+    <div class="footer-links">
+        <h3>Links úteis</h3>
+        <a href="https://sejaminimalista.com.br/" target="_blank">Seja Minimalista (Best Seller)</a>
+        <a href="https://sejaminimalista.com.br/365-dias/" target="_blank">365 Dias Minimalistas</a>
+        <a href="https://sejaminimalista.com.br/produtos" target="_blank">Todos os meus produtos</a>
+        <a href="https://sejaminimalista.com.br/combos" target="_blank">Combos com desconto</a>
+        <a href="https://www.sejaminimalista.net/vip/entrar" target="_blank">Área VIP</a>
+        <a href="https://sejaminimalista.com.br/sobre" target="_blank">Sobre</a>
+      </div>
+    <div class="footer-news">
+      <h3>Newsletter gratuita</h3>
+      <p style="font-size:12px;color:#D8D8D4;line-height:1.6;margin-bottom:12px;">Reflexões e práticas minimalistas gratuitas direto no seu e-mail, toda semana.</p>
+      <iframe src="https://sejaminimalista.substack.com/embed?transparent=1&light=1" width="100%" height="150" style="border:none;background:transparent;" loading="lazy" title="Newsletter Seja Minimalista"></iframe>
+    </div>
+  </div>
+  <div class="footer-divider">
+    <nav class="footer-legal" aria-label="Institucional">
+      <a href="https://sejaminimalista.com.br/faq">Perguntas frequentes</a>
+      <a href="https://sejaminimalista.com.br/contato">Contato</a>
+      <a href="https://sejaminimalista.com.br/politica-de-troca">Troca e devolução</a>
+      <a href="https://sejaminimalista.com.br/termos-de-uso">Termos de uso</a>
+      <a href="https://sejaminimalista.com.br/politica-de-privacidade">Política de privacidade</a>
+    </nav>
+    
+    <span>© 2026 Seja Minimalista. Todos os direitos reservados. · sejaminimalista.com.br</span>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/5516991065984?text=Oi%2C%20tenho%20uma%20d%C3%BAvida!" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+</body>
+</html>
